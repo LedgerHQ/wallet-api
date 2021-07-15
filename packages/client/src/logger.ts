@@ -5,7 +5,7 @@ export default class Logger {
     this.prefix = namespace ? `[${namespace}] ` : "";
   }
 
-  log(message: string, ...args: any) {
+  log(message: string, ...args: any): void {
     console.log(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #fff",
@@ -13,7 +13,7 @@ export default class Logger {
     );
   }
 
-  warn(message: string, ...args: any) {
+  warn(message: string, ...args: any): void {
     console.warn(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #f80",
@@ -21,7 +21,7 @@ export default class Logger {
     );
   }
 
-  debug(message: string, ...args: any) {
+  debug(message: string, ...args: any): void {
     console.debug(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #777",
@@ -29,7 +29,7 @@ export default class Logger {
     );
   }
 
-  error(message: string, ...args: any) {
+  error(message: string, ...args: any): void {
     console.error(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #f00",

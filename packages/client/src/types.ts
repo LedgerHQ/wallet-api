@@ -1,21 +1,21 @@
 import type BigNumber from "bignumber.js";
 
-export type MessageHandler = (payload: Object) => Promise<void>;
+export type MessageHandler = (payload: unknown) => Promise<void>;
 
 export interface Transport {
   connect(): void;
   disconnect(): void;
   onMessage: MessageHandler | undefined;
-  send(payload: Object): Promise<void>;
+  send(payload: unknown): Promise<void>;
 }
 
 // FIXME: Not implemented yet
-export type Operation = Object;
+export type Operation = unknown;
 
 export type SignedTransaction = {
   operation: Operation;
   signature: string;
-  signatureRaw?: Object;
+  signatureRaw?: unknown;
   expirationDate: Date | null;
 };
 
