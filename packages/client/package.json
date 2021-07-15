@@ -12,7 +12,13 @@
     "prepare": "yarn build",
     "build": "tsc"
   },
+  "dependencies": {
+    "bignumber.js": "^9.0.1",
+    "json-rpc-2.0": "^0.2.16"
+  },
   "devDependencies": {
+    "@types/bignumber.js": "^5.0.0",
+    "@types/node": "^16.3.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0",
