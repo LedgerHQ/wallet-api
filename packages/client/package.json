@@ -1,0 +1,10 @@
+{
+  "name": "ledger-live-platform-sdk",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:LedgerHQ/ledger-live-platform-sdk.git",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
