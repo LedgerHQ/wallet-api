@@ -1,4 +1,6 @@
 import type BigNumber from "bignumber.js";
+import type { BitcoinTransaction } from "./families/bitcoin/types";
+import type { EthereumTransaction } from "./families/ethereum/types";
 
 export type MessageHandler = (payload: unknown) => Promise<void>;
 
@@ -77,19 +79,6 @@ export enum FeesLevel {
 export interface TransactionCommon {
   amount: BigNumber;
   recipient: string;
-}
-
-export interface EthereumTransaction extends TransactionCommon {
-  family: "ethereum";
-  nonce?: number;
-  data?: Buffer;
-  gasPrice?: BigNumber;
-  gasLimit?: BigNumber;
-}
-
-export interface BitcoinTransaction extends TransactionCommon {
-  family: "bitcoin";
-  feePerByte?: BigNumber;
 }
 
 export type Transaction = EthereumTransaction | BitcoinTransaction;
