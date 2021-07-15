@@ -9,6 +9,10 @@
     "/dist"
   ],
   "scripts": {
+    "format:check": "prettier --check 'src/**/*'",
+    "format:fix": "prettier --write 'src/**/*'",
+    "lint:check": "eslint src/**",
+    "lint:fix": "eslint --fix src/**",
     "prepare": "yarn build",
     "build": "tsc"
   },
@@ -22,7 +26,6 @@
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0",
-    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",

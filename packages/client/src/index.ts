@@ -1,6 +1,6 @@
-import { JSONRPCServerAndClient, JSONRPCParams } from 'json-rpc-2.0';
-import DeviceBridge from './deviceBridge';
-import Logger from './logger';
+import { JSONRPCServerAndClient, JSONRPCParams } from "json-rpc-2.0";
+import DeviceBridge from "./deviceBridge";
+import Logger from "./logger";
 import {
   Account,
   ApplicationDetails,
@@ -17,9 +17,9 @@ import {
   SignTransactionParams,
   Transaction,
   Transport,
-} from './types';
+} from "./types";
 
-const defaultLogger = new Logger('LL-PlatformSDK');
+const defaultLogger = new Logger("LL-PlatformSDK");
 
 export default class LedgerLivePlatformSDK {
   private transport: Transport;
@@ -39,7 +39,7 @@ export default class LedgerLivePlatformSDK {
     params?: JSONRPCParams,
     clientParams?: void
   ): Promise<any> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -53,7 +53,7 @@ export default class LedgerLivePlatformSDK {
     appName: string,
     handler: <Result>(deviceBridge: DeviceBridge) => Promise<Result>
   ): Promise<Result> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -65,7 +65,7 @@ export default class LedgerLivePlatformSDK {
   async bridgeDashboard<Result>(
     handler: <Result>(deviceBridge: DeviceBridge) => Promise<Result>
   ): Promise<Result> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -79,7 +79,7 @@ export default class LedgerLivePlatformSDK {
     accountId: string,
     signedTransaction: SignedTransaction
   ): Promise<string> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -93,21 +93,21 @@ export default class LedgerLivePlatformSDK {
     payloadSignature: EcdsaSignature,
     txFeesLevel: FeesLevel
   ): Promise<void> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
    * Connect the SDK to the Ledger Live instance
    */
   connect() {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
    * Disconnect the SDK
    */
   async disconnect() {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -121,7 +121,7 @@ export default class LedgerLivePlatformSDK {
     accountId: string,
     transaction: Transaction
   ): Promise<EstimatedFees> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -130,7 +130,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Promise<DeviceDetails>} Informations about a currently connected device
    */
   async getDeviceInfo(): Promise<DeviceDetails> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -140,8 +140,11 @@ export default class LedgerLivePlatformSDK {
    *
    * @returns {string} The nonce of the exchange
    */
-  async initExchange(exchangeType: ExchangeType, partnerName: String): Promise<string> {
-    throw new Error('Function is not implemented yet');
+  async initExchange(
+    exchangeType: ExchangeType,
+    partnerName: string
+  ): Promise<string> {
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -150,7 +153,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Account[]}
    */
   async listAccounts(): Promise<Account[]> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -159,7 +162,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Promise<ApplicationDetails[]>} The list of applications
    */
   async listApps(): Promise<ApplicationDetails[]> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -169,7 +172,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Currency[]}
    */
   async listCurrencies(params?: ListCurrenciesParams): Promise<Currency[]> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -179,7 +182,7 @@ export default class LedgerLivePlatformSDK {
    * @returns string - the verified address
    */
   async receive(accountId: string): Promise<string> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -189,7 +192,7 @@ export default class LedgerLivePlatformSDK {
    * @returns Account
    */
   async requestAccount(params: RequestAccountParams): Promise<Account> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -205,7 +208,7 @@ export default class LedgerLivePlatformSDK {
     transaction: Transaction,
     params?: SignTransactionParams
   ): Promise<SignedTransaction> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 
   /**
@@ -215,6 +218,6 @@ export default class LedgerLivePlatformSDK {
    * @returns {Account} An updated view of the account
    */
   async synchronizeAccount(accountId: string): Promise<Account> {
-    throw new Error('Function is not implemented yet');
+    throw new Error("Function is not implemented yet");
   }
 }

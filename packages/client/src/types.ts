@@ -1,4 +1,4 @@
-import type BigNumber from 'bignumber.js';
+import type BigNumber from "bignumber.js";
 
 export type MessageHandler = (payload: Object) => Promise<void>;
 
@@ -69,9 +69,9 @@ export type EcdsaSignature = {
 };
 
 export enum FeesLevel {
-  Low = 'low',
-  Standard = 'standard',
-  High = 'high',
+  Low = "low",
+  Standard = "standard",
+  High = "high",
 }
 
 export interface TransactionCommon {
@@ -80,7 +80,7 @@ export interface TransactionCommon {
 }
 
 export interface EthereumTransaction extends TransactionCommon {
-  family: 'ethereum';
+  family: "ethereum";
   nonce?: number;
   data?: Buffer;
   gasPrice?: BigNumber;
@@ -88,7 +88,7 @@ export interface EthereumTransaction extends TransactionCommon {
 }
 
 export interface BitcoinTransaction extends TransactionCommon {
-  family: 'bitcoin';
+  family: "bitcoin";
   feePerByte?: BigNumber;
 }
 
@@ -101,9 +101,9 @@ export type EstimatedFees = {
 };
 
 export enum DeviceModel {
-  Blue = 'blue',
-  NanoS = 'nanoS',
-  NanoX = 'nanoX',
+  Blue = "blue",
+  NanoS = "nanoS",
+  NanoX = "nanoX",
 }
 
 /**
@@ -124,9 +124,9 @@ export type DeviceDetails = {
  * Enum describing the different types of exchanges.
  */
 export enum ExchangeType {
-  Swap = 'swap',
-  Buy = 'buy',
-  Fund = 'fund',
+  Swap = "swap",
+  Buy = "buy",
+  Fund = "fund",
 }
 
 export type Account = {
