@@ -220,8 +220,8 @@ export default class LedgerLivePlatformSDK {
    * @param accountId - LL id of the account
    * @returns string - the verified address
    */
-  async receive(_accountId: string): Promise<string> {
-    throw new Error("Function is not implemented yet");
+  async receive(accountId: string): Promise<string> {
+    return this._request("account.receive", { accountId });
   }
 
   /**
