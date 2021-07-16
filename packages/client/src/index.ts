@@ -1,6 +1,7 @@
 import { JSONRPCServerAndClient, JSONRPCParams } from "json-rpc-2.0";
 import DeviceBridge from "./deviceBridge";
 import Logger from "./logger";
+import { serializeSignedTransaction } from "./serializers";
 import {
   Account,
   ApplicationDetails,
@@ -93,10 +94,13 @@ export default class LedgerLivePlatformSDK {
    * @returns {string} - hash of the transaction
    */
   async broadcastSignedTransaction(
-    _accountId: string,
-    _signedTransaction: SignedTransaction
+    accountId: string,
+    signedTransaction: SignedTransaction
   ): Promise<string> {
-    throw new Error("Function is not implemented yet");
+    return this._request("transaction.broadcast", {
+      accountId,
+      signedTransaction: serializeSignedTransaction(signedTransaction),
+    });
   }
 
   /**
