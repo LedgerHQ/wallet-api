@@ -210,8 +210,8 @@ export default class LedgerLivePlatformSDK {
    * @param {ListCurrenciesParams} params - filters for currencies
    * @returns {Currency[]}
    */
-  async listCurrencies(_params?: ListCurrenciesParams): Promise<Currency[]> {
-    throw new Error("Function is not implemented yet");
+  async listCurrencies(params?: ListCurrenciesParams): Promise<Currency[]> {
+    return this._request("currency.list", params || {});
   }
 
   /**
