@@ -12,10 +12,10 @@ export function serializeEthereumTransaction({
   gasLimit,
 }: EthereumTransaction): RawEthereumTransaction {
   return {
-    family: family,
+    family,
     amount: amount.toString(),
-    recipient: recipient,
-    nonce: nonce,
+    recipient,
+    nonce,
     data: data ? data.toString("hex") : undefined,
     gasPrice: gasPrice ? gasPrice.toString() : undefined,
     gasLimit: gasLimit ? gasLimit.toString() : undefined,
@@ -32,10 +32,10 @@ export function deserializeEthereumTransaction({
   gasLimit,
 }: RawEthereumTransaction): EthereumTransaction {
   return {
-    family: family,
+    family,
     amount: new BigNumber(amount),
-    recipient: recipient,
-    nonce: nonce,
+    recipient,
+    nonce,
     data: data ? Buffer.from(data, "hex") : undefined,
     gasPrice: gasPrice ? new BigNumber(gasPrice) : undefined,
     gasLimit: gasLimit ? new BigNumber(gasLimit) : undefined,

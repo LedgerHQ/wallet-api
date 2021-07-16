@@ -37,7 +37,9 @@ const defaultLogger = new Logger("LL-PlatformSDK");
 
 export default class LedgerLivePlatformSDK {
   private transport: Transport;
+
   private logger: Logger;
+
   private serverAndClient?: JSONRPCServerAndClient;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
