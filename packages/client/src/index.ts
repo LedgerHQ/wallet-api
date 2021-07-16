@@ -6,7 +6,12 @@ import {
 } from "json-rpc-2.0";
 import DeviceBridge from "./deviceBridge";
 import Logger from "./logger";
-import { deserializeAccount, serializeSignedTransaction } from "./serializers";
+import {
+  deserializeAccount,
+  deserializeSignedTransaction,
+  serializeSignedTransaction,
+  serializeTransaction,
+} from "./serializers";
 import {
   Account,
   ApplicationDetails,
@@ -245,11 +250,17 @@ export default class LedgerLivePlatformSDK {
    * @returns {SignedTransaction}
    */
   async signTransaction(
-    _accountId: string,
-    _transaction: Transaction,
-    _params?: SignTransactionParams
+    accountId: string,
+    transaction: Transaction,
+    params?: SignTransactionParams
   ): Promise<SignedTransaction> {
-    throw new Error("Function is not implemented yet");
+    const rawSignedTransaction = await this._request("transaction.sign", {
+      accountId,
+      transaction: serializeTransaction(transaction),
+      params: params || {},
+    });
+
+    return deserializeSignedTransaction(rawSignedTransaction);
   }
 
   /**

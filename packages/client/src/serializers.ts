@@ -1,7 +1,65 @@
 import BigNumber from "bignumber.js";
+import {
+  deserializeBitcoinTransaction,
+  serializeBitcoinTransaction,
+} from "./families/bitcoin/serializer";
+import {
+  deserializeEthereumTransaction,
+  serializeEthereumTransaction,
+} from "./families/ethereum/serializer";
 
-import type { RawAccount, RawSignedTransaction } from "./rawTypes";
-import type { Account, SignedTransaction } from "./types";
+import type {
+  RawAccount,
+  RawSignedTransaction,
+  RawTransaction,
+} from "./rawTypes";
+import type { Account, SignedTransaction, Transaction } from "./types";
+
+export function deserializeAccount({
+  id,
+  name,
+  address,
+  currency,
+  balance,
+  spendableBalance,
+  blockHeight,
+  lastSyncDate,
+}: RawAccount): Account {
+  return {
+    id: id,
+    name: name,
+    address: address,
+    currency: currency,
+    balance: new BigNumber(balance),
+    spendableBalance: new BigNumber(spendableBalance),
+    blockHeight: blockHeight,
+    lastSyncDate: new Date(lastSyncDate),
+  };
+}
+
+export function serializeTransaction(transaction: Transaction): RawTransaction {
+  switch (transaction.family) {
+    case "ethereum":
+      return serializeEthereumTransaction(transaction);
+    case "bitcoin":
+      return serializeBitcoinTransaction(transaction);
+    default:
+      throw new Error("Can't serialize transaction: family not supported");
+  }
+}
+
+export function deserializeTransaction(
+  rawTransaction: RawTransaction
+): Transaction {
+  switch (rawTransaction.family) {
+    case "ethereum":
+      return deserializeEthereumTransaction(rawTransaction);
+    case "bitcoin":
+      return deserializeBitcoinTransaction(rawTransaction);
+    default:
+      throw new Error("Can't deserialize transaction: family not supported");
+  }
+}
 
 export function serializeSignedTransaction({
   operation,
@@ -17,15 +75,16 @@ export function serializeSignedTransaction({
   };
 }
 
-export function deserializeAccount(rawAccount: RawAccount): Account {
+export function deserializeSignedTransaction({
+  operation,
+  signature,
+  expirationDate,
+  signatureRaw,
+}: RawSignedTransaction): SignedTransaction {
   return {
-    id: rawAccount.id,
-    name: rawAccount.name,
-    address: rawAccount.address,
-    currency: rawAccount.currency,
-    balance: new BigNumber(rawAccount.balance),
-    spendableBalance: new BigNumber(rawAccount.spendableBalance),
-    blockHeight: rawAccount.blockHeight,
-    lastSyncDate: new Date(rawAccount.lastSyncDate),
+    operation: operation || {},
+    signature: signature,
+    expirationDate: expirationDate ? new Date(expirationDate) : null,
+    signatureRaw: signatureRaw,
   };
 }
