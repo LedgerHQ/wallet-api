@@ -1,10 +1,12 @@
 import type BigNumber from "bignumber.js";
 
+import { FAMILIES } from "../types";
+
 import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";
 
 export interface EthereumTransaction extends TransactionCommon {
-  family: "ethereum";
+  family: FAMILIES.ETHEREUM;
   nonce?: number;
   data?: Buffer;
   gasPrice?: BigNumber;
@@ -12,7 +14,7 @@ export interface EthereumTransaction extends TransactionCommon {
 }
 
 export interface RawEthereumTransaction extends RawTransactionCommon {
-  family: "ethereum";
+  family: FAMILIES.ETHEREUM;
   nonce?: number;
   data?: string;
   gasPrice?: string;
