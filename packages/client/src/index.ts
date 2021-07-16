@@ -1,4 +1,9 @@
-import { JSONRPCServerAndClient, JSONRPCParams } from "json-rpc-2.0";
+import {
+  JSONRPCServerAndClient,
+  JSONRPCParams,
+  JSONRPCServer,
+  JSONRPCClient,
+} from "json-rpc-2.0";
 import DeviceBridge from "./deviceBridge";
 import Logger from "./logger";
 import { serializeSignedTransaction } from "./serializers";
@@ -121,14 +126,25 @@ export default class LedgerLivePlatformSDK {
    * Connect the SDK to the Ledger Live instance
    */
   connect(): void {
-    throw new Error("Function is not implemented yet");
+    const serverAndClient = new JSONRPCServerAndClient(
+      new JSONRPCServer(),
+      new JSONRPCClient((payload) => this.transport.send(payload))
+    );
+
+    this.transport.onMessage = (payload) =>
+      serverAndClient.receiveAndSend(payload);
+    this.transport.connect();
+    this.serverAndClient = serverAndClient;
+    this.logger.log("connected", this.transport);
   }
 
   /**
    * Disconnect the SDK
    */
   async disconnect(): Promise<void> {
-    throw new Error("Function is not implemented yet");
+    delete this.serverAndClient;
+    await this.transport.disconnect();
+    this.logger.log("disconnected", this.transport);
   }
 
   /**
