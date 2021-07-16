@@ -143,11 +143,6 @@ export type ApplicationDetails = {
   version: string;
 };
 
-export type ListCurrenciesParams = {
-  name?: string;
-  ticker?: string;
-};
-
 export type Unit = {
   name: string;
   code: string;
@@ -162,13 +157,4 @@ export type Currency = {
   name: string;
   family: string;
   units: Unit[];
-};
-
-export type RequestAccountParams = {
-  currencies?: string[];
-  allowAddAccount?: boolean;
-};
-
-export type SignTransactionParams = {
-  useApp?: string;
 };

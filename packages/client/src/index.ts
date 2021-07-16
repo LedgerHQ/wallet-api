@@ -12,7 +12,8 @@ import {
   serializeSignedTransaction,
   serializeTransaction,
 } from "./serializers";
-import {
+
+import type {
   Account,
   ApplicationDetails,
   Currency,
@@ -22,13 +23,15 @@ import {
   ExchangePayload,
   ExchangeType,
   FeesLevel,
-  ListCurrenciesParams,
-  RequestAccountParams,
   SignedTransaction,
-  SignTransactionParams,
   Transaction,
   Transport,
 } from "./types";
+import type {
+  ListCurrenciesParams,
+  RequestAccountParams,
+  SignTransactionParams,
+} from "./params.types";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
