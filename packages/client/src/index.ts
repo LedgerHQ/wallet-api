@@ -230,8 +230,10 @@ export default class LedgerLivePlatformSDK {
    * @param {RequestAccountParams} params - parameters for the request modal
    * @returns Account
    */
-  async requestAccount(_params: RequestAccountParams): Promise<Account> {
-    throw new Error("Function is not implemented yet");
+  async requestAccount(params: RequestAccountParams): Promise<Account> {
+    const rawAccount = await this._request("account.request", params || {});
+
+    return deserializeAccount(rawAccount);
   }
 
   /**
