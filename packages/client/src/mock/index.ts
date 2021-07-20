@@ -1,5 +1,5 @@
 import data from "./mocks.json";
-import type { RequestAccountParams } from "../params.types";
+import type { RequestAccountParams } from "../LedgerLivePlatformSDK/params.types";
 import generateRandomTxID from "./generateRandomTxID";
 import type { Account, Currency, SignedTransaction } from "../types";
 import { deserializeAccount } from "../serializers";
