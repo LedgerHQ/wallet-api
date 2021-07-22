@@ -16,14 +16,14 @@ export default class LedgerLiveApiMock {
     this.connected = true;
   }
 
-  async disconnect(): Promise<void> {
+  disconnect(): void {
     this.connected = false;
   }
 
   /** Legder Live Methods */
 
   async requestAccount(_params: RequestAccountParams): Promise<Account> {
-    return accounts[0];
+    return Promise.resolve(accounts[0]);
   }
 
   async listCurrencies(): Promise<Currency[]> {
@@ -31,57 +31,66 @@ export default class LedgerLiveApiMock {
       throw new Error("Ledger Live API not connected");
     }
 
-    return currencies;
+    return Promise.resolve(currencies);
   }
 
   async listAccounts(): Promise<Account[]> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
-    return accounts;
+    return Promise.resolve(accounts);
   }
 
   async getAccount(accountId: string): Promise<Account> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
-    const account = accounts.find((account: any) => account.id === accountId);
+    const selectedAccount = accounts.find(
+      ({ id }: Account) => id === accountId
+    );
 
-    if (!account) {
+    if (!selectedAccount) {
       throw new Error("Account not found");
     }
-    return account;
+    return Promise.resolve(selectedAccount);
   }
 
   async receive(accountId: string): Promise<string> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
-    const account = accounts.find((account: any) => account.id === accountId);
-    if (!account) {
+
+    const selectedAccount = accounts.find(
+      ({ id }: Account) => id === accountId
+    );
+
+    if (!selectedAccount) {
       throw new Error("Account not found");
     }
-    return account.address;
+    return Promise.resolve(selectedAccount.address);
   }
 
-  async signTransaction(_accountId: string, _transaction: unknown) {
+  async signTransaction(
+    _accountId: string,
+    _transaction: unknown
+  ): Promise<SignedTransaction> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
-    return {
+    return Promise.resolve({
       operation: {},
       signature: generateRandomTxID(109),
       expirationDate: null,
-    };
+    });
   }
 
   async broadcastSignedTransaction(
     _accountId: string,
     _signedTransaction: SignedTransaction
-  ) {
+  ): Promise<string> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
-    return generateRandomTxID(64);
+    return Promise.resolve(generateRandomTxID(64));
   }
 }
