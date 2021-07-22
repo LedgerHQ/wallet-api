@@ -6,6 +6,7 @@ import {
 } from "json-rpc-2.0";
 import DeviceBridge from "../deviceBridge";
 import Logger from "../logger";
+import { RawAccount, RawSignedTransaction } from "../rawTypes";
 import {
   deserializeAccount,
   deserializeSignedTransaction,
@@ -50,7 +51,10 @@ export default class LedgerLivePlatformSDK {
   /**
    * Wrapper to api request for logging
    */
-  private async _request(method: string, params?: JSONRPCParams): Promise<any> {
+  private async _request<T>(
+    method: string,
+    params?: JSONRPCParams
+  ): Promise<T> {
     if (!this.serverAndClient) {
       this.logger.error(`not connected - ${method}`);
       throw new Error("Ledger Live API not connected");
@@ -58,9 +62,12 @@ export default class LedgerLivePlatformSDK {
 
     this.logger.log(`request - ${method}`, params);
     try {
-      const result = await this.serverAndClient.request(method, params);
+      const result = (await this.serverAndClient.request(
+        method,
+        params
+      )) as Promise<T>;
       this.logger.log(`response - ${method}`, params);
-      return result;
+      return await result;
     } catch (error) {
       this.logger.warn(`error - ${method}`, params);
       throw error;
@@ -192,7 +199,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Account[]}
    */
   async listAccounts(): Promise<Account[]> {
-    const rawAccounts = await this._request("account.list");
+    const rawAccounts = await this._request<RawAccount[]>("account.list");
 
     return rawAccounts.map(deserializeAccount);
   }
@@ -233,7 +240,10 @@ export default class LedgerLivePlatformSDK {
    * @returns {Promise<Account>}
    */
   async requestAccount(params: RequestAccountParams): Promise<Account> {
-    const rawAccount = await this._request("account.request", params);
+    const rawAccount = await this._request<RawAccount>(
+      "account.request",
+      params
+    );
 
     return deserializeAccount(rawAccount);
   }
@@ -251,11 +261,14 @@ export default class LedgerLivePlatformSDK {
     transaction: Transaction,
     params?: SignTransactionParams
   ): Promise<SignedTransaction> {
-    const rawSignedTransaction = await this._request("transaction.sign", {
-      accountId,
-      transaction: serializeTransaction(transaction),
-      params: params || {},
-    });
+    const rawSignedTransaction = await this._request<RawSignedTransaction>(
+      "transaction.sign",
+      {
+        accountId,
+        transaction: serializeTransaction(transaction),
+        params: params || {},
+      }
+    );
 
     return deserializeSignedTransaction(rawSignedTransaction);
   }
