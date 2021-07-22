@@ -106,7 +106,7 @@ export default class LedgerLivePlatformSDK {
    * @param {string} accountId - LL id of the account
    * @param {SignedTransaction} signedTransaction - a signed transaction given by LL when signing
    *
-   * @returns {string} - hash of the transaction
+   * @returns {Promise<string>} - hash of the transaction
    */
   async broadcastSignedTransaction(
     accountId: string,
@@ -163,7 +163,7 @@ export default class LedgerLivePlatformSDK {
    * @param {string} accountId - LL id of the account
    * @param {Transaction} transaction - the transaction to estimate
    *
-   * @returns {EstimatedFees} - Estimated fees for 3 level of confirmation speed
+   * @returns {Promise<EstimatedFees>} - Estimated fees for 3 level of confirmation speed
    */
   async estimateTransactionFees(
     _accountId: string,
@@ -186,7 +186,7 @@ export default class LedgerLivePlatformSDK {
    * @param {ExchangeType} exchangeType
    * @param {string} partnerName
    *
-   * @returns {string} The nonce of the exchange
+   * @returns {Promise<string>} The nonce of the exchange
    */
   async initExchange(
     _exchangeType: ExchangeType,
@@ -219,7 +219,7 @@ export default class LedgerLivePlatformSDK {
    * List crypto-currencies supported by Ledger Live, providing filters by name or ticker
    *
    * @param {ListCurrenciesParams} params - filters for currencies
-   * @returns {Currency[]}
+   * @returns {Promise<Currency[]>}
    */
   async listCurrencies(params?: ListCurrenciesParams): Promise<Currency[]> {
     return this._request("currency.list", params || {});
@@ -228,8 +228,8 @@ export default class LedgerLivePlatformSDK {
   /**
    * Let user verify it's account address on his device through Ledger Live
    *
-   * @param accountId - LL id of the account
-   * @returns string - the verified address
+   * @param {string} accountId - LL id of the account
+   * @returns {Promise<string>} - the verified address
    */
   async receive(accountId: string): Promise<string> {
     return this._request("account.receive", { accountId });
@@ -239,7 +239,7 @@ export default class LedgerLivePlatformSDK {
    * Let user choose an account in a Ledger Live, providing filters for choosing currency or allowing add account.
    *
    * @param {RequestAccountParams} params - parameters for the request modal
-   * @returns Account
+   * @returns {Promise<Account>}
    */
   async requestAccount(params: RequestAccountParams): Promise<Account> {
     const rawAccount = await this._request("account.request", params || {});
@@ -253,7 +253,7 @@ export default class LedgerLivePlatformSDK {
    * @param {Transaction} transaction  - the transaction in the currency family-specific format
    * @param {SignTransactionParams} params - parameters for the sign modal
    *
-   * @returns {SignedTransaction}
+   * @returns {Promise<SignedTransaction>}
    */
   async signTransaction(
     accountId: string,
@@ -273,7 +273,7 @@ export default class LedgerLivePlatformSDK {
    * Synchronize an account with its network and return an updated view of the account
    * @param {string} accountId The id of the account to synchronize
    *
-   * @returns {Account} An updated view of the account
+   * @returns {Promise<Account>} An updated view of the account
    */
   async synchronizeAccount(_accountId: string): Promise<Account> {
     throw new Error("Function is not implemented yet");
