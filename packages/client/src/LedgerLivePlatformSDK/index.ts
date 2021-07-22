@@ -233,7 +233,7 @@ export default class LedgerLivePlatformSDK {
    * @returns {Promise<Account>}
    */
   async requestAccount(params: RequestAccountParams): Promise<Account> {
-    const rawAccount = await this._request("account.request", params || {});
+    const rawAccount = await this._request("account.request", params);
 
     return deserializeAccount(rawAccount);
   }
