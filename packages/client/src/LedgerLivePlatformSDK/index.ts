@@ -50,27 +50,19 @@ export default class LedgerLivePlatformSDK {
   /**
    * Wrapper to api request for logging
    */
-  private async _request(
-    method: string,
-    params?: JSONRPCParams,
-    clientParams?: void
-  ): Promise<any> {
+  private async _request(method: string, params?: JSONRPCParams): Promise<any> {
     if (!this.serverAndClient) {
       this.logger.error(`not connected - ${method}`);
       throw new Error("Ledger Live API not connected");
     }
 
-    this.logger.log(`request - ${method}`, params, clientParams);
+    this.logger.log(`request - ${method}`, params);
     try {
-      const result = await this.serverAndClient.request(
-        method,
-        params,
-        clientParams
-      );
-      this.logger.log(`response - ${method}`, params, clientParams);
+      const result = await this.serverAndClient.request(method, params);
+      this.logger.log(`response - ${method}`, params);
       return result;
     } catch (error) {
-      this.logger.warn(`error - ${method}`, params, clientParams);
+      this.logger.warn(`error - ${method}`, params);
       throw error;
     }
   }
