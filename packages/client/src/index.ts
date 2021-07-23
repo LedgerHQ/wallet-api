@@ -1,7 +1,19 @@
-import { JSONRPCServerAndClient, JSONRPCParams } from "json-rpc-2.0";
+import {
+  JSONRPCServerAndClient,
+  JSONRPCParams,
+  JSONRPCServer,
+  JSONRPCClient,
+} from "json-rpc-2.0";
 import DeviceBridge from "./deviceBridge";
 import Logger from "./logger";
 import {
+  deserializeAccount,
+  deserializeSignedTransaction,
+  serializeSignedTransaction,
+  serializeTransaction,
+} from "./serializers";
+
+import type {
   Account,
   ApplicationDetails,
   Currency,
@@ -11,13 +23,15 @@ import {
   ExchangePayload,
   ExchangeType,
   FeesLevel,
-  ListCurrenciesParams,
-  RequestAccountParams,
   SignedTransaction,
-  SignTransactionParams,
   Transaction,
   Transport,
 } from "./types";
+import type {
+  ListCurrenciesParams,
+  RequestAccountParams,
+  SignTransactionParams,
+} from "./params.types";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -35,11 +49,28 @@ export default class LedgerLivePlatformSDK {
    * Wrapper to api request for logging
    */
   private async _request(
-    _method: string,
-    _params?: JSONRPCParams,
-    _clientParams?: void
+    method: string,
+    params?: JSONRPCParams,
+    clientParams?: void
   ): Promise<any> {
-    throw new Error("Function is not implemented yet");
+    if (!this.serverAndClient) {
+      this.logger.error(`not connected - ${method}`);
+      throw new Error("Ledger Live API not connected");
+    }
+
+    this.logger.log(`request - ${method}`, params, clientParams);
+    try {
+      const result = await this.serverAndClient.request(
+        method,
+        params,
+        clientParams
+      );
+      this.logger.log(`response - ${method}`, params, clientParams);
+      return result;
+    } catch (error) {
+      this.logger.warn(`error - ${method}`, params, clientParams);
+      throw error;
+    }
   }
 
   /**
@@ -76,10 +107,13 @@ export default class LedgerLivePlatformSDK {
    * @returns {string} - hash of the transaction
    */
   async broadcastSignedTransaction(
-    _accountId: string,
-    _signedTransaction: SignedTransaction
+    accountId: string,
+    signedTransaction: SignedTransaction
   ): Promise<string> {
-    throw new Error("Function is not implemented yet");
+    return this._request("transaction.broadcast", {
+      accountId,
+      signedTransaction: serializeSignedTransaction(signedTransaction),
+    });
   }
 
   /**
@@ -100,14 +134,25 @@ export default class LedgerLivePlatformSDK {
    * Connect the SDK to the Ledger Live instance
    */
   connect(): void {
-    throw new Error("Function is not implemented yet");
+    const serverAndClient = new JSONRPCServerAndClient(
+      new JSONRPCServer(),
+      new JSONRPCClient((payload) => this.transport.send(payload))
+    );
+
+    this.transport.onMessage = (payload) =>
+      serverAndClient.receiveAndSend(payload);
+    this.transport.connect();
+    this.serverAndClient = serverAndClient;
+    this.logger.log("connected", this.transport);
   }
 
   /**
    * Disconnect the SDK
    */
   async disconnect(): Promise<void> {
-    throw new Error("Function is not implemented yet");
+    delete this.serverAndClient;
+    await this.transport.disconnect();
+    this.logger.log("disconnected", this.transport);
   }
 
   /**
@@ -153,7 +198,9 @@ export default class LedgerLivePlatformSDK {
    * @returns {Account[]}
    */
   async listAccounts(): Promise<Account[]> {
-    throw new Error("Function is not implemented yet");
+    const rawAccounts = await this._request("account.list");
+
+    return rawAccounts.map(deserializeAccount);
   }
 
   /**
@@ -171,8 +218,8 @@ export default class LedgerLivePlatformSDK {
    * @param {ListCurrenciesParams} params - filters for currencies
    * @returns {Currency[]}
    */
-  async listCurrencies(_params?: ListCurrenciesParams): Promise<Currency[]> {
-    throw new Error("Function is not implemented yet");
+  async listCurrencies(params?: ListCurrenciesParams): Promise<Currency[]> {
+    return this._request("currency.list", params || {});
   }
 
   /**
@@ -181,8 +228,8 @@ export default class LedgerLivePlatformSDK {
    * @param accountId - LL id of the account
    * @returns string - the verified address
    */
-  async receive(_accountId: string): Promise<string> {
-    throw new Error("Function is not implemented yet");
+  async receive(accountId: string): Promise<string> {
+    return this._request("account.receive", { accountId });
   }
 
   /**
@@ -191,8 +238,10 @@ export default class LedgerLivePlatformSDK {
    * @param {RequestAccountParams} params - parameters for the request modal
    * @returns Account
    */
-  async requestAccount(_params: RequestAccountParams): Promise<Account> {
-    throw new Error("Function is not implemented yet");
+  async requestAccount(params: RequestAccountParams): Promise<Account> {
+    const rawAccount = await this._request("account.request", params || {});
+
+    return deserializeAccount(rawAccount);
   }
 
   /**
@@ -204,11 +253,17 @@ export default class LedgerLivePlatformSDK {
    * @returns {SignedTransaction}
    */
   async signTransaction(
-    _accountId: string,
-    _transaction: Transaction,
-    _params?: SignTransactionParams
+    accountId: string,
+    transaction: Transaction,
+    params?: SignTransactionParams
   ): Promise<SignedTransaction> {
-    throw new Error("Function is not implemented yet");
+    const rawSignedTransaction = await this._request("transaction.sign", {
+      accountId,
+      transaction: serializeTransaction(transaction),
+      params: params || {},
+    });
+
+    return deserializeSignedTransaction(rawSignedTransaction);
   }
 
   /**
