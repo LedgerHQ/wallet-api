@@ -15,6 +15,9 @@
     /* Redirect output structure to the directory. */
     "outDir": "./dist",
 
+    /* Allows importing modules with a ‘.json’ extension */
+    "resolveJsonModule": true,
+
     /* Strict Type-Checking Options */
     /* Enable all strict type-checking options. */
     "strict": true,

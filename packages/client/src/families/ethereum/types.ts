@@ -1,6 +1,6 @@
 import type BigNumber from "bignumber.js";
 
-import { FAMILIES } from "../types";
+import FAMILIES from "../types";
 
 import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";

@@ -7,7 +7,7 @@ import {
   deserializeEthereumTransaction,
   serializeEthereumTransaction,
 } from "./families/ethereum/serializer";
-import { FAMILIES } from "./families/types";
+import FAMILIES from "./families/types";
 
 import type {
   RawAccount,
@@ -27,13 +27,13 @@ export function deserializeAccount({
   lastSyncDate,
 }: RawAccount): Account {
   return {
-    id: id,
-    name: name,
-    address: address,
-    currency: currency,
+    id,
+    name,
+    address,
+    currency,
     balance: new BigNumber(balance),
     spendableBalance: new BigNumber(spendableBalance),
-    blockHeight: blockHeight,
+    blockHeight,
     lastSyncDate: new Date(lastSyncDate),
   };
 }
@@ -69,10 +69,10 @@ export function serializeSignedTransaction({
   signatureRaw,
 }: SignedTransaction): RawSignedTransaction {
   return {
-    operation: operation,
-    signature: signature,
+    operation,
+    signature,
     expirationDate: expirationDate ? expirationDate.toString() : null,
-    signatureRaw: signatureRaw,
+    signatureRaw,
   };
 }
 
@@ -84,8 +84,8 @@ export function deserializeSignedTransaction({
 }: RawSignedTransaction): SignedTransaction {
   return {
     operation: operation || {},
-    signature: signature,
+    signature,
     expirationDate: expirationDate ? new Date(expirationDate) : null,
-    signatureRaw: signatureRaw,
+    signatureRaw,
   };
 }

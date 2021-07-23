@@ -1,7 +1,8 @@
 /**
  * Supported coin families
  */
-export const enum FAMILIES {
+enum FAMILIES {
   BITCOIN = "bitcoin",
   ETHEREUM = "ethereum",
 }
+export default FAMILIES;

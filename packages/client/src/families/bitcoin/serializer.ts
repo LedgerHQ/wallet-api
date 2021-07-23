@@ -8,9 +8,9 @@ export function serializeBitcoinTransaction({
   feePerByte,
 }: BitcoinTransaction): RawBitcoinTransaction {
   return {
-    family: family,
+    family,
     amount: amount.toString(),
-    recipient: recipient,
+    recipient,
     feePerByte: feePerByte ? feePerByte.toString() : undefined,
   };
 }
@@ -22,9 +22,9 @@ export function deserializeBitcoinTransaction({
   feePerByte,
 }: RawBitcoinTransaction): BitcoinTransaction {
   return {
-    family: family,
+    family,
     amount: new BigNumber(amount),
-    recipient: recipient,
+    recipient,
     feePerByte: feePerByte ? new BigNumber(feePerByte) : undefined,
   };
 }
