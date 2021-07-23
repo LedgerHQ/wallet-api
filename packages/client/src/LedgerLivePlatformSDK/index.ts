@@ -62,12 +62,9 @@ export default class LedgerLivePlatformSDK {
 
     this.logger.log(`request - ${method}`, params);
     try {
-      const result = (await this.serverAndClient.request(
-        method,
-        params
-      )) as Promise<T>;
+      const result = (await this.serverAndClient.request(method, params)) as T;
       this.logger.log(`response - ${method}`, params);
-      return await result;
+      return result;
     } catch (error) {
       this.logger.warn(`error - ${method}`, params);
       throw error;
