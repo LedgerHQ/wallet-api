@@ -1,0 +1,101 @@
+{
+  "rawCurrencies": [
+    {
+      "type": "CryptoCurrency",
+      "color": "#ffae35",
+      "ticker": "BTC",
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "family": "bitcoin",
+      "units": [
+        {
+          "name": "bitcoin",
+          "code": "BTC",
+          "magnitude": 8
+        },
+        {
+          "name": "mBTC",
+          "code": "mBTC",
+          "magnitude": 5
+        },
+        {
+          "name": "bit",
+          "code": "bit",
+          "magnitude": 2
+        },
+        {
+          "name": "satoshi",
+          "code": "sat",
+          "magnitude": 0
+        }
+      ]
+    },
+    {
+      "type": "CryptoCurrency",
+      "color": "#0ebdcd",
+      "ticker": "ETH",
+      "id": "ethereum",
+      "name": "Ethereum",
+      "family": "ethereum",
+      "units": [
+        {
+          "name": "ether",
+          "code": "ETH",
+          "magnitude": 18
+        },
+        {
+          "name": "Gwei",
+          "code": "Gwei",
+          "magnitude": 9
+        },
+        {
+          "name": "Mwei",
+          "code": "Mwei",
+          "magnitude": 6
+        },
+        {
+          "name": "Kwei",
+          "code": "Kwei",
+          "magnitude": 3
+        },
+        {
+          "name": "wei",
+          "code": "wei",
+          "magnitude": 0
+        }
+      ]
+    }
+  ],
+  "rawAccounts": [
+    {
+      "id": "eth:mock:account:1",
+      "name": "Huge account",
+      "currency": "ethereum",
+      "balance": "0",
+      "address": "0x73bceb1cd57c711feac4224d062b0f6ff338501e",
+      "spendableBalance": "0",
+      "blockHeight": 0,
+      "lastSyncDate": "2021-05-08T09:45:51.000Z"
+    },
+    {
+      "id": "eth:mock:account:2",
+      "name": "Big account",
+      "currency": "ethereum",
+      "balance": "0",
+      "address": "0xc30b6c40fdbbf803d50bc414b3f2169b260435a1",
+      "spendableBalance": "0",
+      "blockHeight": 0,
+      "lastSyncDate": "2021-05-08T09:45:52.000Z"
+    },
+    {
+      "id": "eth:mock:account:2",
+      "name": "Small account",
+      "currency": "ethereum",
+      "balance": "0",
+      "address": "0x3f5953Bb897449aC2A6E1B52e70D9375053a55C3",
+      "spendableBalance": "0",
+      "blockHeight": 0,
+      "lastSyncDate": "2021-05-08T09:45:53.000Z"
+    }
+  ]
+}

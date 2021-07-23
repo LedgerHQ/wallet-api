@@ -1,7 +1,7 @@
 /**
  * Supported coin families
  */
-const enum FAMILIES {
+enum FAMILIES {
   BITCOIN = "bitcoin",
   ETHEREUM = "ethereum",
 }
