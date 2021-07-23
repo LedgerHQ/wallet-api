@@ -3,13 +3,33 @@ import type { RequestAccountParams } from "../LedgerLivePlatformSDK/params.types
 import generateRandomTxID from "./generateRandomTxID";
 import type { Account, Currency, SignedTransaction } from "../types";
 import { deserializeAccount } from "../serializers";
+import LedgerLivePlatformSDK from "../LedgerLivePlatformSDK";
 
 const { rawAccounts, rawCurrencies } = data;
 
 const accounts: Account[] = rawAccounts.map(deserializeAccount);
 const currencies: Currency[] = rawCurrencies;
+/**
+ * @see https://www.michaelbromley.co.uk/blog/mocking-classes-with-typescript/
+ * /
+type MockOf<Class, Omit extends keyof Class = never> = {
+  [Member in Exclude<keyof Class, Omit>]: Class[Member];
+};
 
-export default class LedgerLiveApiMock {
+export default class LedgerLiveApiMock
+  implements
+    MockOf<
+      LedgerLivePlatformSDK,
+      | "bridgeApp"
+      | "bridgeDashboard"
+      | "completeExchange"
+      | "estimateTransactionFees"
+      | "getDeviceInfo"
+      | "initExchange"
+      | "listApps"
+      | "synchronizeAccount"
+    >
+{
   connected = false;
 
   connect(): void {
