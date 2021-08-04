@@ -2,6 +2,7 @@ import type { RawAlgorandTransaction } from "./families/algorand/types";
 import type { RawBitcoinTransaction } from "./families/bitcoin/types";
 import type { RawCryptoOrgTransaction } from "./families/crypto_org/types";
 import type { RawEthereumTransaction } from "./families/ethereum/types";
+import type { RawRippleTransaction } from "./families/ripple/types";
 
 export type RawAccount = {
   id: string;
@@ -24,7 +25,8 @@ export type RawTransaction =
   | RawEthereumTransaction
   | RawBitcoinTransaction
   | RawAlgorandTransaction
-  | RawCryptoOrgTransaction;
+  | RawCryptoOrgTransaction
+  | RawRippleTransaction;
 
 export type RawSignedTransaction = {
   operation: unknown;

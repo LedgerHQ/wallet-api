@@ -15,6 +15,10 @@ import {
   deserializeEthereumTransaction,
   serializeEthereumTransaction,
 } from "./families/ethereum/serializer";
+import {
+  deserializeRippleTransaction,
+  serializeRippleTransaction,
+} from "./families/ripple/serializer";
 import FAMILIES from "./families/types";
 
 import type {
@@ -78,6 +82,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeAlgorandTransaction(transaction);
     case FAMILIES.CRYPTO_ORG:
       return serializeCryptoOrgTransaction(transaction);
+    case FAMILIES.RIPPLE:
+      return serializeRippleTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -95,6 +101,8 @@ export function deserializeTransaction(
       return deserializeAlgorandTransaction(rawTransaction);
     case FAMILIES.CRYPTO_ORG:
       return deserializeCryptoOrgTransaction(rawTransaction);
+    case FAMILIES.RIPPLE:
+      return deserializeRippleTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }
