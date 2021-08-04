@@ -35,6 +35,10 @@ import {
   deserializeTezosTransaction,
   serializeTezosTransaction,
 } from "./families/tezos/serializer";
+import {
+  deserializeTronTransaction,
+  serializeTronTransaction,
+} from "./families/tron/serializer";
 import FAMILIES from "./families/types";
 
 import type {
@@ -108,6 +112,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializePolkadotTransaction(transaction);
     case FAMILIES.STELLAR:
       return serializeStellarTransaction(transaction);
+    case FAMILIES.TRON:
+      return serializeTronTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -135,6 +141,8 @@ export function deserializeTransaction(
       return deserializePolkadotTransaction(rawTransaction);
     case FAMILIES.STELLAR:
       return deserializeStellarTransaction(rawTransaction);
+    case FAMILIES.TRON:
+      return deserializeTronTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }

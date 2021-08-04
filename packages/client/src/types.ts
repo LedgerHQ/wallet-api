@@ -8,6 +8,7 @@ import type { PolkadotTransaction } from "./families/polkadot/types";
 import type { RippleTransaction } from "./families/ripple/types";
 import type { StellarTransaction } from "./families/stellar/types";
 import type { TezosTransaction } from "./families/tezos/types";
+import type { TronTransaction } from "./families/tron/types";
 
 export type MessageHandler = (payload: unknown) => Promise<void>;
 
@@ -97,7 +98,8 @@ export type Transaction =
   | CosmosTransaction
   | TezosTransaction
   | PolkadotTransaction
-  | StellarTransaction;
+  | StellarTransaction
+  | TronTransaction;
 
 export type EstimatedFees = {
   low: number;

@@ -11,5 +11,6 @@ enum FAMILIES {
   TEZOS = "tezos",
   POLKADOT = "polkadot",
   STELLAR = "stellar",
+  TRON = "tron",
 }
 export default FAMILIES;

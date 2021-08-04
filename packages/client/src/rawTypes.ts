@@ -7,6 +7,7 @@ import type { RawPolkadotTransaction } from "./families/polkadot/types";
 import type { RawRippleTransaction } from "./families/ripple/types";
 import type { RawStellarTransaction } from "./families/stellar/types";
 import type { RawTezosTransaction } from "./families/tezos/types";
+import type { RawTronTransaction } from "./families/tron/types";
 
 export type RawAccount = {
   id: string;
@@ -34,7 +35,8 @@ export type RawTransaction =
   | RawCosmosTransaction
   | RawTezosTransaction
   | RawPolkadotTransaction
-  | RawStellarTransaction;
+  | RawStellarTransaction
+  | RawTronTransaction;
 
 export type RawSignedTransaction = {
   operation: unknown;
