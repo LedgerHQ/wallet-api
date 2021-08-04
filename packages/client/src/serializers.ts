@@ -16,6 +16,28 @@ import type {
 } from "./rawTypes";
 import type { Account, SignedTransaction, Transaction } from "./types";
 
+export function serializeAccount({
+  id,
+  name,
+  address,
+  currency,
+  balance,
+  spendableBalance,
+  blockHeight,
+  lastSyncDate,
+}: Account): RawAccount {
+  return {
+    id,
+    name,
+    address,
+    currency,
+    balance: balance.toString(),
+    spendableBalance: spendableBalance.toString(),
+    blockHeight,
+    lastSyncDate: lastSyncDate.toString(),
+  };
+}
+
 export function deserializeAccount({
   id,
   name,
