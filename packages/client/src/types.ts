@@ -4,6 +4,7 @@ import type { BitcoinTransaction } from "./families/bitcoin/types";
 import type { CosmosTransaction } from "./families/cosmos/types";
 import type { CryptoOrgTransaction } from "./families/crypto_org/types";
 import type { EthereumTransaction } from "./families/ethereum/types";
+import type { PolkadotTransaction } from "./families/polkadot/types";
 import type { RippleTransaction } from "./families/ripple/types";
 import type { TezosTransaction } from "./families/tezos/types";
 
@@ -93,7 +94,8 @@ export type Transaction =
   | CryptoOrgTransaction
   | RippleTransaction
   | CosmosTransaction
-  | TezosTransaction;
+  | TezosTransaction
+  | PolkadotTransaction;
 
 export type EstimatedFees = {
   low: number;

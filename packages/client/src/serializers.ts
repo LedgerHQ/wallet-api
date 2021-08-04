@@ -20,6 +20,10 @@ import {
   serializeEthereumTransaction,
 } from "./families/ethereum/serializer";
 import {
+  deserializePolkadotTransaction,
+  serializePolkadotTransaction,
+} from "./families/polkadot/serializer";
+import {
   deserializeRippleTransaction,
   serializeRippleTransaction,
 } from "./families/ripple/serializer";
@@ -96,6 +100,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCosmosTransaction(transaction);
     case FAMILIES.TEZOS:
       return serializeTezosTransaction(transaction);
+    case FAMILIES.POLKADOT:
+      return serializePolkadotTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -119,6 +125,8 @@ export function deserializeTransaction(
       return deserializeCosmosTransaction(rawTransaction);
     case FAMILIES.TEZOS:
       return deserializeTezosTransaction(rawTransaction);
+    case FAMILIES.POLKADOT:
+      return deserializePolkadotTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }
