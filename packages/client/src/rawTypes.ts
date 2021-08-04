@@ -1,5 +1,6 @@
 import type { RawAlgorandTransaction } from "./families/algorand/types";
 import type { RawBitcoinTransaction } from "./families/bitcoin/types";
+import type { RawCryptoOrgTransaction } from "./families/crypto_org/types";
 import type { RawEthereumTransaction } from "./families/ethereum/types";
 
 export type RawAccount = {
@@ -22,7 +23,8 @@ export interface RawTransactionCommon {
 export type RawTransaction =
   | RawEthereumTransaction
   | RawBitcoinTransaction
-  | RawAlgorandTransaction;
+  | RawAlgorandTransaction
+  | RawCryptoOrgTransaction;
 
 export type RawSignedTransaction = {
   operation: unknown;

@@ -1,6 +1,7 @@
 import type BigNumber from "bignumber.js";
 import type { AlgorandTransaction } from "./families/algorand/types";
 import type { BitcoinTransaction } from "./families/bitcoin/types";
+import type { CryptoOrgTransaction } from "./families/crypto_org/types";
 import type { EthereumTransaction } from "./families/ethereum/types";
 
 export type MessageHandler = (payload: unknown) => Promise<void>;
@@ -85,7 +86,8 @@ export interface TransactionCommon {
 export type Transaction =
   | EthereumTransaction
   | BitcoinTransaction
-  | AlgorandTransaction;
+  | AlgorandTransaction
+  | CryptoOrgTransaction;
 
 export type EstimatedFees = {
   low: number;
