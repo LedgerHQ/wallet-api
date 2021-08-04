@@ -7,5 +7,6 @@ enum FAMILIES {
   ALGORAND = "algorand",
   CRYPTO_ORG = "crypto_org",
   RIPPLE = "ripple",
+  COSMOS = "cosmos",
 }
 export default FAMILIES;

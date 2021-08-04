@@ -8,6 +8,10 @@ import {
   serializeBitcoinTransaction,
 } from "./families/bitcoin/serializer";
 import {
+  deserializeCosmosTransaction,
+  serializeCosmosTransaction,
+} from "./families/cosmos/serializer";
+import {
   deserializeCryptoOrgTransaction,
   serializeCryptoOrgTransaction,
 } from "./families/crypto_org/serializer";
@@ -84,6 +88,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCryptoOrgTransaction(transaction);
     case FAMILIES.RIPPLE:
       return serializeRippleTransaction(transaction);
+    case FAMILIES.COSMOS:
+      return serializeCosmosTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -103,6 +109,8 @@ export function deserializeTransaction(
       return deserializeCryptoOrgTransaction(rawTransaction);
     case FAMILIES.RIPPLE:
       return deserializeRippleTransaction(rawTransaction);
+    case FAMILIES.COSMOS:
+      return deserializeCosmosTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }

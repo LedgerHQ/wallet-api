@@ -1,6 +1,7 @@
 import type BigNumber from "bignumber.js";
 import type { AlgorandTransaction } from "./families/algorand/types";
 import type { BitcoinTransaction } from "./families/bitcoin/types";
+import type { CosmosTransaction } from "./families/cosmos/types";
 import type { CryptoOrgTransaction } from "./families/crypto_org/types";
 import type { EthereumTransaction } from "./families/ethereum/types";
 import type { RippleTransaction } from "./families/ripple/types";
@@ -89,7 +90,8 @@ export type Transaction =
   | BitcoinTransaction
   | AlgorandTransaction
   | CryptoOrgTransaction
-  | RippleTransaction;
+  | RippleTransaction
+  | CosmosTransaction;
 
 export type EstimatedFees = {
   low: number;
