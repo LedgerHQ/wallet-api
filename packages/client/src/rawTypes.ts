@@ -5,6 +5,7 @@ import type { RawCryptoOrgTransaction } from "./families/crypto_org/types";
 import type { RawEthereumTransaction } from "./families/ethereum/types";
 import type { RawPolkadotTransaction } from "./families/polkadot/types";
 import type { RawRippleTransaction } from "./families/ripple/types";
+import type { RawStellarTransaction } from "./families/stellar/types";
 import type { RawTezosTransaction } from "./families/tezos/types";
 
 export type RawAccount = {
@@ -32,7 +33,8 @@ export type RawTransaction =
   | RawRippleTransaction
   | RawCosmosTransaction
   | RawTezosTransaction
-  | RawPolkadotTransaction;
+  | RawPolkadotTransaction
+  | RawStellarTransaction;
 
 export type RawSignedTransaction = {
   operation: unknown;

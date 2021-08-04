@@ -28,6 +28,10 @@ import {
   serializeRippleTransaction,
 } from "./families/ripple/serializer";
 import {
+  deserializeStellarTransaction,
+  serializeStellarTransaction,
+} from "./families/stellar/serializer";
+import {
   deserializeTezosTransaction,
   serializeTezosTransaction,
 } from "./families/tezos/serializer";
@@ -102,6 +106,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeTezosTransaction(transaction);
     case FAMILIES.POLKADOT:
       return serializePolkadotTransaction(transaction);
+    case FAMILIES.STELLAR:
+      return serializeStellarTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -127,6 +133,8 @@ export function deserializeTransaction(
       return deserializeTezosTransaction(rawTransaction);
     case FAMILIES.POLKADOT:
       return deserializePolkadotTransaction(rawTransaction);
+    case FAMILIES.STELLAR:
+      return deserializeStellarTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }

@@ -10,5 +10,6 @@ enum FAMILIES {
   COSMOS = "cosmos",
   TEZOS = "tezos",
   POLKADOT = "polkadot",
+  STELLAR = "stellar",
 }
 export default FAMILIES;
