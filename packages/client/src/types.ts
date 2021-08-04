@@ -5,6 +5,7 @@ import type { CosmosTransaction } from "./families/cosmos/types";
 import type { CryptoOrgTransaction } from "./families/crypto_org/types";
 import type { EthereumTransaction } from "./families/ethereum/types";
 import type { RippleTransaction } from "./families/ripple/types";
+import type { TezosTransaction } from "./families/tezos/types";
 
 export type MessageHandler = (payload: unknown) => Promise<void>;
 
@@ -91,7 +92,8 @@ export type Transaction =
   | AlgorandTransaction
   | CryptoOrgTransaction
   | RippleTransaction
-  | CosmosTransaction;
+  | CosmosTransaction
+  | TezosTransaction;
 
 export type EstimatedFees = {
   low: number;

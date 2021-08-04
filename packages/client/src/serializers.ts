@@ -23,6 +23,10 @@ import {
   deserializeRippleTransaction,
   serializeRippleTransaction,
 } from "./families/ripple/serializer";
+import {
+  deserializeTezosTransaction,
+  serializeTezosTransaction,
+} from "./families/tezos/serializer";
 import FAMILIES from "./families/types";
 
 import type {
@@ -90,6 +94,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeRippleTransaction(transaction);
     case FAMILIES.COSMOS:
       return serializeCosmosTransaction(transaction);
+    case FAMILIES.TEZOS:
+      return serializeTezosTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -111,6 +117,8 @@ export function deserializeTransaction(
       return deserializeRippleTransaction(rawTransaction);
     case FAMILIES.COSMOS:
       return deserializeCosmosTransaction(rawTransaction);
+    case FAMILIES.TEZOS:
+      return deserializeTezosTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }
