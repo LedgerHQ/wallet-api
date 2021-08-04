@@ -1,3 +1,4 @@
+import type { RawAlgorandTransaction } from "./families/algorand/types";
 import type { RawBitcoinTransaction } from "./families/bitcoin/types";
 import type { RawEthereumTransaction } from "./families/ethereum/types";
 
@@ -18,7 +19,10 @@ export interface RawTransactionCommon {
   recipient: string;
 }
 
-export type RawTransaction = RawEthereumTransaction | RawBitcoinTransaction;
+export type RawTransaction =
+  | RawEthereumTransaction
+  | RawBitcoinTransaction
+  | RawAlgorandTransaction;
 
 export type RawSignedTransaction = {
   operation: unknown;

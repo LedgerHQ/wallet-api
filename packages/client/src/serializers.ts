@@ -1,5 +1,9 @@
 import BigNumber from "bignumber.js";
 import {
+  deserializeAlgorandTransaction,
+  serializeAlgorandTransaction,
+} from "./families/algorand/serializer";
+import {
   deserializeBitcoinTransaction,
   serializeBitcoinTransaction,
 } from "./families/bitcoin/serializer";
@@ -66,6 +70,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeEthereumTransaction(transaction);
     case FAMILIES.BITCOIN:
       return serializeBitcoinTransaction(transaction);
+    case FAMILIES.ALGORAND:
+      return serializeAlgorandTransaction(transaction);
     default:
       throw new Error("Can't serialize transaction: family not supported");
   }
@@ -79,6 +85,8 @@ export function deserializeTransaction(
       return deserializeEthereumTransaction(rawTransaction);
     case FAMILIES.BITCOIN:
       return deserializeBitcoinTransaction(rawTransaction);
+    case FAMILIES.ALGORAND:
+      return deserializeAlgorandTransaction(rawTransaction);
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }
