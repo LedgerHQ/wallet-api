@@ -24,11 +24,13 @@
   "devDependencies": {
     "@types/bignumber.js": "^5.0.0",
     "@types/chai": "^4.2.21",
+    "@types/chai-spies": "^1.0.3",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.3.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "chai": "^4.3.4",
+    "chai-spies": "^1.0.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
