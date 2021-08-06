@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import data from "./mocks.json";
 import type { RequestAccountParams } from "../LedgerLivePlatformSDK/params.types";
 import generateRandomTxID from "./generateRandomTxID";
