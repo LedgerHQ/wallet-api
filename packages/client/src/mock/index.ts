@@ -9,15 +9,15 @@ const { rawAccounts, rawCurrencies } = data;
 
 const accounts: Account[] = rawAccounts.map(deserializeAccount);
 const currencies: Currency[] = rawCurrencies;
+
 /**
  * @see https://www.michaelbromley.co.uk/blog/mocking-classes-with-typescript/
  */
-
 type MockOf<Class, Omit extends keyof Class = never> = {
   [Member in Exclude<keyof Class, Omit>]: Class[Member];
 };
 
-export default class LedgerLiveApiMock
+export default class LedgerLiveSDKMock
   implements
     MockOf<
       LedgerLivePlatformSDK,
