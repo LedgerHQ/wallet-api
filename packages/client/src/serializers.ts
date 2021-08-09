@@ -34,7 +34,7 @@ export function serializeAccount({
     balance: balance.toString(),
     spendableBalance: spendableBalance.toString(),
     blockHeight,
-    lastSyncDate: lastSyncDate.toString(),
+    lastSyncDate: lastSyncDate.toISOString(),
   };
 }
 
@@ -93,7 +93,7 @@ export function serializeSignedTransaction({
   return {
     operation,
     signature,
-    expirationDate: expirationDate ? expirationDate.toString() : null,
+    expirationDate: expirationDate ? expirationDate.toISOString() : null,
     signatureRaw,
   };
 }
