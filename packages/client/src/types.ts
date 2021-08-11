@@ -1,6 +1,14 @@
 import type BigNumber from "bignumber.js";
+import type { AlgorandTransaction } from "./families/algorand/types";
 import type { BitcoinTransaction } from "./families/bitcoin/types";
+import type { CosmosTransaction } from "./families/cosmos/types";
+import type { CryptoOrgTransaction } from "./families/crypto_org/types";
 import type { EthereumTransaction } from "./families/ethereum/types";
+import type { PolkadotTransaction } from "./families/polkadot/types";
+import type { RippleTransaction } from "./families/ripple/types";
+import type { StellarTransaction } from "./families/stellar/types";
+import type { TezosTransaction } from "./families/tezos/types";
+import type { TronTransaction } from "./families/tron/types";
 
 export type MessageHandler = (payload: unknown) => Promise<void>;
 
@@ -81,7 +89,17 @@ export interface TransactionCommon {
   recipient: string;
 }
 
-export type Transaction = EthereumTransaction | BitcoinTransaction;
+export type Transaction =
+  | EthereumTransaction
+  | BitcoinTransaction
+  | AlgorandTransaction
+  | CryptoOrgTransaction
+  | RippleTransaction
+  | CosmosTransaction
+  | TezosTransaction
+  | PolkadotTransaction
+  | StellarTransaction
+  | TronTransaction;
 
 export type EstimatedFees = {
   low: number;
