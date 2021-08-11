@@ -24,6 +24,10 @@ import {
   CosmosTransaction,
   RawCosmosTransaction,
 } from "../../src/families/cosmos/types";
+import {
+  CryptoOrgTransaction,
+  RawCryptoOrgTransaction,
+} from "../../src/families/crypto_org/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -258,6 +262,47 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("crypto.org", () => {
+      it("should succeed to serialize a crypto.org transaction with fees", () => {
+        const transaction: CryptoOrgTransaction = {
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: new BigNumber(1),
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: "1",
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a crypto.org transaction without fees", () => {
+        const transaction: CryptoOrgTransaction = {
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -469,6 +514,51 @@ describe("serializers.ts", () => {
           fees: undefined,
           gas: undefined,
           memo: undefined,
+        });
+      });
+    });
+
+    describe("crypto.org", () => {
+      it("should succeed to deserialize a crypto.org transaction with fees", () => {
+        const serializedTransaction: RawCryptoOrgTransaction = {
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: "1",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: new BigNumber(1),
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a crypto.org transaction without fees", () => {
+        const serializedTransaction: RawCryptoOrgTransaction = {
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.CRYPTO_ORG,
+          mode: "mode",
+          fees: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
         });
       });
     });
