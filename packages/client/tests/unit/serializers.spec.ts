@@ -36,6 +36,10 @@ import {
   RawRippleTransaction,
   RippleTransaction,
 } from "../../src/families/ripple/types";
+import {
+  RawStellarTransaction,
+  StellarTransaction,
+} from "../../src/families/stellar/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -396,6 +400,49 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("stellar", () => {
+      it("should succeed to serialize a stellar transaction with fees, memoType and memoValue", () => {
+        const transaction: StellarTransaction = {
+          family: FAMILIES.STELLAR,
+          fees: new BigNumber(1),
+          memoType: "memo type",
+          memoValue: "memo value",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.STELLAR,
+          fees: "1",
+          memoType: "memo type",
+          memoValue: "memo value",
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a stellar transaction without fees, memoType and memoValue", () => {
+        const transaction: StellarTransaction = {
+          family: FAMILIES.STELLAR,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.STELLAR,
+          fees: undefined,
+          memoType: undefined,
+          memoValue: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -743,6 +790,53 @@ describe("serializers.ts", () => {
           family: FAMILIES.RIPPLE,
           fee: undefined,
           tag: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("stellar", () => {
+      it("should succeed to deserialize a stellar transaction with fees, memoType and memoValue", () => {
+        const serializedTransaction: RawStellarTransaction = {
+          family: FAMILIES.STELLAR,
+          fees: "1",
+          memoType: "memo type",
+          memoValue: "memo value",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.STELLAR,
+          fees: new BigNumber(1),
+          memoType: "memo type",
+          memoValue: "memo value",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a stellar transaction without fees, memoType and memoValue", () => {
+        const serializedTransaction: RawStellarTransaction = {
+          family: FAMILIES.STELLAR,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.STELLAR,
+          fees: undefined,
+          memoType: undefined,
+          memoValue: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
         });
