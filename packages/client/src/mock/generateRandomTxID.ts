@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const generateRandomTxID = (length: number): string => {
   const result = [];
   const characters = "0123456789abcdef";

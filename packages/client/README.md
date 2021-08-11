@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk/branch/main/graph/badge.svg?token=G9IMCB6mL3)](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk)
+
 # Ledger Live Platform SDK
 
 **[We are hiring, join us! 👨‍💻👩‍💻](https://jobs.lever.co/ledger/?department=Engineering)**
