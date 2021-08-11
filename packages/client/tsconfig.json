@@ -32,5 +32,5 @@
     /* Disallow inconsistently-cased references to the same file. */
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*"]
 }
