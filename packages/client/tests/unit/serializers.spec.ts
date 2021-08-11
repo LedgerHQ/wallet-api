@@ -40,6 +40,10 @@ import {
   RawStellarTransaction,
   StellarTransaction,
 } from "../../src/families/stellar/types";
+import {
+  RawTezosTransaction,
+  TezosTransaction,
+} from "../../src/families/tezos/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -443,6 +447,50 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("tezos", () => {
+      it("should succeed to serialize a tezos transaction with fees and gasLimit", () => {
+        const transaction: TezosTransaction = {
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: new BigNumber(1),
+          gasLimit: new BigNumber(5),
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: "1",
+          gasLimit: "5",
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a tezos transaction without fees and gasLimit", () => {
+        const transaction: TezosTransaction = {
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: undefined,
+          gasLimit: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -837,6 +885,56 @@ describe("serializers.ts", () => {
           fees: undefined,
           memoType: undefined,
           memoValue: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("tezos", () => {
+      it("should succeed to deserialize a tezos transaction with fees and gasLimit", () => {
+        const serializedTransaction: RawTezosTransaction = {
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: "1",
+          gasLimit: "5",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: new BigNumber(1),
+          gasLimit: new BigNumber(5),
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a tezos transaction without fees and gasLimit", () => {
+        const serializedTransaction: RawTezosTransaction = {
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: undefined,
+          gasLimit: undefined,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.TEZOS,
+          mode: "send",
+          fees: undefined,
+          gasLimit: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
         });
