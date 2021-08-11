@@ -20,6 +20,10 @@ import {
   AlgorandTransaction,
   RawAlgorandTransaction,
 } from "../../src/families/algorand/types";
+import {
+  CosmosTransaction,
+  RawCosmosTransaction,
+} from "../../src/families/cosmos/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -207,6 +211,53 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("cosmos", () => {
+      it("should succeed to serialize a cosmos transaction with fees, gas and memo", () => {
+        const transaction: CosmosTransaction = {
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          fees: new BigNumber(1),
+          gas: new BigNumber(4),
+          memo: "memo",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          fees: "1",
+          gas: "4",
+          memo: "memo",
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a cosmos transaction without fees, gas and memo", () => {
+        const transaction: CosmosTransaction = {
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          fees: undefined,
+          gas: undefined,
+          memo: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -347,7 +398,7 @@ describe("serializers.ts", () => {
         });
       });
 
-      it("should succeed to deserialize a bitcoin transaction without fees, assetId and memo", () => {
+      it("should succeed to deserialize an algorand transaction without fees, assetId and memo", () => {
         const serializedTransaction: RawAlgorandTransaction = {
           family: FAMILIES.ALGORAND,
           mode: "claimReward",
@@ -366,6 +417,57 @@ describe("serializers.ts", () => {
           recipient: "recipient",
           fees: undefined,
           assetId: undefined,
+          memo: undefined,
+        });
+      });
+    });
+
+    describe("cosmos", () => {
+      it("should succeed to deserialize a cosmos transaction with fees, gas and memo", () => {
+        const serializedTransaction: RawCosmosTransaction = {
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          fees: "1",
+          gas: "4",
+          memo: "memo",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          fees: new BigNumber(1),
+          gas: new BigNumber(4),
+          memo: "memo",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a cosmos transaction without fees, gas and memo", () => {
+        const serializedTransaction: RawCosmosTransaction = {
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.COSMOS,
+          mode: "send",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          fees: undefined,
+          gas: undefined,
           memo: undefined,
         });
       });
