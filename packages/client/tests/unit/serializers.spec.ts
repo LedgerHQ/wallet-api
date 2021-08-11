@@ -16,6 +16,10 @@ import type {
   EthereumTransaction,
   RawEthereumTransaction,
 } from "../../src/families/ethereum/types";
+import {
+  AlgorandTransaction,
+  RawAlgorandTransaction,
+} from "../../src/families/algorand/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -156,6 +160,53 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("algorand", () => {
+      it("should succeed to serialize an algorand transaction with fees, assetId and memo", () => {
+        const transaction: AlgorandTransaction = {
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          fees: new BigNumber(1),
+          assetId: "assetId",
+          memo: "memo",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          fees: "1",
+          assetId: "assetId",
+          memo: "memo",
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize an algorand transaction without fees, assetId and memo", () => {
+        const transaction: AlgorandTransaction = {
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          fees: undefined,
+          assetId: undefined,
+          memo: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -265,6 +316,57 @@ describe("serializers.ts", () => {
           amount: new BigNumber(0),
           recipient: "recipient",
           feePerByte: undefined,
+        });
+      });
+    });
+
+    describe("algorand", () => {
+      it("should succeed to deserialize an algorand transaction with fees, assetId and memo", () => {
+        const serializedTransaction: RawAlgorandTransaction = {
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          fees: "1",
+          assetId: "assetId",
+          memo: "memo",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          fees: new BigNumber(1),
+          assetId: "assetId",
+          memo: "memo",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a bitcoin transaction without fees, assetId and memo", () => {
+        const serializedTransaction: RawAlgorandTransaction = {
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.ALGORAND,
+          mode: "claimReward",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          fees: undefined,
+          assetId: undefined,
+          memo: undefined,
         });
       });
     });
