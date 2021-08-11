@@ -9,12 +9,13 @@
     "/dist"
   ],
   "scripts": {
-    "format:check": "prettier --check 'src/**/*'",
-    "format:fix": "prettier --write 'src/**/*'",
-    "lint:check": "eslint --cache src/**",
-    "lint:fix": "eslint --cache --fix src/**",
+    "format:check": "prettier --check \"src\" \"tests\"",
+    "format:fix": "prettier --write \"src\" \"tests\"",
+    "lint:check": "eslint --cache --ext .ts \"src\" \"tests\"",
+    "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
     "prepare": "yarn build && husky install",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "nyc mocha"
   },
   "dependencies": {
     "bignumber.js": "^9.0.1",
@@ -22,9 +23,14 @@
   },
   "devDependencies": {
     "@types/bignumber.js": "^5.0.0",
+    "@types/chai": "^4.2.21",
+    "@types/chai-spies": "^1.0.3",
+    "@types/mocha": "^9.0.0",
     "@types/node": "^16.3.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
+    "chai": "^4.3.4",
+    "chai-spies": "^1.0.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
@@ -32,7 +38,10 @@
     "eslint-plugin-prettier": "^3.4.0",
     "husky": ">=6",
     "lint-staged": ">=10",
+    "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
     "prettier": "^2.3.2",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
   "lint-staged": {

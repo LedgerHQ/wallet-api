@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export * from "./types";
 export * from "./rawTypes";
 export * from "./families/ethereum/types";
