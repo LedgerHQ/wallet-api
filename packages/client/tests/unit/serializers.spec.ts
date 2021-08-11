@@ -32,6 +32,10 @@ import {
   PolkadotTransaction,
   RawPolkadotTransaction,
 } from "../../src/families/polkadot/types";
+import {
+  RawRippleTransaction,
+  RippleTransaction,
+} from "../../src/families/ripple/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -351,6 +355,47 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("ripple", () => {
+      it("should succeed to serialize a ripple transaction with fee", () => {
+        const transaction: RippleTransaction = {
+          family: FAMILIES.RIPPLE,
+          fee: new BigNumber(1),
+          tag: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.RIPPLE,
+          fee: "1",
+          tag: 4,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a ripple transaction without fee", () => {
+        const transaction: RippleTransaction = {
+          family: FAMILIES.RIPPLE,
+          tag: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.RIPPLE,
+          fee: undefined,
+          tag: 4,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -653,6 +698,51 @@ describe("serializers.ts", () => {
           mode: "mode",
           fee: undefined,
           era: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("ripple", () => {
+      it("should succeed to deserialize a ripple transaction with fee", () => {
+        const serializedTransaction: RawRippleTransaction = {
+          family: FAMILIES.RIPPLE,
+          fee: "1",
+          tag: 4,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.RIPPLE,
+          fee: new BigNumber(1),
+          tag: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a ripple transaction without fee", () => {
+        const serializedTransaction: RawRippleTransaction = {
+          family: FAMILIES.RIPPLE,
+          tag: 4,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.RIPPLE,
+          fee: undefined,
+          tag: 4,
           amount: new BigNumber(100),
           recipient: "recipient",
         });
