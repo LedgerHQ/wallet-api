@@ -44,6 +44,10 @@ import {
   RawTezosTransaction,
   TezosTransaction,
 } from "../../src/families/tezos/types";
+import {
+  RawTronTransaction,
+  TronTransaction,
+} from "../../src/families/tron/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -485,6 +489,50 @@ describe("serializers.ts", () => {
           mode: "send",
           fees: undefined,
           gasLimit: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("tron", () => {
+      it("should succeed to serialize a tron transaction with resource and duration", () => {
+        const transaction: TronTransaction = {
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: "BANDWIDTH",
+          duration: 5,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: "BANDWIDTH",
+          duration: 5,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a tron transaction without resource and duration", () => {
+        const transaction: TronTransaction = {
+          family: FAMILIES.TRON,
+          mode: "send",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: undefined,
+          duration: undefined,
           amount: "100",
           recipient: "recipient",
         });
@@ -935,6 +983,54 @@ describe("serializers.ts", () => {
           mode: "send",
           fees: undefined,
           gasLimit: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("tron", () => {
+      it("should succeed to deserialize a tron transaction with resource and duration", () => {
+        const serializedTransaction: RawTronTransaction = {
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: "BANDWIDTH",
+          duration: 5,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: "BANDWIDTH",
+          duration: 5,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a tron transaction without resource and duration", () => {
+        const serializedTransaction: RawTronTransaction = {
+          family: FAMILIES.TRON,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.TRON,
+          mode: "send",
+          resource: undefined,
+          duration: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
         });
