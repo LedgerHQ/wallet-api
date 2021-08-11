@@ -72,83 +72,87 @@ describe("serializers.ts", () => {
   });
 
   describe("serializeTransaction", () => {
-    it("should succeed to serialize an ethereum transaction with data, gasPrice & gasLimit", () => {
-      const transaction: EthereumTransaction = {
-        amount: new BigNumber(100),
-        recipient: "recipient",
-        family: FAMILIES.ETHEREUM,
-        nonce: 123,
-        data: Buffer.from([]),
-        gasPrice: new BigNumber(0),
-        gasLimit: new BigNumber(0),
-      };
-      const serializedTransaction =
-        serializers.serializeTransaction(transaction);
+    describe("ethereum", () => {
+      it("should succeed to serialize an ethereum transaction with data, gasPrice & gasLimit", () => {
+        const transaction: EthereumTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family: FAMILIES.ETHEREUM,
+          nonce: 123,
+          data: Buffer.from([]),
+          gasPrice: new BigNumber(0),
+          gasLimit: new BigNumber(0),
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
 
-      expect(serializedTransaction).to.deep.eq({
-        family: "ethereum",
-        amount: "100",
-        recipient: "recipient",
-        nonce: 123,
-        data: "",
-        gasPrice: "0",
-        gasLimit: "0",
+        expect(serializedTransaction).to.deep.eq({
+          family: "ethereum",
+          amount: "100",
+          recipient: "recipient",
+          nonce: 123,
+          data: "",
+          gasPrice: "0",
+          gasLimit: "0",
+        });
+      });
+
+      it("should succeed to serialize an ethereum transaction without data, gasPrice & gasLimit", () => {
+        const transaction: EthereumTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family: FAMILIES.ETHEREUM,
+          nonce: 123,
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: "ethereum",
+          amount: "100",
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+        });
       });
     });
 
-    it("should succeed to serialize an ethereum transaction without data, gasPrice & gasLimit", () => {
-      const transaction: EthereumTransaction = {
-        amount: new BigNumber(100),
-        recipient: "recipient",
-        family: FAMILIES.ETHEREUM,
-        nonce: 123,
-      };
-      const serializedTransaction =
-        serializers.serializeTransaction(transaction);
+    describe("bitcoin", () => {
+      it("should succeed to serialize a bitcoin transaction with feePerByte", () => {
+        const transaction: BitcoinTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family: FAMILIES.BITCOIN,
+          feePerByte: new BigNumber(0),
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
 
-      expect(serializedTransaction).to.deep.eq({
-        family: "ethereum",
-        amount: "100",
-        recipient: "recipient",
-        nonce: 123,
-        data: undefined,
-        gasPrice: undefined,
-        gasLimit: undefined,
+        expect(serializedTransaction).to.deep.eq({
+          family: "bitcoin",
+          amount: "100",
+          recipient: "recipient",
+          feePerByte: "0",
+        });
       });
-    });
 
-    it("should succeed to serialize an bitcoin transaction with feePerByte", () => {
-      const transaction: BitcoinTransaction = {
-        amount: new BigNumber(100),
-        recipient: "recipient",
-        family: FAMILIES.BITCOIN,
-        feePerByte: new BigNumber(0),
-      };
-      const serializedTransaction =
-        serializers.serializeTransaction(transaction);
+      it("should succeed to serialize a bitcoin transaction without feePerByte", () => {
+        const transaction: BitcoinTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family: FAMILIES.BITCOIN,
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
 
-      expect(serializedTransaction).to.deep.eq({
-        family: "bitcoin",
-        amount: "100",
-        recipient: "recipient",
-        feePerByte: "0",
-      });
-    });
-
-    it("should succeed to serialize an bitcoin transaction without feePerByte", () => {
-      const transaction: BitcoinTransaction = {
-        amount: new BigNumber(100),
-        recipient: "recipient",
-        family: FAMILIES.BITCOIN,
-      };
-      const serializedTransaction =
-        serializers.serializeTransaction(transaction);
-
-      expect(serializedTransaction).to.deep.eq({
-        family: "bitcoin",
-        amount: "100",
-        recipient: "recipient",
-        feePerByte: undefined,
+        expect(serializedTransaction).to.deep.eq({
+          family: "bitcoin",
+          amount: "100",
+          recipient: "recipient",
+          feePerByte: undefined,
+        });
       });
     });
 
@@ -173,91 +177,95 @@ describe("serializers.ts", () => {
   });
 
   describe("deserializeTransaction", () => {
-    it("should succeed to deserialize a ethereum transaction with data, gasPrice & gasLimit", () => {
-      const serializedTransaction: RawEthereumTransaction = {
-        family: FAMILIES.ETHEREUM,
-        amount: "0",
-        recipient: "recipient",
-        nonce: 123,
-        data: "data",
-        gasPrice: "456",
-        gasLimit: "789",
-      };
+    describe("ethereum", () => {
+      it("should succeed to deserialize an ethereum transaction with data, gasPrice & gasLimit", () => {
+        const serializedTransaction: RawEthereumTransaction = {
+          family: FAMILIES.ETHEREUM,
+          amount: "0",
+          recipient: "recipient",
+          nonce: 123,
+          data: "data",
+          gasPrice: "456",
+          gasLimit: "789",
+        };
 
-      const transaction = serializers.deserializeTransaction(
-        serializedTransaction
-      );
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
 
-      expect(transaction).to.deep.eq({
-        family: FAMILIES.ETHEREUM,
-        amount: new BigNumber(0),
-        recipient: "recipient",
-        nonce: 123,
-        data: Buffer.from("data", "hex"),
-        gasPrice: new BigNumber(456),
-        gasLimit: new BigNumber(789),
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.ETHEREUM,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          nonce: 123,
+          data: Buffer.from("data", "hex"),
+          gasPrice: new BigNumber(456),
+          gasLimit: new BigNumber(789),
+        });
+      });
+
+      it("should succeed to deserialize an ethereum transaction without data, gasPrice & gasLimit", () => {
+        const serializedTransaction: RawEthereumTransaction = {
+          family: FAMILIES.ETHEREUM,
+          amount: "0",
+          recipient: "recipient",
+          nonce: 123,
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.ETHEREUM,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+        });
       });
     });
 
-    it("should succeed to deserialize a ethereum transaction without data, gasPrice & gasLimit", () => {
-      const serializedTransaction: RawEthereumTransaction = {
-        family: FAMILIES.ETHEREUM,
-        amount: "0",
-        recipient: "recipient",
-        nonce: 123,
-      };
+    describe("bitcoin", () => {
+      it("should succeed to deserialize a bitcoin transaction with feePerByte", () => {
+        const serializedTransaction: RawBitcoinTransaction = {
+          family: FAMILIES.BITCOIN,
+          amount: "0",
+          recipient: "recipient",
+          feePerByte: "10",
+        };
 
-      const transaction = serializers.deserializeTransaction(
-        serializedTransaction
-      );
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
 
-      expect(transaction).to.deep.eq({
-        family: FAMILIES.ETHEREUM,
-        amount: new BigNumber(0),
-        recipient: "recipient",
-        nonce: 123,
-        data: undefined,
-        gasPrice: undefined,
-        gasLimit: undefined,
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.BITCOIN,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          feePerByte: new BigNumber(10),
+        });
       });
-    });
 
-    it("should succeed to deserialize a bitcoin transaction with feePerByte", () => {
-      const serializedTransaction: RawBitcoinTransaction = {
-        family: FAMILIES.BITCOIN,
-        amount: "0",
-        recipient: "recipient",
-        feePerByte: "10",
-      };
+      it("should succeed to deserialize a bitcoin transaction without feePerByte", () => {
+        const serializedTransaction: RawBitcoinTransaction = {
+          family: FAMILIES.BITCOIN,
+          amount: "0",
+          recipient: "recipient",
+        };
 
-      const transaction = serializers.deserializeTransaction(
-        serializedTransaction
-      );
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
 
-      expect(transaction).to.deep.eq({
-        family: FAMILIES.BITCOIN,
-        amount: new BigNumber(0),
-        recipient: "recipient",
-        feePerByte: new BigNumber(10),
-      });
-    });
-
-    it("should succeed to deserialize a bitcoin transaction without feePerByte", () => {
-      const serializedTransaction: RawBitcoinTransaction = {
-        family: FAMILIES.BITCOIN,
-        amount: "0",
-        recipient: "recipient",
-      };
-
-      const transaction = serializers.deserializeTransaction(
-        serializedTransaction
-      );
-
-      expect(transaction).to.deep.eq({
-        family: FAMILIES.BITCOIN,
-        amount: new BigNumber(0),
-        recipient: "recipient",
-        feePerByte: undefined,
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.BITCOIN,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          feePerByte: undefined,
+        });
       });
     });
 
