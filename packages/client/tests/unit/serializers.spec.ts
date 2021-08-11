@@ -28,6 +28,10 @@ import {
   CryptoOrgTransaction,
   RawCryptoOrgTransaction,
 } from "../../src/families/crypto_org/types";
+import {
+  PolkadotTransaction,
+  RawPolkadotTransaction,
+} from "../../src/families/polkadot/types";
 
 const date = new Date();
 describe("serializers.ts", () => {
@@ -303,6 +307,50 @@ describe("serializers.ts", () => {
       });
     });
 
+    describe("polkadot", () => {
+      it("should succeed to serialize a polkadot transaction with fee and era", () => {
+        const transaction: PolkadotTransaction = {
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: new BigNumber(1),
+          era: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: "1",
+          era: 4,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a polkadot transaction without fee and era", () => {
+        const transaction: PolkadotTransaction = {
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction =
+          serializers.serializeTransaction(transaction);
+
+        expect(serializedTransaction).to.deep.eq({
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: undefined,
+          era: undefined,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
+
     it("should fail to serialize an unsupported family", () => {
       const transaction = {
         amount: new BigNumber(100),
@@ -557,6 +605,54 @@ describe("serializers.ts", () => {
           family: FAMILIES.CRYPTO_ORG,
           mode: "mode",
           fees: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("polkadot", () => {
+      it("should succeed to deserialize a polkadot transaction with fee and era", () => {
+        const serializedTransaction: RawPolkadotTransaction = {
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: "1",
+          era: 4,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: new BigNumber(1),
+          era: 4,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a polkadot transaction without fee and era", () => {
+        const serializedTransaction: RawPolkadotTransaction = {
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = serializers.deserializeTransaction(
+          serializedTransaction
+        );
+
+        expect(transaction).to.deep.eq({
+          family: FAMILIES.POLKADOT,
+          mode: "mode",
+          fee: undefined,
+          era: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
         });
