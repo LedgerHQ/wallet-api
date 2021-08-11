@@ -67,3 +67,21 @@ Automatically fix code quality problems with
 ```bash
 yarn lint:fix
 ```
+
+## Documentation
+
+You can generate the project's documentation, either in `html` or in `markdown`.
+
+For `markdown` use:
+
+```bash
+yarn doc
+```
+
+For `html` use:
+
+```bash
+yarn doc:html
+```
+
+The documentation will be generated in a `docs/markdown` or `docs/html` folder depending on the chosen format.

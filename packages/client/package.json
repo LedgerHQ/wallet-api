@@ -14,8 +14,10 @@
     "lint:check": "eslint --cache --ext .ts \"src\" \"tests\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
     "prepare": "yarn build && husky install",
-    "build": "tsc",
-    "test": "nyc mocha"
+    "build": "tsc -p tsconfig.prod.json",
+    "test": "nyc mocha",
+    "doc": "typedoc --out docs/markdown src/index.ts",
+    "doc:html": "typedoc --out docs/html --plugin none src/index.ts"
   },
   "dependencies": {
     "bignumber.js": "^9.0.1",
@@ -41,6 +43,8 @@
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "prettier": "^2.3.2",
+    "typedoc": "^0.21.5",
+    "typedoc-plugin-markdown": "^3.10.4",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },

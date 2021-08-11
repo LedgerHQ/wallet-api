@@ -18,7 +18,7 @@ export interface CosmosTransaction extends TransactionCommon {
   mode: CosmosOperationMode;
   fees?: BigNumber;
   gas?: BigNumber;
-  memo: string;
+  memo?: string;
 }
 
 export interface RawCosmosTransaction extends RawTransactionCommon {
@@ -26,5 +26,5 @@ export interface RawCosmosTransaction extends RawTransactionCommon {
   mode: CosmosOperationMode;
   fees?: string;
   gas?: string;
-  memo: string;
+  memo?: string;
 }
