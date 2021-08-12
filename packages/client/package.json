@@ -14,7 +14,7 @@
     "lint:check": "eslint --cache --ext .ts \"src\" \"tests\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
     "prepare": "yarn build && husky install",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.prod.json",
     "test": "nyc mocha",
     "doc": "typedoc --out docs/markdown src/index.ts",
     "doc:html": "typedoc --out docs/html --plugin none src/index.ts"
