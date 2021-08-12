@@ -1,5 +1,3 @@
-[![codecov](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk/branch/main/graph/badge.svg?token=G9IMCB6mL3)](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk)
-
 # Ledger Live Platform SDK
 
 **[We are hiring, join us! 👨‍💻👩‍💻](https://jobs.lever.co/ledger/?department=Engineering)**
@@ -8,6 +6,7 @@
 
 [![Ledger Devs Slack](https://img.shields.io/badge/Slack-LedgerDevs-yellow.svg?style=flat)](https://ledger-dev.slack.com/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![codecov](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk/branch/main/graph/badge.svg?token=G9IMCB6mL3)](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk)
 
 Welcome to Ledger Live Platform SDK.
 
