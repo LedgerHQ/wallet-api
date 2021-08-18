@@ -6,7 +6,7 @@ import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";
 
 export interface EthereumTransaction extends TransactionCommon {
-  family: FAMILIES.ETHEREUM;
+  readonly family: FAMILIES.ETHEREUM;
   nonce?: number;
   data?: Buffer;
   gasPrice?: BigNumber;
@@ -14,7 +14,7 @@ export interface EthereumTransaction extends TransactionCommon {
 }
 
 export interface RawEthereumTransaction extends RawTransactionCommon {
-  family: FAMILIES.ETHEREUM;
+  readonly family: FAMILIES.ETHEREUM;
   nonce?: number;
   data?: string;
   gasPrice?: string;
