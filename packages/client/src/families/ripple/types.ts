@@ -6,13 +6,13 @@ import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";
 
 export interface RippleTransaction extends TransactionCommon {
-  family: FAMILIES.RIPPLE;
+  readonly family: FAMILIES.RIPPLE;
   fee?: BigNumber;
   tag: number;
 }
 
 export interface RawRippleTransaction extends RawTransactionCommon {
-  family: FAMILIES.RIPPLE;
+  readonly family: FAMILIES.RIPPLE;
   fee?: string;
   tag: number;
 }

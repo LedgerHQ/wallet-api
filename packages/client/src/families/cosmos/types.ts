@@ -14,7 +14,7 @@ export type CosmosOperationMode =
   | "claimRewardCompound";
 
 export interface CosmosTransaction extends TransactionCommon {
-  family: FAMILIES.COSMOS;
+  readonly family: FAMILIES.COSMOS;
   mode: CosmosOperationMode;
   fees?: BigNumber;
   gas?: BigNumber;
@@ -22,7 +22,7 @@ export interface CosmosTransaction extends TransactionCommon {
 }
 
 export interface RawCosmosTransaction extends RawTransactionCommon {
-  family: FAMILIES.COSMOS;
+  readonly family: FAMILIES.COSMOS;
   mode: CosmosOperationMode;
   fees?: string;
   gas?: string;

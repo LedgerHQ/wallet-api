@@ -6,11 +6,11 @@ import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";
 
 export interface BitcoinTransaction extends TransactionCommon {
-  family: FAMILIES.BITCOIN;
+  readonly family: FAMILIES.BITCOIN;
   feePerByte?: BigNumber;
 }
 
 export interface RawBitcoinTransaction extends RawTransactionCommon {
-  family: FAMILIES.BITCOIN;
+  readonly family: FAMILIES.BITCOIN;
   feePerByte?: string;
 }

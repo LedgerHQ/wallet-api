@@ -8,14 +8,14 @@ import type { TransactionCommon } from "../../types";
 export type TezosOperationMode = "send" | "delegate" | "undelegate";
 
 export interface TezosTransaction extends TransactionCommon {
-  family: FAMILIES.TEZOS;
+  readonly family: FAMILIES.TEZOS;
   mode: TezosOperationMode;
   fees?: BigNumber;
   gasLimit?: BigNumber;
 }
 
 export interface RawTezosTransaction extends RawTransactionCommon {
-  family: FAMILIES.TEZOS;
+  readonly family: FAMILIES.TEZOS;
   mode: TezosOperationMode;
   fees?: string;
   gasLimit?: string;

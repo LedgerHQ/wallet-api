@@ -13,14 +13,14 @@ export type TronOperationMode =
 export type TronResource = "BANDWIDTH" | "ENERGY";
 
 export interface TronTransaction extends TransactionCommon {
-  family: FAMILIES.TRON;
+  readonly family: FAMILIES.TRON;
   mode: TronOperationMode;
   resource?: TronResource;
   duration?: number;
 }
 
 export interface RawTronTransaction extends RawTransactionCommon {
-  family: FAMILIES.TRON;
+  readonly family: FAMILIES.TRON;
   mode: TronOperationMode;
   resource?: TronResource;
   duration?: number;
