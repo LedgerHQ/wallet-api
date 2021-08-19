@@ -1,5 +1,5 @@
 {
-  "name": "ledger-live-platform-sdk",
+  "name": "@ledgerhq/live-app-sdk",
   "version": "0.1.0",
   "repository": "git@github.com:LedgerHQ/ledger-live-platform-sdk.git",
   "license": "Apache-2.0",
