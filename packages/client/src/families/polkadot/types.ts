@@ -6,14 +6,14 @@ import type { RawTransactionCommon } from "../../rawTypes";
 import type { TransactionCommon } from "../../types";
 
 export interface PolkadotTransaction extends TransactionCommon {
-  family: FAMILIES.POLKADOT;
+  readonly family: FAMILIES.POLKADOT;
   mode: string;
   fee?: BigNumber;
   era?: number;
 }
 
 export interface RawPolkadotTransaction extends RawTransactionCommon {
-  family: FAMILIES.POLKADOT;
+  readonly family: FAMILIES.POLKADOT;
   mode: string;
   fee?: string;
   era?: number;

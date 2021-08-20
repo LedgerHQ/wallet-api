@@ -8,7 +8,7 @@ import type { TransactionCommon } from "../../types";
 export type AlgorandOperationMode = "send" | "optIn" | "claimReward" | "optOut";
 
 export interface AlgorandTransaction extends TransactionCommon {
-  family: FAMILIES.ALGORAND;
+  readonly family: FAMILIES.ALGORAND;
   mode: AlgorandOperationMode;
   fees?: BigNumber;
   assetId?: string;
@@ -16,7 +16,7 @@ export interface AlgorandTransaction extends TransactionCommon {
 }
 
 export interface RawAlgorandTransaction extends RawTransactionCommon {
-  family: FAMILIES.ALGORAND;
+  readonly family: FAMILIES.ALGORAND;
   mode: AlgorandOperationMode;
   fees?: string;
   assetId?: string;
