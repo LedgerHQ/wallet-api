@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/live-app-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": "git@github.com:LedgerHQ/ledger-live-platform-sdk.git",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -43,9 +43,9 @@
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "prettier": "^2.3.2",
+    "ts-node": "^10.1.0",
     "typedoc": "^0.21.5",
     "typedoc-plugin-markdown": "^3.10.4",
-    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
   "lint-staged": {
