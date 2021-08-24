@@ -19,9 +19,10 @@ export interface Transport {
   send(payload: unknown): Promise<void>;
 }
 
-// FIXME: Not implemented yet
+// FIXME: Not implemented yet, to remove
 export type Operation = unknown;
 
+// FIXME: remove SignedTransaction type
 export type SignedTransaction = {
   operation: Operation;
   signature: string;

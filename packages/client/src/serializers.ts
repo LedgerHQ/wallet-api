@@ -148,6 +148,7 @@ export function deserializeTransaction(
   }
 }
 
+// FIXME: remove serializeSignedTransaction and deserializeSignedTransaction as well as related tests
 export function serializeSignedTransaction({
   operation,
   signature,
