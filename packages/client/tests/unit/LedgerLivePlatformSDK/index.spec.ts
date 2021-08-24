@@ -4,7 +4,7 @@ import ChaiSpies from "chai-spies";
 import { before } from "mocha";
 import logger from "../../utils/Logger.mock";
 import WindowMock from "../../utils/Window.mock";
-import type { Account, Currency, SignedTransaction } from "../../../src/types";
+import type { Account, Currency } from "../../../src/types";
 import MessageEventMock from "../../utils/MessageEvent.mock";
 import LedgerLivePlatformSDK from "../../../src/LedgerLivePlatformSDK";
 import WindowMessageTransport from "../../../src/transports/windowMessageTransport";
@@ -153,7 +153,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
 
         const optimisticOperationHash = "optimisticOperation.hash";
         const accountId = "accountId";
-        const signedTransaction: SignedTransaction = {
+        const signedTransaction: RawSignedTransaction = {
           operation: null,
           signature: "signature",
           expirationDate: null,
@@ -375,12 +375,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         }) as ChaiSpies.Spy;
 
         const res = await SDK.signTransaction(accountId, transaction);
-        expect(res).to.deep.eq({
-          operation: {},
-          expirationDate: date,
-          signature: "signature",
-          signatureRaw: undefined,
-        });
+        expect(res).to.deep.eq(rawSignedTransaction);
         expect(spy).to.be.have.been.called.with(
           `{"jsonrpc":"2.0","method":"transaction.sign","params":{"accountId":"${accountId}","transaction":${JSON.stringify(
             transaction
