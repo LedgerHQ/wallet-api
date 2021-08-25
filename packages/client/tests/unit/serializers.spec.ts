@@ -327,7 +327,7 @@ describe("serializers.ts", () => {
       it("should succeed to serialize a polkadot transaction with fee and era", () => {
         const transaction: PolkadotTransaction = {
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: new BigNumber(1),
           era: 4,
           amount: new BigNumber(100),
@@ -338,7 +338,7 @@ describe("serializers.ts", () => {
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: "1",
           era: 4,
           amount: "100",
@@ -349,7 +349,7 @@ describe("serializers.ts", () => {
       it("should succeed to serialize a polkadot transaction without fee and era", () => {
         const transaction: PolkadotTransaction = {
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
         };
@@ -358,7 +358,7 @@ describe("serializers.ts", () => {
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: undefined,
           era: undefined,
           amount: "100",
@@ -803,7 +803,7 @@ describe("serializers.ts", () => {
       it("should succeed to deserialize a polkadot transaction with fee and era", () => {
         const serializedTransaction: RawPolkadotTransaction = {
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: "1",
           era: 4,
           amount: "100",
@@ -816,7 +816,7 @@ describe("serializers.ts", () => {
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: new BigNumber(1),
           era: 4,
           amount: new BigNumber(100),
@@ -827,7 +827,7 @@ describe("serializers.ts", () => {
       it("should succeed to deserialize a polkadot transaction without fee and era", () => {
         const serializedTransaction: RawPolkadotTransaction = {
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           amount: "100",
           recipient: "recipient",
         };
@@ -838,7 +838,7 @@ describe("serializers.ts", () => {
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
-          mode: "mode",
+          mode: "send",
           fee: undefined,
           era: undefined,
           amount: new BigNumber(100),
