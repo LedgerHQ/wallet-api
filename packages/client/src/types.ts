@@ -19,17 +19,6 @@ export interface Transport {
   send(payload: unknown): Promise<void>;
 }
 
-// FIXME: Not implemented yet, to remove
-export type Operation = unknown;
-
-// FIXME: remove SignedTransaction type
-export type SignedTransaction = {
-  operation: Operation;
-  signature: string;
-  signatureRaw?: unknown;
-  expirationDate: Date | null;
-};
-
 /**
  * Metadata used to describe a secure exchange between a Ledger device
  * and a partner (for sell, swap and funding)
