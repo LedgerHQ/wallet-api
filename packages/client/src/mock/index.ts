@@ -2,9 +2,10 @@
 import data from "./mocks.json";
 import type { RequestAccountParams } from "../LedgerLivePlatformSDK/params.types";
 import generateRandomTxID from "./generateRandomTxID";
-import type { Account, Currency, SignedTransaction } from "../types";
+import type { Account, Currency } from "../types";
 import { deserializeAccount } from "../serializers";
 import LedgerLivePlatformSDK from "../LedgerLivePlatformSDK";
+import { RawSignedTransaction } from "../rawTypes";
 
 const { rawAccounts, rawCurrencies } = data;
 
@@ -95,7 +96,7 @@ export default class LedgerLiveSDKMock
   async signTransaction(
     _accountId: string,
     _transaction: unknown
-  ): Promise<SignedTransaction> {
+  ): Promise<RawSignedTransaction> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");
     }
@@ -108,7 +109,7 @@ export default class LedgerLiveSDKMock
 
   async broadcastSignedTransaction(
     _accountId: string,
-    _signedTransaction: SignedTransaction
+    _signedTransaction: RawSignedTransaction
   ): Promise<string> {
     if (!this.connected) {
       throw new Error("Ledger Live API not connected");

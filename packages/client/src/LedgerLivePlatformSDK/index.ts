@@ -7,12 +7,7 @@ import {
 import DeviceBridge from "../deviceBridge";
 import Logger from "../logger";
 import { RawAccount, RawSignedTransaction } from "../rawTypes";
-import {
-  deserializeAccount,
-  deserializeSignedTransaction,
-  serializeSignedTransaction,
-  serializeTransaction,
-} from "../serializers";
+import { deserializeAccount, serializeTransaction } from "../serializers";
 
 import type {
   Account,
@@ -24,7 +19,6 @@ import type {
   ExchangePayload,
   ExchangeType,
   FeesLevel,
-  SignedTransaction,
   Transaction,
   Transport,
 } from "../types";
@@ -156,39 +150,34 @@ export default class LedgerLivePlatformSDK {
    * @param {Transaction} transaction  - the transaction in the currency family-specific format
    * @param {SignTransactionParams} params - parameters for the sign modal
    *
-   * @returns {Promise<SignedTransaction>}
+   * @returns {Promise<RawSignedTransaction>} - the raw signed transaction to broadcast
    */
   async signTransaction(
     accountId: string,
     transaction: Transaction,
     params?: SignTransactionParams
-  ): Promise<SignedTransaction> {
-    const rawSignedTransaction = await this._request<RawSignedTransaction>(
-      "transaction.sign",
-      {
-        accountId,
-        transaction: serializeTransaction(transaction),
-        params: params || {},
-      }
-    );
-
-    return deserializeSignedTransaction(rawSignedTransaction);
+  ): Promise<RawSignedTransaction> {
+    return this._request<RawSignedTransaction>("transaction.sign", {
+      accountId,
+      transaction: serializeTransaction(transaction),
+      params: params || {},
+    });
   }
 
   /**
    * Broadcast a signed transaction through Ledger Live, providing an optimistic Operation given by signTransaction
    * @param {string} accountId - LL id of the account
-   * @param {SignedTransaction} signedTransaction - a signed transaction given by LL when signing
+   * @param {RawSignedTransaction} signedTransaction - a raw signed transaction returned by LL when signing
    *
    * @returns {Promise<string>} - hash of the transaction
    */
   async broadcastSignedTransaction(
     accountId: string,
-    signedTransaction: SignedTransaction
+    signedTransaction: RawSignedTransaction
   ): Promise<string> {
     return this._request("transaction.broadcast", {
       accountId,
-      signedTransaction: serializeSignedTransaction(signedTransaction),
+      signedTransaction,
     });
   }
 

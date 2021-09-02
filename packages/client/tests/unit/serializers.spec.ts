@@ -2,12 +2,8 @@ import { expect } from "chai";
 import BigNumber from "bignumber.js";
 import FAMILIES from "../../src/families/types";
 import * as serializers from "../../src/serializers";
-import type { Account, SignedTransaction, Transaction } from "../../src/types";
-import type {
-  RawAccount,
-  RawSignedTransaction,
-  RawTransaction,
-} from "../../src/rawTypes";
+import type { Account, Transaction } from "../../src/types";
+import type { RawAccount, RawTransaction } from "../../src/rawTypes";
 import type {
   BitcoinTransaction,
   RawBitcoinTransaction,
@@ -1057,69 +1053,6 @@ describe("serializers.ts", () => {
     });
   });
 
-  describe("serializeSignedTransaction", () => {
-    it("should succeed to serialize a signed transaction", () => {
-      const serializedTransaction = serializers.serializeSignedTransaction({
-        operation: null,
-        signature: "signature",
-        signatureRaw: null,
-        expirationDate: date,
-      });
-      const serializedTransactionWithoutExpDate =
-        serializers.serializeSignedTransaction({
-          operation: null,
-          signature: "signature",
-          signatureRaw: null,
-          expirationDate: null,
-        });
-
-      expect(serializedTransaction).to.deep.eq({
-        operation: null,
-        signature: "signature",
-        expirationDate: date.toISOString(),
-        signatureRaw: null,
-      });
-
-      expect(serializedTransactionWithoutExpDate).to.deep.eq({
-        operation: null,
-        signature: "signature",
-        expirationDate: null,
-        signatureRaw: null,
-      });
-    });
-  });
-
-  describe("deserializeSignedTransaction", () => {
-    it("should succeed to deserialize a raw signed transaction", () => {
-      const transaction = serializers.deserializeSignedTransaction({
-        operation: null,
-        signature: "signature",
-        signatureRaw: null,
-        expirationDate: date.toISOString(),
-      });
-      const transactionWithoutExpDate =
-        serializers.deserializeSignedTransaction({
-          operation: null,
-          signature: "signature",
-          signatureRaw: null,
-          expirationDate: null,
-        });
-
-      expect(transaction).to.deep.eq({
-        operation: {},
-        signature: "signature",
-        expirationDate: date,
-        signatureRaw: null,
-      });
-      expect(transactionWithoutExpDate).to.deep.eq({
-        operation: {},
-        signature: "signature",
-        expirationDate: null,
-        signatureRaw: null,
-      });
-    });
-  });
-
   describe("Serialize -> Deserialize flow", () => {
     describe("Account", () => {
       it("should not alter account", () => {
@@ -1165,30 +1098,6 @@ describe("serializers.ts", () => {
           serializers.deserializeTransaction(parsedTransaction);
 
         expect(transaction).to.deep.eq(expectedTransaction);
-      });
-    });
-
-    describe("SignedTransaction", () => {
-      it("should not alter SignedTransaction", () => {
-        const signedTransaction: SignedTransaction = {
-          operation: {},
-          signature: "signature",
-          signatureRaw: null,
-          expirationDate: date,
-        };
-
-        const serializedSignedTransaction =
-          serializers.serializeSignedTransaction(signedTransaction);
-        const stringifiedSignedTransaction = JSON.stringify(
-          serializedSignedTransaction
-        );
-        const parsedSignedTransaction = JSON.parse(
-          stringifiedSignedTransaction
-        ) as RawSignedTransaction;
-        const expectedSignedTransaction =
-          serializers.deserializeSignedTransaction(parsedSignedTransaction);
-
-        expect(signedTransaction).to.deep.eq(expectedSignedTransaction);
       });
     });
   });

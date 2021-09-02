@@ -41,12 +41,8 @@ import {
 } from "./families/tron/serializer";
 import FAMILIES from "./families/types";
 
-import type {
-  RawAccount,
-  RawSignedTransaction,
-  RawTransaction,
-} from "./rawTypes";
-import type { Account, SignedTransaction, Transaction } from "./types";
+import type { RawAccount, RawTransaction } from "./rawTypes";
+import type { Account, Transaction } from "./types";
 
 export function serializeAccount({
   id,
@@ -146,32 +142,4 @@ export function deserializeTransaction(
     default:
       throw new Error("Can't deserialize transaction: family not supported");
   }
-}
-
-export function serializeSignedTransaction({
-  operation,
-  signature,
-  expirationDate,
-  signatureRaw,
-}: SignedTransaction): RawSignedTransaction {
-  return {
-    operation,
-    signature,
-    expirationDate: expirationDate ? expirationDate.toISOString() : null,
-    signatureRaw,
-  };
-}
-
-export function deserializeSignedTransaction({
-  operation,
-  signature,
-  expirationDate,
-  signatureRaw,
-}: RawSignedTransaction): SignedTransaction {
-  return {
-    operation: operation || {},
-    signature,
-    expirationDate: expirationDate ? new Date(expirationDate) : null,
-    signatureRaw,
-  };
 }
