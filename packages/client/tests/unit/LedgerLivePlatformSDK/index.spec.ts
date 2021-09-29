@@ -4,7 +4,13 @@ import ChaiSpies from "chai-spies";
 import { before } from "mocha";
 import logger from "../../utils/Logger.mock";
 import WindowMock from "../../utils/Window.mock";
-import type { Account, Currency } from "../../../src/types";
+import {
+  Account,
+  Currency,
+  ExchangeDeviceTxId,
+  ExchangeType,
+  FeesLevel,
+} from "../../../src/types";
 import MessageEventMock from "../../utils/MessageEvent.mock";
 import LedgerLivePlatformSDK from "../../../src/LedgerLivePlatformSDK";
 import WindowMessageTransport from "../../../src/transports/windowMessageTransport";
@@ -417,6 +423,133 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         );
       });
     });
+
+    describe("startExchange", () => {
+      it("should succeed to init an exchange", async () => {
+        SDK.connect();
+
+        const exchangeType = ExchangeType.SWAP;
+
+        const nonce: ExchangeDeviceTxId = "nonce";
+
+        /**
+         * JSON-RPC Event response object shape is available here:
+         * @see https://www.jsonrpc.org/specification#response_object
+         */
+        const e = makeMessageEvent({
+          id: 1, // This assumes that the event request object id was also 1
+          jsonrpc: "2.0",
+          result: nonce,
+        });
+        // @ts-ignore
+        const spy = chai.spy.on(window.top, "postMessage", () => {
+          window.MOCK_emit(e);
+        }) as ChaiSpies.Spy;
+
+        const res = await SDK.startExchange({ exchangeType });
+
+        expect(res).to.eq(nonce);
+        expect(spy).to.be.have.been.called.with(
+          `{"jsonrpc":"2.0","method":"exchange.start","params":{"exchangeType":${exchangeType}},"id":1}`
+        );
+      });
+    });
+
+    describe("completeExchange", () => {
+      it("should succeed to complete a SWAP exchange", async () => {
+        SDK.connect();
+
+        const exchangeType = ExchangeType.SWAP;
+
+        const recipientAccountId = "recipientAccountId";
+
+        const tx: BitcoinTransaction = {
+          family: FAMILIES.BITCOIN,
+          amount: new BigNumber(10),
+          recipient: recipientAccountId,
+        };
+
+        const completeExchangeParams = {
+          provider: "PROVIDER",
+          fromAccountId: "FROM_ACCOUNT_ID",
+          toAccountId: recipientAccountId,
+          transaction: tx,
+          binaryPayload: "payload",
+          signature: "signature",
+          feesStrategy: FeesLevel.Fast,
+          exchangeType,
+        };
+
+        const rawSignedTransaction: RawSignedTransaction = {
+          operation: null,
+          signature: "signature",
+          expirationDate: date.toISOString(),
+        };
+
+        /**
+         * JSON-RPC Event response object shape is available here:
+         * @see https://www.jsonrpc.org/specification#response_object
+         */
+        const e = makeMessageEvent({
+          id: 1, // This assumes that the event request object id was also 1
+          jsonrpc: "2.0",
+          result: rawSignedTransaction,
+        });
+        // @ts-ignore
+        const spy = chai.spy.on(window.top, "postMessage", () => {
+          window.MOCK_emit(e);
+        }) as ChaiSpies.Spy;
+
+        const res = await SDK.completeExchange(completeExchangeParams);
+
+        expect(res).to.deep.eq({
+          operation: null,
+          expirationDate: date.toISOString(),
+          signature: "signature",
+        });
+
+        expect(spy).to.be.have.been.called.with(
+          `{"jsonrpc":"2.0","method":"exchange.complete","params":${JSON.stringify(
+            completeExchangeParams
+          )},"id":1}`
+        );
+      });
+
+      it("should throw if no 'toAccountId' provided and exchange type is SWAP", async () => {
+        SDK.connect();
+
+        const exchangeType = ExchangeType.SWAP;
+
+        const recipientAccountId = "recipientAccountId";
+
+        const tx: BitcoinTransaction = {
+          family: FAMILIES.BITCOIN,
+          amount: new BigNumber(10),
+          recipient: recipientAccountId,
+        };
+
+        const completeExchangeParams = {
+          provider: "PROVIDER",
+          fromAccountId: "FROM_ACCOUNT_ID",
+          transaction: tx,
+          binaryPayload: "payload",
+          signature: "signature",
+          feesStrategy: FeesLevel.Fast,
+          exchangeType,
+        };
+
+        try {
+          await SDK.completeExchange(completeExchangeParams);
+          expect.fail();
+        } catch (error) {
+          expect(error).to.not.be.an.instanceOf(AssertionError);
+          expect(error).to.have.property(
+            "message",
+            "Missing parameter 'toAccountId' for a swap operation"
+          );
+        }
+      });
+    });
   });
 
   describe("Missing implementations", () => {
@@ -461,22 +594,6 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
       });
     });
 
-    describe("completeExchange", () => {
-      it("should throw", async () => {
-        try {
-          // @ts-ignore
-          await SDK.completeExchange();
-          expect.fail();
-        } catch (error) {
-          expect(error).to.not.be.an.instanceOf(AssertionError);
-          expect(error).to.have.property(
-            "message",
-            "Function is not implemented yet"
-          );
-        }
-      });
-    });
-
     describe("estimateTransactionFees", () => {
       it("should throw", async () => {
         try {
@@ -498,22 +615,6 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         try {
           // @ts-ignore
           await SDK.getDeviceInfo();
-          expect.fail();
-        } catch (error) {
-          expect(error).to.not.be.an.instanceOf(AssertionError);
-          expect(error).to.have.property(
-            "message",
-            "Function is not implemented yet"
-          );
-        }
-      });
-    });
-
-    describe("initExchange", () => {
-      it("should throw", async () => {
-        try {
-          // @ts-ignore
-          await SDK.initExchange();
           expect.fail();
         } catch (error) {
           expect(error).to.not.be.an.instanceOf(AssertionError);

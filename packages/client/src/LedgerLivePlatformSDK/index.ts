@@ -9,6 +9,8 @@ import Logger from "../logger";
 import { RawAccount, RawSignedTransaction } from "../rawTypes";
 import { deserializeAccount, serializeTransaction } from "../serializers";
 
+import { ExchangeType } from "../types";
+
 import type {
   Account,
   ApplicationDetails,
@@ -16,8 +18,8 @@ import type {
   DeviceDetails,
   EcdsaSignature,
   EstimatedFees,
+  ExchangeDeviceTxId,
   ExchangePayload,
-  ExchangeType,
   FeesLevel,
   Transaction,
   Transport,
@@ -118,30 +120,65 @@ export default class LedgerLivePlatformSDK {
 
   /**
    * Start the exchange process by generating a nonce on Ledger device
-   * @param {ExchangeType} exchangeType
-   * @param {string} partnerName
+   * @param {ExchangeType} exchangeType - used by the exchange transport to discern between swap/sell/fund
    *
-   * @returns {Promise<string>} The nonce of the exchange
+   * @returns {Promise<ExchangeDeviceTxId>}
    */
-  async initExchange(
-    _exchangeType: ExchangeType,
-    _partnerName: string
-  ): Promise<string> {
-    throw new Error("Function is not implemented yet");
+  async startExchange({
+    exchangeType,
+  }: {
+    exchangeType: ExchangeType;
+  }): Promise<ExchangeDeviceTxId> {
+    return this._request("exchange.start", { exchangeType });
   }
 
   /**
    * Complete an exchange process by passing by the exchange content and its signature.
-   * @param {ExchangePayload} exchangePayload
-   * @param {EcdsaSignature} payloadSignature
-   * @param {FeesLevel} txFeesLevel
+   * We are chaining the success of the triggered device action with a silent sign and broadcast
+   * @param {string} provider - Used to verify the signature
+   * @param {string} fromAccountId - Live identifier of the account used as a source for the tx
+   * @param {string} toAccountId - (Swap) Live identifier of the account used as a destination
+   * @param {Transaction} transaction - Transaction containing the recipient and amount
+   * @param {ExchangePayload} binaryPayload - Blueprint of the data that we'll allow signing
+   * @param {EcdsaSignature} signature - Ensures the source of the payload
+   * @param {FeesLevel} feesStrategy - Slow / Medium / Fast
+   * @param {ExchangeType} exchangeType - used by the exchange transport to discern between swap/sell/fund
+   *
+   * @returns {Promise<RawSignedTransaction>}
    */
-  async completeExchange(
-    _exchangePayload: ExchangePayload,
-    _payloadSignature: EcdsaSignature,
-    _txFeesLevel: FeesLevel
-  ): Promise<void> {
-    throw new Error("Function is not implemented yet");
+  async completeExchange({
+    provider,
+    fromAccountId,
+    toAccountId,
+    transaction,
+    binaryPayload,
+    signature,
+    feesStrategy,
+    exchangeType,
+  }: {
+    provider: string;
+    fromAccountId: string;
+    toAccountId?: string;
+    transaction: Transaction;
+    binaryPayload: ExchangePayload;
+    signature: EcdsaSignature;
+    feesStrategy: FeesLevel;
+    exchangeType: ExchangeType;
+  }): Promise<RawSignedTransaction> {
+    if (exchangeType === ExchangeType.SWAP && !toAccountId) {
+      throw new Error("Missing parameter 'toAccountId' for a swap operation");
+    }
+
+    return this._request("exchange.complete", {
+      provider,
+      fromAccountId,
+      toAccountId,
+      transaction,
+      binaryPayload,
+      signature,
+      feesStrategy,
+      exchangeType,
+    });
   }
 
   /**
