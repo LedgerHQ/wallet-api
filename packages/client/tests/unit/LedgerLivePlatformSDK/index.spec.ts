@@ -297,19 +297,20 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
     });
 
     describe("requestAccount", () => {
-      it("should succeed to request an account", async () => {
+      const rawAccount: RawAccount = {
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: "0",
+        spendableBalance: "0",
+        blockHeight: 0,
+        lastSyncDate: date.toISOString(),
+      };
+
+      it("should succeed to request an account with params", async () => {
         SDK.connect();
 
-        const rawAccount: RawAccount = {
-          id: "id",
-          name: "name",
-          address: "address",
-          currency: "currency",
-          balance: "0",
-          spendableBalance: "0",
-          blockHeight: 0,
-          lastSyncDate: date.toISOString(),
-        };
         /**
          * JSON-RPC Event response object shape is available here:
          * @see https://www.jsonrpc.org/specification#response_object
@@ -340,6 +341,39 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         });
         expect(spy).to.be.have.been.called.with(
           '{"jsonrpc":"2.0","method":"account.request","params":{"currencies":["bitcoin"],"allowAddAccount":false},"id":1}'
+        );
+      });
+
+      it("should succeed to request an account without params", async () => {
+        SDK.connect();
+
+        /**
+         * JSON-RPC Event response object shape is available here:
+         * @see https://www.jsonrpc.org/specification#response_object
+         */
+        const e = makeMessageEvent({
+          id: 1, // This assumes that the event request object id was also 1
+          jsonrpc: "2.0",
+          result: rawAccount,
+        });
+        // @ts-ignore
+        const spy = chai.spy.on(window.top, "postMessage", () => {
+          window.MOCK_emit(e);
+        }) as ChaiSpies.Spy;
+
+        const res = await SDK.requestAccount();
+        expect(res).to.deep.eq({
+          id: "id",
+          name: "name",
+          address: "address",
+          currency: "currency",
+          balance: new BigNumber("0"),
+          spendableBalance: new BigNumber("0"),
+          blockHeight: 0,
+          lastSyncDate: date,
+        });
+        expect(spy).to.be.have.been.called.with(
+          '{"jsonrpc":"2.0","method":"account.request","params":{},"id":1}'
         );
       });
     });

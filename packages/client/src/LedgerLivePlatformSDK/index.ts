@@ -212,7 +212,7 @@ export default class LedgerLivePlatformSDK {
    * @param {RequestAccountParams} params - parameters for the request modal
    * @returns {Promise<Account>}
    */
-  async requestAccount(params: RequestAccountParams): Promise<Account> {
+  async requestAccount(params: RequestAccountParams = {}): Promise<Account> {
     const rawAccount = await this._request<RawAccount>(
       "account.request",
       params
