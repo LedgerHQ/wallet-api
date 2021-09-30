@@ -95,6 +95,7 @@ export default class WindowMessageTransport implements Transport {
         this.target.ElectronWebview.postMessage(JSON.stringify(response));
       } else {
         this.logger.log("sending message", response);
+        // @ts-ignore
         this.target.top.postMessage(JSON.stringify(response), "*");
       }
       return Promise.resolve();
