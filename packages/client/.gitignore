@@ -1,3 +1,6 @@
+# As of today we don't want to keep / version the html documentation since we only use the markdown version
+docs/html
+
 # Logs
 logs
 *.log

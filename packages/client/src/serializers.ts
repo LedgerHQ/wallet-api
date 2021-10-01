@@ -44,6 +44,13 @@ import FAMILIES from "./families/types";
 import type { RawAccount, RawTransaction } from "./rawTypes";
 import type { Account, Transaction } from "./types";
 
+/**
+ * Serialize an [[Account]] object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+ * @param account - The account object to serialize
+ *
+ * @returns The raw representation of the provided account object
+ */
+
 export function serializeAccount({
   id,
   name,
@@ -66,6 +73,12 @@ export function serializeAccount({
   };
 }
 
+/**
+ * Deserialize a [[RawAccount]] object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+ * @param rawAccount - The raw account representation to deserialize
+ *
+ * @returns The object account of the provided raw account representation
+ */
 export function deserializeAccount({
   id,
   name,
@@ -88,6 +101,12 @@ export function deserializeAccount({
   };
 }
 
+/**
+ * Serialize an [[Transaction]] object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+ * @param transaction - The transaction object to serialize
+ *
+ * @returns The raw representation of the provided transaction object
+ */
 export function serializeTransaction(transaction: Transaction): RawTransaction {
   switch (transaction.family) {
     case FAMILIES.ETHEREUM:
@@ -115,6 +134,12 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
   }
 }
 
+/**
+ * Deserialize a [[RawTransaction]] object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+ * @param rawTransaction - The raw transaction representation to deserialize
+ *
+ * @returns The object transaction of the provided raw transaction representation
+ */
 export function deserializeTransaction(
   rawTransaction: RawTransaction
 ): Transaction {

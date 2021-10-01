@@ -1,10 +1,14 @@
+/**
+ * @module LedgerLivePlatformSDK
+ */
+
 import {
   JSONRPCServerAndClient,
   JSONRPCParams,
   JSONRPCServer,
   JSONRPCClient,
 } from "json-rpc-2.0";
-import DeviceBridge from "../deviceBridge";
+
 import Logger from "../logger";
 import { RawAccount, RawSignedTransaction } from "../rawTypes";
 import { deserializeAccount, serializeTransaction } from "../serializers";
@@ -15,28 +19,33 @@ import type {
   Account,
   ApplicationDetails,
   Currency,
-  DeviceDetails,
+  DeviceInfo,
   EcdsaSignature,
-  EstimatedFees,
   ExchangeDeviceTxId,
   ExchangePayload,
   FeesLevel,
   Transaction,
   Transport,
 } from "../types";
-import type {
-  ListCurrenciesParams,
-  RequestAccountParams,
-  SignTransactionParams,
-} from "./params.types";
+
+import LedgerPlatformApduTransport from "./LedgerPlatformApduTransport";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
 export default class LedgerLivePlatformSDK {
+  /**
+   * @internal
+   */
   private transport: Transport;
 
+  /**
+   * @internal
+   */
   private logger: Logger;
 
+  /**
+   * @internal
+   */
   private serverAndClient?: JSONRPCServerAndClient;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
@@ -45,6 +54,7 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
+   * @internal
    * Wrapper to api request for logging
    */
   private async _request<T>(
@@ -69,6 +79,9 @@ export default class LedgerLivePlatformSDK {
 
   /**
    * Connect the SDK to the Ledger Live instance
+   *
+   * @remarks
+   * Establish the connection with Ledger Live through the [[transport]] instance provided at initialization
    */
   connect(): void {
     const serverAndClient = new JSONRPCServerAndClient(
@@ -84,7 +97,7 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Disconnect the SDK
+   * Disconnect the SDK.
    */
   disconnect(): void {
     delete this.serverAndClient;
@@ -93,36 +106,33 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
+   * @ignore Not yet implemented
    * Open a bridge to an application to exchange APDUs with a device application
-   * @param {string} appName The name of the application to bridge
-   * @param {<Result>(DeviceBridge) => Promise<Result>} handler A function using the bridge to send command to a device
+   * @param _appName - The name of the application to bridge
    *
-   * @returns {Promise<Result>} The result of the handler function
+   * @returns The result of the handler function
    */
-  async bridgeApp<Result>(
-    _appName: string,
-    _handler: <Result>(deviceBridge: DeviceBridge) => Promise<Result>
-  ): Promise<Result> {
+  async bridgeApp(_appName: string): Promise<LedgerPlatformApduTransport> {
     throw new Error("Function is not implemented yet");
   }
 
   /**
+   * @ignore Not yet implemented
    * Open a bridge to a the device dashboard to exchange APDUs
-   * @param {<Result>(DeviceBridge) => Promise<Result>} handler A function using the bridge to send command to a device
    *
-   * @returns {Promise<Result>} The result of the handler function
+   * @returns A APDU transport which can be used either to send raw APDU
+   * or used with ledgerjs libraries.
    */
-  async bridgeDashboard<Result>(
-    _handler: <Result>(deviceBridge: DeviceBridge) => Promise<Result>
-  ): Promise<Result> {
+  async bridgeDashboard(): Promise<LedgerPlatformApduTransport> {
     throw new Error("Function is not implemented yet");
   }
 
   /**
+   * @alpha
    * Start the exchange process by generating a nonce on Ledger device
-   * @param {ExchangeType} exchangeType - used by the exchange transport to discern between swap/sell/fund
+   * @param exchangeType - used by the exchange transport to discern between swap/sell/fund
    *
-   * @returns {Promise<ExchangeDeviceTxId>}
+   * @returns - A transaction ID used to complete the exchange process
    */
   async startExchange({
     exchangeType,
@@ -133,18 +143,20 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
+   * @alpha
    * Complete an exchange process by passing by the exchange content and its signature.
-   * We are chaining the success of the triggered device action with a silent sign and broadcast
-   * @param {string} provider - Used to verify the signature
-   * @param {string} fromAccountId - Live identifier of the account used as a source for the tx
-   * @param {string} toAccountId - (Swap) Live identifier of the account used as a destination
-   * @param {Transaction} transaction - Transaction containing the recipient and amount
-   * @param {ExchangePayload} binaryPayload - Blueprint of the data that we'll allow signing
-   * @param {EcdsaSignature} signature - Ensures the source of the payload
-   * @param {FeesLevel} feesStrategy - Slow / Medium / Fast
-   * @param {ExchangeType} exchangeType - used by the exchange transport to discern between swap/sell/fund
+   * User will be prompted on its device to approve the exchange.
+   * If the exchange is validated, the transaction is then signed and broadcasted to the network.
+   * @param provider - Used to verify the signature
+   * @param fromAccountId - Live identifier of the account used as a source for the tx
+   * @param toAccountId - (Swap) Live identifier of the account used as a destination
+   * @param transaction - Transaction containing the recipient and amount
+   * @param binaryPayload - Blueprint of the data that we'll allow signing
+   * @param signature - Ensures the source of the payload
+   * @param feesStrategy - Slow / Medium / Fast
+   * @param exchangeType - used by the exchange transport to discern between swap/sell/fund
    *
-   * @returns {Promise<RawSignedTransaction>}
+   * @returns - The broadcasted transaction details.
    */
   async completeExchange({
     provider,
@@ -183,16 +195,21 @@ export default class LedgerLivePlatformSDK {
 
   /**
    * Let user sign a transaction through Ledger Live
-   * @param {string} accountId - LL id of the account
-   * @param {Transaction} transaction  - the transaction in the currency family-specific format
-   * @param {SignTransactionParams} params - parameters for the sign modal
+   * @param accountId - LL id of the account
+   * @param transaction - The transaction object in the currency family-specific format
+   * @param params - Parameters for the sign modal
    *
-   * @returns {Promise<RawSignedTransaction>} - the raw signed transaction to broadcast
+   * @returns The raw signed transaction to broadcast
    */
   async signTransaction(
     accountId: string,
     transaction: Transaction,
-    params?: SignTransactionParams
+    params?: {
+      /**
+       * The name of the Ledger Nano app to use for the signing process
+       */
+      useApp: string;
+    }
   ): Promise<RawSignedTransaction> {
     return this._request<RawSignedTransaction>("transaction.sign", {
       accountId,
@@ -202,11 +219,11 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Broadcast a signed transaction through Ledger Live, providing an optimistic Operation given by signTransaction
-   * @param {string} accountId - LL id of the account
-   * @param {RawSignedTransaction} signedTransaction - a raw signed transaction returned by LL when signing
+   * Broadcast a previously signed transaction through Ledger Live
+   * @param accountId - LL id of the account
+   * @param signedTransaction - A [[RawSignedTransaction]] returned by LL when signing with [[signTransaction]]
    *
-   * @returns {Promise<string>} - hash of the transaction
+   * @returns The hash of the transaction
    */
   async broadcastSignedTransaction(
     accountId: string,
@@ -219,23 +236,9 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Estimate fees required to successfully broadcast a transaction.
-   * @param {string} accountId - LL id of the account
-   * @param {Transaction} transaction - the transaction to estimate
-   *
-   * @returns {Promise<EstimatedFees>} - Estimated fees for 3 level of confirmation speed
-   */
-  async estimateTransactionFees(
-    _accountId: string,
-    _transaction: Transaction
-  ): Promise<EstimatedFees> {
-    throw new Error("Function is not implemented yet");
-  }
-
-  /**
    * List accounts added by user on Ledger Live
    *
-   * @returns {Account[]}
+   * @returns The list of accounts added by the current user on Ledger Live
    */
   async listAccounts(): Promise<Account[]> {
     const rawAccounts = await this._request<RawAccount[]>("account.list");
@@ -246,10 +249,16 @@ export default class LedgerLivePlatformSDK {
   /**
    * Let user choose an account in a Ledger Live, providing filters for choosing currency or allowing add account.
    *
-   * @param {RequestAccountParams} params - parameters for the request modal
-   * @returns {Promise<Account>}
+   * @param params - Parameters for the request modal
+   *
+   * @returns The account selected by the user
    */
-  async requestAccount(params: RequestAccountParams = {}): Promise<Account> {
+  async requestAccount(
+    params: {
+      currencies?: string[];
+      allowAddAccount?: boolean;
+    } = {}
+  ): Promise<Account> {
     const rawAccount = await this._request<RawAccount>(
       "account.request",
       params
@@ -261,46 +270,62 @@ export default class LedgerLivePlatformSDK {
   /**
    * Let user verify it's account address on his device through Ledger Live
    *
-   * @param {string} accountId - LL id of the account
-   * @returns {Promise<string>} - the verified address
+   * @param accountId - LL id of the account
+   *
+   * @returns The verified address
    */
   async receive(accountId: string): Promise<string> {
     return this._request("account.receive", { accountId });
   }
 
   /**
+   * @ignore Not yet implemented
    * Synchronize an account with its network and return an updated view of the account
-   * @param {string} accountId The id of the account to synchronize
+   * @param accountId - The id of the account to synchronize
    *
-   * @returns {Promise<Account>} An updated view of the account
+   * @returns - An updated view of the account
    */
   async synchronizeAccount(_accountId: string): Promise<Account> {
     throw new Error("Function is not implemented yet");
   }
 
   /**
-   * List crypto-currencies supported by Ledger Live, providing filters by name or ticker
+   * List cryptocurrencies supported by Ledger Live, providing filters by name or ticker
    *
-   * @param {ListCurrenciesParams} params - filters for currencies
-   * @returns {Promise<Currency[]>}
+   * @param params - Filters for currencies
+   *
+   * @returns The list of corresponding cryptocurrencies
+   *
+   * @beta Filtering not yet implemented
    */
-  async listCurrencies(params?: ListCurrenciesParams): Promise<Currency[]> {
+  async listCurrencies(params?: {
+    /**
+     * name of the currency
+     */
+    name?: string;
+    /**
+     * ticker of the currency
+     */
+    ticker?: string;
+  }): Promise<Currency[]> {
     return this._request("currency.list", params || {});
   }
 
   /**
+   * @ignore Not yet implemented
    * Get information about a currently connected device (firmware version...)
    *
-   * @returns {Promise<DeviceDetails>} Informations about a currently connected device
+   * @returns {Promise<DeviceInfo>} - Informations about the last connected device
    */
-  async getDeviceInfo(): Promise<DeviceDetails> {
+  async getLastConnectedDeviceInfo(): Promise<DeviceInfo> {
     throw new Error("Function is not implemented yet");
   }
 
   /**
+   * @ignore Not yet implemented
    * List applications opened on a currently connected device
    *
-   * @returns {Promise<ApplicationDetails[]>} The list of applications
+   * @returns {Promise<ApplicationDetails[]>} - The list of applications
    */
   async listApps(): Promise<ApplicationDetails[]> {
     throw new Error("Function is not implemented yet");

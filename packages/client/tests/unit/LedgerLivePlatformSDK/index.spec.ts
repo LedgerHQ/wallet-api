@@ -594,27 +594,11 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
       });
     });
 
-    describe("estimateTransactionFees", () => {
+    describe("getLastConnectedDeviceInfo", () => {
       it("should throw", async () => {
         try {
           // @ts-ignore
-          await SDK.estimateTransactionFees();
-          expect.fail();
-        } catch (error) {
-          expect(error).to.not.be.an.instanceOf(AssertionError);
-          expect(error).to.have.property(
-            "message",
-            "Function is not implemented yet"
-          );
-        }
-      });
-    });
-
-    describe("getDeviceInfo", () => {
-      it("should throw", async () => {
-        try {
-          // @ts-ignore
-          await SDK.getDeviceInfo();
+          await SDK.getLastConnectedDeviceInfo();
           expect.fail();
         } catch (error) {
           expect(error).to.not.be.an.instanceOf(AssertionError);
