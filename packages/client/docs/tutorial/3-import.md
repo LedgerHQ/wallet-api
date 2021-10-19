@@ -4,6 +4,8 @@
 
 If not done already, you must have Ledger Live Desktop installed on your computer. Head over to the [download page](https://www.ledger.com/ledger-live/download) to get started.
 
+You also need your Ledger Device (Nano S or X) in order to access Ledger Live. 
+
 In order to add a local manifest to Ledger Live and run a not yet available Live App, you must enable the Developer mode.
 
 To activate the Developer mode in Ledger Live, go to the **Settings** -> **About** section, and click ten times on the Ledger Live version. You will then see a new **Developer** section in the settings menu.
