@@ -67,7 +67,8 @@ export enum FeesLevel {
  */
 export interface TransactionCommon {
   /**
-   * The amount of token to send in the transaction
+   * The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude
+   * For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC
    */
   amount: BigNumber;
   /**
