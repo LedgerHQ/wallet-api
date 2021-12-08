@@ -133,7 +133,7 @@ export enum ExchangeType {
 }
 
 /**
- * A ledger live cryptocurency account
+ * A ledger live cryptocurrency account
  *
  * @remarks
  * This is a slightly modified subset of the Account type used by the Ledger Live platform.

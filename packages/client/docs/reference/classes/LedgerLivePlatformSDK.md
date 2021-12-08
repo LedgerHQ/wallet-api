@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:51](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L51)
+[LedgerLivePlatformSDK/index.ts:51](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L51)
 
 ## Properties
 
@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:44](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L44)
+[LedgerLivePlatformSDK/index.ts:44](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L44)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:49](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L49)
+[LedgerLivePlatformSDK/index.ts:49](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L49)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:39](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L39)
+[LedgerLivePlatformSDK/index.ts:39](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L39)
 
 ## Methods
 
@@ -109,7 +109,7 @@ Wrapper to api request for logging
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L60)
+[LedgerLivePlatformSDK/index.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L60)
 
 ___
 
@@ -134,7 +134,7 @@ The hash of the transaction
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:228](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L228)
+[LedgerLivePlatformSDK/index.ts:228](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L228)
 
 ___
 
@@ -169,7 +169,7 @@ If the exchange is validated, the transaction is then signed and broadcasted to 
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:161](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L161)
+[LedgerLivePlatformSDK/index.ts:161](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L161)
 
 ___
 
@@ -188,7 +188,7 @@ Establish the connection with Ledger Live through the [[transport]] instance pro
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:86](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L86)
+[LedgerLivePlatformSDK/index.ts:86](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L86)
 
 ___
 
@@ -204,7 +204,7 @@ Disconnect the SDK.
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:102](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L102)
+[LedgerLivePlatformSDK/index.ts:102](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L102)
 
 ___
 
@@ -222,7 +222,7 @@ The list of accounts added by the current user on Ledger Live
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:243](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L243)
+[LedgerLivePlatformSDK/index.ts:243](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L243)
 
 ___
 
@@ -250,7 +250,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:301](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L301)
+[LedgerLivePlatformSDK/index.ts:301](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L301)
 
 ___
 
@@ -274,7 +274,7 @@ The verified address
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:277](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L277)
+[LedgerLivePlatformSDK/index.ts:277](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L277)
 
 ___
 
@@ -300,7 +300,7 @@ The account selected by the user
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:256](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L256)
+[LedgerLivePlatformSDK/index.ts:256](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L256)
 
 ___
 
@@ -327,7 +327,7 @@ The raw signed transaction to broadcast
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:204](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L204)
+[LedgerLivePlatformSDK/index.ts:204](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L204)
 
 ___
 
@@ -353,4 +353,4 @@ Start the exchange process by generating a nonce on Ledger device
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:137](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/LedgerLivePlatformSDK/index.ts#L137)
+[LedgerLivePlatformSDK/index.ts:137](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L137)

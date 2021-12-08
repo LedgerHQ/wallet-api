@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L14)
+[transports/windowMessageTransport.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L14)
 
 ## Properties
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L12)
+[transports/windowMessageTransport.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L12)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L10)
+[transports/windowMessageTransport.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L10)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L8)
+[transports/windowMessageTransport.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L8)
 
 ## Accessors
 
@@ -94,7 +94,7 @@ A function to handle new messages comming from the Ledger Live platform
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:79](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L79)
+[transports/windowMessageTransport.ts:79](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L79)
 
 • `set` **onMessage**(`handler`): `void`
 
@@ -116,7 +116,7 @@ A function to handle new messages comming from the Ledger Live platform
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:75](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L75)
+[transports/windowMessageTransport.ts:75](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L75)
 
 ## Methods
 
@@ -136,7 +136,7 @@ A function to handle new messages comming from the Ledger Live platform
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:41](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L41)
+[transports/windowMessageTransport.ts:41](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L41)
 
 ___
 
@@ -156,7 +156,7 @@ Connect the transport instance
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L19)
+[transports/windowMessageTransport.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L19)
 
 ___
 
@@ -176,7 +176,7 @@ Disconnect the transport instance
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:30](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L30)
+[transports/windowMessageTransport.ts:30](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L30)
 
 ___
 
@@ -202,4 +202,4 @@ A function to send new messages to the Ledger Live platform
 
 #### Defined in
 
-[transports/windowMessageTransport.ts:83](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/transports/windowMessageTransport.ts#L83)
+[transports/windowMessageTransport.ts:83](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/transports/windowMessageTransport.ts#L83)

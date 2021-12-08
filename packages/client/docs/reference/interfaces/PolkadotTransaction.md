@@ -25,7 +25,8 @@
 
 • **amount**: `BigNumber`
 
-The amount of token to send in the transaction
+The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude
+For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC
 
 #### Inherited from
 
@@ -33,7 +34,7 @@ The amount of token to send in the transaction
 
 #### Defined in
 
-[types.ts:72](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L72)
+[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L73)
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/polkadot/types.ts#L23)
+[families/polkadot/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L23)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/polkadot/types.ts#L20)
+[families/polkadot/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L20)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/polkadot/types.ts#L22)
+[families/polkadot/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L22)
 
 ___
 
@@ -73,7 +74,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/polkadot/types.ts#L21)
+[families/polkadot/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L21)
 
 ___
 
@@ -89,4 +90,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:76](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L76)
+[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L77)

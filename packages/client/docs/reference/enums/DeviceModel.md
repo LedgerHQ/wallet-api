@@ -20,7 +20,7 @@ Represents the Ledger Blue hardware device
 
 #### Defined in
 
-[types.ts:100](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L100)
+[types.ts:101](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L101)
 
 ___
 
@@ -32,7 +32,7 @@ Represents the Ledger Nano S hardware device
 
 #### Defined in
 
-[types.ts:104](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L104)
+[types.ts:105](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L105)
 
 ___
 
@@ -44,4 +44,4 @@ Represents the Ledger Nano X hardware device
 
 #### Defined in
 
-[types.ts:108](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L108)
+[types.ts:109](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L109)

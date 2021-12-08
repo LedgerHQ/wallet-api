@@ -25,7 +25,8 @@
 
 • **amount**: `BigNumber`
 
-The amount of token to send in the transaction
+The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude
+For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC
 
 #### Inherited from
 
@@ -33,7 +34,7 @@ The amount of token to send in the transaction
 
 #### Defined in
 
-[types.ts:72](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L72)
+[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L73)
 
 ___
 
@@ -43,7 +44,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/stellar/types.ts#L9)
+[families/stellar/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L9)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/stellar/types.ts#L10)
+[families/stellar/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L10)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/stellar/types.ts#L11)
+[families/stellar/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L11)
 
 ___
 
@@ -73,7 +74,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/families/stellar/types.ts#L12)
+[families/stellar/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L12)
 
 ___
 
@@ -89,4 +90,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:76](https://github.com/LedgerHQ/live-app-sdk/blob/72b3e13/src/types.ts#L76)
+[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L77)
