@@ -8,15 +8,8 @@
 
 - [constructor](LedgerLivePlatformSDK.md#constructor)
 
-### Properties
-
-- [logger](LedgerLivePlatformSDK.md#logger)
-- [serverAndClient](LedgerLivePlatformSDK.md#serverandclient)
-- [transport](LedgerLivePlatformSDK.md#transport)
-
 ### Methods
 
-- [_request](LedgerLivePlatformSDK.md#_request)
 - [broadcastSignedTransaction](LedgerLivePlatformSDK.md#broadcastsignedtransaction)
 - [completeExchange](LedgerLivePlatformSDK.md#completeexchange)
 - [connect](LedgerLivePlatformSDK.md#connect)
@@ -43,75 +36,9 @@
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:51](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L51)
-
-## Properties
-
-### logger
-
-• `Private` **logger**: `default`
-
-**`internal`**
-
-#### Defined in
-
-[LedgerLivePlatformSDK/index.ts:44](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L44)
-
-___
-
-### serverAndClient
-
-• `Private` `Optional` **serverAndClient**: `JSONRPCServerAndClient`<`void`, `void`\>
-
-**`internal`**
-
-#### Defined in
-
-[LedgerLivePlatformSDK/index.ts:49](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L49)
-
-___
-
-### transport
-
-• `Private` **transport**: [`Transport`](../interfaces/Transport.md)
-
-**`internal`**
-
-#### Defined in
-
-[LedgerLivePlatformSDK/index.ts:39](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L39)
+[LedgerLivePlatformSDK/index.ts:54](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L54)
 
 ## Methods
-
-### \_request
-
-▸ `Private` **_request**<`T`\>(`method`, `params?`): `Promise`<`T`\>
-
-**`internal`**
-Wrapper to api request for logging
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `method` | `string` |
-| `params?` | `JSONRPCParams` |
-
-#### Returns
-
-`Promise`<`T`\>
-
-#### Defined in
-
-[LedgerLivePlatformSDK/index.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L60)
-
-___
 
 ### broadcastSignedTransaction
 
@@ -123,8 +50,8 @@ Broadcast a previously signed transaction through Ledger Live
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `accountId` | `string` | LL id of the account |
-| `signedTransaction` | [`RawSignedTransaction`](../modules.md#rawsignedtransaction) | A [RawSignedTransaction](../modules.md#rawsignedtransaction) returned by LL when signing with [signTransaction](Mock.md#signtransaction) |
+| `accountId` | `string` | Ledger Live id of the account |
+| `signedTransaction` | [`RawSignedTransaction`](../modules.md#rawsignedtransaction) | A [RawSignedTransaction](../modules.md#rawsignedtransaction) returned by Ledger Live when signing with [signTransaction](Mock.md#signtransaction) |
 
 #### Returns
 
@@ -134,7 +61,7 @@ The hash of the transaction
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:228](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L228)
+[LedgerLivePlatformSDK/index.ts:232](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L232)
 
 ___
 
@@ -169,7 +96,7 @@ If the exchange is validated, the transaction is then signed and broadcasted to 
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:161](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L161)
+[LedgerLivePlatformSDK/index.ts:165](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L165)
 
 ___
 
@@ -188,7 +115,7 @@ Establish the connection with Ledger Live through the [[transport]] instance pro
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:86](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L86)
+[LedgerLivePlatformSDK/index.ts:90](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L90)
 
 ___
 
@@ -204,7 +131,7 @@ Disconnect the SDK.
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:102](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L102)
+[LedgerLivePlatformSDK/index.ts:106](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L106)
 
 ___
 
@@ -222,7 +149,7 @@ The list of accounts added by the current user on Ledger Live
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:243](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L243)
+[LedgerLivePlatformSDK/index.ts:247](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L247)
 
 ___
 
@@ -250,7 +177,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:301](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L301)
+[LedgerLivePlatformSDK/index.ts:305](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L305)
 
 ___
 
@@ -274,7 +201,7 @@ The verified address
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:277](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L277)
+[LedgerLivePlatformSDK/index.ts:281](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L281)
 
 ___
 
@@ -300,7 +227,7 @@ The account selected by the user
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:256](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L256)
+[LedgerLivePlatformSDK/index.ts:260](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L260)
 
 ___
 
@@ -308,13 +235,13 @@ ___
 
 ▸ **signTransaction**(`accountId`, `transaction`, `params?`): `Promise`<[`RawSignedTransaction`](../modules.md#rawsignedtransaction)\>
 
-Let user sign a transaction through Ledger Live
+Let the user sign a transaction through Ledger Live
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `accountId` | `string` | LL id of the account |
+| `accountId` | `string` | Ledger Live id of the account |
 | `transaction` | [`Transaction`](../modules.md#transaction) | The transaction object in the currency family-specific format |
 | `params?` | `Object` | Parameters for the sign modal |
 | `params.useApp` | `string` | The name of the Ledger Nano app to use for the signing process |
@@ -327,7 +254,7 @@ The raw signed transaction to broadcast
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:204](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L204)
+[LedgerLivePlatformSDK/index.ts:208](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L208)
 
 ___
 
@@ -353,4 +280,4 @@ Start the exchange process by generating a nonce on Ledger device
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:137](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/LedgerLivePlatformSDK/index.ts#L137)
+[LedgerLivePlatformSDK/index.ts:141](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/LedgerLivePlatformSDK/index.ts#L141)

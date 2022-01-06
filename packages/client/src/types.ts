@@ -11,14 +11,14 @@ import type { TezosTransaction } from "./families/tezos/types";
 import type { TronTransaction } from "./families/tron/types";
 
 /**
- * A [[Transport]] message handled function type
+ * Simple contract for handling a Message received through a [[Transport]] protocol
  *
  * @alpha
  */
 export type MessageHandler = (payload: unknown) => Promise<void>;
 
 /**
- * A transport protocole used to communicate with the Ledger Live platform
+ * A transport protocol used to communicate with the Ledger Live platform
  *
  * @alpha
  */
@@ -32,7 +32,7 @@ export interface Transport {
    */
   disconnect(): void;
   /**
-   * A function to handle new messages comming from the Ledger Live platform
+   * A function to handle new messages coming from the Ledger Live platform
    */
   onMessage: MessageHandler | undefined;
   /**
@@ -40,11 +40,10 @@ export interface Transport {
    */
   send(payload: unknown): Promise<void>;
 }
-
 /**
  * Metadata used to describe a secure exchange between a Ledger device
- * and a partner (for sell, swap and funding), the information is a
- * hex string of a protobuf containing all the data from the exchange
+ * and a partner (for sell, swap and funding). This information is displayed
+ * as a hex string of the protobuf containing all the data from the exchange
  * @ref: https://github.com/LedgerHQ/app-exchange/blob/master/src/proto/protocol.proto
  */
 export type ExchangePayload = string;
@@ -78,9 +77,9 @@ export interface TransactionCommon {
 }
 
 /**
- * Description of an unsigned transaction. This type is used to build transaction
- * and then sign them by a Ledger device and finally broadcast them to the network
- * upon user validation.
+ * Description of an unsigned transaction. This type is used to build
+ * transactions and then sign them with a Ledger device and finally broadcast
+ * them to the network upon user validation.
  */
 export type Transaction =
   | EthereumTransaction
@@ -146,11 +145,11 @@ export type Account = {
    */
   id: string;
   /**
-   * The name of the account that the user has set
+   * The account’s name set by the user.
    */
   name: string;
   /**
-   * The "next" public address where a user should receive funds. In the context of Bitcoin, the address will be "renewed" each time funds were received in order to allow some privacy. In other blockchains, it might never change
+   * The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change
    */
   address: string;
   /**
@@ -158,11 +157,11 @@ export type Account = {
    */
   currency: string;
   /**
-   * Represent the total amount of assets that this account holds
+   * The total amount of assets that this account holds
    */
   balance: BigNumber;
   /**
-   * Represents the subset of balance that can be spent. Most of the time it will be equal to balance but this can vary in some blockchains
+   * The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains
    */
   spendableBalance: BigNumber;
   /**
@@ -170,7 +169,7 @@ export type Account = {
    */
   blockHeight: number;
   /**
-   * The date of the last time a synchronisation was performed, in other words tracks how up to date the Account data is
+   * The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
    */
   lastSyncDate: Date;
 };
@@ -195,7 +194,7 @@ export type ApplicationDetails = {
  * @remarks
  * This is a slightly modified subset of the Unit type used by the Ledger Live platform.
  *
- * @see {@link https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/currency.md#unit|Unit reference} in Ledger Live Common doc for more infos
+ * @see {@link https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/currency.md#unit|Unit reference} in Ledger Live Common doc for more informations
  */
 export type Unit = {
   /**
@@ -217,32 +216,32 @@ export type Unit = {
  */
 export type Currency = {
   /**
-   * represents the currency type. For now only "CryptoCurrency" is handled
+   * Represents the currency type. For now only "CryptoCurrency" is handled
    * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
    */
   type: string;
   /**
-   * used for UI
+   * Used for UI
    */
   color: string;
   /**
-   * the ticker name in exchanges / countervalue apis (e.g. BTC).
+   * The ticker name in exchanges / countervalue apis (e.g. BTC).
    */
   ticker: string;
   /**
-   * unique internal id of the cryptocurrency
+   * The unique internal id of the cryptocurrency
    */
   id: string;
   /**
-   * display name of the currency
+   * The display name of the cryptocurrency
    */
   name: string;
   /**
-   * the [[FAMILIES | family]] of the currency
+   * The [[FAMILIES | family]] of the cryptocurrency
    */
   family: string;
   /**
-   * array of available [[Unit | units]] for the cryptocurrency
+   * The array of available [[Unit | units]] for the cryptocurrency
    */
   units: Unit[];
 };

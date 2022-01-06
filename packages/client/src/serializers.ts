@@ -45,7 +45,8 @@ import type { RawAccount, RawTransaction } from "./rawTypes";
 import type { Account, Transaction } from "./types";
 
 /**
- * Serialize an [[Account]] object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+ * Serialize an [[Account]] object in order to send it over JSON-RPC protocol
+ * to the Ledger Live platform
  * @param account - The account object to serialize
  *
  * @returns The raw representation of the provided account object
@@ -74,7 +75,8 @@ export function serializeAccount({
 }
 
 /**
- * Deserialize a [[RawAccount]] object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+ * Deserialize a [[RawAccount]] object after it has been received over JSON-RPC
+ * protocol from the Ledger Live platform
  * @param rawAccount - The raw account representation to deserialize
  *
  * @returns The object account of the provided raw account representation
@@ -102,7 +104,8 @@ export function deserializeAccount({
 }
 
 /**
- * Serialize an [[Transaction]] object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+ * Serialize an [[Transaction]] object in order to send it over JSON-RPC
+ * protocol to the Ledger Live platform
  * @param transaction - The transaction object to serialize
  *
  * @returns The raw representation of the provided transaction object
@@ -135,7 +138,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
 }
 
 /**
- * Deserialize a [[RawTransaction]] object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+ * Deserialize a [[RawTransaction]] object after it has been received over
+ * JSON-RPC protocol from the Ledger Live platform
  * @param rawTransaction - The raw transaction representation to deserialize
  *
  * @returns The object transaction of the provided raw transaction representation

@@ -89,18 +89,18 @@ This is a slightly modified subset of the Account type used by the Ledger Live p
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `address` | `string` | The "next" public address where a user should receive funds. In the context of Bitcoin, the address will be "renewed" each time funds were received in order to allow some privacy. In other blockchains, it might never change |
-| `balance` | `BigNumber` | Represent the total amount of assets that this account holds |
+| `address` | `string` | The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change |
+| `balance` | `BigNumber` | The total amount of assets that this account holds |
 | `blockHeight` | `number` | Tracks the current blockchain block height |
 | `currency` | `string` | The associated cryptocurrency id of the Account |
 | `id` | `string` | The unique identifier of this account used internally by Ledger Live software |
-| `lastSyncDate` | `Date` | The date of the last time a synchronisation was performed, in other words tracks how up to date the Account data is |
-| `name` | `string` | The name of the account that the user has set |
-| `spendableBalance` | `BigNumber` | Represents the subset of balance that can be spent. Most of the time it will be equal to balance but this can vary in some blockchains |
+| `lastSyncDate` | `Date` | The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is |
+| `name` | `string` | The account’s name set by the user. |
+| `spendableBalance` | `BigNumber` | The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains |
 
 #### Defined in
 
-[types.ts:143](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L143)
+[types.ts:142](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L142)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/algorand/types.ts#L8)
+[families/algorand/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/algorand/types.ts#L8)
 
 ___
 
@@ -129,7 +129,7 @@ Informations about a device application
 
 #### Defined in
 
-[types.ts:181](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L181)
+[types.ts:180](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L180)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/cosmos/types.ts#L8)
+[families/cosmos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/cosmos/types.ts#L8)
 
 ___
 
@@ -153,17 +153,17 @@ A cryptocurrency model
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `color` | `string` | used for UI |
-| `family` | `string` | the [family](enums/FAMILIES.md) of the currency |
-| `id` | `string` | unique internal id of the cryptocurrency |
-| `name` | `string` | display name of the currency |
-| `ticker` | `string` | the ticker name in exchanges / countervalue apis (e.g. BTC). |
-| `type` | `string` | represents the currency type. For now only "CryptoCurrency" is handled  **`see`** [cryptoassets types](https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts) in ledgerjs for more infos |
-| `units` | [`Unit`](modules.md#unit)[] | array of available [units](modules.md#unit) for the cryptocurrency |
+| `color` | `string` | Used for UI |
+| `family` | `string` | The [family](enums/FAMILIES.md) of the cryptocurrency |
+| `id` | `string` | The unique internal id of the cryptocurrency |
+| `name` | `string` | The display name of the cryptocurrency |
+| `ticker` | `string` | The ticker name in exchanges / countervalue apis (e.g. BTC). |
+| `type` | `string` | Represents the currency type. For now only "CryptoCurrency" is handled  **`see`** [cryptoassets types](https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts) in ledgerjs for more infos |
+| `units` | [`Unit`](modules.md#unit)[] | The array of available [units](modules.md#unit) for the cryptocurrency |
 
 #### Defined in
 
-[types.ts:218](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L218)
+[types.ts:217](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L217)
 
 ___
 
@@ -182,7 +182,7 @@ Information about a device
 
 #### Defined in
 
-[types.ts:115](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L115)
+[types.ts:114](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L114)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[types.ts:54](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L54)
+[types.ts:53](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L53)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[types.ts:52](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L52)
+[types.ts:51](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L51)
 
 ___
 
@@ -211,14 +211,14 @@ ___
 Ƭ **ExchangePayload**: `string`
 
 Metadata used to describe a secure exchange between a Ledger device
-and a partner (for sell, swap and funding), the information is a
-hex string of a protobuf containing all the data from the exchange
+and a partner (for sell, swap and funding). This information is displayed
+as a hex string of the protobuf containing all the data from the exchange
 
 **`ref:`** https://github.com/LedgerHQ/app-exchange/blob/master/src/proto/protocol.proto
 
 #### Defined in
 
-[types.ts:50](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L50)
+[types.ts:49](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L49)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 ▸ (`payload`): `Promise`<`void`\>
 
-A [Transport](interfaces/Transport.md) message handled function type
+Simple contract for handling a Message received through a [Transport](interfaces/Transport.md) protocol
 
 ##### Parameters
 
@@ -244,7 +244,7 @@ A [Transport](interfaces/Transport.md) message handled function type
 
 #### Defined in
 
-[types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L18)
+[types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L18)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L8)
+[families/polkadot/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/polkadot/types.ts#L8)
 
 ___
 
@@ -281,7 +281,7 @@ The raw representation of the [Account](modules.md#account) type
 
 #### Defined in
 
-[rawTypes.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/rawTypes.ts#L17)
+[rawTypes.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L17)
 
 ___
 
@@ -305,7 +305,7 @@ This type is returned by Ledger Live when signing with [signTransaction](classes
 
 #### Defined in
 
-[rawTypes.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/rawTypes.ts#L60)
+[rawTypes.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L60)
 
 ___
 
@@ -313,11 +313,11 @@ ___
 
 Ƭ **RawTransaction**: [`RawEthereumTransaction`](interfaces/RawEthereumTransaction.md) \| [`RawBitcoinTransaction`](interfaces/RawBitcoinTransaction.md) \| [`RawAlgorandTransaction`](interfaces/RawAlgorandTransaction.md) \| [`RawCryptoOrgTransaction`](interfaces/RawCryptoOrgTransaction.md) \| [`RawRippleTransaction`](interfaces/RawRippleTransaction.md) \| [`RawCosmosTransaction`](interfaces/RawCosmosTransaction.md) \| [`RawTezosTransaction`](interfaces/RawTezosTransaction.md) \| [`RawPolkadotTransaction`](interfaces/RawPolkadotTransaction.md) \| [`RawStellarTransaction`](interfaces/RawStellarTransaction.md) \| [`RawTronTransaction`](interfaces/RawTronTransaction.md)
 
-The raw representation of the generic [Transaction](modules.md#transaction) type combining each individual cryptocurrency transaction raw representation type
+The raw representation of the generic [Transaction](modules.md#transaction) type.
 
 #### Defined in
 
-[rawTypes.ts:42](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/rawTypes.ts#L42)
+[rawTypes.ts:42](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L42)
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/tezos/types.ts#L8)
+[families/tezos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tezos/types.ts#L8)
 
 ___
 
@@ -335,13 +335,13 @@ ___
 
 Ƭ **Transaction**: [`EthereumTransaction`](interfaces/EthereumTransaction.md) \| [`BitcoinTransaction`](interfaces/BitcoinTransaction.md) \| [`AlgorandTransaction`](interfaces/AlgorandTransaction.md) \| [`CryptoOrgTransaction`](interfaces/CryptoOrgTransaction.md) \| [`RippleTransaction`](interfaces/RippleTransaction.md) \| [`CosmosTransaction`](interfaces/CosmosTransaction.md) \| [`TezosTransaction`](interfaces/TezosTransaction.md) \| [`PolkadotTransaction`](interfaces/PolkadotTransaction.md) \| [`StellarTransaction`](interfaces/StellarTransaction.md) \| [`TronTransaction`](interfaces/TronTransaction.md)
 
-Description of an unsigned transaction. This type is used to build transaction
-and then sign them by a Ledger device and finally broadcast them to the network
-upon user validation.
+Description of an unsigned transaction. This type is used to build
+transactions and then sign them with a Ledger device and finally broadcast
+them to the network upon user validation.
 
 #### Defined in
 
-[types.ts:85](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L85)
+[types.ts:84](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L84)
 
 ___
 
@@ -351,7 +351,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/tron/types.ts#L6)
+[families/tron/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L6)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/tron/types.ts#L13)
+[families/tron/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L13)
 
 ___
 
@@ -374,7 +374,7 @@ A unit describes a given representation of a currency for humans. A currency can
 **`remarks`**
 This is a slightly modified subset of the Unit type used by the Ledger Live platform.
 
-**`see`** [Unit reference](https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/currency.md#unit) in Ledger Live Common doc for more infos
+**`see`** [Unit reference](https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/currency.md#unit) in Ledger Live Common doc for more informations
 
 #### Type declaration
 
@@ -386,7 +386,7 @@ This is a slightly modified subset of the Unit type used by the Ledger Live plat
 
 #### Defined in
 
-[types.ts:200](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L200)
+[types.ts:199](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L199)
 
 ## Functions
 
@@ -394,7 +394,8 @@ This is a slightly modified subset of the Unit type used by the Ledger Live plat
 
 ▸ **deserializeAccount**(`rawAccount`): [`Account`](modules.md#account)
 
-Deserialize a [RawAccount](modules.md#rawaccount) object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+Deserialize a [RawAccount](modules.md#rawaccount) object after it has been received over JSON-RPC
+protocol from the Ledger Live platform
 
 #### Parameters
 
@@ -410,7 +411,7 @@ The object account of the provided raw account representation
 
 #### Defined in
 
-[serializers.ts:82](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/serializers.ts#L82)
+[serializers.ts:84](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/serializers.ts#L84)
 
 ___
 
@@ -418,7 +419,8 @@ ___
 
 ▸ **deserializeTransaction**(`rawTransaction`): [`Transaction`](modules.md#transaction)
 
-Deserialize a [RawTransaction](modules.md#rawtransaction) object after is has been received over JSON-RPC protocol from the Ledger Live platfrom
+Deserialize a [RawTransaction](modules.md#rawtransaction) object after it has been received over
+JSON-RPC protocol from the Ledger Live platform
 
 #### Parameters
 
@@ -434,7 +436,7 @@ The object transaction of the provided raw transaction representation
 
 #### Defined in
 
-[serializers.ts:143](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/serializers.ts#L143)
+[serializers.ts:147](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/serializers.ts#L147)
 
 ___
 
@@ -442,7 +444,8 @@ ___
 
 ▸ **serializeAccount**(`account`): [`RawAccount`](modules.md#rawaccount)
 
-Serialize an [Account](modules.md#account) object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+Serialize an [Account](modules.md#account) object in order to send it over JSON-RPC protocol
+to the Ledger Live platform
 
 #### Parameters
 
@@ -458,7 +461,7 @@ The raw representation of the provided account object
 
 #### Defined in
 
-[serializers.ts:54](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/serializers.ts#L54)
+[serializers.ts:55](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/serializers.ts#L55)
 
 ___
 
@@ -466,7 +469,8 @@ ___
 
 ▸ **serializeTransaction**(`transaction`): [`RawTransaction`](modules.md#rawtransaction)
 
-Serialize an [Transaction](modules.md#transaction) object in order to send it over JSON-RPC protocol to the Ledger Live platfrom
+Serialize an [Transaction](modules.md#transaction) object in order to send it over JSON-RPC
+protocol to the Ledger Live platform
 
 #### Parameters
 
@@ -482,4 +486,4 @@ The raw representation of the provided transaction object
 
 #### Defined in
 
-[serializers.ts:110](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/serializers.ts#L110)
+[serializers.ts:113](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/serializers.ts#L113)

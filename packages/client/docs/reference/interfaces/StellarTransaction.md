@@ -34,7 +34,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L73)
+[types.ts:72](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L72)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L9)
+[families/stellar/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/stellar/types.ts#L9)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L10)
+[families/stellar/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/stellar/types.ts#L10)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L11)
+[families/stellar/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/stellar/types.ts#L11)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[families/stellar/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/stellar/types.ts#L12)
+[families/stellar/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/stellar/types.ts#L12)
 
 ___
 
@@ -90,4 +90,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L77)
+[types.ts:76](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L76)

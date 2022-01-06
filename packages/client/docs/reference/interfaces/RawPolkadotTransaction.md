@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L35)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:30](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L30)
+[families/polkadot/types.ts:30](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/polkadot/types.ts#L30)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:27](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L27)
+[families/polkadot/types.ts:27](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/polkadot/types.ts#L27)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L29)
+[families/polkadot/types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/polkadot/types.ts#L29)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:28](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/polkadot/types.ts#L28)
+[families/polkadot/types.ts:28](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/polkadot/types.ts#L28)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L36)

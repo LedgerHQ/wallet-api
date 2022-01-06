@@ -20,7 +20,7 @@ Abstract level of fees for a transaction
 
 #### Defined in
 
-[types.ts:62](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L62)
+[types.ts:61](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L61)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[types.ts:61](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L61)
+[types.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L60)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[types.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L60)
+[types.ts:59](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L59)

@@ -33,7 +33,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L73)
+[types.ts:72](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L72)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/ripple/types.ts#L9)
+[families/ripple/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ripple/types.ts#L9)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/ripple/types.ts#L10)
+[families/ripple/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ripple/types.ts#L10)
 
 ___
 
@@ -69,7 +69,7 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/types.ts#L77)
+[types.ts:76](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/types.ts#L76)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/dc89379/src/families/ripple/types.ts#L11)
+[families/ripple/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ripple/types.ts#L11)

@@ -34,16 +34,19 @@ const defaultLogger = new Logger("LL-PlatformSDK");
 
 export default class LedgerLivePlatformSDK {
   /**
+   * @ignore
    * @internal
    */
   private transport: Transport;
 
   /**
+   * @ignore
    * @internal
    */
   private logger: Logger;
 
   /**
+   * @ignore
    * @internal
    */
   private serverAndClient?: JSONRPCServerAndClient;
@@ -54,6 +57,7 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
+   * @ignore
    * @internal
    * Wrapper to api request for logging
    */
@@ -194,8 +198,8 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Let user sign a transaction through Ledger Live
-   * @param accountId - LL id of the account
+   * Let the user sign a transaction through Ledger Live
+   * @param accountId - Ledger Live id of the account
    * @param transaction - The transaction object in the currency family-specific format
    * @param params - Parameters for the sign modal
    *
@@ -220,8 +224,8 @@ export default class LedgerLivePlatformSDK {
 
   /**
    * Broadcast a previously signed transaction through Ledger Live
-   * @param accountId - LL id of the account
-   * @param signedTransaction - A [[RawSignedTransaction]] returned by LL when signing with [[signTransaction]]
+   * @param accountId - Ledger Live id of the account
+   * @param signedTransaction - A [[RawSignedTransaction]] returned by Ledger Live when signing with [[signTransaction]]
    *
    * @returns The hash of the transaction
    */

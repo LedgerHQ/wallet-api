@@ -37,7 +37,7 @@ export interface RawTransactionCommon {
 }
 
 /**
- * The raw representation of the generic [[Transaction]] type combining each individual cryptocurrency transaction raw representation type
+ * The raw representation of the generic [[Transaction]] type.
  */
 export type RawTransaction =
   | RawEthereumTransaction
