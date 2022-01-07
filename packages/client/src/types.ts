@@ -219,12 +219,7 @@ export type Unit = {
 /**
  * A cryptocurrency model
  */
-export type Currency = {
-  /**
-   * Represents the currency type. For now only "CryptoCurrency" is handled
-   * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
-   */
-  type: string;
+export type BaseCurrency = {
   /**
    * Used for UI
    */
@@ -242,11 +237,41 @@ export type Currency = {
    */
   name: string;
   /**
-   * The [[FAMILIES | family]] of the cryptocurrency
-   */
-  family: string;
-  /**
-   * The array of available [[Unit | units]] for the cryptocurrency
+   * array of available [[Unit | units]] for the cryptocurrency
    */
   units: Unit[];
 };
+
+export type CryptoCurrency = BaseCurrency & {
+  /**
+   * represents the currency type.
+   * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
+   */
+  type: "CryptoCurrency";
+  /**
+   * the [[FAMILIES | family]] of the crypto currency
+   */
+  family: string;
+};
+
+export type ERC20TokenCurrency = BaseCurrency & {
+  /**
+   * represents the currency type.
+   * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
+   */
+  type: "TokenCurrency";
+  /**
+   * EVM contract address
+   */
+  contract: string;
+  /**
+   * EVM chain
+   */
+  chain: string;
+  /**
+   * Token standard
+   */
+  standard: "ERC20";
+};
+
+export type Currency = CryptoCurrency | ERC20TokenCurrency;

@@ -9,7 +9,7 @@ import { RawSignedTransaction } from "../rawTypes";
 const { rawAccounts, rawCurrencies } = data;
 
 const accounts: Account[] = rawAccounts.map(deserializeAccount);
-const currencies: Currency[] = rawCurrencies;
+const currencies: Currency[] = rawCurrencies as Currency[];
 
 /**
  * @see https://www.michaelbromley.co.uk/blog/mocking-classes-with-typescript/
