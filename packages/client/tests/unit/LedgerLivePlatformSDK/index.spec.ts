@@ -474,8 +474,8 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
           fromAccountId: "FROM_ACCOUNT_ID",
           toAccountId: recipientAccountId,
           transaction: tx,
-          binaryPayload: "payload",
-          signature: "signature",
+          binaryPayload: Buffer.from("payload", "utf-8"),
+          signature: Buffer.from("signature", "utf-8"),
           feesStrategy: FeesLevel.Fast,
           exchangeType,
         };
@@ -510,7 +510,12 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
 
         expect(spy).to.be.have.been.called.with(
           `{"jsonrpc":"2.0","method":"exchange.complete","params":${JSON.stringify(
-            completeExchangeParams
+            {
+              ...completeExchangeParams,
+              binaryPayload:
+                completeExchangeParams.binaryPayload.toString("hex"),
+              signature: completeExchangeParams.signature.toString("hex"),
+            }
           )},"id":1}`
         );
       });
@@ -532,8 +537,8 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
           provider: "PROVIDER",
           fromAccountId: "FROM_ACCOUNT_ID",
           transaction: tx,
-          binaryPayload: "payload",
-          signature: "signature",
+          binaryPayload: Buffer.from("payload", "utf-8"),
+          signature: Buffer.from("signature", "utf-8"),
           feesStrategy: FeesLevel.Fast,
           exchangeType,
         };
