@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/live-app-sdk",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "repository": "git@github.com:LedgerHQ/ledger-live-platform-sdk.git",
   "license": "Apache-2.0",
   "main": "dist/index.js",
