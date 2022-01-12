@@ -311,6 +311,10 @@ export default class LedgerLivePlatformSDK {
      * ticker of the currency
      */
     ticker?: string;
+    /**
+     * type of the currency
+     */
+    type?: string;
   }): Promise<Currency[]> {
     return this._request("currency.list", params || {});
   }
