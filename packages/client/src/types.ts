@@ -42,15 +42,20 @@ export interface Transport {
 }
 /**
  * Metadata used to describe a secure exchange between a Ledger device
- * and a partner (for sell, swap and funding). This information is displayed
- * as a hex string of the protobuf containing all the data from the exchange
+ * and a partner (for sell, swap and funding)
  * @ref: https://github.com/LedgerHQ/app-exchange/blob/master/src/proto/protocol.proto
  */
-export type ExchangePayload = string;
+export type ExchangePayload = Buffer;
 
+/**
+ * The ECDSA signature of the [[ExchangePayload | payload]]
+ */
+export type EcdsaSignature = Buffer;
+
+/**
+ * A transaction ID used to complete the exchange process
+ */
 export type ExchangeDeviceTxId = string;
-
-export type EcdsaSignature = string;
 
 /**
  * Abstract level of fees for a transaction

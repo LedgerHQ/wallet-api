@@ -189,9 +189,9 @@ export default class LedgerLivePlatformSDK {
       provider,
       fromAccountId,
       toAccountId,
-      transaction,
-      binaryPayload,
-      signature,
+      transaction: serializeTransaction(transaction),
+      binaryPayload: binaryPayload.toString("hex"),
+      signature: signature.toString("hex"),
       feesStrategy,
       exchangeType,
     });
