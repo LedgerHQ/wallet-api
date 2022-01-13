@@ -27,7 +27,7 @@ Supported coin families
 
 #### Defined in
 
-[families/types.ts:7](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L7)
+[families/types.ts:7](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L7)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:5](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L5)
+[families/types.ts:5](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L5)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L10)
+[families/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L10)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L8)
+[families/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L8)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L6)
+[families/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L6)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L12)
+[families/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L12)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L9)
+[families/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L9)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L13)
+[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L13)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L11)
+[families/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L11)
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 #### Defined in
 
-[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/types.ts#L14)
+[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L14)

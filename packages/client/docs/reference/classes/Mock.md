@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[mock/index.ts:34](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L34)
+[mock/index.ts:34](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L34)
 
 ## Methods
 
@@ -67,7 +67,7 @@ MockOf.broadcastSignedTransaction
 
 #### Defined in
 
-[mock/index.ts:108](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L108)
+[mock/index.ts:108](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L108)
 
 ___
 
@@ -85,7 +85,7 @@ MockOf.connect
 
 #### Defined in
 
-[mock/index.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L36)
+[mock/index.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L36)
 
 ___
 
@@ -103,7 +103,7 @@ MockOf.disconnect
 
 #### Defined in
 
-[mock/index.ts:40](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L40)
+[mock/index.ts:40](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L40)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[mock/index.ts:65](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L65)
+[mock/index.ts:65](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L65)
 
 ___
 
@@ -141,7 +141,7 @@ MockOf.listAccounts
 
 #### Defined in
 
-[mock/index.ts:58](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L58)
+[mock/index.ts:58](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L58)
 
 ___
 
@@ -159,7 +159,7 @@ MockOf.listCurrencies
 
 #### Defined in
 
-[mock/index.ts:50](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L50)
+[mock/index.ts:50](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L50)
 
 ___
 
@@ -183,7 +183,7 @@ MockOf.receive
 
 #### Defined in
 
-[mock/index.ts:79](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L79)
+[mock/index.ts:79](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L79)
 
 ___
 
@@ -203,7 +203,7 @@ MockOf.requestAccount
 
 #### Defined in
 
-[mock/index.ts:46](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L46)
+[mock/index.ts:46](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L46)
 
 ___
 
@@ -228,4 +228,4 @@ MockOf.signTransaction
 
 #### Defined in
 
-[mock/index.ts:94](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/mock/index.ts#L94)
+[mock/index.ts:94](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/mock/index.ts#L94)

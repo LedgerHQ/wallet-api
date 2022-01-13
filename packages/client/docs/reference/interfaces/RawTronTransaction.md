@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L35)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:26](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L26)
+[families/tron/types.ts:26](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tron/types.ts#L26)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L23)
+[families/tron/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tron/types.ts#L23)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:24](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L24)
+[families/tron/types.ts:24](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tron/types.ts#L24)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L36)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:25](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tron/types.ts#L25)
+[families/tron/types.ts:25](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tron/types.ts#L25)

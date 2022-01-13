@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L35)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ethereum/types.ts#L19)
+[families/ethereum/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L19)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ethereum/types.ts#L17)
+[families/ethereum/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L17)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ethereum/types.ts#L21)
+[families/ethereum/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L21)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ethereum/types.ts#L20)
+[families/ethereum/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L20)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/ethereum/types.ts#L18)
+[families/ethereum/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L18)
 
 ___
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L36)

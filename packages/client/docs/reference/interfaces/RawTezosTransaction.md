@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L35)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tezos/types.ts#L18)
+[families/tezos/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tezos/types.ts#L18)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tezos/types.ts#L20)
+[families/tezos/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tezos/types.ts#L20)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tezos/types.ts#L21)
+[families/tezos/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tezos/types.ts#L21)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/families/tezos/types.ts#L19)
+[families/tezos/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/tezos/types.ts#L19)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/4366fd9/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L36)
