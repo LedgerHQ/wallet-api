@@ -335,10 +335,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
   integrity sha512-YSBPTLTVm2e2OoQIDYx8HaeWJ5tTToLH67kXR7zYNGupXMEHa2++G8k+DczX2cFVgalypqtyZIcU19AFcmOpmg==
 
-"@types/mocha@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-9.0.0.tgz#3205bcd15ada9bc681ac20bef64e9e6df88fd297"
-  integrity sha512-scN0hAWyLVAvLR9AyW7HoFF5sJZglyBsbPuHO4fv7JRvfmPBMfp1ozWqOf/e4wwPNxezBZXRfWzMb6iFLgEVRA==
+"@types/mocha@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-9.1.0.tgz#baf17ab2cca3fcce2d322ebc30454bff487efad5"
+  integrity sha512-QCWHkbMv4Y5U9oW10Uxbr45qMMSzl4OzijsozynUAgx3kEHUdXB00udx2dWDQ7f2TU2a2uuiFaRZjCe3unPpeg==
 
 "@types/node@^17.0.12":
   version "17.0.12"
