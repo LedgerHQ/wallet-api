@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bignumber.js": "^9.0.2",
-    "json-rpc-2.0": "^0.2.16"
+    "json-rpc-2.0": "^1.0.0"
   },
   "devDependencies": {
     "@types/bignumber.js": "^5.0.0",
