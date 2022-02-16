@@ -1,23 +1,41 @@
-# Ledger Live Platform SDK
 
-**[We are hiring, join us! 👨‍💻👩‍💻](https://jobs.lever.co/ledger/?department=Engineering)**
+   
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
+ <h2 align="center">Live App SDK</h2>
+ <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
+</p>
+  <p align="center">
+    <a href="https://opensource.org/licenses/Apache-2.0">
+      <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
+    </a>
+    <a href="https://github.com/LedgerHQ/live-app-sdk/actions">
+      <img alt="Tests Passing" src="https://github.com/LedgerHQ/live-app-sdk/workflows/CI/badge.svg" />
+    </a>
+    <a href="https://codecov.io/gh/LedgerHQ/live-app-sdk">
+      <img src="https://codecov.io/gh/LedgerHQ/live-app-sdk/branch/main/graph/badge.svg" />
+    </a>
+    <a href="https://github.com/LedgerHQ/live-app-sdk/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/LedgerHQ/live-app-sdk?color=0088ff" />
+    </a>
+    <a href="https://github.com/LedgerHQ/live-app-sdk/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/LedgerHQ/live-app-sdk?color=0088ff" />
+    </a>
+  </p>
 
-<img src="https://user-images.githubusercontent.com/211411/34776833-6f1ef4da-f618-11e7-8b13-f0697901d6a8.png" height="80" />
+  <p align="center">
+    <a href="https://developers.ledger.com/docs/live-app/start-here/">Full documentation</a>
+    ·
+    <a href="https://github.com/LedgerHQ/live-app-sdk/issues/new/choose">Report Bug</a>
+    ·
+    <a href="https://github.com/LedgerHQ/live-app-sdk/issues/new/choose">Request Feature</a>
+  </p>
+</p>
 
-[![Ledger Devs Slack](https://img.shields.io/badge/Slack-LedgerDevs-yellow.svg?style=flat)](https://ledger-dev.slack.com/)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![codecov](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk/branch/main/graph/badge.svg?token=G9IMCB6mL3)](https://codecov.io/gh/LedgerHQ/ledger-live-platform-sdk)
 
-Welcome to Ledger Live Platform SDK.
 
-**See also:**
 
-- [Ledger Developer Portal](https://developers.ledger.com/)
-- [Ledger Live Desktop](https://github.com/ledgerhq/ledger-live-desktop)
-- [Ledger Live Mobile](https://github.com/ledgerhq/ledger-live-mobile)
-- [live-common](https://github.com/ledgerhq/ledger-live-common)
-
-## Contributing
+# Contributing
 
 Please read our [contribution guidelines](./CONTRIBUTING.md) before getting
 started.
@@ -67,7 +85,7 @@ Automatically fix code quality problems with
 yarn lint:fix
 ```
 
-## Documentation
+# Documentation
 
 You can generate the project's documentation, either in `html` or in `markdown`.
 
@@ -85,7 +103,7 @@ yarn doc:html
 
 The documentation will be generated in a `docs/markdown` or `docs/html` folder depending on the chosen format.
 
-## Publish
+# Publish
 
 This generated package is hosted on NPM [here](https://www.npmjs.com/package/@ledgerhq/live-app-sdk).
 
@@ -97,3 +115,13 @@ In order to publish a new version of this package, please refer to the following
 - run `yarn publish` (cf. [doc](https://classic.yarnpkg.com/en/docs/cli/publish/)) on the commit / branch you want to publish (usually the `main` branch) (you will have to specify the new package version, following [semver](https://semver.org/) standard)
 - this will update the version in `package.json`, create a new bump commit, a new tag with the latests version and publish the updated package to npm
 - don't forget to push this newly generated commit as well as the tag (you must have the necessary rights to push to `main`)
+
+---
+
+[We are hiring, join us! 🚀](https://www.ledger.com/join-us)
+
+
+### See also:
+
+- [Ledger Live Desktop](https://github.com/ledgerhq/ledger-live-desktop)
+- [Ledger Live Mobile](https://github.com/ledgerhq/ledger-live-mobile)
