@@ -6,6 +6,9 @@
  <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
   <p align="center">
+    <a href="https://www.npmjs.com/package/@ledgerhq/live-app-sdk?activeTab=versions">
+      <img src="https://img.shields.io/npm/v/@ledgerhq/live-app-sdk.svg?style=flat-square" />
+    </a>
     <a href="https://opensource.org/licenses/Apache-2.0">
       <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
     </a>
