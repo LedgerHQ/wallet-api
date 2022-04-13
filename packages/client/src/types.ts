@@ -254,20 +254,27 @@ export type CryptoCurrency = BaseCurrency & {
   family: string;
 };
 
-export type ERC20TokenCurrency = BaseCurrency & {
+export type TokenCurrency = BaseCurrency & {
   /**
    * represents the currency type.
    * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
    */
-  type: "ERC20TokenCurrency";
+  type: "TokenCurrency";
+  /**
+   * Parent crypto currency
+   */
+  parent: string;
+};
+
+export type ERC20TokenCurrency = TokenCurrency & {
+  /**
+   * Token Standard
+   */
+  standard: "ERC20";
   /**
    * EVM contract address
    */
   contract: string;
-  /**
-   * EVM chain
-   */
-  chain: string;
 };
 
 export type Currency = CryptoCurrency | ERC20TokenCurrency;
