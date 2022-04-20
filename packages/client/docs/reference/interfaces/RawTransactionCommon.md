@@ -46,7 +46,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/rawTypes.ts#L35)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:34](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L34)
+[rawTypes.ts:34](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/rawTypes.ts#L34)
 
 ___
 
@@ -66,4 +66,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/rawTypes.ts#L36)

@@ -20,7 +20,7 @@ Enum describing the different types of exchanges.
 
 #### Defined in
 
-[types.ts:136](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L136)
+[types.ts:136](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L136)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[types.ts:135](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L135)
+[types.ts:135](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L135)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[types.ts:134](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L134)
+[types.ts:134](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L134)

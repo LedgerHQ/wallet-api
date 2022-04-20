@@ -32,7 +32,7 @@ A function to handle new messages coming from the Ledger Live platform
 
 #### Defined in
 
-[types.ts:37](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L37)
+[types.ts:37](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L37)
 
 ## Methods
 
@@ -48,7 +48,7 @@ Connect the transport instance
 
 #### Defined in
 
-[types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L29)
+[types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L29)
 
 ___
 
@@ -64,7 +64,7 @@ Disconnect the transport instance
 
 #### Defined in
 
-[types.ts:33](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L33)
+[types.ts:33](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L33)
 
 ___
 
@@ -86,4 +86,4 @@ A function to send new messages to the Ledger Live platform
 
 #### Defined in
 
-[types.ts:41](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L41)
+[types.ts:41](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L41)

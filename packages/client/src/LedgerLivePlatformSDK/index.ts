@@ -253,7 +253,7 @@ export default class LedgerLivePlatformSDK {
   /**
    * Let user choose an account in a Ledger Live, providing filters for choosing currency or allowing add account.
    *
-   * @param params - Parameters for the request modal
+   * @param params - Parameters for the request modal, currencies is an array of currencies (not families).
    *
    * @returns The account selected by the user
    */
@@ -276,7 +276,7 @@ export default class LedgerLivePlatformSDK {
    *
    * @param accountId - LL id of the account
    *
-   * @returns The verified address
+   * @returns The verified address or an error message if the verification doesn't succeed
    */
   async receive(accountId: string): Promise<string> {
     return this._request("account.receive", { accountId });

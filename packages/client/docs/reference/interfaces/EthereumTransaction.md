@@ -35,7 +35,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L77)
+[types.ts:77](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L77)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L11)
+[families/ethereum/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/ethereum/types.ts#L11)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L9)
+[families/ethereum/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/ethereum/types.ts#L9)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L13)
+[families/ethereum/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/ethereum/types.ts#L13)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L12)
+[families/ethereum/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/ethereum/types.ts#L12)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/ethereum/types.ts#L10)
+[families/ethereum/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/ethereum/types.ts#L10)
 
 ___
 
@@ -101,4 +101,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/types.ts#L81)
+[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/types.ts#L81)

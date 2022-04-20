@@ -11,7 +11,7 @@ Supported coin families
 - [ALGORAND](FAMILIES.md#algorand)
 - [BITCOIN](FAMILIES.md#bitcoin)
 - [COSMOS](FAMILIES.md#cosmos)
-- [CRYPTO_ORG](FAMILIES.md#crypto_org)
+- [CRYPTO\_ORG](FAMILIES.md#crypto_org)
 - [ETHEREUM](FAMILIES.md#ethereum)
 - [POLKADOT](FAMILIES.md#polkadot)
 - [RIPPLE](FAMILIES.md#ripple)
@@ -27,7 +27,7 @@ Supported coin families
 
 #### Defined in
 
-[families/types.ts:7](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L7)
+[families/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L15)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:5](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L5)
+[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L13)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L10)
+[families/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L18)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L8)
+[families/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L16)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L6)
+[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L14)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L12)
+[families/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L20)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L9)
+[families/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L17)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L13)
+[families/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L21)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[families/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L11)
+[families/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L19)
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 #### Defined in
 
-[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/1d8d8d5/src/families/types.ts#L14)
+[families/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/7a3b814/src/families/types.ts#L22)
