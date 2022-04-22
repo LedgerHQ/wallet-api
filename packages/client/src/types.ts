@@ -67,6 +67,21 @@ export enum FeesLevel {
 }
 
 /**
+ * Currency types
+ */
+export enum CurrencyType {
+  CryptoCurrency = "CryptoCurrency",
+  TokenCurrency = "TokenCurrency",
+}
+
+/**
+ * Token standards
+ */
+export enum TokenStandard {
+  ERC20 = "ERC20",
+}
+
+/**
  * Common fields for all cryptocurrency transactions
  */
 export interface TransactionCommon {
@@ -203,15 +218,15 @@ export type ApplicationDetails = {
  */
 export type Unit = {
   /**
-   * display name of a given unit (example: satoshi)
+   * Display name of a given unit (example: satoshi)
    */
   name: string;
   /**
-   * string to use when formatting the unit. like 'BTC' or 'USD'
+   * String to use when formatting the unit. like 'BTC' or 'USD'
    */
   code: string;
   /**
-   * number of digits after the '.' in context of this unit
+   * Number of digits after the '.' in context of this unit
    */
   magnitude: number;
 };
@@ -237,29 +252,29 @@ export type BaseCurrency = {
    */
   name: string;
   /**
-   * array of available [[Unit | units]] for the cryptocurrency
+   * Array of available [[Unit | units]] for the cryptocurrency
    */
   units: Unit[];
 };
 
 export type CryptoCurrency = BaseCurrency & {
   /**
-   * represents the currency type.
+   * Represents the currency type.
    * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
    */
-  type: "CryptoCurrency";
+  type: CurrencyType.CryptoCurrency;
   /**
-   * the [[FAMILIES | family]] of the crypto currency
+   * The [[FAMILIES | family]] of the crypto currency
    */
   family: string;
 };
 
 export type TokenCurrency = BaseCurrency & {
   /**
-   * represents the currency type.
+   * Represents the currency type.
    * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
    */
-  type: "TokenCurrency";
+  type: CurrencyType.TokenCurrency;
   /**
    * Parent crypto currency
    */
@@ -270,7 +285,7 @@ export type ERC20TokenCurrency = TokenCurrency & {
   /**
    * Token Standard
    */
-  standard: "ERC20";
+  standard: TokenStandard.ERC20;
   /**
    * EVM contract address
    */
