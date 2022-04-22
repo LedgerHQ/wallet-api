@@ -7,6 +7,7 @@ import WindowMock from "../../utils/Window.mock";
 import {
   Account,
   Currency,
+  CurrencyType,
   ExchangeDeviceTxId,
   ExchangeType,
   FeesLevel,
@@ -224,9 +225,14 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         }) as ChaiSpies.Spy;
 
         const res = await SDK.listAccounts();
+
+        console.log({
+          res,
+          dummyAccountList,
+        });
         expect(res).to.deep.eq(dummyAccountList);
         expect(spy).to.be.have.been.called.with(
-          '{"jsonrpc":"2.0","method":"account.list","id":1}'
+          '{"jsonrpc":"2.0","method":"account.list","params":{},"id":1}'
         );
       });
     });
@@ -237,7 +243,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
 
         const dummyCurrencyList: Array<Currency> = [
           {
-            type: "type",
+            type: CurrencyType.CryptoCurrency,
             color: "color",
             ticker: "ticker",
             id: "id",
