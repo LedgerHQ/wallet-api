@@ -232,7 +232,7 @@ export type Unit = {
 };
 
 /**
- * A cryptocurrency model
+ * Base currency model
  */
 export type BaseCurrency = {
   /**
@@ -240,23 +240,26 @@ export type BaseCurrency = {
    */
   color: string;
   /**
-   * The ticker name in exchanges / countervalue apis (e.g. BTC).
+   * The ticker name in exchanges / countervalue apis (e.g. BTC, ETH, USDT).
    */
   ticker: string;
   /**
-   * The unique internal id of the cryptocurrency
+   * The unique internal id of the currency
    */
   id: string;
   /**
-   * The display name of the cryptocurrency
+   * The display name of the currency
    */
   name: string;
   /**
-   * Array of available [[Unit | units]] for the cryptocurrency
+   * Array of available [[Unit | units]] for the currency
    */
   units: Unit[];
 };
 
+/**
+ * Crypto currency model
+ */
 export type CryptoCurrency = BaseCurrency & {
   /**
    * Represents the currency type.
@@ -269,6 +272,9 @@ export type CryptoCurrency = BaseCurrency & {
   family: string;
 };
 
+/**
+ * Token currency model
+ */
 export type TokenCurrency = BaseCurrency & {
   /**
    * Represents the currency type.
@@ -281,6 +287,9 @@ export type TokenCurrency = BaseCurrency & {
   parent: string;
 };
 
+/**
+ * ERC20 token currency model
+ */
 export type ERC20TokenCurrency = TokenCurrency & {
   /**
    * Token Standard
