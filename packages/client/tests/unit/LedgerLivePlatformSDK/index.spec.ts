@@ -226,10 +226,6 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
 
         const res = await SDK.listAccounts();
 
-        console.log({
-          res,
-          dummyAccountList,
-        });
         expect(res).to.deep.eq(dummyAccountList);
         expect(spy).to.be.have.been.called.with(
           '{"jsonrpc":"2.0","method":"account.list","params":{},"id":1}'
