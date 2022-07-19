@@ -244,8 +244,15 @@ export default class LedgerLivePlatformSDK {
    *
    * @returns The list of accounts added by the current user on Ledger Live
    */
-  async listAccounts(): Promise<Account[]> {
-    const rawAccounts = await this._request<RawAccount[]>("account.list");
+  async listAccounts(
+    params: {
+      includeTokens?: boolean;
+    } = {}
+  ): Promise<Account[]> {
+    const rawAccounts = await this._request<RawAccount[]>(
+      "account.list",
+      params
+    );
 
     return rawAccounts.map(deserializeAccount);
   }
@@ -259,8 +266,18 @@ export default class LedgerLivePlatformSDK {
    */
   async requestAccount(
     params: {
+      /**
+       * Select a set of currencies by id. Globing is enabled
+       */
       currencies?: string[];
+      /**
+       * Allow the user to create a new account during the flow
+       */
       allowAddAccount?: boolean;
+      /**
+       * Allow the user to pick token accounts
+       */
+      includeTokens?: boolean;
     } = {}
   ): Promise<Account> {
     const rawAccount = await this._request<RawAccount>(
@@ -304,13 +321,13 @@ export default class LedgerLivePlatformSDK {
    */
   async listCurrencies(params?: {
     /**
-     * name of the currency
+     * Include tokens in the results
      */
-    name?: string;
+    includeTokens?: boolean;
     /**
-     * ticker of the currency
+     * Select a set of currencies by id. Globing is enabled
      */
-    ticker?: string;
+    currencies?: string[];
   }): Promise<Currency[]> {
     return this._request("currency.list", params || {});
   }
