@@ -105,6 +105,11 @@ export default class LedgerLiveSDKMock
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  async signMessage(_accountId: string, _message: Buffer): Promise<string> {
+    return Promise.resolve("message signed!");
+  }
+
   async broadcastSignedTransaction(
     _accountId: string,
     _signedTransaction: RawSignedTransaction

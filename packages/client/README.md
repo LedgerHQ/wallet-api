@@ -45,8 +45,7 @@
 
 # Contributing
 
-Please read our [contribution guidelines](./CONTRIBUTING.md) before getting
-started.
+Please read our [contribution guidelines](./CONTRIBUTING.md) before getting started.
 
 **You need to have a recent [Node.js](https://nodejs.org/) and
 [Yarn 1 (Classic)](https://classic.yarnpkg.com/lang/en/) installed.**
@@ -115,7 +114,7 @@ The documentation will be generated in a `docs/markdown` or `docs/html` folder d
 
 This generated package is hosted on NPM [here](https://www.npmjs.com/package/@ledgerhq/live-app-sdk).
 
-⚠️ Publishing can only be performed by memebers of the [_ledgerhq_ organization](https://www.npmjs.com/org/ledgerhq) having the necessary rights to push to `main` branch ⚠️
+⚠️ Publishing can only be performed by members of the [_ledgerhq_ organization](https://www.npmjs.com/org/ledgerhq) having the necessary rights to push to `main` branch ⚠️
 
 In order to publish a new version of this package, please refer to the following steps:
 
