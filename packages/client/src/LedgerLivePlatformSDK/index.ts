@@ -3,10 +3,10 @@
  */
 
 import {
-  JSONRPCServerAndClient,
+  JSONRPCClient,
   JSONRPCParams,
   JSONRPCServer,
-  JSONRPCClient,
+  JSONRPCServerAndClient,
 } from "json-rpc-2.0";
 
 import Logger from "../logger";
@@ -223,8 +223,8 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Let the user sign the provided message through Ledger Live
-   * @param accountId - Ledger Live id of the account (Ethereum only)
+   * Let the user sign the provided message through Ledger Live. In Ethereum context, this is a [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md)
+   * @param accountId - Ledger Live id of the account
    * @param message - Message the user should sign
    *
    * @returns Message signed
