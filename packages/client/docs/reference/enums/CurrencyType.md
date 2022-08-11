@@ -6,27 +6,27 @@ Currency types
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [CryptoCurrency](CurrencyType.md#cryptocurrency)
 - [TokenCurrency](CurrencyType.md#tokencurrency)
 
-## Enumeration members
+## Enumeration Members
 
 ### CryptoCurrency
 
-• **CryptoCurrency** = `"CryptoCurrency"`
+• **CryptoCurrency**
 
 #### Defined in
 
-[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L73)
+[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L73)
 
 ___
 
 ### TokenCurrency
 
-• **TokenCurrency** = `"TokenCurrency"`
+• **TokenCurrency**
 
 #### Defined in
 
-[types.ts:74](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L74)
+[types.ts:74](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L74)

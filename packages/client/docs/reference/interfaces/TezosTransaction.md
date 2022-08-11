@@ -34,7 +34,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L92)
+[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L92)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tezos/types.ts#L11)
+[families/tezos/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tezos/types.ts#L11)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tezos/types.ts#L13)
+[families/tezos/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tezos/types.ts#L13)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tezos/types.ts#L14)
+[families/tezos/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tezos/types.ts#L14)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tezos/types.ts#L12)
+[families/tezos/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tezos/types.ts#L12)
 
 ___
 
@@ -90,4 +90,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L96)
+[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L96)

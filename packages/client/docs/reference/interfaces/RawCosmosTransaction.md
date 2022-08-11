@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L35)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:25](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L25)
+[families/cosmos/types.ts:25](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L25)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:27](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L27)
+[families/cosmos/types.ts:27](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L27)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:28](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L28)
+[families/cosmos/types.ts:28](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L28)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L29)
+[families/cosmos/types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L29)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:26](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L26)
+[families/cosmos/types.ts:26](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L26)
 
 ___
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L36)

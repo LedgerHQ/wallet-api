@@ -15,9 +15,9 @@
 
 ### Classes
 
+- [LedgerLivePlatformSDK](classes/LedgerLivePlatformSDK.md)
 - [Mock](classes/Mock.md)
 - [WindowMessageTransport](classes/WindowMessageTransport.md)
-- [default](classes/default.md)
 
 ### Interfaces
 
@@ -45,7 +45,7 @@
 - [Transport](interfaces/Transport.md)
 - [TronTransaction](interfaces/TronTransaction.md)
 
-### Type aliases
+### Type Aliases
 
 - [Account](modules.md#account)
 - [AlgorandOperationMode](modules.md#algorandoperationmode)
@@ -78,7 +78,7 @@
 - [serializeAccount](modules.md#serializeaccount)
 - [serializeTransaction](modules.md#serializetransaction)
 
-## Type aliases
+## Type Aliases
 
 ### Account
 
@@ -106,7 +106,7 @@ This is a slightly modified subset of the Account type used by the Ledger Live p
 
 #### Defined in
 
-[types.ts:162](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L162)
+[types.ts:162](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L162)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/algorand/types.ts#L8)
+[families/algorand/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L8)
 
 ___
 
@@ -135,7 +135,7 @@ Informations about a device application
 
 #### Defined in
 
-[types.ts:200](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L200)
+[types.ts:200](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L200)
 
 ___
 
@@ -157,7 +157,7 @@ Base currency model
 
 #### Defined in
 
-[types.ts:237](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L237)
+[types.ts:237](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L237)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/cosmos/types.ts#L8)
+[families/cosmos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/cosmos/types.ts#L8)
 
 ___
 
@@ -179,7 +179,7 @@ Crypto currency model
 
 #### Defined in
 
-[types.ts:263](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L263)
+[types.ts:263](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L263)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[types.ts:304](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L304)
+[types.ts:304](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L304)
 
 ___
 
@@ -208,7 +208,7 @@ Information about a device
 
 #### Defined in
 
-[types.ts:134](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L134)
+[types.ts:134](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L134)
 
 ___
 
@@ -220,7 +220,7 @@ ERC20 token currency model
 
 #### Defined in
 
-[types.ts:293](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L293)
+[types.ts:293](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L293)
 
 ___
 
@@ -232,7 +232,7 @@ The ECDSA signature of the [payload](modules.md#exchangepayload)
 
 #### Defined in
 
-[types.ts:53](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L53)
+[types.ts:53](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L53)
 
 ___
 
@@ -244,7 +244,7 @@ A transaction ID used to complete the exchange process
 
 #### Defined in
 
-[types.ts:58](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L58)
+[types.ts:58](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L58)
 
 ___
 
@@ -259,7 +259,7 @@ and a partner (for sell, swap and funding)
 
 #### Defined in
 
-[types.ts:48](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L48)
+[types.ts:48](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L48)
 
 ___
 
@@ -287,7 +287,7 @@ Simple contract for handling a Message received through a [Transport](interfaces
 
 #### Defined in
 
-[types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L18)
+[types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L18)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/polkadot/types.ts#L8)
+[families/polkadot/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/polkadot/types.ts#L8)
 
 ___
 
@@ -324,7 +324,7 @@ The raw representation of the [Account](modules.md#account) type
 
 #### Defined in
 
-[rawTypes.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L17)
+[rawTypes.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L17)
 
 ___
 
@@ -348,7 +348,7 @@ This type is returned by Ledger Live when signing with [signTransaction](classes
 
 #### Defined in
 
-[rawTypes.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L60)
+[rawTypes.ts:60](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L60)
 
 ___
 
@@ -360,7 +360,7 @@ The raw representation of the generic [Transaction](modules.md#transaction) type
 
 #### Defined in
 
-[rawTypes.ts:42](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L42)
+[rawTypes.ts:42](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L42)
 
 ___
 
@@ -370,7 +370,7 @@ ___
 
 #### Defined in
 
-[families/tezos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tezos/types.ts#L8)
+[families/tezos/types.ts:8](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tezos/types.ts#L8)
 
 ___
 
@@ -382,7 +382,7 @@ Token currency model
 
 #### Defined in
 
-[types.ts:278](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L278)
+[types.ts:278](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L278)
 
 ___
 
@@ -396,7 +396,7 @@ them to the network upon user validation.
 
 #### Defined in
 
-[types.ts:104](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L104)
+[types.ts:104](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L104)
 
 ___
 
@@ -406,7 +406,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tron/types.ts#L6)
+[families/tron/types.ts:6](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tron/types.ts#L6)
 
 ___
 
@@ -416,7 +416,7 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/tron/types.ts#L13)
+[families/tron/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/tron/types.ts#L13)
 
 ___
 
@@ -441,7 +441,7 @@ This is a slightly modified subset of the Unit type used by the Ledger Live plat
 
 #### Defined in
 
-[types.ts:219](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L219)
+[types.ts:219](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L219)
 
 ## Functions
 
@@ -466,7 +466,7 @@ The object account of the provided raw account representation
 
 #### Defined in
 
-[serializers.ts:84](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/serializers.ts#L84)
+[serializers.ts:84](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/serializers.ts#L84)
 
 ___
 
@@ -491,7 +491,7 @@ The object transaction of the provided raw transaction representation
 
 #### Defined in
 
-[serializers.ts:147](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/serializers.ts#L147)
+[serializers.ts:147](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/serializers.ts#L147)
 
 ___
 
@@ -516,7 +516,7 @@ The raw representation of the provided account object
 
 #### Defined in
 
-[serializers.ts:55](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/serializers.ts#L55)
+[serializers.ts:55](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/serializers.ts#L55)
 
 ___
 
@@ -541,4 +541,4 @@ The raw representation of the provided transaction object
 
 #### Defined in
 
-[serializers.ts:113](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/serializers.ts#L113)
+[serializers.ts:113](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/serializers.ts#L113)

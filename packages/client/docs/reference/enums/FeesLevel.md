@@ -6,38 +6,38 @@ Abstract level of fees for a transaction
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Fast](FeesLevel.md#fast)
 - [Medium](FeesLevel.md#medium)
 - [Slow](FeesLevel.md#slow)
 
-## Enumeration members
+## Enumeration Members
 
 ### Fast
 
-• **Fast** = `"fast"`
+• **Fast**
 
 #### Defined in
 
-[types.ts:66](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L66)
+[types.ts:66](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L66)
 
 ___
 
 ### Medium
 
-• **Medium** = `"medium"`
+• **Medium**
 
 #### Defined in
 
-[types.ts:65](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L65)
+[types.ts:65](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L65)
 
 ___
 
 ### Slow
 
-• **Slow** = `"slow"`
+• **Slow**
 
 #### Defined in
 
-[types.ts:64](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L64)
+[types.ts:64](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L64)

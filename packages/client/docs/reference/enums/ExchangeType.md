@@ -6,38 +6,38 @@ Enum describing the different types of exchanges.
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [FUND](ExchangeType.md#fund)
 - [SELL](ExchangeType.md#sell)
 - [SWAP](ExchangeType.md#swap)
 
-## Enumeration members
+## Enumeration Members
 
 ### FUND
 
-• **FUND** = `2`
+• **FUND**
 
 #### Defined in
 
-[types.ts:151](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L151)
+[types.ts:151](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L151)
 
 ___
 
 ### SELL
 
-• **SELL** = `1`
+• **SELL**
 
 #### Defined in
 
-[types.ts:150](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L150)
+[types.ts:150](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L150)
 
 ___
 
 ### SWAP
 
-• **SWAP** = `0`
+• **SWAP**
 
 #### Defined in
 
-[types.ts:149](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L149)
+[types.ts:149](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L149)

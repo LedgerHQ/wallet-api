@@ -4,44 +4,44 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [Blue](DeviceModel.md#blue)
 - [NanoS](DeviceModel.md#nanos)
 - [NanoX](DeviceModel.md#nanox)
 
-## Enumeration members
+## Enumeration Members
 
 ### Blue
 
-• **Blue** = `"blue"`
+• **Blue**
 
 Represents the Ledger Blue hardware device
 
 #### Defined in
 
-[types.ts:120](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L120)
+[types.ts:120](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L120)
 
 ___
 
 ### NanoS
 
-• **NanoS** = `"nanoS"`
+• **NanoS**
 
 Represents the Ledger Nano S hardware device
 
 #### Defined in
 
-[types.ts:124](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L124)
+[types.ts:124](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L124)
 
 ___
 
 ### NanoX
 
-• **NanoX** = `"nanoX"`
+• **NanoX**
 
 Represents the Ledger Nano X hardware device
 
 #### Defined in
 
-[types.ts:128](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L128)
+[types.ts:128](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L128)

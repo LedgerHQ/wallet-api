@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L35)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/ripple/types.ts#L15)
+[families/ripple/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/ripple/types.ts#L15)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/ripple/types.ts#L16)
+[families/ripple/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/ripple/types.ts#L16)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L36)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/ripple/types.ts#L17)
+[families/ripple/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/ripple/types.ts#L17)

@@ -6,7 +6,7 @@ Supported coin families
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [ALGORAND](FAMILIES.md#algorand)
 - [BITCOIN](FAMILIES.md#bitcoin)
@@ -19,102 +19,102 @@ Supported coin families
 - [TEZOS](FAMILIES.md#tezos)
 - [TRON](FAMILIES.md#tron)
 
-## Enumeration members
+## Enumeration Members
 
 ### ALGORAND
 
-• **ALGORAND** = `"algorand"`
+• **ALGORAND**
 
 #### Defined in
 
-[families/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L15)
+[families/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L15)
 
 ___
 
 ### BITCOIN
 
-• **BITCOIN** = `"bitcoin"`
+• **BITCOIN**
 
 #### Defined in
 
-[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L13)
+[families/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L13)
 
 ___
 
 ### COSMOS
 
-• **COSMOS** = `"cosmos"`
+• **COSMOS**
 
 #### Defined in
 
-[families/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L18)
+[families/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L18)
 
 ___
 
 ### CRYPTO\_ORG
 
-• **CRYPTO\_ORG** = `"crypto_org"`
+• **CRYPTO\_ORG**
 
 #### Defined in
 
-[families/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L16)
+[families/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L16)
 
 ___
 
 ### ETHEREUM
 
-• **ETHEREUM** = `"ethereum"`
+• **ETHEREUM**
 
 #### Defined in
 
-[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L14)
+[families/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L14)
 
 ___
 
 ### POLKADOT
 
-• **POLKADOT** = `"polkadot"`
+• **POLKADOT**
 
 #### Defined in
 
-[families/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L20)
+[families/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L20)
 
 ___
 
 ### RIPPLE
 
-• **RIPPLE** = `"ripple"`
+• **RIPPLE**
 
 #### Defined in
 
-[families/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L17)
+[families/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L17)
 
 ___
 
 ### STELLAR
 
-• **STELLAR** = `"stellar"`
+• **STELLAR**
 
 #### Defined in
 
-[families/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L21)
+[families/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L21)
 
 ___
 
 ### TEZOS
 
-• **TEZOS** = `"tezos"`
+• **TEZOS**
 
 #### Defined in
 
-[families/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L19)
+[families/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L19)
 
 ___
 
 ### TRON
 
-• **TRON** = `"tron"`
+• **TRON**
 
 #### Defined in
 
-[families/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/families/types.ts#L22)
+[families/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/types.ts#L22)

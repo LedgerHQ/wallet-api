@@ -6,16 +6,16 @@ Token standards
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [ERC20](TokenStandard.md#erc20)
 
-## Enumeration members
+## Enumeration Members
 
 ### ERC20
 
-• **ERC20** = `"ERC20"`
+• **ERC20**
 
 #### Defined in
 
-[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/65d1ed2/src/types.ts#L81)
+[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L81)
