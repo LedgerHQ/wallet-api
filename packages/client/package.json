@@ -47,7 +47,7 @@
     "typedoc-plugin-markdown": "^3.12.1",
     "typedoc-plugin-param-names": "^3.1.0",
     "typedoc-plugin-rename-defaults": "^0.5.1",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
     "*.ts": "yarn run lint:fix"
