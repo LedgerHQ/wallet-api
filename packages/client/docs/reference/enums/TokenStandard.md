@@ -18,4 +18,4 @@ Token standards
 
 #### Defined in
 
-[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L81)
+[types.ts:81](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L81)

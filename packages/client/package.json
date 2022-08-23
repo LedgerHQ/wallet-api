@@ -16,8 +16,8 @@
     "prepare": "yarn build && husky install",
     "build": "tsc -p tsconfig.prod.json",
     "test": "nyc mocha",
-    "doc": "typedoc --out docs/reference src/index.ts",
-    "doc:html": "typedoc --out docs/html --plugin typedoc-plugin-rename-defaults --plugin typedoc-plugin-param-names src/index.ts"
+    "doc": "typedoc --gitRevision main --out docs/reference src/index.ts",
+    "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults --plugin typedoc-plugin-param-names src/index.ts"
   },
   "dependencies": {
     "bignumber.js": "^9.0.2",

@@ -19,7 +19,7 @@ Currency types
 
 #### Defined in
 
-[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L73)
+[types.ts:73](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L73)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[types.ts:74](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/types.ts#L74)
+[types.ts:74](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L74)

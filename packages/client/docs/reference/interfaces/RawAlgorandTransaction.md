@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L35)
+[rawTypes.ts:35](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/rawTypes.ts#L35)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L22)
+[families/algorand/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L22)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L19)
+[families/algorand/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L19)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L21)
+[families/algorand/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L21)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L23)
+[families/algorand/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L23)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/families/algorand/types.ts#L20)
+[families/algorand/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L20)
 
 ___
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/5608a83/src/rawTypes.ts#L36)
+[rawTypes.ts:36](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/rawTypes.ts#L36)
