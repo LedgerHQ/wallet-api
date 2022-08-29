@@ -103,7 +103,9 @@ For `html` use:
 yarn doc:html
 ```
 
-The documentation will be generated in a `docs/markdown` or `docs/html` folder depending on the chosen format.
+The documentation will be generated in a `docs/reference` or `docs/html` folder depending on the chosen format.
+
+You can find the entrypoint to the generated doc [here](./docs/reference/modules.md).
 
 # Publish
 
