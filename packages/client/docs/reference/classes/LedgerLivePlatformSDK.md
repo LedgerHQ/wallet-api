@@ -62,7 +62,7 @@ The hash of the transaction
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:246](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L246)
+[LedgerLivePlatformSDK/index.ts:247](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L247)
 
 ___
 
@@ -157,7 +157,7 @@ The list of accounts added by the current user on Ledger Live
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:261](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L261)
+[LedgerLivePlatformSDK/index.ts:262](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L262)
 
 ___
 
@@ -185,7 +185,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:336](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L336)
+[LedgerLivePlatformSDK/index.ts:337](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L337)
 
 ___
 
@@ -209,7 +209,7 @@ The verified address or an error message if the verification doesn't succeed
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:312](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L312)
+[LedgerLivePlatformSDK/index.ts:313](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L313)
 
 ___
 
@@ -236,7 +236,7 @@ The account selected by the user
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:281](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L281)
+[LedgerLivePlatformSDK/index.ts:282](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L282)
 
 ___
 
@@ -244,7 +244,8 @@ ___
 
 ▸ **signMessage**(`accountId`, `message`): `Promise`<`string`\>
 
-Let the user sign the provided message through Ledger Live. In Ethereum context, this is a [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md)
+Let the user sign the provided message through Ledger Live.
+In Ethereum context, this is an [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md) or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md)
 
 #### Parameters
 
@@ -261,7 +262,7 @@ Message signed
 
 #### Defined in
 
-[LedgerLivePlatformSDK/index.ts:232](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L232)
+[LedgerLivePlatformSDK/index.ts:233](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/LedgerLivePlatformSDK/index.ts#L233)
 
 ___
 

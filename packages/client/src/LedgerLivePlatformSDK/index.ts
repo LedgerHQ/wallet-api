@@ -223,7 +223,8 @@ export default class LedgerLivePlatformSDK {
   }
 
   /**
-   * Let the user sign the provided message through Ledger Live. In Ethereum context, this is a [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md)
+   * Let the user sign the provided message through Ledger Live.
+   * In Ethereum context, this is an [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md) or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md)
    * @param accountId - Ledger Live id of the account
    * @param message - Message the user should sign
    *
