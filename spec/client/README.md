@@ -15,3 +15,5 @@ All [`Transaction`]()s and [`Account`]()s should be serialized before being broa
 Similarly, the response received from the Server, formatted as [`RawTransaction`]() and [`RawAccount`]() should be deserialized before being returned to the user of the Client (i.e: the Application integrating said client).
 
 ## Errors
+
+The Client will forward [errors](/spec/core/errors.md) returned by the Wallet application through the Server. The only function performing checks before sending the request to the Server is `completeExchange`. Indeed, this function should return an error if the requested operation is a Swap but no destination account is provided.
