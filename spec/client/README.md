@@ -10,4 +10,8 @@ It will initiate a connection to a Server through a transport layer, format and 
 
 ## Serialization and deserialization
 
+All [`Transaction`]()s and [`Account`]()s should be serialized before being broadcasted to the Server via RPC.
+
+Similarly, the response received from the Server, formatted as [`RawTransaction`]() and [`RawAccount`]() should be deserialized before being returned to the user of the Client (i.e: the Application integrating said client).
+
 ## Errors
