@@ -1,5 +1,6 @@
 This section describes the core types and errors of the Platform API implementation.
 
-- [Types](./types.md)
 - [Errors](./errors.md)
+- [Families](./families.md)
 - [Manifest](./manifest.md)
+- [Types](./types.md)

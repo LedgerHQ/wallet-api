@@ -9,7 +9,7 @@ The Server will allow custom UI to be used when handling RPC calls through the J
 ## Middlewares
 
 The Server allows for middlewares to be used.
-Using middlewares the wallet is able to do permissions or validation across all RPC calls.
+With middlewares the wallet is able to do permissions or validation across all RPC calls.
 
 ## Serialization and deserialization
 
