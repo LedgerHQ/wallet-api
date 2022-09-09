@@ -68,3 +68,7 @@ You can get help by:
 # Contributing
 
 Contributions are always welcome! Please read the [contribution guidelines](/CONTRIBUTING.md) first.
+
+# Security policy
+
+You can find our security policy [here](/SECURITY.md).
