@@ -2,6 +2,8 @@
 
 Here we describe the types used in the API.
 
+Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These types are used for communication between the client and server over JSON-RPC. Each property of a raw type must be a JSON primitive data types as described by the JSON-RPC 2.0 [specification](https://www.jsonrpc.org/specification#parameter_structures) (i.e: Strings, Numbers, Booleans, or Null).
+
 ## Transactions
 
 ### Transaction
