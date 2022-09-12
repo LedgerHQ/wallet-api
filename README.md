@@ -1,6 +1,6 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
- <h2 align="center">Platform API</h2>
+ <h2 align="center">Wallet API</h2>
  <p align="center">Integrate your application or service inside a Ledger client wallet
 </p>
   <p align="center">
@@ -48,7 +48,7 @@ To get started, head over to the [specifications](/spec/README.md) part of the d
 
 # How does it works
 
-The Platform API defines an interface for applications and wallets to interact within the Ledger ecosystem, allowing cross compatibilitiy between applications and wallets, in a currency agnostic way.
+The Wallet API defines an interface for applications and wallets to interact within the Ledger ecosystem, allowing cross compatibilitiy between applications and wallets, in a currency agnostic way.
 
 <!-- TODO: link to reference implementations of client and server once available -->
 Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server parth of the interface, under the `/packages` directory.
