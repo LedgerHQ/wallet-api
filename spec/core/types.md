@@ -1,9 +1,67 @@
+<!-- omit in toc -->
 # Types
 
 Here we describe the types used in the API.
 
 Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These types are used for communication between the client and server over JSON-RPC. Each property of a raw type must be a JSON primitive data types as described by the JSON-RPC 2.0 [specification](https://www.jsonrpc.org/specification#parameter_structures) (i.e: Strings, Numbers, Booleans, or Null).
 
+---
+<!-- omit in toc -->
+## Table of Contents
+
+- [Transactions](#transactions)
+  - [Transaction](#transaction)
+  - [RawTransaction](#rawtransaction)
+  - [TransactionCommon](#transactioncommon)
+  - [RawTransactionCommon](#rawtransactioncommon)
+  - [AlgorandTransaction](#algorandtransaction)
+  - [RawAlgorandTransaction](#rawalgorandtransaction)
+  - [BitcoinTransaction](#bitcointransaction)
+  - [RawBitcoinTransaction](#rawbitcointransaction)
+  - [CosmosTransaction](#cosmostransaction)
+  - [RawCosmosTransaction](#rawcosmostransaction)
+  - [CryptoOrgTransaction](#cryptoorgtransaction)
+  - [RawCryptoOrgTransaction](#rawcryptoorgtransaction)
+  - [EthereumTransaction](#ethereumtransaction)
+  - [RawEthereumTransaction](#rawethereumtransaction)
+  - [PolkadotTransaction](#polkadottransaction)
+  - [RawPolkadotTransaction](#rawpolkadottransaction)
+  - [RippleTransaction](#rippletransaction)
+  - [RawRippleTransaction](#rawrippletransaction)
+  - [StellarTransaction](#stellartransaction)
+  - [RawStellarTransaction](#rawstellartransaction)
+  - [TezosTransaction](#tezostransaction)
+  - [RawTezosTransaction](#rawtezostransaction)
+  - [TronTransaction](#trontransaction)
+  - [RawTronTransaction](#rawtrontransaction)
+- [Enums](#enums)
+  - [CurrencyType](#currencytype)
+  - [ExchangeType](#exchangetype)
+  - [FAMILIES](#families)
+  - [FeesLevel](#feeslevel)
+  - [TokenStandard](#tokenstandard)
+- [Account](#account)
+- [RawAccount](#rawaccount)
+- [TronOperationMode](#tronoperationmode)
+- [TronResource](#tronresource)
+- [AlgorandOperationMode](#algorandoperationmode)
+- [CosmosOperationMode](#cosmosoperationmode)
+- [PolkadotOperationMode](#polkadotoperationmode)
+- [TezosOperationMode](#tezosoperationmode)
+- [ApplicationDetails](#applicationdetails)
+- [BaseCurrency](#basecurrency)
+- [CryptoCurrency](#cryptocurrency)
+- [Currency](#currency)
+- [DeviceInfo](#deviceinfo)
+- [ERC20TokenCurrency](#erc20tokencurrency)
+- [EcdsaSignature](#ecdsasignature)
+- [ExchangeDeviceTxId](#exchangedevicetxid)
+- [ExchangePayload](#exchangepayload)
+- [RawSignedTransaction](#rawsignedtransaction)
+- [TokenCurrency](#tokencurrency)
+- [Unit](#unit)
+
+---
 ## Transactions
 
 ### Transaction
