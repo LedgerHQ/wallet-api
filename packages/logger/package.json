@@ -9,8 +9,7 @@
     "format:fix": "prettier --write \"src\"",
     "lint": "eslint --cache --ext .ts \"src\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
-    "build": "tsup src/index.ts --dts --format esm,cjs,iife",
-    "test": "jest"
+    "build": "tsup src/index.ts --dts --format esm,cjs,iife"
   },
   "devDependencies": {
     "@tsconfig/node16-strictest-esm": "^1.0.3",

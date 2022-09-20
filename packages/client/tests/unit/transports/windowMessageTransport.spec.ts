@@ -1,9 +1,9 @@
+import chai, { AssertionError, expect } from "chai";
 import ChaiSpies from "chai-spies";
-import chai, { expect, AssertionError } from "chai";
+import { WindowMessageTransport } from "../../../src";
 import logger from "../../utils/Logger.mock";
-import WindowMock from "../../utils/Window.mock";
 import MessageEventMock from "../../utils/MessageEvent.mock";
-import WindowMessageTransport from "../../../src/transports/windowMessageTransport";
+import WindowMock from "../../utils/Window.mock";
 
 chai.use(ChaiSpies);
 

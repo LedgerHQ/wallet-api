@@ -1,26 +1,23 @@
-import chai, { expect, AssertionError } from "chai";
 import BigNumber from "bignumber.js";
+import chai, { AssertionError, expect } from "chai";
 import ChaiSpies from "chai-spies";
 import { before } from "mocha";
-import logger from "../../utils/Logger.mock";
-import WindowMock from "../../utils/Window.mock";
-import {
+import LedgerLivePlatformSDK, {
   Account,
+  BitcoinTransaction,
   Currency,
   CurrencyType,
   ExchangeDeviceTxId,
   ExchangeType,
-  FeesLevel,
-} from "../../../src/types";
-import MessageEventMock from "../../utils/MessageEvent.mock";
-import LedgerLivePlatformSDK from "../../../src/LedgerLivePlatformSDK";
-import WindowMessageTransport from "../../../src/transports/windowMessageTransport";
-import {
-  BitcoinTransaction,
   FAMILIES,
+  FeesLevel,
   RawAccount,
   RawSignedTransaction,
+  WindowMessageTransport,
 } from "../../../src";
+import logger from "../../utils/Logger.mock";
+import MessageEventMock from "../../utils/MessageEvent.mock";
+import WindowMock from "../../utils/Window.mock";
 
 chai.use(ChaiSpies);
 

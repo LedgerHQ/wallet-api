@@ -1,55 +1,42 @@
-import { expect } from "chai";
 import BigNumber from "bignumber.js";
-import FAMILIES from "../../src/families/types";
-import * as serializers from "../../src/serializers";
-import type { Account, Transaction } from "../../src/types";
-import type { RawAccount, RawTransaction } from "../../src/rawTypes";
-import type {
-  BitcoinTransaction,
-  RawBitcoinTransaction,
-} from "../../src/families/bitcoin/types";
-import type {
-  EthereumTransaction,
-  RawEthereumTransaction,
-} from "../../src/families/ethereum/types";
+import { expect } from "chai";
 import {
+  Account,
   AlgorandTransaction,
-  RawAlgorandTransaction,
-} from "../../src/families/algorand/types";
-import {
+  BitcoinTransaction,
   CosmosTransaction,
-  RawCosmosTransaction,
-} from "../../src/families/cosmos/types";
-import {
   CryptoOrgTransaction,
-  RawCryptoOrgTransaction,
-} from "../../src/families/crypto_org/types";
-import {
+  deserializeAccount,
+  deserializeTransaction,
+  EthereumTransaction,
+  FAMILIES,
   PolkadotTransaction,
+  RawAccount,
+  RawAlgorandTransaction,
+  RawBitcoinTransaction,
+  RawCosmosTransaction,
+  RawCryptoOrgTransaction,
+  RawEthereumTransaction,
   RawPolkadotTransaction,
-} from "../../src/families/polkadot/types";
-import {
   RawRippleTransaction,
-  RippleTransaction,
-} from "../../src/families/ripple/types";
-import {
   RawStellarTransaction,
-  StellarTransaction,
-} from "../../src/families/stellar/types";
-import {
   RawTezosTransaction,
-  TezosTransaction,
-} from "../../src/families/tezos/types";
-import {
+  RawTransaction,
   RawTronTransaction,
+  RippleTransaction,
+  serializeAccount,
+  serializeTransaction,
+  StellarTransaction,
+  TezosTransaction,
+  Transaction,
   TronTransaction,
-} from "../../src/families/tron/types";
+} from "../../src";
 
 const date = new Date();
 describe("serializers.ts", () => {
   describe("serializeAccount", () => {
     it("should succeed to serialize an account", () => {
-      const serializedAccount = serializers.serializeAccount({
+      const serializedAccount = serializeAccount({
         id: "id",
         name: "name",
         address: "address",
@@ -75,7 +62,7 @@ describe("serializers.ts", () => {
 
   describe("deserializeAccount", () => {
     it("should succeed to deserialize an account", () => {
-      const deserializedAccount = serializers.deserializeAccount({
+      const deserializedAccount = deserializeAccount({
         id: "id",
         name: "name",
         address: "address",
@@ -111,8 +98,7 @@ describe("serializers.ts", () => {
           gasPrice: new BigNumber(0),
           gasLimit: new BigNumber(0),
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: "ethereum",
@@ -132,8 +118,7 @@ describe("serializers.ts", () => {
           family: FAMILIES.ETHEREUM,
           nonce: 123,
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: "ethereum",
@@ -155,8 +140,7 @@ describe("serializers.ts", () => {
           family: FAMILIES.BITCOIN,
           feePerByte: new BigNumber(0),
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: "bitcoin",
@@ -172,8 +156,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
           family: FAMILIES.BITCOIN,
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: "bitcoin",
@@ -195,8 +178,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.ALGORAND,
@@ -216,8 +198,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.ALGORAND,
@@ -242,8 +223,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.COSMOS,
@@ -263,8 +243,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.COSMOS,
@@ -287,8 +266,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.CRYPTO_ORG,
@@ -306,8 +284,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.CRYPTO_ORG,
@@ -329,8 +306,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
@@ -349,8 +325,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
@@ -372,8 +347,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.RIPPLE,
@@ -391,8 +365,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.RIPPLE,
@@ -414,8 +387,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.STELLAR,
@@ -433,8 +405,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.STELLAR,
@@ -457,8 +428,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.TEZOS,
@@ -477,8 +447,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.TEZOS,
@@ -501,8 +470,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.TRON,
@@ -521,8 +489,7 @@ describe("serializers.ts", () => {
           amount: new BigNumber(100),
           recipient: "recipient",
         };
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).to.deep.eq({
           family: FAMILIES.TRON,
@@ -542,11 +509,11 @@ describe("serializers.ts", () => {
         family: "unsupported-family",
       };
 
-      const serializeTransaction = () =>
-        // @ts-ignore: unreachable in TS
-        serializers.serializeTransaction(transaction);
+      const serialize = () =>
+        // @ts-ignore: not a real transaction as the family doesn't exist
+        serializeTransaction(transaction);
 
-      expect(serializeTransaction)
+      expect(serialize)
         .to.throw()
         .with.property(
           "message",
@@ -568,9 +535,7 @@ describe("serializers.ts", () => {
           gasLimit: "789",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.ETHEREUM,
@@ -591,9 +556,7 @@ describe("serializers.ts", () => {
           nonce: 123,
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.ETHEREUM,
@@ -616,9 +579,7 @@ describe("serializers.ts", () => {
           feePerByte: "10",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.BITCOIN,
@@ -635,9 +596,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.BITCOIN,
@@ -660,9 +619,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.ALGORAND,
@@ -683,9 +640,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.ALGORAND,
@@ -711,9 +666,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.COSMOS,
@@ -734,9 +687,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.COSMOS,
@@ -760,9 +711,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.CRYPTO_ORG,
@@ -781,9 +730,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.CRYPTO_ORG,
@@ -806,9 +753,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
@@ -828,9 +773,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.POLKADOT,
@@ -853,9 +796,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.RIPPLE,
@@ -874,9 +815,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.RIPPLE,
@@ -899,9 +838,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.STELLAR,
@@ -920,9 +857,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.STELLAR,
@@ -946,9 +881,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.TEZOS,
@@ -970,9 +903,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.TEZOS,
@@ -996,9 +927,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.TRON,
@@ -1018,9 +947,7 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         };
 
-        const transaction = serializers.deserializeTransaction(
-          serializedTransaction
-        );
+        const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).to.deep.eq({
           family: FAMILIES.TRON,
@@ -1040,11 +967,11 @@ describe("serializers.ts", () => {
         family: "unsupported-family",
       };
 
-      const deserializeTransaction = () =>
-        // @ts-ignore: unreachable in TS
-        serializers.deserializeTransaction(transaction);
+      const deserialize = () =>
+        // @ts-ignore: not a real transaction as the family doesn't exist
+        deserializeTransaction(transaction);
 
-      expect(deserializeTransaction)
+      expect(deserialize)
         .to.throw()
         .with.property(
           "message",
@@ -1067,10 +994,10 @@ describe("serializers.ts", () => {
           lastSyncDate: date,
         };
 
-        const serializedAccount = serializers.serializeAccount(account);
+        const serializedAccount = serializeAccount(account);
         const stringifiedAccount = JSON.stringify(serializedAccount);
         const parsedAccount = JSON.parse(stringifiedAccount) as RawAccount;
-        const expectedAccount = serializers.deserializeAccount(parsedAccount);
+        const expectedAccount = deserializeAccount(parsedAccount);
 
         expect(account).to.deep.eq(expectedAccount);
       });
@@ -1088,14 +1015,12 @@ describe("serializers.ts", () => {
           gasLimit: new BigNumber(0),
         };
 
-        const serializedTransaction =
-          serializers.serializeTransaction(transaction);
+        const serializedTransaction = serializeTransaction(transaction);
         const stringifiedTransaction = JSON.stringify(serializedTransaction);
         const parsedTransaction = JSON.parse(
           stringifiedTransaction
         ) as RawTransaction;
-        const expectedTransaction =
-          serializers.deserializeTransaction(parsedTransaction);
+        const expectedTransaction = deserializeTransaction(parsedTransaction);
 
         expect(transaction).to.deep.eq(expectedTransaction);
       });
