@@ -1,48 +1,33 @@
-import BigNumber from "bignumber.js";
+import type {
+  Account,
+  RawAccount,
+  RawTransaction,
+  Transaction,
+} from "@ledgerhq/wallet-api-types";
 import {
   deserializeAlgorandTransaction,
-  serializeAlgorandTransaction,
-} from "./families/algorand/serializer";
-import {
   deserializeBitcoinTransaction,
-  serializeBitcoinTransaction,
-} from "./families/bitcoin/serializer";
-import {
   deserializeCosmosTransaction,
-  serializeCosmosTransaction,
-} from "./families/cosmos/serializer";
-import {
   deserializeCryptoOrgTransaction,
-  serializeCryptoOrgTransaction,
-} from "./families/crypto_org/serializer";
-import {
   deserializeEthereumTransaction,
-  serializeEthereumTransaction,
-} from "./families/ethereum/serializer";
-import {
   deserializePolkadotTransaction,
-  serializePolkadotTransaction,
-} from "./families/polkadot/serializer";
-import {
   deserializeRippleTransaction,
-  serializeRippleTransaction,
-} from "./families/ripple/serializer";
-import {
   deserializeStellarTransaction,
-  serializeStellarTransaction,
-} from "./families/stellar/serializer";
-import {
   deserializeTezosTransaction,
-  serializeTezosTransaction,
-} from "./families/tezos/serializer";
-import {
   deserializeTronTransaction,
+  FAMILIES,
+  serializeAlgorandTransaction,
+  serializeBitcoinTransaction,
+  serializeCosmosTransaction,
+  serializeCryptoOrgTransaction,
+  serializeEthereumTransaction,
+  serializePolkadotTransaction,
+  serializeRippleTransaction,
+  serializeStellarTransaction,
+  serializeTezosTransaction,
   serializeTronTransaction,
-} from "./families/tron/serializer";
-import FAMILIES from "./families/types";
-
-import type { RawAccount, RawTransaction } from "./rawTypes";
-import type { Account, Transaction } from "./types";
+} from "@ledgerhq/wallet-api-types";
+import BigNumber from "bignumber.js";
 
 /**
  * Serialize an [[Account]] object in order to send it over JSON-RPC protocol
