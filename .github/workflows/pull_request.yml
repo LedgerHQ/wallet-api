@@ -14,7 +14,7 @@ jobs:
           node-version: 16
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
   lint:
     needs: setup
     runs-on: ubuntu-latest
@@ -27,6 +27,8 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
       - name: format check
         run: pnpm format:check
       - name: lint check
@@ -43,6 +45,8 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
       - name: test
         run: pnpm test
       # - name: Uploading to codecov.io
@@ -61,6 +65,8 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
       - name: run doc
         run: pnpm doc
       - name: check if diff
@@ -77,5 +83,7 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
       - name: build
         run: pnpm build
