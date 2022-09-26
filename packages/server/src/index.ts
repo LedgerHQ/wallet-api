@@ -9,6 +9,10 @@ import {
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
+export type ServerParams = {
+  logger: Logger;
+};
+
 export default class Server {
   /**
    * @ignore
@@ -26,7 +30,7 @@ export default class Server {
    * @ignore
    * @internal
    */
-  private serverAndClient?: JSONRPCServerAndClient;
+  private serverAndClient?: JSONRPCServerAndClient<ServerParams>;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     this.transport = transport;
@@ -42,16 +46,16 @@ export default class Server {
   connect({
     middlewares,
   }: {
-    middlewares: JSONRPCServerMiddleware<void>[];
+    middlewares: JSONRPCServerMiddleware<ServerParams>[];
   }): void {
-    const serverAndClient = new JSONRPCServerAndClient(
-      new JSONRPCServer(),
+    const serverAndClient = new JSONRPCServerAndClient<ServerParams>(
+      new JSONRPCServer<ServerParams>(),
       new JSONRPCClient((payload) => this.transport.send(payload))
     );
     serverAndClient.applyServerMiddleware(...middlewares);
 
     this.transport.onMessage = (payload) =>
-      serverAndClient.receiveAndSend(payload);
+      serverAndClient.receiveAndSend(payload, { logger: this.logger });
     this.transport.connect();
     this.serverAndClient = serverAndClient;
     this.logger.log("connected", this.transport);
@@ -90,3 +94,5 @@ export default class Server {
     throw new Error("not implemented");
   }
 }
+
+export * from "./middlewares";
