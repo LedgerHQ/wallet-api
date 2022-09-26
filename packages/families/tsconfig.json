@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./dist",
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}

@@ -19,6 +19,7 @@
     "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults src/index.ts"
   },
   "dependencies": {
+    "@ledgerhq/wallet-api-families": "workspace:*",
     "@ledgerhq/wallet-api-transports": "workspace:*",
     "@ledgerhq/wallet-api-logger": "workspace:*",
     "@ledgerhq/wallet-api-types": "workspace:*",
@@ -30,7 +31,7 @@
     "@types/chai": "^4.3.3",
     "@types/chai-spies": "^1.0.3",
     "@types/mocha": "^9.1.0",
-    "@types/node": "^18.7.9",
+    "@types/node": "^18.7.18",
     "chai": "^4.3.6",
     "chai-spies": "^1.0.0",
     "eslint": "^8.23.1",
