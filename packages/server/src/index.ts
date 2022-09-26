@@ -7,7 +7,7 @@ import {
   JSONRPCServerMiddleware,
 } from "json-rpc-2.0";
 
-const defaultLogger = new Logger("LL-PlatformSDK");
+const defaultLogger = new Logger("Wallet-API-Server");
 
 export default class Server {
   /**
