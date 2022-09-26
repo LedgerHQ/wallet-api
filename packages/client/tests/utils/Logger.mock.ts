@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import Logger from "@ledgerhq/wallet-api-logger";
+import { Logger } from "@ledgerhq/wallet-api-core";
 
 class LoggerMock extends Logger {
   override log() {}

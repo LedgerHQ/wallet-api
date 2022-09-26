@@ -14,10 +14,10 @@ import LedgerLivePlatformSDK, {
   RawAccount,
   RawSignedTransaction,
   WindowMessageTransport,
-} from "../../../src";
-import logger from "../../utils/Logger.mock";
-import MessageEventMock from "../../utils/MessageEvent.mock";
-import WindowMock from "../../utils/Window.mock";
+} from "../src";
+import logger from "./utils/Logger.mock";
+import MessageEventMock from "./utils/MessageEvent.mock";
+import WindowMock from "./utils/Window.mock";
 
 chai.use(ChaiSpies);
 
@@ -340,7 +340,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
 
         const accountId = "accountId";
         const transaction: BitcoinTransaction = {
-          family: FAMILIES.BITCOIN,
+          family: FAMILIES.Bitcoin,
           amount: new BigNumber(0),
           recipient: "recipient",
         };
@@ -411,7 +411,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         const recipientAccountId = "recipientAccountId";
 
         const tx: BitcoinTransaction = {
-          family: FAMILIES.BITCOIN,
+          family: FAMILIES.Bitcoin,
           amount: new BigNumber(10),
           recipient: recipientAccountId,
         };
@@ -463,7 +463,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
         const recipientAccountId = "recipientAccountId";
 
         const tx: BitcoinTransaction = {
-          family: FAMILIES.BITCOIN,
+          family: FAMILIES.Bitcoin,
           amount: new BigNumber(10),
           recipient: recipientAccountId,
         };

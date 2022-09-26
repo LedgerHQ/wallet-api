@@ -9,7 +9,13 @@
       "outputs": []
     },
     "lint:fix": {
-      "outputs": ["src/**"]
+      "outputs": []
+    },
+    "format:check": {
+      "outputs": []
+    },
+    "format:fix": {
+      "outputs": []
     },
     "dev": {
       "cache": false
