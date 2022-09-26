@@ -108,6 +108,46 @@ importers:
       prettier: 2.7.1
       typescript: 4.8.3
 
+  packages/server:
+    specifiers:
+      '@ledgerhq/wallet-api-core': workspace:*
+      '@tsconfig/node16-strictest-esm': ^1.0.3
+      '@types/node': ^18.7.18
+      bignumber.js: ^9.0.2
+      eslint: ^7.32.0
+      json-rpc-2.0: ^1.1.0
+      tsup: ^6.2.3
+      typescript: ^4.5.2
+    dependencies:
+      '@ledgerhq/wallet-api-core': link:../core
+      bignumber.js: 9.1.0
+      json-rpc-2.0: 1.4.1
+    devDependencies:
+      '@tsconfig/node16-strictest-esm': 1.0.3
+      '@types/node': 18.7.18
+      eslint: 7.32.0
+      tsup: 6.2.3_typescript@4.8.3
+      typescript: 4.8.3
+
+  packages/simulator:
+    specifiers:
+      '@ledgerhq/wallet-api-core': workspace:*
+      '@ledgerhq/wallet-api-server': workspace:*
+      '@tsconfig/node16-strictest-esm': ^1.0.3
+      '@types/node': ^18.7.18
+      eslint: ^7.32.0
+      tsup: ^6.2.3
+      typescript: ^4.5.2
+    dependencies:
+      '@ledgerhq/wallet-api-core': link:../core
+      '@ledgerhq/wallet-api-server': link:../server
+    devDependencies:
+      '@tsconfig/node16-strictest-esm': 1.0.3
+      '@types/node': 18.7.18
+      eslint: 7.32.0
+      tsup: 6.2.3_typescript@4.8.3
+      typescript: 4.8.3
+
 packages:
 
   /@ampproject/remapping/2.2.0:
