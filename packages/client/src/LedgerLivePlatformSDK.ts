@@ -2,9 +2,6 @@
  * @module LedgerLivePlatformSDK
  */
 
-import type { Transaction } from "@ledgerhq/wallet-api-families";
-import { serializeTransaction } from "@ledgerhq/wallet-api-families";
-import Logger from "@ledgerhq/wallet-api-logger";
 import type {
   Account,
   ApplicationDetails,
@@ -16,17 +13,22 @@ import type {
   FeesLevel,
   RawAccount,
   RawSignedTransaction,
+  Transaction,
   Transport,
-} from "@ledgerhq/wallet-api-types";
-import { ExchangeType } from "@ledgerhq/wallet-api-types";
+} from "@ledgerhq/wallet-api-core";
+import {
+  deserializeAccount,
+  ExchangeType,
+  LedgerPlatformApduTransport,
+  Logger,
+  serializeTransaction,
+} from "@ledgerhq/wallet-api-core";
 import {
   JSONRPCClient,
   JSONRPCParams,
   JSONRPCServer,
   JSONRPCServerAndClient,
 } from "json-rpc-2.0";
-import type LedgerPlatformApduTransport from "./LedgerPlatformApduTransport";
-import { deserializeAccount } from "./serializers";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 

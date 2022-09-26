@@ -1,6 +1,6 @@
 /* istanbul ignore file */
-/* eslint-disable no-console */
-export default class Logger {
+/* eslint-disable import/prefer-default-export, no-console */
+export class Logger {
   private prefix = "";
 
   constructor(namespace?: string) {

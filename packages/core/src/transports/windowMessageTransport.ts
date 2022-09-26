@@ -1,5 +1,5 @@
-import Logger from "@ledgerhq/wallet-api-logger";
-import type { MessageHandler, Transport } from "@ledgerhq/wallet-api-types";
+import { Logger } from "../logger";
+import type { MessageHandler, Transport } from "../types";
 
 const defaultLogger = new Logger("WindowMessage");
 

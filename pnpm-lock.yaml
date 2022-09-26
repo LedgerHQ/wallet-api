@@ -22,10 +22,7 @@ importers:
 
   packages/client:
     specifiers:
-      '@ledgerhq/wallet-api-families': workspace:*
-      '@ledgerhq/wallet-api-logger': workspace:*
-      '@ledgerhq/wallet-api-transports': workspace:*
-      '@ledgerhq/wallet-api-types': workspace:*
+      '@ledgerhq/wallet-api-core': workspace:*
       '@tsconfig/node16-strictest-esm': ^1.0.3
       '@types/chai': ^4.3.3
       '@types/chai-spies': ^1.0.3
@@ -45,10 +42,7 @@ importers:
       typedoc-plugin-rename-defaults: ^0.6.4
       typescript: ^4.8.3
     dependencies:
-      '@ledgerhq/wallet-api-families': link:../families
-      '@ledgerhq/wallet-api-logger': link:../logger
-      '@ledgerhq/wallet-api-transports': link:../transports
-      '@ledgerhq/wallet-api-types': link:../types
+      '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
       json-rpc-2.0: 1.4.1
     devDependencies:
@@ -67,6 +61,23 @@ importers:
       tsup: 6.2.3_qv3zdqwr5cvvfboiktsp7a3dfa
       typedoc: 0.23.15_typescript@4.8.3
       typedoc-plugin-rename-defaults: 0.6.4_typedoc@0.23.15
+      typescript: 4.8.3
+
+  packages/core:
+    specifiers:
+      '@tsconfig/node16-strictest-esm': ^1.0.3
+      '@types/node': ^18.7.18
+      bignumber.js: ^9.0.2
+      eslint: ^7.32.0
+      tsup: ^6.2.3
+      typescript: ^4.5.2
+    dependencies:
+      bignumber.js: 9.1.0
+    devDependencies:
+      '@tsconfig/node16-strictest-esm': 1.0.3
+      '@types/node': 18.7.18
+      eslint: 7.32.0
+      tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
 
   packages/eslint-config-custom:
@@ -95,75 +106,6 @@ importers:
       eslint-plugin-import: 2.26.0_uzffwd2kxyy6gwinwkcp25zmz4
       eslint-plugin-prettier: 4.2.1_cabrci5exjdaojcvd6xoxgeowu
       prettier: 2.7.1
-      typescript: 4.8.3
-
-  packages/families:
-    specifiers:
-      '@tsconfig/node16-strictest-esm': ^1.0.3
-      '@types/node': ^18.7.18
-      bignumber.js: ^9.0.2
-      eslint: ^7.32.0
-      tsup: ^6.2.3
-      typescript: ^4.5.2
-    dependencies:
-      bignumber.js: 9.1.0
-    devDependencies:
-      '@tsconfig/node16-strictest-esm': 1.0.3
-      '@types/node': 18.7.18
-      eslint: 7.32.0
-      tsup: 6.2.3_typescript@4.8.3
-      typescript: 4.8.3
-
-  packages/logger:
-    specifiers:
-      '@tsconfig/node16-strictest-esm': ^1.0.3
-      '@types/node': ^18.7.18
-      eslint: ^7.32.0
-      tsup: ^6.2.3
-      typescript: ^4.5.2
-    devDependencies:
-      '@tsconfig/node16-strictest-esm': 1.0.3
-      '@types/node': 18.7.18
-      eslint: 7.32.0
-      tsup: 6.2.3_typescript@4.8.3
-      typescript: 4.8.3
-
-  packages/transports:
-    specifiers:
-      '@ledgerhq/wallet-api-logger': workspace:*
-      '@ledgerhq/wallet-api-types': workspace:*
-      '@tsconfig/node16-strictest-esm': ^1.0.3
-      '@types/node': ^18.7.18
-      bignumber.js: ^9.0.2
-      eslint: ^7.32.0
-      tsup: ^6.2.3
-      typescript: ^4.5.2
-    dependencies:
-      '@ledgerhq/wallet-api-logger': link:../logger
-      '@ledgerhq/wallet-api-types': link:../types
-      bignumber.js: 9.1.0
-    devDependencies:
-      '@tsconfig/node16-strictest-esm': 1.0.3
-      '@types/node': 18.7.18
-      eslint: 7.32.0
-      tsup: 6.2.3_typescript@4.8.3
-      typescript: 4.8.3
-
-  packages/types:
-    specifiers:
-      '@tsconfig/node16-strictest-esm': ^1.0.3
-      '@types/node': ^18.7.18
-      bignumber.js: ^9.0.2
-      eslint: ^7.32.0
-      tsup: ^6.2.3
-      typescript: ^4.5.2
-    dependencies:
-      bignumber.js: 9.1.0
-    devDependencies:
-      '@tsconfig/node16-strictest-esm': 1.0.3
-      '@types/node': 18.7.18
-      eslint: 7.32.0
-      tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
 
 packages:

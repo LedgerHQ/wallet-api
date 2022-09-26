@@ -1,5 +1,5 @@
-import type { Account, RawAccount } from "@ledgerhq/wallet-api-types";
 import BigNumber from "bignumber.js";
+import type { Account, RawAccount } from "../types";
 
 /**
  * Serialize an [[Account]] object in order to send it over JSON-RPC protocol

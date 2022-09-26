@@ -2,10 +2,7 @@
   "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist",
-    "resolveJsonModule": true,
-    "exactOptionalPropertyTypes": false,
-    "lib": ["DOM"]
+    "outDir": "./dist"
   },
   "include": ["src/**/*", "tests/**/*"]
 }

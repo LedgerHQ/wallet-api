@@ -19,10 +19,7 @@
     "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults src/index.ts"
   },
   "dependencies": {
-    "@ledgerhq/wallet-api-families": "workspace:*",
-    "@ledgerhq/wallet-api-transports": "workspace:*",
-    "@ledgerhq/wallet-api-logger": "workspace:*",
-    "@ledgerhq/wallet-api-types": "workspace:*",
+    "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.0.2",
     "json-rpc-2.0": "^1.1.0"
   },
