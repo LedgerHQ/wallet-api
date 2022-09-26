@@ -4,6 +4,7 @@ import {
   JSONRPCClient,
   JSONRPCServer,
   JSONRPCServerAndClient,
+  JSONRPCServerMiddleware,
 } from "json-rpc-2.0";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -38,11 +39,16 @@ export default class Server {
    * @remarks
    * Establish the connection with the Wallet app through the [[transport]] instance provided at initialization
    */
-  connect(): void {
+  connect({
+    middlewares,
+  }: {
+    middlewares: JSONRPCServerMiddleware<void>[];
+  }): void {
     const serverAndClient = new JSONRPCServerAndClient(
       new JSONRPCServer(),
       new JSONRPCClient((payload) => this.transport.send(payload))
     );
+    serverAndClient.applyServerMiddleware(...middlewares);
 
     this.transport.onMessage = (payload) =>
       serverAndClient.receiveAndSend(payload);
@@ -71,6 +77,9 @@ export default class Server {
       this.logger.error(`not connected - addMethod(${method})`);
       throw new Error("Client not connected");
     }
+
+    // Should we check if the method is already added ?
+    // this.serverAndClient.hasMethod(method);
 
     this.serverAndClient.addMethod(method, handler);
   }
