@@ -89,12 +89,6 @@ export default class Server {
 
     this.serverAndClient.addMethod(method, handler);
   }
-
-  // TODO
-  // eslint-disable-next-line class-methods-use-this
-  getCapabilities(): void {
-    throw new Error("not implemented");
-  }
 }
 
 export * from "./middlewares";
