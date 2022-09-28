@@ -46,13 +46,15 @@ export default class Server {
   connect({
     middlewares,
   }: {
-    middlewares: JSONRPCServerMiddleware<ServerParams>[];
-  }): void {
+    middlewares?: JSONRPCServerMiddleware<ServerParams>[];
+  } = {}): void {
     const serverAndClient = new JSONRPCServerAndClient<ServerParams>(
       new JSONRPCServer<ServerParams>(),
       new JSONRPCClient((payload) => this.transport.send(payload))
     );
-    serverAndClient.applyServerMiddleware(...middlewares);
+    if (middlewares) {
+      serverAndClient.applyServerMiddleware(...middlewares);
+    }
 
     this.transport.onMessage = (payload) =>
       serverAndClient.receiveAndSend(payload, { logger: this.logger });
