@@ -32,7 +32,7 @@ jobs:
       - name: format check
         run: pnpm format:check
       - name: lint check
-        run: pnpm lint:check
+        run: pnpm lint
   test:
     needs: setup
     runs-on: ubuntu-latest
