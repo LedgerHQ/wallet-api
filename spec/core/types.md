@@ -1,4 +1,5 @@
 <!-- omit in toc -->
+
 # Types
 
 Here we describe the types used in the API.
@@ -6,7 +7,9 @@ Here we describe the types used in the API.
 Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These types are used for communication between the client and server over JSON-RPC. Each property of a raw type must be a JSON primitive data types as described by the JSON-RPC 2.0 [specification](https://www.jsonrpc.org/specification#parameter_structures) (i.e: Strings, Numbers, Booleans, or Null).
 
 ---
+
 <!-- omit in toc -->
+
 ## Table of Contents
 
 - [Transactions](#transactions)
@@ -62,6 +65,7 @@ Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These typ
 - [Unit](#unit)
 
 ---
+
 ## Transactions
 
 ### Transaction
@@ -126,6 +130,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `family`      | [`BITCOIN`](/spec/core/types.md#families) |                                                                                                                                                                                                                 |
 | `feePerByte?` | `BigNumber`                               |                                                                                                                                                                                                                 |
 | `recipient`   | `string`                                  | The address of the transaction's recipient                                                                                                                                                                      |
+
 ### RawBitcoinTransaction
 
 | Name          | Type                                      | Description                                                                                                                                                                                                     |
@@ -146,6 +151,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `memo?`     | `string`                                                         |                                                                                                                                                                                                                 |
 | `mode`      | [`CosmosOperationMode`](/spec/core/types.md#cosmosoperationmode) |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                                         | The address of the transaction's recipient                                                                                                                                                                      |
+
 ### RawCosmosTransaction
 
 | Name        | Type                                                             | Description                                                                                                                                                                                                     |
@@ -178,7 +184,6 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `mode`      | `string`                                   |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
 
-
 ### EthereumTransaction
 
 | Name        | Type                                       | Description                                                                                                                                                                                                     |
@@ -202,7 +207,6 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `gasPrice?` | `string`                                   |                                                                                                                                                                                                                 |
 | `nonce?`    | `number`                                   |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
-
 
 ### PolkadotTransaction
 
@@ -278,6 +282,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `mode`      | [`TezosOperationMode`](/spec/core/types.md#tezosoperationmode) |                                                                                                                                                                                                                 |
 | `fees?`     | `BigNumber`                                                    |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                                       | The address of the transaction's recipient                                                                                                                                                                      |
+
 ### RawTezosTransaction
 
 | Name        | Type                                                         | Description                                                                                                                                                                                                     |
@@ -322,7 +327,6 @@ The available Currency types.
 | CryptoCurrency | `CryptoCurrency` |
 | TokenCurrency  | `TokenCurrency`  |
 
-
 ### ExchangeType
 
 Enum describing the different types of exchanges.
@@ -332,7 +336,6 @@ Enum describing the different types of exchanges.
 | FUND | `0x00` |
 | SELL | `0x01` |
 | SWAP | `0x02` |
-
 
 ### FAMILIES
 
@@ -399,30 +402,29 @@ The raw representation of the [Account](/spec/core/types.md#account) type.
 | `name`             | `string` |
 | `spendableBalance` | `string` |
 
-
 ## TronOperationMode
 
-``"send"`` \| ``"freeze"`` \| ``"unfreeze"`` \| ``"vote"`` \| ``"claimReward"``
+`"send"` \| `"freeze"` \| `"unfreeze"` \| `"vote"` \| `"claimReward"`
 
 ## TronResource
 
-``"BANDWIDTH"`` \| ``"ENERGY"``
+`"BANDWIDTH"` \| `"ENERGY"`
 
 ## AlgorandOperationMode
 
-``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"``
+`"send"` \| `"optIn"` \| `"claimReward"` \| `"optOut"`
 
 ## CosmosOperationMode
 
-``"send"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimReward"`` \| ``"claimRewardCompound"``
+`"send"` \| `"delegate"` \| `"undelegate"` \| `"redelegate"` \| `"claimReward"` \| `"claimRewardCompound"`
 
 ## PolkadotOperationMode
 
-``"send"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` \| ``"claimReward"``
+`"send"` \| `"bond"` \| `"unbond"` \| `"rebond"` \| `"withdrawUnbonded"` \| `"setController"` \| `"nominate"` \| `"chill"` \| `"claimReward"`
 
 ## TezosOperationMode
 
-``"send"`` \| ``"delegate"`` \| ``"undelegate"``
+`"send"` \| `"delegate"` \| `"undelegate"`
 
 ## ApplicationDetails
 
@@ -445,13 +447,11 @@ Base currency model
 | `ticker` | `string`                             | The ticker name in exchanges / countervalue apis (e.g. BTC, ETH, USDT). |
 | `units`  | [`Unit`](/spec/core/types.md#unit)[] | Array of available [units](/spec/core/types.md#unit) for the currency   |
 
-
-
 ## CryptoCurrency
 
 Crypto currency model
 
-[`BaseCurrency`](/spec/core/types.md#basecurrency) & { `family`: `string` ; `type`: [`CryptoCurrency`](/spec/core/types.md#currencytype)  }
+[`BaseCurrency`](/spec/core/types.md#basecurrency) & { `family`: `string` ; `type`: [`CryptoCurrency`](/spec/core/types.md#currencytype) }
 
 ## Currency
 
@@ -470,7 +470,7 @@ Information about a device
 
 ERC20 token currency model
 
-[`TokenCurrency`](/spec/core/types.md#tokencurrency) & { `contract`: `string` ; `standard`: [`ERC20`](/spec/core/types.md#tokenstandard)  }
+[`TokenCurrency`](/spec/core/types.md#tokencurrency) & { `contract`: `string` ; `standard`: [`ERC20`](/spec/core/types.md#tokenstandard) }
 
 ## EcdsaSignature
 
@@ -493,7 +493,6 @@ and a partner (for sell, swap and funding)
 
 **`ref:`** https://github.com/LedgerHQ/app-exchange/blob/master/src/proto/protocol.proto
 
-
 ## RawSignedTransaction
 
 The raw representation of a signed transaction returned by the Ledger Live platform
@@ -511,7 +510,7 @@ This type is returned by Ledger Live when signing with `signTransaction` and is 
 
 Token currency model
 
-[`BaseCurrency`](/spec/core/types.md#basecurrency) & { `parent`: `string` ; `type`: [`TokenCurrency`](/spec/core/types.md#tokencurrency)  }
+[`BaseCurrency`](/spec/core/types.md#basecurrency) & { `parent`: `string` ; `type`: [`TokenCurrency`](/spec/core/types.md#tokencurrency) }
 
 ## Unit
 

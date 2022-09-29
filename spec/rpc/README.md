@@ -23,6 +23,7 @@ This file defines the JSON-RPC spec of the Platform API. This is meant to be imp
 | [ListCurrencies](#listcurrencies)                         |                            ✅                            |
 | [StartExchange](#startexchange)                           |                            ✅                            |
 | [CompleteExchange](#completeexchange)                     |                            ✅                            |
+| [GetCapabilities](#getcapabilities)                       |                            ❌                            |
 
 ## Info Routes
 
@@ -387,5 +388,41 @@ Returns the broadcasted transaction details.
   "jsonrpc": "2.0",
   "id": -1,
   "result": {}
+}
+```
+
+### GetCapabilities
+
+Get capabilities of the server as a list of available rpc calls.
+
+Returns a dictionary of booleans.
+
+#### Parameters
+
+No parameters
+
+#### Request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "wallet.getCapabilities",
+  "params": {}
+}
+```
+
+#### Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": -1,
+  "result": {
+    "transaction.sign": true,
+    "transaction.broadcast": true,
+    "message.sign": true,
+    "currency.list": true
+  }
 }
 ```
