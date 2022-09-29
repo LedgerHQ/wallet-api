@@ -1,4 +1,8 @@
-import type { MethodsHandlerMap, Transport } from "@ledgerhq/wallet-api-core";
+import type {
+  MethodsHandlerMap,
+  Transport,
+  Currency,
+} from "@ledgerhq/wallet-api-core";
 import { Logger } from "@ledgerhq/wallet-api-core";
 import {
   JSONRPCClient,
@@ -31,6 +35,16 @@ export default class Server {
    * @internal
    */
   private serverAndClient?: JSONRPCServerAndClient<ServerParams>;
+
+  /**
+   * @internal
+   * The list of currencies available for the Wallet APP communicating with this
+   * server instance.
+   * This list includes the intersection between the list of currencies handled
+   * by the wallet implementing the Server and the currencies authorized for the
+   * current Wallet APP, defined in it's manifest.
+   */
+  private currencies?: Currency[];
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     this.transport = transport;
@@ -88,6 +102,50 @@ export default class Server {
     // this.serverAndClient.hasMethod(method);
 
     this.serverAndClient.addMethod(method, handler);
+  }
+
+  /**
+   * Set the instance [[currencies]] object
+   *
+   * @param params.walletCurrencies - the list of all the currencies handled by
+   * the wallet
+   * @param params.allowedCurrenciesFilters - this list of allowed currencies
+   * filters for a specific Wallet APP, extracted from it's `categories`
+   * manifest field.
+   * These filters must be javascript compatible regex
+   */
+  setCurrencies({
+    walletCurrencies,
+    allowedCurrenciesFilters,
+  }: {
+    walletCurrencies: Currency[];
+    allowedCurrenciesFilters: "*" | string[];
+  }): void {
+    // If the Wallet APP has access to all available currencies (i.e: no restriction)
+    if (allowedCurrenciesFilters === "*") {
+      this.currencies = walletCurrencies;
+      return;
+    }
+
+    const filteredCurrencies = walletCurrencies.filter((currency) => {
+      // Test if a specific currency is allowed based on provided filters
+      return allowedCurrenciesFilters.some((filter) => {
+        const re = new RegExp(filter);
+        return currency.id.match(re);
+      });
+    });
+
+    this.currencies = filteredCurrencies;
+  }
+
+  /**
+   * Get the instance [[currencies]] object
+   *
+   * @returns The list of currencies available for the Wallet APP communicating
+   * with this server instance.
+   */
+  getCurrencies(): Currency[] | undefined {
+    return this.currencies;
   }
 }
 
