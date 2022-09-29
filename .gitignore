@@ -31,3 +31,9 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# build folder
+dist/
+
+# eslint cache
+.eslintcache

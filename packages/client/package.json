@@ -1,7 +1,7 @@
 {
-  "name": "@ledgerhq/live-app-sdk",
+  "name": "@ledgerhq/wallet-api-client",
   "version": "0.8.1",
-  "repository": "git@github.com:LedgerHQ/ledger-live-platform-sdk.git",
+  "repository": "git@github.com:LedgerHQ/wallet-api.git",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,45 +11,34 @@
   "scripts": {
     "format:check": "prettier --check \"src\" \"tests\"",
     "format:fix": "prettier --write \"src\" \"tests\"",
-    "lint:check": "eslint --cache --ext .ts \"src\" \"tests\"",
+    "lint": "eslint --cache --ext .ts \"src\" \"tests\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
-    "prepare": "yarn build && husky install",
-    "build": "tsc -p tsconfig.prod.json",
+    "build": "tsup src/index.ts --dts --format esm,cjs,iife",
     "test": "nyc mocha",
     "doc": "typedoc --gitRevision main --out docs/reference src/index.ts",
-    "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults --plugin typedoc-plugin-param-names src/index.ts"
+    "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults src/index.ts"
   },
   "dependencies": {
+    "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.0.2",
     "json-rpc-2.0": "^1.1.0"
   },
   "devDependencies": {
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
     "@types/chai": "^4.3.3",
     "@types/chai-spies": "^1.0.3",
     "@types/mocha": "^9.1.0",
-    "@types/node": "^18.7.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@types/node": "^18.7.18",
     "chai": "^4.3.6",
     "chai-spies": "^1.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": ">=8",
-    "lint-staged": ">=13",
+    "eslint": "^8.23.1",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.22.18",
-    "typedoc-plugin-markdown": "^3.12.1",
-    "typedoc-plugin-param-names": "^3.1.0",
+    "tsup": "^6.2.3",
+    "typedoc": "^0.23.15",
     "typedoc-plugin-rename-defaults": "^0.6.4",
-    "typescript": "^4.7.4"
-  },
-  "lint-staged": {
-    "*.ts": "yarn run lint:fix"
+    "typescript": "^4.8.3"
   }
 }

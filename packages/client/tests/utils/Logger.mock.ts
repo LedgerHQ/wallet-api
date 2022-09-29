@@ -1,13 +1,14 @@
-import Logger from "../../src/logger";
+/* eslint-disable class-methods-use-this */
+import { Logger } from "@ledgerhq/wallet-api-core";
 
 class LoggerMock extends Logger {
-  log() {}
+  override log() {}
 
-  warn() {}
+  override warn() {}
 
-  debug() {}
+  override debug() {}
 
-  error() {}
+  override error() {}
 }
 
 export default new LoggerMock();
