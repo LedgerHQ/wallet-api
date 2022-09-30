@@ -3,6 +3,7 @@ import {
   Transport,
   Currency,
   Logger,
+  Account,
 } from "@ledgerhq/wallet-api-core";
 import {
   JSONRPCClient,
@@ -48,6 +49,16 @@ export default class Server {
    * current Wallet APP, defined in it's manifest.
    */
   private currencies?: Currency[];
+
+  /**
+   * @internal
+   * The list of accounts available for the Wallet APP communicating with this
+   * server instance.
+   * This list includes the list of accounts handled by the wallet implementing
+   * the Server, filtered according to the currencies authorized for the
+   * current Wallet APP, defined in it's manifest.
+   */
+  private accounts?: Account[];
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     this.transport = transport;
@@ -152,6 +163,51 @@ export default class Server {
    */
   getCurrencies(): Currency[] | undefined {
     return this.currencies;
+  }
+
+  /**
+   * Set the instance [[accounts]] object
+   *
+   * @param params.walletAccounts - the list of all the accounts handled by
+   * the wallet
+   * @param params.allowedCurrenciesFilters - this list of allowed currencies
+   * filters for a specific Wallet APP, extracted from it's `categories`
+   * manifest field.
+   * These filters must be glob
+   * https://en.wikipedia.org/wiki/Glob_(programming)
+   */
+  setAccounts({
+    walletAccounts,
+    allowedCurrenciesFilters,
+  }: {
+    walletAccounts: Account[];
+    allowedCurrenciesFilters: "*" | string[];
+  }): void {
+    // If the Wallet APP has access to all available currencies (i.e: no restriction)
+    if (allowedCurrenciesFilters === "*") {
+      this.accounts = walletAccounts;
+      return;
+    }
+
+    const filteredAccounts = walletAccounts.filter((account) => {
+      // Test if a specific account is allowed based on provided filters
+      return allowedCurrenciesFilters.some((filter) => {
+        const re = globStringToRegex(filter);
+        return account.currency.match(re);
+      });
+    });
+
+    this.accounts = filteredAccounts;
+  }
+
+  /**
+   * Get the instance [[accounts]] object
+   *
+   * @returns The list of accounts available for the Wallet APP communicating
+   * with this server instance.
+   */
+  getAccounts(): Account[] | undefined {
+    return this.accounts;
   }
 }
 
