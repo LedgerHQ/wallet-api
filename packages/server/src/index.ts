@@ -1,20 +1,22 @@
-import type {
+import {
   MethodsHandlerMap,
   Transport,
   Currency,
+  Logger,
 } from "@ledgerhq/wallet-api-core";
-import { Logger } from "@ledgerhq/wallet-api-core";
 import {
   JSONRPCClient,
   JSONRPCServer,
   JSONRPCServerAndClient,
   JSONRPCServerMiddleware,
 } from "json-rpc-2.0";
+import listCurrencies from "./handlers/listCurrencies";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
 export type ServerParams = {
   logger: Logger;
+  currencies?: Currency[];
 };
 
 export default class Server {
@@ -75,6 +77,8 @@ export default class Server {
     this.transport.connect();
     this.serverAndClient = serverAndClient;
     this.logger.log("connected", this.transport);
+
+    this.serverAndClient.addMethod("currency.list", listCurrencies);
   }
 
   /**
@@ -89,7 +93,7 @@ export default class Server {
   /**
    * Adds an handler method to the server.
    */
-  addMethod<M extends keyof MethodsHandlerMap>(
+  addMethod<M extends Exclude<keyof MethodsHandlerMap, "currency.list">>(
     method: M,
     handler: MethodsHandlerMap[M]
   ): void {
