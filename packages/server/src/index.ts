@@ -11,6 +11,7 @@ import {
   JSONRPCServerMiddleware,
 } from "json-rpc-2.0";
 import listCurrencies from "./handlers/listCurrencies";
+import globStringToRegex from "./utils/globStringToRegex";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
@@ -116,7 +117,8 @@ export default class Server {
    * @param params.allowedCurrenciesFilters - this list of allowed currencies
    * filters for a specific Wallet APP, extracted from it's `categories`
    * manifest field.
-   * These filters must be javascript compatible regex
+   * These filters must be glob
+   * https://en.wikipedia.org/wiki/Glob_(programming)
    */
   setCurrencies({
     walletCurrencies,
@@ -134,7 +136,7 @@ export default class Server {
     const filteredCurrencies = walletCurrencies.filter((currency) => {
       // Test if a specific currency is allowed based on provided filters
       return allowedCurrenciesFilters.some((filter) => {
-        const re = new RegExp(filter);
+        const re = globStringToRegex(filter);
         return currency.id.match(re);
       });
     });
