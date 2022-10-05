@@ -11,6 +11,7 @@ import {
   JSONRPCServerAndClient,
   JSONRPCServerMiddleware,
 } from "json-rpc-2.0";
+import listAccounts from "./handlers/listAccounts";
 import listCurrencies from "./handlers/listCurrencies";
 import globStringToRegex from "./utils/globStringToRegex";
 
@@ -19,6 +20,7 @@ const defaultLogger = new Logger("Wallet-API-Server");
 export type ServerParams = {
   logger: Logger;
   currencies?: Currency[];
+  accounts?: Account[];
 };
 
 export default class Server {
@@ -91,6 +93,7 @@ export default class Server {
     this.logger.log("connected", this.transport);
 
     this.serverAndClient.addMethod("currency.list", listCurrencies);
+    this.serverAndClient.addMethod("account.list", listAccounts);
   }
 
   /**
@@ -105,10 +108,9 @@ export default class Server {
   /**
    * Adds an handler method to the server.
    */
-  addMethod<M extends Exclude<keyof MethodsHandlerMap, "currency.list">>(
-    method: M,
-    handler: MethodsHandlerMap[M]
-  ): void {
+  addMethod<
+    M extends Exclude<keyof MethodsHandlerMap, "currency.list" | "account.list">
+  >(method: M, handler: MethodsHandlerMap[M]): void {
     if (!this.serverAndClient) {
       this.logger.error(`not connected - addMethod(${method})`);
       throw new Error("Client not connected");
