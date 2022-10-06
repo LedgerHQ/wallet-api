@@ -23,6 +23,8 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
        * Include tokens in the results
        */
       includeTokens?: boolean;
+      // TODO: add `currencies` filter as in listCurrencies
+      // cf. https://github.com/LedgerHQ/wallet-api/issues/15
     };
   };
 
@@ -35,6 +37,8 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
   const listedAccounts = includeTokens
     ? serverAccounts
     : serverAccounts.filter((account) => {
+        // TODO: we should store `currencies` in a Map to quicky access a currency by it's id
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
         const currency = serverCurrencies.find(
           (c) => c.id === account.currency
         );
