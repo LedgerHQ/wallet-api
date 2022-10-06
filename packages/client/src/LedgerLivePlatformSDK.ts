@@ -261,7 +261,15 @@ export default class LedgerLivePlatformSDK {
    */
   async listAccounts(
     params: {
+      /**
+       * Include tokens accounts in the results
+       */
       includeTokens?: boolean;
+      /**
+       * Select a set of currencies by id to filter accounts agains.
+       * Globing is enabled
+       */
+      currencies?: string[];
     } = {}
   ): Promise<Account[]> {
     const rawAccounts = await this._request<RawAccount[]>(

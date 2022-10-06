@@ -146,7 +146,8 @@ Returns the list of accounts added by the current user on Ledger Live.
 
 #### Parameters
 
-- `includeTokens? (boolean)`: Allow the user to pick token accounts.
+- `currencies? (string[])`: Select a set of currencies by id. Globing is enabled.
+- `includeTokens? (boolean)`: Include tokens in the results.
 
 #### Request
 
@@ -156,6 +157,7 @@ Returns the list of accounts added by the current user on Ledger Live.
   "id": 1,
   "method": "account.list",
   "params": {
+    "currencies": [],
     "includeTokens": false
   }
 }

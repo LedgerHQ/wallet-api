@@ -164,4 +164,63 @@ describe("listAccounts", () => {
 
     expect(res).toEqual(serverAccounts);
   });
+
+  describe("currencies filter", () => {
+    test("should return all accounts if no currencies filter is provided", () => {
+      const res = listAccounts(
+        { params: { includeTokens: true, currencies: undefined } },
+        {
+          logger: defaultLogger,
+          accounts: serverAccounts,
+          currencies: serverCurrencies,
+        }
+      ) as Currency[];
+
+      expect(res).toEqual(serverAccounts);
+    });
+
+    test("should filter accounts with currency name", () => {
+      const res = listAccounts(
+        {
+          params: {
+            includeTokens: true,
+            currencies: ["bitcoin"],
+          },
+        },
+        {
+          logger: defaultLogger,
+          accounts: serverAccounts,
+          currencies: serverCurrencies,
+        }
+      ) as Currency[];
+
+      expect(res).toEqual([cryptoAccounts[0]]);
+    });
+
+    test("should filter accounts with currency regex", () => {
+      const res = listAccounts(
+        { params: { includeTokens: true, currencies: ["ethereum/*"] } },
+        {
+          logger: defaultLogger,
+          accounts: serverAccounts,
+          currencies: serverCurrencies,
+        }
+      ) as Currency[];
+
+      expect(res).toEqual(tokenAccounts);
+    });
+
+    test("should include currency and tokens accounts when filtering with currency name", () => {
+      const res = listAccounts(
+        { params: { includeTokens: true, currencies: ["ethereum"] } },
+        {
+          logger: defaultLogger,
+          accounts: serverAccounts,
+          currencies: serverCurrencies,
+        }
+      ) as Currency[];
+
+      expect(res).toEqual([cryptoAccounts[1], ...tokenAccounts]);
+    });
+  });
 });
