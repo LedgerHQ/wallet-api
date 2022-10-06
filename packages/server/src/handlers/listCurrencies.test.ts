@@ -122,9 +122,9 @@ describe("listCurrencies", () => {
   });
 
   describe("currencies filter", () => {
-    test("should return all currencies if filter is '*'", () => {
+    test("should return all currencies if no currencies filter is provided", () => {
       const res = listCurrencies(
-        { params: { includeTokens: true, currencies: "*" } },
+        { params: { includeTokens: true, currencies: undefined } },
         {
           logger: defaultLogger,
           currencies: serverCurrencies,

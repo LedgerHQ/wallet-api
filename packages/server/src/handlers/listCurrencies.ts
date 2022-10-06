@@ -26,7 +26,7 @@ const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
       /**
        * Select a set of currencies by id. Globing is enabled
        */
-      currencies?: string[] | "*";
+      currencies?: string[];
     };
   };
 
@@ -42,24 +42,20 @@ const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
         (currency) => currency.type === CurrencyType.CryptoCurrency
       );
 
-  if (currencies === "*") {
+  if (!currencies) {
     return listedCurrencies;
   }
 
-  if (currencies) {
-    const filteredCurrencies = listedCurrencies.filter((currency) => {
-      // Test if a specific currency is allowed based on provided filters
-      return currencies.some((filter) => {
-        const re = globStringToRegex(filter);
+  const filteredCurrencies = listedCurrencies.filter((currency) => {
+    // Test if a specific currency is allowed based on provided filters
+    return currencies.some((filter) => {
+      const re = globStringToRegex(filter);
 
-        return currency.id.match(re);
-      });
+      return currency.id.match(re);
     });
+  });
 
-    return filteredCurrencies;
-  }
-
-  return listedCurrencies;
+  return filteredCurrencies;
 };
 
 export default listCurrencies;
