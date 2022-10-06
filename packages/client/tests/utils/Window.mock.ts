@@ -31,6 +31,7 @@ export default class WindowMock {
 
   public top?: PostMessagable;
 
+  // @ts-ignore
   private document?: {
     addEventListener: UpdateEventListenerSignature;
     removeEventListener: UpdateEventListenerSignature;

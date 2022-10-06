@@ -22,5 +22,8 @@
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.0.2",
     "json-rpc-2.0": "^1.1.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
   }
 }
