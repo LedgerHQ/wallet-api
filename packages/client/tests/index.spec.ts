@@ -1,5 +1,5 @@
 /* import BigNumber from "bignumber.js"; */
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it, jest } from "@jest/globals";
 import LedgerLivePlatformSDK, {
   /* Account, */
   /* BitcoinTransaction, */
@@ -53,15 +53,15 @@ import logger from "./utils/Logger.mock";
 describe("LedgerLivePlatformSDK/index.ts", () => {
   describe("constructor", () => {
     it("should construct with default logger", () => {
-      const transport = new WindowMessageTransport(global, logger);
+      const transport = new WindowMessageTransport(window, logger);
       const SDK = new LedgerLivePlatformSDK(transport);
 
       // @ts-ignore
-      expect(SDK.logger).not.toEqual(undefined);
+      expect(SDK.logger).not.toBe(undefined);
     });
 
     it("should construct with a specific logger", () => {
-      const transport = new WindowMessageTransport(global, logger);
+      const transport = new WindowMessageTransport(window, logger);
       const SDK = new LedgerLivePlatformSDK(transport, logger);
 
       // @ts-ignore
@@ -69,36 +69,32 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
     });
   });
 
-  /* describe("connect", () => { */
-  /*   it("should not throw and set onMessage of transport", () => { */
-  /*     const window = new WindowMock(); */
-  /*     // @ts-ignore */
-  /*     const transport = new WindowMessageTransport(window, logger); */
-  /*     const SDK = new LedgerLivePlatformSDK(transport, logger); */
+  describe("connect", () => {
+    it("should not throw and set onMessage of transport", () => {
+      const transport = new WindowMessageTransport(window, logger);
+      const SDK = new LedgerLivePlatformSDK(transport, logger);
 
-  /*     expect(() => { */
-  /*       SDK.connect(); */
-  /*     }).to.not.throw(); */
-  /*     expect(transport.onMessage).to.not.eq(undefined); */
-  /*   }); */
-  /* }); */
+      expect(() => {
+        SDK.connect();
+      }).not.toThrow();
+      expect(transport.onMessage).not.toBe(undefined);
+    });
+  });
 
-  /* describe("disconnect", () => { */
-  /*   it("should succeed to disconnect transport and delete jsonrpc property", () => { */
-  /*     const window = new WindowMock(); */
-  /*     // @ts-ignore */
-  /*     const transport = new WindowMessageTransport(window, logger); */
-  /*     const SDK = new LedgerLivePlatformSDK(transport, logger); */
-  /*     const spy = chai.spy.on(transport, "disconnect") as ChaiSpies.Spy; */
+  describe("disconnect", () => {
+    it("should succeed to disconnect transport and delete jsonrpc property", () => {
+      const transport = new WindowMessageTransport(window, logger);
+      const SDK = new LedgerLivePlatformSDK(transport, logger);
+      transport.disconnect = jest.fn();
 
-  /*     SDK.connect(); */
-  /*     SDK.disconnect(); */
+      SDK.connect();
+      SDK.disconnect();
 
-  /*     expect(spy).to.have.been.called(); */
-  /*     // @ts-ignore */
-  /*     expect(SDK.serverAndClient).to.be.eq(undefined); */
-  /*   }); */
-  /* }); */
+      expect(transport.disconnect).toHaveBeenCalled();
+      // @ts-ignore
+      expect(SDK.serverAndClient).toBe(undefined);
+    });
+  });
 
   /* describe("JSON-RPC Requests", () => { */
   /*   let window: WindowMock; */

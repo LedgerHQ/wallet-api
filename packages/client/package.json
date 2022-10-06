@@ -33,6 +33,8 @@
     "chai": "^4.3.6",
     "chai-spies": "^1.0.0",
     "eslint": "^8.23.1",
+    "jest-circus": "^29.1.2",
+    "jest-environment-jsdom": "^29.1.2",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "prettier": "^2.7.1",
@@ -43,6 +45,8 @@
     "typescript": "^4.8.3"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "testRunner": "jest-circus/runner"
   }
 }
