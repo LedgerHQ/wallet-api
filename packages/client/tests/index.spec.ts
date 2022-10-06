@@ -15,7 +15,6 @@ import LedgerLivePlatformSDK, {
 } from "../src";
 import logger from "./utils/Logger.mock";
 /* import MessageEventMock from "./utils/MessageEvent.mock"; */
-import WindowMock from "./utils/Window.mock";
 
 /* const date = new Date(); */
 
@@ -54,9 +53,7 @@ import WindowMock from "./utils/Window.mock";
 describe("LedgerLivePlatformSDK/index.ts", () => {
   describe("constructor", () => {
     it("should construct with default logger", () => {
-      const window = new WindowMock();
-      // @ts-ignore
-      const transport = new WindowMessageTransport(window, logger);
+      const transport = new WindowMessageTransport(global, logger);
       const SDK = new LedgerLivePlatformSDK(transport);
 
       // @ts-ignore
@@ -64,9 +61,7 @@ describe("LedgerLivePlatformSDK/index.ts", () => {
     });
 
     it("should construct with a specific logger", () => {
-      const window = new WindowMock();
-      // @ts-ignore
-      const transport = new WindowMessageTransport(window, logger);
+      const transport = new WindowMessageTransport(global, logger);
       const SDK = new LedgerLivePlatformSDK(transport, logger);
 
       // @ts-ignore
