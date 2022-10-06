@@ -1,6 +1,7 @@
 import { Account, CurrencyType } from "@ledgerhq/wallet-api-core";
 import type { SimpleJSONRPCMethod } from "json-rpc-2.0";
 import type { ServerParams } from "..";
+import globStringToRegex from "../utils/globStringToRegex";
 
 const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
   params,
@@ -20,11 +21,14 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
   const { params: methodParams } = params as {
     params?: {
       /**
-       * Include tokens in the results
+       * Include tokens accounts in the results
        */
       includeTokens?: boolean;
-      // TODO: add `currencies` filter as in listCurrencies
-      // cf. https://github.com/LedgerHQ/wallet-api/issues/15
+      /**
+       * Select a set of currencies by id to filter accounts agains.
+       * Globing is enabled
+       */
+      currencies?: string[];
     };
   };
 
@@ -32,7 +36,7 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
     return serverAccounts;
   }
 
-  const { includeTokens } = methodParams;
+  const { includeTokens, currencies } = methodParams;
 
   const listedAccounts = includeTokens
     ? serverAccounts
@@ -46,7 +50,20 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
         return currency?.type === CurrencyType.CryptoCurrency;
       });
 
-  return listedAccounts;
+  if (!currencies) {
+    return listedAccounts;
+  }
+
+  const filteredAccounts = listedAccounts.filter((account) => {
+    // Test if a specific account is allowed based on provided currency filters
+    return currencies.some((filter) => {
+      const re = globStringToRegex(filter);
+
+      return account.currency.match(re);
+    });
+  });
+
+  return filteredAccounts;
 };
 
 export default listAccounts;
