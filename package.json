@@ -17,7 +17,7 @@
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
     "prepare": "husky install",
-    "publish-packages": "turbo run build lint test && changeset publish"
+    "publish-packages": "turbo run build lint && changeset publish"
   },
   "lint-staged": {
     "*.ts": "eslint --fix"
