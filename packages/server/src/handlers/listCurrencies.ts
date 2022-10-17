@@ -1,7 +1,7 @@
 import { Currency, CurrencyType } from "@ledgerhq/wallet-api-core";
 import type { SimpleJSONRPCMethod } from "json-rpc-2.0";
 import type { ServerParams } from "..";
-import globStringToRegex from "../utils/globStringToRegex";
+import filterByCurrencies from "../utils/filterByCurrencies";
 
 const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
   params,
@@ -46,14 +46,11 @@ const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
     return listedCurrencies;
   }
 
-  const filteredCurrencies = listedCurrencies.filter((currency) => {
-    // Test if a specific currency is allowed based on provided filters
-    return currencies.some((filter) => {
-      const re = globStringToRegex(filter);
-
-      return currency.id.match(re);
-    });
-  });
+  const filteredCurrencies = filterByCurrencies(
+    listedCurrencies,
+    currencies,
+    "id"
+  );
 
   return filteredCurrencies;
 };

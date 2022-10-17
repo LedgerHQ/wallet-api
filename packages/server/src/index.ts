@@ -13,7 +13,7 @@ import {
 } from "json-rpc-2.0";
 import listAccounts from "./handlers/listAccounts";
 import listCurrencies from "./handlers/listCurrencies";
-import globStringToRegex from "./utils/globStringToRegex";
+import filterByCurrencies from "./utils/filterByCurrencies";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
@@ -146,13 +146,11 @@ export default class Server {
       return;
     }
 
-    const filteredCurrencies = walletCurrencies.filter((currency) => {
-      // Test if a specific currency is allowed based on provided filters
-      return allowedCurrenciesFilters.some((filter) => {
-        const re = globStringToRegex(filter);
-        return currency.id.match(re);
-      });
-    });
+    const filteredCurrencies = filterByCurrencies(
+      walletCurrencies,
+      allowedCurrenciesFilters,
+      "id"
+    );
 
     this.currencies = filteredCurrencies;
   }
@@ -191,13 +189,11 @@ export default class Server {
       return;
     }
 
-    const filteredAccounts = walletAccounts.filter((account) => {
-      // Test if a specific account is allowed based on provided filters
-      return allowedCurrenciesFilters.some((filter) => {
-        const re = globStringToRegex(filter);
-        return account.currency.match(re);
-      });
-    });
+    const filteredAccounts = filterByCurrencies(
+      walletAccounts,
+      allowedCurrenciesFilters,
+      "currency"
+    );
 
     this.accounts = filteredAccounts;
   }

@@ -1,7 +1,7 @@
 import { Account, CurrencyType } from "@ledgerhq/wallet-api-core";
 import type { SimpleJSONRPCMethod } from "json-rpc-2.0";
 import type { ServerParams } from "..";
-import globStringToRegex from "../utils/globStringToRegex";
+import filterByCurrencies from "../utils/filterByCurrencies";
 
 const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
   params,
@@ -25,7 +25,7 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
        */
       includeTokens?: boolean;
       /**
-       * Select a set of currencies by id to filter accounts agains.
+       * Select a set of currencies by id to filter accounts against.
        * Globing is enabled
        */
       currencies?: string[];
@@ -54,14 +54,11 @@ const listAccounts: SimpleJSONRPCMethod<ServerParams> = (
     return listedAccounts;
   }
 
-  const filteredAccounts = listedAccounts.filter((account) => {
-    // Test if a specific account is allowed based on provided currency filters
-    return currencies.some((filter) => {
-      const re = globStringToRegex(filter);
-
-      return account.currency.match(re);
-    });
-  });
+  const filteredAccounts = filterByCurrencies(
+    listedAccounts,
+    currencies,
+    "currency"
+  );
 
   return filteredAccounts;
 };

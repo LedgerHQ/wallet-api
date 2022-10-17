@@ -266,7 +266,7 @@ export default class LedgerLivePlatformSDK {
        */
       includeTokens?: boolean;
       /**
-       * Select a set of currencies by id to filter accounts agains.
+       * Select a set of currencies by id to filter accounts against.
        * Globing is enabled
        */
       currencies?: string[];
