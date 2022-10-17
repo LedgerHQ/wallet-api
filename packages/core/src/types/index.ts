@@ -3,11 +3,9 @@ import type BigNumber from "bignumber.js";
 export type Promisable<T> = T | PromiseLike<T>;
 
 export type MethodsHandlerMap = {
-  "account.list": () => void;
   "account.receive": () => void;
   "account.request": () => void;
   "account.sync": () => void;
-  "currency.list": () => void;
   "exchange.complete": () => void;
   "exchange.start": () => void;
   "message.sign": () => void;
@@ -15,7 +13,14 @@ export type MethodsHandlerMap = {
   "transaction.sign": () => void;
 };
 
-export type Methods = keyof MethodsHandlerMap;
+/**
+ * No handler for "currency.list" and "account.list" can be added by API user so
+ * they are not present in MethodsHandlerMap
+ */
+export type Methods =
+  | keyof MethodsHandlerMap
+  | "currency.list"
+  | "account.list";
 
 /**
  * Simple contract for handling a Message received through a [[Transport]] protocol

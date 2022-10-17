@@ -108,9 +108,10 @@ export default class Server {
   /**
    * Adds an handler method to the server.
    */
-  addMethod<
-    M extends Exclude<keyof MethodsHandlerMap, "currency.list" | "account.list">
-  >(method: M, handler: MethodsHandlerMap[M]): void {
+  addMethod<M extends keyof MethodsHandlerMap>(
+    method: M,
+    handler: MethodsHandlerMap[M]
+  ): void {
     if (!this.serverAndClient) {
       this.logger.error(`not connected - addMethod(${method})`);
       throw new Error("Client not connected");

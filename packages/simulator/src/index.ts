@@ -7,4 +7,4 @@ const server = new Server(transport);
 
 server.connect();
 
-server.addMethod("account.list", () => {});
+server.addMethod("account.receive", () => {});
