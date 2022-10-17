@@ -103,6 +103,7 @@ describe("listCurrencies", () => {
       {
         logger: defaultLogger,
         currencies: serverCurrencies,
+        currenciesNoToken: cryptoCurrencies,
       }
     ) as Currency[];
 

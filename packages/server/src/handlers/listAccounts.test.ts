@@ -145,7 +145,7 @@ describe("listAccounts", () => {
       {
         logger: defaultLogger,
         accounts: serverAccounts,
-        currencies: serverCurrencies,
+        accountsNoToken: cryptoAccounts,
       }
     ) as Currency[];
 

@@ -4,6 +4,7 @@ import {
   Currency,
   Logger,
   Account,
+  CurrencyType,
 } from "@ledgerhq/wallet-api-core";
 import {
   JSONRPCClient,
@@ -20,7 +21,9 @@ const defaultLogger = new Logger("Wallet-API-Server");
 export type ServerParams = {
   logger: Logger;
   currencies?: Currency[];
+  currenciesNoToken?: Currency[];
   accounts?: Account[];
+  accountsNoToken?: Account[];
 };
 
 export default class Server {
@@ -54,6 +57,13 @@ export default class Server {
 
   /**
    * @internal
+   * The list of currencies stripped of all tokens.
+   * Used internally by the API to easilly return currencies including or not token ones
+   */
+  private currenciesNoToken?: Currency[];
+
+  /**
+   * @internal
    * The list of accounts available for the Wallet APP communicating with this
    * server instance.
    * This list includes the list of accounts handled by the wallet implementing
@@ -61,6 +71,13 @@ export default class Server {
    * current Wallet APP, defined in it's manifest.
    */
   private accounts?: Account[];
+
+  /**
+   * @internal
+   * The list of accounts stripped of all token accounts.
+   * Used internally by the API to easilly return accounts including or not token ones
+   */
+  private accountsNoToken?: Account[];
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     this.transport = transport;
@@ -153,7 +170,12 @@ export default class Server {
       "id"
     );
 
+    const filteredCurrenciesNoTokens = filteredCurrencies.filter(
+      (currency) => currency.type === CurrencyType.CryptoCurrency
+    );
+
     this.currencies = filteredCurrencies;
+    this.currenciesNoToken = filteredCurrenciesNoTokens;
   }
 
   /**
@@ -184,6 +206,12 @@ export default class Server {
     walletAccounts: Account[];
     allowedCurrenciesFilters: "*" | string[];
   }): void {
+    if (!this.currencies) {
+      throw new Error("must call `setCurrencies` before `setAccounts`");
+    }
+
+    const serverCurrencies = this.currencies;
+
     // If the Wallet APP has access to all available currencies (i.e: no restriction)
     if (allowedCurrenciesFilters === "*") {
       this.accounts = walletAccounts;
@@ -196,7 +224,16 @@ export default class Server {
       "currency"
     );
 
+    const filteredAccountsNoTokens = filteredAccounts.filter((account) => {
+      // TODO: we should store `currencies` in a Map to quicky access a currency by it's id
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+      const currency = serverCurrencies.find((c) => c.id === account.currency);
+
+      return currency?.type === CurrencyType.CryptoCurrency;
+    });
+
     this.accounts = filteredAccounts;
+    this.accountsNoToken = filteredAccountsNoTokens;
   }
 
   /**

@@ -1,4 +1,4 @@
-import { Currency, CurrencyType } from "@ledgerhq/wallet-api-core";
+import type { Currency } from "@ledgerhq/wallet-api-core";
 import type { SimpleJSONRPCMethod } from "json-rpc-2.0";
 import type { ServerParams } from "..";
 import filterByCurrencies from "../utils/filterByCurrencies";
@@ -11,7 +11,10 @@ const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
     return [];
   }
 
-  const { currencies: serverCurrencies } = serverParams;
+  const {
+    currencies: serverCurrencies,
+    currenciesNoToken: serverCurrenciesNoTokens,
+  } = serverParams;
 
   if (!params) {
     return serverCurrencies;
@@ -38,9 +41,7 @@ const listCurrencies: SimpleJSONRPCMethod<ServerParams> = (
 
   const listedCurrencies = includeTokens
     ? serverCurrencies
-    : serverCurrencies.filter(
-        (currency) => currency.type === CurrencyType.CryptoCurrency
-      );
+    : serverCurrenciesNoTokens || [];
 
   if (!currencies) {
     return listedCurrencies;
