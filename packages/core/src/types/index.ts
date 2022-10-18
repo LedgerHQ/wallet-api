@@ -1,4 +1,8 @@
 import type BigNumber from "bignumber.js";
+import * as RFC from "./RFC";
+import * as JSONRPC from "./JSONRPC";
+
+export { JSONRPC, RFC };
 
 export type Promisable<T> = T | PromiseLike<T>;
 
