@@ -1,9 +1,9 @@
 import Ajv from "ajv";
 import ajvErrors from "ajv-errors";
 import { redBright as error, greenBright as success } from "cli-color";
-import SchemaJSON from "./schema.json";
+import SchemaJSON from "./schema/schema.json";
 
-interface ValidateManifestParams {
+export interface ValidateManifestParams {
   details?: boolean;
   enableState?: boolean;
   fileName?: string;
@@ -19,7 +19,6 @@ interface ValidateManifestParams {
  *      @param {boolean=} enableState - Result description (e.g. show in console "The JSON file do not correspond to the schema")
  *      @param {string=} fileName - file name, practical to validate multiple files via multiple calls
  */
-// eslint-disable-next-line import/prefer-default-export
 export function validateManifest(
   manifest: JSON,
   options?: ValidateManifestParams | undefined

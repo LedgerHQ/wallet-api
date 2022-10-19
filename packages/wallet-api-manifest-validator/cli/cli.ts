@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as fs from "fs";
 import path from "path";
-import { validateManifest } from "./validator";
+import { validateManifest } from "../src/validator";
 
 const printHelp = (): void =>
   console.log(`

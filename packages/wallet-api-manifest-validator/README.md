@@ -1,20 +1,19 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
- <h2 align="center">Manifest Validator Package</h2>
+ <h2 align="center">@ledgerhq/wallet-api-manifest-validator</h2>
  <p align="center">Verify your Live App manifest inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
   <p align="center">
     <a href="https://www.npmjs.com/package/">
       <img src="https://img.shields.io/npm/v/" />
     </a>
-    <a href="https://opensource.org/licenses/Apache-2.0">
-      <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
-    </a>
     <a href="https://discord.gg/y6nZhxv2bC">
       <img alt="Discord" src="https://img.shields.io/discord/885256081289379850?color=1C1CE1&label=Ledger%20%7C%20Discord%20%F0%9F%91%8B%20&style=flat-square" />
     </a>
-   
-   
+    <a href="https://opensource.org/licenses/MIT">
+      <img alt="lICENCE" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+    </a>
+
   </p>
 
   <p align="center">
@@ -38,19 +37,20 @@ In top of that, we us the [AJV](https://ajv.js.org/) and [AJV-errors](https://ww
 ## Installation
 
 ```bash
-npm i manifest-validator
+npm i @ledgerhq/wallet-api-manifest-validator
+
 ```
 
 _Can also be used globaly :_
 ```bash
-npm i -g manifest-validator
+npm i -g @ledgerhq/wallet-api-manifest-validator
 ```
 
 ## How to use
 #### Import
 
 ```typescript
-import {validateManifest} from 'manifest-validator'
+import {validateManifest} from '@ledgerhq/wallet-api-manifest-validator'
 
 const result: boolean = validateManifest(MyjsonManifestFile)
 ```
