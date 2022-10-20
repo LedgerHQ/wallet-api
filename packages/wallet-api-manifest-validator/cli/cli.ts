@@ -11,11 +11,11 @@ runExit(
 
     fileOrDir = Option.String();
 
-    details = Option.Boolean(`--details`);
+    details = Option.Boolean(`--details, -details`);
 
-    enableState = Option.Boolean(`--enableState`);
+    enableState = Option.Boolean(`--enableState, -enableState`);
 
-    throwError = Option.Boolean(`--throwError`);
+    throwError = Option.Boolean(`--throwError, -throwError`);
 
     static usage = Command.Usage({
       category: `Help`,

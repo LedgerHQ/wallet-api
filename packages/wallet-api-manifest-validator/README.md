@@ -59,17 +59,16 @@ const result: boolean = validateManifest(MyjsonManifestFile)
 
 Once you have installed it, use the command :
 ```bash
-npm run validate *fileOrDirectoryName*
+npm run validate <*fileOrDirectoryName*>
 ```
 _Or if you have installed it in global :_
 ```bash
-validate *fileOrDirectoryName*
+validate <*fileOrDirectoryName*>
 ```
 
 help command
 ```bash
 npm run validate -h
-npm run validate -help
 ```
 
 #### More info about the validator options
@@ -98,9 +97,12 @@ Import :
 validateManifest(MyjsonManifestFile, {details, enableState, fileName})
 ```
 
+_Cli command don't allow you to use the fileName option._
+_--throwError option is only available on cli._
+
 CLI : 
 ```bash
-npm run validate *fileOrDirectoryName* -- -details -enableState
+npm run validate *fileOrDirectoryName* --details --enableState --throwError
 ```
 
 ## JSON Schema properties
