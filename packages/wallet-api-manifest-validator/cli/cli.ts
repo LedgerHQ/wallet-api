@@ -1,66 +1,81 @@
 #!/usr/bin/env node
+import { Command, Option, runExit } from "clipanion";
 import * as fs from "fs";
 import path from "path";
 import { validateManifest } from "../src/validator";
 
-const printHelp = (): void =>
-  console.log(`
--details : describe errors when they occur
--enableState : Result description (e.g. show in console "The JSON file do not correspond to the schema")
-`);
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+runExit(
+  class ValidateFile extends Command {
+    static paths = [[`validate -h |`], Command.Default];
 
-/**
- *  CLI command of the validateManifest function
- *  @returns {void | never}
- */
-const validateManifestCli = (): void | never => {
-  try {
-    if (process.argv[2] !== undefined) {
-      const details = process.argv.includes("-details");
-      const enableState = process.argv.includes("-enableState");
-      if (process.argv[2] === "-help" || process.argv[2] === "-h") printHelp();
-      else if (fs.lstatSync(process.argv[2]).isDirectory()) {
-        fs.readdir(process.argv[2], (err, files) => {
-          files.forEach((fileName) => {
-            if (
-              !validateManifest(
-                JSON.parse(
-                  fs.readFileSync(
-                    path.join(process.cwd(), process.argv[2], fileName),
-                    "utf-8"
-                  )
-                ) as JSON,
-                { details, enableState, fileName }
-              )
-            ) {
-              throw new Error(
-                "A least one of the JSON files dont correspond to the schema"
-              );
-            }
-          });
-        });
-      } else if (fs.lstatSync(process.argv[2]).isFile()) {
+    fileOrDir = Option.String();
+
+    details = Option.Boolean(`--details`);
+
+    enableState = Option.Boolean(`--enableState`);
+
+    throwError = Option.Boolean(`--throwError`);
+
+    static usage = Command.Usage({
+      category: `Help`,
+      description: `The manifest Validator is a typescript package that checks if your manifest.json file meets the requirements for Ledger Live App manifest submission.`,
+      examples: [
+        [`blank : Simple validator test`, `$0 validate <MyFileOrDirectory>`],
+        [
+          `--details : Adding details`,
+          `$0 validate <MyFileOrDirectory> --details`,
+        ],
+        [
+          `--enableState : Adding little description`,
+          `$0 validate <MyFileOrDirectory> --enableState`,
+        ],
+        [
+          `--throwError : throw error if the test don't pass`,
+          `$0 validate <MyFileOrDirectory> --throwError`,
+        ],
+      ],
+    });
+
+    processRecursivlyFilesInDeepFirstSearchPostOrder = (
+      _depth: number,
+      _fileOrDir: string
+    ) => {
+      if (fs.lstatSync(_fileOrDir).isFile()) {
         if (
           !validateManifest(
-            JSON.parse(
-              fs.readFileSync(
-                path.join(process.cwd(), process.argv[2]),
-                "utf-8"
-              )
-            ) as JSON,
-            { details, enableState, fileName: process.argv[2] }
-          )
-        ) {
+            JSON.parse(fs.readFileSync(path.join(_fileOrDir), "utf-8")) as JSON,
+            {
+              details: this.details,
+              enableState: this.enableState,
+              fileName: `${path.basename(
+                path.dirname(_fileOrDir)
+              )} : ${path.basename(_fileOrDir)}`,
+            }
+          ) &&
+          this.throwError
+        )
           throw new Error(
             "A least one of the JSON files dont correspond to the schema"
           );
-        }
+      } else {
+        const depth = _depth + 1;
+        fs.readdir(_fileOrDir, (_err, filesOrDirs) => {
+          filesOrDirs.forEach((element) => {
+            this.processRecursivlyFilesInDeepFirstSearchPostOrder(
+              depth,
+              path.join(_fileOrDir, element)
+            );
+          });
+        });
       }
-    } else
-      throw new Error("Please specify a json file or an manifest directory");
-  } catch (e) {
-    console.log(e);
-  }
-};
+    };
 
-validateManifestCli();
+    async execute() {
+      this.processRecursivlyFilesInDeepFirstSearchPostOrder(
+        0,
+        path.join(process.cwd(), this.fileOrDir)
+      );
+    }
+  }
+);

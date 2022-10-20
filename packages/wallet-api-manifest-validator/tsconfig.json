@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
+    "resolveJsonModule": true,
     "outDir": "./dist",
     "exactOptionalPropertyTypes": false
     },
