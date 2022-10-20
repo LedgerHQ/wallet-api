@@ -5,14 +5,10 @@ import {
   Transport,
   JSONRPC,
 } from "@ledgerhq/wallet-api-core";
+import { BehaviorSubject } from "rxjs";
 import { internalHandlers } from "./internalHandlers";
 
-import type {
-  WalletContext,
-  WalletHandlers,
-  RPCMiddleware,
-} from "./types";
-import { BehaviorSubject } from "rxjs";
+import type { WalletContext, WalletHandlers, RPCMiddleware } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
@@ -39,14 +35,18 @@ export default class WalletAPIServer {
         const internalHandler = internalHandlers[methodId];
 
         // await this.runMiddlewares();
-        const result = await internalHandler(rpcRequest, this.walletContext, this.walletHandlers)
+        const result = await internalHandler(
+          rpcRequest,
+          this.walletContext,
+          this.walletHandlers
+        );
 
         if (rpcRequest.id) {
           const response: JSONRPC.RpcResponse<typeof result> = {
             id: rpcRequest.id,
             jsonrpc: "2.0",
             result,
-          }
+          };
           await this.transport.send(response);
         }
       } catch (error) {

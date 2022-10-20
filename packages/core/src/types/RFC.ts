@@ -82,18 +82,18 @@ export type MessageSignResult = {
     transaction.sign
 */
 
-type TransactionParams = {
+export type TransactionOptions = {
   hwAppId?: string;
 };
 
 export type TransactionSignParams = {
   accountId: string;
   rawTransaction: RawTransaction;
-  params: TransactionParams;
+  options: TransactionOptions;
 };
 
 export type TransactionSignResult = {
-  signedTransaction: string;
+  signedTransactionHex: string;
 };
 
 /*
@@ -103,7 +103,7 @@ export type TransactionSignResult = {
 export type TransactionSendParams = {
   accountId: string;
   rawTransaction: RawTransaction;
-  params: TransactionParams;
+  options: TransactionOptions;
 };
 
 export type TransactionSendResult = {

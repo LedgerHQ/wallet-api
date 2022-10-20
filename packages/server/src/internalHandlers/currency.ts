@@ -7,9 +7,10 @@ const validateCurrencyList = objectOf<RFC.AccountRequestParams>({
   currencies: arrayOf(primitives.string),
 });
 
-export const list: RPCHandler<
-  RFC.CurrencyListResult
-> = async (req, context) => {
+export const list: RPCHandler<RFC.CurrencyListResult> = async (
+  req,
+  context
+) => {
   if (!validateCurrencyList(req.params)) {
     throw new JSONRPC.RpcError({
       code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
@@ -20,6 +21,6 @@ export const list: RPCHandler<
   const currencies = await firstValueFrom(context.currencies$);
 
   return {
-    currencies: currencies,
+    currencies,
   };
 };

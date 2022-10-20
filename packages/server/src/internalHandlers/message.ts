@@ -9,9 +9,11 @@ const validateMessageSign = objectOf<RFC.MessageSignParams>({
   hexMessage: primitives.string,
 });
 
-export const sign: RPCHandler<
-  RFC.MessageSignResult
-> = async (req, context, handlers) => {
+export const sign: RPCHandler<RFC.MessageSignResult> = async (
+  req,
+  context,
+  handlers
+) => {
   if (!validateMessageSign(req.params)) {
     throw new JSONRPC.RpcError({
       code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
@@ -23,7 +25,7 @@ export const sign: RPCHandler<
 
   const { accountId, hexMessage } = req.params;
 
-  const account = accounts.find(account => account.id === accountId);
+  const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
     throw new JSONRPC.RpcError(ACCOUNT_NOT_FOUND);
@@ -35,7 +37,10 @@ export const sign: RPCHandler<
     throw new JSONRPC.RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  const signedMessage = await walletHandler({ account, message: Buffer.from(hexMessage, "hex") });
+  const signedMessage = await walletHandler({
+    account,
+    message: Buffer.from(hexMessage, "hex"),
+  });
 
   return {
     hexSignedMessage: signedMessage.toString("hex"),

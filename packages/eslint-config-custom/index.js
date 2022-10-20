@@ -20,6 +20,7 @@ module.exports = {
       //   // tsconfigRootDir: __dirname,
       // },
       rules: {
+        "import/prefer-default-export": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/no-shadow": "warn",

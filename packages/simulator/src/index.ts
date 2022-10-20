@@ -40,7 +40,7 @@ const cryptoAccounts: Account[] = [
 ].map(deserializeAccount);
 
 const serverInstance = new WalletAPIServer(dummyTransport);
-serverInstance.setAccounts(cryptoAccounts)
+serverInstance.setAccounts(cryptoAccounts);
 
 serverInstance.setHandler(
   RFC.MethodId.ACCOUNT_REQUEST,
@@ -67,4 +67,3 @@ if (dummyTransport.onMessage) {
   };
   dummyTransport.onMessage(testMessage).catch(console.log);
 }
-
