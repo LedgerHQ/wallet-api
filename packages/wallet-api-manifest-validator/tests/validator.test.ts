@@ -8,14 +8,14 @@ const manifest = JSON.parse(
   fs.readFileSync(path.join(__dirname, "manifests/schema.test.json"), "utf-8")
 );
 
+test("Manifest base is OK", () => {
+  expect(validateManifest(manifest)).toBe(true);
+});
+
 let testManifest = Object.assign({}, manifest);
 
 beforeEach(() => {
   testManifest = Object.assign({}, manifest);
-});
-
-test("Manifest base is OK", () => {
-  expect(validateManifest(manifest)).toBe(true);
 });
 
 describe("Properties", () => {

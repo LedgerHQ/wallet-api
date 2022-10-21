@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 import ajvErrors from "ajv-errors";
-import { redBright as error, greenBright as success } from "cli-color";
+import { Logger } from "@ledgerhq/wallet-api-core";
 import SchemaJSON from "./schema/schema.json";
 
 export interface ValidateManifestParams {
@@ -26,29 +26,30 @@ export function validateManifest(
   const { details, enableState, fileName } = {
     details: false,
     enableState: false,
-    fileName: false,
+    fileName: "",
     ...options,
   };
 
   const validate = ajvErrors(new Ajv({ allErrors: true })).compile(SchemaJSON);
+  const log = new Logger();
 
   if (validate(manifest)) {
-    if (fileName) console.log(success(fileName));
-    if (enableState) console.log(success("No errors detected."));
+    if (fileName !== "") log.debug(fileName);
+    if (enableState) log.debug("No errors detected.");
     return true;
   }
 
-  if (fileName) console.log(error(fileName));
+  if (fileName !== "") console.debug(fileName);
   if (details && validate.errors) {
-    console.log(`\n${validate.errors?.length} errors detected :`);
+    log.warn(`\n${validate.errors?.length} errors detected :`);
     validate.errors?.forEach((e) => {
-      console.log(
+      log.warn(
         `-----\nWhere ? ${
           e.instancePath ? e.instancePath : "root"
-        }\nError message : ${e.message ? e.message : ""}`
+        }\nError message : ${e.message ? e.message : ""}\n`
       );
     });
   } else if (enableState)
-    console.log("The JSON file do not correspond to the schema.");
+    log.log("The JSON file do not correspond to the schema.");
   return false;
 }
