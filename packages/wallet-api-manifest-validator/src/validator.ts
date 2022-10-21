@@ -34,12 +34,12 @@ export function validateManifest(
   const log = new Logger();
 
   if (validate(manifest)) {
-    if (fileName !== "") log.debug(fileName);
+    if (fileName !== "") log.debug(`\u2714 ${fileName}`);
     if (enableState) log.debug("No errors detected.");
     return true;
   }
 
-  if (fileName !== "") console.debug(fileName);
+  if (fileName !== "") log.debug(`\u2718 ${fileName}`);
   if (details && validate.errors) {
     log.warn(`\n${validate.errors?.length} errors detected :`);
     validate.errors?.forEach((e) => {
