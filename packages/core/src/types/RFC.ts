@@ -2,7 +2,8 @@
     Request Payloads
 */
 
-import type { Currency, RawAccount } from ".";
+import type { RawAccount } from "../accounts/types";
+import type { Currency } from "../currencies/types";
 import type { RawTransaction } from "../families";
 
 export enum MethodId {
@@ -13,7 +14,7 @@ export enum MethodId {
   EXCHANGE_COMPLETE = "exchange.complete",
   EXCHANGE_START = "exchange.start",
   MESSAGE_SIGN = "message.sign",
-  TRANSACTION_BROADCAST = "transaction.broadcast",
+  TRANSACTION_SIGN_AND_BROADCAST = "transaction.signAndBroadcast",
   TRANSACTION_SIGN = "transaction.sign",
 }
 
@@ -97,16 +98,16 @@ export type TransactionSignResult = {
 };
 
 /*
-    transaction.send
+    transaction.signAndBroadcast
 */
 
-export type TransactionSendParams = {
+export type TransactionSignAndBroadcastParams = {
   accountId: string;
   rawTransaction: RawTransaction;
   options: TransactionOptions;
 };
 
-export type TransactionSendResult = {
+export type TransactionSignAndBroadcastResult = {
   transactionHash: string;
 };
 

@@ -1,4 +1,9 @@
-import { arrayOf, objectOf, primitives } from "@altostra/type-validations";
+import {
+  arrayOf,
+  objectOf,
+  primitives,
+  ValidationRejection,
+} from "@altostra/type-validations";
 import {
   Account,
   JSONRPC,
@@ -22,10 +27,16 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
   context,
   handlers
 ) => {
-  if (!validateAccountRequest(req.params)) {
+  const rejections: ValidationRejection[] = [];
+  if (
+    !validateAccountRequest(req.params, (rejection) => {
+      rejections.push(rejection);
+    })
+  ) {
     throw new JSONRPC.RpcError({
       code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
       message: "Bad parameters",
+      data: rejections,
     });
   }
 

@@ -55,3 +55,49 @@ export const sign: RPCHandler<RFC.TransactionSignResult> = async (
     signedTransactionHex: signedTransaction.toString("hex"),
   };
 };
+
+const validateTransactionSignAndBroadcast =
+  objectOf<RFC.TransactionSignAndBroadcastParams>({
+    accountId: primitives.string,
+    rawTransaction: isRawTransaction,
+    options: objectOf<RFC.TransactionOptions>({
+      hwAppId: primitives.maybeString,
+    }),
+  });
+
+export const signAndBroadcast: RPCHandler<
+  RFC.TransactionSignAndBroadcastResult
+> = async (req, context, handlers) => {
+  if (!validateTransactionSignAndBroadcast(req.params)) {
+    throw new JSONRPC.RpcError({
+      code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
+      message: "Bad parameters",
+    });
+  }
+
+  const accounts = await firstValueFrom(context.accounts$);
+
+  const { accountId, rawTransaction, options } = req.params;
+
+  const account = accounts.find((acc) => acc.id === accountId);
+
+  if (!account) {
+    throw new JSONRPC.RpcError(ACCOUNT_NOT_FOUND);
+  }
+
+  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST];
+
+  if (!walletHandler) {
+    throw new JSONRPC.RpcError(NOT_IMPLEMENTED_BY_WALLET);
+  }
+
+  const transactionHash = await walletHandler({
+    account,
+    transaction: deserializeTransaction(rawTransaction),
+    options,
+  });
+
+  return {
+    transactionHash: transactionHash.toString("hex"),
+  };
+};

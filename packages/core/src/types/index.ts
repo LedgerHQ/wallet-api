@@ -1,25 +1,9 @@
-import type BigNumber from "bignumber.js";
 import * as RFC from "./RFC";
 import * as JSONRPC from "./JSONRPC";
 
 export { JSONRPC, RFC };
 
 export type Promisable<T> = T | PromiseLike<T>;
-
-export type MethodsHandlerMap = {
-  "account.list": () => void;
-  "account.receive": () => void;
-  "account.request": () => void;
-  "account.sync": () => void;
-  "currency.list": () => void;
-  "exchange.complete": () => void;
-  "exchange.start": () => void;
-  "message.sign": () => void;
-  "transaction.broadcast": () => void;
-  "transaction.sign": () => void;
-};
-
-export type Methods = keyof MethodsHandlerMap;
 
 /**
  * Simple contract for handling a Message received through a [[Transport]] protocol
@@ -77,21 +61,6 @@ export enum FeesLevel {
   Fast = "fast",
 }
 
-/**
- * Currency types
- */
-export enum CurrencyType {
-  CryptoCurrency = "CryptoCurrency",
-  TokenCurrency = "TokenCurrency",
-}
-
-/**
- * Token standards
- */
-export enum TokenStandard {
-  ERC20 = "ERC20",
-}
-
 export enum DeviceModel {
   /**
    * Represents the Ledger Blue hardware device
@@ -131,65 +100,6 @@ export enum ExchangeType {
 }
 
 /**
- * A ledger live cryptocurrency account
- *
- * @remarks
- * This is a slightly modified subset of the Account type used by the Ledger Live platform.
- *
- * @see {@link https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/account.md|Account reference} in Ledger Live Common doc for more infos
- */
-export type Account = {
-  /**
-   * The unique identifier of this account used internally by Ledger Live software
-   */
-  id: string;
-  /**
-   * The account’s name set by the user.
-   */
-  name: string;
-  /**
-   * The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change
-   */
-  address: string;
-  /**
-   * The associated cryptocurrency id of the Account
-   */
-  currency: string;
-  /**
-   * The total amount of assets that this account holds
-   */
-  balance: BigNumber;
-  /**
-   * The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains
-   */
-  spendableBalance: BigNumber;
-  /**
-   * Tracks the current blockchain block height
-   */
-  blockHeight: number;
-  /**
-   * The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
-   */
-  lastSyncDate: Date;
-};
-
-/**
- * The raw representation of the [[Account]] type
- *
- * @see [[Account]] for information regarding individual fields. Each field type is the serialized version of the corresponding [[Account]] type
- */
-export type RawAccount = {
-  id: string;
-  name: string;
-  address: string;
-  currency: string;
-  balance: string;
-  spendableBalance: string;
-  blockHeight: number;
-  lastSyncDate: string;
-};
-
-/**
  * The raw representation of a signed transaction returned by the Ledger Live platform
  *
  * @remarks
@@ -215,98 +125,3 @@ export type ApplicationDetails = {
    */
   version: string;
 };
-
-/**
- * A unit describes a given representation of a currency for humans. A currency can have many units, for instance, we can assume Euro have euros and cents. We can define Bitcoin to have: bitcoin, mBTC, bit, satoshi (but that's up to us really).
- *
- * @remarks
- * This is a slightly modified subset of the Unit type used by the Ledger Live platform.
- *
- * @see {@link https://github.com/LedgerHQ/ledger-live-common/blob/master/docs/currency.md#unit|Unit reference} in Ledger Live Common doc for more informations
- */
-export type Unit = {
-  /**
-   * Display name of a given unit (example: satoshi)
-   */
-  name: string;
-  /**
-   * String to use when formatting the unit. like 'BTC' or 'USD'
-   */
-  code: string;
-  /**
-   * Number of digits after the '.' in context of this unit
-   */
-  magnitude: number;
-};
-
-/**
- * Base currency model
- */
-export type BaseCurrency = {
-  /**
-   * Used for UI
-   */
-  color: string;
-  /**
-   * The ticker name in exchanges / countervalue apis (e.g. BTC, ETH, USDT).
-   */
-  ticker: string;
-  /**
-   * The unique internal id of the currency
-   */
-  id: string;
-  /**
-   * The display name of the currency
-   */
-  name: string;
-  /**
-   * Array of available [[Unit | units]] for the currency
-   */
-  units: Unit[];
-};
-
-/**
- * Crypto currency model
- */
-export type CryptoCurrency = BaseCurrency & {
-  /**
-   * Represents the currency type.
-   * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
-   */
-  type: CurrencyType.CryptoCurrency;
-  /**
-   * The [[FAMILIES | family]] of the crypto currency
-   */
-  family: string;
-};
-
-/**
- * Token currency model
- */
-export type TokenCurrency = BaseCurrency & {
-  /**
-   * Represents the currency type.
-   * @see {@link https://github.com/LedgerHQ/ledgerjs/blob/master/packages/cryptoassets/src/types.ts|cryptoassets types} in ledgerjs for more infos
-   */
-  type: CurrencyType.TokenCurrency;
-  /**
-   * Parent crypto currency
-   */
-  parent: string;
-};
-
-/**
- * ERC20 token currency model
- */
-export type ERC20TokenCurrency = TokenCurrency & {
-  /**
-   * Token Standard
-   */
-  standard: TokenStandard.ERC20;
-  /**
-   * EVM contract address
-   */
-  contract: string;
-};
-
-export type Currency = CryptoCurrency | ERC20TokenCurrency;

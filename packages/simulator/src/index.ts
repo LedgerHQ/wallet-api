@@ -13,7 +13,8 @@ const dummyTransport: Transport = {
   connect: () => {},
   disconnect: () => {},
   onMessage: undefined,
-  send: async (payload) => console.log("responded: ", payload),
+  send: async (payload) =>
+    console.log("responded: ", JSON.stringify(payload, null, 3)),
 };
 
 const cryptoAccounts: Account[] = [

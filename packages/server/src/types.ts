@@ -34,6 +34,11 @@ export interface WalletHandlers {
     transaction: Transaction;
     options: RFC.TransactionOptions;
   }) => Promise<Buffer>;
+  [RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST]: (params: {
+    account: Account;
+    transaction: Transaction;
+    options: RFC.TransactionOptions;
+  }) => Promise<Buffer>;
 }
 
 export type RPCMiddleware = (
