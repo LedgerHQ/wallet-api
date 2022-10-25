@@ -7,10 +7,10 @@
       "description": "The identification of your application.",
       "type": "string",
       "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^[a-z]*$",
+      "maxLength": 50,
+      "pattern": "^([a-z]|[A-Z]|[0-9]|_|-)*$",
       "errorMessage": {
-        "pattern": "${0#} must be -> lowercase | alphabetic only | max chars : 20 | min chars : 1"
+        "pattern": "${0#}"
       }
     },
     "private": {
@@ -21,16 +21,17 @@
       "description": "Name of your application, will be showed as title in LL",
       "type": "string",
       "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^([a-z|A-Z])*$",
+      "maxLength": 50,
+      "pattern": "^.*$",
       "errorMessage": {
         "pattern": "${0#} must be ->  alphabetic only | max chars : 20 | min chars : 1"
       }
     },
+    "isDapp": { "type": "boolean" },
     "url": {
       "description": "The url of the eth-dapp-browser, either running locally or at https://dapp-browser.apps.ledger.com for the production version",
       "type": "string",
-      "pattern": "^(https://|www\\.).*\\.[a-z]{1,10}$",
+      "pattern": "^.*$",
       "errorMessage": {
         "pattern": "${0#} must be an URL"
       }
@@ -38,7 +39,7 @@
     "homepageUrl": {
       "description": "The homepage of your service. For instance, https://www.google.fr/",
       "type": "string",
-      "pattern": "^(https://|www\\.).*\\.[a-z]{1,10}$",
+      "pattern": "^.*$",
       "errorMessage": {
         "pattern": "${0#} must be an URL"
       }
@@ -46,7 +47,7 @@
     "supportUrl": {
       "description": "The support URL of your service. (optional)",
       "type": "string",
-      "pattern": "^(https://|www\\.).*\\.[a-z]{1,10}$",
+      "pattern": "^.*$",
       "errorMessage": {
         "pattern": "${0#} must be an URL"
       }
@@ -54,9 +55,9 @@
     "icon": {
       "description": "A link to the icon displayed in the Ledger Live Discover section. Will be hosted on Ledger CDN before being released in production. (optional)",
       "type": "string",
-      "pattern": "^(https://|www\\.).*\\.png|jpg|jpeg|png$",
+      "pattern": "^.*$",
       "errorMessage": {
-        "pattern": "${0#} must be an URL.(png|jpg|jpeg|png)"
+        "pattern": "${0#} must be an URL or blank"
       }
     },
     "params": {
@@ -80,18 +81,37 @@
             "type": "object",
             "properties": {
               "currency": {
-                "enum": ["ethereum", "bitcoin", "polkadot"],
+                "enum": [
+                  "ethereum",
+                  "bitcoin",
+                  "ethereum_goerli",
+                  "ethereum_ropsten",
+                  "polkadot",
+                  "bsc",
+                  "algorand",
+                  "polygon",
+                  "litecoin",
+                  "ripple",
+                  "bitcoin_cash",
+                  "binance_coin",
+                  "tether",
+                  "tron",
+                  "stellar",
+                  "dogecoin",
+                  "digibyte",
+                  "tezos",
+                  "elrond"
+                ],
                 "errorMessage": {
                   "enum": "must be equal to one of the allowed values : ethereum, bitcoin, polkadot"
                 }
               },
               "chainID": {
-                "type": "string",
-                "minLength": 1
+                "type": "number"
               },
               "nodeURL": {
                 "type": "string",
-                "pattern": "^.*\\..*$",
+                "pattern": "^.*$",
                 "errorMessage": {
                   "pattern": "${0#} must be an URL"
                 }
@@ -136,10 +156,29 @@
     "categories": {
       "description": "A JSON array of metadata information about your application. For instance : [“staking“,“defi“]. You can add as many as you want. It is not used for the moment but will be used for filtering in the future.",
       "type": "array",
-      "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "enum": ["lend", "yield", "swap", "farm", "staking", "defi"],
+        "enum": [
+          "lend",
+          "buy",
+          "sell",
+          "nft",
+          "yield",
+          "bridge",
+          "card",
+          "swap",
+          "farm",
+          "staking",
+          "debug",
+          "referral",
+          "portfolio",
+          "streaming",
+          "exchange",
+          "defi",
+          "tools",
+          "lending",
+          "gift cards"
+        ],
         "errorMessage": {
           "enum": "must be equal to one of the allowed values : lend, yield, swap, farm, staking, defi"
         }
@@ -147,14 +186,44 @@
     },
     "currencies": {
       "description": "A JSON array of the currency/network being used by your application. For instance [”ethereum”,”polygon”]. Leave blank if the App does not require any currency.",
-      "type": "array",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "enum": ["ethereum", "bitcoin", "polkadot", ""],
-        "errorMessage": {
-          "enum": "must be equal to one of the allowed values : ethereum, bitcoin, polkadot, blank"
+      "oneOf": [
+        {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "ethereum",
+              "bitcoin",
+              "ethereum_goerli",
+              "ethereum_ropsten",
+              "polkadot",
+              "bsc",
+              "algorand",
+              "polygon",
+              "litecoin",
+              "ripple",
+              "bitcoin_cash",
+              "binance_coin",
+              "tether",
+              "tron",
+              "stellar",
+              "dogecoin",
+              "digibyte",
+              "tezos",
+              "elrond"
+            ]
+          },
+          "errorMessage": {
+            "oneOf": " Must be type of array with a least 1 value or a string equal to \"*\" "
+          }
+        },
+        {
+          "type": "string",
+          "enum": ["*"]
         }
+      ],
+      "errorMessage": {
+        "oneOf": "Must be type of array with a least 1 value or a string equal to \"*\" "
       }
     },
     "content": {
@@ -197,11 +266,17 @@
       "type": "array"
     }
   },
+  "if": {
+    "properties": { "isDapp": { "const": false } }
+  },
+  "then": {},
+  "else": {
+    "required": ["params"]
+  },
   "required": [
     "id",
     "name",
     "url",
-    "params",
     "homepageUrl",
     "platform",
     "apiVersion",
