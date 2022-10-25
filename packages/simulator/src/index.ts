@@ -1,8 +1,8 @@
 import {
   Account,
   deserializeAccount,
-  JSONRPC,
   RFC,
+  RpcRequest,
   Transport,
 } from "@ledgerhq/wallet-api-core";
 
@@ -10,11 +10,10 @@ import WalletAPIServer from "@ledgerhq/wallet-api-server";
 import { firstValueFrom } from "rxjs";
 
 const dummyTransport: Transport = {
-  connect: () => {},
-  disconnect: () => {},
   onMessage: undefined,
-  send: async (payload) =>
-    console.log("responded: ", JSON.stringify(payload, null, 3)),
+  send: (payload) => {
+    console.log("responded: ", payload);
+  },
 };
 
 const cryptoAccounts: Account[] = [
@@ -55,10 +54,7 @@ serverInstance.setHandler(
 );
 
 if (dummyTransport.onMessage) {
-  const testMessage: JSONRPC.RpcRequest<
-    RFC.MethodId,
-    RFC.AccountRequestParams
-  > = {
+  const testMessage: RpcRequest<RFC.MethodId, RFC.AccountRequestParams> = {
     id: 1,
     jsonrpc: "2.0",
     method: RFC.MethodId.ACCOUNT_REQUEST,
@@ -66,5 +62,5 @@ if (dummyTransport.onMessage) {
       currencies: ["ethereum"],
     },
   };
-  dummyTransport.onMessage(testMessage).catch(console.log);
+  dummyTransport.onMessage(JSON.stringify(testMessage));
 }

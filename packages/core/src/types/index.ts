@@ -1,40 +1,9 @@
 import * as RFC from "./RFC";
-import * as JSONRPC from "./JSONRPC";
 
-export { JSONRPC, RFC };
+export { RFC };
 
 export type Promisable<T> = T | PromiseLike<T>;
 
-/**
- * Simple contract for handling a Message received through a [[Transport]] protocol
- *
- * @alpha
- */
-export type MessageHandler = (payload: unknown) => Promise<void>;
-
-/**
- * A transport protocol used to communicate with the Ledger Live platform
- *
- * @alpha
- */
-export interface Transport {
-  /**
-   * Connect the transport instance
-   */
-  connect(): void;
-  /**
-   * Disconnect the transport instance
-   */
-  disconnect(): void;
-  /**
-   * A function to handle new messages coming from the Ledger Live platform
-   */
-  onMessage: MessageHandler | undefined;
-  /**
-   * A function to send new messages to the Ledger Live platform
-   */
-  send(payload: unknown): Promise<void>;
-}
 /**
  * Metadata used to describe a secure exchange between a Ledger device
  * and a partner (for sell, swap and funding)
@@ -98,19 +67,6 @@ export enum ExchangeType {
   SELL = 0x01,
   FUND = 0x02,
 }
-
-/**
- * The raw representation of a signed transaction returned by the Ledger Live platform
- *
- * @remarks
- * This type is returned by Ledger Live when signing with [[signTransaction]] and is only used as a payload by the [[broadcastSignedTransaction]] function to actually broadcast the transaction to the blockchain
- */
-export type RawSignedTransaction = {
-  operation: unknown;
-  signature: string;
-  signatureRaw?: unknown;
-  expirationDate: string | null;
-};
 
 /**
  * Informations about a device application

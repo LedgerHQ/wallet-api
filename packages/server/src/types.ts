@@ -1,8 +1,8 @@
 import {
   Account,
   Currency,
-  JSONRPC,
   RFC,
+  RpcRequest,
   Transaction,
 } from "@ledgerhq/wallet-api-core";
 import type { Observable, BehaviorSubject } from "rxjs";
@@ -13,7 +13,7 @@ export type WalletContext = {
 };
 
 export type RPCHandler<Result> = (
-  request: JSONRPC.RpcRequest,
+  request: RpcRequest,
   context: WalletContext,
   handlers: Partial<WalletHandlers>
 ) => Promise<Result>;
@@ -43,6 +43,6 @@ export interface WalletHandlers {
 
 export type RPCMiddleware = (
   next: () => Promise<void>,
-  request: JSONRPC.RpcRequest,
+  request: RpcRequest,
   context: WalletContext
 ) => Promise<void>;

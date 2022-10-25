@@ -3,7 +3,10 @@ import {
   Currency,
   Logger,
   Transport,
-  JSONRPC,
+  RpcNode,
+  RpcRequest,
+  RpcError,
+  RpcErrorCode,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject } from "rxjs";
 import { internalHandlers } from "./internalHandlers";
@@ -12,9 +15,7 @@ import type { WalletContext, WalletHandlers, RPCMiddleware } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
-export default class WalletAPIServer {
-  private transport: Transport;
-
+export default class WalletAPIServer extends RpcNode<typeof internalHandlers> {
   private logger: Logger;
 
   private middlewares: RPCMiddleware[] = [];
@@ -25,49 +26,6 @@ export default class WalletAPIServer {
   };
 
   private walletHandlers: Partial<WalletHandlers> = {};
-
-  private async handleMessage(payload: unknown) {
-    // TODO validate JSONRPC request
-    const rpcRequest = payload as JSONRPC.RpcRequest;
-    if (rpcRequest.method in internalHandlers) {
-      const methodId = rpcRequest.method as keyof typeof internalHandlers;
-      try {
-        const internalHandler = internalHandlers[methodId];
-
-        // await this.runMiddlewares();
-        const result = await internalHandler(
-          rpcRequest,
-          this.walletContext,
-          this.walletHandlers
-        );
-
-        if (rpcRequest.id) {
-          const response: JSONRPC.RpcResponse<typeof result> = {
-            id: rpcRequest.id,
-            jsonrpc: "2.0",
-            result,
-          };
-          await this.transport.send(response);
-        }
-      } catch (error) {
-        if (error instanceof JSONRPC.RpcError) {
-          await this.transport.send({
-            id: rpcRequest.id,
-            jsonrpc: "2.0",
-            error: {
-              code: error.getCode(),
-              message: error.message,
-              data: error.getData(),
-            },
-          });
-        }
-        this.logger.error("error: ", error);
-      }
-    } else {
-      this.logger.error("unknown method: ", rpcRequest.method);
-      // unknown method
-    }
-  }
 
   setCurrencies(currencies: Currency[]) {
     this.walletContext.currencies$.next(currencies);
@@ -92,10 +50,28 @@ export default class WalletAPIServer {
     return this;
   }
 
-  constructor(transport: Transport, logger: Logger = defaultLogger) {
-    this.transport = transport;
-    this.logger = logger;
+  protected handleRpcRequest(
+    request: RpcRequest<string, unknown>
+  ): Promise<unknown> {
+    const handler =
+      this.requestHandlers[request.method as keyof typeof this.requestHandlers];
 
-    this.transport.onMessage = this.handleMessage.bind(this);
+    if (!handler) {
+      this.logger.error(
+        `no request handler found for methodId ${request.method}`
+      );
+      throw new RpcError({
+        code: RpcErrorCode.METHOD_NOT_FOUND,
+        message: "method not found",
+      });
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+    return handler(request, this.walletContext, this.walletHandlers);
+  }
+
+  constructor(transport: Transport, logger: Logger = defaultLogger) {
+    super(transport, internalHandlers);
+    this.logger = logger;
   }
 }

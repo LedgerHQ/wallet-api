@@ -68,16 +68,20 @@ importers:
       '@altostra/type-validations': ^2.6.5
       '@tsconfig/node16-strictest-esm': ^1.0.3
       '@types/node': ^18.7.18
+      '@types/uuid': ^8.3.4
       bignumber.js: ^9.0.2
       eslint: ^7.32.0
       tsup: ^6.2.3
       typescript: ^4.5.2
+      uuid: ^9.0.0
     dependencies:
       '@altostra/type-validations': 2.6.5
       bignumber.js: 9.1.0
+      uuid: 9.0.0
     devDependencies:
       '@tsconfig/node16-strictest-esm': 1.0.3
       '@types/node': 18.7.18
+      '@types/uuid': 8.3.4
       eslint: 7.32.0
       tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
@@ -879,6 +883,10 @@ packages:
 
   /@types/semver/6.2.3:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
+    dev: true
+
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
     dev: true
 
   /@types/ws/8.5.3:
@@ -4910,6 +4918,11 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
     dev: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}

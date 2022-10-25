@@ -1,5 +1,5 @@
 import { objectOf, primitives } from "@altostra/type-validations";
-import { JSONRPC, RFC } from "@ledgerhq/wallet-api-core";
+import { RFC, RpcError, RpcErrorCode } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
@@ -15,8 +15,8 @@ export const sign: RPCHandler<RFC.MessageSignResult> = async (
   handlers
 ) => {
   if (!validateMessageSign(req.params)) {
-    throw new JSONRPC.RpcError({
-      code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
+    throw new RpcError({
+      code: RpcErrorCode.INVALID_PARAMS,
       message: "Bad parameters",
     });
   }
@@ -28,13 +28,13 @@ export const sign: RPCHandler<RFC.MessageSignResult> = async (
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new JSONRPC.RpcError(ACCOUNT_NOT_FOUND);
+    throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
   const walletHandler = handlers[RFC.MethodId.MESSAGE_SIGN];
 
   if (!walletHandler) {
-    throw new JSONRPC.RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
   const signedMessage = await walletHandler({

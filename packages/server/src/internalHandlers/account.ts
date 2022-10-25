@@ -6,8 +6,9 @@ import {
 } from "@altostra/type-validations";
 import {
   Account,
-  JSONRPC,
   RFC,
+  RpcError,
+  RpcErrorCode,
   serializeAccount,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom, map } from "rxjs";
@@ -33,8 +34,8 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
       rejections.push(rejection);
     })
   ) {
-    throw new JSONRPC.RpcError({
-      code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
+    throw new RpcError({
+      code: RpcErrorCode.INVALID_PARAMS,
       message: "Bad parameters",
       data: rejections,
     });
@@ -45,7 +46,7 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
   const walletHandler = handlers[RFC.MethodId.ACCOUNT_REQUEST];
 
   if (!walletHandler) {
-    throw new JSONRPC.RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
   const filteredAccounts$ = context.accounts$.pipe(
@@ -65,8 +66,8 @@ const validateAccountList = objectOf<RFC.AccountListParams>({
 
 export const list: RPCHandler<RFC.AccountListResult> = async (req, context) => {
   if (!validateAccountList(req.params)) {
-    throw new JSONRPC.RpcError({
-      code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
+    throw new RpcError({
+      code: RpcErrorCode.INVALID_PARAMS,
       message: "Bad parameters",
     });
   }
@@ -88,8 +89,8 @@ export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
   handlers
 ) => {
   if (!validateAccountReceive(req.params)) {
-    throw new JSONRPC.RpcError({
-      code: JSONRPC.RpcErrorCode.INVALID_PARAMS,
+    throw new RpcError({
+      code: RpcErrorCode.INVALID_PARAMS,
       message: "Bad parameters",
     });
   }
@@ -100,13 +101,13 @@ export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new JSONRPC.RpcError(ACCOUNT_NOT_FOUND);
+    throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
   const walletHandler = handlers[RFC.MethodId.ACCOUNT_RECEIVE];
 
   if (!walletHandler) {
-    throw new JSONRPC.RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
   const result = await walletHandler({ account });
