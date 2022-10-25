@@ -9,14 +9,12 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsup src/ && tsup cli",
-    "build:src": "tsup src",
-    "format:check": "prettier --check \"src\" \"tests\"",
-    "format:fix": "prettier --write \"src\" \"tests\"",
-    "lint": "eslint --cache --ext .ts \"src\" \"tests\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
-    "prepare": "tsup src/ && tsup cli",
-    "test": "jest tests/*.test.*",
+    "build": "tsup src/index.ts --dts --format esm,cjs,iife && tsup cli/cli.ts --dts dist/cli --format esm,cjs,iife",
+    "format:check": "prettier --check \"src\" \"cli\" \"tests\"",
+    "format:fix": "prettier --write \"src\" \"cli\" \"tests\"",
+    "lint": "eslint --cache --ext .ts \"src\" \"cli\" \"tests\"",
+    "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"cli\" \"tests\"",
+    "test": "jest ",
     "validate": "dist/cli.js"
   },
   "bin": {
