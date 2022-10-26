@@ -20,5 +20,8 @@
   },
   "dependencies": {
     "bignumber.js": "^9.0.2"
+  },
+  "jest": {
+    "preset": "ts-jest"
   }
 }

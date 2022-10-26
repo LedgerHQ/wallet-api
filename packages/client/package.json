@@ -43,10 +43,5 @@
     "typedoc": "^0.23.15",
     "typedoc-plugin-rename-defaults": "^0.6.4",
     "typescript": "^4.8.3"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom",
-    "testRunner": "jest-circus/runner"
   }
 }

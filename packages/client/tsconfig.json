@@ -4,7 +4,7 @@
     "declaration": true,
     "outDir": "./dist",
     "exactOptionalPropertyTypes": false,
-    "lib": ["DOM"]
+    "lib": ["DOM"],
   },
   "include": ["src/**/*", "tests/**/*"]
 }

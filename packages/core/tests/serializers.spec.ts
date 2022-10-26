@@ -1,5 +1,4 @@
 import BigNumber from "bignumber.js";
-import { expect } from "chai";
 import {
   Account,
   AlgorandTransaction,
@@ -30,7 +29,7 @@ import {
   TezosTransaction,
   Transaction,
   TronTransaction,
-} from "../../src";
+} from "../src";
 
 const date = new Date();
 describe("serializers.ts", () => {

@@ -11,24 +11,27 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "test": "turbo run test",
+    "test": "turbo run lint && turbo run build && jest",
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.ts": "eslint --fix"
+    "*.ts": "eslint --fix --ignore-pattern \"jest.config.ts\""
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.6",
     "@changesets/cli": "^2.24.4",
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "@types/jest": "^29.2.0",
     "eslint": "^8.24.0",
     "eslint-config-custom": "workspace:*",
     "husky": "^8.0.0",
     "jest": "^29.1.2",
     "lint-staged": ">=13",
     "ts-jest": "^29.0.3",
-    "turbo": "^1.5.4"
+    "turbo": "^1.5.4",
+    "typescript": "^4.8.4"
   },
   "engines": {
     "npm": ">=7.0.0",

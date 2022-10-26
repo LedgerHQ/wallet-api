@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["dom"]
+  },
+  "include": ["packages/**/src/**/*", "packages/**/tests/**/*", "packages/**/package.json"]
+}
