@@ -500,21 +500,6 @@ describe("serializers.ts", () => {
         });
       });
     });
-
-    it.skip("should fail to serialize an unsupported family", () => {
-      const transaction = {
-        amount: new BigNumber(100),
-        recipient: "recipient",
-        family: "unsupported-family",
-      };
-
-      // @ts-expect-error not a real transaction as the family doesn't exist
-      const serialize = () => serializeTransaction(transaction);
-
-      expect(serialize).toThrow(
-        new Error("Can't serialize transaction: family not supported")
-      );
-    });
   });
 
   describe("deserializeTransaction", () => {
@@ -951,21 +936,6 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         });
       });
-    });
-
-    it.skip("should fail to deserialize an unsupported family", () => {
-      const transaction = {
-        amount: "100",
-        recipient: "recipient",
-        family: "unsupported-family",
-      };
-
-      // @ts-expect-error not a real transaction as the family doesn't exist
-      const deserialize = () => deserializeTransaction(transaction);
-
-      expect(deserialize).toThrow(
-        new Error("Can't deserialize transaction: family not supported")
-      );
     });
   });
 

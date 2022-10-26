@@ -3,30 +3,32 @@ import type { JestConfigWithTsJest } from "ts-jest";
 import client from "./packages/client/package.json"
 import core from "./packages/core/package.json"
 
-const config: JestConfigWithTsJest = {
-  preset: "ts-jest",
-  projects: [
-    {
-      displayName: client.name,
-      testMatch: ["<rootDir>/packages/client/tests/**/*.spec.ts"],
-      testEnvironment: "jsdom",
-      testRunner: "jest-circus/runner",
-      transform: {
-        // @ts-ignore
-        "^.+\\.ts$": ["ts-jest"],
-      },
-    },
-    {
-      displayName: core.name,
-      testMatch: ["<rootDir>/packages/core/tests/**/*.spec.ts"],
-      testRunner: "jest-circus/runner",
-      transform: {
-        // @ts-ignore
-        "^.+\\.ts$": ["ts-jest"]
-      },
-      testPathIgnorePatterns: ["packages/core/tests/transports"]
-    }
-  ]
-};
+export default async (): Promise<JestConfigWithTsJest> => {
+  const transform = {
+    "^.+\\.ts$": "ts-jest"
+  };
 
-export default config;
+  return {
+    preset: "ts-jest",
+    testRunner: "jest-circus/runner",
+    projects: [
+      {
+        displayName: client.name,
+        testMatch: testMatch("client"),
+        testEnvironment: "jsdom",
+        transform,
+      },
+      {
+        displayName: core.name,
+        testMatch: testMatch("core"),
+        transform,
+        // ignore transport tests for now
+        testPathIgnorePatterns: ["packages/core/tests/transports"]
+      }
+    ]
+  }
+}
+
+function testMatch(name: string): JestConfigWithTsJest["testMatch"] {
+  return [`<rootDir>/packages/${name}/tests/**/*.spec.ts`];
+}
