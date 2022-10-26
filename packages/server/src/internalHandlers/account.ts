@@ -6,6 +6,7 @@ import {
 } from "@altostra/type-validations";
 import {
   Account,
+  Currency,
   RFC,
   RpcError,
   RpcErrorCode,
@@ -16,11 +17,21 @@ import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
 const validateAccountRequest = objectOf<RFC.AccountRequestParams>({
-  currencies: arrayOf(primitives.string),
+  currencyIds: arrayOf(primitives.string),
 });
 
-function filterAccountsByCurrencies(accounts: Account[], currencies: string[]) {
-  return accounts.filter((account) => currencies.includes(account.currency));
+function filterAccountsByCurrencyIds(
+  accounts: Account[],
+  currencyIds: string[]
+) {
+  return accounts.filter((account) => currencyIds.includes(account.currency));
+}
+
+function filterCurrenciesByCurrencyIds(
+  currencies: Currency[],
+  currencyIds: string[]
+) {
+  return currencies.filter((currency) => currencyIds.includes(currency.id));
 }
 
 export const request: RPCHandler<RFC.AccountRequestResult> = async (
@@ -41,7 +52,7 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
     });
   }
 
-  const { currencies } = req.params;
+  const { currencyIds } = req.params;
 
   const walletHandler = handlers[RFC.MethodId.ACCOUNT_REQUEST];
 
@@ -50,10 +61,17 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
   }
 
   const filteredAccounts$ = context.accounts$.pipe(
-    map((accounts) => filterAccountsByCurrencies(accounts, currencies))
+    map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
   );
 
-  const account = await walletHandler({ accounts$: filteredAccounts$ });
+  const filteredCurrencies$ = context.currencies$.pipe(
+    map((currencies) => filterCurrenciesByCurrencyIds(currencies, currencyIds))
+  );
+
+  const account = await walletHandler({
+    currencies$: filteredCurrencies$,
+    accounts$: filteredAccounts$,
+  });
 
   return {
     rawAccount: serializeAccount(account),
@@ -61,7 +79,7 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
 };
 
 const validateAccountList = objectOf<RFC.AccountListParams>({
-  currencies: arrayOf(primitives.string),
+  currencyIds: arrayOf(primitives.string),
 });
 
 export const list: RPCHandler<RFC.AccountListResult> = async (req, context) => {

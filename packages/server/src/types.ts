@@ -20,6 +20,7 @@ export type RPCHandler<Result> = (
 
 export interface WalletHandlers {
   [RFC.MethodId.ACCOUNT_REQUEST]: (params: {
+    currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
   }) => Promise<Account>;
   [RFC.MethodId.ACCOUNT_RECEIVE]: (params: {
