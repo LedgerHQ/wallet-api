@@ -3,6 +3,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "exactOptionalPropertyTypes": false,
     "lib": ["dom"]
   },
   "include": ["packages/**/src/**/*", "packages/**/tests/**/*", "packages/**/package.json"]

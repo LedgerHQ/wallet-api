@@ -1,7 +1,7 @@
 import type { JestConfigWithTsJest } from "ts-jest";
 
 import client from "./packages/client/package.json"
-// import core from "./packages/core/package.json"
+import core from "./packages/core/package.json"
 
 const config: JestConfigWithTsJest = {
   preset: "ts-jest",
@@ -16,15 +16,16 @@ const config: JestConfigWithTsJest = {
         "^.+\\.ts$": ["ts-jest"],
       },
     },
-    // {
-    //   displayName: core.name,
-    //   testMatch: ["<rootDir>/packages/core/tests/**/*.spec.ts"],
-    //   testRunner: "jest-circus/runner",
-    //   transform: {
-    //     // @ts-ignore
-    //     "^.+\\.ts$": ["ts-jest"]
-    //   },
-    // }
+    {
+      displayName: core.name,
+      testMatch: ["<rootDir>/packages/core/tests/**/*.spec.ts"],
+      testRunner: "jest-circus/runner",
+      transform: {
+        // @ts-ignore
+        "^.+\\.ts$": ["ts-jest"]
+      },
+      testPathIgnorePatterns: ["packages/core/tests/transports"]
+    }
   ]
 };
 
