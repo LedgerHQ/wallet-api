@@ -65,17 +65,23 @@ importers:
 
   packages/core:
     specifiers:
+      '@altostra/type-validations': ^2.6.5
       '@tsconfig/node16-strictest-esm': ^1.0.3
       '@types/node': ^18.7.18
+      '@types/uuid': ^8.3.4
       bignumber.js: ^9.0.2
       eslint: ^7.32.0
       tsup: ^6.2.3
       typescript: ^4.5.2
+      uuid: ^9.0.0
     dependencies:
+      '@altostra/type-validations': 2.6.5
       bignumber.js: 9.1.0
+      uuid: 9.0.0
     devDependencies:
       '@tsconfig/node16-strictest-esm': 1.0.3
       '@types/node': 18.7.18
+      '@types/uuid': 8.3.4
       eslint: 7.32.0
       tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
@@ -110,18 +116,22 @@ importers:
 
   packages/server:
     specifiers:
+      '@altostra/type-validations': ^2.6.5
       '@ledgerhq/wallet-api-core': workspace:*
       '@tsconfig/node16-strictest-esm': ^1.0.3
       '@types/node': ^18.7.18
       bignumber.js: ^9.0.2
       eslint: ^7.32.0
       json-rpc-2.0: ^1.1.0
+      rxjs: ^7.5.7
       tsup: ^6.2.3
       typescript: ^4.5.2
     dependencies:
+      '@altostra/type-validations': 2.6.5
       '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
       json-rpc-2.0: 1.4.1
+      rxjs: 7.5.7
     devDependencies:
       '@tsconfig/node16-strictest-esm': 1.0.3
       '@types/node': 18.7.18
@@ -135,20 +145,32 @@ importers:
       '@ledgerhq/wallet-api-server': workspace:*
       '@tsconfig/node16-strictest-esm': ^1.0.3
       '@types/node': ^18.7.18
+      '@types/ws': ^8.5.3
       eslint: ^7.32.0
+      rxjs: ^7.5.7
       tsup: ^6.2.3
       typescript: ^4.5.2
+      ws: ^8.9.0
     dependencies:
       '@ledgerhq/wallet-api-core': link:../core
       '@ledgerhq/wallet-api-server': link:../server
+      rxjs: 7.5.7
+      ws: 8.9.0
     devDependencies:
       '@tsconfig/node16-strictest-esm': 1.0.3
       '@types/node': 18.7.18
+      '@types/ws': 8.5.3
       eslint: 7.32.0
       tsup: 6.2.3_typescript@4.8.3
       typescript: 4.8.3
 
 packages:
+
+  /@altostra/type-validations/2.6.5:
+    resolution: {integrity: sha512-wTEUlXQWUsniWrYx1Tk/UUeU/+iSc7vVH1iO/MUy0rAxGAf3eqBWnlid9Z9lT94o6R1oHJ6bkY+uJbN2trRghw==}
+    dependencies:
+      '@reactivex/ix-es2015-cjs': 3.0.2
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -780,6 +802,13 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
+  /@reactivex/ix-es2015-cjs/3.0.2:
+    resolution: {integrity: sha512-us+IT5JMSSpr8QfagzeG4IFQSi7IVgHIlb3s8ZsHTIqh4mNo7kenR51jBk9ZHBzgwbAcAg3lwFk9futi3oMZJg==}
+    dependencies:
+      '@types/node': 13.13.52
+      tslib: 1.14.1
+    dev: false
+
   /@rushstack/eslint-patch/1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: false
@@ -840,6 +869,10 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
 
+  /@types/node/13.13.52:
+    resolution: {integrity: sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==}
+    dev: false
+
   /@types/node/18.7.18:
     resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
     dev: true
@@ -850,6 +883,16 @@ packages:
 
   /@types/semver/6.2.3:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
+    dev: true
+
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
+    dev: true
+
+  /@types/ws/8.5.3:
+    resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
+    dependencies:
+      '@types/node': 18.7.18
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.37.0_22c5fnooleyfkzrkkgdmel5kmi:
@@ -4162,6 +4205,12 @@ packages:
       tslib: 2.4.0
     dev: true
 
+  /rxjs/7.5.7:
+    resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: true
@@ -4610,7 +4659,6 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-    dev: true
 
   /tsup/6.2.3_qv3zdqwr5cvvfboiktsp7a3dfa:
     resolution: {integrity: sha512-J5Pu2Dx0E1wlpIEsVFv9ryzP1pZ1OYsJ2cBHZ7GrKteytNdzaSz5hmLX7/nAxtypq+jVkVvA79d7S83ETgHQ5w==}
@@ -4871,6 +4919,11 @@ packages:
     hasBin: true
     dev: true
 
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
+
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: true
@@ -4995,6 +5048,19 @@ packages:
       signal-exit: 3.0.7
       typedarray-to-buffer: 3.1.5
     dev: true
+
+  /ws/8.9.0:
+    resolution: {integrity: sha512-Ja7nszREasGaYUYCI2k4lCKIRTt+y7XuqVoHR44YpI49TtryyqbqvDMn5eqfW7e6HzTukDRIsXqzVHScqRcafg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
 
   /y18n/4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
