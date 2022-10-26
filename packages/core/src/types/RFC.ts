@@ -16,6 +16,9 @@ export enum MethodId {
   MESSAGE_SIGN = "message.sign",
   TRANSACTION_SIGN_AND_BROADCAST = "transaction.signAndBroadcast",
   TRANSACTION_SIGN = "transaction.sign",
+
+  EVENT_ACCOUNT_UPDATED = "event.account.updated",
+  EVENT_CURRENCY_UPDATED = "event.currency.updated",
 }
 
 /*

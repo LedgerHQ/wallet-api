@@ -6,13 +6,13 @@ import {
   Transport,
 } from "@ledgerhq/wallet-api-core";
 
-import WalletAPIServer from "@ledgerhq/wallet-api-server";
+import { WalletAPIServer } from "@ledgerhq/wallet-api-server";
 import { firstValueFrom } from "rxjs";
 
 const dummyTransport: Transport = {
   onMessage: undefined,
   send: (payload) => {
-    console.log("responded: ", payload);
+    console.log("sent message: ", payload);
   },
 };
 

@@ -21,7 +21,7 @@ export abstract class RpcNode<T> {
     };
   }
 
-  public request<R>(method: string, params: R): Promise<RpcResponse> {
+  public request<R>(method: string, params?: R): Promise<RpcResponse> {
     const requestId = uuidv4();
     return new Promise((resolve) => {
       const request = createRpcRequest({
@@ -37,9 +37,8 @@ export abstract class RpcNode<T> {
     });
   }
 
-  public notify<T>(method: string, params: T): void {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const rpcRequest = createRpcRequest({
+  public notify<P>(method: string, params?: P): void {
+    const rpcRequest = createRpcRequest<P>({
       method,
       params,
     });
@@ -50,7 +49,6 @@ export abstract class RpcNode<T> {
   private async handleMessage(message: string) {
     let requestId: number | string | null | undefined;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const rpcCall = parseRPCCall(message);
       requestId = rpcCall.id;
 
