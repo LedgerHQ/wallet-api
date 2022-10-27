@@ -1,5 +1,5 @@
 import { Logger } from "../logger";
-import type { MessageHandler, Transport } from "../types";
+import type { MessageHandler, Transport } from "./types";
 
 const defaultLogger = new Logger("WindowMessage");
 
@@ -34,22 +34,25 @@ export default class WindowMessageTransport implements Transport {
         typeof event.data === "string"
       ) {
         try {
-          const payload = JSON.parse(event.data.toString());
+          const message = event.data;
 
           // TODO: find a better way to ensure message comes from LL
-          if (payload.jsonrpc) {
-            this.logger.log("received message", payload);
+          if (Date.now() > 0) {
+            this.logger.log("received message", message);
             // FIXME
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            this._onMessage(payload);
+            this._onMessage(message);
           } else {
-            this.logger.debug("not a jsonrpc message");
+            this.logger.debug("not a wallet API message");
           }
         } catch (error) {
           this.logger.warn("parse error");
           // FIXME
-          // eslint-disable-next-line @typescript-eslint/no-floating-promises
-          this._onMessage(error);
+          if (error instanceof Error) {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            this._onMessage(error.message);
+          }
+          console.error("unknown error");
         }
       } else {
         this.logger.debug("ignoring message same origin");
@@ -67,23 +70,23 @@ export default class WindowMessageTransport implements Transport {
     return this._onMessage;
   }
 
-  send = (response: unknown): Promise<void> => {
+  send = (message: string): Promise<void> => {
     try {
       // @ts-ignore
       if (this.target.ReactNativeWebView) {
-        this.logger.log("sending message (ReactNativeWebview)", response);
+        this.logger.log("sending message (ReactNativeWebview)", message);
         // @ts-ignore
-        this.target.ReactNativeWebView.postMessage(JSON.stringify(response));
+        this.target.ReactNativeWebView.postMessage(message);
       }
       // @ts-ignore
       else if (this.target.ElectronWebview) {
-        this.logger.log("sending message (ElectronWebview)", response);
+        this.logger.log("sending message (ElectronWebview)", message);
         // @ts-ignore
-        this.target.ElectronWebview.postMessage(JSON.stringify(response));
+        this.target.ElectronWebview.postMessage(message);
       } else {
-        this.logger.log("sending message", response);
+        this.logger.log("sending message", message);
         // @ts-ignore
-        this.target.top.postMessage(JSON.stringify(response), "*");
+        this.target.top.postMessage(message, "*");
       }
       return Promise.resolve();
     } catch (error) {
