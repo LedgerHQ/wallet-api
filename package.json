@@ -11,6 +11,7 @@
     "changelog": "changeset add",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "doc": "turbo run doc --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run lint && turbo run build && jest",

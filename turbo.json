@@ -25,6 +25,9 @@
     "test": {
       "dependsOn": ["lint", "build"],
       "outputs": []
+    },
+    "doc": {
+      "outputs": []
     }
   }
 }
