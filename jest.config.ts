@@ -17,7 +17,7 @@ export default async (): Promise<JestConfigWithTsJest> => {
         testMatch: testMatch("client"),
         testEnvironment: "jsdom",
         transform,
-        // ignore transport tests for now
+        // ignore SDK tests for now
         testPathIgnorePatterns: ["packages/client/tests/index.spec.ts"]
       },
       {
