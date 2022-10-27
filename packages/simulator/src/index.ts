@@ -59,7 +59,7 @@ if (dummyTransport.onMessage) {
     jsonrpc: "2.0",
     method: RFC.MethodId.ACCOUNT_REQUEST,
     params: {
-      currencies: ["ethereum"],
+      currencyIds: ["ethereum"],
     },
   };
   dummyTransport.onMessage(JSON.stringify(testMessage));

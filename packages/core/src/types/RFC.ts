@@ -26,7 +26,7 @@ export enum MethodId {
 */
 
 export type AccountRequestParams = {
-  currencies: string[];
+  currencyIds: string[];
 };
 
 export type AccountRequestResult = {
@@ -38,7 +38,7 @@ export type AccountRequestResult = {
 */
 
 export type AccountListParams = {
-  currencies: string[];
+  currencyIds: string[];
 };
 
 export type AccountListResult = {
