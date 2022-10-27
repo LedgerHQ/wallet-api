@@ -36,7 +36,6 @@
     "@ledgerhq/wallet-api-core": "workspace:^0.1.0",
     "ajv": "^8.11.0",
     "ajv-errors": "^3.0.0",
-    "clipanion": "3.2.0-rc.13",
-    "node-fetch": "2"
+    "clipanion": "3.2.0-rc.13"
   }
 }

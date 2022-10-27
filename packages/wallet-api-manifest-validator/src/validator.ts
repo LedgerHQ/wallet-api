@@ -1,7 +1,7 @@
 import Ajv, { ErrorObject } from "ajv";
 import ajvErrors from "ajv-errors";
 import { Logger } from "@ledgerhq/wallet-api-core";
-import fetch from "node-fetch";
+import SchemaJSON from "./schema/schema.json";
 
 export interface OptionsParams {
   details?: boolean;
@@ -12,7 +12,6 @@ export interface OptionsParams {
 /**
  *  Verify if your JSON meets the requirements for Ledger Live App manifest submission
  *  @param {JSON} manifest - json file.
- *  @param {JSON} manifest - json schema file .
  *  @returns {boolean}
  *
  *  @param {ValidateManifestParams=} options :
@@ -20,9 +19,8 @@ export interface OptionsParams {
  *      @param {boolean=} enableState - Result description (e.g. show in console "The JSON file do not correspond to the schema")
  *      @param {string=} fileName - file name, practical to validate multiple files via multiple calls
  */
-export function validator(
+export function validateManifest(
   manifest: JSON,
-  SchemaJSON: JSON,
   options?: OptionsParams | undefined
 ): boolean {
   const { details, enableState, fileName } = {
@@ -71,15 +69,4 @@ export function validator(
   } else if (enableState)
     log.log("The JSON file do not correspond to the schema.");
   return false;
-}
-
-export async function validateManifest(
-  manifest: JSON,
-  options?: OptionsParams | undefined
-): Promise<boolean> {
-  const res = await fetch(
-    "https://raw.githubusercontent.com/ramyeb-learning/package-manifestFormatter/main/schema.json?token=GHSAT0AAAAAAB2DC3ZG6MZSAONZXKHJA74CY2X6FJA"
-  );
-  const SchemaJSON: JSON = await res.json();
-  return validator(manifest, SchemaJSON, options);
 }

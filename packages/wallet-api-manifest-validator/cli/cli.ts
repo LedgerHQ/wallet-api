@@ -2,8 +2,7 @@
 import { Command, Option, runExit } from "clipanion";
 import * as fs from "fs";
 import path from "path";
-import fetch from "node-fetch";
-import { validator } from "../src/validator";
+import { validateManifest } from "../src/validator";
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 runExit(
@@ -49,9 +48,8 @@ runExit(
     ) => {
       if (fs.lstatSync(_fileOrDir).isFile()) {
         if (
-          !validator(
+          !validateManifest(
             JSON.parse(fs.readFileSync(path.join(_fileOrDir), "utf-8")) as JSON,
-            this.SchemaJSON,
             {
               details: this.details,
               enableState: this.enableState,
@@ -79,8 +77,6 @@ runExit(
     };
 
     async execute() {
-      const res = await fetch(this.url);
-      this.SchemaJSON = await res.json();
       this.processRecursivlyFilesInDeepFirstSearchPostOrder(
         0,
         path.join(process.cwd(), this.fileOrDir)
