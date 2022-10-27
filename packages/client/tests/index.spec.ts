@@ -1,4 +1,3 @@
-import { describe, expect, it, jest } from "@jest/globals";
 import LedgerLivePlatformSDK, { WindowMessageTransport } from "../src";
 import logger from "./utils/Logger.mock";
 

@@ -1,7 +1,4 @@
 {
-  "env": {
-    "mocha": true
-  },
   "rules": {
     "@typescript-eslint/ban-ts-comment": 0
   }
