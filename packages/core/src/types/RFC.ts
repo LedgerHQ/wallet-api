@@ -87,13 +87,13 @@ export type MessageSignResult = {
 */
 
 export type TransactionOptions = {
-  hwAppId?: string;
+  hwAppId: string | undefined;
 };
 
 export type TransactionSignParams = {
   accountId: string;
   rawTransaction: RawTransaction;
-  options: TransactionOptions;
+  options: TransactionOptions | undefined;
 };
 
 export type TransactionSignResult = {
@@ -107,7 +107,7 @@ export type TransactionSignResult = {
 export type TransactionSignAndBroadcastParams = {
   accountId: string;
   rawTransaction: RawTransaction;
-  options: TransactionOptions;
+  options: TransactionOptions | undefined;
 };
 
 export type TransactionSignAndBroadcastResult = {

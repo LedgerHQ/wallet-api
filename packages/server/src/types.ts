@@ -33,13 +33,13 @@ export interface WalletHandlers {
   [RFC.MethodId.TRANSACTION_SIGN]: (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
+    options: RFC.TransactionOptions | undefined;
   }) => Promise<Buffer>;
   [RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST]: (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
-  }) => Promise<Buffer>;
+    options: RFC.TransactionOptions | undefined;
+  }) => Promise<string>;
 }
 
 export type RPCMiddleware = (

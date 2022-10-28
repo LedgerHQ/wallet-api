@@ -4,7 +4,7 @@ import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
 const validateCurrencyList = objectOf<RFC.AccountRequestParams>({
-  currencies: arrayOf(primitives.string),
+  currencyIds: arrayOf(primitives.string),
 });
 
 export const list: RPCHandler<RFC.CurrencyListResult> = async (

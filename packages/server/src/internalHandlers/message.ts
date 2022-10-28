@@ -14,6 +14,12 @@ export const sign: RPCHandler<RFC.MessageSignResult> = async (
   context,
   handlers
 ) => {
+  const walletHandler = handlers[RFC.MethodId.MESSAGE_SIGN];
+
+  if (!walletHandler) {
+    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+  }
+
   if (!validateMessageSign(req.params)) {
     throw new RpcError({
       code: RpcErrorCode.INVALID_PARAMS,
@@ -29,12 +35,6 @@ export const sign: RPCHandler<RFC.MessageSignResult> = async (
 
   if (!account) {
     throw new RpcError(ACCOUNT_NOT_FOUND);
-  }
-
-  const walletHandler = handlers[RFC.MethodId.MESSAGE_SIGN];
-
-  if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
   const signedMessage = await walletHandler({
