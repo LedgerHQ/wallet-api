@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import type { Transport } from "../transports";
+import type { MethodId } from "../types/RFC";
 import { createRpcRequest, parseRPCCall, createRpcResponse } from "./helpers";
 import { RpcError } from "./RPCError";
 import type { RpcResponse, RpcRequest } from "./types";
@@ -21,7 +22,7 @@ export abstract class RpcNode<T> {
     };
   }
 
-  public request<R>(method: string, params?: R): Promise<RpcResponse> {
+  public request<R>(method: MethodId, params?: R): Promise<RpcResponse> {
     const requestId = uuidv4();
     return new Promise((resolve) => {
       const request = createRpcRequest({
@@ -37,7 +38,7 @@ export abstract class RpcNode<T> {
     });
   }
 
-  public notify<P>(method: string, params?: P): void {
+  public notify<P>(method: MethodId, params?: P): void {
     const rpcRequest = createRpcRequest<P>({
       method,
       params,

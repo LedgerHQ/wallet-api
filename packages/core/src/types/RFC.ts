@@ -6,20 +6,16 @@ import type { RawAccount } from "../accounts/types";
 import type { Currency } from "../currencies/types";
 import type { RawTransaction } from "../families";
 
-export enum MethodId {
-  ACCOUNT_REQUEST = "account.request",
-  ACCOUNT_RECEIVE = "account.receive",
-  ACCOUNT_LIST = "account.list",
-  CURRENCY_LIST = "currency.list",
-  EXCHANGE_COMPLETE = "exchange.complete",
-  EXCHANGE_START = "exchange.start",
-  MESSAGE_SIGN = "message.sign",
-  TRANSACTION_SIGN_AND_BROADCAST = "transaction.signAndBroadcast",
-  TRANSACTION_SIGN = "transaction.sign",
-
-  EVENT_ACCOUNT_UPDATED = "event.account.updated",
-  EVENT_CURRENCY_UPDATED = "event.currency.updated",
-}
+export type MethodId =
+  | "account.request"
+  | "account.receive"
+  | "account.list"
+  | "currency.list"
+  | "message.sign"
+  | "transaction.signAndBroadcast"
+  | "transaction.sign"
+  | "event.account.updated"
+  | "event.currency.updated";
 
 /*
     account.request

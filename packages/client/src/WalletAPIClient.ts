@@ -22,7 +22,7 @@ export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
 // temporary
 const requestHandlers = {
-  [RFC.MethodId.EVENT_ACCOUNT_UPDATED]: async (_request: RpcRequest) => {
+  "event.account.updated": async (_request: RpcRequest) => {
     console.log("accounts updated !");
   },
 };
@@ -64,14 +64,11 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     options?: RFC.TransactionOptions
   ): Promise<Buffer> {
     const transactionSignResult =
-      (await this.request<RFC.TransactionSignParams>(
-        RFC.MethodId.TRANSACTION_SIGN,
-        {
-          accountId,
-          rawTransaction: serializeTransaction(transaction),
-          options,
-        }
-      )) as RpcResponse<RFC.TransactionSignResult>;
+      (await this.request<RFC.TransactionSignParams>("transaction.sign", {
+        accountId,
+        rawTransaction: serializeTransaction(transaction),
+        options,
+      })) as RpcResponse<RFC.TransactionSignResult>;
 
     if ("error" in transactionSignResult) {
       throw new RpcError(transactionSignResult.error);
@@ -98,7 +95,7 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
   ): Promise<string> {
     const transactionSignResult =
       (await this.request<RFC.TransactionSignAndBroadcastParams>(
-        RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST,
+        "transaction.signAndBroadcast",
         {
           accountId,
           rawTransaction: serializeTransaction(transaction),
@@ -123,7 +120,7 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
    */
   async signMessage(accountId: string, message: Buffer): Promise<Buffer> {
     const messageSignResult = (await this.request<RFC.MessageSignParams>(
-      RFC.MethodId.MESSAGE_SIGN,
+      "message.sign",
       {
         accountId,
         hexMessage: message.toString("hex"),
@@ -149,7 +146,7 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     currencyIds: string[];
   }): Promise<Account[]> {
     const listAccountsResult = (await this.request<RFC.AccountListParams>(
-      RFC.MethodId.ACCOUNT_LIST,
+      "account.list",
       {
         currencyIds: params.currencyIds,
       }
@@ -176,7 +173,7 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     currencyIds: string[];
   }): Promise<Account> {
     const requestAccountsResult = (await this.request<RFC.AccountRequestParams>(
-      RFC.MethodId.ACCOUNT_REQUEST,
+      "account.request",
       {
         currencyIds: params.currencyIds,
       }
@@ -207,7 +204,7 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     currencyIds: string[];
   }): Promise<Currency[]> {
     const listCurrenciesResult = (await this.request<RFC.CurrencyListParams>(
-      RFC.MethodId.CURRENCY_LIST,
+      "currency.list",
       {
         currencyIds: params.currencyIds,
       }

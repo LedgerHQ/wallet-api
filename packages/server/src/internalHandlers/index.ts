@@ -1,19 +1,21 @@
-import { RFC } from "@ledgerhq/wallet-api-core";
-
+import type { RFC } from "@ledgerhq/wallet-api-core";
+import type { RPCHandler } from "../types";
 import * as account from "./account";
 import * as currency from "./currency";
 import * as message from "./message";
 import * as transaction from "./transaction";
 
-export const internalHandlers = {
-  [RFC.MethodId.ACCOUNT_REQUEST]: account.request,
-  [RFC.MethodId.ACCOUNT_LIST]: account.list,
-  [RFC.MethodId.ACCOUNT_RECEIVE]: account.receive,
+type InternalHandlers = Record<RFC.MethodId, RPCHandler<unknown>>;
 
-  [RFC.MethodId.CURRENCY_LIST]: currency.list,
+export const internalHandlers: Partial<InternalHandlers> = {
+  "account.request": account.request,
+  "account.list": account.list,
+  "account.receive": account.receive,
 
-  [RFC.MethodId.MESSAGE_SIGN]: message.sign,
+  "currency.list": currency.list,
 
-  [RFC.MethodId.TRANSACTION_SIGN]: transaction.sign,
-  [RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST]: transaction.signAndBroadcast,
+  "message.sign": message.sign,
+
+  "transaction.sign": transaction.sign,
+  "transaction.signAndBroadcast": transaction.signAndBroadcast,
 };

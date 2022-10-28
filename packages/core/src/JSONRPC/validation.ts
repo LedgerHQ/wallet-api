@@ -5,21 +5,19 @@ import {
   anyOf,
   enumOf,
 } from "@altostra/type-validations";
-import { MethodId } from "../types/RFC";
+import type { MethodId } from "../types/RFC";
 import type { RpcRequest, RpcResponse, RpcResponseError } from "./types";
 
 const isRPCId = anyOf(primitives.number, primitives.string, primitives.null);
 
 export const isRpcMethod = enumOf<MethodId>(
-  MethodId.ACCOUNT_LIST,
-  MethodId.ACCOUNT_RECEIVE,
-  MethodId.ACCOUNT_REQUEST,
-  MethodId.CURRENCY_LIST,
-  MethodId.EXCHANGE_COMPLETE,
-  MethodId.EXCHANGE_START,
-  MethodId.MESSAGE_SIGN,
-  MethodId.TRANSACTION_SIGN,
-  MethodId.TRANSACTION_SIGN_AND_BROADCAST
+  "account.list",
+  "account.receive",
+  "account.request",
+  "currency.list",
+  "message.sign",
+  "transaction.sign",
+  "transaction.signAndBroadcast"
 );
 
 export const isRpcRequest = objectOf<RpcRequest>({
