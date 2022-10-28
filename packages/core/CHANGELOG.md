@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.3.0
+
+### Minor Changes
+
+- [#27](https://github.com/LedgerHQ/wallet-api/pull/27) [`933e0e2`](https://github.com/LedgerHQ/wallet-api/commit/933e0e29853a22328bc9e193f0de968a05d4593e) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Reintroduced WalletAPIClient
+
 ## 0.2.0
 
 ### Minor Changes
