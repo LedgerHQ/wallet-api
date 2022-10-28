@@ -1,4 +1,4 @@
-import {
+import type {
   Account,
   Currency,
   RFC,
@@ -19,27 +19,25 @@ export type RPCHandler<Result> = (
 ) => Promise<Result>;
 
 export interface WalletHandlers {
-  [RFC.MethodId.ACCOUNT_REQUEST]: (params: {
+  "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
   }) => Promise<Account>;
-  [RFC.MethodId.ACCOUNT_RECEIVE]: (params: {
-    account: Account;
-  }) => Promise<string>;
-  [RFC.MethodId.MESSAGE_SIGN]: (params: {
+  "account.receive": (params: { account: Account }) => Promise<string>;
+  "message.sign": (params: {
     account: Account;
     message: Buffer;
   }) => Promise<Buffer>;
-  [RFC.MethodId.TRANSACTION_SIGN]: (params: {
+  "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
+    options: RFC.TransactionOptions | undefined;
   }) => Promise<Buffer>;
-  [RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST]: (params: {
+  "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
-  }) => Promise<Buffer>;
+    options: RFC.TransactionOptions | undefined;
+  }) => Promise<string>;
 }
 
 export type RPCMiddleware = (

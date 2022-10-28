@@ -76,31 +76,12 @@ export interface RpcResponseError<TErrorData = unknown> {
   data?: TErrorData;
 }
 
-/**
- * When a rpc call is made, the Server **MUST** reply with a Response
- * except for in the case of Notifications.
- * The Response is expressed as a single JSON Object
- */
-export interface RpcResponse<TResult = unknown, TErrorData = unknown> {
+export interface RpcResponseCommon {
   /**
    * A String specifying the version of the JSON-RPC protocol.
    * **MUST** be exactly "2.0".
    */
   jsonrpc: "2.0";
-
-  /**
-   * This member is **REQUIRED** on success.
-   * This member **MUST NOT** exist if there was an error invoking the method.
-   * The value of this member is determined by the method invoked on the Server.
-   */
-  result?: TResult;
-
-  /**
-   * This member is REQUIRED on error.
-   * This member MUST NOT exist if there was no error triggered during invocation.
-   * The value for this member MUST be an Object of Type `RpcResponseError`.
-   */
-  error?: RpcResponseError<TErrorData>;
 
   /**
    * An identifier established by the Client that **MUST** contain a `String`, `Number`,
@@ -111,4 +92,33 @@ export interface RpcResponse<TResult = unknown, TErrorData = unknown> {
    * it **MUST** be `Null`.
    */
   id: string | number | null;
+}
+
+/**
+ * When a rpc call is made, the Server **MUST** reply with a Response
+ * except for in the case of Notifications.
+ * The Response is expressed as a single JSON Object
+ */
+export type RpcResponse<TResult = unknown, TErrorData = unknown> =
+  | RpcResponseSuccess<TResult>
+  | RpcResponseFailed<TErrorData>;
+
+export interface RpcResponseSuccess<TResult = unknown>
+  extends RpcResponseCommon {
+  /**
+   * This member is **REQUIRED** on success.
+   * This member **MUST NOT** exist if there was an error invoking the method.
+   * The value of this member is determined by the method invoked on the Server.
+   */
+  result: TResult;
+}
+
+export interface RpcResponseFailed<TErrorData = unknown>
+  extends RpcResponseCommon {
+  /**
+   * This member is REQUIRED on error.
+   * This member MUST NOT exist if there was no error triggered during invocation.
+   * The value for this member MUST be an Object of Type `RpcResponseError`.
+   */
+  error: RpcResponseError<TErrorData>;
 }

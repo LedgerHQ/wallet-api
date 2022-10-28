@@ -1,4 +1,4 @@
-import { objectOf, primitives } from "@altostra/type-validations";
+import { maybe, objectOf, primitives } from "@altostra/type-validations";
 import {
   RFC,
   isRawTransaction,
@@ -10,12 +10,14 @@ import { firstValueFrom } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
+const validateTranactionOptions = objectOf<RFC.TransactionOptions>({
+  hwAppId: primitives.maybeString,
+});
+
 const validateTransactionSign = objectOf<RFC.TransactionSignParams>({
   accountId: primitives.string,
   rawTransaction: isRawTransaction,
-  options: objectOf<RFC.TransactionOptions>({
-    hwAppId: primitives.maybeString,
-  }),
+  options: maybe(validateTranactionOptions),
 });
 
 export const sign: RPCHandler<RFC.TransactionSignResult> = async (
@@ -61,14 +63,18 @@ const validateTransactionSignAndBroadcast =
   objectOf<RFC.TransactionSignAndBroadcastParams>({
     accountId: primitives.string,
     rawTransaction: isRawTransaction,
-    options: objectOf<RFC.TransactionOptions>({
-      hwAppId: primitives.maybeString,
-    }),
+    options: maybe(validateTranactionOptions),
   });
 
 export const signAndBroadcast: RPCHandler<
   RFC.TransactionSignAndBroadcastResult
 > = async (req, context, handlers) => {
+  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST];
+
+  if (!walletHandler) {
+    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+  }
+
   if (!validateTransactionSignAndBroadcast(req.params)) {
     throw new RpcError({
       code: RpcErrorCode.INVALID_PARAMS,
@@ -86,12 +92,6 @@ export const signAndBroadcast: RPCHandler<
     throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
-  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST];
-
-  if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
-  }
-
   const transactionHash = await walletHandler({
     account,
     transaction: deserializeTransaction(rawTransaction),
@@ -99,6 +99,6 @@ export const signAndBroadcast: RPCHandler<
   });
 
   return {
-    transactionHash: transactionHash.toString("hex"),
+    transactionHash,
   };
 };

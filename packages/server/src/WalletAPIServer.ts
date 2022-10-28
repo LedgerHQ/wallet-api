@@ -7,7 +7,6 @@ import {
   RpcRequest,
   RpcError,
   RpcErrorCode,
-  RFC,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject } from "rxjs";
 import { internalHandlers } from "./internalHandlers";
@@ -73,7 +72,7 @@ export class WalletAPIServer extends RpcNode<typeof internalHandlers> {
 
   private connect() {
     this.walletContext.accounts$.subscribe(() => {
-      this.notify(RFC.MethodId.EVENT_ACCOUNT_UPDATED);
+      this.notify("event.account.updated");
     });
   }
 

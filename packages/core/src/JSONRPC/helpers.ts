@@ -45,11 +45,15 @@ export function createRpcRequest<T>(
   };
 }
 
-type CreateRpcResponseParams<T, E> = {
-  id: string | number | null;
-  result?: T;
-  error?: RpcResponseError<E>;
-};
+type CreateRpcResponseParams<T, E> =
+  | {
+      id: string | number | null;
+      result: T;
+    }
+  | {
+      id: string | number | null;
+      error: RpcResponseError<E>;
+    };
 export function createRpcResponse<T, E>(
   params: CreateRpcResponseParams<T, E>
 ): RpcResponse<T, E> {
