@@ -39,7 +39,7 @@ import {
   serializeTronTransaction,
 } from "./tron/serializer";
 
-import { FAMILIES, RawTransaction, Transaction } from "./types";
+import type { RawTransaction, Transaction } from "./types";
 
 /**
  * Serialize an [[Transaction]] object in order to send it over JSON-RPC
@@ -50,25 +50,25 @@ import { FAMILIES, RawTransaction, Transaction } from "./types";
  */
 export function serializeTransaction(transaction: Transaction): RawTransaction {
   switch (transaction.family) {
-    case FAMILIES.Ethereum:
+    case "ethereum":
       return serializeEthereumTransaction(transaction);
-    case FAMILIES.Bitcoin:
+    case "bitcoin":
       return serializeBitcoinTransaction(transaction);
-    case FAMILIES.Algorand:
+    case "algorand":
       return serializeAlgorandTransaction(transaction);
-    case FAMILIES.CryptoOrg:
+    case "crypto_org":
       return serializeCryptoOrgTransaction(transaction);
-    case FAMILIES.Ripple:
+    case "ripple":
       return serializeRippleTransaction(transaction);
-    case FAMILIES.Cosmos:
+    case "cosmos":
       return serializeCosmosTransaction(transaction);
-    case FAMILIES.Tezos:
+    case "tezos":
       return serializeTezosTransaction(transaction);
-    case FAMILIES.Polkadot:
+    case "polkadot":
       return serializePolkadotTransaction(transaction);
-    case FAMILIES.Stellar:
+    case "stellar":
       return serializeStellarTransaction(transaction);
-    case FAMILIES.Tron:
+    case "tron":
       return serializeTronTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
@@ -89,25 +89,25 @@ export function deserializeTransaction(
   rawTransaction: RawTransaction
 ): Transaction {
   switch (rawTransaction.family) {
-    case FAMILIES.Ethereum:
+    case "ethereum":
       return deserializeEthereumTransaction(rawTransaction);
-    case FAMILIES.Bitcoin:
+    case "bitcoin":
       return deserializeBitcoinTransaction(rawTransaction);
-    case FAMILIES.Algorand:
+    case "algorand":
       return deserializeAlgorandTransaction(rawTransaction);
-    case FAMILIES.CryptoOrg:
+    case "crypto_org":
       return deserializeCryptoOrgTransaction(rawTransaction);
-    case FAMILIES.Ripple:
+    case "ripple":
       return deserializeRippleTransaction(rawTransaction);
-    case FAMILIES.Cosmos:
+    case "cosmos":
       return deserializeCosmosTransaction(rawTransaction);
-    case FAMILIES.Tezos:
+    case "tezos":
       return deserializeTezosTransaction(rawTransaction);
-    case FAMILIES.Polkadot:
+    case "polkadot":
       return deserializePolkadotTransaction(rawTransaction);
-    case FAMILIES.Stellar:
+    case "stellar":
       return deserializeStellarTransaction(rawTransaction);
-    case FAMILIES.Tron:
+    case "tron":
       return deserializeTronTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking

@@ -1,43 +1,35 @@
-import {
-  anyOf,
-  enumOf,
-  maybe,
-  objectOf,
-  primitives,
-} from "@altostra/type-validations";
-import type { MethodId } from "../types/RFC";
-import type { RpcRequest, RpcResponse, RpcResponseError } from "./types";
+import { z } from "zod";
 
-const isRPCId = anyOf(primitives.number, primitives.string, primitives.null);
+const schemaRPCId = z.union([z.string(), z.number(), z.null()]);
 
-export const isRpcMethod = enumOf<MethodId>(
-  "account.list",
-  "account.receive",
-  "account.request",
-  "currency.list",
-  "message.sign",
-  "transaction.sign",
-  "transaction.signAndBroadcast"
-);
-
-export const isRpcRequest = objectOf<RpcRequest>({
-  jsonrpc: primitives.string,
-  method: primitives.string,
-  params: primitives.any,
-  id: maybe(isRPCId),
+export const schemaRPCRequest = z.object({
+  jsonrpc: z.literal("2.0"),
+  method: z.string(),
+  params: z.any(),
+  id: schemaRPCId.optional(),
 });
 
-export const isRpcResponseError = objectOf<RpcResponseError>({
-  code: primitives.number,
-  message: primitives.string,
-  data: maybe(primitives.any),
+export const schemaRPCResponseErrorData = z.object({
+  code: z.number(),
+  message: z.string(),
+  data: z.any().optional(),
 });
 
-export const isRpcResponse = objectOf<RpcResponse>({
-  jsonrpc: primitives.string,
-  result: maybe(primitives.any),
-  error: maybe(isRpcResponseError),
-  id: isRPCId,
+export const schemaRPCResponseSuccess = z.object({
+  jsonrpc: z.literal("2.0"),
+  id: schemaRPCId,
+  result: z.unknown().optional(),
 });
 
-export const isRpcCall = anyOf(isRpcRequest, isRpcResponse);
+export const schemaRPCResponseError = z.object({
+  jsonrpc: z.literal("2.0"),
+  id: schemaRPCId,
+  error: schemaRPCResponseErrorData,
+});
+
+export const schemaRPCResponse = z.union([
+  schemaRPCResponseSuccess,
+  schemaRPCResponseError,
+]);
+
+export const schemaRPCCall = z.union([schemaRPCRequest, schemaRPCResponse]);

@@ -1,22 +1,12 @@
-import { arrayOf, objectOf, primitives } from "@altostra/type-validations";
-import { RFC, RpcError, RpcErrorCode } from "@ledgerhq/wallet-api-core";
+import { CurrencyList, schemaCurrencyList } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
-const validateCurrencyList = objectOf<RFC.AccountRequestParams>({
-  currencyIds: arrayOf(primitives.string),
-});
-
-export const list: RPCHandler<RFC.CurrencyListResult> = async (
+export const list: RPCHandler<CurrencyList["result"]> = async (
   req,
   context
 ) => {
-  if (!validateCurrencyList(req.params)) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-    });
-  }
+  schemaCurrencyList.params.parse(req.params);
 
   const currencies = await firstValueFrom(context.currencies$);
 

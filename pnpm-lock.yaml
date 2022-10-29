@@ -63,7 +63,6 @@ importers:
 
   packages/core:
     specifiers:
-      '@altostra/type-validations': ^2.6.5
       '@tsconfig/node18-strictest': ^1.0.0
       '@types/node': ^18.11.8
       '@types/uuid': ^8.3.4
@@ -71,10 +70,11 @@ importers:
       eslint: ^8.26.0
       typescript: ^4.8.4
       uuid: ^9.0.0
+      zod: ^3.19.1
     dependencies:
-      '@altostra/type-validations': 2.6.5
       bignumber.js: 9.1.0
       uuid: 9.0.0
+      zod: 3.19.1
     devDependencies:
       '@tsconfig/node18-strictest': 1.0.0
       '@types/node': 18.11.8
@@ -110,7 +110,6 @@ importers:
 
   packages/server:
     specifiers:
-      '@altostra/type-validations': ^2.6.5
       '@ledgerhq/wallet-api-core': workspace:*
       '@tsconfig/node18-strictest': ^1.0.0
       '@types/node': ^18.11.8
@@ -120,7 +119,6 @@ importers:
       rxjs: ^7.5.7
       typescript: ^4.8.4
     dependencies:
-      '@altostra/type-validations': 2.6.5
       '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
       json-rpc-2.0: 1.4.1
@@ -157,12 +155,6 @@ importers:
       typescript: 4.8.4
 
 packages:
-
-  /@altostra/type-validations/2.6.5:
-    resolution: {integrity: sha512-wTEUlXQWUsniWrYx1Tk/UUeU/+iSc7vVH1iO/MUy0rAxGAf3eqBWnlid9Z9lT94o6R1oHJ6bkY+uJbN2trRghw==}
-    dependencies:
-      '@reactivex/ix-es2015-cjs': 3.0.2
-    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -718,13 +710,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@reactivex/ix-es2015-cjs/3.0.2:
-    resolution: {integrity: sha512-us+IT5JMSSpr8QfagzeG4IFQSi7IVgHIlb3s8ZsHTIqh4mNo7kenR51jBk9ZHBzgwbAcAg3lwFk9futi3oMZJg==}
-    dependencies:
-      '@types/node': 13.13.52
-      tslib: 1.14.1
-    dev: false
-
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
     dev: true
@@ -780,10 +765,6 @@ packages:
   /@types/node/12.20.55:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
-
-  /@types/node/13.13.52:
-    resolution: {integrity: sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==}
-    dev: false
 
   /@types/node/18.11.8:
     resolution: {integrity: sha512-uGwPWlE0Hj972KkHtCDVwZ8O39GmyjfMane1Z3GUBGGnkZ2USDq7SxLpVIiIHpweY9DS0QTDH0Nw7RNBsAAZ5A==}
@@ -4175,3 +4156,7 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zod/3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+    dev: false
