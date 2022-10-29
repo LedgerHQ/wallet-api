@@ -1,11 +1,10 @@
-import type { RFC } from "@ledgerhq/wallet-api-core";
-import type { RPCHandler } from "../types";
+import type { ClientHandlers, TransformHandler } from "../types";
 import * as account from "./account";
 import * as currency from "./currency";
 import * as message from "./message";
 import * as transaction from "./transaction";
 
-type InternalHandlers = Record<RFC.MethodId, RPCHandler<unknown>>;
+type InternalHandlers = TransformHandler<ClientHandlers>;
 
 export const internalHandlers: Partial<InternalHandlers> = {
   "account.request": account.request,

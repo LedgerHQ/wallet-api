@@ -27,7 +27,23 @@ const requestHandlers = {
   },
 };
 
-export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
+interface ServerHandlers {
+  "transaction.sign": (
+    params: RFC.TransactionSignParams
+  ) => RFC.TransactionSignParams;
+  "transaction.signAndBroadcast": (
+    params: RFC.TransactionSignAndBroadcastParams
+  ) => RFC.TransactionSignAndBroadcastResult;
+  "account.list": (params: RFC.AccountListParams) => RFC.AccountListResult;
+  "message.sign": (params: RFC.MessageSignParams) => RFC.MessageSignResult;
+  "account.request": (params: RFC.AccountListParams) => RFC.AccountListResult;
+  "currency.list": (params: RFC.CurrencyListParams) => RFC.CurrencyListResult;
+}
+
+export class WalletAPIClient extends RpcNode<
+  typeof requestHandlers,
+  ServerHandlers
+> {
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
@@ -63,12 +79,11 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     transaction: Transaction,
     options?: RFC.TransactionOptions
   ): Promise<Buffer> {
-    const transactionSignResult =
-      (await this.request<RFC.TransactionSignParams>("transaction.sign", {
-        accountId,
-        rawTransaction: serializeTransaction(transaction),
-        options,
-      })) as RpcResponse<RFC.TransactionSignResult>;
+    const transactionSignResult = (await this.request("transaction.sign", {
+      accountId,
+      rawTransaction: serializeTransaction(transaction),
+      options,
+    })) as RpcResponse<RFC.TransactionSignResult>;
 
     if ("error" in transactionSignResult) {
       throw new RpcError(transactionSignResult.error);
@@ -93,15 +108,14 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
     transaction: Transaction,
     options?: RFC.TransactionOptions
   ): Promise<string> {
-    const transactionSignResult =
-      (await this.request<RFC.TransactionSignAndBroadcastParams>(
-        "transaction.signAndBroadcast",
-        {
-          accountId,
-          rawTransaction: serializeTransaction(transaction),
-          options,
-        }
-      )) as RpcResponse<RFC.TransactionSignAndBroadcastResult>;
+    const transactionSignResult = await this.request(
+      "transaction.signAndBroadcast",
+      {
+        accountId,
+        rawTransaction: serializeTransaction(transaction),
+        options,
+      }
+    );
 
     if ("error" in transactionSignResult) {
       throw new RpcError(transactionSignResult.error);
@@ -119,13 +133,10 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
    * @returns Message signed
    */
   async signMessage(accountId: string, message: Buffer): Promise<Buffer> {
-    const messageSignResult = (await this.request<RFC.MessageSignParams>(
-      "message.sign",
-      {
-        accountId,
-        hexMessage: message.toString("hex"),
-      }
-    )) as RpcResponse<RFC.MessageSignResult>;
+    const messageSignResult = await this.request("message.sign", {
+      accountId,
+      hexMessage: message.toString("hex"),
+    });
 
     if ("error" in messageSignResult) {
       throw new RpcError(messageSignResult.error);
@@ -145,12 +156,9 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
      */
     currencyIds: string[];
   }): Promise<Account[]> {
-    const listAccountsResult = (await this.request<RFC.AccountListParams>(
-      "account.list",
-      {
-        currencyIds: params.currencyIds,
-      }
-    )) as RpcResponse<RFC.AccountListResult>;
+    const listAccountsResult = await this.request("account.list", {
+      currencyIds: params.currencyIds,
+    });
 
     if ("error" in listAccountsResult) {
       throw new RpcError(listAccountsResult.error);
@@ -172,12 +180,9 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
      */
     currencyIds: string[];
   }): Promise<Account> {
-    const requestAccountsResult = (await this.request<RFC.AccountRequestParams>(
-      "account.request",
-      {
-        currencyIds: params.currencyIds,
-      }
-    )) as RpcResponse<RFC.AccountRequestResult>;
+    const requestAccountsResult = (await this.request("account.request", {
+      currencyIds: params.currencyIds,
+    })) as RpcResponse<RFC.AccountRequestResult>;
 
     if ("error" in requestAccountsResult) {
       throw new RpcError(requestAccountsResult.error);
@@ -203,12 +208,9 @@ export class WalletAPIClient extends RpcNode<typeof requestHandlers> {
      */
     currencyIds: string[];
   }): Promise<Currency[]> {
-    const listCurrenciesResult = (await this.request<RFC.CurrencyListParams>(
-      "currency.list",
-      {
-        currencyIds: params.currencyIds,
-      }
-    )) as RpcResponse<RFC.CurrencyListResult>;
+    const listCurrenciesResult = await this.request("currency.list", {
+      currencyIds: params.currencyIds,
+    });
 
     if ("error" in listCurrenciesResult) {
       throw new RpcError(listCurrenciesResult.error);

@@ -1,20 +1,38 @@
 import { v4 as uuidv4 } from "uuid";
 import type { Transport } from "../transports";
-import type { MethodId } from "../types/RFC";
-import { createRpcRequest, parseRPCCall, createRpcResponse } from "./helpers";
+import { parseRPCCall, createRpcResponse } from "./helpers";
 import { RpcError } from "./RPCError";
 import type { RpcResponse, RpcRequest } from "./types";
 
-type Resolver = (response: RpcResponse) => void;
+type Resolver<T> = (response: T) => void;
 
-export abstract class RpcNode<T> {
+/* 
+type RpcBatchRequest<TMethod, TParams> = Array<RpcRequest<TMethod, TParams>>;
+type RpcBatchResponse<TResponse, TError> = Array<
+  RpcResponse<TResponse, TError>
+>;
+*/
+type ReturnTypeOfMethod<T> = T extends (...args: Array<any>) => any
+  ? ReturnType<T>
+  : any;
+type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
+  ? ReturnTypeOfMethod<T[S]>
+  : any;
+type MethodParams<T> = T extends (...args: infer P) => any ? P[0] : T;
+type MethodParamsIfExists<T, S> = S extends keyof T ? MethodParams<T[S]> : S;
+
+export abstract class RpcNode<TSHandlers, TCHandlers> {
   private transport: Transport;
 
-  protected requestHandlers: T;
+  protected requestHandlers: TSHandlers;
 
-  private ongoingRequests: { [requestId: number | string]: Resolver } = {};
+  private ongoingRequests: {
+    [requestId: number | string]: Resolver<
+      RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>, any>
+    >;
+  } = {};
 
-  constructor(transport: Transport, requestHandlers: T) {
+  constructor(transport: Transport, requestHandlers: TSHandlers) {
     this.transport = transport;
     this.requestHandlers = requestHandlers;
     this.transport.onMessage = (message) => {
@@ -22,29 +40,55 @@ export abstract class RpcNode<T> {
     };
   }
 
-  public request<R>(method: MethodId, params?: R): Promise<RpcResponse> {
-    const requestId = uuidv4();
+  private _request<K extends keyof TCHandlers, TError = any>(
+    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
+  ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
     return new Promise((resolve) => {
-      const request = createRpcRequest({
-        id: requestId,
-        method,
-        params,
-      });
-      this.transport.send(JSON.stringify(request));
-      const resolver: Resolver = (response) => {
+      if (!request.id) {
+        throw new Error("requests need to have an id");
+      }
+      const resolver: Resolver<
+        RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>
+      > = (response) => {
+        if ("error" in response) {
+          throw new RpcError(response.error);
+        }
         resolve(response);
       };
-      this.ongoingRequests[requestId] = resolver;
+      this.ongoingRequests[request.id] = resolver;
+
+      this.transport.send(JSON.stringify(request));
     });
   }
 
-  public notify<P>(method: MethodId, params?: P): void {
-    const rpcRequest = createRpcRequest<P>({
+  private _notify<K extends keyof TCHandlers>(
+    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
+  ): void {
+    this.transport.send(JSON.stringify(request));
+  }
+
+  public request<K extends keyof TCHandlers, TError = any>(
+    method: K,
+    params: MethodParamsIfExists<TCHandlers, K>
+  ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
+    const requestId = uuidv4();
+    return this._request({
+      id: requestId,
+      jsonrpc: "2.0",
       method,
       params,
     });
+  }
 
-    this.transport.send(JSON.stringify(rpcRequest));
+  public notify<K extends keyof TCHandlers>(
+    method: K,
+    params: MethodParamsIfExists<TCHandlers, K>
+  ): void {
+    return this._notify({
+      jsonrpc: "2.0",
+      method,
+      params,
+    });
   }
 
   private async handleMessage(message: string) {
@@ -66,7 +110,12 @@ export abstract class RpcNode<T> {
         }
         return;
       }
-      this.handleRpcResponse(rpcCall);
+      this.handleRpcResponse(
+        rpcCall as RpcResponse<
+          ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
+          unknown
+        >
+      );
     } catch (error) {
       if (error instanceof RpcError) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
@@ -88,7 +137,12 @@ export abstract class RpcNode<T> {
 
   protected abstract handleRpcRequest(request: RpcRequest): Promise<unknown>;
 
-  private handleRpcResponse(response: RpcResponse) {
+  private handleRpcResponse(
+    response: RpcResponse<
+      ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
+      unknown
+    >
+  ) {
     if (!response.id) {
       return;
     }

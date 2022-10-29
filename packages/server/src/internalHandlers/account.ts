@@ -14,7 +14,7 @@ import {
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom, map } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
-import type { RPCHandler } from "../types";
+import type { RPCHandler2 } from "../types";
 
 const validateAccountRequest = objectOf<RFC.AccountRequestParams>({
   currencyIds: arrayOf(primitives.string),
@@ -34,11 +34,10 @@ function filterCurrenciesByCurrencyIds(
   return currencies.filter((currency) => currencyIds.includes(currency.id));
 }
 
-export const request: RPCHandler<RFC.AccountRequestResult> = async (
-  req,
-  context,
-  handlers
-) => {
+export const request: RPCHandler2<
+  RFC.AccountRequestParams,
+  RFC.AccountRequestResult
+> = async (req, context, handlers) => {
   const rejections: ValidationRejection[] = [];
   if (
     !validateAccountRequest(req.params, (rejection) => {
@@ -54,7 +53,7 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
 
   const { currencyIds } = req.params;
 
-  const walletHandler = handlers[RFC.MethodId.ACCOUNT_REQUEST];
+  const walletHandler = handlers["account.request"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
@@ -82,7 +81,10 @@ const validateAccountList = objectOf<RFC.AccountListParams>({
   currencyIds: arrayOf(primitives.string),
 });
 
-export const list: RPCHandler<RFC.AccountListResult> = async (req, context) => {
+export const list: RPCHandler2<
+  RFC.AccountListParams,
+  RFC.AccountListResult
+> = async (req, context) => {
   if (!validateAccountList(req.params)) {
     throw new RpcError({
       code: RpcErrorCode.INVALID_PARAMS,
@@ -101,11 +103,10 @@ const validateAccountReceive = objectOf<RFC.AccountReceiveParams>({
   accountId: primitives.string,
 });
 
-export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
-  req,
-  context,
-  handlers
-) => {
+export const receive: RPCHandler2<
+  RFC.AccountReceiveParams,
+  RFC.AccountReceiveResult
+> = async (req, context, handlers) => {
   if (!validateAccountReceive(req.params)) {
     throw new RpcError({
       code: RpcErrorCode.INVALID_PARAMS,
@@ -122,7 +123,7 @@ export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
     throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
-  const walletHandler = handlers[RFC.MethodId.ACCOUNT_RECEIVE];
+  const walletHandler = handlers["account.receive"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);

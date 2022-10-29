@@ -8,7 +8,7 @@ import {
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
-import type { RPCHandler } from "../types";
+import type { RPCHandler2 } from "../types";
 
 const validateTranactionOptions = objectOf<RFC.TransactionOptions>({
   hwAppId: primitives.maybeString,
@@ -20,11 +20,10 @@ const validateTransactionSign = objectOf<RFC.TransactionSignParams>({
   options: maybe(validateTranactionOptions),
 });
 
-export const sign: RPCHandler<RFC.TransactionSignResult> = async (
-  req,
-  context,
-  handlers
-) => {
+export const sign: RPCHandler2<
+  RFC.TransactionSignParams,
+  RFC.TransactionSignResult
+> = async (req, context, handlers) => {
   if (!validateTransactionSign(req.params)) {
     throw new RpcError({
       code: RpcErrorCode.INVALID_PARAMS,
@@ -42,7 +41,7 @@ export const sign: RPCHandler<RFC.TransactionSignResult> = async (
     throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
-  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN];
+  const walletHandler = handlers["transaction.sign"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
@@ -66,10 +65,11 @@ const validateTransactionSignAndBroadcast =
     options: maybe(validateTranactionOptions),
   });
 
-export const signAndBroadcast: RPCHandler<
+export const signAndBroadcast: RPCHandler2<
+  RFC.TransactionSignAndBroadcastParams,
   RFC.TransactionSignAndBroadcastResult
 > = async (req, context, handlers) => {
-  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST];
+  const walletHandler = handlers["transaction.signAndBroadcast"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);

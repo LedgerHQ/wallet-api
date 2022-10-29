@@ -18,6 +18,12 @@ export type RPCHandler<Result> = (
   handlers: Partial<WalletHandlers>
 ) => Promise<Result>;
 
+export type RPCHandler2<TParams, TResult> = (
+  request: RpcRequest<RFC.MethodId, TParams>,
+  context: WalletContext,
+  handlers: Partial<WalletHandlers>
+) => Promise<TResult>;
+
 export interface WalletHandlers {
   "account.request": (params: {
     currencies$: Observable<Currency[]>;
@@ -45,3 +51,37 @@ export type RPCMiddleware = (
   request: RpcRequest,
   context: WalletContext
 ) => Promise<void>;
+
+type ReturnTypeOfMethod<T> = T extends (...args: Array<any>) => any
+  ? ReturnType<T>
+  : any;
+type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
+  ? ReturnTypeOfMethod<T[S]>
+  : any;
+type MethodParams<T> = T extends (...args: infer P) => any ? P[0] : T;
+type MethodParamsIfExists<T, S> = S extends keyof T ? MethodParams<T[S]> : S;
+
+export type TransformHandler<T> = {
+  [K in keyof T]: RPCHandler2<
+    MethodParamsIfExists<T, K>,
+    ReturnTypeOfMethodIfExists<T, K>
+  >;
+};
+
+export interface ClientHandlers {
+  "transaction.sign": (
+    params: RFC.TransactionSignParams
+  ) => RFC.TransactionSignResult;
+  "transaction.signAndBroadcast": (
+    params: RFC.TransactionSignAndBroadcastParams
+  ) => RFC.TransactionSignAndBroadcastResult;
+  "account.list": (params: RFC.AccountListParams) => RFC.AccountListResult;
+  "message.sign": (params: RFC.MessageSignParams) => RFC.MessageSignResult;
+  "account.request": (
+    params: RFC.AccountRequestParams
+  ) => RFC.AccountRequestResult;
+  "account.receive": (
+    params: RFC.AccountReceiveParams
+  ) => RFC.AccountReceiveResult;
+  "currency.list": (params: RFC.CurrencyListParams) => RFC.CurrencyListResult;
+}
