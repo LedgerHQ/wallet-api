@@ -8,6 +8,7 @@ export const list: RPCHandler<CurrencyList["result"]> = async (
 ) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const safeParams = schemaCurrencyList.params.parse(req.params);
+  void safeParams;
 
   const currencies = await firstValueFrom(context.currencies$);
 

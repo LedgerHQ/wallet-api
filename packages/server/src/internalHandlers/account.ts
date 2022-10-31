@@ -62,8 +62,8 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 };
 
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const safeParams = schemaAccountList.params.parse(req.params);
+  void safeParams;
 
   const accounts = await firstValueFrom(context.accounts$);
 

@@ -1,10 +1,9 @@
 {
-  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "extends": "@tsconfig/node18-strictest/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
     "declaration": true,
-    "outDir": "./dist",
+    "declarationMap": true,
+    "outDir": "./lib",
     "lib": ["DOM"]
   },
   "include": ["src/**/*", "tests/**/*"]
