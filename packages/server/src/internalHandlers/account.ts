@@ -54,7 +54,7 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
 
   const { currencyIds } = req.params;
 
-  const walletHandler = handlers[RFC.MethodId.ACCOUNT_REQUEST];
+  const walletHandler = handlers["account.request"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
@@ -122,7 +122,7 @@ export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
     throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
-  const walletHandler = handlers[RFC.MethodId.ACCOUNT_RECEIVE];
+  const walletHandler = handlers["account.receive"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);

@@ -14,7 +14,7 @@ export const sign: RPCHandler<RFC.MessageSignResult> = async (
   context,
   handlers
 ) => {
-  const walletHandler = handlers[RFC.MethodId.MESSAGE_SIGN];
+  const walletHandler = handlers["message.sign"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);

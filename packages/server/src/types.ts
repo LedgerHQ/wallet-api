@@ -1,11 +1,12 @@
 import type {
   Account,
   Currency,
+  Promisable,
   RFC,
   RpcRequest,
   Transaction,
 } from "@ledgerhq/wallet-api-core";
-import type { Observable, BehaviorSubject } from "rxjs";
+import type { BehaviorSubject, Observable } from "rxjs";
 
 export type WalletContext = {
   currencies$: BehaviorSubject<Currency[]>;
@@ -22,22 +23,22 @@ export interface WalletHandlers {
   "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
-  }) => Promise<Account>;
-  "account.receive": (params: { account: Account }) => Promise<string>;
+  }) => Promisable<Account>;
+  "account.receive": (params: { account: Account }) => Promisable<string>;
   "message.sign": (params: {
     account: Account;
     message: Buffer;
-  }) => Promise<Buffer>;
+  }) => Promisable<Buffer>;
   "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
     options: RFC.TransactionOptions | undefined;
-  }) => Promise<Buffer>;
+  }) => Promisable<Buffer>;
   "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;
     options: RFC.TransactionOptions | undefined;
-  }) => Promise<string>;
+  }) => Promisable<string>;
 }
 
 export type RPCMiddleware = (

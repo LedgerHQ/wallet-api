@@ -1,8 +1,8 @@
 import { maybe, objectOf, primitives } from "@altostra/type-validations";
 import {
-  RFC,
-  isRawTransaction,
   deserializeTransaction,
+  isRawTransaction,
+  RFC,
   RpcError,
   RpcErrorCode,
 } from "@ledgerhq/wallet-api-core";
@@ -42,7 +42,7 @@ export const sign: RPCHandler<RFC.TransactionSignResult> = async (
     throw new RpcError(ACCOUNT_NOT_FOUND);
   }
 
-  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN];
+  const walletHandler = handlers["transaction.sign"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
@@ -69,7 +69,7 @@ const validateTransactionSignAndBroadcast =
 export const signAndBroadcast: RPCHandler<
   RFC.TransactionSignAndBroadcastResult
 > = async (req, context, handlers) => {
-  const walletHandler = handlers[RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST];
+  const walletHandler = handlers["transaction.signAndBroadcast"];
 
   if (!walletHandler) {
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
