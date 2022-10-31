@@ -1,12 +1,13 @@
-import type { ClientHandlers, TransformHandler } from "../types";
+import type { WalletHandlers } from "@ledgerhq/wallet-api-core";
+import type { TransformHandler } from "../types";
 import * as account from "./account";
 import * as currency from "./currency";
 import * as message from "./message";
 import * as transaction from "./transaction";
 
-type InternalHandlers = TransformHandler<ClientHandlers>;
+type InternalHandlers = TransformHandler<WalletHandlers>;
 
-export const internalHandlers: Partial<InternalHandlers> = {
+export const internalHandlers: InternalHandlers = {
   "account.request": account.request,
   "account.list": account.list,
   "account.receive": account.receive,

@@ -1,16 +1,15 @@
-import { enumOf, objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawTezosTransaction, TezosOperationMode } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isTezosOperationMode = enumOf<TezosOperationMode>(
+export const schemaTezosOperationMode = z.enum([
   "send",
   "delegate",
-  "undelegate"
-);
+  "undelegate",
+]);
 
-export const isRawTezosTransaction = objectOf<RawTezosTransaction>({
-  ...isTransactionCommon,
-  mode: isTezosOperationMode,
-  fees: primitives.maybeString,
-  gasLimit: primitives.maybeString,
+export const schemaRawTezosTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.tezos),
+  mode: schemaTezosOperationMode,
+  fees: z.string().optional(),
+  gasLimit: z.string().optional(),
 });

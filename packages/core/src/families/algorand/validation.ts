@@ -1,18 +1,17 @@
-import { enumOf, objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawAlgorandTransaction, AlgorandOperationMode } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isAlgorandOperationMode = enumOf<AlgorandOperationMode>(
+export const schemaAlgorandOperationMode = z.enum([
   "send",
   "optIn",
   "claimReward",
-  "optOut"
-);
+  "optOut",
+]);
 
-export const isRawAlgorandTransaction = objectOf<RawAlgorandTransaction>({
-  ...isTransactionCommon,
-  mode: isAlgorandOperationMode,
-  fees: primitives.maybeString,
-  assetId: primitives.maybeString,
-  memo: primitives.maybeString,
+export const schemaRawAlgorandTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.algorand),
+  mode: schemaAlgorandOperationMode,
+  fees: z.string().optional(),
+  assetId: z.string().optional(),
+  memo: z.string().optional(),
 });

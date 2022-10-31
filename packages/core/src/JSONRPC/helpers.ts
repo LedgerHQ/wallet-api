@@ -5,20 +5,14 @@ import {
   RpcResponse,
   RpcResponseError,
 } from "./types";
-import { isRpcCall } from "./validation";
+import { schemaRPCCall } from "./validation";
 
 export function parseRPCCall(data: string): RpcRequest | RpcResponse {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const call = JSON.parse(data);
-    if (!isRpcCall(call)) {
-      throw new RpcError({
-        code: RpcErrorCode.INVALID_REQUEST,
-        message: "invalid request",
-      });
-    }
+    const parsedData = JSON.parse(data) as unknown;
 
-    return call;
+    const rpcCall = schemaRPCCall.parse(parsedData);
+    return rpcCall;
   } catch (error) {
     if (error instanceof SyntaxError) {
       throw new RpcError({
@@ -26,7 +20,6 @@ export function parseRPCCall(data: string): RpcRequest | RpcResponse {
         message: "parse error",
       });
     }
-
     throw error;
   }
 }

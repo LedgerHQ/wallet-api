@@ -1,17 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
+import { z } from "zod";
 import type { Transport } from "../transports";
 import { parseRPCCall, createRpcResponse } from "./helpers";
 import { RpcError } from "./RPCError";
-import type { RpcResponse, RpcRequest } from "./types";
+import { RpcResponse, RpcRequest, RpcErrorCode } from "./types";
 
 type Resolver<T> = (response: T) => void;
 
-/* 
-type RpcBatchRequest<TMethod, TParams> = Array<RpcRequest<TMethod, TParams>>;
-type RpcBatchResponse<TResponse, TError> = Array<
-  RpcResponse<TResponse, TError>
->;
-*/
 type ReturnTypeOfMethod<T> = T extends (...args: Array<any>) => any
   ? ReturnType<T>
   : any;
@@ -117,8 +112,20 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         >
       );
     } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errorResponse = createRpcResponse({
+          id: requestId || null,
+          error: {
+            code: RpcErrorCode.INVALID_PARAMS,
+            message: "invalid params",
+            data: error.errors,
+          },
+        });
+
+        this.transport.send(JSON.stringify(errorResponse));
+        return;
+      }
       if (error instanceof RpcError) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const errorResponse = createRpcResponse({
           id: requestId || null,
           error: {
@@ -130,6 +137,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         });
 
         this.transport.send(JSON.stringify(errorResponse));
+        return;
       }
       throw error;
     }

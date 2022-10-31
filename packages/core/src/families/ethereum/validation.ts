@@ -1,11 +1,10 @@
-import { objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawEthereumTransaction } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isRawEthereumTransaction = objectOf<RawEthereumTransaction>({
-  ...isTransactionCommon,
-  nonce: primitives.maybeNumber,
-  data: primitives.maybeString,
-  gasPrice: primitives.maybeString,
-  gasLimit: primitives.maybeString,
+export const schemaRawEthereumTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.ethereum),
+  nonce: z.number().optional(),
+  data: z.string().optional(),
+  gasPrice: z.string().optional(),
+  gasLimit: z.string().optional(),
 });

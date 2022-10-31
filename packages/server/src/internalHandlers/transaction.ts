@@ -1,39 +1,25 @@
-import { maybe, objectOf, primitives } from "@altostra/type-validations";
 import {
-  RFC,
-  isRawTransaction,
   deserializeTransaction,
   RpcError,
-  RpcErrorCode,
+  schemaTransactionSign,
+  schemaTransactionSignAndBroadcast,
+  TransactionSign,
+  TransactionSignAndBroadcast,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
-import type { RPCHandler2 } from "../types";
+import type { RPCHandler } from "../types";
 
-const validateTranactionOptions = objectOf<RFC.TransactionOptions>({
-  hwAppId: primitives.maybeString,
-});
-
-const validateTransactionSign = objectOf<RFC.TransactionSignParams>({
-  accountId: primitives.string,
-  rawTransaction: isRawTransaction,
-  options: maybe(validateTranactionOptions),
-});
-
-export const sign: RPCHandler2<
-  RFC.TransactionSignParams,
-  RFC.TransactionSignResult
-> = async (req, context, handlers) => {
-  if (!validateTransactionSign(req.params)) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-    });
-  }
+export const sign: RPCHandler<TransactionSign["result"]> = async (
+  req,
+  context,
+  handlers
+) => {
+  const safeParams = schemaTransactionSign.params.parse(req.params);
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options } = req.params;
+  const { accountId, rawTransaction, options } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -58,16 +44,8 @@ export const sign: RPCHandler2<
   };
 };
 
-const validateTransactionSignAndBroadcast =
-  objectOf<RFC.TransactionSignAndBroadcastParams>({
-    accountId: primitives.string,
-    rawTransaction: isRawTransaction,
-    options: maybe(validateTranactionOptions),
-  });
-
-export const signAndBroadcast: RPCHandler2<
-  RFC.TransactionSignAndBroadcastParams,
-  RFC.TransactionSignAndBroadcastResult
+export const signAndBroadcast: RPCHandler<
+  TransactionSignAndBroadcast["result"]
 > = async (req, context, handlers) => {
   const walletHandler = handlers["transaction.signAndBroadcast"];
 
@@ -75,16 +53,11 @@ export const signAndBroadcast: RPCHandler2<
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  if (!validateTransactionSignAndBroadcast(req.params)) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-    });
-  }
+  const safeParams = schemaTransactionSignAndBroadcast.params.parse(req.params);
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options } = req.params;
+  const { accountId, rawTransaction, options } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 

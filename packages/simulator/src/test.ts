@@ -1,12 +1,17 @@
-import {
-  deserializeTransaction,
-  FAMILIES,
-  WalletAPIClient,
-} from "@ledgerhq/wallet-api-client";
 import { getSimulatorTransport } from "./transport";
 
 async function main() {
   const transport = getSimulatorTransport("standard");
+  transport.onMessage = (message) => console.log("message: ", message);
+
+  transport.send(
+    JSON.stringify({
+      method: "account.list",
+      params: {},
+    })
+  );
+
+  /*
   const client = new WalletAPIClient(transport);
 
   const accounts = await client.listAccounts({ currencyIds: ["ethereum"] });
@@ -14,13 +19,14 @@ async function main() {
   const tx = await client.signTransactionAndBroadcast(
     "account-eth-1",
     deserializeTransaction({
-      family: FAMILIES.Ethereum,
+      family: "ethereum",
       amount: "12",
       recipient: "0xananas",
     })
   );
 
   console.log({ accounts, currencies, tx });
+  */
 }
 
 main()

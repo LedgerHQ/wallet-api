@@ -1,7 +1,21 @@
-import { primitives } from "@altostra/type-validations";
+import { z } from "zod";
 
-export const isTransactionCommon = {
-  amount: primitives.string,
-  recipient: primitives.string,
-  family: primitives.string,
-};
+export const schemaTransactionCommon = z.object({
+  amount: z.string(),
+  recipient: z.string(),
+});
+
+export const schemaFamilies = z.enum([
+  "bitcoin",
+  "ethereum",
+  "algorand",
+  "crypto_org",
+  "ripple",
+  "cosmos",
+  "ripple",
+  "cosmos",
+  "tezos",
+  "polkadot",
+  "stellar",
+  "tron",
+]);

@@ -1,22 +1,18 @@
 import type BigNumber from "bignumber.js";
+import type { z } from "zod";
+import type { TransactionCommon } from "../index";
 import type {
-  FAMILIES,
-  RawTransactionCommon,
-  TransactionCommon,
-} from "../index";
+  schemaRawTezosTransaction,
+  schemaTezosOperationMode,
+} from "./validation";
 
-export type TezosOperationMode = "send" | "delegate" | "undelegate";
+export type TezosOperationMode = z.infer<typeof schemaTezosOperationMode>;
 
 export interface TezosTransaction extends TransactionCommon {
-  readonly family: FAMILIES.Tezos;
+  readonly family: RawTezosTransaction["family"];
   mode: TezosOperationMode;
   fees?: BigNumber;
   gasLimit?: BigNumber;
 }
 
-export interface RawTezosTransaction extends RawTransactionCommon {
-  readonly family: FAMILIES.Tezos;
-  mode: TezosOperationMode;
-  fees?: string;
-  gasLimit?: string;
-}
+export type RawTezosTransaction = z.infer<typeof schemaRawTezosTransaction>;

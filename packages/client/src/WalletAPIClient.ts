@@ -7,13 +7,20 @@ import {
   RpcError,
   RpcErrorCode,
   RpcNode,
-  RFC,
   Transaction,
   serializeTransaction,
-  RpcResponse,
   Account,
   deserializeAccount,
   Currency,
+  WalletHandlers,
+  schemaTransactionSign,
+  schemaTransactionSignAndBroadcast,
+  schemaMessageSign,
+  schemaAccountList,
+  schemaAccountRequest,
+  schemaCurrencyList,
+  TransactionSign,
+  TransactionSignAndBroadcast,
 } from "@ledgerhq/wallet-api-core";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -27,22 +34,9 @@ const requestHandlers = {
   },
 };
 
-interface ServerHandlers {
-  "transaction.sign": (
-    params: RFC.TransactionSignParams
-  ) => RFC.TransactionSignParams;
-  "transaction.signAndBroadcast": (
-    params: RFC.TransactionSignAndBroadcastParams
-  ) => RFC.TransactionSignAndBroadcastResult;
-  "account.list": (params: RFC.AccountListParams) => RFC.AccountListResult;
-  "message.sign": (params: RFC.MessageSignParams) => RFC.MessageSignResult;
-  "account.request": (params: RFC.AccountListParams) => RFC.AccountListResult;
-  "currency.list": (params: RFC.CurrencyListParams) => RFC.CurrencyListResult;
-}
-
 export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
-  ServerHandlers
+  WalletHandlers
 > {
   private logger: Logger;
 
@@ -77,22 +71,23 @@ export class WalletAPIClient extends RpcNode<
   async signTransaction(
     accountId: string,
     transaction: Transaction,
-    options?: RFC.TransactionOptions
+    options?: TransactionSign["params"]["options"]
   ): Promise<Buffer> {
-    const transactionSignResult = (await this.request("transaction.sign", {
+    const transactionSignResult = await this.request("transaction.sign", {
       accountId,
       rawTransaction: serializeTransaction(transaction),
       options,
-    })) as RpcResponse<RFC.TransactionSignResult>;
+    });
 
     if ("error" in transactionSignResult) {
       throw new RpcError(transactionSignResult.error);
     }
 
-    return Buffer.from(
-      transactionSignResult.result.signedTransactionHex,
-      "hex"
+    const safeResults = schemaTransactionSign.result.parse(
+      transactionSignResult.result
     );
+
+    return Buffer.from(safeResults.signedTransactionHex, "hex");
   }
 
   /**
@@ -106,7 +101,7 @@ export class WalletAPIClient extends RpcNode<
   async signTransactionAndBroadcast(
     accountId: string,
     transaction: Transaction,
-    options?: RFC.TransactionOptions
+    options?: TransactionSignAndBroadcast["params"]["options"]
   ): Promise<string> {
     const transactionSignResult = await this.request(
       "transaction.signAndBroadcast",
@@ -121,7 +116,11 @@ export class WalletAPIClient extends RpcNode<
       throw new RpcError(transactionSignResult.error);
     }
 
-    return transactionSignResult.result.transactionHash;
+    const safeResults = schemaTransactionSignAndBroadcast.result.parse(
+      transactionSignResult.result
+    );
+
+    return safeResults.transactionHash;
   }
 
   /**
@@ -142,7 +141,11 @@ export class WalletAPIClient extends RpcNode<
       throw new RpcError(messageSignResult.error);
     }
 
-    return Buffer.from(messageSignResult.result.hexSignedMessage, "hex");
+    const safeResults = schemaMessageSign.result.parse(
+      messageSignResult.result
+    );
+
+    return Buffer.from(safeResults.hexSignedMessage, "hex");
   }
 
   /**
@@ -164,7 +167,11 @@ export class WalletAPIClient extends RpcNode<
       throw new RpcError(listAccountsResult.error);
     }
 
-    return listAccountsResult.result.rawAccounts.map(deserializeAccount);
+    const safeResults = schemaAccountList.result.parse(
+      listAccountsResult.result
+    );
+
+    return safeResults.rawAccounts.map(deserializeAccount);
   }
 
   /**
@@ -180,17 +187,19 @@ export class WalletAPIClient extends RpcNode<
      */
     currencyIds: string[];
   }): Promise<Account> {
-    const requestAccountsResult = (await this.request("account.request", {
+    const requestAccountsResult = await this.request("account.request", {
       currencyIds: params.currencyIds,
-    })) as RpcResponse<RFC.AccountRequestResult>;
+    });
 
     if ("error" in requestAccountsResult) {
       throw new RpcError(requestAccountsResult.error);
     }
 
-    console.log({ requestAccountsResult });
+    const safeResults = schemaAccountRequest.result.parse(
+      requestAccountsResult.result
+    );
 
-    return deserializeAccount(requestAccountsResult.result.rawAccount);
+    return deserializeAccount(safeResults.rawAccount);
   }
 
   /**
@@ -216,6 +225,10 @@ export class WalletAPIClient extends RpcNode<
       throw new RpcError(listCurrenciesResult.error);
     }
 
-    return listCurrenciesResult.result.currencies;
+    const safeResults = schemaCurrencyList.result.parse(
+      listCurrenciesResult.result
+    );
+
+    return safeResults.currencies;
   }
 }

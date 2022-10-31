@@ -1,20 +1,19 @@
-import { enumOf, objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawCosmosTransaction, CosmosOperationMode } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isCosmosOperationMode = enumOf<CosmosOperationMode>(
+export const schemaCosmosOperationMode = z.enum([
   "send",
   "delegate",
   "undelegate",
   "redelegate",
   "claimReward",
-  "claimRewardCompound"
-);
+  "claimRewardCompound",
+]);
 
-export const isRawCosmosTransaction = objectOf<RawCosmosTransaction>({
-  ...isTransactionCommon,
-  mode: isCosmosOperationMode,
-  fees: primitives.maybeString,
-  gas: primitives.maybeString,
-  memo: primitives.maybeString,
+export const schemaRawCosmosTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.cosmos),
+  mode: schemaCosmosOperationMode,
+  fees: z.string().optional(),
+  gas: z.string().optional(),
+  memo: z.string().optional(),
 });

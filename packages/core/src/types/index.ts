@@ -1,7 +1,3 @@
-import * as RFC from "./RFC";
-
-export { RFC };
-
 export type Promisable<T> = T | PromiseLike<T>;
 
 /**

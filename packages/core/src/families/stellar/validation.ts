@@ -1,10 +1,9 @@
-import { objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawStellarTransaction } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isRawStellarTransaction = objectOf<RawStellarTransaction>({
-  ...isTransactionCommon,
-  fees: primitives.maybeString,
-  memoType: primitives.maybeString,
-  memoValue: primitives.maybeString,
+export const schemaRawStellarTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.stellar),
+  fees: z.string().optional(),
+  memoType: z.string().optional(),
+  memoValue: z.string().optional(),
 });

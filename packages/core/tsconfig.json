@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
+    "strict": true,
     "outDir": "./dist",
     "exactOptionalPropertyTypes": false,
     "lib": ["DOM"]

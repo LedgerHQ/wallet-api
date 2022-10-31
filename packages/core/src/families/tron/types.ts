@@ -1,28 +1,20 @@
+import type { z } from "zod";
+import type { TransactionCommon } from "../index";
 import type {
-  FAMILIES,
-  RawTransactionCommon,
-  TransactionCommon,
-} from "../index";
+  schemaRawTronTransaction,
+  schemaTronOperationMode,
+  schemaTronResource,
+} from "./validation";
 
-export type TronOperationMode =
-  | "send"
-  | "freeze"
-  | "unfreeze"
-  | "vote"
-  | "claimReward";
+export type TronOperationMode = z.infer<typeof schemaTronOperationMode>;
 
-export type TronResource = "BANDWIDTH" | "ENERGY";
+export type TronResource = z.infer<typeof schemaTronResource>;
 
 export interface TronTransaction extends TransactionCommon {
-  readonly family: FAMILIES.Tron;
+  readonly family: RawTronTransaction["family"];
   mode: TronOperationMode;
   resource?: TronResource;
   duration?: number;
 }
 
-export interface RawTronTransaction extends RawTransactionCommon {
-  readonly family: FAMILIES.Tron;
-  mode: TronOperationMode;
-  resource?: TronResource;
-  duration?: number;
-}
+export type RawTronTransaction = z.infer<typeof schemaRawTronTransaction>;

@@ -1,30 +1,19 @@
 import type BigNumber from "bignumber.js";
+import type { z } from "zod";
+import type { TransactionCommon } from "../index";
 import type {
-  FAMILIES,
-  RawTransactionCommon,
-  TransactionCommon,
-} from "../index";
+  schemaCosmosOperationMode,
+  schemaRawCosmosTransaction,
+} from "./validation";
 
-export type CosmosOperationMode =
-  | "send"
-  | "delegate"
-  | "undelegate"
-  | "redelegate"
-  | "claimReward"
-  | "claimRewardCompound";
+export type CosmosOperationMode = z.infer<typeof schemaCosmosOperationMode>;
 
 export interface CosmosTransaction extends TransactionCommon {
-  readonly family: FAMILIES.Cosmos;
+  readonly family: RawCosmosTransaction["family"];
   mode: CosmosOperationMode;
   fees?: BigNumber;
   gas?: BigNumber;
   memo?: string;
 }
 
-export interface RawCosmosTransaction extends RawTransactionCommon {
-  readonly family: FAMILIES.Cosmos;
-  mode: CosmosOperationMode;
-  fees?: string;
-  gas?: string;
-  memo?: string;
-}
+export type RawCosmosTransaction = z.infer<typeof schemaRawCosmosTransaction>;

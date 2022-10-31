@@ -7,7 +7,7 @@ import {
   RpcRequest,
   RpcError,
   RpcErrorCode,
-  RFC,
+  AppHandlers,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject } from "rxjs";
 import { internalHandlers } from "./internalHandlers";
@@ -16,13 +16,9 @@ import type { WalletContext, WalletHandlers, RPCMiddleware } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
-interface ServerHandlers {
-  "event.account.updated": undefined;
-}
-
 export class WalletAPIServer extends RpcNode<
   typeof internalHandlers,
-  ServerHandlers
+  AppHandlers
 > {
   private logger: Logger;
 
@@ -59,7 +55,7 @@ export class WalletAPIServer extends RpcNode<
   }
 
   protected handleRpcRequest(
-    request: RpcRequest<RFC.MethodId, any>
+    request: RpcRequest<string, unknown>
   ): Promise<unknown> {
     const handler =
       this.requestHandlers[request.method as keyof typeof this.requestHandlers];

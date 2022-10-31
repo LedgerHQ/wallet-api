@@ -1,16 +1,11 @@
 import type BigNumber from "bignumber.js";
-import type {
-  FAMILIES,
-  RawTransactionCommon,
-  TransactionCommon,
-} from "../index";
+import type { z } from "zod";
+import type { TransactionCommon } from "../index";
+import type { schemaRawBitcoinTransaction } from "./validation";
 
 export interface BitcoinTransaction extends TransactionCommon {
-  readonly family: FAMILIES.Bitcoin;
+  readonly family: RawBitcoinTransaction["family"];
   feePerByte?: BigNumber;
 }
 
-export interface RawBitcoinTransaction extends RawTransactionCommon {
-  readonly family: FAMILIES.Bitcoin;
-  feePerByte?: string;
-}
+export type RawBitcoinTransaction = z.infer<typeof schemaRawBitcoinTransaction>;
