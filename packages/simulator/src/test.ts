@@ -1,18 +1,9 @@
+import { WalletAPIClient } from "@ledgerhq/wallet-api-client/lib/WalletAPIClient";
+import { deserializeTransaction } from "@ledgerhq/wallet-api-core";
 import { getSimulatorTransport } from "./transport";
 
 async function main() {
   const transport = getSimulatorTransport("standard");
-  transport.onMessage = (message) => console.log("message: ", message);
-
-  transport.send(
-    JSON.stringify({
-      jsonrpc: "2.0",
-      method: "account.list",
-      params: {},
-    })
-  );
-
-  /*
   const client = new WalletAPIClient(transport);
 
   const accounts = await client.listAccounts({ currencyIds: ["ethereum"] });
@@ -27,7 +18,6 @@ async function main() {
   );
 
   console.log({ accounts, currencies, tx });
-  */
 }
 
 main()

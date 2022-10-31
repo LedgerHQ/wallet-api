@@ -62,9 +62,14 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 };
 
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
-  schemaAccountList.params.parse(req.params);
+  const safeParams = schemaAccountList.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
+  const { currencyIds } = safeParams;
+
+  const filteredAccounts$ = context.accounts$.pipe(
+    map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+  );
+  const accounts = await firstValueFrom(filteredAccounts$);
 
   return {
     rawAccounts: accounts.map(serializeAccount),

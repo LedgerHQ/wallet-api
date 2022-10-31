@@ -48,12 +48,12 @@ export type RPCMiddleware = (
   context: WalletContext
 ) => Promise<void>;
 
-type ReturnTypeOfMethod<T> = T extends (...args: Array<any>) => any
+type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
   ? ReturnType<T>
-  : any;
+  : unknown;
 type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
   ? ReturnTypeOfMethod<T[S]>
-  : any;
+  : unknown;
 
 export type TransformHandler<T> = {
   [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;

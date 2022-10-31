@@ -7,13 +7,13 @@ import { RpcResponse, RpcRequest, RpcErrorCode } from "./types";
 
 type Resolver<T> = (response: T) => void;
 
-type ReturnTypeOfMethod<T> = T extends (...args: Array<any>) => any
+type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
   ? ReturnType<T>
-  : any;
+  : unknown;
 type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
   ? ReturnTypeOfMethod<T[S]>
-  : any;
-type MethodParams<T> = T extends (...args: infer P) => any ? P[0] : T;
+  : unknown;
+type MethodParams<T> = T extends (...args: infer P) => unknown ? P[0] : T;
 type MethodParamsIfExists<T, S> = S extends keyof T ? MethodParams<T[S]> : S;
 
 export abstract class RpcNode<TSHandlers, TCHandlers> {
@@ -23,7 +23,10 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
 
   private ongoingRequests: {
     [requestId: number | string]: Resolver<
-      RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>, any>
+      RpcResponse<
+        ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
+        unknown
+      >
     >;
   } = {};
 
@@ -35,7 +38,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     };
   }
 
-  private _request<K extends keyof TCHandlers, TError = any>(
+  private _request<K extends keyof TCHandlers, TError = unknown>(
     request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
   ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
     return new Promise((resolve) => {
@@ -62,7 +65,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     this.transport.send(JSON.stringify(request));
   }
 
-  public request<K extends keyof TCHandlers, TError = any>(
+  public request<K extends keyof TCHandlers, TError = unknown>(
     method: K,
     params: MethodParamsIfExists<TCHandlers, K>
   ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
