@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { RpcError } from "./RPCError";
 import {
   RpcErrorCode,
@@ -18,6 +19,12 @@ export function parseRPCCall(data: string): RpcRequest | RpcResponse {
       throw new RpcError({
         code: RpcErrorCode.PARSE_ERROR,
         message: "parse error",
+      });
+    }
+    if (error instanceof z.ZodError) {
+      throw new RpcError({
+        code: RpcErrorCode.INVALID_REQUEST,
+        message: "invalid request",
       });
     }
     throw error;

@@ -6,6 +6,7 @@ async function main() {
 
   transport.send(
     JSON.stringify({
+      jsonrpc: "2.0",
       method: "account.list",
       params: {},
     })
