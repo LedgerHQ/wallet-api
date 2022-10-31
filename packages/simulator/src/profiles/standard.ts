@@ -1,4 +1,4 @@
-import { Account, deserializeAccount, RFC } from "@ledgerhq/wallet-api-core";
+import { Account, deserializeAccount } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIServer } from "@ledgerhq/wallet-api-server";
 import { firstValueFrom } from "rxjs";
 
@@ -28,36 +28,30 @@ const cryptoAccounts: Account[] = [
 export function setProfile(serverInstance: WalletAPIServer) {
   serverInstance.setAccounts(cryptoAccounts);
 
-  serverInstance.setHandler(
-    RFC.MethodId.ACCOUNT_REQUEST,
-    async ({ accounts$ }) => {
-      const accounts = await firstValueFrom(accounts$);
+  serverInstance.setHandler("account.request", async ({ accounts$ }) => {
+    const accounts = await firstValueFrom(accounts$);
 
-      if (!accounts[0]) {
-        throw new Error("nope");
-      }
-      return accounts[0];
+    if (!accounts[0]) {
+      throw new Error("nope");
     }
-  );
+    return accounts[0];
+  });
 
-  serverInstance.setHandler(
-    RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST,
-    async () => {
-      return "0xtxHash";
-    }
-  );
+  serverInstance.setHandler("transaction.signAndBroadcast", () => {
+    return "0xtxHash";
+  });
 
-  serverInstance.setHandler(RFC.MethodId.TRANSACTION_SIGN, async () => {
+  serverInstance.setHandler("transaction.sign", () => {
     return Buffer.from(
       "0x123O182493423928734983247923847293847293847923847293487"
     );
   });
 
-  serverInstance.setHandler(RFC.MethodId.MESSAGE_SIGN, async () => {
+  serverInstance.setHandler("message.sign", () => {
     return Buffer.from("0x123456789123456789");
   });
 
-  serverInstance.setHandler(RFC.MethodId.ACCOUNT_RECEIVE, async () => {
+  serverInstance.setHandler("account.receive", () => {
     return "eth address";
   });
 }

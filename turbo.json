@@ -3,14 +3,15 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["lib/**", "lib-es/**"],
+      "inputs": ["src/**/*.ts"]
     },
     "lint": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "outputs": []
     },
     "lint:fix": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "outputs": []
     },
     "format:check": {
@@ -20,11 +21,13 @@
       "outputs": []
     },
     "dev": {
+      "dependsOn": ["build"],
       "cache": false
     },
     "test": {
-      "dependsOn": ["lint", "build"],
-      "outputs": []
+      "dependsOn": ["build", "lint"],
+      "outputs": [],
+      "inputs": ["src/**/*.ts", "test/**/*.ts"]
     }
   }
 }

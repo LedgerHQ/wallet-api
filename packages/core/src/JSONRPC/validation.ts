@@ -1,9 +1,9 @@
 import {
+  anyOf,
+  enumOf,
   maybe,
   objectOf,
   primitives,
-  anyOf,
-  enumOf,
 } from "@altostra/type-validations";
 import type { MethodId } from "../types/RFC";
 import type { RpcRequest, RpcResponse, RpcResponseError } from "./types";

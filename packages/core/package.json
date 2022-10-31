@@ -1,23 +1,28 @@
 {
   "name": "@ledgerhq/wallet-api-core",
   "version": "0.3.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib-es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib",
+    "/lib-es"
+  ],
   "scripts": {
     "format:check": "prettier --check \"src\"",
     "format:fix": "prettier --write \"src\"",
     "lint": "eslint --cache --ext .ts \"src\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
-    "build": "tsup src/index.ts --dts --format esm,cjs,iife"
+    "dev": "tsc -p prod.tsconfig.json --watch",
+    "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json"
   },
   "devDependencies": {
-    "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/node": "^18.7.18",
+    "@tsconfig/node18-strictest": "^1.0.0",
+    "@types/node": "^18.11.8",
     "@types/uuid": "^8.3.4",
-    "eslint": "^7.32.0",
-    "tsup": "^6.2.3",
-    "typescript": "^4.5.2"
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
     "@altostra/type-validations": "^2.6.5",
