@@ -1,24 +1,24 @@
-import { taggedUnionOf } from "@altostra/type-validations";
-import { isRawAlgorandTransaction } from "./algorand/validation";
-import { isRawBitcoinTransaction } from "./bitcoin/validation";
-import { isRawCosmosTransaction } from "./cosmos/validation";
-import { isRawCryptoOrgTransaction } from "./crypto_org/validation";
-import { isRawEthereumTransaction } from "./ethereum/validation";
-import { isRawPolkadotTransaction } from "./polkadot/validation";
-import { isRawRippleTransaction } from "./ripple/validation";
-import { isRawStellarTransaction } from "./stellar/validation";
-import { isRawTezosTransaction } from "./tezos/validation";
-import { isRawTronTransaction } from "./tron/validation";
+import { z } from "zod";
+import { schemaRawAlgorandTransaction } from "./algorand/validation";
+import { schemaRawBitcoinTransaction } from "./bitcoin/validation";
+import { schemaRawCosmosTransaction } from "./cosmos/validation";
+import { schemaRawCryptoOrgTransaction } from "./crypto_org/validation";
+import { schemaRawEthereumTransaction } from "./ethereum/validation";
+import { schemaRawPolkadotTransaction } from "./polkadot/validation";
+import { schemaRawRippleTransaction } from "./ripple/validation";
+import { schemaRawStellarTransaction } from "./stellar/validation";
+import { schemaRawTezosTransaction } from "./tezos/validation";
+import { schemaRawTronTransaction } from "./tron/validation";
 
-export const isRawTransaction = taggedUnionOf("family", {
-  algorand: isRawAlgorandTransaction,
-  bitcoin: isRawBitcoinTransaction,
-  cosmos: isRawCosmosTransaction,
-  crypto_org: isRawCryptoOrgTransaction,
-  ethereum: isRawEthereumTransaction,
-  polkadot: isRawPolkadotTransaction,
-  ripple: isRawRippleTransaction,
-  stellar: isRawStellarTransaction,
-  tezos: isRawTezosTransaction,
-  tron: isRawTronTransaction,
-});
+export const schemaRawTransaction = z.discriminatedUnion("family", [
+  schemaRawAlgorandTransaction,
+  schemaRawBitcoinTransaction,
+  schemaRawCosmosTransaction,
+  schemaRawCryptoOrgTransaction,
+  schemaRawEthereumTransaction,
+  schemaRawPolkadotTransaction,
+  schemaRawRippleTransaction,
+  schemaRawStellarTransaction,
+  schemaRawTezosTransaction,
+  schemaRawTronTransaction,
+]);

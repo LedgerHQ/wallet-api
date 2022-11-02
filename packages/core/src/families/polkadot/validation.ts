@@ -1,8 +1,7 @@
-import { enumOf, objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { PolkadotOperationMode, RawPolkadotTransaction } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isPolkadotOperationMode = enumOf<PolkadotOperationMode>(
+export const schemaPolkadotOperationMode = z.enum([
   "send",
   "bond",
   "unbond",
@@ -11,12 +10,12 @@ export const isPolkadotOperationMode = enumOf<PolkadotOperationMode>(
   "setController",
   "nominate",
   "chill",
-  "claimReward"
-);
+  "claimReward",
+]);
 
-export const isRawPolkadotTransaction = objectOf<RawPolkadotTransaction>({
-  ...isTransactionCommon,
-  mode: isPolkadotOperationMode,
-  fee: primitives.maybeString,
-  era: primitives.maybeNumber,
+export const schemaRawPolkadotTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.polkadot),
+  mode: schemaPolkadotOperationMode,
+  fee: z.string().optional(),
+  era: z.number().optional(),
 });

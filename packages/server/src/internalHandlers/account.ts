@@ -1,24 +1,18 @@
 import {
-  arrayOf,
-  objectOf,
-  primitives,
-  ValidationRejection,
-} from "@altostra/type-validations";
-import {
   Account,
+  AccountList,
+  AccountReceive,
+  AccountRequest,
   Currency,
-  RFC,
   RpcError,
-  RpcErrorCode,
+  schemaAccountList,
+  schemaAccountReceive,
+  schemaAccountRequest,
   serializeAccount,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom, map } from "rxjs";
 import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
-
-const validateAccountRequest = objectOf<RFC.AccountRequestParams>({
-  currencyIds: arrayOf(primitives.string),
-});
 
 function filterAccountsByCurrencyIds(
   accounts: Account[],
@@ -34,25 +28,14 @@ function filterCurrenciesByCurrencyIds(
   return currencies.filter((currency) => currencyIds.includes(currency.id));
 }
 
-export const request: RPCHandler<RFC.AccountRequestResult> = async (
+export const request: RPCHandler<AccountRequest["result"]> = async (
   req,
   context,
   handlers
 ) => {
-  const rejections: ValidationRejection[] = [];
-  if (
-    !validateAccountRequest(req.params, (rejection) => {
-      rejections.push(rejection);
-    })
-  ) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-      data: rejections,
-    });
-  }
+  const safeParams = schemaAccountRequest.params.parse(req.params);
 
-  const { currencyIds } = req.params;
+  const { currencyIds } = safeParams;
 
   const walletHandler = handlers["account.request"];
 
@@ -78,43 +61,30 @@ export const request: RPCHandler<RFC.AccountRequestResult> = async (
   };
 };
 
-const validateAccountList = objectOf<RFC.AccountListParams>({
-  currencyIds: arrayOf(primitives.string),
-});
+export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
+  const safeParams = schemaAccountList.params.parse(req.params);
 
-export const list: RPCHandler<RFC.AccountListResult> = async (req, context) => {
-  if (!validateAccountList(req.params)) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-    });
-  }
+  const { currencyIds } = safeParams;
 
-  const accounts = await firstValueFrom(context.accounts$);
+  const filteredAccounts$ = context.accounts$.pipe(
+    map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+  );
+  const accounts = await firstValueFrom(filteredAccounts$);
 
   return {
     rawAccounts: accounts.map(serializeAccount),
   };
 };
 
-const validateAccountReceive = objectOf<RFC.AccountReceiveParams>({
-  accountId: primitives.string,
-});
-
-export const receive: RPCHandler<RFC.AccountReceiveResult> = async (
+export const receive: RPCHandler<AccountReceive["result"]> = async (
   req,
   context,
   handlers
 ) => {
-  if (!validateAccountReceive(req.params)) {
-    throw new RpcError({
-      code: RpcErrorCode.INVALID_PARAMS,
-      message: "Bad parameters",
-    });
-  }
+  const safeParams = schemaAccountReceive.params.parse(req.params);
+  const { accountId } = safeParams;
 
   const accounts = await firstValueFrom(context.accounts$);
-  const { accountId } = req.params;
 
   const account = accounts.find((acc) => acc.id === accountId);
 

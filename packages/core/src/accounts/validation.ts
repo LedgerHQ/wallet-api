@@ -1,12 +1,12 @@
-import { objectOf, primitives } from "@altostra/type-validations";
+import { z } from "zod";
 
-export const isRawAccount = objectOf({
-  id: primitives.string,
-  name: primitives.string,
-  address: primitives.string,
-  currency: primitives.string,
-  balance: primitives.string,
-  spendableBalance: primitives.string,
-  blockHeight: primitives.number,
-  lastSyncDate: primitives.string,
+export const schemaRawAccount = z.object({
+  id: z.string(),
+  name: z.string(),
+  address: z.string(),
+  currency: z.string(),
+  balance: z.string(),
+  spendableBalance: z.string(),
+  blockHeight: z.number(),
+  lastSyncDate: z.string(),
 });
