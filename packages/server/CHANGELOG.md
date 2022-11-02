@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 0.5.0
+
+### Minor Changes
+
+- [`4a91ced`](https://github.com/LedgerHQ/wallet-api/commit/4a91cede76d82d14c6c4f15fa112e5e20244d9bb) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Reworked type system
+
+### Patch Changes
+
+- Updated dependencies [[`4a91ced`](https://github.com/LedgerHQ/wallet-api/commit/4a91cede76d82d14c6c4f15fa112e5e20244d9bb)]:
+  - @ledgerhq/wallet-api-core@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
