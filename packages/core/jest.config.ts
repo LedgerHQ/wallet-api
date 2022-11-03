@@ -5,6 +5,5 @@ export default async (): Promise<JestConfigWithTsJest> => {
      return  {
         ...baseConfig,
         testEnvironment: "jsdom",
-        testPathIgnorePatterns: ["/tests/transports"]
       };
 }
