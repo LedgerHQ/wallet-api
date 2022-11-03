@@ -21,7 +21,7 @@
     "publish-packages": "turbo run build lint && changeset publish"
   },
   "lint-staged": {
-    "*.ts": "eslint --fix --ignore-pattern \"jest.config.ts\""
+    "*.ts": "eslint --fix"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.6",
