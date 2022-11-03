@@ -1,9 +1,8 @@
-import { objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawRippleTransaction } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isRawRippleTransaction = objectOf<RawRippleTransaction>({
-  ...isTransactionCommon,
-  fee: primitives.maybeString,
-  tag: primitives.number,
+export const schemaRawRippleTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.ripple),
+  fee: z.string().optional(),
+  tag: z.number(),
 });

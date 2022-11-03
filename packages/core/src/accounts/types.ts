@@ -1,4 +1,6 @@
 import type BigNumber from "bignumber.js";
+import type { z } from "zod";
+import type { schemaRawAccount } from "./validation";
 
 /**
  * A ledger live cryptocurrency account
@@ -48,13 +50,4 @@ export type Account = {
  *
  * @see [[Account]] for information regarding individual fields. Each field type is the serialized version of the corresponding [[Account]] type
  */
-export type RawAccount = {
-  id: string;
-  name: string;
-  address: string;
-  currency: string;
-  balance: string;
-  spendableBalance: string;
-  blockHeight: number;
-  lastSyncDate: string;
-};
+export type RawAccount = z.infer<typeof schemaRawAccount>;

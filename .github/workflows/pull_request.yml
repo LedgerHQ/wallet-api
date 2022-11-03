@@ -29,5 +29,5 @@ jobs:
       #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       # - name: run doc
       #   run: pnpm doc
-      - name: check if diff
-        run: git diff --exit-code || exit 1
+      # - name: check if diff
+      #   run: git diff --exit-code || exit 1

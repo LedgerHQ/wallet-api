@@ -7,7 +7,7 @@ import {
   RpcRequest,
   RpcError,
   RpcErrorCode,
-  RFC,
+  AppHandlers,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject } from "rxjs";
 import { internalHandlers } from "./internalHandlers";
@@ -16,7 +16,10 @@ import type { WalletContext, WalletHandlers, RPCMiddleware } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
-export class WalletAPIServer extends RpcNode<typeof internalHandlers> {
+export class WalletAPIServer extends RpcNode<
+  typeof internalHandlers,
+  AppHandlers
+> {
   private logger: Logger;
 
   private middlewares: RPCMiddleware[] = [];
@@ -67,13 +70,12 @@ export class WalletAPIServer extends RpcNode<typeof internalHandlers> {
       });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
     return handler(request, this.walletContext, this.walletHandlers);
   }
 
   private connect() {
     this.walletContext.accounts$.subscribe(() => {
-      this.notify(RFC.MethodId.EVENT_ACCOUNT_UPDATED);
+      this.notify("event.account.updated", undefined);
     });
   }
 

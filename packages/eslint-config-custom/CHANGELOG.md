@@ -1,5 +1,17 @@
 # eslint-config-custom
 
+## 0.3.0
+
+### Minor Changes
+
+- [`4a91ced`](https://github.com/LedgerHQ/wallet-api/commit/4a91cede76d82d14c6c4f15fa112e5e20244d9bb) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Reworked type system
+
+## 0.2.0
+
+### Minor Changes
+
+- [`6382409`](https://github.com/LedgerHQ/wallet-api/commit/6382409a7a8eae0a2eb759da418f6666ed890f2c) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Added WalletAPIClient handlers
+
 ## 0.1.0
 
 ### Minor Changes

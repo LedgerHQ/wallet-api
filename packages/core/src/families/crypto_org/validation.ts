@@ -1,9 +1,8 @@
-import { objectOf, primitives } from "@altostra/type-validations";
-import { isTransactionCommon } from "../common";
-import type { RawCryptoOrgTransaction } from "./types";
+import { z } from "zod";
+import { schemaFamilies, schemaTransactionCommon } from "../common";
 
-export const isRawCryptoOrgTransaction = objectOf<RawCryptoOrgTransaction>({
-  ...isTransactionCommon,
-  mode: primitives.string,
-  fees: primitives.maybeString,
+export const schemaRawCryptoOrgTransaction = schemaTransactionCommon.extend({
+  family: z.literal(schemaFamilies.enum.crypto_org),
+  mode: z.string(),
+  fees: z.string().optional(),
 });

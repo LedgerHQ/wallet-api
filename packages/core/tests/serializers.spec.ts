@@ -8,7 +8,7 @@ import {
   deserializeAccount,
   deserializeTransaction,
   EthereumTransaction,
-  FAMILIES,
+  schemaFamilies,
   PolkadotTransaction,
   RawAccount,
   RawAlgorandTransaction,
@@ -87,11 +87,13 @@ describe("serializers.ts", () => {
 
   describe("serializeTransaction", () => {
     describe("ethereum", () => {
+      const family = schemaFamilies.enum.ethereum;
+
       it("should succeed to serialize an ethereum transaction with data, gasPrice & gasLimit", () => {
         const transaction: EthereumTransaction = {
           amount: new BigNumber(100),
           recipient: "recipient",
-          family: FAMILIES.Ethereum,
+          family,
           nonce: 123,
           data: Buffer.from([]),
           gasPrice: new BigNumber(0),
@@ -100,7 +102,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: "ethereum",
+          family,
           amount: "100",
           recipient: "recipient",
           nonce: 123,
@@ -114,13 +116,13 @@ describe("serializers.ts", () => {
         const transaction: EthereumTransaction = {
           amount: new BigNumber(100),
           recipient: "recipient",
-          family: FAMILIES.Ethereum,
+          family,
           nonce: 123,
         };
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: "ethereum",
+          family,
           amount: "100",
           recipient: "recipient",
           nonce: 123,
@@ -132,17 +134,19 @@ describe("serializers.ts", () => {
     });
 
     describe("bitcoin", () => {
+      const family = schemaFamilies.enum.bitcoin;
+
       it("should succeed to serialize a bitcoin transaction with feePerByte", () => {
         const transaction: BitcoinTransaction = {
           amount: new BigNumber(100),
           recipient: "recipient",
-          family: FAMILIES.Bitcoin,
+          family,
           feePerByte: new BigNumber(0),
         };
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: "bitcoin",
+          family,
           amount: "100",
           recipient: "recipient",
           feePerByte: "0",
@@ -153,12 +157,12 @@ describe("serializers.ts", () => {
         const transaction: BitcoinTransaction = {
           amount: new BigNumber(100),
           recipient: "recipient",
-          family: FAMILIES.Bitcoin,
+          family,
         };
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: "bitcoin",
+          family,
           amount: "100",
           recipient: "recipient",
           feePerByte: undefined,
@@ -167,9 +171,11 @@ describe("serializers.ts", () => {
     });
 
     describe("algorand", () => {
+      const family = schemaFamilies.enum.algorand;
+
       it("should succeed to serialize an algorand transaction with fees, assetId and memo", () => {
         const transaction: AlgorandTransaction = {
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           fees: new BigNumber(1),
           assetId: "assetId",
@@ -180,7 +186,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           fees: "1",
           assetId: "assetId",
@@ -192,7 +198,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize an algorand transaction without fees, assetId and memo", () => {
         const transaction: AlgorandTransaction = {
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -200,7 +206,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           fees: undefined,
           assetId: undefined,
@@ -212,9 +218,11 @@ describe("serializers.ts", () => {
     });
 
     describe("cosmos", () => {
+      const family = schemaFamilies.enum.cosmos;
+
       it("should succeed to serialize a cosmos transaction with fees, gas and memo", () => {
         const transaction: CosmosTransaction = {
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           fees: new BigNumber(1),
           gas: new BigNumber(4),
@@ -225,7 +233,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           fees: "1",
           gas: "4",
@@ -237,7 +245,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a cosmos transaction without fees, gas and memo", () => {
         const transaction: CosmosTransaction = {
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -245,7 +253,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           fees: undefined,
           gas: undefined,
@@ -257,9 +265,11 @@ describe("serializers.ts", () => {
     });
 
     describe("crypto.org", () => {
+      const family = schemaFamilies.enum.crypto_org;
+
       it("should succeed to serialize a crypto.org transaction with fees", () => {
         const transaction: CryptoOrgTransaction = {
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: new BigNumber(1),
           amount: new BigNumber(100),
@@ -268,7 +278,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: "1",
           amount: "100",
@@ -278,7 +288,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a crypto.org transaction without fees", () => {
         const transaction: CryptoOrgTransaction = {
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -286,7 +296,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: undefined,
           amount: "100",
@@ -296,9 +306,11 @@ describe("serializers.ts", () => {
     });
 
     describe("polkadot", () => {
+      const family = schemaFamilies.enum.polkadot;
+
       it("should succeed to serialize a polkadot transaction with fee and era", () => {
         const transaction: PolkadotTransaction = {
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: new BigNumber(1),
           era: 4,
@@ -308,7 +320,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: "1",
           era: 4,
@@ -319,7 +331,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a polkadot transaction without fee and era", () => {
         const transaction: PolkadotTransaction = {
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -327,7 +339,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: undefined,
           era: undefined,
@@ -338,9 +350,11 @@ describe("serializers.ts", () => {
     });
 
     describe("ripple", () => {
+      const family = schemaFamilies.enum.ripple;
+
       it("should succeed to serialize a ripple transaction with fee", () => {
         const transaction: RippleTransaction = {
-          family: FAMILIES.Ripple,
+          family,
           fee: new BigNumber(1),
           tag: 4,
           amount: new BigNumber(100),
@@ -349,7 +363,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Ripple,
+          family,
           fee: "1",
           tag: 4,
           amount: "100",
@@ -359,7 +373,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a ripple transaction without fee", () => {
         const transaction: RippleTransaction = {
-          family: FAMILIES.Ripple,
+          family,
           tag: 4,
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -367,7 +381,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Ripple,
+          family,
           fee: undefined,
           tag: 4,
           amount: "100",
@@ -377,9 +391,11 @@ describe("serializers.ts", () => {
     });
 
     describe("stellar", () => {
+      const family = schemaFamilies.enum.stellar;
+
       it("should succeed to serialize a stellar transaction with fees, memoType and memoValue", () => {
         const transaction: StellarTransaction = {
-          family: FAMILIES.Stellar,
+          family,
           fees: new BigNumber(1),
           memoType: "memo type",
           memoValue: "memo value",
@@ -389,7 +405,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Stellar,
+          family,
           fees: "1",
           memoType: "memo type",
           memoValue: "memo value",
@@ -400,14 +416,14 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a stellar transaction without fees, memoType and memoValue", () => {
         const transaction: StellarTransaction = {
-          family: FAMILIES.Stellar,
+          family,
           amount: new BigNumber(100),
           recipient: "recipient",
         };
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Stellar,
+          family,
           fees: undefined,
           memoType: undefined,
           memoValue: undefined,
@@ -418,9 +434,11 @@ describe("serializers.ts", () => {
     });
 
     describe("tezos", () => {
+      const family = schemaFamilies.enum.tezos;
+
       it("should succeed to serialize a tezos transaction with fees and gasLimit", () => {
         const transaction: TezosTransaction = {
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: new BigNumber(1),
           gasLimit: new BigNumber(5),
@@ -430,7 +448,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: "1",
           gasLimit: "5",
@@ -441,7 +459,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a tezos transaction without fees and gasLimit", () => {
         const transaction: TezosTransaction = {
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -449,7 +467,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: undefined,
           gasLimit: undefined,
@@ -460,9 +478,11 @@ describe("serializers.ts", () => {
     });
 
     describe("tron", () => {
+      const family = schemaFamilies.enum.tron;
+
       it("should succeed to serialize a tron transaction with resource and duration", () => {
         const transaction: TronTransaction = {
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: "BANDWIDTH",
           duration: 5,
@@ -472,7 +492,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: "BANDWIDTH",
           duration: 5,
@@ -483,7 +503,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to serialize a tron transaction without resource and duration", () => {
         const transaction: TronTransaction = {
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -491,7 +511,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: undefined,
           duration: undefined,
@@ -504,9 +524,11 @@ describe("serializers.ts", () => {
 
   describe("deserializeTransaction", () => {
     describe("ethereum", () => {
+      const family = schemaFamilies.enum.ethereum;
+
       it("should succeed to deserialize an ethereum transaction with data, gasPrice & gasLimit", () => {
         const serializedTransaction: RawEthereumTransaction = {
-          family: FAMILIES.Ethereum,
+          family,
           amount: "0",
           recipient: "recipient",
           nonce: 123,
@@ -518,7 +540,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Ethereum,
+          family,
           amount: new BigNumber(0),
           recipient: "recipient",
           nonce: 123,
@@ -530,7 +552,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize an ethereum transaction without data, gasPrice & gasLimit", () => {
         const serializedTransaction: RawEthereumTransaction = {
-          family: FAMILIES.Ethereum,
+          family,
           amount: "0",
           recipient: "recipient",
           nonce: 123,
@@ -539,7 +561,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Ethereum,
+          family,
           amount: new BigNumber(0),
           recipient: "recipient",
           nonce: 123,
@@ -551,9 +573,11 @@ describe("serializers.ts", () => {
     });
 
     describe("bitcoin", () => {
+      const family = schemaFamilies.enum.bitcoin;
+
       it("should succeed to deserialize a bitcoin transaction with feePerByte", () => {
         const serializedTransaction: RawBitcoinTransaction = {
-          family: FAMILIES.Bitcoin,
+          family,
           amount: "0",
           recipient: "recipient",
           feePerByte: "10",
@@ -562,7 +586,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Bitcoin,
+          family,
           amount: new BigNumber(0),
           recipient: "recipient",
           feePerByte: new BigNumber(10),
@@ -571,7 +595,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a bitcoin transaction without feePerByte", () => {
         const serializedTransaction: RawBitcoinTransaction = {
-          family: FAMILIES.Bitcoin,
+          family,
           amount: "0",
           recipient: "recipient",
         };
@@ -579,7 +603,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Bitcoin,
+          family,
           amount: new BigNumber(0),
           recipient: "recipient",
           feePerByte: undefined,
@@ -588,9 +612,11 @@ describe("serializers.ts", () => {
     });
 
     describe("algorand", () => {
+      const family = schemaFamilies.enum.algorand;
+
       it("should succeed to deserialize an algorand transaction with fees, assetId and memo", () => {
         const serializedTransaction: RawAlgorandTransaction = {
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           fees: "1",
           assetId: "assetId",
@@ -602,7 +628,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           fees: new BigNumber(1),
           assetId: "assetId",
@@ -614,7 +640,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize an algorand transaction without fees, assetId and memo", () => {
         const serializedTransaction: RawAlgorandTransaction = {
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           amount: "100",
           recipient: "recipient",
@@ -623,7 +649,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Algorand,
+          family,
           mode: "claimReward",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -635,9 +661,11 @@ describe("serializers.ts", () => {
     });
 
     describe("cosmos", () => {
+      const family = schemaFamilies.enum.cosmos;
+
       it("should succeed to deserialize a cosmos transaction with fees, gas and memo", () => {
         const serializedTransaction: RawCosmosTransaction = {
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           fees: "1",
           gas: "4",
@@ -649,7 +677,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           fees: new BigNumber(1),
           gas: new BigNumber(4),
@@ -661,7 +689,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a cosmos transaction without fees, gas and memo", () => {
         const serializedTransaction: RawCosmosTransaction = {
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           amount: "100",
           recipient: "recipient",
@@ -670,7 +698,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Cosmos,
+          family,
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -682,9 +710,11 @@ describe("serializers.ts", () => {
     });
 
     describe("crypto.org", () => {
+      const family = schemaFamilies.enum.crypto_org;
+
       it("should succeed to deserialize a crypto.org transaction with fees", () => {
         const serializedTransaction: RawCryptoOrgTransaction = {
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: "1",
           amount: "100",
@@ -694,7 +724,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: new BigNumber(1),
           amount: new BigNumber(100),
@@ -704,7 +734,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a crypto.org transaction without fees", () => {
         const serializedTransaction: RawCryptoOrgTransaction = {
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           amount: "100",
           recipient: "recipient",
@@ -713,7 +743,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.CryptoOrg,
+          family,
           mode: "mode",
           fees: undefined,
           amount: new BigNumber(100),
@@ -723,9 +753,11 @@ describe("serializers.ts", () => {
     });
 
     describe("polkadot", () => {
+      const family = schemaFamilies.enum.polkadot;
+
       it("should succeed to deserialize a polkadot transaction with fee and era", () => {
         const serializedTransaction: RawPolkadotTransaction = {
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: "1",
           era: 4,
@@ -736,7 +768,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: new BigNumber(1),
           era: 4,
@@ -747,7 +779,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a polkadot transaction without fee and era", () => {
         const serializedTransaction: RawPolkadotTransaction = {
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           amount: "100",
           recipient: "recipient",
@@ -756,7 +788,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Polkadot,
+          family,
           mode: "send",
           fee: undefined,
           era: undefined,
@@ -767,9 +799,11 @@ describe("serializers.ts", () => {
     });
 
     describe("ripple", () => {
+      const family = schemaFamilies.enum.ripple;
+
       it("should succeed to deserialize a ripple transaction with fee", () => {
         const serializedTransaction: RawRippleTransaction = {
-          family: FAMILIES.Ripple,
+          family,
           fee: "1",
           tag: 4,
           amount: "100",
@@ -779,7 +813,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Ripple,
+          family,
           fee: new BigNumber(1),
           tag: 4,
           amount: new BigNumber(100),
@@ -789,7 +823,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a ripple transaction without fee", () => {
         const serializedTransaction: RawRippleTransaction = {
-          family: FAMILIES.Ripple,
+          family,
           tag: 4,
           amount: "100",
           recipient: "recipient",
@@ -798,7 +832,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Ripple,
+          family,
           fee: undefined,
           tag: 4,
           amount: new BigNumber(100),
@@ -808,9 +842,11 @@ describe("serializers.ts", () => {
     });
 
     describe("stellar", () => {
+      const family = schemaFamilies.enum.stellar;
+
       it("should succeed to deserialize a stellar transaction with fees, memoType and memoValue", () => {
         const serializedTransaction: RawStellarTransaction = {
-          family: FAMILIES.Stellar,
+          family,
           fees: "1",
           memoType: "memo type",
           memoValue: "memo value",
@@ -821,7 +857,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Stellar,
+          family,
           fees: new BigNumber(1),
           memoType: "memo type",
           memoValue: "memo value",
@@ -832,7 +868,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a stellar transaction without fees, memoType and memoValue", () => {
         const serializedTransaction: RawStellarTransaction = {
-          family: FAMILIES.Stellar,
+          family,
           amount: "100",
           recipient: "recipient",
         };
@@ -840,7 +876,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Stellar,
+          family,
           fees: undefined,
           memoType: undefined,
           memoValue: undefined,
@@ -851,9 +887,11 @@ describe("serializers.ts", () => {
     });
 
     describe("tezos", () => {
+      const family = schemaFamilies.enum.tezos;
+
       it("should succeed to deserialize a tezos transaction with fees and gasLimit", () => {
         const serializedTransaction: RawTezosTransaction = {
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: "1",
           gasLimit: "5",
@@ -864,7 +902,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: new BigNumber(1),
           gasLimit: new BigNumber(5),
@@ -875,7 +913,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a tezos transaction without fees and gasLimit", () => {
         const serializedTransaction: RawTezosTransaction = {
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           amount: "100",
           recipient: "recipient",
@@ -884,7 +922,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Tezos,
+          family,
           mode: "send",
           fees: undefined,
           gasLimit: undefined,
@@ -895,9 +933,11 @@ describe("serializers.ts", () => {
     });
 
     describe("tron", () => {
+      const family = schemaFamilies.enum.tron;
+
       it("should succeed to deserialize a tron transaction with resource and duration", () => {
         const serializedTransaction: RawTronTransaction = {
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: "BANDWIDTH",
           duration: 5,
@@ -908,7 +948,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: "BANDWIDTH",
           duration: 5,
@@ -919,7 +959,7 @@ describe("serializers.ts", () => {
 
       it("should succeed to deserialize a tron transaction without resource and duration", () => {
         const serializedTransaction: RawTronTransaction = {
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           amount: "100",
           recipient: "recipient",
@@ -928,7 +968,7 @@ describe("serializers.ts", () => {
         const transaction = deserializeTransaction(serializedTransaction);
 
         expect(transaction).toEqual({
-          family: FAMILIES.Tron,
+          family,
           mode: "send",
           resource: undefined,
           duration: undefined,
@@ -967,7 +1007,7 @@ describe("serializers.ts", () => {
         const transaction: Transaction = {
           amount: new BigNumber(100),
           recipient: "recipient",
-          family: FAMILIES.Ethereum,
+          family: schemaFamilies.enum.ethereum,
           nonce: 123,
           data: Buffer.from("test"),
           gasPrice: new BigNumber(0),

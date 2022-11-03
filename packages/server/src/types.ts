@@ -1,45 +1,45 @@
-import {
+import type {
   Account,
   Currency,
-  RFC,
+  Promisable,
   RpcRequest,
   Transaction,
+  TransactionSign,
+  TransactionSignAndBroadcast,
 } from "@ledgerhq/wallet-api-core";
-import type { Observable, BehaviorSubject } from "rxjs";
+import type { BehaviorSubject, Observable } from "rxjs";
 
 export type WalletContext = {
   currencies$: BehaviorSubject<Currency[]>;
   accounts$: BehaviorSubject<Account[]>;
 };
 
-export type RPCHandler<Result> = (
-  request: RpcRequest,
+export type RPCHandler<TResult> = (
+  request: RpcRequest<string, unknown>,
   context: WalletContext,
   handlers: Partial<WalletHandlers>
-) => Promise<Result>;
+) => Promise<TResult>;
 
 export interface WalletHandlers {
-  [RFC.MethodId.ACCOUNT_REQUEST]: (params: {
+  "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
-  }) => Promise<Account>;
-  [RFC.MethodId.ACCOUNT_RECEIVE]: (params: {
-    account: Account;
-  }) => Promise<string>;
-  [RFC.MethodId.MESSAGE_SIGN]: (params: {
+  }) => Promisable<Account>;
+  "account.receive": (params: { account: Account }) => Promisable<string>;
+  "message.sign": (params: {
     account: Account;
     message: Buffer;
-  }) => Promise<Buffer>;
-  [RFC.MethodId.TRANSACTION_SIGN]: (params: {
+  }) => Promisable<Buffer>;
+  "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
-  }) => Promise<Buffer>;
-  [RFC.MethodId.TRANSACTION_SIGN_AND_BROADCAST]: (params: {
+    options?: TransactionSign["params"]["options"];
+  }) => Promisable<Buffer>;
+  "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;
-    options: RFC.TransactionOptions;
-  }) => Promise<Buffer>;
+    options?: TransactionSignAndBroadcast["params"]["options"];
+  }) => Promisable<string>;
 }
 
 export type RPCMiddleware = (
@@ -47,3 +47,14 @@ export type RPCMiddleware = (
   request: RpcRequest,
   context: WalletContext
 ) => Promise<void>;
+
+type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
+  ? ReturnType<T>
+  : unknown;
+type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
+  ? ReturnTypeOfMethod<T[S]>
+  : unknown;
+
+export type TransformHandler<T> = {
+  [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;
+};
