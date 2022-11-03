@@ -1,6 +1,10 @@
 // import LedgerLivePlatformSDK, { WindowMessageTransport } from "../src";
 // import logger from "./utils/Logger.mock";
 
+describe("Client", () => {
+  it.todo("Should write client tests");
+});
+
 // describe("LedgerLivePlatformSDK/index.ts", () => {
 //   describe("constructor", () => {
 //     it("should construct with default logger", () => {
