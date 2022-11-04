@@ -36,7 +36,7 @@ runExit(
           `$0 validate <MyFileOrDirectory> --enableState`,
         ],
         [
-          `--throwError : throw error if the test don't pass`,
+          `--throwError : throw error if the test doesn't pass`,
           `$0 validate <MyFileOrDirectory> --throwError`,
         ],
       ],
@@ -61,7 +61,7 @@ runExit(
           this.throwError
         )
           throw new Error(
-            "A least one of the JSON files dont correspond to the schema"
+            "A least one of the JSON files doesn't correspond to the schema"
           );
       } else {
         const depth = _depth + 1;

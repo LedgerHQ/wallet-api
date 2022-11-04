@@ -109,56 +109,7 @@ Using CLI:
 
 ```bash
 npm run validate *fileOrDirectoryName* --details --enableState --throwError
-```
-
-## JSON Schema properties
-
-Extra property are not allowed
-
-|            Value             |      Type       |                             Requirements                             | Description                                                                                                                                                                                                                                                                                                                                                                    |
-| :--------------------------: | :-------------: | :------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ----- | ----------------------------------------------------------------------------------------------------------------------------- |
-|              id              |     string      | lowercase <br /> alphabetic <br />max chars : 20<br /> min chars : 1 | The identification of your application                                                                                                                                                                                                                                                                                                                                         |
-|   private <br />(optional)   |     boolean     |                                                                      | Privacy of this manifest                                                                                                                                                                                                                                                                                                                                                       |
-|             name             |     string      |         alphabetic <br />max chars : 20<br /> min chars : 1          | Name of your application, will be showed as title in LL                                                                                                                                                                                                                                                                                                                        |
-|             url              |     string      |                                 URL                                  | The url of the eth-dapp-browser, either running locally or at https://dapp-browser.apps.ledger.com for the production version                                                                                                                                                                                                                                                  |
-|         homepageUrl          |     string      |                                 URL                                  | The homepage of your service. For instance, https://www.google.fr/                                                                                                                                                                                                                                                                                                             |
-| supportUrl </br> (optional)  |     string      |                                 URL                                  | The support URL of your service.                                                                                                                                                                                                                                                                                                                                               |
-|    icon </br> (optional)     |     string      |                               IMG URL                                | A link to the icon displayed in the Ledger Live Discover section. Will be hosted on Ledger CDN before being released in production.                                                                                                                                                                                                                                            |
-|  [_params_](#params-object)  |     Object      |                     {dappUrl, nanoApp, dappName}                     | dappUrl is the URL of your DApp; nanoApp is the plugin needed to clear sign your DApp; dappName should be the same as nanoApp; networks is the list of networks supported by your DApp, Ledger Live currently only support mainnet, BSC and Polygon, the nodeURL param will be set by Ledger in prod to use your node, for testing purposes, you can replace it with your own. |
-|           platform           |     string      |                     "desktop", "mobile" or "all"                     | To set the platform (desktop, mobile, iOS, Android) on which your service is available. By default, you should set the value to 'all'                                                                                                                                                                                                                                          |
-|          apiVersion          |     string      |                                                                      | The API version, by default 0.0.1                                                                                                                                                                                                                                                                                                                                              |
-|       manifestVersion        |     string      |                                                                      | The manifest version. By default should be 1                                                                                                                                                                                                                                                                                                                                   |
-|            branch            |     string      |             "stable", "experimental", "soon" or "debug"              | The specific branch used by Ledger to deploy the changes. Can take the values stable                                                                                                                                                                                                                                                                                           | experimental | debug | soon. By default, you should set it to “stable“. The value “soon” will mark your app as “Coming soon” and it won’t be usable. |
-|          categories          | Array of String |         "lend", "yield", "swap", "farm", "staking" or "defi"         | A JSON array of metadata information about your application. For instance : [“staking“,“defi“]. You can add as many as you want. It is not used for the moment but will be used for filtering in the future.                                                                                                                                                                   |
-|          currencies          | Array of String |               "ethereum", "bitcoin", "polkadot" or ""                | A JSON array of the currency/network being used by your application. For instance [”ethereum”,”polygon”]. Leave blank if the App does not require any currency.                                                                                                                                                                                                                |
-| [_content_](#content-object) |     Object      |                   {shortDescription, description}                    | A description of your service. It will be displayed on the entry card of your application. Type: i18n strings.                                                                                                                                                                                                                                                                 |
-|         permissions          |      Array      |                                                                      |                                                                                                                                                                                                                                                                                                                                                                                |
-|           domains            |      Array      |                                                                      |                                                                                                                                                                                                                                                                                                                                                                                |
-
-##### Params Object
-
-|             Value              |      Type       |          Requirements          | Description |
-| :----------------------------: | :-------------: | :----------------------------: | ----------- |
-|            dappUrl             |     string      |                                |             |
-|            nanoApp             |     string      |                                |             |
-|            dappName            |     string      |                                |             |
-| [_networks_](#networks-object) | Array of Object | [{currency, chainID, nodeURL}] |             |
-
-##### Networks Object
-
-|  Value   |  Type  |            Requirements             | Description |
-| :------: | :----: | :---------------------------------: | ----------- |
-| currency | string | "ethereum", "bitcoin" or "polkadot" |             |
-| chainID  | string |                                     |             |
-| nodeURL  | string |                 URL                 |             |
-
-##### Content Object
-
-|               Value               |  Type  |       Requirements       | Description                   |
-| :-------------------------------: | :----: | :----------------------: | ----------------------------- |
-|            description            | Object | `{fr: "...", en: "..."}` | only i18n properties accepted |
-|         shortDescription          | Object | `{fr: "...", en: "..."}` | only i18n properties accepted |
-| _i18n property </br> (fr, en...)_ | string |                          |                               |
+```                                                                                                                                          
 
 </br>
 </br>

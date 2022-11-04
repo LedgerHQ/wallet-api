@@ -4,21 +4,15 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "The identification of your application.",
       "type": "string",
-      "minLength": 1,
+      "minLength": 3,
       "maxLength": 50,
-      "pattern": "^([a-z]|[A-Z]|[0-9]|_|-)*$",
+      "pattern": "^[a-z]([a-z]|[0-9]|-)*$",
       "errorMessage": {
         "pattern": "${0#}"
       }
     },
-    "private": {
-      "description": "Privacy of this manifest (optional)",
-      "type": "boolean"
-    },
     "name": {
-      "description": "Name of your application, will be showed as title in LL",
       "type": "string",
       "minLength": 1,
       "maxLength": 50,
@@ -27,9 +21,7 @@
         "pattern": "${0#} must be ->  alphabetic only | max chars : 20 | min chars : 1"
       }
     },
-    "isDapp": { "type": "boolean" },
     "url": {
-      "description": "The url of the eth-dapp-browser, either running locally or at https://dapp-browser.apps.ledger.com for the production version",
       "type": "string",
       "pattern": "^.*$",
       "errorMessage": {
@@ -37,7 +29,6 @@
       }
     },
     "homepageUrl": {
-      "description": "The homepage of your service. For instance, https://www.google.fr/",
       "type": "string",
       "pattern": "^.*$",
       "errorMessage": {
@@ -45,7 +36,6 @@
       }
     },
     "supportUrl": {
-      "description": "The support URL of your service. (optional)",
       "type": "string",
       "pattern": "^.*$",
       "errorMessage": {
@@ -53,139 +43,39 @@
       }
     },
     "icon": {
-      "description": "A link to the icon displayed in the Ledger Live Discover section. Will be hosted on Ledger CDN before being released in production. (optional)",
       "type": "string",
       "pattern": "^.*$",
       "errorMessage": {
         "pattern": "${0#} must be an URL or blank"
       }
     },
-    "params": {
-      "description": "dappUrl is the URL of your DApp; nanoApp is the plugin needed to clear sign your DApp; dappName should be the same as nanoApp; networks is the list of networks supported by your DApp, Ledger Live currently only support mainnet, BSC and Polygon, the nodeURL param will be set by Ledger in prod to use your node, for testing purposes, you can replace it with your own.",
-      "type": "object",
-      "properties": {
-        "dappUrl": {
-          "type": "string"
-        },
-        "nanoApp": {
-          "type": "string"
-        },
-        "dappName": {
-          "type": "string"
-        },
-        "networks": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {
-            "type": "object",
-            "properties": {
-              "currency": {
-                "enum": [
-                  "ethereum",
-                  "bitcoin",
-                  "ethereum_goerli",
-                  "ethereum_ropsten",
-                  "polkadot",
-                  "bsc",
-                  "algorand",
-                  "polygon",
-                  "litecoin",
-                  "ripple",
-                  "bitcoin_cash",
-                  "binance_coin",
-                  "tether",
-                  "tron",
-                  "stellar",
-                  "dogecoin",
-                  "digibyte",
-                  "tezos",
-                  "elrond"
-                ],
-                "errorMessage": {
-                  "enum": "must be equal to one of the allowed values : ethereum, bitcoin, polkadot"
-                }
-              },
-              "chainID": {
-                "type": "number"
-              },
-              "nodeURL": {
-                "type": "string",
-                "pattern": "^.*$",
-                "errorMessage": {
-                  "pattern": "${0#} must be an URL"
-                }
-              }
-            },
-            "required": ["currency", "chainID", "nodeURL"],
-            "additionalProperties": {
-              "not": true,
-              "errorMessage": "extra property are not allowed, please remove the property ${0#}"
-            }
-          }
-        }
-      },
-      "required": ["dappUrl", "nanoApp", "dappName", "networks"],
-      "additionalProperties": {
-        "not": true,
-        "errorMessage": "extra property are not allowed, please remove the property ${0#}"
-      }
+    "type": {
+      "type": "string",
+      "enum": ["dApp", "walletApp", "webBrowser"]
     },
     "platform": {
-      "description": "To set the platform (desktop, mobile, iOS, Android) on which your service is available. By default, you should set the value to 'all' ",
       "enum": ["desktop", "mobile", "all"],
       "errorMessage": {
         "enum": "must be equal to one of the allowed values : desktop, mobile, all"
       }
     },
     "apiVersion": {
-      "description": "The API version, by default 0.0.1",
       "type": "string"
     },
     "manifestVersion": {
-      "description": "The manifest version. By default should be 1",
-      "type": "string"
-    },
-    "branch": {
-      "description": "The specific branch used by Ledger to deploy the changes. Can take the values stable | experimental | debug | soon. By default, you should set it to “stable“. The value “soon” will mark your app as “Coming soon” and it won’t be usable.",
-      "enum": ["stable", "experimental", "soon", "debug"],
-      "errorMessage": {
-        "enum": "must be equal to one of the allowed values : stable, experimental, soon, debug "
-      }
+      "const": 2,
+      "errorMessage": "The manifest version. Should be 2"
     },
     "categories": {
-      "description": "A JSON array of metadata information about your application. For instance : [“staking“,“defi“]. You can add as many as you want. It is not used for the moment but will be used for filtering in the future.",
       "type": "array",
       "uniqueItems": true,
+      "minItems": 1,
       "items": {
-        "enum": [
-          "lend",
-          "buy",
-          "sell",
-          "nft",
-          "yield",
-          "bridge",
-          "card",
-          "swap",
-          "farm",
-          "staking",
-          "debug",
-          "referral",
-          "portfolio",
-          "streaming",
-          "exchange",
-          "defi",
-          "tools",
-          "lending",
-          "gift cards"
-        ],
-        "errorMessage": {
-          "enum": "must be equal to one of the allowed values : lend, yield, swap, farm, staking, defi"
-        }
+        "type": "string",
+        "errorMessage": {}
       }
     },
     "currencies": {
-      "description": "A JSON array of the currency/network being used by your application. For instance [”ethereum”,”polygon”]. Leave blank if the App does not require any currency.",
       "oneOf": [
         {
           "type": "array",
@@ -196,12 +86,14 @@
               "bitcoin",
               "ethereum_goerli",
               "ethereum_ropsten",
+              "ethereum_*",
               "polkadot",
               "bsc",
               "algorand",
               "polygon",
               "litecoin",
               "ripple",
+              "bitcoin_*",
               "bitcoin_cash",
               "binance_coin",
               "tether",
@@ -212,45 +104,28 @@
               "tezos",
               "elrond"
             ]
-          },
-          "errorMessage": {
-            "oneOf": " Must be type of array with a least 1 value or a string equal to \"*\" "
           }
         },
         {
-          "type": "string",
-          "enum": ["*"]
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["*"]
+          }
         }
       ],
       "errorMessage": {
-        "oneOf": "Must be type of array with a least 1 value or a string equal to \"*\" "
+        "oneOf": "Must be type of array with a least 1 value or a string equal to \"*\""
       }
     },
     "content": {
-      "description": "A description of your service. It will be displayed on the entry card of your application. Type: i18n strings.",
       "type": "object",
       "properties": {
         "shortDescription": {
-          "type": "object",
-          "minProperties": 1,
-          "propertyNames": {
-            "pattern": "^[a-z]{2}$",
-            "type": "string",
-            "errorMessage": {
-              "pattern": "must be i18n property in lowercase e.g fr | en"
-            }
-          }
+          "type": "string"
         },
         "description": {
-          "type": "object",
-          "minProperties": 1,
-          "propertyNames": {
-            "type": "string",
-            "pattern": "^[a-z]{2}$",
-            "errorMessage": {
-              "pattern": "must be i18n property in lowercase e.g fr | en"
-            }
-          }
+          "type": "string"
         }
       },
       "required": ["shortDescription", "description"],
@@ -260,33 +135,154 @@
       }
     },
     "permissions": {
-      "type": "array"
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "errorMessage": {}
+      }
     },
     "domains": {
-      "type": "array"
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "errorMessage": {}
+      }
+    },
+    "params": {
+      "type": "object"
     }
   },
-  "if": {
-    "properties": { "isDapp": { "const": false } }
-  },
-  "then": {},
-  "else": {
-    "required": ["params"]
-  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "dApp" } }
+      },
+      "then": {
+        "properties": {
+          "params": {
+            "type": "object",
+            "properties": {
+              "dappUrl": {
+                "minLength": 1,
+                "maxLength": 50,
+                "type": "string"
+              },
+              "nanoApp": {
+                "minLength": 1,
+                "maxLength": 50,
+                "type": "string"
+              },
+              "dappName": {
+                "minLength": 1,
+                "maxLength": 50,
+                "type": "string"
+              },
+              "networks": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "currency": {
+                      "enum": [
+                        "ethereum",
+                        "ethereum_goerli",
+                        "ethereum_ropsten",
+                        "bsc",
+                        "polygon"
+                      ],
+                      "errorMessage": {
+                        "enum": "must be equal to one of the allowed values : ethereum, bitcoin, polkadot"
+                      }
+                    },
+                    "chainID": {
+                      "type": "number"
+                    },
+                    "nodeURL": {
+                      "type": "string",
+                      "pattern": "^.*$",
+                      "errorMessage": {
+                        "pattern": "${0#} must be an URL"
+                      }
+                    }
+                  },
+                  "required": ["currency", "chainID", "nodeURL"],
+                  "additionalProperties": {
+                    "not": true,
+                    "errorMessage": "extra property are not allowed, please remove the property ${0#}"
+                  }
+                }
+              }
+            },
+            "required": ["dappUrl", "nanoApp", "dappName", "networks"],
+            "additionalProperties": {
+              "not": true,
+              "errorMessage": "extra property are not allowed, please remove the property ${0#}"
+            }
+          }
+        },
+        "required": ["params"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "type": { "const": "webBrowser" } }
+      },
+      "then": {
+        "properties": {
+          "params": {
+            "type": "object",
+            "properties": {
+              "webUrl": {
+                "type": "string"
+              },
+              "webAppName": {
+                "minLength": 1,
+                "maxLength": 50,
+                "type": "string"
+              },
+              "currencies": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "ethereum",
+                    "ethereum_goerli",
+                    "ethereum_ropsten",
+                    "bsc",
+                    "polygon"
+                  ],
+                  "errorMessage": {}
+                }
+              }
+            },
+            "required": ["webAppName", "currencies", "webUrl"],
+            "additionalProperties": {
+              "not": true,
+              "errorMessage": "extra property are not allowed, please remove the property ${0#}"
+            }
+          }
+        },
+        "required": ["params"]
+      }
+    }
+  ],
   "required": [
     "id",
     "name",
     "url",
-    "homepageUrl",
+    "type",
     "platform",
     "apiVersion",
     "manifestVersion",
-    "branch",
     "categories",
     "currencies",
     "content",
-    "permissions",
-    "domains"
+    "permissions"
   ],
   "additionalProperties": {
     "not": true,

@@ -4,14 +4,40 @@ import { validateManifest } from "../src/validator";
 import * as fs from "fs";
 import path from "path";
 
-const manifest = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "manifests/schema.test.json"), "utf-8")
+const manifestDapp = JSON.parse(
+  fs.readFileSync(
+    path.join(__dirname, "manifests/dapp-manifest.test.json"),
+    "utf-8"
+  )
 );
 
-test("Manifest base is OK", () => {
-  expect(validateManifest(manifest)).toBe(true);
+const manifestWalletApp = JSON.parse(
+  fs.readFileSync(
+    path.join(__dirname, "manifests/walletApp-manifest.test.json"),
+    "utf-8"
+  )
+);
+
+const manifestwebBrowser = JSON.parse(
+  fs.readFileSync(
+    path.join(__dirname, "manifests/webBrowser-manifest.test.json"),
+    "utf-8"
+  )
+);
+
+test("Dapp's Manifest base is OK", () => {
+  expect(validateManifest(manifestDapp)).toBe(true);
 });
 
+test("WalletApp's Manifest base is OK", () => {
+  expect(validateManifest(manifestWalletApp)).toBe(true);
+});
+
+test("webBrowser's Manifest base is OK", () => {
+  expect(validateManifest(manifestwebBrowser)).toBe(true);
+});
+
+/*
 let testManifest = Object.assign({}, manifest);
 
 beforeEach(() => {
@@ -238,3 +264,4 @@ describe("content property", () => {
     expect(validateManifest(testManifest)).toBe(false);
   });
 });
+*/
