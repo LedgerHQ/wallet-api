@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.5.3
+
+### Patch Changes
+
+- [`c0913d5`](https://github.com/LedgerHQ/wallet-api/commit/c0913d517f2aab12e3a4054329b26ef4cdedd4f6) Thanks [@Justkant](https://github.com/Justkant)! - Revert "fix: use zod nativeEnum for currencies"
+
 ## 0.5.2
 
 ### Patch Changes
