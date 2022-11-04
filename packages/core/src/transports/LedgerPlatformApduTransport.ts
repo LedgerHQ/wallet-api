@@ -40,14 +40,14 @@ export default class LedgerPlatformApduTransport {
    * Transport implementation can have specific events. Here is the common events:
    * * `"disconnect"` : triggered if Transport is disconnected
    */
-  on(eventName: string, cb: (...args: Array<any>) => any): void {
+  on(eventName: string, cb: (...args: Array<unknown>) => unknown): void {
     this._events.on(eventName, cb);
   }
 
   /**
    * Stop listening to an event on an instance of transport.
    */
-  off(eventName: string, cb: (...args: Array<any>) => any): void {
+  off(eventName: string, cb: (...args: Array<unknown>) => unknown): void {
     this._events.removeListener(eventName, cb);
   }
 

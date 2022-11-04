@@ -1,31 +1,20 @@
 import type BigNumber from "bignumber.js";
+import type { z } from "zod";
+import type { TransactionCommon } from "../index";
 import type {
-  FAMILIES,
-  RawTransactionCommon,
-  TransactionCommon,
-} from "../index";
+  schemaPolkadotOperationMode,
+  schemaRawPolkadotTransaction,
+} from "./validation";
 
-export type PolkadotOperationMode =
-  | "send"
-  | "bond"
-  | "unbond"
-  | "rebond"
-  | "withdrawUnbonded"
-  | "setController"
-  | "nominate"
-  | "chill"
-  | "claimReward";
+export type PolkadotOperationMode = z.infer<typeof schemaPolkadotOperationMode>;
 
 export interface PolkadotTransaction extends TransactionCommon {
-  readonly family: FAMILIES.Polkadot;
+  readonly family: RawPolkadotTransaction["family"];
   mode: PolkadotOperationMode;
   fee?: BigNumber;
   era?: number;
 }
 
-export interface RawPolkadotTransaction extends RawTransactionCommon {
-  readonly family: FAMILIES.Polkadot;
-  mode: PolkadotOperationMode;
-  fee?: string;
-  era?: number;
-}
+export type RawPolkadotTransaction = z.infer<
+  typeof schemaRawPolkadotTransaction
+>;

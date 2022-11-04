@@ -1,10 +1,11 @@
 {
-  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "extends": "@tsconfig/node18-strictest/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "exactOptionalPropertyTypes": false
+    "declarationMap": true,
+    "outDir": "./lib",
+    "exactOptionalPropertyTypes": false,
+    "lib": ["DOM"]
   },
   "include": ["src/**/*", "tests/**/*"]
 }
