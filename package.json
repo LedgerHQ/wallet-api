@@ -11,6 +11,7 @@
     "changelog": "changeset add",
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "doc": "turbo run doc",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
