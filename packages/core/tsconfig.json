@@ -6,7 +6,6 @@
     "outDir": "./lib",
     "exactOptionalPropertyTypes": false,
     "lib": ["DOM"],
-    "resolveJsonModule": true
   },
   "include": ["src/**/*", "tests/**/*"]
 }
