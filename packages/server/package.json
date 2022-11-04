@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-server",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib-es/index.js",

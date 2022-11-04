@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.5.1
+
+### Patch Changes
+
+- [`c26f86a`](https://github.com/LedgerHQ/wallet-api/commit/c26f86abdd5685fd8a7f06a135633b2bd9ea5765) Thanks [@Justkant](https://github.com/Justkant)! - fix: use nativeEnum for currencies
+
 ## 0.5.0
 
 ### Minor Changes
