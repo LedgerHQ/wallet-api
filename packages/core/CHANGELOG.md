@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.5.2
+
+### Patch Changes
+
+- [`da17a69`](https://github.com/LedgerHQ/wallet-api/commit/da17a691fc8534190c5839b5b38a9cdae8591914) Thanks [@Justkant](https://github.com/Justkant)! - fix: TokenCurrency parent should be a string
+
 ## 0.5.1
 
 ### Patch Changes
