@@ -6,5 +6,5 @@
     "outDir": "./lib",
     "lib": ["DOM"]
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "jest.config.ts", "tests/**/*"]
 }
