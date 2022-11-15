@@ -19,7 +19,7 @@ export const schemaCryptoCurrency = schemaBaseCurrency.extend({
 
 export const schemaTokenCurrency = schemaBaseCurrency.extend({
   type: z.literal(schemaCurrencyType.enum.TokenCurrency),
-  parent: schemaCurrencyType,
+  parent: z.string(),
 });
 
 export const schemaERC20TokenCurrency = schemaTokenCurrency.extend({

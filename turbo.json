@@ -28,6 +28,9 @@
       "dependsOn": ["build", "lint"],
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
+    },
+    "doc": {
+      "outputs": []
     }
   }
 }
