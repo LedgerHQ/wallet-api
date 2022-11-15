@@ -10,8 +10,8 @@ import type {
 import type { BehaviorSubject, Observable } from "rxjs";
 
 export type WalletContext = {
-  currencies$: BehaviorSubject<Currency[]>;
-  accounts$: BehaviorSubject<Account[]>;
+  currencies$: Observable<Currency[]>;
+  accounts$: Observable<Account[]>;
 };
 
 export type RPCHandler<TResult> = (
@@ -42,12 +42,6 @@ export interface WalletHandlers {
   }) => Promisable<string>;
 }
 
-export type RPCMiddleware = (
-  next: () => Promise<void>,
-  request: RpcRequest,
-  context: WalletContext
-) => Promise<void>;
-
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
   ? ReturnType<T>
   : unknown;
@@ -58,3 +52,16 @@ type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
 export type TransformHandler<T> = {
   [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;
 };
+
+export type ClientParams = {
+  id: string;
+  permissions: {
+    currencies: string[];
+    methods: string[];
+  };
+};
+
+export type ClientContext = {
+  currencies$: BehaviorSubject<Currency[]>;
+  accounts$: BehaviorSubject<Account[]>;
+} & ClientParams;

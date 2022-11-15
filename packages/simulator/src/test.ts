@@ -1,23 +1,29 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client/lib/WalletAPIClient";
-import { deserializeTransaction } from "@ledgerhq/wallet-api-core";
+// import { deserializeTransaction } from "@ledgerhq/wallet-api-core";
 import { getSimulatorTransport } from "./transport";
 
 async function main() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const transport = getSimulatorTransport("standard");
   const client = new WalletAPIClient(transport);
 
-  const accounts = await client.listAccounts({ currencyIds: ["ethereum"] });
-  const currencies = await client.listCurrencies({ currencyIds: ["ethereum"] });
-  const tx = await client.signTransactionAndBroadcast(
-    "account-eth-1",
-    deserializeTransaction({
-      family: "ethereum",
-      amount: "12",
-      recipient: "0xananas",
+  await client.listAccounts({ currencyIds: ["ethereum"] });
+
+  /*  transport.send(
+    JSON.stringify({
+      id: "49f2b5e9-9e77-495c-8add-8542127b4a50",
+      jsonrpc: "2.0",
+      method: "transaction.signAndBroadcast",
+      params: {
+        rawTransaction: {
+          family: "ethereum",
+          amount: "12",
+          recipient: "0xananas",
+        },
+      },
     })
   );
-
-  console.log({ accounts, currencies, tx });
+  */
 }
 
 main()

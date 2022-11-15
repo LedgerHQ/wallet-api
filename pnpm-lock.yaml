@@ -113,19 +113,23 @@ importers:
       '@ledgerhq/wallet-api-core': workspace:*
       '@tsconfig/node18-strictest': ^1.0.0
       '@types/node': ^18.11.8
+      '@types/picomatch': ^2.3.0
       bignumber.js: ^9.0.2
       eslint: ^8.26.0
       json-rpc-2.0: ^1.1.0
+      picomatch: ^2.3.1
       rxjs: ^7.5.7
       typescript: ^4.8.4
     dependencies:
       '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
       json-rpc-2.0: 1.4.1
+      picomatch: 2.3.1
       rxjs: 7.5.7
     devDependencies:
       '@tsconfig/node18-strictest': 1.0.0
       '@types/node': 18.11.8
+      '@types/picomatch': 2.3.0
       eslint: 8.26.0
       typescript: 4.8.4
 
@@ -772,6 +776,10 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/picomatch/2.3.0:
+    resolution: {integrity: sha512-O397rnSS9iQI4OirieAtsDqvCj4+3eY1J+EPdNTKuHuRWIfUoGyzX294o8C4KJYaLqgSrd2o60c5EqCU8Zv02g==}
     dev: true
 
   /@types/semver/6.2.3:

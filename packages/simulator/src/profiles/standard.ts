@@ -1,6 +1,31 @@
-import { Account, deserializeAccount } from "@ledgerhq/wallet-api-core";
+import {
+  Account,
+  Currency,
+  deserializeAccount,
+} from "@ledgerhq/wallet-api-core";
 import type { WalletAPIServer } from "@ledgerhq/wallet-api-server";
 import { firstValueFrom } from "rxjs";
+
+const currencies: Currency[] = [
+  {
+    type: "CryptoCurrency",
+    id: "bitcoin",
+    ticker: "BTC",
+    name: "Bitcoin",
+    family: "bitcoin",
+    color: "#ffae35",
+    decimals: 8,
+  },
+  {
+    type: "CryptoCurrency",
+    id: "ethereum",
+    ticker: "ETH",
+    name: "Ethereum",
+    family: "ethereum",
+    color: "#0ebdcd",
+    decimals: 18,
+  },
+];
 
 const cryptoAccounts: Account[] = [
   {
@@ -27,12 +52,13 @@ const cryptoAccounts: Account[] = [
 
 export function setProfile(serverInstance: WalletAPIServer) {
   serverInstance.setAccounts(cryptoAccounts);
+  serverInstance.setCurrencies(currencies);
 
   serverInstance.setHandler("account.request", async ({ accounts$ }) => {
     const accounts = await firstValueFrom(accounts$);
 
     if (!accounts[0]) {
-      throw new Error("nope");
+      throw new Error("No accounts available");
     }
     return accounts[0];
   });

@@ -62,6 +62,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 };
 
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
+  console.log("PARAMS: ", req.params);
   const safeParams = schemaAccountList.params.parse(req.params);
 
   const { currencyIds } = safeParams;
