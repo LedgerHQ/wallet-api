@@ -45,7 +45,7 @@ export class WalletAPIClient extends RpcNode<
     this.logger = logger;
   }
 
-  protected handleRpcRequest(request: RpcRequest) {
+  protected onRequest(request: RpcRequest) {
     this.logger.log(request.method);
     const handler =
       this.requestHandlers[request.method as keyof typeof this.requestHandlers];
@@ -163,7 +163,10 @@ export class WalletAPIClient extends RpcNode<
       currencyIds: params.currencyIds,
     });
 
+    console.log("RESULTS: ", listAccountsResult);
+
     if ("error" in listAccountsResult) {
+      console.log("ERROR");
       throw new RpcError(listAccountsResult.error);
     }
 

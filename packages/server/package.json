@@ -21,6 +21,7 @@
     "@tsconfig/node18-strictest": "^1.0.0",
     "@types/jest": "^29.2.1",
     "@types/node": "^18.11.8",
+    "@types/picomatch": "^2.3.0",
     "eslint": "^8.26.0",
     "jest": "^29.1.2",
     "jest-environment-jsdom": "^29.2.2",
@@ -32,6 +33,7 @@
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.0.2",
     "json-rpc-2.0": "^1.1.0",
+    "picomatch": "^2.3.1",
     "rxjs": "^7.5.7"
   }
 }

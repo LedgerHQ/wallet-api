@@ -8,11 +8,13 @@ import {
   RpcError,
   RpcErrorCode,
   AppHandlers,
+  Permission,
 } from "@ledgerhq/wallet-api-core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, combineLatest } from "rxjs";
+import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
 import { internalHandlers } from "./internalHandlers";
 
-import type { WalletContext, WalletHandlers, RPCMiddleware } from "./types";
+import type { WalletContext, WalletHandlers } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
@@ -22,27 +24,39 @@ export class WalletAPIServer extends RpcNode<
 > {
   private logger: Logger;
 
-  private middlewares: RPCMiddleware[] = [];
+  private walletContext: WalletContext;
 
-  private walletContext: WalletContext = {
-    currencies$: new BehaviorSubject<Currency[]>([]),
-    accounts$: new BehaviorSubject<Account[]>([]),
-  };
+  private allAccounts$: BehaviorSubject<Account[]> = new BehaviorSubject<
+    Account[]
+  >([]);
+
+  private allCurrencies$: BehaviorSubject<Currency[]> = new BehaviorSubject<
+    Currency[]
+  >([]);
 
   private walletHandlers: Partial<WalletHandlers> = {};
 
+  private permissions: {
+    currencyIds$: BehaviorSubject<string[]>;
+    methodIds$: BehaviorSubject<string[]>;
+  } = {
+    currencyIds$: new BehaviorSubject<string[]>([]),
+    methodIds$: new BehaviorSubject<string[]>([]),
+  };
+
+  setPermissions(permission: Permission) {
+    this.permissions.currencyIds$.next(permission.currencyIds);
+    this.permissions.methodIds$.next(permission.methodIds);
+    return this;
+  }
+
   setCurrencies(currencies: Currency[]) {
-    this.walletContext.currencies$.next(currencies);
+    this.allCurrencies$.next(currencies);
     return this;
   }
 
   setAccounts(accounts: Account[]) {
-    this.walletContext.accounts$.next(accounts);
-    return this;
-  }
-
-  use(middleware: RPCMiddleware) {
-    this.middlewares.push(middleware);
+    this.allAccounts$.next(accounts);
     return this;
   }
 
@@ -54,11 +68,12 @@ export class WalletAPIServer extends RpcNode<
     return this;
   }
 
-  protected handleRpcRequest(
+  protected async onRequest(
     request: RpcRequest<string, unknown>
   ): Promise<unknown> {
-    const handler =
-      this.requestHandlers[request.method as keyof typeof this.requestHandlers];
+    const methodId = request.method as keyof typeof this.requestHandlers;
+
+    const handler = this.requestHandlers[methodId];
 
     if (!handler) {
       this.logger.error(
@@ -70,18 +85,41 @@ export class WalletAPIServer extends RpcNode<
       });
     }
 
-    return handler(request, this.walletContext, this.walletHandlers);
-  }
+    const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
 
-  private connect() {
-    this.walletContext.accounts$.subscribe(() => {
-      this.notify("event.account.updated", undefined);
-    });
+    if (!allowedMethodIds.has(methodId)) {
+      throw new RpcError({
+        code: RpcErrorCode.SERVER_ERROR,
+        message: "permission denied",
+      });
+    }
+
+    return handler(request, this.walletContext, this.walletHandlers);
   }
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, internalHandlers);
     this.logger = logger;
-    this.connect();
+
+    const allowedCurrencies$ = new BehaviorSubject<Currency[]>([]);
+    combineLatest(
+      [this.allCurrencies$, this.permissions.currencyIds$],
+      matchCurrencies
+    ).subscribe(allowedCurrencies$);
+
+    const allowedAccounts$ = new BehaviorSubject<Account[]>([]);
+    combineLatest(
+      [this.allAccounts$, allowedCurrencies$],
+      filterAccountsForCurrencies
+    ).subscribe(allowedAccounts$);
+
+    this.walletContext = {
+      currencies$: allowedCurrencies$,
+      accounts$: allowedAccounts$,
+    };
+
+    this.walletContext.accounts$.subscribe(() => {
+      this.notify("event.account.updated", undefined);
+    });
   }
 }

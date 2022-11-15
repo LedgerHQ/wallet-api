@@ -8,6 +8,7 @@ export function getSimulatorTransport(_profileId: string): Transport {
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
+      console.log("wallet -> app", payload);
       if (clientTransport && clientTransport.onMessage) {
         clientTransport.onMessage(payload);
       }
@@ -17,6 +18,7 @@ export function getSimulatorTransport(_profileId: string): Transport {
   clientTransport = {
     onMessage: undefined,
     send: (payload) => {
+      console.log("app -> wallet", payload);
       if (serverTransport && serverTransport.onMessage) {
         serverTransport.onMessage(payload);
       }
@@ -24,6 +26,15 @@ export function getSimulatorTransport(_profileId: string): Transport {
   };
 
   const serverInstance = new WalletAPIServer(serverTransport);
+  serverInstance.setPermissions({
+    methodIds: [
+      "account.request",
+      "account.list",
+      "currency.list",
+      "transaction.signAndBroadcast",
+    ],
+    currencyIds: ["eth*"],
+  });
 
   setProfile(serverInstance);
 
