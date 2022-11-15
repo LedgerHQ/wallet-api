@@ -170,15 +170,6 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
       throw new Error(`no ongoingRequest ${response.id}`);
     }
 
-    try {
-      resolver(response);
-    } catch (error) {
-      console.log("handleRpcResponse: ", error);
-      if (error instanceof RpcError) {
-        throw new Error(error.message);
-      } else {
-        throw error;
-      }
-    }
+    resolver(response);
   }
 }
