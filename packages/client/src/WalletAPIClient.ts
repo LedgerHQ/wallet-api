@@ -1,27 +1,30 @@
 // TODO: reimplement all methods
 
+import type HWTransport from "@ledgerhq/hw-transport";
 import {
+  Account,
+  Currency,
+  deserializeAccount,
   Logger,
-  RpcRequest,
-  Transport,
   RpcError,
   RpcErrorCode,
   RpcNode,
-  Transaction,
-  serializeTransaction,
-  Account,
-  deserializeAccount,
-  Currency,
-  WalletHandlers,
-  schemaTransactionSign,
-  schemaTransactionSignAndBroadcast,
-  schemaMessageSign,
+  RpcRequest,
   schemaAccountList,
   schemaAccountRequest,
   schemaCurrencyList,
+  schemaDeviceTransport,
+  schemaMessageSign,
+  schemaTransactionSign,
+  schemaTransactionSignAndBroadcast,
+  serializeTransaction,
+  Transaction,
   TransactionSign,
   TransactionSignAndBroadcast,
+  Transport,
+  WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -233,5 +236,37 @@ export class WalletAPIClient extends RpcNode<
     );
 
     return safeResults.currencies;
+  }
+
+  /**
+   * Open low-level transport in the connected wallet
+   *
+   * @param params - Params for the transport
+   *
+   * @returns An instance of Transport compatible with @ledgerhq/hw-transport
+   */
+  async deviceTransport(params: {
+    /**
+     * Select the BOLOS App. If null selects BOLOS
+     */
+    appName?: string;
+  }): Promise<HWTransport> {
+    const deviceTransportResult = await this.request(
+      "device.transport",
+      params
+    );
+
+    if ("error" in deviceTransportResult) {
+      throw new RpcError(deviceTransportResult.error);
+    }
+
+    const safeResults = schemaDeviceTransport.result.parse(
+      deviceTransportResult.result
+    );
+
+    return TransportWalletAPI.open({
+      walletApi: this,
+      deviceId: safeResults.deviceId,
+    });
   }
 }

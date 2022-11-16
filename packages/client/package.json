@@ -22,6 +22,7 @@
     "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults src/index.ts"
   },
   "dependencies": {
+    "@ledgerhq/hw-transport": "^6.27.6",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.0.2",
     "json-rpc-2.0": "^1.1.0"
