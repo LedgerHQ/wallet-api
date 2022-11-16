@@ -5,5 +5,5 @@
     "declarationMap": true,
     "outDir": "./lib"
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "jest.config.ts", "tests/**/*"]
 }
