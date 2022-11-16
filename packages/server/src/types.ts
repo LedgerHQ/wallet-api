@@ -40,6 +40,14 @@ export interface WalletHandlers {
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
   }) => Promisable<string>;
+  "device.close": (params: { deviceId: string }) => Promisable<string>;
+  "device.exchange": (params: {
+    deviceId: string;
+    adpuHex: string;
+  }) => Promisable<string>;
+  "device.transport": (params: {
+    appName?: string | undefined;
+  }) => Promisable<string>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
