@@ -1,0 +1,22 @@
+[
+  {
+    "id": "account-btc-1",
+    "name": "Bitcoin 1",
+    "address": "address",
+    "currency": "bitcoin",
+    "balance": "42",
+    "spendableBalance": "42",
+    "blockHeight": 1,
+    "lastSyncDate": "1995-12-17T03:24:00"
+  },
+  {
+    "id": "account-eth-1",
+    "name": "Ethereum 1",
+    "address": "address",
+    "currency": "ethereum",
+    "balance": "42",
+    "spendableBalance": "42",
+    "blockHeight": 1,
+    "lastSyncDate": "1995-12-17T03:24:00"
+  }
+]
