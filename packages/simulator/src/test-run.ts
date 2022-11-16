@@ -7,7 +7,9 @@ async function main() {
   const transport = getSimulatorTransport("standard");
   const client = new WalletAPIClient(transport);
 
-  await client.listAccounts({ currencyIds: ["ethereum"] });
+  await client.listAccounts();
+  await client.listCurrencies();
+  await client.requestAccount();
 
   /*  transport.send(
     JSON.stringify({
