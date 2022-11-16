@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-simulator",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib-es/index.js",
