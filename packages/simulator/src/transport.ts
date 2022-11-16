@@ -1,8 +1,9 @@
 import type { Transport } from "@ledgerhq/wallet-api-core";
 import { WalletAPIServer } from "@ledgerhq/wallet-api-server";
-import { setProfile } from "./profiles/standard";
+import { applyProfile } from "./helpers";
+import type { SimulatorProfile } from "./types";
 
-export function getSimulatorTransport(_profileId: string): Transport {
+export function getSimulatorTransport(profile: SimulatorProfile): Transport {
   let clientTransport: Transport | undefined;
 
   const serverTransport: Transport = {
@@ -26,17 +27,7 @@ export function getSimulatorTransport(_profileId: string): Transport {
   };
 
   const serverInstance = new WalletAPIServer(serverTransport);
-  serverInstance.setPermissions({
-    methodIds: [
-      "account.request",
-      "account.list",
-      "currency.list",
-      "transaction.signAndBroadcast",
-    ],
-    currencyIds: ["eth*"],
-  });
-
-  setProfile(serverInstance);
+  applyProfile(serverInstance, profile);
 
   return clientTransport;
 }

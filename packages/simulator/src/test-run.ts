@@ -1,10 +1,11 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client/lib/WalletAPIClient";
+import { profiles } from "./profiles";
 // import { deserializeTransaction } from "@ledgerhq/wallet-api-core";
 import { getSimulatorTransport } from "./transport";
 
 async function main() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const transport = getSimulatorTransport("standard");
+  const transport = getSimulatorTransport(profiles.STANDARD);
   const client = new WalletAPIClient(transport);
 
   await client.listAccounts({ currencyIds: ["ethereum"] });
