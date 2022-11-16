@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 0.6.0
+
+### Minor Changes
+
+- [#37](https://github.com/LedgerHQ/wallet-api/pull/37) [`016d399`](https://github.com/LedgerHQ/wallet-api/commit/016d399d9e1daa98eae30dc1050c4c5bf44980c6) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - fixed errors; added permissions
+
+### Patch Changes
+
+- Updated dependencies [[`016d399`](https://github.com/LedgerHQ/wallet-api/commit/016d399d9e1daa98eae30dc1050c4c5bf44980c6)]:
+  - @ledgerhq/wallet-api-core@0.6.0
+
 ## 0.5.4
 
 ### Patch Changes
