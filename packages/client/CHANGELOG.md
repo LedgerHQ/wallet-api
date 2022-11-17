@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client
 
+## 0.7.1
+
+### Patch Changes
+
+- [#44](https://github.com/LedgerHQ/wallet-api/pull/44) [`f9ad9a9`](https://github.com/LedgerHQ/wallet-api/commit/f9ad9a9d03b9e638897c63a29229d29f1c073f08) Thanks [@Justkant](https://github.com/Justkant)! - fix: add HWTransport export
+
 ## 0.7.0
 
 ### Minor Changes

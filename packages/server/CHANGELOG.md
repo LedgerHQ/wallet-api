@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-server
 
+## 0.7.1
+
+### Patch Changes
+
+- [#45](https://github.com/LedgerHQ/wallet-api/pull/45) [`b63f820`](https://github.com/LedgerHQ/wallet-api/commit/b63f820722caf18a236105bdc2e80ec4f73935a3) Thanks [@Justkant](https://github.com/Justkant)! - fix: apduHex params naming
+
 ## 0.7.0
 
 ### Minor Changes
