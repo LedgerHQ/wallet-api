@@ -46,7 +46,7 @@ export const exchange: RPCHandler<DeviceExchange["result"]> = async (
   }
 
   const responseHex = await walletHandler({
-    adpuHex: safeParams.apduHex,
+    apduHex: safeParams.apduHex,
     deviceId: safeParams.deviceId,
   });
 

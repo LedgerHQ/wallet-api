@@ -43,7 +43,7 @@ export interface WalletHandlers {
   "device.close": (params: { deviceId: string }) => Promisable<string>;
   "device.exchange": (params: {
     deviceId: string;
-    adpuHex: string;
+    apduHex: string;
   }) => Promisable<string>;
   "device.transport": (params: {
     appName?: string | undefined;
