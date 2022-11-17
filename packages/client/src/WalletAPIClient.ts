@@ -17,6 +17,7 @@ import {
   schemaMessageSign,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
+  schemaWalletCapabilities,
   serializeTransaction,
   Transaction,
   TransactionSign,
@@ -265,5 +266,29 @@ export class WalletAPIClient extends RpcNode<
       walletApi: this,
       deviceId: safeResults.deviceId,
     });
+  }
+
+  /*
+   * List the wallet's implemented methodIds
+   *
+   * @returns The list of implemented method ids
+   *
+   * @beta Filtering not yet implemented
+   */
+  async capabilities(): Promise<string[]> {
+    const walletCapabilitiesResult = await this.request(
+      "wallet.capabilities",
+      {}
+    );
+
+    if ("error" in walletCapabilitiesResult) {
+      throw new RpcError(walletCapabilitiesResult.error);
+    }
+
+    const safeResults = schemaWalletCapabilities.result.parse(
+      walletCapabilitiesResult.result
+    );
+
+    return safeResults.methodIds;
   }
 }

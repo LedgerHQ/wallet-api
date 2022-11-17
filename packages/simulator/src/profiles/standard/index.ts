@@ -25,6 +25,7 @@ export const standardProfile: SimulatorProfile = {
       "transaction.sign",
       "message.sign",
       "account.receive",
+      "wallet.capabilities",
     ],
   },
   accounts: allAccounts,
