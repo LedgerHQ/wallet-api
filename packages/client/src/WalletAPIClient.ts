@@ -156,20 +156,17 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns The list of accounts on the connected wallet
    */
-  async listAccounts(params: {
+  async listAccounts(params?: {
     /**
      * Select a set of currencies by id to filter accounts against.
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Account[]> {
     const listAccountsResult = await this.request("account.list", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
-    console.log("RESULTS: ", listAccountsResult);
-
     if ("error" in listAccountsResult) {
-      console.log("ERROR");
       throw new RpcError(listAccountsResult.error);
     }
 
@@ -187,14 +184,14 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns The account selected by the user
    */
-  async requestAccount(params: {
+  async requestAccount(params?: {
     /**
      * Select a set of currencies by id. Globing is enabled
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Account> {
     const requestAccountsResult = await this.request("account.request", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
     if ("error" in requestAccountsResult) {
@@ -217,14 +214,14 @@ export class WalletAPIClient extends RpcNode<
    *
    * @beta Filtering not yet implemented
    */
-  async listCurrencies(params: {
+  async listCurrencies(params?: {
     /**
      * Select a set of currencies by id. Globing is enabled
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Currency[]> {
     const listCurrenciesResult = await this.request("currency.list", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
     if ("error" in listCurrenciesResult) {
