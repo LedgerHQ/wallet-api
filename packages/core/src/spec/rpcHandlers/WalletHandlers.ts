@@ -9,6 +9,7 @@ import type {
   MessageSignHandler,
   TransactionSignAndBroadcastHandler,
   TransactionSignHandler,
+  WalletCapabilitiesHandler,
 } from "../types";
 
 export interface WalletHandlers {
@@ -22,4 +23,5 @@ export interface WalletHandlers {
   "message.sign": MessageSignHandler;
   "transaction.sign": TransactionSignHandler;
   "transaction.signAndBroadcast": TransactionSignAndBroadcastHandler;
+  "wallet.capabilities": WalletCapabilitiesHandler;
 }

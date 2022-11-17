@@ -5,6 +5,7 @@ import * as currency from "./currency";
 import * as device from "./device";
 import * as message from "./message";
 import * as transaction from "./transaction";
+import * as wallet from "./wallet";
 
 type InternalHandlers = TransformHandler<WalletHandlers>;
 
@@ -23,4 +24,6 @@ export const internalHandlers: InternalHandlers = {
 
   "transaction.sign": transaction.sign,
   "transaction.signAndBroadcast": transaction.signAndBroadcast,
+
+  "wallet.capabilities": wallet.capabilities,
 };

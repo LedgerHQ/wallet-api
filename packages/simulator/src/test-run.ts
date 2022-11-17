@@ -12,6 +12,10 @@ async function main() {
   await client.listCurrencies();
   await client.requestAccount();
 
+  const capabilities = await client.capabilities();
+
+  console.log(capabilities);
+
   /*  transport.send(
     JSON.stringify({
       id: "49f2b5e9-9e77-495c-8add-8542127b4a50",
