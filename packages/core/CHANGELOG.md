@@ -1,5 +1,17 @@
 # @ledgerhq/wallet-api-core
 
+## 0.7.0
+
+### Minor Changes
+
+- [#41](https://github.com/LedgerHQ/wallet-api/pull/41) [`4572761`](https://github.com/LedgerHQ/wallet-api/commit/45727617dd415589f39fe7fcd6474a4ec681b0ce) Thanks [@Justkant](https://github.com/Justkant)! - feat: device.transport support
+
+## 0.6.0
+
+### Minor Changes
+
+- [#37](https://github.com/LedgerHQ/wallet-api/pull/37) [`016d399`](https://github.com/LedgerHQ/wallet-api/commit/016d399d9e1daa98eae30dc1050c4c5bf44980c6) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - fixed errors; added permissions
+
 ## 0.5.3
 
 ### Patch Changes

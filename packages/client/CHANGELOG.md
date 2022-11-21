@@ -1,5 +1,33 @@
 # @ledgerhq/wallet-api-client
 
+## 0.7.1
+
+### Patch Changes
+
+- [#44](https://github.com/LedgerHQ/wallet-api/pull/44) [`f9ad9a9`](https://github.com/LedgerHQ/wallet-api/commit/f9ad9a9d03b9e638897c63a29229d29f1c073f08) Thanks [@Justkant](https://github.com/Justkant)! - fix: add HWTransport export
+
+## 0.7.0
+
+### Minor Changes
+
+- [#41](https://github.com/LedgerHQ/wallet-api/pull/41) [`4572761`](https://github.com/LedgerHQ/wallet-api/commit/45727617dd415589f39fe7fcd6474a4ec681b0ce) Thanks [@Justkant](https://github.com/Justkant)! - feat: device.transport support
+
+### Patch Changes
+
+- Updated dependencies [[`4572761`](https://github.com/LedgerHQ/wallet-api/commit/45727617dd415589f39fe7fcd6474a4ec681b0ce)]:
+  - @ledgerhq/wallet-api-core@0.7.0
+
+## 0.6.0
+
+### Minor Changes
+
+- [#37](https://github.com/LedgerHQ/wallet-api/pull/37) [`016d399`](https://github.com/LedgerHQ/wallet-api/commit/016d399d9e1daa98eae30dc1050c4c5bf44980c6) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - fixed errors; added permissions
+
+### Patch Changes
+
+- Updated dependencies [[`016d399`](https://github.com/LedgerHQ/wallet-api/commit/016d399d9e1daa98eae30dc1050c4c5bf44980c6)]:
+  - @ledgerhq/wallet-api-core@0.6.0
+
 ## 0.5.3
 
 ### Patch Changes

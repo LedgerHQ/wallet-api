@@ -1,0 +1,20 @@
+[
+  {
+    "type": "CryptoCurrency",
+    "id": "bitcoin",
+    "ticker": "BTC",
+    "name": "Bitcoin",
+    "family": "bitcoin",
+    "color": "#ffae35",
+    "decimals": 8
+  },
+  {
+    "type": "CryptoCurrency",
+    "id": "ethereum",
+    "ticker": "ETH",
+    "name": "Ethereum",
+    "family": "ethereum",
+    "color": "#0ebdcd",
+    "decimals": 18
+  }
+]
