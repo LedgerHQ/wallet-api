@@ -12,6 +12,12 @@ async function main() {
   await client.listCurrencies();
   await client.requestAccount();
 
+  let val = await client.get("test");
+  console.log({ val });
+  await client.set("test", "value1");
+  val = await client.get("test");
+  console.log({ val });
+
   const capabilities = await client.capabilities();
 
   console.log(capabilities);
@@ -36,3 +42,11 @@ async function main() {
 main()
   .then(() => console.log("done"))
   .catch((err) => console.log(err));
+
+/*
+  wallet.name
+  wallet.version
+  wallet.settings.privacyMode
+  wallet.settings.tracking
+  wallet.userId
+*/

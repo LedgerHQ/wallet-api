@@ -7,6 +7,8 @@ import type {
   DeviceExchangeHandler,
   DeviceTransportHandler,
   MessageSignHandler,
+  StorageGetHandler,
+  StorageSetHandler,
   TransactionSignAndBroadcastHandler,
   TransactionSignHandler,
   WalletCapabilitiesHandler,
@@ -24,4 +26,6 @@ export interface WalletHandlers {
   "transaction.sign": TransactionSignHandler;
   "transaction.signAndBroadcast": TransactionSignAndBroadcastHandler;
   "wallet.capabilities": WalletCapabilitiesHandler;
+  "storage.set": StorageSetHandler;
+  "storage.get": StorageGetHandler;
 }
