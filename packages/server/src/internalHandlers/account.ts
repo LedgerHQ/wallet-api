@@ -43,13 +43,19 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  const filteredAccounts$ = context.accounts$.pipe(
-    map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
-  );
+  const filteredAccounts$ = currencyIds
+    ? context.accounts$.pipe(
+        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+      )
+    : context.accounts$;
 
-  const filteredCurrencies$ = context.currencies$.pipe(
-    map((currencies) => filterCurrenciesByCurrencyIds(currencies, currencyIds))
-  );
+  const filteredCurrencies$ = currencyIds
+    ? context.currencies$.pipe(
+        map((currencies) =>
+          filterCurrenciesByCurrencyIds(currencies, currencyIds)
+        )
+      )
+    : context.currencies$;
 
   const account = await walletHandler({
     currencies$: filteredCurrencies$,
@@ -66,9 +72,12 @@ export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
 
   const { currencyIds } = safeParams;
 
-  const filteredAccounts$ = context.accounts$.pipe(
-    map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
-  );
+  const filteredAccounts$ = currencyIds
+    ? context.accounts$.pipe(
+        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+      )
+    : context.accounts$;
+
   const accounts = await firstValueFrom(filteredAccounts$);
 
   return {

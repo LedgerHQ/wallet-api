@@ -1,9 +1,7 @@
 import type { JestConfigWithTsJest } from "ts-jest";
-import { baseConfig } from "../../jest.base.config";
 
-export default async (): Promise<JestConfigWithTsJest> => {
-     return  {
-        ...baseConfig,
-        testEnvironment: "jsdom",
-      };
-}
+const config: JestConfigWithTsJest = {
+  preset: "jest-shared-config",
+};
+
+export default config;

@@ -89,48 +89,55 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     });
   }
 
-  private async handleMessage(message: string) {
-    let requestId: number | string | null | undefined;
+  private async handleRpcRequest(request: RpcRequest) {
     try {
-      const rpcCall = parseRPCCall(message);
-      requestId = rpcCall.id;
+      const result = await this.onRequest(request);
 
-      if ("method" in rpcCall) {
-        const result = await this.handleRpcRequest(rpcCall);
-
-        if (requestId) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-          const response = createRpcResponse({
-            id: requestId,
-            result,
-          });
-          this.transport.send(JSON.stringify(response));
-        }
-        return;
+      if (request.id) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+        const response = createRpcResponse({
+          id: request.id,
+          result,
+        });
+        this.transport.send(JSON.stringify(response));
       }
-      this.handleRpcResponse(
-        rpcCall as RpcResponse<
-          ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
-          unknown
-        >
-      );
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const errorResponse = createRpcResponse({
-          id: requestId || null,
-          error: {
-            code: RpcErrorCode.INVALID_PARAMS,
-            message: "invalid params",
-            data: error.errors,
-          },
+        throw new RpcError({
+          code: RpcErrorCode.INVALID_PARAMS,
+          message: error.message,
+          data: error.flatten(),
         });
-
-        this.transport.send(JSON.stringify(errorResponse));
-        return;
       }
-      if (error instanceof RpcError) {
+      throw error;
+    }
+  }
+
+  private async handleMessage(message: string) {
+    let shouldReplyWithError = true;
+    let callId: string | number | null | undefined;
+
+    try {
+      const rpcCall = parseRPCCall(message);
+      callId = rpcCall.id;
+
+      if ("method" in rpcCall) {
+        // message is a request
+        await this.handleRpcRequest(rpcCall);
+      } else {
+        // message is a response
+        shouldReplyWithError = false;
+        this.handleRpcResponse(
+          rpcCall as RpcResponse<
+            ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
+            unknown
+          >
+        );
+      }
+    } catch (error) {
+      if (shouldReplyWithError && error instanceof RpcError) {
         const errorResponse = createRpcResponse({
-          id: requestId || null,
+          id: callId || null,
           error: {
             code: error.getCode(),
             message: error.message,
@@ -146,7 +153,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     }
   }
 
-  protected abstract handleRpcRequest(request: RpcRequest): Promise<unknown>;
+  protected abstract onRequest(request: RpcRequest): Promise<unknown>;
 
   private handleRpcResponse(
     response: RpcResponse<

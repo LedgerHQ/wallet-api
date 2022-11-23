@@ -2,7 +2,7 @@ import { z } from "zod";
 import { schemaRawAccount } from "../../accounts";
 
 const schemaAccountListParams = z.object({
-  currencyIds: z.array(z.string()),
+  currencyIds: z.array(z.string()).optional(),
 });
 
 const schemaAccountListResults = z.object({

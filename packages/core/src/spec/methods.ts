@@ -7,7 +7,11 @@ export const schemaRPCMethod = z.enum([
   "account.receive",
   "account.request",
   "currency.list",
+  "device.close",
+  "device.exchange",
+  "device.transport",
   "message.sign",
   "transaction.sign",
   "transaction.signAndBroadcast",
+  "wallet.capabilities",
 ]);

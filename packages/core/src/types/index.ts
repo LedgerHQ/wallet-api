@@ -77,3 +77,8 @@ export type ApplicationDetails = {
    */
   version: string;
 };
+
+export type Permission = {
+  currencyIds: string[];
+  methodIds: string[];
+};

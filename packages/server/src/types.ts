@@ -10,8 +10,8 @@ import type {
 import type { BehaviorSubject, Observable } from "rxjs";
 
 export type WalletContext = {
-  currencies$: BehaviorSubject<Currency[]>;
-  accounts$: BehaviorSubject<Account[]>;
+  currencies$: Observable<Currency[]>;
+  accounts$: Observable<Account[]>;
 };
 
 export type RPCHandler<TResult> = (
@@ -40,13 +40,15 @@ export interface WalletHandlers {
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
   }) => Promisable<string>;
+  "device.close": (params: { deviceId: string }) => Promisable<string>;
+  "device.exchange": (params: {
+    deviceId: string;
+    apduHex: string;
+  }) => Promisable<string>;
+  "device.transport": (params: {
+    appName?: string | undefined;
+  }) => Promisable<string>;
 }
-
-export type RPCMiddleware = (
-  next: () => Promise<void>,
-  request: RpcRequest,
-  context: WalletContext
-) => Promise<void>;
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
   ? ReturnType<T>
@@ -58,3 +60,16 @@ type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
 export type TransformHandler<T> = {
   [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;
 };
+
+export type ClientParams = {
+  id: string;
+  permissions: {
+    currencies: string[];
+    methods: string[];
+  };
+};
+
+export type ClientContext = {
+  currencies$: BehaviorSubject<Currency[]>;
+  accounts$: BehaviorSubject<Account[]>;
+} & ClientParams;

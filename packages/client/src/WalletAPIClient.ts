@@ -1,27 +1,31 @@
 // TODO: reimplement all methods
 
+import type HWTransport from "@ledgerhq/hw-transport";
 import {
+  Account,
+  Currency,
+  deserializeAccount,
   Logger,
-  RpcRequest,
-  Transport,
   RpcError,
   RpcErrorCode,
   RpcNode,
-  Transaction,
-  serializeTransaction,
-  Account,
-  deserializeAccount,
-  Currency,
-  WalletHandlers,
-  schemaTransactionSign,
-  schemaTransactionSignAndBroadcast,
-  schemaMessageSign,
+  RpcRequest,
   schemaAccountList,
   schemaAccountRequest,
   schemaCurrencyList,
+  schemaDeviceTransport,
+  schemaMessageSign,
+  schemaTransactionSign,
+  schemaTransactionSignAndBroadcast,
+  schemaWalletCapabilities,
+  serializeTransaction,
+  Transaction,
   TransactionSign,
   TransactionSignAndBroadcast,
+  Transport,
+  WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -45,7 +49,7 @@ export class WalletAPIClient extends RpcNode<
     this.logger = logger;
   }
 
-  protected handleRpcRequest(request: RpcRequest) {
+  protected onRequest(request: RpcRequest) {
     this.logger.log(request.method);
     const handler =
       this.requestHandlers[request.method as keyof typeof this.requestHandlers];
@@ -153,14 +157,14 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns The list of accounts on the connected wallet
    */
-  async listAccounts(params: {
+  async listAccounts(params?: {
     /**
      * Select a set of currencies by id to filter accounts against.
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Account[]> {
     const listAccountsResult = await this.request("account.list", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
     if ("error" in listAccountsResult) {
@@ -181,14 +185,14 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns The account selected by the user
    */
-  async requestAccount(params: {
+  async requestAccount(params?: {
     /**
      * Select a set of currencies by id. Globing is enabled
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Account> {
     const requestAccountsResult = await this.request("account.request", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
     if ("error" in requestAccountsResult) {
@@ -211,14 +215,14 @@ export class WalletAPIClient extends RpcNode<
    *
    * @beta Filtering not yet implemented
    */
-  async listCurrencies(params: {
+  async listCurrencies(params?: {
     /**
      * Select a set of currencies by id. Globing is enabled
      */
-    currencyIds: string[];
+    currencyIds?: string[];
   }): Promise<Currency[]> {
     const listCurrenciesResult = await this.request("currency.list", {
-      currencyIds: params.currencyIds,
+      currencyIds: params?.currencyIds,
     });
 
     if ("error" in listCurrenciesResult) {
@@ -230,5 +234,61 @@ export class WalletAPIClient extends RpcNode<
     );
 
     return safeResults.currencies;
+  }
+
+  /**
+   * Open low-level transport in the connected wallet
+   *
+   * @param params - Params for the transport
+   *
+   * @returns An instance of Transport compatible with @ledgerhq/hw-transport
+   */
+  async deviceTransport(params: {
+    /**
+     * Select the BOLOS App. If null selects BOLOS
+     */
+    appName?: string;
+  }): Promise<HWTransport> {
+    const deviceTransportResult = await this.request(
+      "device.transport",
+      params
+    );
+
+    if ("error" in deviceTransportResult) {
+      throw new RpcError(deviceTransportResult.error);
+    }
+
+    const safeResults = schemaDeviceTransport.result.parse(
+      deviceTransportResult.result
+    );
+
+    return TransportWalletAPI.open({
+      walletApi: this,
+      deviceId: safeResults.deviceId,
+    });
+  }
+
+  /*
+   * List the wallet's implemented methodIds
+   *
+   * @returns The list of implemented method ids
+   *
+   * @beta Filtering not yet implemented
+   */
+  async capabilities(): Promise<string[]> {
+    const walletCapabilitiesResult = await this.request(
+      "wallet.capabilities",
+      {}
+    );
+
+    if ("error" in walletCapabilitiesResult) {
+      throw new RpcError(walletCapabilitiesResult.error);
+    }
+
+    const safeResults = schemaWalletCapabilities.result.parse(
+      walletCapabilitiesResult.result
+    );
+
+    return safeResults.methodIds;
   }
 }
