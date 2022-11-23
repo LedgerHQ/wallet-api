@@ -1,6 +1,6 @@
 {
   "$id": "manifest.schema.json",
-  "title": "Manifest schema for Ledger Live App",
+  "title": "Manifest schema for Wallet App",
   "type": "object",
   "properties": {
     "id": {

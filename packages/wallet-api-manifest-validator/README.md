@@ -1,7 +1,7 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
  <h2 align="center">@ledgerhq/wallet-api-manifest-validator</h2>
- <p align="center">Verify your Live App manifest inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
+ <p align="center">Verify your Live App manifest</p>
 </p>
   <p align="center">
     <a href="https://www.npmjs.com/package/">
@@ -27,11 +27,11 @@
 
 ## Quick intro
 
-The manifest Validator is a typescript package that checks if your `manifest.json` file meets the requirements for Ledger Live App manifest submission.
+The manifest Validator is a typescript package that checks if your `manifest.json` file meets the requirements for a Wallet App manifest submission.
 
 To achieve this, the package uses [JSON Schema](https://json-schema.org/), a vocabulary for annotating and validating JSON documents.
 
-In top of that, we us the [AJV](https://ajv.js.org/) and [AJV-errors](https://www.npmjs.com/package/ajv-errors) libraries which provides more possibilities (please refer to [AJV Github](https://github.com/ajv-validator/ajv) to know which version of JSON Schema we use).
+In top of that, we use the [AJV](https://ajv.js.org/) and [AJV-errors](https://www.npmjs.com/package/ajv-errors) libraries which provides more possibilities (please refer to [AJV Github](https://github.com/ajv-validator/ajv) to know which version of JSON Schema we use).
 
 ## Installation
 

@@ -21,7 +21,7 @@ runExit(
 
     static override usage = Command.Usage({
       category: `Help`,
-      description: `The manifest Validator is a typescript package that checks if your manifest.json file meets the requirements for Ledger Live Wallet manifest submission.`,
+      description: `The manifest Validator is a typescript package that checks if your manifest.json file meets the requirements for a Wallet App manifest submission.`,
       examples: [
         [`blank: Simple validator test`, `$0 validate <MyFileOrDirectory>`],
         [
