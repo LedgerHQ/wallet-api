@@ -40,7 +40,7 @@ npm i @ledgerhq/wallet-api-manifest-validator
 
 ```
 
-_Can also be used globaly :_
+_Can also be used globaly:_
 
 ```bash
 npm i -g @ledgerhq/wallet-api-manifest-validator
@@ -59,13 +59,13 @@ const result: boolean = validateManifest(MyjsonManifestFile);
 
 #### CLI
 
-Once you have installed it, use the command :
+Once you have installed it, use the command:
 
 ```bash
 npm run validate <*fileOrDirectoryName*>
 ```
 
-_Or if you have installed it in global :_
+_Or if you have installed it in global:_
 
 ```bash
 validate <*fileOrDirectoryName*>
@@ -115,6 +115,7 @@ npm run validate *fileOrDirectoryName* --details --enableState --throwError
 </br>
 </br>
 
-more infos about the manifest here :
+more infos about the manifest here:
 
 https://developers.ledger.com/docs/dapp/manifest/
+https://developers.ledger.com/docs/non-dapp/tutorial/2-manifest/

@@ -9,7 +9,7 @@
       "maxLength": 50,
       "pattern": "^[a-z]([a-z]|[0-9]|-)*$",
       "errorMessage": {
-        "pattern": "${0#}"
+        "pattern": "${0#} must be a string of 3 to 50 characters"
       }
     },
     "name": {
@@ -18,7 +18,7 @@
       "maxLength": 50,
       "pattern": "^.*$",
       "errorMessage": {
-        "pattern": "${0#} must be ->  alphabetic only | max chars : 20 | min chars : 1"
+        "pattern": "${0#} must be a string of 1 to 50 characters"
       }
     },
     "url": {
@@ -46,17 +46,17 @@
       "type": "string",
       "pattern": "^.*$",
       "errorMessage": {
-        "pattern": "${0#} must be an URL or blank"
+        "pattern": "${0#} must be an URL"
       }
     },
     "type": {
       "type": "string",
-      "enum": ["dApp", "walletApp", "webBrowser"]
+      "enum": ["dApp", "walletApp", "webBrowserApp"]
     },
     "platform": {
       "enum": ["desktop", "mobile", "all"],
       "errorMessage": {
-        "enum": "must be equal to one of the allowed values : desktop, mobile, all"
+        "enum": "must be equal to one of the allowed values: desktop, mobile, all"
       }
     },
     "apiVersion": {
@@ -100,7 +100,6 @@
               "tron",
               "stellar",
               "dogecoin",
-              "digibyte",
               "tezos",
               "elrond"
             ]
@@ -229,7 +228,7 @@
     },
     {
       "if": {
-        "properties": { "type": { "const": "webBrowser" } }
+        "properties": { "type": { "const": "webBrowserApp" } }
       },
       "then": {
         "properties": {

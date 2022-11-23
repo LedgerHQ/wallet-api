@@ -7,36 +7,33 @@ import { validateManifest } from "../src/validator";
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 runExit(
   class ValidateFile extends Command {
-    static paths = [[`validate -h |`], Command.Default];
+    static override paths: string[][] = [[`validate -h |`], Command.Default];
 
     fileOrDir = Option.String();
 
-    details = Option.Boolean(`--details, -details`);
+    details = Option.Boolean(`--details, -d`);
 
-    enableState = Option.Boolean(`--enableState, -enableState`);
+    enableState = Option.Boolean(`--enableState, -s`);
 
-    throwError = Option.Boolean(`--throwError, -throwError`);
+    throwError = Option.Boolean(`--throwError, -e`);
 
     SchemaJSON!: JSON;
 
-    // TODO: Add the URL once the schema.json is pushed on the repo
-    url = "SchemaURL";
-
-    static usage = Command.Usage({
+    static override usage = Command.Usage({
       category: `Help`,
-      description: `The manifest Validator is a typescript package that checks if your manifest.json file meets the requirements for Ledger Live App manifest submission.`,
+      description: `The manifest Validator is a typescript package that checks if your manifest.json file meets the requirements for Ledger Live Wallet manifest submission.`,
       examples: [
-        [`blank : Simple validator test`, `$0 validate <MyFileOrDirectory>`],
+        [`blank: Simple validator test`, `$0 validate <MyFileOrDirectory>`],
         [
-          `--details : Adding details`,
+          `--details: Adding details`,
           `$0 validate <MyFileOrDirectory> --details`,
         ],
         [
-          `--enableState : Adding little description`,
+          `--enableState: Adding little description`,
           `$0 validate <MyFileOrDirectory> --enableState`,
         ],
         [
-          `--throwError : throw error if the test doesn't pass`,
+          `--throwError: Throws error if the test doesn't pass`,
           `$0 validate <MyFileOrDirectory> --throwError`,
         ],
       ],

@@ -2,7 +2,7 @@
   "id": "alkemi",
   "name": "Alkemi",
   "url": "https://dapp-browser.apps.ledger.com",
-  "type": "webBrowser",
+  "type": "webBrowserApp",
   "params": {
     "webUrl": "https://earn.alkemi.network/dashboard?embed=true",
     "webAppName": "Alkemi",
