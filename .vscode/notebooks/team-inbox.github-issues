@@ -1,0 +1,77 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Team inbox\n\nAll pull requests and issues assigned to the team."
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Pull requests assigned to the team\n\nOpen pull requests (not in draft) awaiting review from the team"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "type:pr team-review-requested:$TEAM is:open archived:false sort:created-asc draft:false"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Issues assigned to the team"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "type:issue team-review-requested:$TEAM is:open archived:false sort:created-desc"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Open pull requests in the repos we own"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS type:pr is:open draft:false -label:dependencies"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "🔍 Awaiting review"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS type:pr is:open review:required -label:dependencies"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Dependencies to update"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS type:pr is:open draft:false label:dependencies"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Open issues in the repos we own"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS type:issue is:open"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "`Config`: define macros used accross queries"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$TEAM=LedgerHQ/live-platform-and-services\n\n// repo we own\n$REPOS=repo:LedgerHQ/ledger-live-wagmi-connector repo:LedgerHQ/live-app-sdk repo:LedgerHQ/wallet-connect-live-app repo:LedgerHQ/eth-dapp-browser repo:LedgerHQ/cra-template-live-app repo:LedgerHQ/platform-app-debug repo:LedgerHQ/platform-app-test-exchange repo:LedgerHQ/platform-app-web-browser repo:LedgerHQ/manifest-api repo:LedgerHQ/eth-dapp-browser-test-dapp repo:LedgerHQ/platform-app-coinify repo:LedgerHQ/iframe-provider repo:LedgerHQ/wallet-api"
+  }
+]

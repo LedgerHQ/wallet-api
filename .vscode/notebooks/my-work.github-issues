@@ -1,0 +1,72 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Bugs, Debt, Features..."
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "#### My Bugs"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos assignee:@me is:open label:bug"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Pull Requests"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "🔍 Awaiting my review"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos is:open is:pr review-requested:@me"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "✅ Approved"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos author:@me is:open is:pr review:approved draft:false"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "⌛ Pending Approval"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos author:@me is:open is:pr review:required draft:false"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "📄 Drafts"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos author:@me is:open is:pr draft:true"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "##### `Config`"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "// list of repos we work in\n$repos=repo:LedgerHQ/ledger-live repo:LedgerHQ/ledger-live-wagmi-connector repo:LedgerHQ/live-app-sdk repo:LedgerHQ/wallet-connect-live-app repo:LedgerHQ/eth-dapp-browser repo:LedgerHQ/cra-template-live-app repo:LedgerHQ/platform-app-debug repo:LedgerHQ/platform-app-test-exchange repo:LedgerHQ/platform-app-web-browser repo:LedgerHQ/manifest-api repo:LedgerHQ/eth-dapp-browser-test-dapp repo:LedgerHQ/platform-app-coinify repo:LedgerHQ/iframe-provider repo:LedgerHQ/wallet-api"
+  }
+]
