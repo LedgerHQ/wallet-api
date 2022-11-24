@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node18-strictest/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./bin",
+    "exactOptionalPropertyTypes": false,    
+    "module": "commonjs"
+  },
+  "include": ["src/**/*"]
+
+}

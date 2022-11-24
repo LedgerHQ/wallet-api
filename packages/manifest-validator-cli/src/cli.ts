@@ -2,7 +2,7 @@
 import { Command, Option, runExit } from "clipanion";
 import * as fs from "fs";
 import path from "path";
-import { validateManifest } from "../src/validator";
+import { validateManifest } from "@ledgerhq/wallet-api-manifest-validator";
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 runExit(
@@ -16,8 +16,6 @@ runExit(
     enableState = Option.Boolean(`--enableState, -s`);
 
     throwError = Option.Boolean(`--throwError, -e`);
-
-    SchemaJSON!: JSON;
 
     static override usage = Command.Usage({
       category: `Help`,
