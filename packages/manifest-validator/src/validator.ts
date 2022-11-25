@@ -1,6 +1,6 @@
 import Ajv, { ErrorObject } from "ajv";
 import ajvErrors from "ajv-errors";
-import { Logger } from "@ledgerhq/wallet-api-core/dist";
+import { Logger } from "@ledgerhq/wallet-api-core";
 import SchemaJSON from "./schema/schema.json";
 
 export interface OptionsParams {
