@@ -1,7 +1,36 @@
 import { z } from "zod";
 
+const schemaDeviceType = z.enum([
+  "blue",
+  "nanoS",
+  "nanoSP",
+  "nanoX",
+  "nanoFTS",
+]);
+
+export type DeviceType = z.infer<typeof schemaDeviceType>;
+
 const schemaDeviceTransportParams = z.object({
+  /** Select the BOLOS App. If undefined selects BOLOS */
   appName: z.string().optional(),
+  /**
+   * Checks the BOLOS App version range. If undefined no checks
+   * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
+   */
+  appVersionRange: z.string().optional(),
+  /**
+   * Checks the BOLOS Firmware version range. If undefined no checks
+   * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
+   */
+  firmwareVersionRange: z.string().optional(),
+  /**
+   * Checks if the device is seeded. If undefined no checks
+   */
+  seeded: z.boolean().optional(),
+  /**
+   * Checks if the device matches one of the types. If undefined no checks
+   */
+  devices: schemaDeviceType.array().nonempty().optional(),
 });
 
 const schemaDeviceTransportResults = z.object({

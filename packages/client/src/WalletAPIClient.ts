@@ -5,6 +5,7 @@ import {
   Account,
   Currency,
   deserializeAccount,
+  DeviceTransport,
   Logger,
   RpcError,
   RpcErrorCode,
@@ -243,12 +244,9 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns An instance of Transport compatible with @ledgerhq/hw-transport
    */
-  async deviceTransport(params: {
-    /**
-     * Select the BOLOS App. If null selects BOLOS
-     */
-    appName?: string;
-  }): Promise<HWTransport> {
+  async deviceTransport(
+    params: DeviceTransport["params"]
+  ): Promise<HWTransport> {
     const deviceTransportResult = await this.request(
       "device.transport",
       params
