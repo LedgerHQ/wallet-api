@@ -40,9 +40,9 @@ export interface WalletHandlers {
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
   }) => Promisable<string>;
-  "device.close": (params: { deviceId: string }) => Promisable<string>;
+  "device.close": (params: { transportId: string }) => Promisable<string>;
   "device.exchange": (params: {
-    deviceId: string;
+    transportId: string;
     apduHex: string;
   }) => Promisable<string>;
   "device.transport": (params: {

@@ -23,12 +23,10 @@ export const close: RPCHandler<DeviceClose["result"]> = async (
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  const deviceId = await walletHandler({
-    deviceId: safeParams.deviceId,
-  });
+  const transportId = await walletHandler(safeParams);
 
   return {
-    deviceId,
+    transportId,
   };
 };
 
@@ -45,10 +43,7 @@ export const exchange: RPCHandler<DeviceExchange["result"]> = async (
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  const responseHex = await walletHandler({
-    apduHex: safeParams.apduHex,
-    deviceId: safeParams.deviceId,
-  });
+  const responseHex = await walletHandler(safeParams);
 
   return {
     responseHex,
@@ -68,11 +63,9 @@ export const transport: RPCHandler<DeviceTransport["result"]> = async (
     throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
   }
 
-  const deviceId = await walletHandler({
-    appName: safeParams.appName,
-  });
+  const transportId = await walletHandler(safeParams);
 
   return {
-    deviceId,
+    transportId,
   };
 };

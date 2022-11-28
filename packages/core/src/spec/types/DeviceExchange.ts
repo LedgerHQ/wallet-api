@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const schemaDeviceExchangeParams = z.object({
   apduHex: z.string(),
-  deviceId: z.string(),
+  transportId: z.string(),
 });
 
 const schemaDeviceExchangeResults = z.object({
