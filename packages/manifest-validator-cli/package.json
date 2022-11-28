@@ -1,0 +1,32 @@
+{
+  "name": "@ledgerhq/wallet-api-manifest-validator-cli",
+  "version": "0.1.0",
+  "description": "This package checks if your manifest.json file meets the requirements for Ledger wallet App manifest submission.",
+  "license": "MIT",
+  "files": [
+    "/bin"
+  ],
+  "scripts": {
+    "build": "rm -rf bin/* && tsc",
+    "format:check": "prettier --check \"src\"",
+    "format:fix": "prettier --write \"src\"",
+    "lint": "eslint --cache --ext .ts \"src\"",
+    "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
+    "validate": "node bin/cli.js"
+  },
+  "bin": {
+    "validate": "bin/cli.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node18-strictest": "^1.0.0",
+    "@types/node": "^18.11.8",
+    "eslint": "^8.26.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@ledgerhq/wallet-api-core": "workspace:*",
+    "@ledgerhq/wallet-api-manifest-validator": "workspace:*",
+    "clipanion": "3.2.0-rc.13"
+  }
+}
