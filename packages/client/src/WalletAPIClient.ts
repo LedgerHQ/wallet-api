@@ -5,6 +5,7 @@ import {
   Account,
   Currency,
   deserializeAccount,
+  DeviceType,
   Logger,
   RpcError,
   RpcErrorCode,
@@ -262,6 +263,10 @@ export class WalletAPIClient extends RpcNode<
      * Checks if the device is seeded. If undefined no checks
      */
     seeded?: boolean;
+    /**
+     * Checks if the device matches one of the types. If undefined no checks
+     */
+    devices?: DeviceType[];
   }): Promise<HWTransport> {
     const deviceTransportResult = await this.request(
       "device.transport",

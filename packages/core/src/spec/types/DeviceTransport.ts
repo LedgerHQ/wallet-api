@@ -1,10 +1,21 @@
 import { z } from "zod";
 
+const schemaDeviceType = z.enum([
+  "blue",
+  "nanoS",
+  "nanoSP",
+  "nanoX",
+  "nanoFTS",
+]);
+
+export type DeviceType = z.infer<typeof schemaDeviceType>;
+
 const schemaDeviceTransportParams = z.object({
   appName: z.string().optional(),
   appVersionRange: z.string().optional(),
   firmwareVersionRange: z.string().optional(),
   seeded: z.boolean().optional(),
+  devices: z.array(schemaDeviceType).optional(),
 });
 
 const schemaDeviceTransportResults = z.object({
