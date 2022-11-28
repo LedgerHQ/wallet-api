@@ -5,7 +5,7 @@ import {
   Account,
   Currency,
   deserializeAccount,
-  DeviceType,
+  DeviceTransport,
   Logger,
   RpcError,
   RpcErrorCode,
@@ -244,30 +244,9 @@ export class WalletAPIClient extends RpcNode<
    *
    * @returns An instance of Transport compatible with @ledgerhq/hw-transport
    */
-  async deviceTransport(params: {
-    /**
-     * Select the BOLOS App. If undefined selects BOLOS
-     */
-    appName?: string;
-    /**
-     * Checks the BOLOS App version range. If undefined no checks
-     * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
-     */
-    appVersionRange?: string;
-    /**
-     * Checks the BOLOS Firmware version range. If undefined no checks
-     * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
-     */
-    firmwareVersionRange?: string;
-    /**
-     * Checks if the device is seeded. If undefined no checks
-     */
-    seeded?: boolean;
-    /**
-     * Checks if the device matches one of the types. If undefined no checks
-     */
-    devices?: DeviceType[];
-  }): Promise<HWTransport> {
+  async deviceTransport(
+    params: DeviceTransport["params"]
+  ): Promise<HWTransport> {
     const deviceTransportResult = await this.request(
       "device.transport",
       params
