@@ -1,6 +1,9 @@
 import type {
   Account,
   Currency,
+  DeviceClose,
+  DeviceExchange,
+  DeviceTransport,
   Promisable,
   RpcRequest,
   Transaction,
@@ -40,14 +43,9 @@ export interface WalletHandlers {
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
   }) => Promisable<string>;
-  "device.close": (params: { transportId: string }) => Promisable<string>;
-  "device.exchange": (params: {
-    transportId: string;
-    apduHex: string;
-  }) => Promisable<string>;
-  "device.transport": (params: {
-    appName?: string | undefined;
-  }) => Promisable<string>;
+  "device.close": (params: DeviceClose["params"]) => Promisable<string>;
+  "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
+  "device.transport": (params: DeviceTransport["params"]) => Promisable<string>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
