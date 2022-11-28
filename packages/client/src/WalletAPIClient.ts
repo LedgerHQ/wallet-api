@@ -252,12 +252,12 @@ export class WalletAPIClient extends RpcNode<
      * Checks the BOLOS App version. If undefined no checks
      * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
      */
-    appVersion?: string;
+    appVersionRange?: string;
     /**
      * Checks the BOLOS Firmware version. If undefined no checks
      * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
      */
-    firmwareVersion?: string;
+    firmwareVersionRange?: string;
     /**
      * Checks if the device is seeded. If undefined no checks
      */
