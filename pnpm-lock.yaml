@@ -217,6 +217,7 @@ importers:
 
   packages/simulator:
     specifiers:
+      '@ledgerhq/hw-transport-http': ^6.27.7
       '@ledgerhq/wallet-api-client': workspace:*
       '@ledgerhq/wallet-api-core': workspace:*
       '@ledgerhq/wallet-api-server': workspace:*
@@ -234,6 +235,7 @@ importers:
       typescript: ^4.8.4
       ws: ^8.10.0
     dependencies:
+      '@ledgerhq/hw-transport-http': 6.27.7
       '@ledgerhq/wallet-api-client': link:../client
       '@ledgerhq/wallet-api-core': link:../core
       '@ledgerhq/wallet-api-server': link:../server
@@ -1372,8 +1374,35 @@ packages:
       semver: 7.3.8
     dev: false
 
+  /@ledgerhq/devices/7.0.4:
+    resolution: {integrity: sha512-smN5/38w/a/TRBjFuqZTs3aSiADpRx6EF0yyFYBbwj/itkw/xfAnGeYzgrUdccEk26yZypcIzjjyCk+wr6gKhw==}
+    dependencies:
+      '@ledgerhq/errors': 6.12.0
+      '@ledgerhq/logs': 6.10.1
+      rxjs: 6.6.7
+      semver: 7.3.8
+    dev: false
+
   /@ledgerhq/errors/6.11.1:
     resolution: {integrity: sha512-HT1PFvNrejcN5z3ba6xikacIdHWMkjBeE9U5FFoGHhaKBKGjC74mnCeEo0/oJunyuVId+9mhGnv6lrBl6Mkqdg==}
+    dev: false
+
+  /@ledgerhq/errors/6.12.0:
+    resolution: {integrity: sha512-gDUpXDz3Os4bK9tzqvwZtjXMCB8LQwNft1f3x6WrwIGuM4Wo5D6ccJDybw4rP9TOJ4qPbRcXFH4avzQGFvwWNA==}
+    dev: false
+
+  /@ledgerhq/hw-transport-http/6.27.7:
+    resolution: {integrity: sha512-wXAm8482pc60CecLZmfOYCITHiRFCzbPbEprUOnkSKB//WWNOcGQCQpftCcKA6yneJHRZsci4XJKBKwWFfTqJg==}
+    dependencies:
+      '@ledgerhq/errors': 6.12.0
+      '@ledgerhq/hw-transport': 6.27.7
+      '@ledgerhq/logs': 6.10.1
+      axios: 0.26.1
+      ws: 7.5.9
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - utf-8-validate
     dev: false
 
   /@ledgerhq/hw-transport/6.27.6:
@@ -1381,6 +1410,14 @@ packages:
     dependencies:
       '@ledgerhq/devices': 7.0.3
       '@ledgerhq/errors': 6.11.1
+      events: 3.3.0
+    dev: false
+
+  /@ledgerhq/hw-transport/6.27.7:
+    resolution: {integrity: sha512-VLgqUaQo0PkvSUWJgltD89Q4uj9VGvgwR9i8OBYem+4j0NyDXee7tRxIfGp7SaavzNrnrUh5lXtXQfjfjkMZRg==}
+    dependencies:
+      '@ledgerhq/devices': 7.0.4
+      '@ledgerhq/errors': 6.12.0
       events: 3.3.0
     dev: false
 
@@ -1907,6 +1944,14 @@ packages:
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
+
+  /axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /babel-jest/29.1.2_@babel+core@7.19.1:
     resolution: {integrity: sha512-IuG+F3HTHryJb7gacC7SQ59A9kO56BctUsT67uJHp1mMCHUOMXpDwOHWGifWqdWVknN2WNkCVQELPjXx0aLJ9Q==}
@@ -3025,6 +3070,16 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /form-data/4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
@@ -6184,6 +6239,19 @@ packages:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
     dev: true
+
+  /ws/7.5.9:
+    resolution: {integrity: sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==}
+    engines: {node: '>=8.3.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
 
   /ws/8.10.0:
     resolution: {integrity: sha512-+s49uSmZpvtAsd2h37vIPy1RBusaLawVe8of+GyEPsaJTCMpj/2v8NpeK1SHXjBlQ95lQTmQofOJnFiLoaN3yw==}
