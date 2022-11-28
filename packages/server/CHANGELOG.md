@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-server
 
+## 0.8.1
+
+### Patch Changes
+
+- [`acab9b3`](https://github.com/LedgerHQ/wallet-api/commit/acab9b31d1463fc792d4f467308b9036c82fff28) Thanks [@Justkant](https://github.com/Justkant)! - fix: missing params for device.transport
+
 ## 0.8.0
 
 ### Minor Changes
