@@ -12,11 +12,11 @@ import type { WalletAPIClient } from "./WalletAPIClient";
 export class TransportWalletAPI extends Transport {
   walletApi: WalletAPIClient;
 
-  deviceId: string;
+  transportId: string;
 
-  constructor(walletApi: WalletAPIClient, deviceId: string) {
+  constructor(walletApi: WalletAPIClient, transportId: string) {
     super();
-    this.deviceId = deviceId;
+    this.transportId = transportId;
     this.walletApi = walletApi;
   }
 
@@ -39,12 +39,12 @@ export class TransportWalletAPI extends Transport {
    */
   static override open({
     walletApi,
-    deviceId,
+    transportId,
   }: {
     walletApi: WalletAPIClient;
-    deviceId: string;
+    transportId: string;
   }): Promise<Transport> {
-    return Promise.resolve(new TransportWalletAPI(walletApi, deviceId));
+    return Promise.resolve(new TransportWalletAPI(walletApi, transportId));
   }
 
   /**
@@ -58,7 +58,7 @@ export class TransportWalletAPI extends Transport {
     const deviceExchangeResult = await this.walletApi.request(
       "device.exchange",
       {
-        deviceId: this.deviceId,
+        transportId: this.transportId,
         apduHex,
       }
     );
@@ -79,7 +79,7 @@ export class TransportWalletAPI extends Transport {
 
   override async close(): Promise<void> {
     const deviceCloseResult = await this.walletApi.request("device.close", {
-      deviceId: this.deviceId,
+      transportId: this.transportId,
     });
 
     if ("error" in deviceCloseResult) {
@@ -88,7 +88,7 @@ export class TransportWalletAPI extends Transport {
 
     schemaDeviceClose.result.parse(deviceCloseResult.result);
 
-    // Should we check the deviceId against the one from the class
+    // Should we check the transportId against the one from the class
     // and throw an error in case of mismatch ?
   }
 }

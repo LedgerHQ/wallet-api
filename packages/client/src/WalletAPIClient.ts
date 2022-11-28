@@ -264,7 +264,7 @@ export class WalletAPIClient extends RpcNode<
 
     return TransportWalletAPI.open({
       walletApi: this,
-      deviceId: safeResults.deviceId,
+      transportId: safeResults.transportId,
     });
   }
 

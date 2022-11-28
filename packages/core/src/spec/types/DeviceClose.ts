@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 const schemaDeviceCloseParams = z.object({
-  deviceId: z.string(),
+  transportId: z.string(),
 });
 
 const schemaDeviceCloseResults = z.object({
-  deviceId: z.string(),
+  transportId: z.string(),
 });
 
 export const schemaDeviceClose = {

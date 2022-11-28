@@ -5,7 +5,7 @@ const schemaDeviceTransportParams = z.object({
 });
 
 const schemaDeviceTransportResults = z.object({
-  deviceId: z.string(),
+  transportId: z.string(),
 });
 
 export const schemaDeviceTransport = {
