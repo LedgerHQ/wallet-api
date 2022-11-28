@@ -2,6 +2,9 @@ import { z } from "zod";
 
 const schemaDeviceTransportParams = z.object({
   appName: z.string().optional(),
+  appVersion: z.string().optional(),
+  firmwareVersion: z.string().optional(),
+  seeded: z.boolean().optional(),
 });
 
 const schemaDeviceTransportResults = z.object({

@@ -245,9 +245,23 @@ export class WalletAPIClient extends RpcNode<
    */
   async deviceTransport(params: {
     /**
-     * Select the BOLOS App. If null selects BOLOS
+     * Select the BOLOS App. If undefined selects BOLOS
      */
     appName?: string;
+    /**
+     * Checks the BOLOS App version. If undefined no checks
+     * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
+     */
+    appVersion?: string;
+    /**
+     * Checks the BOLOS Firmware version. If undefined no checks
+     * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
+     */
+    firmwareVersion?: string;
+    /**
+     * Checks if the device is seeded. If undefined no checks
+     */
+    seeded?: boolean;
   }): Promise<HWTransport> {
     const deviceTransportResult = await this.request(
       "device.transport",
