@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-simulator
 
+## 0.7.2
+
+### Patch Changes
+
+- [`3994b91`](https://github.com/LedgerHQ/wallet-api/commit/3994b9155f57a1ac3e762be0db67d06f6016cff8) Thanks [@Justkant](https://github.com/Justkant)! - fix: export the new device profile
+
 ## 0.7.1
 
 ### Patch Changes
