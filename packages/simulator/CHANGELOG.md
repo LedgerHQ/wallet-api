@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-simulator
 
+## 0.7.1
+
+### Patch Changes
+
+- [`a9af533`](https://github.com/LedgerHQ/wallet-api/commit/a9af533917ef6da10c74783a9c04356eb3d93ddc) Thanks [@Justkant](https://github.com/Justkant)! - fix: use transportId instead deviceId
+
 ## 0.7.0
 
 ### Minor Changes
