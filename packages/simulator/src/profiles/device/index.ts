@@ -32,25 +32,23 @@ export const deviceProfile: SimulatorProfile = {
       transport = await httpTransport.create(3000, 5000);
       return "1";
     },
-    "device.exchange": async ({ apduHex, deviceId }) => {
+    "device.exchange": async ({ apduHex, transportId }) => {
       if (!transport) {
         throw new Error("No open transport to close");
       }
-      if (deviceId !== "1") {
-        // We should probably rename deviceId to transportId
-        throw new Error("No transport open with this deviceId");
+      if (transportId !== "1") {
+        throw new Error("No transport open with this transportId");
       }
       return (await transport.exchange(Buffer.from(apduHex, "hex"))).toString(
         "hex"
       );
     },
-    "device.close": async ({ deviceId }) => {
+    "device.close": async ({ transportId }) => {
       if (!transport) {
         throw new Error("No open transport to close");
       }
-      if (deviceId !== "1") {
-        // We should probably rename deviceId to transportId
-        throw new Error("No transport open with this deviceId");
+      if (transportId !== "1") {
+        throw new Error("No transport open with this transportId");
       }
       await transport.close();
       transport = undefined;
