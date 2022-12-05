@@ -72,6 +72,6 @@
   {
     "kind": 2,
     "language": "github-issues",
-    "value": "$TEAM=LedgerHQ/live-platform-and-services\n\n// repo we own\n$REPOS=repo:LedgerHQ/ledger-live-wagmi-connector repo:LedgerHQ/live-app-sdk repo:LedgerHQ/wallet-connect-live-app repo:LedgerHQ/eth-dapp-browser repo:LedgerHQ/cra-template-live-app repo:LedgerHQ/platform-app-debug repo:LedgerHQ/platform-app-test-exchange repo:LedgerHQ/platform-app-web-browser repo:LedgerHQ/manifest-api repo:LedgerHQ/eth-dapp-browser-test-dapp repo:LedgerHQ/platform-app-coinify repo:LedgerHQ/iframe-provider repo:LedgerHQ/wallet-api"
+    "value": "$TEAM=LedgerHQ/wallet-api\n\n// repo we own\n$REPOS=repo:LedgerHQ/ledger-live-wagmi-connector repo:LedgerHQ/live-app-sdk repo:LedgerHQ/wallet-connect-live-app repo:LedgerHQ/eth-dapp-browser repo:LedgerHQ/cra-template-live-app repo:LedgerHQ/platform-app-debug repo:LedgerHQ/platform-app-test-exchange repo:LedgerHQ/platform-app-web-browser repo:LedgerHQ/manifest-api repo:LedgerHQ/eth-dapp-browser-test-dapp repo:LedgerHQ/platform-app-coinify repo:LedgerHQ/iframe-provider repo:LedgerHQ/wallet-api"
   }
 ]
