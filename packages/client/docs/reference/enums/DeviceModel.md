@@ -1,4 +1,4 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / DeviceModel
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / DeviceModel
 
 # Enumeration: DeviceModel
 
@@ -14,34 +14,34 @@
 
 ### Blue
 
-• **Blue**
+• **Blue** = ``"blue"``
 
 Represents the Ledger Blue hardware device
 
 #### Defined in
 
-[types.ts:120](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L120)
+packages/core/lib/types/index.d.ts:29
 
 ___
 
 ### NanoS
 
-• **NanoS**
+• **NanoS** = ``"nanoS"``
 
 Represents the Ledger Nano S hardware device
 
 #### Defined in
 
-[types.ts:124](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L124)
+packages/core/lib/types/index.d.ts:33
 
 ___
 
 ### NanoX
 
-• **NanoX**
+• **NanoX** = ``"nanoX"``
 
 Represents the Ledger Nano X hardware device
 
 #### Defined in
 
-[types.ts:128](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L128)
+packages/core/lib/types/index.d.ts:37

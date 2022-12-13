@@ -1,4 +1,4 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / FeesLevel
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / FeesLevel
 
 # Enumeration: FeesLevel
 
@@ -16,28 +16,28 @@ Abstract level of fees for a transaction
 
 ### Fast
 
-• **Fast**
+• **Fast** = ``"fast"``
 
 #### Defined in
 
-[types.ts:66](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L66)
+packages/core/lib/types/index.d.ts:23
 
 ___
 
 ### Medium
 
-• **Medium**
+• **Medium** = ``"medium"``
 
 #### Defined in
 
-[types.ts:65](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L65)
+packages/core/lib/types/index.d.ts:22
 
 ___
 
 ### Slow
 
-• **Slow**
+• **Slow** = ``"slow"``
 
 #### Defined in
 
-[types.ts:64](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L64)
+packages/core/lib/types/index.d.ts:21

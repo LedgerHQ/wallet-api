@@ -1,10 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / Transport
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / Transport
 
 # Interface: Transport
 
 A transport protocol used to communicate with the Ledger Live platform
-
-**`alpha`**
 
 ## Implemented by
 
@@ -18,8 +16,6 @@ A transport protocol used to communicate with the Ledger Live platform
 
 ### Methods
 
-- [connect](Transport.md#connect)
-- [disconnect](Transport.md#disconnect)
 - [send](Transport.md#send)
 
 ## Properties
@@ -32,45 +28,13 @@ A function to handle new messages coming from the Ledger Live platform
 
 #### Defined in
 
-[types.ts:37](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L37)
+packages/core/lib/transports/types.d.ts:16
 
 ## Methods
 
-### connect
-
-▸ **connect**(): `void`
-
-Connect the transport instance
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[types.ts:29](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L29)
-
-___
-
-### disconnect
-
-▸ **disconnect**(): `void`
-
-Disconnect the transport instance
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[types.ts:33](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L33)
-
-___
-
 ### send
 
-▸ **send**(`payload`): `Promise`<`void`\>
+▸ **send**(`message`): `void`
 
 A function to send new messages to the Ledger Live platform
 
@@ -78,12 +42,12 @@ A function to send new messages to the Ledger Live platform
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | `unknown` |
+| `message` | `string` |
 
 #### Returns
 
-`Promise`<`void`\>
+`void`
 
 #### Defined in
 
-[types.ts:41](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L41)
+packages/core/lib/transports/types.d.ts:20

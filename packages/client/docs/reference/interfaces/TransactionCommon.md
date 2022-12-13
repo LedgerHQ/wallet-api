@@ -1,4 +1,4 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / TransactionCommon
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / TransactionCommon
 
 # Interface: TransactionCommon
 
@@ -8,15 +8,15 @@ Common fields for all cryptocurrency transactions
 
 - **`TransactionCommon`**
 
-  ↳ [`EthereumTransaction`](EthereumTransaction.md)
+  ↳ [`AlgorandTransaction`](AlgorandTransaction.md)
 
   ↳ [`BitcoinTransaction`](BitcoinTransaction.md)
-
-  ↳ [`AlgorandTransaction`](AlgorandTransaction.md)
 
   ↳ [`CosmosTransaction`](CosmosTransaction.md)
 
   ↳ [`CryptoOrgTransaction`](CryptoOrgTransaction.md)
+
+  ↳ [`EthereumTransaction`](EthereumTransaction.md)
 
   ↳ [`PolkadotTransaction`](PolkadotTransaction.md)
 
@@ -33,6 +33,7 @@ Common fields for all cryptocurrency transactions
 ### Properties
 
 - [amount](TransactionCommon.md#amount)
+- [family](TransactionCommon.md#family)
 - [recipient](TransactionCommon.md#recipient)
 
 ## Properties
@@ -46,7 +47,19 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
+
+___
+
+### family
+
+• **family**: ``"algorand"`` \| ``"bitcoin"`` \| ``"cosmos"`` \| ``"crypto_org"`` \| ``"ethereum"`` \| ``"polkadot"`` \| ``"ripple"`` \| ``"stellar"`` \| ``"tezos"`` \| ``"tron"``
+
+The family of the transaction
+
+#### Defined in
+
+packages/core/lib/families/types.d.ts:32
 
 ___
 
@@ -58,4 +71,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41

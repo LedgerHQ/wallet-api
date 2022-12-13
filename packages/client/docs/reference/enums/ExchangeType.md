@@ -1,4 +1,4 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / ExchangeType
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / ExchangeType
 
 # Enumeration: ExchangeType
 
@@ -16,28 +16,28 @@ Enum describing the different types of exchanges.
 
 ### FUND
 
-• **FUND**
+• **FUND** = ``2``
 
 #### Defined in
 
-[types.ts:151](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L151)
+packages/core/lib/types/index.d.ts:58
 
 ___
 
 ### SELL
 
-• **SELL**
+• **SELL** = ``1``
 
 #### Defined in
 
-[types.ts:150](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L150)
+packages/core/lib/types/index.d.ts:57
 
 ___
 
 ### SWAP
 
-• **SWAP**
+• **SWAP** = ``0``
 
 #### Defined in
 
-[types.ts:149](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L149)
+packages/core/lib/types/index.d.ts:56
