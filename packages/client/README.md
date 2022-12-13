@@ -1,6 +1,6 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
- <h2 align="center">Live App SDK</h2>
+ <h2 align="center">WalletAPI Client SDK</h2>
  <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
   <p align="center">
