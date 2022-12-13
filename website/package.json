@@ -1,6 +1,6 @@
 {
-  "name": "documentation",
-  "version": "0.0.1",
+  "name": "wallet-api-website",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
