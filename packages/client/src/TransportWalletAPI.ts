@@ -51,6 +51,7 @@ export class TransportWalletAPI extends Transport {
    * Exchange with the device using APDU protocol.
    * @param apdu
    * @returns a promise of apdu response
+   * @throws {@link RpcError} if an error occured on server side
    */
   override async exchange(apdu: Buffer): Promise<Buffer> {
     const apduHex = apdu.toString("hex");
@@ -77,6 +78,11 @@ export class TransportWalletAPI extends Transport {
   // eslint-disable-next-line class-methods-use-this
   override setScrambleKey() {}
 
+  /**
+   * Close the current transport communication.
+   *
+   * @throws {@link RpcError} if an error occured on server side
+   */
   override async close(): Promise<void> {
     const deviceCloseResult = await this.walletApi.request("device.close", {
       transportId: this.transportId,

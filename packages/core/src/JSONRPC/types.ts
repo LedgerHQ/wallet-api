@@ -1,3 +1,7 @@
+/**
+ * Error code that may occur during WalletAPI server communication
+ * @enum
+ */
 export enum RpcErrorCode {
   /**
    * Invalid JSON was received by the server.
