@@ -62,7 +62,7 @@
     "apiVersion": {
       "type": "string"
     },
-    "manifestVersion": {
+    "version": {
       "const": 2,
       "errorMessage": "The manifest version. Should be 2"
     },
@@ -277,7 +277,7 @@
     "type",
     "platform",
     "apiVersion",
-    "manifestVersion",
+    "version",
     "categories",
     "currencies",
     "content",

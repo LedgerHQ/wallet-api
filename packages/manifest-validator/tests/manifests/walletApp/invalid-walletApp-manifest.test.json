@@ -12,7 +12,7 @@
   "icon": "https://cdn.live.ledger.com/icons/platform/alkemi.png",
   "platform": "all",
   "apiVersion": "^1.0.0 || ~0.0.1",
-  "manifestVersion": 2,
+  "version": 2,
   "currencies": ["ethereum"],
   "content": {
     "shortDescription": "Earn high yields on your assets with our professional DeFi borrowing and lending platform.",
