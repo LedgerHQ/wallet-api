@@ -90,26 +90,6 @@ Automatically fix code quality problems with
 pnpm lint:fix
 ```
 
-# Documentation
-
-You can generate the project's documentation, either in `html` or in `markdown`.
-
-For `markdown` use:
-
-```bash
-pnpm doc
-```
-
-For `html` use:
-
-```bash
-pnpm doc:html
-```
-
-The documentation will be generated in a `docs/reference` or `docs/html` folder depending on the chosen format.
-
-You can find the entrypoint to the generated doc [here](./docs/reference/modules.md).
-
 ---
 
 [We are hiring, join us! 🚀](https://www.ledger.com/join-us)

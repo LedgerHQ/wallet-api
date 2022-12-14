@@ -1,10 +1,8 @@
-## Import the manifest in Ledger Live
-
----
+# Import the manifest in Ledger Live
 
 If not done already, you must have Ledger Live Desktop installed on your computer. Head over to the [download page](https://www.ledger.com/ledger-live/download) to get started.
 
-You also need your Ledger Device (Nano S or X) in order to access Ledger Live. 
+You also need your Ledger Device (Nano S or X) in order to access Ledger Live.
 
 In order to add a local manifest to Ledger Live and run a not yet available Live App, you must enable the Developer mode.
 
@@ -25,7 +23,3 @@ You will then see a new row in the menu with the name of your Live App.
 ![local-app](./assets/3-4-local-app.png)
 
 Now that you have added your Live App in your local Ledger Live application, it’s time to open it and test it. We’ll see this in the next section.
-
----
-
-⬅️ &nbsp;[Previous](./2-manifest.md) | [Next](./4-test.md)&nbsp;➡️

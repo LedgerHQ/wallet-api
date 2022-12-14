@@ -1,6 +1,4 @@
-## Test the Live App
-
----
+# Test the Live App
 
 Before proceeding with the following steps, make sure you have at least one Ethereum account created. Head over to [this page](https://support.ledger.com/hc/en-us/articles/4404389482641-Add-your-accounts?docs=true) for more informations regarding the procedure to add a cryptoasset account inside of Ledger Live.
 
@@ -19,7 +17,3 @@ Finally, click on the **Request account** button in the Live App, this will prom
 Once you have selected an account, you will see the associated account’s informations prompted in the developer tools console opened previously.
 
 ![test-local-app](./assets/4-3-result-console.png)
-
----
-
-⬅️ &nbsp;[Previous](./3-import.md) | [Next](./conclusion.md)&nbsp;➡️

@@ -1,6 +1,4 @@
-## Create a manifest
-
----
+# Create a manifest
 
 Now that you have created your Live App, let’s create the associated manifest.
 
@@ -43,7 +41,3 @@ We won’t go too much into the details of each field in this tutorial (check ou
 The main thing you have to care about for now is the `url` field, it must match the url of your Live App. Here it is set at `http://localhost:3000` because we are currently running our app in local for development and test purposes.
 
 Now that we have our Live App manifest, we need to add it into Ledger Live, this is what we will see in the next section.
-
----
-
-⬅️ &nbsp;[Previous](./1-setup.md) | [Next](./3-import.md)&nbsp;➡️

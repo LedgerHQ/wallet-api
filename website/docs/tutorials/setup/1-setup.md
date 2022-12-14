@@ -1,6 +1,4 @@
-## Setup a new Live App project
-
----
+# Setup a new Live App project
 
 The first step is to create a new project using the `live-app-sdk`. To do so, we will use the [`live-app` Create React App template](https://www.npmjs.com/package/@ledgerhq/cra-template-live-app) in order to bootstrap a React TypeScript web app initialized with the `live-app-sdk`.
 
@@ -30,7 +28,3 @@ This app is a basic CRA web app. If you are familiar with React and CRA, you wil
 If you click on the “Request account” button, you will see that nothing happens. This is normal because to interact with Ledger Live (here, request an account), your Live App needs to be able to communicate with the Ledger Live platform. Hence Ledger Live needs to be made aware of your Live App.
 
 This is done through a `manifest` file that we will create in the next section.
-
----
-
-⬅️ &nbsp;[Previous](./prerequisites.md) | [Next](./2-manifest.md)&nbsp;➡️
