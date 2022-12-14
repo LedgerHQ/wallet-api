@@ -3,6 +3,7 @@
  <h2 align="center">WalletAPI Client SDK</h2>
  <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
+ <p align="center">
   <p align="center">
     <a href="https://www.npmjs.com/package/@ledgerhq/wallet-api-client?activeTab=versions">
       <img src="https://img.shields.io/npm/v/@ledgerhq/wallet-api-client.svg?style=flat-square" />
