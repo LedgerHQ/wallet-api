@@ -25,6 +25,26 @@ const config = {
     locales: ["en"],
   },
 
+  plugins: [
+    [
+      "docusaurus-plugin-typedoc",
+      {
+        id: "api-client",
+        // TypeDoc options
+        entryPoints: ["../packages/client/src/index.ts"],
+        tsconfig: "../packages/client/tsconfig.json",
+        plugin: ["typedoc-plugin-rename-defaults"],
+        readme: "none",
+
+        // Plugin options
+        out: "reference/api/client",
+        sidebar: {
+          categoryLabel: "Client",
+        },
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
