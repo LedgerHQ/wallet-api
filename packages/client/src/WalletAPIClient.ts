@@ -12,6 +12,7 @@ import {
   RpcNode,
   RpcRequest,
   schemaAccountList,
+  schemaAccountReceive,
   schemaAccountRequest,
   schemaCurrencyList,
   schemaDeviceTransport,
@@ -205,6 +206,29 @@ export class WalletAPIClient extends RpcNode<
     );
 
     return deserializeAccount(safeResults.rawAccount);
+  }
+
+  /**
+   * Let user verify it's account address on his device through Ledger Live
+   *
+   * @param accountId - id of the account
+   *
+   * @returns The verified address or an error message if the verification doesn't succeed
+   */
+  async receive(accountId: string): Promise<string> {
+    const receiveAccountsResult = await this.request("account.receive", {
+      accountId,
+    });
+
+    if ("error" in receiveAccountsResult) {
+      throw new RpcError(receiveAccountsResult.error);
+    }
+
+    const safeResults = schemaAccountReceive.result.parse(
+      receiveAccountsResult.result
+    );
+
+    return safeResults.address;
   }
 
   /**
