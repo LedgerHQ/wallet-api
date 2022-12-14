@@ -43,11 +43,11 @@
 Please read our [contribution guidelines](./CONTRIBUTING.md) before getting started.
 
 **You need to have a recent [Node.js](https://nodejs.org/) and
-[Pnpm](https://pnpm.io/) installed.**
+[pnPM](https://pnpm.io/) installed.**
 
 ### Install dependencies
 
-The dependencies should be install from the root directory
+The dependencies should be installed from the root directory
 
 ```bash
 pnpm i
@@ -108,19 +108,6 @@ pnpm doc:html
 The documentation will be generated in a `docs/reference` or `docs/html` folder depending on the chosen format.
 
 You can find the entrypoint to the generated doc [here](./docs/reference/modules.md).
-
-# Publish
-
-This generated package is hosted on NPM [here](https://www.npmjs.com/package/@ledgerhq/live-app-sdk).
-
-⚠️ Publishing can only be performed by members of the [_ledgerhq_ organization](https://www.npmjs.com/org/ledgerhq) having the necessary rights to push to `main` branch ⚠️
-
-In order to publish a new version of this package, please refer to the following steps:
-
-- create and setup you `npm` account (cf. [npm doc](https://docs.npmjs.com/creating-a-new-npm-user-account)) (you must be part of the [_ledgerhq_ organization](https://www.npmjs.com/org/ledgerhq) to publish)
-- run `pnpm publish` (cf. [doc](https://classic.yarnpkg.com/en/docs/cli/publish/)) on the commit / branch you want to publish (usually the `main` branch) (you will have to specify the new package version, following [semver](https://semver.org/) standard)
-- this will update the version in `package.json`, create a new bump commit, a new tag with the latests version and publish the updated package to npm
-- don't forget to push this newly generated commit as well as the tag (you must have the necessary rights to push to `main`)
 
 ---
 
