@@ -17,8 +17,6 @@ import {
   schemaCurrencyList,
   schemaDeviceTransport,
   schemaMessageSign,
-  schemaStorageGet,
-  schemaStorageSet,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
   schemaWalletCapabilities,
@@ -29,6 +27,7 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { Storage } from "./modules/Storage";
 import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -49,11 +48,14 @@ export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
   WalletHandlers
 > {
+  public storage: Storage;
+
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
+    this.storage = new Storage(this);
   }
 
   protected onRequest(request: RpcRequest) {
@@ -328,36 +330,5 @@ export class WalletAPIClient extends RpcNode<
     );
 
     return safeResults.methodIds;
-  }
-
-  async get(key: string, storeId?: string): Promise<string | undefined> {
-    const storageGetResult = await this.request("storage.get", {
-      key,
-      storeId,
-    });
-
-    if ("error" in storageGetResult) {
-      throw new RpcError(storageGetResult.error);
-    }
-
-    const safeResults = schemaStorageGet.result.parse(storageGetResult.result);
-
-    return safeResults.value;
-  }
-
-  async set(key: string, value: string, storeId?: string) {
-    const storageSetResult = await this.request("storage.set", {
-      key,
-      value,
-      storeId,
-    });
-
-    if ("error" in storageSetResult) {
-      throw new RpcError(storageSetResult.error);
-    }
-
-    const safeResults = schemaStorageSet.result.parse(storageSetResult.result);
-
-    return safeResults;
   }
 }

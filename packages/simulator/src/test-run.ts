@@ -12,12 +12,6 @@ async function main() {
   await client.listCurrencies();
   await client.requestAccount();
 
-  let val = await client.get("test");
-  console.log({ val });
-  await client.set("test", "value1");
-  val = await client.get("test");
-  console.log({ val });
-
   const capabilities = await client.capabilities();
 
   console.log(capabilities);
