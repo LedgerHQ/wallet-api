@@ -44,23 +44,23 @@ const config = {
         },
       },
     ],
-    // [
-    //   "docusaurus-plugin-typedoc",
-    //   {
-    //     id: "api-server",
-    //     // TypeDoc options
-    //     entryPoints: ["../packages/server/src/index.ts"],
-    //     tsconfig: "../packages/server/tsconfig.json",
-    //     plugin: ["typedoc-plugin-rename-defaults"],
-    //     readme: "none",
+    [
+      "docusaurus-plugin-typedoc",
+      {
+        id: "api-server",
+        // TypeDoc options
+        entryPoints: ["../packages/server/src/index.ts"],
+        tsconfig: "../packages/server/tsconfig.json",
+        plugin: ["typedoc-plugin-rename-defaults"],
+        readme: "none",
 
-    //     // Plugin options
-    //     out: "reference/api/server",
-    //     sidebar: {
-    //       categoryLabel: "Server",
-    //     },
-    //   },
-    // ],
+        // Plugin options
+        out: "reference/api/server",
+        sidebar: {
+          categoryLabel: "Server",
+        },
+      },
+    ],
   ],
 
   presets: [
