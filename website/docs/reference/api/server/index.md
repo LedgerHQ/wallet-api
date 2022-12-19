@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L70)
+[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L70)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L62)
+[server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:20](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L20)
+[server/src/types.ts:20](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L20)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:58](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L58)
+[server/src/types.ts:58](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L58)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:15](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L15)
+[server/src/types.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L15)
 
 ## Variables
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[server/src/errors.ts:8](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/errors.ts#L8)
+[server/src/errors.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L8)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[server/src/errors.ts:13](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/errors.ts#L13)
+[server/src/errors.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L13)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[server/src/errors.ts:3](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/errors.ts#L3)
+[server/src/errors.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L3)
 
 ___
 
@@ -146,4 +146,4 @@ ___
 
 #### Defined in
 
-[server/src/errors.ts:18](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/errors.ts#L18)
+[server/src/errors.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L18)

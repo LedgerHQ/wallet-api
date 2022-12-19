@@ -29,7 +29,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:31](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L31)
+[server/src/types.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L31)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:27](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L27)
+[server/src/types.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L27)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:46](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L46)
+[server/src/types.ts:46](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L46)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L47)
+[server/src/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L47)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L48)
+[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L32)
+[server/src/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L32)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:36](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L36)
+[server/src/types.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L36)
 
 ___
 
@@ -217,4 +217,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:41](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/types.ts#L41)
+[server/src/types.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L41)

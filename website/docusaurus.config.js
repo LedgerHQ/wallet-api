@@ -53,6 +53,7 @@ const config = {
         tsconfig: "../packages/server/tsconfig.json",
         plugin: ["typedoc-plugin-rename-defaults"],
         readme: "none",
+        gitRevision: "main",
 
         // Plugin options
         out: "reference/api/server",

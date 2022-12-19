@@ -22,10 +22,10 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Parameters
 
-| Name        | Type                                      | Default value   |
-| :---------- | :---------------------------------------- | :-------------- |
-| `transport` | [`Transport`](../interfaces/Transport.md) | `undefined`     |
-| `logger`    | `Logger`                                  | `defaultLogger` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `transport` | [`Transport`](../interfaces/Transport.md) | `undefined` |
+| `logger` | `Logger` | `defaultLogger` |
 
 #### Overrides
 
@@ -33,7 +33,7 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L48)
+[packages/client/src/WalletAPIClient.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L52)
 
 ## Properties
 
@@ -43,9 +43,9 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:46](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L46)
+[packages/client/src/WalletAPIClient.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L50)
 
----
+___
 
 ### requestHandlers
 
@@ -53,8 +53,8 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Type declaration
 
-| Name                    | Type                                                                                                  |
-| :---------------------- | :---------------------------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `event.account.updated` | (`_request`: [`RpcRequest`](../interfaces/RpcRequest.md)<`string`, `unknown`\>) => `Promise`<`void`\> |
 
 #### Inherited from
@@ -77,7 +77,7 @@ List the wallet's implemented methodIds
 
 [RpcError](RpcError.md) if an error occured on server side
 
-Filtering not yet implemented
+ Filtering not yet implemented
 
 #### Returns
 
@@ -87,9 +87,9 @@ The list of implemented method ids
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:276](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L276)
+[packages/client/src/WalletAPIClient.ts:314](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L314)
 
----
+___
 
 ### deviceTransport
 
@@ -103,14 +103,14 @@ Open low-level transport in the connected wallet
 
 #### Parameters
 
-| Name                           | Type                                                                                                                            | Description              |
-| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------ | :----------------------- |
-| `params`                       | `Object`                                                                                                                        | Params for the transport |
-| `params.appName?`              | `string`                                                                                                                        | -                        |
-| `params.appVersionRange?`      | `string`                                                                                                                        | -                        |
-| `params.devices?`              | [`"blue"` \| `"nanoS"` \| `"nanoSP"` \| `"nanoX"` \| `"nanoFTS"`, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] | -                        |
-| `params.firmwareVersionRange?` | `string`                                                                                                                        | -                        |
-| `params.seeded?`               | `boolean`                                                                                                                       | -                        |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | Params for the transport |
+| `params.appName?` | `string` | - |
+| `params.appVersionRange?` | `string` | - |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] | - |
+| `params.firmwareVersionRange?` | `string` | - |
+| `params.seeded?` | `boolean` | - |
 
 #### Returns
 
@@ -120,9 +120,9 @@ An instance of Transport compatible with @ledgerhq/hw-transport
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:247](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L247)
+[packages/client/src/WalletAPIClient.ts:284](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L284)
 
----
+___
 
 ### listAccounts
 
@@ -136,9 +136,9 @@ List accounts added by user on the connected wallet
 
 #### Parameters
 
-| Name                  | Type       | Description                                                  |
-| :-------------------- | :--------- | :----------------------------------------------------------- |
-| `params?`             | `Object`   | Filters for currencies                                       |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params?` | `Object` | Filters for currencies |
 | `params.currencyIds?` | `string`[] | Select a set of currencies by id to filter accounts against. |
 
 #### Returns
@@ -149,13 +149,13 @@ The list of accounts on the connected wallet
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:161](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L161)
+[packages/client/src/WalletAPIClient.ts:172](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L172)
 
----
+___
 
 ### listCurrencies
 
-▸ **listCurrencies**(`params?`): `Promise`<({ `color`: `string` ; `decimals`: `number` ; `family`: `"algorand"` \| `"bitcoin"` \| `"cosmos"` \| `"crypto_org"` \| `"ethereum"` \| `"polkadot"` \| `"ripple"` \| `"stellar"` \| `"tezos"` \| `"tron"` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: `"CryptoCurrency"` } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: `"ERC20"` ; `ticker`: `string` ; `type`: `"TokenCurrency"` })[]\>
+▸ **listCurrencies**(`params?`): `Promise`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"algorand"`` \| ``"bitcoin"`` \| ``"cosmos"`` \| ``"crypto_org"`` \| ``"ethereum"`` \| ``"polkadot"`` \| ``"ripple"`` \| ``"stellar"`` \| ``"tezos"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>
 
 List cryptocurrencies supported by the connected wallet, providing filters by name or ticker
 
@@ -163,26 +163,26 @@ List cryptocurrencies supported by the connected wallet, providing filters by na
 
 [RpcError](RpcError.md) if an error occured on server side
 
-Filtering not yet implemented
+ Filtering not yet implemented
 
 #### Parameters
 
-| Name                  | Type       | Description                                          |
-| :-------------------- | :--------- | :--------------------------------------------------- |
-| `params?`             | `Object`   | Filters for currencies                               |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params?` | `Object` | Filters for currencies |
 | `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled |
 
 #### Returns
 
-`Promise`<({ `color`: `string` ; `decimals`: `number` ; `family`: `"algorand"` \| `"bitcoin"` \| `"cosmos"` \| `"crypto_org"` \| `"ethereum"` \| `"polkadot"` \| `"ripple"` \| `"stellar"` \| `"tezos"` \| `"tron"` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: `"CryptoCurrency"` } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: `"ERC20"` ; `ticker`: `string` ; `type`: `"TokenCurrency"` })[]\>
+`Promise`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"algorand"`` \| ``"bitcoin"`` \| ``"cosmos"`` \| ``"crypto_org"`` \| ``"ethereum"`` \| ``"polkadot"`` \| ``"ripple"`` \| ``"stellar"`` \| ``"tezos"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>
 
 The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:219](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L219)
+[packages/client/src/WalletAPIClient.ts:255](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L255)
 
----
+___
 
 ### notify
 
@@ -190,15 +190,15 @@ The list of corresponding cryptocurrencies
 
 #### Type parameters
 
-| Name | Type                                                              |
-| :--- | :---------------------------------------------------------------- |
-| `K`  | extends keyof [`WalletHandlers`](../interfaces/WalletHandlers.md) |
+| Name | Type |
+| :------ | :------ |
+| `K` | extends keyof [`WalletHandlers`](../interfaces/WalletHandlers.md) |
 
 #### Parameters
 
-| Name     | Type                                                                              |
-| :------- | :-------------------------------------------------------------------------------- |
-| `method` | `K`                                                                               |
+| Name | Type |
+| :------ | :------ |
+| `method` | `K` |
 | `params` | `MethodParamsIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\> |
 
 #### Returns
@@ -213,7 +213,7 @@ The list of corresponding cryptocurrencies
 
 packages/core/lib/JSONRPC/RpcNode.d.ts:15
 
----
+___
 
 ### onRequest
 
@@ -221,8 +221,8 @@ packages/core/lib/JSONRPC/RpcNode.d.ts:15
 
 #### Parameters
 
-| Name      | Type                                                              |
-| :-------- | :---------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `request` | [`RpcRequest`](../interfaces/RpcRequest.md)<`string`, `unknown`\> |
 
 #### Returns
@@ -235,9 +235,33 @@ packages/core/lib/JSONRPC/RpcNode.d.ts:15
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L53)
+[packages/client/src/WalletAPIClient.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L57)
 
----
+___
+
+### receive
+
+▸ **receive**(`accountId`): `Promise`<`string`\>
+
+Let user verify it's account address on his device through Ledger Live
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `accountId` | `string` | id of the account |
+
+#### Returns
+
+`Promise`<`string`\>
+
+The verified address or an error message if the verification doesn't succeed
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:229](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L229)
+
+___
 
 ### request
 
@@ -245,16 +269,16 @@ packages/core/lib/JSONRPC/RpcNode.d.ts:15
 
 #### Type parameters
 
-| Name     | Type                                                              |
-| :------- | :---------------------------------------------------------------- |
-| `K`      | extends keyof [`WalletHandlers`](../interfaces/WalletHandlers.md) |
-| `TError` | `unknown`                                                         |
+| Name | Type |
+| :------ | :------ |
+| `K` | extends keyof [`WalletHandlers`](../interfaces/WalletHandlers.md) |
+| `TError` | `unknown` |
 
 #### Parameters
 
-| Name     | Type                                                                              |
-| :------- | :-------------------------------------------------------------------------------- |
-| `method` | `K`                                                                               |
+| Name | Type |
+| :------ | :------ |
+| `method` | `K` |
 | `params` | `MethodParamsIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\> |
 
 #### Returns
@@ -269,7 +293,7 @@ packages/core/lib/JSONRPC/RpcNode.d.ts:15
 
 packages/core/lib/JSONRPC/RpcNode.d.ts:14
 
----
+___
 
 ### requestAccount
 
@@ -283,9 +307,9 @@ Ask the connected wallet for an account matching a specific set of critterias.
 
 #### Parameters
 
-| Name                  | Type       | Description                                          |
-| :-------------------- | :--------- | :--------------------------------------------------- |
-| `params?`             | `Object`   | Parameters of the request.                           |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params?` | `Object` | Parameters of the request. |
 | `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled |
 
 #### Returns
@@ -296,9 +320,9 @@ The account selected by the user
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:189](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L189)
+[packages/client/src/WalletAPIClient.ts:201](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L201)
 
----
+___
 
 ### signMessage
 
@@ -314,10 +338,10 @@ or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-71
 
 #### Parameters
 
-| Name        | Type     | Description                   |
-| :---------- | :------- | :---------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `accountId` | `string` | Ledger Live id of the account |
-| `message`   | `Buffer` | Message the user should sign  |
+| `message` | `Buffer` | Message the user should sign |
 
 #### Returns
 
@@ -327,9 +351,9 @@ Message signed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:139](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L139)
+[packages/client/src/WalletAPIClient.ts:147](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L147)
 
----
+___
 
 ### signTransaction
 
@@ -343,12 +367,12 @@ Let the user sign a transaction that won't be broadcasted by the connected walle
 
 #### Parameters
 
-| Name               | Type                             | Description                                                   |
-| :----------------- | :------------------------------- | :------------------------------------------------------------ |
-| `accountId`        | `string`                         | id of the account                                             |
-| `transaction`      | [`Transaction`](../#transaction) | The transaction object in the currency family-specific format |
-| `options?`         | `Object`                         | Extra parameters                                              |
-| `options.hwAppId?` | `string`                         | -                                                             |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `accountId` | `string` | id of the account |
+| `transaction` | [`Transaction`](../#transaction) | The transaction object in the currency family-specific format |
+| `options?` | `Object` | Extra parameters |
+| `options.hwAppId?` | `string` | - |
 
 #### Returns
 
@@ -358,9 +382,9 @@ The raw signed transaction
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:76](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L76)
+[packages/client/src/WalletAPIClient.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L81)
 
----
+___
 
 ### signTransactionAndBroadcast
 
@@ -374,12 +398,12 @@ Let the user sign and broadcast a transaction
 
 #### Parameters
 
-| Name               | Type                             | Description                                                   |
-| :----------------- | :------------------------------- | :------------------------------------------------------------ |
-| `accountId`        | `string`                         | id of the account                                             |
-| `transaction`      | [`Transaction`](../#transaction) | The transaction object in the currency family-specific format |
-| `options?`         | `Object`                         | Extra parameters                                              |
-| `options.hwAppId?` | `string`                         | -                                                             |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `accountId` | `string` | id of the account |
+| `transaction` | [`Transaction`](../#transaction) | The transaction object in the currency family-specific format |
+| `options?` | `Object` | Extra parameters |
+| `options.hwAppId?` | `string` | - |
 
 #### Returns
 
@@ -389,4 +413,4 @@ The transaction hash
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:106](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L106)
+[packages/client/src/WalletAPIClient.ts:112](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L112)

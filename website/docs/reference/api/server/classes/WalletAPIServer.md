@@ -34,7 +34,7 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:100](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L100)
+[server/src/WalletAPIServer.ts:100](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L100)
 
 ## Properties
 
@@ -44,7 +44,7 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:29](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L29)
+[server/src/WalletAPIServer.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L29)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:33](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L33)
+[server/src/WalletAPIServer.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L33)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:25](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L25)
+[server/src/WalletAPIServer.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L25)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:39](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L39)
+[server/src/WalletAPIServer.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L39)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:27](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L27)
+[server/src/WalletAPIServer.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L27)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:37](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L37)
+[server/src/WalletAPIServer.ts:37](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L37)
 
 ## Methods
 
@@ -170,7 +170,7 @@ RpcNode.onRequest
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:71](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L71)
+[server/src/WalletAPIServer.ts:71](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L71)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:58](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L58)
+[server/src/WalletAPIServer.ts:58](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L58)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:53](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L53)
+[server/src/WalletAPIServer.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L53)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:63](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L63)
+[server/src/WalletAPIServer.ts:63](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L63)
 
 ___
 
@@ -289,4 +289,4 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:47](https://github.com/LedgerHQ/wallet-api/blob/7ac1734/packages/server/src/WalletAPIServer.ts#L47)
+[server/src/WalletAPIServer.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L47)

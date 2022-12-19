@@ -22,10 +22,10 @@ Wallet API Transport implementation
 
 #### Parameters
 
-| Name          | Type                                    |
-| :------------ | :-------------------------------------- |
-| `walletApi`   | [`WalletAPIClient`](WalletAPIClient.md) |
-| `transportId` | `string`                                |
+| Name | Type |
+| :------ | :------ |
+| `walletApi` | [`WalletAPIClient`](WalletAPIClient.md) |
+| `transportId` | `string` |
 
 #### Overrides
 
@@ -39,17 +39,17 @@ Wallet API Transport implementation
 
 ### \_appAPIlock
 
-• **\_appAPIlock**: `null` \| `string`
+• **\_appAPIlock**: ``null`` \| `string`
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[\_appAPIlock](HWTransport.md#_appapilock)
+[HWTransport](HWTransport.md).[_appAPIlock](HWTransport.md#_appapilock)
 
 #### Defined in
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
 
----
+___
 
 ### \_events
 
@@ -57,17 +57,17 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[\_events](HWTransport.md#_events)
+[HWTransport](HWTransport.md).[_events](HWTransport.md#_events)
 
 #### Defined in
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:103
 
----
+___
 
 ### deviceModel
 
-• **deviceModel**: `undefined` \| `null` \| `DeviceModel`
+• **deviceModel**: `undefined` \| ``null`` \| `DeviceModel`
 
 #### Inherited from
 
@@ -77,7 +77,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
 
----
+___
 
 ### exchangeAtomicImpl
 
@@ -89,9 +89,9 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 ##### Parameters
 
-| Name | Type                                 |
-| :--- | :----------------------------------- |
-| `f`  | () => `Promise`<`void` \| `Buffer`\> |
+| Name | Type |
+| :------ | :------ |
+| `f` | () => `Promise`<`void` \| `Buffer`\> |
 
 ##### Returns
 
@@ -105,11 +105,11 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
 
----
+___
 
 ### exchangeBusyPromise
 
-• **exchangeBusyPromise**: `undefined` \| `null` \| `Promise`<`void`\>
+• **exchangeBusyPromise**: `undefined` \| ``null`` \| `Promise`<`void`\>
 
 #### Inherited from
 
@@ -119,7 +119,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146
 
----
+___
 
 ### exchangeTimeout
 
@@ -133,7 +133,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:40
 
----
+___
 
 ### send
 
@@ -147,13 +147,13 @@ wrapper on top of exchange to simplify work of the implementation.
 
 ##### Parameters
 
-| Name          | Type       | Description                                                     |
-| :------------ | :--------- | :-------------------------------------------------------------- |
-| `cla`         | `number`   |                                                                 |
-| `ins`         | `number`   |                                                                 |
-| `p1`          | `number`   |                                                                 |
-| `p2`          | `number`   |                                                                 |
-| `data?`       | `Buffer`   |                                                                 |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cla` | `number` |  |
+| `ins` | `number` |  |
+| `p1` | `number` |  |
+| `p2` | `number` |  |
+| `data?` | `Buffer` |  |
 | `statusList?` | `number`[] | is a list of accepted status code (shorts). [0x9000] by default |
 
 ##### Returns
@@ -170,7 +170,7 @@ a Promise of response buffer
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:137
 
----
+___
 
 ### transportId
 
@@ -180,7 +180,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 [packages/client/src/TransportWalletAPI.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L15)
 
----
+___
 
 ### unresponsiveTimeout
 
@@ -194,7 +194,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
 
----
+___
 
 ### walletApi
 
@@ -204,11 +204,11 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 [packages/client/src/TransportWalletAPI.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L13)
 
----
+___
 
-### ErrorMessage_ListenTimeout
+### ErrorMessage\_ListenTimeout
 
-▪ `Static` **ErrorMessage_ListenTimeout**: `string`
+▪ `Static` **ErrorMessage\_ListenTimeout**: `string`
 
 #### Inherited from
 
@@ -218,11 +218,11 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
 
----
+___
 
-### ErrorMessage_NoDeviceFound
+### ErrorMessage\_NoDeviceFound
 
-▪ `Static` **ErrorMessage_NoDeviceFound**: `string`
+▪ `Static` **ErrorMessage\_NoDeviceFound**: `string`
 
 #### Inherited from
 
@@ -254,9 +254,9 @@ Close the current transport communication.
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L80)
+[packages/client/src/TransportWalletAPI.ts:86](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L86)
 
----
+___
 
 ### decorateAppAPIMethod
 
@@ -264,19 +264,19 @@ Close the current transport communication.
 
 #### Type parameters
 
-| Name | Type            |
-| :--- | :-------------- |
-| `R`  | `R`             |
-| `A`  | extends `any`[] |
+| Name | Type |
+| :------ | :------ |
+| `R` | `R` |
+| `A` | extends `any`[] |
 
 #### Parameters
 
-| Name          | Type                                |
-| :------------ | :---------------------------------- |
-| `methodName`  | `string`                            |
-| `f`           | (...`args`: `A`) => `Promise`<`R`\> |
-| `ctx`         | `any`                               |
-| `scrambleKey` | `string`                            |
+| Name | Type |
+| :------ | :------ |
+| `methodName` | `string` |
+| `f` | (...`args`: `A`) => `Promise`<`R`\> |
+| `ctx` | `any` |
+| `scrambleKey` | `string` |
 
 #### Returns
 
@@ -286,9 +286,9 @@ Close the current transport communication.
 
 ##### Parameters
 
-| Name      | Type |
-| :-------- | :--- |
-| `...args` | `A`  |
+| Name | Type |
+| :------ | :------ |
+| `...args` | `A` |
 
 ##### Returns
 
@@ -302,7 +302,7 @@ Close the current transport communication.
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
 
----
+___
 
 ### decorateAppAPIMethods
 
@@ -310,11 +310,11 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 #### Parameters
 
-| Name          | Type                       |
-| :------------ | :------------------------- |
-| `self`        | `Record`<`string`, `any`\> |
-| `methods`     | `string`[]                 |
-| `scrambleKey` | `string`                   |
+| Name | Type |
+| :------ | :------ |
+| `self` | `Record`<`string`, `any`\> |
+| `methods` | `string`[] |
+| `scrambleKey` | `string` |
 
 #### Returns
 
@@ -328,7 +328,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
 
----
+___
 
 ### emit
 
@@ -336,10 +336,10 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 #### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
-| `event`   | `string` |
-| `...args` | `any`    |
+| Name | Type |
+| :------ | :------ |
+| `event` | `string` |
+| `...args` | `any` |
 
 #### Returns
 
@@ -353,7 +353,7 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
 
----
+___
 
 ### exchange
 
@@ -367,8 +367,8 @@ Exchange with the device using APDU protocol.
 
 #### Parameters
 
-| Name   | Type     |
-| :----- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `apdu` | `Buffer` |
 
 #### Returns
@@ -383,9 +383,9 @@ a promise of apdu response
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L55)
+[packages/client/src/TransportWalletAPI.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L56)
 
----
+___
 
 ### off
 
@@ -395,10 +395,10 @@ Stop listening to an event on an instance of transport.
 
 #### Parameters
 
-| Name        | Type                          |
-| :---------- | :---------------------------- |
-| `eventName` | `string`                      |
-| `cb`        | (...`args`: `any`[]) => `any` |
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` |
+| `cb` | (...`args`: `any`[]) => `any` |
 
 #### Returns
 
@@ -412,7 +412,7 @@ Stop listening to an event on an instance of transport.
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:113
 
----
+___
 
 ### on
 
@@ -420,15 +420,14 @@ node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-trans
 
 Listen to an event on an instance of transport.
 Transport implementation can have specific events. Here is the common events:
-
-- `"disconnect"` : triggered if Transport is disconnected
+* `"disconnect"` : triggered if Transport is disconnected
 
 #### Parameters
 
-| Name        | Type                          |
-| :---------- | :---------------------------- |
-| `eventName` | `string`                      |
-| `cb`        | (...`args`: `any`[]) => `any` |
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` |
+| `cb` | (...`args`: `any`[]) => `any` |
 
 #### Returns
 
@@ -442,7 +441,7 @@ Transport implementation can have specific events. Here is the common events:
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:109
 
----
+___
 
 ### setDebugMode
 
@@ -462,7 +461,7 @@ Enable or not logs of the binary exchange
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:118
 
----
+___
 
 ### setExchangeTimeout
 
@@ -472,8 +471,8 @@ Set a timeout (in milliseconds) for the exchange call. Only some transport might
 
 #### Parameters
 
-| Name              | Type     |
-| :---------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `exchangeTimeout` | `number` |
 
 #### Returns
@@ -488,7 +487,7 @@ Set a timeout (in milliseconds) for the exchange call. Only some transport might
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:122
 
----
+___
 
 ### setExchangeUnresponsiveTimeout
 
@@ -498,8 +497,8 @@ Define the delay before emitting "unresponsive" on an exchange that does not res
 
 #### Parameters
 
-| Name                  | Type     |
-| :-------------------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `unresponsiveTimeout` | `number` |
 
 #### Returns
@@ -514,7 +513,7 @@ Define the delay before emitting "unresponsive" on an exchange that does not res
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:126
 
----
+___
 
 ### setScrambleKey
 
@@ -533,9 +532,9 @@ Each App can have a different scramble key and they internally will set it at in
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L78)
+[packages/client/src/TransportWalletAPI.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L79)
 
----
+___
 
 ### create
 
@@ -553,9 +552,9 @@ TransportFoo.create().then(transport => ...)
 
 #### Parameters
 
-| Name             | Type     |
-| :--------------- | :------- |
-| `openTimeout?`   | `number` |
+| Name | Type |
+| :------ | :------ |
+| `openTimeout?` | `number` |
 | `listenTimeout?` | `number` |
 
 #### Returns
@@ -570,7 +569,7 @@ TransportFoo.create().then(transport => ...)
 
 node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:145
 
----
+___
 
 ### isSupported
 
@@ -590,7 +589,7 @@ Transport.isSupported
 
 [packages/client/src/TransportWalletAPI.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L26)
 
----
+___
 
 ### list
 
@@ -610,7 +609,7 @@ Transport.list
 
 [packages/client/src/TransportWalletAPI.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L31)
 
----
+___
 
 ### listen
 
@@ -639,8 +638,8 @@ complete: () => {}
 
 #### Parameters
 
-| Name        | Type      | Description                                                                              |
-| :---------- | :-------- | :--------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `_observer` | `unknown` | is an object with a next, error and complete function (compatible with observer pattern) |
 
 #### Returns
@@ -649,8 +648,8 @@ complete: () => {}
 
 a Subscription object on which you can `.unsubscribe()` to stop listening descriptors.
 
-| Name          | Type         |
-| :------------ | :----------- |
+| Name | Type |
+| :------ | :------ |
 | `unsubscribe` | () => `void` |
 
 #### Overrides
@@ -661,7 +660,7 @@ Transport.listen
 
 [packages/client/src/TransportWalletAPI.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L33)
 
----
+___
 
 ### open
 
@@ -671,11 +670,11 @@ Create a Ledger transport with the Wallet API transport
 
 #### Parameters
 
-| Name             | Type                                    |
-| :--------------- | :-------------------------------------- |
-| `«destructured»` | `Object`                                |
-| › `transportId`  | `string`                                |
-| › `walletApi`    | [`WalletAPIClient`](WalletAPIClient.md) |
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
+| › `transportId` | `string` |
+| › `walletApi` | [`WalletAPIClient`](WalletAPIClient.md) |
 
 #### Returns
 

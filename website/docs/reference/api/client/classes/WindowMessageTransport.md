@@ -23,7 +23,7 @@ A transport protocol used to communicate with the Ledger Live platform
 | Name | Type |
 | :------ | :------ |
 | `target?` | `Window` |
-| `logger?` | [`Logger`](Logger.md) |
+| `logger?` | `Logger` |
 
 #### Defined in
 

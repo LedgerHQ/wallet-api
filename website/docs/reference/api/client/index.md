@@ -16,7 +16,6 @@ custom_edit_url: null
 ## Classes
 
 - [HWTransport](classes/HWTransport.md)
-- [Logger](classes/Logger.md)
 - [RpcError](classes/RpcError.md)
 - [RpcNode](classes/RpcNode.md)
 - [TransportWalletAPI](classes/TransportWalletAPI.md)
@@ -677,7 +676,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L33)
+[packages/client/src/WalletAPIClient.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L34)
 
 ___
 
@@ -842,7 +841,7 @@ The Response is expressed as a single JSON Object
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:94
+packages/core/lib/JSONRPC/types.d.ts:98
 
 ___
 
