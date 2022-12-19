@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client
 
+## 0.9.0
+
+### Minor Changes
+
+- [#63](https://github.com/LedgerHQ/wallet-api/pull/63) [`e99591b`](https://github.com/LedgerHQ/wallet-api/commit/e99591bbaa260a3d7e39d60739add18c0cb64134) Thanks [@Justkant](https://github.com/Justkant)! - feat(client): add account receive method
+
 ## 0.8.0
 
 ### Minor Changes

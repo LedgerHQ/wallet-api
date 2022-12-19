@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-manifest-validator
 
+## 0.2.0
+
+### Minor Changes
+
+- [#60](https://github.com/LedgerHQ/wallet-api/pull/60) [`1d709c4`](https://github.com/LedgerHQ/wallet-api/commit/1d709c4ac836d490b1aa0e2aa65071d5bfa1d2c0) Thanks [@RamyEB](https://github.com/RamyEB)! - change name of the property manifestVersion to version
+
 ## 0.1.1
 
 ### Patch Changes
