@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / CosmosTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / CosmosTransaction
 
 # Interface: CosmosTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -35,17 +37,23 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`COSMOS`](../enums/FAMILIES.md#cosmos)
+• `Readonly` **family**: ``"cosmos"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/cosmos/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/cosmos/types.ts#L17)
+packages/core/lib/families/cosmos/types.d.ts:7
 
 ___
 
@@ -55,7 +63,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/cosmos/types.ts#L19)
+packages/core/lib/families/cosmos/types.d.ts:9
 
 ___
 
@@ -65,7 +73,7 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/cosmos/types.ts#L20)
+packages/core/lib/families/cosmos/types.d.ts:10
 
 ___
 
@@ -75,17 +83,17 @@ ___
 
 #### Defined in
 
-[families/cosmos/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/cosmos/types.ts#L21)
+packages/core/lib/families/cosmos/types.d.ts:11
 
 ___
 
 ### mode
 
-• **mode**: [`CosmosOperationMode`](../modules.md#cosmosoperationmode)
+• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"``
 
 #### Defined in
 
-[families/cosmos/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/cosmos/types.ts#L18)
+packages/core/lib/families/cosmos/types.d.ts:8
 
 ___
 
@@ -101,4 +109,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41

@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / PolkadotTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / PolkadotTransaction
 
 # Interface: PolkadotTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -34,7 +36,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
@@ -44,17 +46,23 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:23](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/polkadot/types.ts#L23)
+packages/core/lib/families/polkadot/types.d.ts:10
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`POLKADOT`](../enums/FAMILIES.md#polkadot)
+• `Readonly` **family**: ``"polkadot"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/polkadot/types.ts:20](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/polkadot/types.ts#L20)
+packages/core/lib/families/polkadot/types.d.ts:7
 
 ___
 
@@ -64,17 +72,17 @@ ___
 
 #### Defined in
 
-[families/polkadot/types.ts:22](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/polkadot/types.ts#L22)
+packages/core/lib/families/polkadot/types.d.ts:9
 
 ___
 
 ### mode
 
-• **mode**: [`PolkadotOperationMode`](../modules.md#polkadotoperationmode)
+• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"``
 
 #### Defined in
 
-[families/polkadot/types.ts:21](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/polkadot/types.ts#L21)
+packages/core/lib/families/polkadot/types.d.ts:8
 
 ___
 
@@ -90,4 +98,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41

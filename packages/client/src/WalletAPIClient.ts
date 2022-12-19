@@ -40,6 +40,9 @@ const requestHandlers = {
   },
 };
 
+/**
+ * WalletAPI Client which rely on WindowMessage communication
+ */
 export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
   WalletHandlers
@@ -73,6 +76,7 @@ export class WalletAPIClient extends RpcNode<
    * @param options - Extra parameters
    *
    * @returns The raw signed transaction
+   * @throws {@link RpcError} if an error occured on server side
    */
   async signTransaction(
     accountId: string,
@@ -103,6 +107,7 @@ export class WalletAPIClient extends RpcNode<
    * @param options - Extra parameters
    *
    * @returns The transaction hash
+   * @throws {@link RpcError} if an error occured on server side
    */
   async signTransactionAndBroadcast(
     accountId: string,
@@ -131,11 +136,13 @@ export class WalletAPIClient extends RpcNode<
 
   /**
    * Let the user sign the provided message.
-   * In Ethereum context, this is an [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md) or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md)
+   * In Ethereum context, this is an [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md)
+   * or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md)
    * @param accountId - Ledger Live id of the account
    * @param message - Message the user should sign
    *
    * @returns Message signed
+   * @throws {@link RpcError} if an error occured on server side
    */
   async signMessage(accountId: string, message: Buffer): Promise<Buffer> {
     const messageSignResult = await this.request("message.sign", {
@@ -157,7 +164,10 @@ export class WalletAPIClient extends RpcNode<
   /**
    * List accounts added by user on the connected wallet
    *
+   * @param params - Filters for currencies
+   *
    * @returns The list of accounts on the connected wallet
+   * @throws {@link RpcError} if an error occured on server side
    */
   async listAccounts(params?: {
     /**
@@ -186,6 +196,7 @@ export class WalletAPIClient extends RpcNode<
    * @param params - Parameters of the request.
    *
    * @returns The account selected by the user
+   * @throws {@link RpcError} if an error occured on server side
    */
   async requestAccount(params?: {
     /**
@@ -237,6 +248,7 @@ export class WalletAPIClient extends RpcNode<
    * @param params - Filters for currencies
    *
    * @returns The list of corresponding cryptocurrencies
+   * @throws {@link RpcError} if an error occured on server side
    *
    * @beta Filtering not yet implemented
    */
@@ -267,6 +279,7 @@ export class WalletAPIClient extends RpcNode<
    * @param params - Params for the transport
    *
    * @returns An instance of Transport compatible with @ledgerhq/hw-transport
+   * @throws {@link RpcError} if an error occured on server side
    */
   async deviceTransport(
     params: DeviceTransport["params"]
@@ -290,10 +303,11 @@ export class WalletAPIClient extends RpcNode<
     });
   }
 
-  /*
+  /**
    * List the wallet's implemented methodIds
    *
    * @returns The list of implemented method ids
+   * @throws {@link RpcError} if an error occured on server side
    *
    * @beta Filtering not yet implemented
    */

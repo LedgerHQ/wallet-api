@@ -6,10 +6,18 @@ export class RpcError<TError = unknown> extends Error {
     super.message = err.message;
   }
 
+  /**
+   * Retrieve error code
+   * @returns error code
+   */
   public getCode(): RpcErrorCode | number {
     return this.err.code;
   }
 
+  /**
+   * Retrieve underlying data info
+   * @returns data info
+   */
   public getData(): TError | undefined {
     return this.err.data;
   }

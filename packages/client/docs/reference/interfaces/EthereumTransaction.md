@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / EthereumTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / EthereumTransaction
 
 # Interface: EthereumTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -35,7 +37,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
@@ -45,17 +47,23 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ethereum/types.ts#L11)
+packages/core/lib/families/ethereum/types.d.ts:9
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`ETHEREUM`](../enums/FAMILIES.md#ethereum)
+• `Readonly` **family**: ``"ethereum"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/ethereum/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ethereum/types.ts#L9)
+packages/core/lib/families/ethereum/types.d.ts:7
 
 ___
 
@@ -65,7 +73,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ethereum/types.ts#L13)
+packages/core/lib/families/ethereum/types.d.ts:11
 
 ___
 
@@ -75,7 +83,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ethereum/types.ts#L12)
+packages/core/lib/families/ethereum/types.d.ts:10
 
 ___
 
@@ -85,7 +93,7 @@ ___
 
 #### Defined in
 
-[families/ethereum/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ethereum/types.ts#L10)
+packages/core/lib/families/ethereum/types.d.ts:8
 
 ___
 
@@ -101,4 +109,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41

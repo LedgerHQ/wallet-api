@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / TronTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / TronTransaction
 
 # Interface: TronTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -34,7 +36,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
@@ -44,27 +46,33 @@ ___
 
 #### Defined in
 
-[families/tron/types.ts:19](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/tron/types.ts#L19)
+packages/core/lib/families/tron/types.d.ts:10
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`TRON`](../enums/FAMILIES.md#tron)
+• `Readonly` **family**: ``"tron"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/tron/types.ts:16](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/tron/types.ts#L16)
+packages/core/lib/families/tron/types.d.ts:7
 
 ___
 
 ### mode
 
-• **mode**: [`TronOperationMode`](../modules.md#tronoperationmode)
+• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"freeze"`` \| ``"unfreeze"`` \| ``"vote"``
 
 #### Defined in
 
-[families/tron/types.ts:17](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/tron/types.ts#L17)
+packages/core/lib/families/tron/types.d.ts:8
 
 ___
 
@@ -80,14 +88,14 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41
 
 ___
 
 ### resource
 
-• `Optional` **resource**: [`TronResource`](../modules.md#tronresource)
+• `Optional` **resource**: ``"BANDWIDTH"`` \| ``"ENERGY"``
 
 #### Defined in
 
-[families/tron/types.ts:18](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/tron/types.ts#L18)
+packages/core/lib/families/tron/types.d.ts:9

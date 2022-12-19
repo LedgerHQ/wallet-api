@@ -1,5 +1,9 @@
 /* istanbul ignore file */
 /* eslint-disable import/prefer-default-export, no-console */
+/**
+ * Use for internal usage
+ * @ignore
+ */
 export class Logger {
   private prefix = "";
 

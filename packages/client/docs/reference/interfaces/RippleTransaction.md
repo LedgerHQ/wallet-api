@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / RippleTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / RippleTransaction
 
 # Interface: RippleTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -33,17 +35,23 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`RIPPLE`](../enums/FAMILIES.md#ripple)
+• `Readonly` **family**: ``"ripple"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/ripple/types.ts:9](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ripple/types.ts#L9)
+packages/core/lib/families/ripple/types.d.ts:6
 
 ___
 
@@ -53,7 +61,7 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:10](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ripple/types.ts#L10)
+packages/core/lib/families/ripple/types.d.ts:7
 
 ___
 
@@ -69,7 +77,7 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41
 
 ___
 
@@ -79,4 +87,4 @@ ___
 
 #### Defined in
 
-[families/ripple/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/ripple/types.ts#L11)
+packages/core/lib/families/ripple/types.d.ts:8

@@ -10,6 +10,7 @@
     "clean": "git clean -fdX",
     "changelog": "changeset add",
     "build": "turbo run build",
+    "build:client": "turbo run build --filter=wallet-api-client",
     "dev": "turbo run dev",
     "doc": "turbo run doc",
     "lint": "turbo run lint",

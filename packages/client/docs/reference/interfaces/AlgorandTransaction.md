@@ -1,6 +1,8 @@
-[@ledgerhq/live-app-sdk](../README.md) / [Exports](../modules.md) / AlgorandTransaction
+[@ledgerhq/wallet-api-client](../README.md) / [Exports](../modules.md) / AlgorandTransaction
 
 # Interface: AlgorandTransaction
+
+Common fields for all cryptocurrency transactions
 
 ## Hierarchy
 
@@ -35,7 +37,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-[types.ts:92](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L92)
+packages/core/lib/families/types.d.ts:37
 
 ___
 
@@ -45,17 +47,23 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:14](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L14)
+packages/core/lib/families/algorand/types.d.ts:10
 
 ___
 
 ### family
 
-• `Readonly` **family**: [`ALGORAND`](../enums/FAMILIES.md#algorand)
+• `Readonly` **family**: ``"algorand"``
+
+The family of the transaction
+
+#### Overrides
+
+[TransactionCommon](TransactionCommon.md).[family](TransactionCommon.md#family)
 
 #### Defined in
 
-[families/algorand/types.ts:11](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L11)
+packages/core/lib/families/algorand/types.d.ts:7
 
 ___
 
@@ -65,7 +73,7 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:13](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L13)
+packages/core/lib/families/algorand/types.d.ts:9
 
 ___
 
@@ -75,17 +83,17 @@ ___
 
 #### Defined in
 
-[families/algorand/types.ts:15](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L15)
+packages/core/lib/families/algorand/types.d.ts:11
 
 ___
 
 ### mode
 
-• **mode**: [`AlgorandOperationMode`](../modules.md#algorandoperationmode)
+• **mode**: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"``
 
 #### Defined in
 
-[families/algorand/types.ts:12](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/families/algorand/types.ts#L12)
+packages/core/lib/families/algorand/types.d.ts:8
 
 ___
 
@@ -101,4 +109,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-[types.ts:96](https://github.com/LedgerHQ/live-app-sdk/blob/main/src/types.ts#L96)
+packages/core/lib/families/types.d.ts:41
