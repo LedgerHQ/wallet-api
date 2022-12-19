@@ -190,7 +190,7 @@ importers:
       jest-shared-config: workspace:*
       json-rpc-2.0: ^1.1.0
       picomatch: ^2.3.1
-      rxjs: ^7.8.0
+      rxjs: ^7.5.7
       ts-jest: ^29.0.3
       ts-node: ^10.9.1
       typescript: ^4.8.4
@@ -199,7 +199,6 @@ importers:
       bignumber.js: 9.1.0
       json-rpc-2.0: 1.4.1
       picomatch: 2.3.1
-      rxjs: 7.8.0
     devDependencies:
       '@tsconfig/node18-strictest': 1.0.0
       '@types/jest': 29.2.1
@@ -209,6 +208,7 @@ importers:
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
+      rxjs: 7.8.0
       ts-jest: 29.0.3_2gcdg7c5hzdfd67o3khlosdlhu
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typescript: 4.8.4
@@ -11328,6 +11328,12 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       tslib: 1.14.1
+    dev: false
+
+  /rxjs/7.5.7:
+    resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
+    dependencies:
+      tslib: 2.4.0
     dev: false
 
   /rxjs/7.8.0:
