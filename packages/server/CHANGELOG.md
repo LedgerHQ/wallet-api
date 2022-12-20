@@ -1,5 +1,14 @@
 # @ledgerhq/wallet-api-server
 
+## 0.9.2
+
+### Patch Changes
+
+- [`0ada3a0`](https://github.com/LedgerHQ/wallet-api/commit/0ada3a0e0480ba8baffbe9fb9f7a2a1268640969) Thanks [@Justkant](https://github.com/Justkant)! - chore: bump version
+
+- Updated dependencies [[`ec07069`](https://github.com/LedgerHQ/wallet-api/commit/ec07069b2a5c0ed455df17aaac5e9690a73896c3)]:
+  - @ledgerhq/wallet-api-core@0.9.2
+
 ## 0.9.1
 
 ### Patch Changes
