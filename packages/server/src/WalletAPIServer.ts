@@ -122,7 +122,7 @@ export class WalletAPIServer extends RpcNode<
     this.walletContext = {
       currencies$: allowedCurrencies$,
       accounts$: allowedAccounts$,
-      id: config.id,
+      appId: config.appId,
     };
 
     this.walletContext.accounts$.subscribe(() => {

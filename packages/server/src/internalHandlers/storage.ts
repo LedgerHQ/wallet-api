@@ -23,7 +23,7 @@ export const set: RPCHandler<StorageSet["result"]> = async (
 
   const { key, value, storeId: optionalStoreId } = safeParams;
 
-  const storeId = optionalStoreId || context.id;
+  const storeId = optionalStoreId || context.appId;
 
   return walletHandler({ key, value, storeId });
 };
@@ -43,7 +43,7 @@ export const get: RPCHandler<StorageGet["result"]> = async (
 
   const { key, storeId: optionalStoreId } = safeParams;
 
-  const storeId = optionalStoreId || context.id;
+  const storeId = optionalStoreId || context.appId;
 
   return {
     value: await walletHandler({ key, storeId }),
