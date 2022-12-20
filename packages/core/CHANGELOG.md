@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.9.1
+
+### Patch Changes
+
+- [`10a732e`](https://github.com/LedgerHQ/wallet-api/commit/10a732e5986e482077b28679b7a68c078e9c4884) Thanks [@Justkant](https://github.com/Justkant)! - fix: rename nanoFTS to stax
+
 ## 0.9.0
 
 ### Minor Changes

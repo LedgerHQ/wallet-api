@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-manifest-validator-cli
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`10a732e`](https://github.com/LedgerHQ/wallet-api/commit/10a732e5986e482077b28679b7a68c078e9c4884)]:
+  - @ledgerhq/wallet-api-core@0.9.1
+  - @ledgerhq/wallet-api-manifest-validator@0.2.2
+
 ## 0.1.3
 
 ### Patch Changes
