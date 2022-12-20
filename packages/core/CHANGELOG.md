@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.9.2
+
+### Patch Changes
+
+- [`ec07069`](https://github.com/LedgerHQ/wallet-api/commit/ec07069b2a5c0ed455df17aaac5e9690a73896c3) Thanks [@Justkant](https://github.com/Justkant)! - fix: WindowMessageTransport for android webview
+
 ## 0.9.1
 
 ### Patch Changes
