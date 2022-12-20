@@ -26,6 +26,7 @@ export const standardProfile: SimulatorProfile = {
       "message.sign",
       "account.receive",
       "wallet.capabilities",
+      "bitcoin.getXPub",
     ],
   },
   accounts: allAccounts,
@@ -53,6 +54,9 @@ export const standardProfile: SimulatorProfile = {
     },
     "account.receive": () => {
       return "eth address";
+    },
+    "bitcoin.getXPub": () => {
+      return "xpub";
     },
   },
 };
