@@ -2,6 +2,7 @@ import type { Account, Currency, Permission } from "@ledgerhq/wallet-api-core";
 import type { WalletHandlers } from "@ledgerhq/wallet-api-server";
 
 export type SimulatorProfile = {
+  id: string;
   permissions: Permission;
   accounts: Account[];
   currencies: Currency[];

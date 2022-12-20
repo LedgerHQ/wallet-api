@@ -4,6 +4,7 @@ import type {
   DeviceClose,
   DeviceExchange,
   DeviceTransport,
+  Permission,
   Promisable,
   RpcRequest,
   Transaction,
@@ -15,6 +16,7 @@ import type { BehaviorSubject, Observable } from "rxjs";
 export type WalletContext = {
   currencies$: Observable<Currency[]>;
   accounts$: Observable<Account[]>;
+  id: string;
 };
 
 export type RPCHandler<TResult> = (
@@ -46,6 +48,15 @@ export interface WalletHandlers {
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
   "device.transport": (params: DeviceTransport["params"]) => Promisable<string>;
+  "storage.set": (params: {
+    key: string;
+    value: string;
+    storeId: string;
+  }) => Promisable<void>;
+  "storage.get": (params: {
+    key: string;
+    storeId: string;
+  }) => Promisable<string | undefined>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
@@ -71,3 +82,8 @@ export type ClientContext = {
   currencies$: BehaviorSubject<Currency[]>;
   accounts$: BehaviorSubject<Account[]>;
 } & ClientParams;
+
+export type AppConfig = {
+  id: string;
+  permissions: Permission;
+};

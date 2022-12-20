@@ -27,6 +27,7 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { Storage } from "./modules/Storage";
 import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -47,11 +48,14 @@ export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
   WalletHandlers
 > {
+  public storage: Storage;
+
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
+    this.storage = new Storage(this);
   }
 
   protected onRequest(request: RpcRequest) {

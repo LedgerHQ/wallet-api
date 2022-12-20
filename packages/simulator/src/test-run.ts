@@ -36,3 +36,11 @@ async function main() {
 main()
   .then(() => console.log("done"))
   .catch((err) => console.log(err));
+
+/*
+  wallet.name
+  wallet.version
+  wallet.settings.privacyMode
+  wallet.settings.tracking
+  wallet.userId
+*/
