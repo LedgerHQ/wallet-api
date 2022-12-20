@@ -17,11 +17,23 @@ export default class WindowMessageTransport implements Transport {
 
   connect = (): void => {
     this.target.addEventListener("message", this._onMessageEvent, false);
+    // @ts-expect-error: Workaround for android webview
+    this.target.document?.addEventListener(
+      "message",
+      this._onMessageEvent,
+      false
+    );
     this.logger.debug("event listeners registered");
   };
 
   disconnect = (): void => {
     this.target.removeEventListener("message", this._onMessageEvent, false);
+    // @ts-expect-error: Workaround for android webview
+    this.target.document?.removeEventListener(
+      "message",
+      this._onMessageEvent,
+      false
+    );
     this.logger.debug("event listeners unregistered");
   };
 
@@ -72,21 +84,20 @@ export default class WindowMessageTransport implements Transport {
 
   send = (message: string): Promise<void> => {
     try {
-      // @ts-ignore
+      // @ts-expect-error: injected value
       if (this.target.ReactNativeWebView) {
         this.logger.log("sending message (ReactNativeWebview)", message);
-        // @ts-ignore
+        // @ts-expect-error: injected value
         this.target.ReactNativeWebView.postMessage(message);
       }
-      // @ts-ignore
+      // @ts-expect-error: injected value
       else if (this.target.ElectronWebview) {
         this.logger.log("sending message (ElectronWebview)", message);
-        // @ts-ignore
+        // @ts-expect-error: injected value
         this.target.ElectronWebview.postMessage(message);
       } else {
         this.logger.log("sending message", message);
-        // @ts-ignore
-        this.target.top.postMessage(message, "*");
+        this.target.top?.postMessage(message, "*");
       }
       return Promise.resolve();
     } catch (error) {
