@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.9.0
+
+### Minor Changes
+
+- [#70](https://github.com/LedgerHQ/wallet-api/pull/70) [`4c75e55`](https://github.com/LedgerHQ/wallet-api/commit/4c75e55da8bffd1a76e97bb3f3eb48dab56223f8) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Refactored error strategy to have two levels of error protocol
+
 ## 0.8.0
 
 ### Minor Changes
