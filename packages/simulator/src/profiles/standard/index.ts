@@ -37,9 +37,6 @@ export const standardProfile: SimulatorProfile = {
       if (!accounts[0]) {
         throw new Error("No accounts available");
       }
-      if (Date.now() > 0) {
-        throw new Error("COUCOU");
-      }
 
       return accounts[0];
     },
