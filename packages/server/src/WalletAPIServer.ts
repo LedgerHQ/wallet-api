@@ -9,6 +9,8 @@ import {
   RpcErrorCode,
   AppHandlers,
   Permission,
+  createPermissionDenied,
+  ServerError,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject, combineLatest } from "rxjs";
 import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
@@ -88,10 +90,7 @@ export class WalletAPIServer extends RpcNode<
     const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
 
     if (!allowedMethodIds.has(methodId)) {
-      throw new RpcError({
-        code: RpcErrorCode.SERVER_ERROR,
-        message: "permission denied",
-      });
+      throw new ServerError(createPermissionDenied(methodId));
     }
 
     return handler(request, this.walletContext, this.walletHandlers);

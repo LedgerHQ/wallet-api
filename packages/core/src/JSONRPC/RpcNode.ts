@@ -1,5 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
+import { serializeError, deserializeError } from "@ledgerhq/errors";
+import {
+  createUnknownError,
+  schemaServerErrorData,
+  ServerError,
+} from "../errors";
 import type { Transport } from "../transports";
 import { parseRPCCall, createRpcResponse } from "./helpers";
 import { RpcError } from "./RPCError";
@@ -38,20 +44,35 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     };
   }
 
-  private _request<K extends keyof TCHandlers, TError = unknown>(
+  private _request<K extends keyof TCHandlers>(
     request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
-  ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
-    return new Promise((resolve) => {
+  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
+    return new Promise((resolve, reject) => {
       if (!request.id) {
-        throw new Error("requests need to have an id");
+        reject(new Error("requests need to have an id"));
+        return;
       }
       const resolver: Resolver<
-        RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>
+        RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>>
       > = (response) => {
         if ("error" in response) {
-          throw new RpcError(response.error);
+          if (response.error.code === RpcErrorCode.SERVER_ERROR) {
+            const serverErrorData = schemaServerErrorData.parse(
+              response.error.data
+            );
+
+            if (serverErrorData.code === "UNKNOWN_ERROR") {
+              reject(deserializeError(serverErrorData.data));
+              return;
+            }
+
+            reject(new ServerError(serverErrorData));
+            return;
+          }
+          reject(new RpcError(response.error));
+          return;
         }
-        resolve(response);
+        resolve(response.result);
       };
       this.ongoingRequests[request.id] = resolver;
 
@@ -65,10 +86,10 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     this.transport.send(JSON.stringify(request));
   }
 
-  public request<K extends keyof TCHandlers, TError = unknown>(
+  public request<K extends keyof TCHandlers>(
     method: K,
     params: MethodParamsIfExists<TCHandlers, K>
-  ): Promise<RpcResponse<ReturnTypeOfMethodIfExists<TCHandlers, K>, TError>> {
+  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
     const requestId = uuidv4();
     return this._request({
       id: requestId,
@@ -94,7 +115,6 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
       const result = await this.onRequest(request);
 
       if (request.id) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const response = createRpcResponse({
           id: request.id,
           result,
@@ -109,12 +129,27 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
           data: error.flatten(),
         });
       }
-      throw error;
+      if (error instanceof ServerError) {
+        throw new RpcError({
+          code: RpcErrorCode.SERVER_ERROR,
+          message: "unexpected server error",
+          data: error.getData(),
+        });
+      }
+      if (error instanceof RpcError) {
+        throw error;
+      }
+      throw new RpcError({
+        code: RpcErrorCode.SERVER_ERROR,
+        message: "unexpected server error",
+        // @ts-expect-error: Bad typings on serialize error !!
+        data: createUnknownError(serializeError(error)),
+      });
     }
   }
 
   private async handleMessage(message: string) {
-    let shouldReplyWithError = true;
+    let isResponse = false;
     let callId: string | number | null | undefined;
 
     try {
@@ -126,7 +161,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         await this.handleRpcRequest(rpcCall);
       } else {
         // message is a response
-        shouldReplyWithError = false;
+        isResponse = true;
         this.handleRpcResponse(
           rpcCall as RpcResponse<
             ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
@@ -135,7 +170,10 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         );
       }
     } catch (error) {
-      if (shouldReplyWithError && error instanceof RpcError) {
+      if (isResponse) {
+        throw error;
+      }
+      if (error instanceof RpcError) {
         const errorResponse = createRpcResponse({
           id: callId || null,
           error: {
@@ -145,10 +183,10 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
             data: error.getData(),
           },
         });
-
         this.transport.send(JSON.stringify(errorResponse));
         return;
       }
+      // TODO handle no RpcError (that should not happen btw)
       throw error;
     }
   }

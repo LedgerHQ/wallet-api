@@ -2,8 +2,7 @@ import type { RpcErrorCode, RpcResponseError } from "./types";
 
 export class RpcError<TError = unknown> extends Error {
   constructor(private readonly err: RpcResponseError<TError>) {
-    super();
-    super.message = err.message;
+    super(err.message);
   }
 
   /**
