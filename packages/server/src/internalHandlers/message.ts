@@ -1,10 +1,11 @@
 import {
+  createAccountNotFound,
+  createNotImplementedByWallet,
   MessageSign,
-  RpcError,
   schemaMessageSign,
+  ServerError,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
-import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
 export const sign: RPCHandler<MessageSign["result"]> = async (
@@ -15,7 +16,7 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
   const walletHandler = handlers["message.sign"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("message.sign"));
   }
 
   const safeParams = schemaMessageSign.params.parse(req.params);
@@ -27,7 +28,7 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new RpcError(ACCOUNT_NOT_FOUND);
+    throw new ServerError(createAccountNotFound(accountId));
   }
 
   const signedMessage = await walletHandler({

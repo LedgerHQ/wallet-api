@@ -37,6 +37,7 @@ export const standardProfile: SimulatorProfile = {
       if (!accounts[0]) {
         throw new Error("No accounts available");
       }
+
       return accounts[0];
     },
     "transaction.signAndBroadcast": () => {

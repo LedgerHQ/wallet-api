@@ -1,13 +1,14 @@
 import {
+  createAccountNotFound,
+  createNotImplementedByWallet,
   deserializeTransaction,
-  RpcError,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
+  ServerError,
   TransactionSign,
   TransactionSignAndBroadcast,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
-import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
 export const sign: RPCHandler<TransactionSign["result"]> = async (
@@ -24,13 +25,13 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new RpcError(ACCOUNT_NOT_FOUND);
+    throw new ServerError(createAccountNotFound(accountId));
   }
 
   const walletHandler = handlers["transaction.sign"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("transaction.sign"));
   }
 
   const signedTransaction = await walletHandler({
@@ -50,7 +51,9 @@ export const signAndBroadcast: RPCHandler<
   const walletHandler = handlers["transaction.signAndBroadcast"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(
+      createNotImplementedByWallet("transaction.signAndBroadcast")
+    );
   }
 
   const safeParams = schemaTransactionSignAndBroadcast.params.parse(req.params);
@@ -62,7 +65,7 @@ export const signAndBroadcast: RPCHandler<
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new RpcError(ACCOUNT_NOT_FOUND);
+    throw new ServerError(createAccountNotFound(accountId));
   }
 
   const transactionHash = await walletHandler({

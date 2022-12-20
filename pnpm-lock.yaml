@@ -54,7 +54,7 @@ importers:
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
       prettier: 2.7.1
-      ts-jest: 29.0.3_2gcdg7c5hzdfd67o3khlosdlhu
+      ts-jest: 29.0.3_iq2aio43xcflbedzg2rceiytyq
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typedoc: 0.23.19_typescript@4.8.4
       typedoc-plugin-markdown: 3.14.0_typedoc@0.23.19
@@ -63,6 +63,7 @@ importers:
 
   packages/core:
     specifiers:
+      '@ledgerhq/errors': ^6.12.1
       '@tsconfig/node18-strictest': ^1.0.0
       '@types/jest': ^29.2.1
       '@types/node': ^18.11.8
@@ -78,6 +79,7 @@ importers:
       uuid: ^9.0.0
       zod: ^3.19.1
     dependencies:
+      '@ledgerhq/errors': 6.12.1
       bignumber.js: 9.1.0
       uuid: 9.0.0
       zod: 3.19.1
@@ -90,7 +92,7 @@ importers:
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
-      ts-jest: 29.0.3_2gcdg7c5hzdfd67o3khlosdlhu
+      ts-jest: 29.0.3_iq2aio43xcflbedzg2rceiytyq
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typescript: 4.8.4
 
@@ -155,7 +157,7 @@ importers:
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
       prettier: 2.7.1
-      ts-jest: 29.0.3_r24ewcothphvclnu77pxb4u4se
+      ts-jest: 29.0.3_orsrni32uni522mze7rfbz4pcm
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typescript: 4.8.4
 
@@ -172,7 +174,7 @@ importers:
     dependencies:
       '@ledgerhq/wallet-api-core': link:../core
       '@ledgerhq/wallet-api-manifest-validator': link:../manifest-validator
-      clipanion: 3.2.0-rc.13
+      clipanion: 3.2.0-rc.13_typanion@3.12.1
     devDependencies:
       '@tsconfig/node18-strictest': 1.0.0
       '@types/node': 18.11.8
@@ -213,7 +215,7 @@ importers:
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
-      ts-jest: 29.0.3_2gcdg7c5hzdfd67o3khlosdlhu
+      ts-jest: 29.0.3_iq2aio43xcflbedzg2rceiytyq
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typescript: 4.8.4
 
@@ -252,7 +254,7 @@ importers:
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
       jest-environment-jsdom: 29.2.2
       jest-shared-config: link:../jest-shared-config
-      ts-jest: 29.0.3_2gcdg7c5hzdfd67o3khlosdlhu
+      ts-jest: 29.0.3_iq2aio43xcflbedzg2rceiytyq
       ts-node: 10.9.1_7jzoohtnaegavowzoeccrsbhty
       typescript: 4.8.4
 
@@ -1393,6 +1395,10 @@ packages:
     resolution: {integrity: sha512-gDUpXDz3Os4bK9tzqvwZtjXMCB8LQwNft1f3x6WrwIGuM4Wo5D6ccJDybw4rP9TOJ4qPbRcXFH4avzQGFvwWNA==}
     dev: false
 
+  /@ledgerhq/errors/6.12.1:
+    resolution: {integrity: sha512-2qeUSUCpQbMhV9eLJDLI8wycFwTcWszP8g3cJycBt9Jf1VczC5MRERwAQv5AYhPa4rcy+jLKBOVZYxc35r5l7g==}
+    dev: false
+
   /@ledgerhq/hw-transport-http/6.27.7:
     resolution: {integrity: sha512-wXAm8482pc60CecLZmfOYCITHiRFCzbPbEprUOnkSKB//WWNOcGQCQpftCcKA6yneJHRZsci4XJKBKwWFfTqJg==}
     dependencies:
@@ -2226,8 +2232,10 @@ packages:
       string-width: 5.1.2
     dev: true
 
-  /clipanion/3.2.0-rc.13:
+  /clipanion/3.2.0-rc.13_typanion@3.12.1:
     resolution: {integrity: sha512-JYuPIaZZOl4nTUP4BMXmHGxYkAD2gc0m5GxZKr2eKEjquyFj/WBbkERDesnUsQKewUmWvBzzxdbf8WQ/GBDduQ==}
+    peerDependencies:
+      typanion: '*'
     dependencies:
       typanion: 3.12.1
     dev: false
@@ -5790,7 +5798,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-jest/29.0.3_2gcdg7c5hzdfd67o3khlosdlhu:
+  /ts-jest/29.0.3_iq2aio43xcflbedzg2rceiytyq:
     resolution: {integrity: sha512-Ibygvmuyq1qp/z3yTh9QTwVVAbFdDy/+4BtIQR2sp6baF2SJU/8CKK/hhnGIDY2L90Az2jIqTwZPnN2p+BweiQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -5811,6 +5819,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
+      '@babel/core': 7.19.1
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
@@ -5823,7 +5832,7 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest/29.0.3_r24ewcothphvclnu77pxb4u4se:
+  /ts-jest/29.0.3_orsrni32uni522mze7rfbz4pcm:
     resolution: {integrity: sha512-Ibygvmuyq1qp/z3yTh9QTwVVAbFdDy/+4BtIQR2sp6baF2SJU/8CKK/hhnGIDY2L90Az2jIqTwZPnN2p+BweiQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -5844,6 +5853,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
+      '@babel/core': 7.19.1
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.3.1_zbszuqcpgvqti4gsbgzr4pxrbm

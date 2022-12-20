@@ -89,12 +89,8 @@ export class WalletAPIClient extends RpcNode<
       options,
     });
 
-    if ("error" in transactionSignResult) {
-      throw new RpcError(transactionSignResult.error);
-    }
-
     const safeResults = schemaTransactionSign.result.parse(
-      transactionSignResult.result
+      transactionSignResult
     );
 
     return Buffer.from(safeResults.signedTransactionHex, "hex");
@@ -123,12 +119,8 @@ export class WalletAPIClient extends RpcNode<
       }
     );
 
-    if ("error" in transactionSignResult) {
-      throw new RpcError(transactionSignResult.error);
-    }
-
     const safeResults = schemaTransactionSignAndBroadcast.result.parse(
-      transactionSignResult.result
+      transactionSignResult
     );
 
     return safeResults.transactionHash;
@@ -150,13 +142,7 @@ export class WalletAPIClient extends RpcNode<
       hexMessage: message.toString("hex"),
     });
 
-    if ("error" in messageSignResult) {
-      throw new RpcError(messageSignResult.error);
-    }
-
-    const safeResults = schemaMessageSign.result.parse(
-      messageSignResult.result
-    );
+    const safeResults = schemaMessageSign.result.parse(messageSignResult);
 
     return Buffer.from(safeResults.hexSignedMessage, "hex");
   }
@@ -179,13 +165,7 @@ export class WalletAPIClient extends RpcNode<
       currencyIds: params?.currencyIds,
     });
 
-    if ("error" in listAccountsResult) {
-      throw new RpcError(listAccountsResult.error);
-    }
-
-    const safeResults = schemaAccountList.result.parse(
-      listAccountsResult.result
-    );
+    const safeResults = schemaAccountList.result.parse(listAccountsResult);
 
     return safeResults.rawAccounts.map(deserializeAccount);
   }
@@ -208,12 +188,8 @@ export class WalletAPIClient extends RpcNode<
       currencyIds: params?.currencyIds,
     });
 
-    if ("error" in requestAccountsResult) {
-      throw new RpcError(requestAccountsResult.error);
-    }
-
     const safeResults = schemaAccountRequest.result.parse(
-      requestAccountsResult.result
+      requestAccountsResult
     );
 
     return deserializeAccount(safeResults.rawAccount);
@@ -231,12 +207,8 @@ export class WalletAPIClient extends RpcNode<
       accountId,
     });
 
-    if ("error" in receiveAccountsResult) {
-      throw new RpcError(receiveAccountsResult.error);
-    }
-
     const safeResults = schemaAccountReceive.result.parse(
-      receiveAccountsResult.result
+      receiveAccountsResult
     );
 
     return safeResults.address;
@@ -262,13 +234,7 @@ export class WalletAPIClient extends RpcNode<
       currencyIds: params?.currencyIds,
     });
 
-    if ("error" in listCurrenciesResult) {
-      throw new RpcError(listCurrenciesResult.error);
-    }
-
-    const safeResults = schemaCurrencyList.result.parse(
-      listCurrenciesResult.result
-    );
+    const safeResults = schemaCurrencyList.result.parse(listCurrenciesResult);
 
     return safeResults.currencies;
   }
@@ -289,12 +255,8 @@ export class WalletAPIClient extends RpcNode<
       params
     );
 
-    if ("error" in deviceTransportResult) {
-      throw new RpcError(deviceTransportResult.error);
-    }
-
     const safeResults = schemaDeviceTransport.result.parse(
-      deviceTransportResult.result
+      deviceTransportResult
     );
 
     return TransportWalletAPI.open({
@@ -317,12 +279,8 @@ export class WalletAPIClient extends RpcNode<
       {}
     );
 
-    if ("error" in walletCapabilitiesResult) {
-      throw new RpcError(walletCapabilitiesResult.error);
-    }
-
     const safeResults = schemaWalletCapabilities.result.parse(
-      walletCapabilitiesResult.result
+      walletCapabilitiesResult
     );
 
     return safeResults.methodIds;
