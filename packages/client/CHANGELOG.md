@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-client
 
+## 0.11.0
+
+### Minor Changes
+
+- [#69](https://github.com/LedgerHQ/wallet-api/pull/69) [`22465a1`](https://github.com/LedgerHQ/wallet-api/commit/22465a17057ba07454485356bd8e0c043432989a) Thanks [@chabroA](https://github.com/chabroA)! - Add bitcoin module with getXPub method
+
+### Patch Changes
+
+- Updated dependencies [[`22465a1`](https://github.com/LedgerHQ/wallet-api/commit/22465a17057ba07454485356bd8e0c043432989a)]:
+  - @ledgerhq/wallet-api-core@0.10.0
+
 ## 0.10.2
 
 ### Patch Changes
