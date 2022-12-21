@@ -9,3 +9,4 @@ export * from "./MessageSign";
 export * from "./TransactionSign";
 export * from "./TransactionSignAndBroadcast";
 export * from "./WalletCapabilities";
+export * from "./BitcoinGetXPub";

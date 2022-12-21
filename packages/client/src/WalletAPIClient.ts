@@ -27,6 +27,7 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { Bitcoin } from "./modules/Bitcoin";
 import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -47,11 +48,17 @@ export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
   WalletHandlers
 > {
+  /**
+   * Instance of the Bitcoin module
+   */
+  public bitcoin: Bitcoin;
+
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
+    this.bitcoin = new Bitcoin(this);
   }
 
   protected onRequest(request: RpcRequest) {
