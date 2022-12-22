@@ -60,7 +60,7 @@ ___
 
 ### result
 
-• `Optional` **result**: `TResult`
+• **result**: `TResult`
 
 This member is **REQUIRED** on success.
 This member **MUST NOT** exist if there was an error invoking the method.

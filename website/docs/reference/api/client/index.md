@@ -18,6 +18,7 @@ custom_edit_url: null
 - [HWTransport](classes/HWTransport.md)
 - [RpcError](classes/RpcError.md)
 - [RpcNode](classes/RpcNode.md)
+- [ServerError](classes/ServerError.md)
 - [TransportWalletAPI](classes/TransportWalletAPI.md)
 - [WalletAPIClient](classes/WalletAPIClient.md)
 - [WindowMessageTransport](classes/WindowMessageTransport.md)
@@ -117,6 +118,16 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/AccountList.d.ts:126
+
+___
+
+### AccountNotFound
+
+Ƭ **AccountNotFound**: `z.infer`<typeof [`schemaAccountNotFound`](#schemaaccountnotfound)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:51
 
 ___
 
@@ -231,6 +242,47 @@ packages/core/lib/types/index.d.ts:63
 
 ___
 
+### BitcoinGetXPub
+
+Ƭ **BitcoinGetXPub**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaBitcoinGetXPubParams`\> |
+| `result` | `z.infer`<typeof `schemaBitcoinGetXPubResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/BitcoinGetXPub.d.ts:32
+
+___
+
+### BitcoinGetXPubHandler
+
+Ƭ **BitcoinGetXPubHandler**: (`params`: [`BitcoinGetXPub`](#bitcoingetxpub)[``"params"``]) => [`BitcoinGetXPub`](#bitcoingetxpub)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`BitcoinGetXPub`](#bitcoingetxpub)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`BitcoinGetXPub`](#bitcoingetxpub)[``"params"``] |
+
+##### Returns
+
+[`BitcoinGetXPub`](#bitcoingetxpub)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/BitcoinGetXPub.d.ts:36
+
+___
+
 ### CosmosOperationMode
 
 Ƭ **CosmosOperationMode**: `z.infer`<typeof `schemaCosmosOperationMode`\>
@@ -301,6 +353,16 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/CurrencyList.d.ts:222
+
+___
+
+### CurrencyNotFound
+
+Ƭ **CurrencyNotFound**: `z.infer`<typeof [`schemaCurrencyNotFound`](#schemacurrencynotfound)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:75
 
 ___
 
@@ -607,6 +669,16 @@ packages/core/lib/spec/methods.d.ts:2
 
 ___
 
+### NotImplementedByWallet
+
+Ƭ **NotImplementedByWallet**: `z.infer`<typeof [`schemaNotImplementedByWallet`](#schemanotimplementedbywallet)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:27
+
+___
+
 ### Permission
 
 Ƭ **Permission**: `Object`
@@ -621,6 +693,16 @@ ___
 #### Defined in
 
 packages/core/lib/types/index.d.ts:73
+
+___
+
+### PermissionDenied
+
+Ƭ **PermissionDenied**: `z.infer`<typeof [`schemaPermissionDenied`](#schemapermissiondenied)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:99
 
 ___
 
@@ -676,7 +758,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L34)
+[packages/client/src/WalletAPIClient.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L35)
 
 ___
 
@@ -845,6 +927,26 @@ packages/core/lib/JSONRPC/types.d.ts:98
 
 ___
 
+### ServerErrorCode
+
+Ƭ **ServerErrorCode**: `z.infer`<typeof [`schemaServerErrorCode`](#schemaservererrorcode)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:3
+
+___
+
+### ServerErrorData
+
+Ƭ **ServerErrorData**: `z.infer`<typeof [`schemaServerErrorData`](#schemaservererrordata)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:275
+
+___
+
 ### TezosOperationMode
 
 Ƭ **TezosOperationMode**: `z.infer`<typeof `schemaTezosOperationMode`\>
@@ -983,6 +1085,16 @@ packages/core/lib/families/tron/types.d.ts:5
 
 ___
 
+### UnknownError
+
+Ƭ **UnknownError**: `z.infer`<typeof [`schemaUnknownError`](#schemaunknownerror)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:143
+
+___
+
 ### WalletCapabilities
 
 Ƭ **WalletCapabilities**: `Object`
@@ -1041,6 +1153,16 @@ packages/core/lib/spec/types/AccountList.d.ts:61
 
 ___
 
+### schemaAccountNotFound
+
+• `Const` **schemaAccountNotFound**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:28
+
+___
+
 ### schemaAccountReceive
 
 • `Const` **schemaAccountReceive**: `Object`
@@ -1085,6 +1207,23 @@ packages/core/lib/currencies/validation.d.ts:4
 
 ___
 
+### schemaBitcoinGetXPub
+
+• `Const` **schemaBitcoinGetXPub**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> |
+| `result` | `z.ZodObject`<{ `xPub`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `xPub`: `string`  }, { `xPub`: `string`  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/BitcoinGetXPub.d.ts:16
+
+___
+
 ### schemaCryptoCurrency
 
 • `Const` **schemaCryptoCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>
@@ -1119,6 +1258,16 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/CurrencyList.d.ts:109
+
+___
+
+### schemaCurrencyNotFound
+
+• `Const` **schemaCurrencyNotFound**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:52
 
 ___
 
@@ -1174,7 +1323,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `appName`: `z.ZodOptional`<`z.ZodString`\> ; `appVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `devices`: `z.ZodOptional`<`z.ZodArray`<`z.ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"nanoFTS"``]\>, ``"atleastone"``\>\> ; `firmwareVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `seeded`: `z.ZodOptional`<`z.ZodBoolean`\>  }, ``"strip"``, `z.ZodTypeAny`, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }\> |
+| `params` | `z.ZodObject`<{ `appName`: `z.ZodOptional`<`z.ZodString`\> ; `appVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `devices`: `z.ZodOptional`<`z.ZodArray`<`z.ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"stax"``]\>, ``"atleastone"``\>\> ; `firmwareVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `seeded`: `z.ZodOptional`<`z.ZodBoolean`\>  }, ``"strip"``, `z.ZodTypeAny`, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }\> |
 | `result` | `z.ZodObject`<{ `transportId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
 
 #### Defined in
@@ -1220,9 +1369,29 @@ packages/core/lib/spec/types/MessageSign.d.ts:19
 
 ___
 
+### schemaNotImplementedByWallet
+
+• `Const` **schemaNotImplementedByWallet**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:4
+
+___
+
+### schemaPermissionDenied
+
+• `Const` **schemaPermissionDenied**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:76
+
+___
+
 ### schemaRPCCall
 
-• `Const` **schemaRPCCall**: `z.ZodUnion`<[`z.ZodObject`<{ `id`: `z.ZodOptional`<`z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\>\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `method`: `z.ZodString` ; `params`: `z.ZodAny`  }, ``"strict"``, `z.ZodTypeAny`, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>, `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodOptional`<`z.ZodUnknown`\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }\>]\>]\>
+• `Const` **schemaRPCCall**: `z.ZodUnion`<[`z.ZodObject`<{ `id`: `z.ZodOptional`<`z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\>\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `method`: `z.ZodString` ; `params`: `z.ZodAny`  }, ``"strict"``, `z.ZodTypeAny`, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>, `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>]\>]\>
 
 #### Defined in
 
@@ -1252,7 +1421,7 @@ ___
 
 ### schemaRPCResponse
 
-• `Const` **schemaRPCResponse**: `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodOptional`<`z.ZodUnknown`\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }\>]\>
+• `Const` **schemaRPCResponse**: `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>]\>
 
 #### Defined in
 
@@ -1282,7 +1451,7 @@ ___
 
 ### schemaRPCResponseSuccess
 
-• `Const` **schemaRPCResponseSuccess**: `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodOptional`<`z.ZodUnknown`\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result?`: `unknown`  }\>
+• `Const` **schemaRPCResponseSuccess**: `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>
 
 #### Defined in
 
@@ -1307,6 +1476,26 @@ ___
 #### Defined in
 
 packages/core/lib/families/validation.d.ts:2
+
+___
+
+### schemaServerErrorCode
+
+• `Const` **schemaServerErrorCode**: `z.ZodEnum`<[``"NOT_IMPLEMENTED_BY_WALLET"``, ``"ACCOUNT_NOT_FOUND"``, ``"CURRENCY_NOT_FOUND"``, ``"PERMISSION_DENIED"``, ``"UNKNOWN_ERROR"``]\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:2
+
+___
+
+### schemaServerErrorData
+
+• `Const` **schemaServerErrorData**: `z.ZodDiscriminatedUnion`<``"code"``, `z.Primitive`, `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\>\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:144
 
 ___
 
@@ -1374,6 +1563,16 @@ packages/core/lib/spec/types/TransactionSignAndBroadcast.d.ts:387
 
 ___
 
+### schemaUnknownError
+
+• `Const` **schemaUnknownError**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:100
+
+___
+
 ### schemaWalletCapabilities
 
 • `Const` **schemaWalletCapabilities**: `Object`
@@ -1390,6 +1589,86 @@ ___
 packages/core/lib/spec/types/WalletCapabilities.d.ts:10
 
 ## Functions
+
+### createAccountNotFound
+
+▸ **createAccountNotFound**(`accountId`): [`AccountNotFound`](#accountnotfound)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `accountId` | `string` |
+
+#### Returns
+
+[`AccountNotFound`](#accountnotfound)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:5
+
+___
+
+### createCurrencyNotFound
+
+▸ **createCurrencyNotFound**(`currencyId`): [`CurrencyNotFound`](#currencynotfound)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `currencyId` | `string` |
+
+#### Returns
+
+[`CurrencyNotFound`](#currencynotfound)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:4
+
+___
+
+### createNotImplementedByWallet
+
+▸ **createNotImplementedByWallet**(`methodId`): [`NotImplementedByWallet`](#notimplementedbywallet)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `methodId` | `string` |
+
+#### Returns
+
+[`NotImplementedByWallet`](#notimplementedbywallet)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:2
+
+___
+
+### createPermissionDenied
+
+▸ **createPermissionDenied**(`methodId`): [`PermissionDenied`](#permissiondenied)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `methodId` | `string` |
+
+#### Returns
+
+[`PermissionDenied`](#permissiondenied)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:3
+
+___
 
 ### createRpcRequest
 
@@ -1441,6 +1720,31 @@ ___
 #### Defined in
 
 packages/core/lib/JSONRPC/helpers.d.ts:16
+
+___
+
+### createUnknownError
+
+▸ **createUnknownError**(`error`): [`UnknownError`](#unknownerror)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `error` | `Object` |
+| `error.cause?` | `unknown` |
+| `error.code?` | `string` |
+| `error.message?` | `string` |
+| `error.name?` | `string` |
+| `error.stack?` | `string` |
+
+#### Returns
+
+[`UnknownError`](#unknownerror)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:6
 
 ___
 

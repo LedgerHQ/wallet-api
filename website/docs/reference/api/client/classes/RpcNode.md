@@ -174,14 +174,13 @@ ___
 
 ### request
 
-▸ **request**<`K`, `TError`\>(`method`, `params`): `Promise`<[`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>, `TError`\>\>
+▸ **request**<`K`\>(`method`, `params`): `Promise`<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `K` | extends `string` \| `number` \| `symbol` |
-| `TError` | `unknown` |
 
 #### Parameters
 
@@ -192,7 +191,7 @@ ___
 
 #### Returns
 
-`Promise`<[`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>, `TError`\>\>
+`Promise`<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>\>
 
 #### Defined in
 

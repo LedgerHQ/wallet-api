@@ -33,7 +33,7 @@ Wallet API Transport implementation
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L17)
+[packages/client/src/TransportWalletAPI.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L16)
 
 ## Properties
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L15)
+[packages/client/src/TransportWalletAPI.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L14)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L13)
+[packages/client/src/TransportWalletAPI.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L12)
 
 ___
 
@@ -254,7 +254,7 @@ Close the current transport communication.
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:86](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L86)
+[packages/client/src/TransportWalletAPI.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L79)
 
 ___
 
@@ -383,7 +383,7 @@ a promise of apdu response
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L56)
+[packages/client/src/TransportWalletAPI.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L55)
 
 ___
 
@@ -532,7 +532,7 @@ Each App can have a different scramble key and they internally will set it at in
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L79)
+[packages/client/src/TransportWalletAPI.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L72)
 
 ___
 
@@ -587,7 +587,7 @@ Transport.isSupported
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L26)
+[packages/client/src/TransportWalletAPI.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L25)
 
 ___
 
@@ -607,7 +607,7 @@ Transport.list
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L31)
+[packages/client/src/TransportWalletAPI.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L30)
 
 ___
 
@@ -658,7 +658,7 @@ Transport.listen
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L33)
+[packages/client/src/TransportWalletAPI.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L32)
 
 ___
 
@@ -686,4 +686,4 @@ Transport.open
 
 #### Defined in
 
-[packages/client/src/TransportWalletAPI.ts:40](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L40)
+[packages/client/src/TransportWalletAPI.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/TransportWalletAPI.ts#L39)

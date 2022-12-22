@@ -38,6 +38,16 @@ packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:5
 
 ___
 
+### bitcoin.getXPub
+
+• **bitcoin.getXPub**: [`BitcoinGetXPubHandler`](../#bitcoingetxpubhandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+
+___
+
 ### currency.list
 
 • **currency.list**: [`CurrencyListHandler`](../#currencylisthandler)

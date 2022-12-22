@@ -29,7 +29,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L31)
+[server/src/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L32)
 
 ___
 
@@ -55,7 +55,32 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L27)
+[server/src/types.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L28)
+
+___
+
+### bitcoin.getXPub
+
+• **bitcoin.getXPub**: (`params`: { `accountId`: `string`  }) => `Promisable`<`string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`string`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.accountId` | `string` |
+
+##### Returns
+
+`Promisable`<`string`\>
+
+#### Defined in
+
+[server/src/types.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L50)
 
 ___
 
@@ -80,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:46](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L46)
+[server/src/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L47)
 
 ___
 
@@ -106,13 +131,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L47)
+[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
 
 ___
 
 ### device.transport
 
-• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
+• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -125,7 +150,7 @@ ___
 | `params` | `Object` |
 | `params.appName?` | `string` |
 | `params.appVersionRange?` | `string` |
-| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] |
 | `params.firmwareVersionRange?` | `string` |
 | `params.seeded?` | `boolean` |
 
@@ -135,7 +160,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
+[server/src/types.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L49)
 
 ___
 
@@ -161,7 +186,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L32)
+[server/src/types.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L33)
 
 ___
 
@@ -189,7 +214,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L36)
+[server/src/types.ts:37](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L37)
 
 ___
 
@@ -217,4 +242,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L41)
+[server/src/types.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L42)

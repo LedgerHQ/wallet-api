@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L70)
+[server/src/types.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L72)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
+[server/src/types.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L64)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:20](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L20)
+[server/src/types.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L21)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:58](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L58)
+[server/src/types.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L60)
 
 ___
 
@@ -106,44 +106,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L15)
-
-## Variables
-
-### ACCOUNT\_NOT\_FOUND
-
-• `Const` **ACCOUNT\_NOT\_FOUND**: `RpcResponseError`
-
-#### Defined in
-
-[server/src/errors.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L8)
-
-___
-
-### CURRENCY\_NOT\_FOUND
-
-• `Const` **CURRENCY\_NOT\_FOUND**: `RpcResponseError`
-
-#### Defined in
-
-[server/src/errors.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L13)
-
-___
-
-### NOT\_IMPLEMENTED\_BY\_WALLET
-
-• `Const` **NOT\_IMPLEMENTED\_BY\_WALLET**: `RpcResponseError`
-
-#### Defined in
-
-[server/src/errors.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L3)
-
-___
-
-### PERMISSION\_DENIED
-
-• `Const` **PERMISSION\_DENIED**: `RpcResponseError`
-
-#### Defined in
-
-[server/src/errors.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/errors.ts#L18)
+[server/src/types.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L16)

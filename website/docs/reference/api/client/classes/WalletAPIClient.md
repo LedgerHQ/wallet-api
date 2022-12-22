@@ -33,9 +33,21 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L52)
+[packages/client/src/WalletAPIClient.ts:58](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L58)
 
 ## Properties
+
+### bitcoin
+
+• **bitcoin**: `Bitcoin`
+
+Instance of the Bitcoin module
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:54](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L54)
+
+___
 
 ### logger
 
@@ -43,7 +55,7 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L50)
+[packages/client/src/WalletAPIClient.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L56)
 
 ___
 
@@ -87,7 +99,7 @@ The list of implemented method ids
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:314](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L314)
+[packages/client/src/WalletAPIClient.ts:283](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L283)
 
 ___
 
@@ -108,7 +120,7 @@ Open low-level transport in the connected wallet
 | `params` | `Object` | Params for the transport |
 | `params.appName?` | `string` | - |
 | `params.appVersionRange?` | `string` | - |
-| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"nanoFTS"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "nanoFTS")[]] | - |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] | - |
 | `params.firmwareVersionRange?` | `string` | - |
 | `params.seeded?` | `boolean` | - |
 
@@ -120,7 +132,7 @@ An instance of Transport compatible with @ledgerhq/hw-transport
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:284](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L284)
+[packages/client/src/WalletAPIClient.ts:257](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L257)
 
 ___
 
@@ -149,7 +161,7 @@ The list of accounts on the connected wallet
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:172](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L172)
+[packages/client/src/WalletAPIClient.ts:165](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L165)
 
 ___
 
@@ -180,7 +192,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:255](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L255)
+[packages/client/src/WalletAPIClient.ts:234](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L234)
 
 ___
 
@@ -235,7 +247,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L57)
+[packages/client/src/WalletAPIClient.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L64)
 
 ___
 
@@ -259,20 +271,19 @@ The verified address or an error message if the verification doesn't succeed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:229](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L229)
+[packages/client/src/WalletAPIClient.ts:212](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L212)
 
 ___
 
 ### request
 
-▸ **request**<`K`, `TError`\>(`method`, `params`): `Promise`<[`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\>, `TError`\>\>
+▸ **request**<`K`\>(`method`, `params`): `Promise`<`ReturnTypeOfMethodIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `K` | extends keyof [`WalletHandlers`](../interfaces/WalletHandlers.md) |
-| `TError` | `unknown` |
 
 #### Parameters
 
@@ -283,7 +294,7 @@ ___
 
 #### Returns
 
-`Promise`<[`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\>, `TError`\>\>
+`Promise`<`ReturnTypeOfMethodIfExists`<[`WalletHandlers`](../interfaces/WalletHandlers.md), `K`\>\>
 
 #### Inherited from
 
@@ -320,7 +331,7 @@ The account selected by the user
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:201](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L201)
+[packages/client/src/WalletAPIClient.ts:188](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L188)
 
 ___
 
@@ -351,7 +362,7 @@ Message signed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:147](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L147)
+[packages/client/src/WalletAPIClient.ts:146](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L146)
 
 ___
 
@@ -382,7 +393,7 @@ The raw signed transaction
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L81)
+[packages/client/src/WalletAPIClient.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L88)
 
 ___
 
@@ -413,4 +424,4 @@ The transaction hash
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:112](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L112)
+[packages/client/src/WalletAPIClient.ts:115](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L115)
