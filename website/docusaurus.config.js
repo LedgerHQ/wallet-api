@@ -70,7 +70,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -124,19 +123,19 @@ const config = {
             items: [
               {
                 label: "Tutorials",
-                to: "/category/tutorials",
+                to: "/docs/category/tutorials",
               },
               {
                 label: "How-to guides",
-                to: "/category/how-to-guides",
+                to: "/docs/category/how-to-guides",
               },
               {
                 label: "Reference",
-                to: "/category/reference",
+                to: "/docs/category/reference",
               },
               {
                 label: "Explanations",
-                to: "/category/explanations",
+                to: "/docs/category/explanations",
               },
             ],
           },
