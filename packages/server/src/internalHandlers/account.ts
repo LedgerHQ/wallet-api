@@ -71,7 +71,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
   const safeParams = schemaAccountList.params.parse(req.params);
 
-  const { currencyIds } = safeParams;
+  const { currencyIds } = safeParams || {};
 
   const filteredAccounts$ = currencyIds
     ? context.accounts$.pipe(
