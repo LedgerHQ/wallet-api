@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-manifest-validator",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "This package checks if your manifest.json file meets the requirements for Ledger wallet App manifest submission.",
   "license": "MIT",
   "main": "lib/index.js",
