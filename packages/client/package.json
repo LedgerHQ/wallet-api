@@ -17,9 +17,7 @@
     "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
     "dev": "tsc -p prod.tsconfig.json --watch",
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
-    "test": "jest",
-    "doc": "typedoc --gitRevision main --out docs/reference --plugin typedoc-plugin-markdown src/index.ts",
-    "doc:html": "typedoc --gitRevision main --out docs/html --plugin typedoc-plugin-rename-defaults src/index.ts"
+    "test": "jest"
   },
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.27.6",
@@ -38,9 +36,6 @@
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.23.19",
-    "typedoc-plugin-markdown": "^3.14.0",
-    "typedoc-plugin-rename-defaults": "^0.6.4",
     "typescript": "^4.8.4"
   }
 }
