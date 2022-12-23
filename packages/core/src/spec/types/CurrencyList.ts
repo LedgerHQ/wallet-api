@@ -1,9 +1,11 @@
 import { z } from "zod";
 import { schemaCurrency } from "../../currencies";
 
-const schemaCurrencyListParams = z.object({
-  currencyIds: z.array(z.string()).optional(),
-});
+const schemaCurrencyListParams = z
+  .object({
+    currencyIds: z.array(z.string()).optional(),
+  })
+  .optional();
 
 const schemaCurrencyListResult = z.object({
   currencies: z.array(schemaCurrency),

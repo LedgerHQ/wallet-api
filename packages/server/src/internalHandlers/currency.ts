@@ -21,7 +21,7 @@ export const list: RPCHandler<CurrencyList["result"]> = async (
 ) => {
   const safeParams = schemaCurrencyList.params.parse(req.params);
 
-  const { currencyIds } = safeParams;
+  const { currencyIds } = safeParams || {};
 
   const allCurrencies = await firstValueFrom(context.currencies$);
 
