@@ -46,20 +46,30 @@ export class WalletAPIServer extends RpcNode<
     methodIds$: new BehaviorSubject<string[]>([]),
   };
 
+  // TODO: Look for what exactly need to be tested before assignation
   setPermissions(permission: Permission) {
-    this.permissions.currencyIds$.next(permission.currencyIds);
-    this.permissions.methodIds$.next(permission.methodIds);
-    return this;
+    if (permission && permission.currencyIds && permission.methodIds) {
+      this.permissions.currencyIds$.next(permission.currencyIds);
+      this.permissions.methodIds$.next(permission.methodIds);
+      return this;
+    }
+    throw new Error("error in permission argument");
   }
 
   setCurrencies(currencies: Currency[]) {
-    this.allCurrencies$.next(currencies);
-    return this;
+    if (currencies) {
+      this.allCurrencies$.next(currencies);
+      return this;
+    }
+    throw new Error("error in currencies argument");
   }
 
   setAccounts(accounts: Account[]) {
-    this.allAccounts$.next(accounts);
-    return this;
+    if (accounts) {
+      this.allAccounts$.next(accounts);
+      return this;
+    }
+    throw new Error("error in accounts argument");
   }
 
   public setHandler<K extends keyof WalletHandlers>(
