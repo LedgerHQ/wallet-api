@@ -5,7 +5,7 @@ export const schemaTransactionCommon = z.object({
   recipient: z.string(),
 });
 
-export const schemaFamilies = z.enum([
+export const FAMILIES = [
   "bitcoin",
   "ethereum",
   "algorand",
@@ -18,4 +18,6 @@ export const schemaFamilies = z.enum([
   "polkadot",
   "stellar",
   "tron",
-]);
+] as const;
+
+export const schemaFamilies = z.enum(FAMILIES);
