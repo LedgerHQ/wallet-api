@@ -43,8 +43,7 @@ This monorepo hosts the Wallet API and some reference implementations to allow a
 
 # Get started
 
-To get started, head over to the [specifications](/spec/README.md) part of the documentation to get a  bird's-eye view of the API and its different parts including the [RPC specification](/spec/rpc/README.md), as well as the [client](/spec/client/README.md) and [server](/spec/server/README.md) ones.
-
+To get started, head over to the [specifications](/spec/README.md) part of the documentation to get a bird's-eye view of the API and its different parts including the [RPC specification](/spec/rpc/README.md), as well as the [client](/spec/client/README.md) and [server](/spec/server/README.md) ones.
 
 # How does it works
 
@@ -56,14 +55,16 @@ The Wallet API defines an interface for applications and wallets to interact wit
 ```
 
 <!-- TODO: link to reference implementations of client and server once available -->
+
 Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server parth of the interface, under the `/packages` directory.
 
 # Where to get help
 
 You can get help by:
+
 - Heading over to our [Ledger Develop Portal](https://developers.ledger.com)
 - Joining our [Discord](https://discord.gg/y6nZhxv2bC)
-- Opening an issue with the `help wanted` label
+- See [SUPPORT.md](/SUPPORT.md)
 
 # Contributing
 
