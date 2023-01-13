@@ -2,6 +2,7 @@ import {
   schemaWalletUserId,
   schemaWalletInfo,
   WalletInfo,
+  schemaWalletCapabilities,
 } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
@@ -28,7 +29,7 @@ export class Wallet {
 
   /**
    *
-   * @returns the wallet infos
+   * @returns The wallet infos
    *
    * @throws {@link ServerError} if an error occured on server side
    */
@@ -38,5 +39,26 @@ export class Wallet {
     const safeResults = schemaWalletInfo.result.parse(infoResult);
 
     return safeResults;
+  }
+
+  /**
+   * List the wallet's implemented methodIds
+   *
+   * @returns The list of implemented method ids
+   * @throws {@link RpcError} if an error occured on server side
+   *
+   * @beta Filtering not yet implemented
+   */
+  async capabilities(): Promise<string[]> {
+    const walletCapabilitiesResult = await this.client.request(
+      "wallet.capabilities",
+      {}
+    );
+
+    const safeResults = schemaWalletCapabilities.result.parse(
+      walletCapabilitiesResult
+    );
+
+    return safeResults.methodIds;
   }
 }
