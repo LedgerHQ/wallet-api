@@ -1,6 +1,5 @@
 import Transport from "@ledgerhq/hw-transport";
 import {
-  RpcError,
   schemaDeviceClose,
   schemaDeviceExchange,
 } from "@ledgerhq/wallet-api-core";
@@ -64,13 +63,7 @@ export class TransportWalletAPI extends Transport {
       }
     );
 
-    if ("error" in deviceExchangeResult) {
-      throw new RpcError(deviceExchangeResult.error);
-    }
-
-    const safeResults = schemaDeviceExchange.result.parse(
-      deviceExchangeResult.result
-    );
+    const safeResults = schemaDeviceExchange.result.parse(deviceExchangeResult);
 
     return Buffer.from(safeResults.responseHex, "hex");
   }
@@ -88,11 +81,7 @@ export class TransportWalletAPI extends Transport {
       transportId: this.transportId,
     });
 
-    if ("error" in deviceCloseResult) {
-      throw new RpcError(deviceCloseResult.error);
-    }
-
-    schemaDeviceClose.result.parse(deviceCloseResult.result);
+    schemaDeviceClose.result.parse(deviceCloseResult);
 
     // Should we check the transportId against the one from the class
     // and throw an error in case of mismatch ?

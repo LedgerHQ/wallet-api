@@ -31,6 +31,7 @@ export const standardProfile: SimulatorProfile = {
       "wallet.capabilities",
       "storage.set",
       "storage.get",
+      "bitcoin.getXPub",
     ],
   },
   accounts: allAccounts,
@@ -42,6 +43,7 @@ export const standardProfile: SimulatorProfile = {
       if (!accounts[0]) {
         throw new Error("No accounts available");
       }
+
       return accounts[0];
     },
     "transaction.signAndBroadcast": () => {
@@ -77,6 +79,9 @@ export const standardProfile: SimulatorProfile = {
       }
 
       return store[key];
+    },
+    "bitcoin.getXPub": () => {
+      return "xpub";
     },
   },
 };

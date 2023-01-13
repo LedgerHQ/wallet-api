@@ -2,6 +2,7 @@ import type {
   AccountListHandler,
   AccountReceiveHandler,
   AccountRequestHandler,
+  BitcoinGetXPubHandler,
   CurrencyListHandler,
   DeviceCloseHandler,
   DeviceExchangeHandler,
@@ -28,4 +29,5 @@ export interface WalletHandlers {
   "wallet.capabilities": WalletCapabilitiesHandler;
   "storage.set": StorageSetHandler;
   "storage.get": StorageGetHandler;
+  "bitcoin.getXPub": BitcoinGetXPubHandler;
 }

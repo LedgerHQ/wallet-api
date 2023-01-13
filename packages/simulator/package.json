@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-simulator",
-  "version": "0.7.3",
+  "version": "0.9.1",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib-es/index.js",
@@ -36,7 +36,7 @@
     "@ledgerhq/wallet-api-client": "workspace:*",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-server": "workspace:*",
-    "rxjs": "^7.5.7",
+    "rxjs": "^7.8.0",
     "ws": "^8.10.0"
   }
 }

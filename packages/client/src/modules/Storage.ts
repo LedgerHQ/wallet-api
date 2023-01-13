@@ -1,8 +1,4 @@
-import {
-  RpcError,
-  schemaStorageGet,
-  schemaStorageSet,
-} from "@ledgerhq/wallet-api-core";
+import { schemaStorageGet, schemaStorageSet } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
 export class Storage {
@@ -18,11 +14,7 @@ export class Storage {
       storeId,
     });
 
-    if ("error" in storageGetResult) {
-      throw new RpcError(storageGetResult.error);
-    }
-
-    const safeResults = schemaStorageGet.result.parse(storageGetResult.result);
+    const safeResults = schemaStorageGet.result.parse(storageGetResult);
 
     return safeResults.value;
   }
@@ -34,11 +26,7 @@ export class Storage {
       storeId,
     });
 
-    if ("error" in storageSetResult) {
-      throw new RpcError(storageSetResult.error);
-    }
-
-    const safeResults = schemaStorageSet.result.parse(storageSetResult.result);
+    const safeResults = schemaStorageSet.result.parse(storageSetResult);
 
     return safeResults;
   }

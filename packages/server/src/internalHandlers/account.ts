@@ -3,15 +3,16 @@ import {
   AccountList,
   AccountReceive,
   AccountRequest,
+  createAccountNotFound,
+  createNotImplementedByWallet,
   Currency,
-  RpcError,
   schemaAccountList,
   schemaAccountReceive,
   schemaAccountRequest,
   serializeAccount,
+  ServerError,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom, map } from "rxjs";
-import { ACCOUNT_NOT_FOUND, NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
 function filterAccountsByCurrencyIds(
@@ -40,7 +41,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
   const walletHandler = handlers["account.request"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("account.request"));
   }
 
   const filteredAccounts$ = currencyIds
@@ -70,7 +71,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
   const safeParams = schemaAccountList.params.parse(req.params);
 
-  const { currencyIds } = safeParams;
+  const { currencyIds } = safeParams || {};
 
   const filteredAccounts$ = currencyIds
     ? context.accounts$.pipe(
@@ -98,13 +99,13 @@ export const receive: RPCHandler<AccountReceive["result"]> = async (
   const account = accounts.find((acc) => acc.id === accountId);
 
   if (!account) {
-    throw new RpcError(ACCOUNT_NOT_FOUND);
+    throw new ServerError(createAccountNotFound(accountId));
   }
 
   const walletHandler = handlers["account.receive"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("account.receive"));
   }
 
   const result = await walletHandler({ account });

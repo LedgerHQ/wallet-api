@@ -1,5 +1,6 @@
 import type {
   Account,
+  BitcoinGetXPub,
   Currency,
   DeviceClose,
   DeviceExchange,
@@ -57,6 +58,7 @@ export interface WalletHandlers {
     key: string;
     storeId: string;
   }) => Promisable<string | undefined>;
+  "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown

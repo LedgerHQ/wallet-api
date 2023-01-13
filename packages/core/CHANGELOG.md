@@ -1,5 +1,39 @@
 # @ledgerhq/wallet-api-core
 
+## 0.11.0
+
+### Minor Changes
+
+- [#86](https://github.com/LedgerHQ/wallet-api/pull/86) [`4eb4024`](https://github.com/LedgerHQ/wallet-api/commit/4eb4024e9c8bde5cbd416778c72a11f5fb041d69) Thanks [@Justkant](https://github.com/Justkant)! - feat(core): export FAMILIES const
+
+### Patch Changes
+
+- [#77](https://github.com/LedgerHQ/wallet-api/pull/77) [`e80df07`](https://github.com/LedgerHQ/wallet-api/commit/e80df07ea1efe03f815f3fd3b45b93d9bfbf9ed3) Thanks [@chabroA](https://github.com/chabroA)! - fix type on server handlers to match signature on client side
+
+## 0.10.0
+
+### Minor Changes
+
+- [#69](https://github.com/LedgerHQ/wallet-api/pull/69) [`22465a1`](https://github.com/LedgerHQ/wallet-api/commit/22465a17057ba07454485356bd8e0c043432989a) Thanks [@chabroA](https://github.com/chabroA)! - Add bitcoin module with getXPub method
+
+## 0.9.2
+
+### Patch Changes
+
+- [`ec07069`](https://github.com/LedgerHQ/wallet-api/commit/ec07069b2a5c0ed455df17aaac5e9690a73896c3) Thanks [@Justkant](https://github.com/Justkant)! - fix: WindowMessageTransport for android webview
+
+## 0.9.1
+
+### Patch Changes
+
+- [`10a732e`](https://github.com/LedgerHQ/wallet-api/commit/10a732e5986e482077b28679b7a68c078e9c4884) Thanks [@Justkant](https://github.com/Justkant)! - fix: rename nanoFTS to stax
+
+## 0.9.0
+
+### Minor Changes
+
+- [#70](https://github.com/LedgerHQ/wallet-api/pull/70) [`4c75e55`](https://github.com/LedgerHQ/wallet-api/commit/4c75e55da8bffd1a76e97bb3f3eb48dab56223f8) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Refactored error strategy to have two levels of error protocol
+
 ## 0.8.0
 
 ### Minor Changes

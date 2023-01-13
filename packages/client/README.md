@@ -3,6 +3,7 @@
  <h2 align="center">WalletAPI Client SDK</h2>
  <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
+ <p align="center">
   <p align="center">
     <a href="https://www.npmjs.com/package/@ledgerhq/wallet-api-client?activeTab=versions">
       <img src="https://img.shields.io/npm/v/@ledgerhq/wallet-api-client.svg?style=flat-square" />
@@ -88,26 +89,6 @@ Automatically fix code quality problems with
 ```bash
 pnpm lint:fix
 ```
-
-# Documentation
-
-You can generate the project's documentation, either in `html` or in `markdown`.
-
-For `markdown` use:
-
-```bash
-pnpm doc
-```
-
-For `html` use:
-
-```bash
-pnpm doc:html
-```
-
-The documentation will be generated in a `docs/reference` or `docs/html` folder depending on the chosen format.
-
-You can find the entrypoint to the generated doc [here](./docs/reference/modules.md).
 
 ---
 

@@ -1,12 +1,6 @@
 import { z } from "zod";
 
-const schemaDeviceType = z.enum([
-  "blue",
-  "nanoS",
-  "nanoSP",
-  "nanoX",
-  "nanoFTS",
-]);
+const schemaDeviceType = z.enum(["blue", "nanoS", "nanoSP", "nanoX", "stax"]);
 
 export type DeviceType = z.infer<typeof schemaDeviceType>;
 

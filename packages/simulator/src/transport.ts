@@ -27,7 +27,7 @@ export function getSimulatorTransport(profile: SimulatorProfile): Transport {
   };
 
   const serverInstance = new WalletAPIServer(
-    { id: profile.id, permissions: profile.permissions },
+    { appId: profile.id, permissions: profile.permissions },
     serverTransport
   );
   applyProfile(serverInstance, profile);

@@ -1,5 +1,48 @@
 # @ledgerhq/wallet-api-client
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`e80df07`](https://github.com/LedgerHQ/wallet-api/commit/e80df07ea1efe03f815f3fd3b45b93d9bfbf9ed3), [`4eb4024`](https://github.com/LedgerHQ/wallet-api/commit/4eb4024e9c8bde5cbd416778c72a11f5fb041d69)]:
+  - @ledgerhq/wallet-api-core@0.11.0
+
+## 0.11.0
+
+### Minor Changes
+
+- [#69](https://github.com/LedgerHQ/wallet-api/pull/69) [`22465a1`](https://github.com/LedgerHQ/wallet-api/commit/22465a17057ba07454485356bd8e0c043432989a) Thanks [@chabroA](https://github.com/chabroA)! - Add bitcoin module with getXPub method
+
+### Patch Changes
+
+- Updated dependencies [[`22465a1`](https://github.com/LedgerHQ/wallet-api/commit/22465a17057ba07454485356bd8e0c043432989a)]:
+  - @ledgerhq/wallet-api-core@0.10.0
+
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`ec07069`](https://github.com/LedgerHQ/wallet-api/commit/ec07069b2a5c0ed455df17aaac5e9690a73896c3)]:
+  - @ledgerhq/wallet-api-core@0.9.2
+
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [[`10a732e`](https://github.com/LedgerHQ/wallet-api/commit/10a732e5986e482077b28679b7a68c078e9c4884)]:
+  - @ledgerhq/wallet-api-core@0.9.1
+
+## 0.10.0
+
+### Minor Changes
+
+- [#70](https://github.com/LedgerHQ/wallet-api/pull/70) [`4c75e55`](https://github.com/LedgerHQ/wallet-api/commit/4c75e55da8bffd1a76e97bb3f3eb48dab56223f8) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Refactored error strategy to have two levels of error protocol
+
+### Patch Changes
+
+- Updated dependencies [[`4c75e55`](https://github.com/LedgerHQ/wallet-api/commit/4c75e55da8bffd1a76e97bb3f3eb48dab56223f8)]:
+  - @ledgerhq/wallet-api-core@0.9.0
+
 ## 0.9.0
 
 ### Minor Changes

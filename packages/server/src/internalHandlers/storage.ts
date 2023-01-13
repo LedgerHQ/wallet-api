@@ -1,11 +1,11 @@
 import {
   StorageGet,
   StorageSet,
-  RpcError,
   schemaStorageGet,
   schemaStorageSet,
+  ServerError,
+  createNotImplementedByWallet,
 } from "@ledgerhq/wallet-api-core";
-import { NOT_IMPLEMENTED_BY_WALLET } from "../errors";
 import type { RPCHandler } from "../types";
 
 export const set: RPCHandler<StorageSet["result"]> = async (
@@ -16,7 +16,7 @@ export const set: RPCHandler<StorageSet["result"]> = async (
   const walletHandler = handlers["storage.set"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("storage.set"));
   }
 
   const safeParams = schemaStorageSet.params.parse(req.params);
@@ -36,7 +36,7 @@ export const get: RPCHandler<StorageGet["result"]> = async (
   const walletHandler = handlers["storage.get"];
 
   if (!walletHandler) {
-    throw new RpcError(NOT_IMPLEMENTED_BY_WALLET);
+    throw new ServerError(createNotImplementedByWallet("storage.get"));
   }
 
   const safeParams = schemaStorageGet.params.parse(req.params);
