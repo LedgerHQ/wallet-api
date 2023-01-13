@@ -19,6 +19,8 @@ export const capabilities: RPCHandler<WalletCapabilities["result"]> = async (
     "account.list",
     "currency.list",
     "wallet.capabilities",
+    "wallet.info",
+    "wallet.userId",
   ];
 
   return {
