@@ -9,4 +9,6 @@ export * from "./MessageSign";
 export * from "./TransactionSign";
 export * from "./TransactionSignAndBroadcast";
 export * from "./WalletCapabilities";
+export * from "./WalletUserId";
+export * from "./WalletInfo";
 export * from "./BitcoinGetXPub";

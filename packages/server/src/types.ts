@@ -16,6 +16,7 @@ import type { BehaviorSubject, Observable } from "rxjs";
 export type WalletContext = {
   currencies$: Observable<Currency[]>;
   accounts$: Observable<Account[]>;
+  config: ServerConfig;
 };
 
 export type RPCHandler<TResult> = (
@@ -73,3 +74,14 @@ export type ClientContext = {
   currencies$: BehaviorSubject<Currency[]>;
   accounts$: BehaviorSubject<Account[]>;
 } & ClientParams;
+
+export type WalletInfo = {
+  name: string;
+  version: string;
+};
+
+export type ServerConfig = {
+  userId: string;
+  tracking: boolean;
+  wallet: WalletInfo;
+};
