@@ -187,7 +187,12 @@ export class WalletAPIClient extends RpcNode<
    */
   async requestAccount(params?: {
     /**
-     * Select a set of currencies by id. Globing is enabled
+     * Select a set of currencies by id. Globing is enabled.
+     * This list of currencies ids can be found [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/currencies.ts)
+     * and the list of tokens ids [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts).
+     * You can find more info on how the tokens ids are built for each chain / family you want to use by looking at the converter functions used [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts#L25-L33).
+     * You can easily search for a token in the corresponding data file using it's contract address.
+     * For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`.
      */
     currencyIds?: string[];
   }): Promise<Account> {
