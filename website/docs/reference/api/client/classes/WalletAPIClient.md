@@ -99,7 +99,7 @@ The list of implemented method ids
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:283](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L283)
+[packages/client/src/WalletAPIClient.ts:288](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L288)
 
 ___
 
@@ -132,7 +132,7 @@ An instance of Transport compatible with @ledgerhq/hw-transport
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:257](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L257)
+[packages/client/src/WalletAPIClient.ts:262](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L262)
 
 ___
 
@@ -192,7 +192,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:234](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L234)
+[packages/client/src/WalletAPIClient.ts:239](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L239)
 
 ___
 
@@ -271,7 +271,7 @@ The verified address or an error message if the verification doesn't succeed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:212](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L212)
+[packages/client/src/WalletAPIClient.ts:217](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L217)
 
 ___
 
@@ -321,7 +321,7 @@ Ask the connected wallet for an account matching a specific set of critterias.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params?` | `Object` | Parameters of the request. |
-| `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled |
+| `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled. This list of currencies ids can be found [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/currencies.ts) and the list of tokens ids [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts). You can find more info on how the tokens ids are built for each chain / family you want to use by looking at the converter functions used [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts#L25-L33). You can easily search for a token in the corresponding data file using it's contract address. For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`. |
 
 #### Returns
 
