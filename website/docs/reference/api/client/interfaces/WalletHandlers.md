@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
 
 ___
 
@@ -124,4 +124,24 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+
+___
+
+### wallet.info
+
+• **wallet.info**: [`WalletInfoHandler`](../#walletinfohandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:16
+
+___
+
+### wallet.userId
+
+• **wallet.userId**: [`WalletUserIdHandler`](../#walletuseridhandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:15
