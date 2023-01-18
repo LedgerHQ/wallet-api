@@ -6,7 +6,7 @@ import {
 } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
-export class Wallet {
+export class WalletModule {
   private client: WalletAPIClient;
 
   constructor(client: WalletAPIClient) {
