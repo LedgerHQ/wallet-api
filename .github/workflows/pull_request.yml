@@ -15,19 +15,17 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      - name: format check
+      - name: Format check
         run: pnpm format:check
-      - name: build
+      - name: Build
         run: pnpm build
-      - name: lint
+      - name: Check for diff in docs
+        run: git diff --exit-code || exit 1
+      - name: Lint
         run: pnpm lint
-      - name: test
+      - name: Test
         run: pnpm test
       # - name: Uploading to codecov.io
       #   run: npx codecov
       #   env:
       #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      # - name: run doc
-      #   run: pnpm doc
-      # - name: check if diff
-      #   run: git diff --exit-code || exit 1
