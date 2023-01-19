@@ -758,7 +758,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L35)
+[packages/client/src/WalletAPIClient.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L36)
 
 ___
 
@@ -944,6 +944,88 @@ ___
 #### Defined in
 
 packages/core/lib/errors/types.d.ts:275
+
+___
+
+### StorageGet
+
+Ƭ **StorageGet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaStorageGetParams`\> |
+| `result` | `z.infer`<typeof `schemaStorageGetResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:38
+
+___
+
+### StorageGetHandler
+
+Ƭ **StorageGetHandler**: (`params`: [`StorageGet`](#storageget)[``"params"``]) => [`StorageGet`](#storageget)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`StorageGet`](#storageget)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`StorageGet`](#storageget)[``"params"``] |
+
+##### Returns
+
+[`StorageGet`](#storageget)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:42
+
+___
+
+### StorageSet
+
+Ƭ **StorageSet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaStorageSetParams`\> |
+| `result` | `z.infer`<typeof `schemaStorageSetResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:32
+
+___
+
+### StorageSetHandler
+
+Ƭ **StorageSetHandler**: (`params`: [`StorageSet`](#storageset)[``"params"``]) => [`StorageSet`](#storageset)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`StorageSet`](#storageset)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`StorageSet`](#storageset)[``"params"``] |
+
+##### Returns
+
+[`StorageSet`](#storageset)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:36
 
 ___
 
@@ -1588,6 +1670,40 @@ ___
 #### Defined in
 
 packages/core/lib/errors/types.d.ts:144
+
+___
+
+### schemaStorageGet
+
+• `Const` **schemaStorageGet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string`  }, { `key`: `string` ; `storeId?`: `string`  }\> |
+| `result` | `z.ZodObject`<{ `value`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `value?`: `string`  }, { `value?`: `string`  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:19
+
+___
+
+### schemaStorageSet
+
+• `Const` **schemaStorageSet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\> ; `value`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }\> |
+| `result` | `z.ZodVoid` |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:16
 
 ___
 

@@ -48,6 +48,15 @@ export interface WalletHandlers {
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
   "device.transport": (params: DeviceTransport["params"]) => Promisable<string>;
+  "storage.set": (params: {
+    key: string;
+    value: string;
+    storeId: string;
+  }) => Promisable<void>;
+  "storage.get": (params: {
+    key: string;
+    storeId: string;
+  }) => Promisable<string | undefined>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
 }
 
@@ -84,4 +93,5 @@ export type ServerConfig = {
   userId: string;
   tracking: boolean;
   wallet: WalletInfo;
+  appId: string;
 };

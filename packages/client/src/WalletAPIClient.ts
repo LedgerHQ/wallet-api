@@ -26,6 +26,7 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
+import { StorageModule } from "./modules/Storage";
 import { BitcoinModule } from "./modules/Bitcoin";
 import { WalletModule } from "./modules/Wallet";
 import { TransportWalletAPI } from "./TransportWalletAPI";
@@ -49,6 +50,11 @@ export class WalletAPIClient extends RpcNode<
   WalletHandlers
 > {
   /**
+   * Instance of the Storage module
+   */
+  public storage: StorageModule;
+
+  /**
    * Instance of the Bitcoin module
    */
   public bitcoin: BitcoinModule;
@@ -65,6 +71,7 @@ export class WalletAPIClient extends RpcNode<
     this.logger = logger;
     this.bitcoin = new BitcoinModule(this);
     this.wallet = new WalletModule(this);
+    this.storage = new StorageModule(this);
   }
 
   protected onRequest(request: RpcRequest) {

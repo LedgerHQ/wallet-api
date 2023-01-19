@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L51)
+[server/src/types.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L60)
 
 ___
 
@@ -187,6 +187,59 @@ ___
 #### Defined in
 
 [server/src/types.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L34)
+
+___
+
+### storage.get
+
+• **storage.get**: (`params`: { `key`: `string` ; `storeId`: `string`  }) => `Promisable`<`undefined` \| `string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`undefined` \| `string`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.key` | `string` |
+| `params.storeId` | `string` |
+
+##### Returns
+
+`Promisable`<`undefined` \| `string`\>
+
+#### Defined in
+
+[server/src/types.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L56)
+
+___
+
+### storage.set
+
+• **storage.set**: (`params`: { `key`: `string` ; `storeId`: `string` ; `value`: `string`  }) => `Promisable`<`void`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`void`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.key` | `string` |
+| `params.storeId` | `string` |
+| `params.value` | `string` |
+
+##### Returns
+
+`Promisable`<`void`\>
+
+#### Defined in
+
+[server/src/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L51)
 
 ___
 

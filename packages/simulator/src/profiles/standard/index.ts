@@ -16,8 +16,11 @@ const allCurrencies: Currency[] = rawCurrencies as Currency[];
 
 const allAccounts: Account[] = rawAccounts.map(deserializeAccount);
 
+const storage: Record<string, Record<string, string>> = {};
+
 export const standardProfile: SimulatorProfile = {
   config: {
+    appId: "standard-simulator",
     userId: "standard-profile-user",
     tracking: false,
     wallet: {
@@ -36,6 +39,8 @@ export const standardProfile: SimulatorProfile = {
       "message.sign",
       "account.receive",
       "wallet.capabilities",
+      "storage.set",
+      "storage.get",
       "wallet.userId",
       "wallet.info",
       "bitcoin.getXPub",
@@ -66,6 +71,26 @@ export const standardProfile: SimulatorProfile = {
     },
     "account.receive": () => {
       return "eth address";
+    },
+    "storage.set": ({ value, key, storeId }) => {
+      if (!storage[storeId]) {
+        storage[storeId] = {};
+      }
+
+      const store = storage[storeId];
+
+      if (store) {
+        store[key] = value;
+      }
+    },
+    "storage.get": ({ key, storeId }) => {
+      const store = storage[storeId];
+
+      if (!store) {
+        return undefined;
+      }
+
+      return store[key];
     },
     "bitcoin.getXPub": () => {
       return "xpub";

@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)
+[server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L65)
+[server/src/types.ts:74](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L74)
 
 ___
 
@@ -85,13 +85,14 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `appId` | `string` |
 | `tracking` | `boolean` |
 | `userId` | `string` |
 | `wallet` | [`WalletInfo`](#walletinfo) |
 
 #### Defined in
 
-[server/src/types.ts:83](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L83)
+[server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
 
 ___
 
@@ -107,7 +108,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
+[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L70)
 
 ___
 
@@ -142,4 +143,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L78)
+[server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
