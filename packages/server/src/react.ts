@@ -1,12 +1,11 @@
-import { useEffect, useRef, useCallback, useState } from "react";
 import type {
   Account,
   Currency,
   Permission,
   Transport,
 } from "@ledgerhq/wallet-api-core";
+import { useCallback, useEffect, useMemo } from "react";
 import { WalletAPIServer } from "./WalletAPIServer";
-import type { WalletHandlers } from "./types";
 
 export function useWalletAPIServer({
   transport,
@@ -14,74 +13,36 @@ export function useWalletAPIServer({
   currencies,
   permission,
 }: {
-  transport?: Transport | null;
+  transport: Transport;
   accounts: Account[];
   currencies: Currency[];
-  permission?: Permission;
-}): {
-  isReady: boolean;
-  setHandler: SetHandler;
-  onMessage: (event: string) => void;
-} {
-  const serverRef = useRef<WalletAPIServer>();
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    if (!transport) return;
-
-    serverRef.current = new WalletAPIServer(transport);
-    setIsReady(true);
+  permission: Permission;
+}) {
+  const server = useMemo(() => {
+    return new WalletAPIServer(transport);
   }, [transport]);
 
   useEffect(() => {
-    if (!isReady) return;
-
-    if (permission) {
-      serverRef.current?.setPermissions(permission);
-    }
-
-    serverRef.current?.setCurrencies(currencies);
-  }, [isReady, permission, accounts, currencies]);
+    server.setPermissions(permission);
+  }, [permission, server]);
 
   useEffect(() => {
-    if (!isReady || !permission) return;
-
-    serverRef.current?.setPermissions(permission);
-  }, [isReady, permission]);
+    server.setCurrencies(currencies);
+  }, [currencies, server]);
 
   useEffect(() => {
-    if (!isReady) return;
-
-    serverRef.current?.setAccounts(accounts);
-  }, [isReady, accounts]);
-
-  useEffect(() => {
-    if (!isReady) return;
-
-    serverRef.current?.setCurrencies(currencies);
-  }, [isReady, currencies]);
-
-  const setHandler: SetHandler = useCallback((...args) => {
-    serverRef.current?.setHandler(...args);
-  }, []);
+    server.setAccounts(accounts);
+  }, [accounts, server]);
 
   const onMessage = useCallback(
     (event: string) => {
-      transport?.onMessage?.(event);
+      transport.onMessage?.(event);
     },
     [transport]
   );
 
   return {
-    isReady,
-    setHandler,
+    server,
     onMessage,
   };
-}
-
-interface SetHandler {
-  <K extends keyof WalletHandlers>(
-    methodName: K,
-    method: WalletHandlers[K]
-  ): void;
 }

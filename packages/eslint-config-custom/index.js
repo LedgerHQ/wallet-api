@@ -4,6 +4,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:prettier/recommended",
     "turbo",
+    "plugin:react-hooks/recommended",
   ],
   overrides: [
     {
