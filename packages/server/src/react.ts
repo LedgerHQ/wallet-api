@@ -1,26 +1,32 @@
 import type {
   Account,
   Currency,
+  Logger,
   Permission,
   Transport,
 } from "@ledgerhq/wallet-api-core";
 import { useCallback, useEffect, useMemo } from "react";
+import type { ServerConfig } from "./types";
 import { WalletAPIServer } from "./WalletAPIServer";
 
 export function useWalletAPIServer({
   transport,
+  config,
+  logger,
   accounts,
   currencies,
   permission,
 }: {
   transport: Transport;
+  config: ServerConfig;
+  logger?: Logger;
   accounts: Account[];
   currencies: Currency[];
   permission: Permission;
 }) {
   const server = useMemo(() => {
-    return new WalletAPIServer(transport);
-  }, [transport]);
+    return new WalletAPIServer(transport, config, logger);
+  }, [config, logger, transport]);
 
   useEffect(() => {
     server.setPermissions(permission);
