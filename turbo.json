@@ -29,8 +29,10 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },
-    "doc": {
-      "outputs": []
+    "wallet-api-website#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["build/**"],
+      "inputs": ["src/**", "docs/**", "static/**", "*.js"]
     }
   }
 }

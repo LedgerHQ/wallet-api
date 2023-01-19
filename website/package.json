@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.2.0",
+    "@ledgerhq/wallet-api-client": "workspace:*",
+    "@ledgerhq/wallet-api-server": "workspace:*",
     "@tsconfig/docusaurus": "^1.0.5",
     "docusaurus-plugin-typedoc": "^0.18.0",
     "typedoc": "^0.23.19",

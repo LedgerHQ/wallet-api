@@ -12,7 +12,6 @@
     "build": "turbo run build",
     "build:client": "turbo run build --filter=wallet-api-client",
     "dev": "turbo run dev",
-    "doc": "turbo run doc",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
