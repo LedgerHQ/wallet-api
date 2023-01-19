@@ -758,7 +758,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L35)
+[packages/client/src/WalletAPIClient.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L36)
 
 ___
 
@@ -944,6 +944,88 @@ ___
 #### Defined in
 
 packages/core/lib/errors/types.d.ts:275
+
+___
+
+### StorageGet
+
+Ƭ **StorageGet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaStorageGetParams`\> |
+| `result` | `z.infer`<typeof `schemaStorageGetResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:38
+
+___
+
+### StorageGetHandler
+
+Ƭ **StorageGetHandler**: (`params`: [`StorageGet`](#storageget)[``"params"``]) => [`StorageGet`](#storageget)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`StorageGet`](#storageget)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`StorageGet`](#storageget)[``"params"``] |
+
+##### Returns
+
+[`StorageGet`](#storageget)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:42
+
+___
+
+### StorageSet
+
+Ƭ **StorageSet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaStorageSetParams`\> |
+| `result` | `z.infer`<typeof `schemaStorageSetResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:32
+
+___
+
+### StorageSetHandler
+
+Ƭ **StorageSetHandler**: (`params`: [`StorageSet`](#storageset)[``"params"``]) => [`StorageSet`](#storageset)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`StorageSet`](#storageset)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`StorageSet`](#storageset)[``"params"``] |
+
+##### Returns
+
+[`StorageSet`](#storageset)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:36
 
 ___
 
@@ -1134,7 +1216,99 @@ ___
 
 packages/core/lib/spec/types/WalletCapabilities.d.ts:24
 
+___
+
+### WalletInfo
+
+Ƭ **WalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaWalletInfoParams`\> |
+| `result` | `z.infer`<typeof `schemaWalletInfoResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:56
+
+___
+
+### WalletInfoHandler
+
+Ƭ **WalletInfoHandler**: (`params`: [`WalletInfo`](#walletinfo)[``"params"``]) => [`WalletInfo`](#walletinfo)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`WalletInfo`](#walletinfo)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`WalletInfo`](#walletinfo)[``"params"``] |
+
+##### Returns
+
+[`WalletInfo`](#walletinfo)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:60
+
+___
+
+### WalletUserId
+
+Ƭ **WalletUserId**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaWalletUserIdParams`\> |
+| `result` | `z.infer`<typeof `schemaWalletUserIdResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:20
+
+___
+
+### WalletUserIdHandler
+
+Ƭ **WalletUserIdHandler**: (`params`: [`WalletUserId`](#walletuserid)[``"params"``]) => [`WalletUserId`](#walletuserid)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`WalletUserId`](#walletuserid)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`WalletUserId`](#walletuserid)[``"params"``] |
+
+##### Returns
+
+[`WalletUserId`](#walletuserid)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:24
+
 ## Variables
+
+### FAMILIES
+
+• `Const` **FAMILIES**: readonly [``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]
+
+#### Defined in
+
+packages/core/lib/families/common.d.ts:12
+
+___
 
 ### schemaAccountList
 
@@ -1144,7 +1318,7 @@ packages/core/lib/spec/types/WalletCapabilities.d.ts:24
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\> |
+| `params` | `z.ZodOptional`<`z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
 | `result` | `z.ZodObject`<{ `rawAccounts`: `z.ZodArray`<`z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `rawAccounts`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }[]  }, { `rawAccounts`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }[]  }\> |
 
 #### Defined in
@@ -1252,7 +1426,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\> |
+| `params` | `z.ZodOptional`<`z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
 | `result` | `z.ZodObject`<{ `currencies`: `z.ZodArray`<`z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }\> |
 
 #### Defined in
@@ -1348,7 +1522,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/common.d.ts:12
+packages/core/lib/families/common.d.ts:13
 
 ___
 
@@ -1401,7 +1575,7 @@ ___
 
 ### schemaRPCMethod
 
-• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``]\>
+• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
 
 #### Defined in
 
@@ -1499,6 +1673,40 @@ packages/core/lib/errors/types.d.ts:144
 
 ___
 
+### schemaStorageGet
+
+• `Const` **schemaStorageGet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string`  }, { `key`: `string` ; `storeId?`: `string`  }\> |
+| `result` | `z.ZodObject`<{ `value`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `value?`: `string`  }, { `value?`: `string`  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageGet.d.ts:19
+
+___
+
+### schemaStorageSet
+
+• `Const` **schemaStorageSet**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\> ; `value`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }\> |
+| `result` | `z.ZodVoid` |
+
+#### Defined in
+
+packages/core/lib/spec/types/StorageSet.d.ts:16
+
+___
+
 ### schemaTokenCurrency
 
 • `Const` **schemaTokenCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>
@@ -1587,6 +1795,40 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/WalletCapabilities.d.ts:10
+
+___
+
+### schemaWalletInfo
+
+• `Const` **schemaWalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+| `result` | `z.ZodObject`<{ `tracking`: `z.ZodBoolean` ; `wallet`: `z.ZodObject`<{ `name`: `z.ZodString` ; `version`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `name`: `string` ; `version`: `string`  }, { `name`: `string` ; `version`: `string`  }\>  }, ``"strip"``, `z.ZodTypeAny`, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:28
+
+___
+
+### schemaWalletUserId
+
+• `Const` **schemaWalletUserId**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+| `result` | `z.ZodObject`<{ `userId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `userId`: `string`  }, { `userId`: `string`  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:10
 
 ## Functions
 

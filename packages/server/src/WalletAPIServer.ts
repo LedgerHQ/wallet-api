@@ -16,7 +16,7 @@ import { BehaviorSubject, combineLatest } from "rxjs";
 import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
 import { internalHandlers } from "./internalHandlers";
 
-import type { AppConfig, WalletContext, WalletHandlers } from "./types";
+import type { ServerConfig, WalletContext, WalletHandlers } from "./types";
 
 const defaultLogger = new Logger("Wallet-API-Server");
 
@@ -97,14 +97,12 @@ export class WalletAPIServer extends RpcNode<
   }
 
   constructor(
-    config: AppConfig,
     transport: Transport,
+    config: ServerConfig,
     logger: Logger = defaultLogger
   ) {
     super(transport, internalHandlers);
     this.logger = logger;
-
-    this.setPermissions(config.permissions);
 
     const allowedCurrencies$ = new BehaviorSubject<Currency[]>([]);
     combineLatest(
@@ -121,7 +119,7 @@ export class WalletAPIServer extends RpcNode<
     this.walletContext = {
       currencies$: allowedCurrencies$,
       accounts$: allowedAccounts$,
-      appId: config.appId,
+      config,
     };
 
     this.walletContext.accounts$.subscribe(() => {

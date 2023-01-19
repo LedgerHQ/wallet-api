@@ -19,7 +19,6 @@ import {
   schemaMessageSign,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
-  schemaWalletCapabilities,
   serializeTransaction,
   Transaction,
   TransactionSign,
@@ -27,8 +26,9 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
-import { Storage } from "./modules/Storage";
-import { Bitcoin } from "./modules/Bitcoin";
+import { StorageModule } from "./modules/Storage";
+import { BitcoinModule } from "./modules/Bitcoin";
+import { WalletModule } from "./modules/Wallet";
 import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -49,20 +49,29 @@ export class WalletAPIClient extends RpcNode<
   typeof requestHandlers,
   WalletHandlers
 > {
-  public storage: Storage;
+  /**
+   * Instance of the Storage module
+   */
+  public storage: StorageModule;
 
   /**
    * Instance of the Bitcoin module
    */
-  public bitcoin: Bitcoin;
+  public bitcoin: BitcoinModule;
+
+  /**
+   * Instance of the Wallet module
+   */
+  public wallet: WalletModule;
 
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
-    this.storage = new Storage(this);
-    this.bitcoin = new Bitcoin(this);
+    this.bitcoin = new BitcoinModule(this);
+    this.wallet = new WalletModule(this);
+    this.storage = new StorageModule(this);
   }
 
   protected onRequest(request: RpcRequest) {
@@ -191,7 +200,12 @@ export class WalletAPIClient extends RpcNode<
    */
   async requestAccount(params?: {
     /**
-     * Select a set of currencies by id. Globing is enabled
+     * Select a set of currencies by id. Globing is enabled.
+     * This list of currencies ids can be found [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/currencies.ts)
+     * and the list of tokens ids [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts).
+     * You can find more info on how the tokens ids are built for each chain / family you want to use by looking at the converter functions used [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts#L25-L33).
+     * You can easily search for a token in the corresponding data file using it's contract address.
+     * For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`.
      */
     currencyIds?: string[];
   }): Promise<Account> {
@@ -274,26 +288,5 @@ export class WalletAPIClient extends RpcNode<
       walletApi: this,
       transportId: safeResults.transportId,
     });
-  }
-
-  /**
-   * List the wallet's implemented methodIds
-   *
-   * @returns The list of implemented method ids
-   * @throws {@link RpcError} if an error occured on server side
-   *
-   * @beta Filtering not yet implemented
-   */
-  async capabilities(): Promise<string[]> {
-    const walletCapabilitiesResult = await this.request(
-      "wallet.capabilities",
-      {}
-    );
-
-    const safeResults = schemaWalletCapabilities.result.parse(
-      walletCapabilitiesResult
-    );
-
-    return safeResults.methodIds;
   }
 }

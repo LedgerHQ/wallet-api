@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L72)
+[server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L64)
+[server/src/types.ts:74](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L74)
 
 ___
 
@@ -73,7 +73,26 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L21)
+[server/src/types.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L22)
+
+___
+
+### ServerConfig
+
+Ƭ **ServerConfig**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `appId` | `string` |
+| `tracking` | `boolean` |
+| `userId` | `string` |
+| `wallet` | [`WalletInfo`](#walletinfo) |
+
+#### Defined in
+
+[server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
 
 ___
 
@@ -89,7 +108,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L60)
+[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L70)
 
 ___
 
@@ -102,8 +121,26 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `accounts$` | `Observable`<`Account`[]\> |
+| `config` | [`ServerConfig`](#serverconfig) |
 | `currencies$` | `Observable`<`Currency`[]\> |
 
 #### Defined in
 
 [server/src/types.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L16)
+
+___
+
+### WalletInfo
+
+Ƭ **WalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `version` | `string` |
+
+#### Defined in
+
+[server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)

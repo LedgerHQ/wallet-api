@@ -8,14 +8,13 @@ async function main() {
   const transport = getSimulatorTransport(profiles.STANDARD);
   const client = new WalletAPIClient(transport);
 
-  await client.listAccounts();
-  await client.listCurrencies();
-  await client.requestAccount();
+  const userId = await client.wallet.userId();
+  const info = await client.wallet.info();
 
-  const capabilities = await client.capabilities();
-
-  console.log(capabilities);
-
+  console.log({
+    userId,
+    info,
+  });
   /*  transport.send(
     JSON.stringify({
       id: "49f2b5e9-9e77-495c-8add-8542127b4a50",

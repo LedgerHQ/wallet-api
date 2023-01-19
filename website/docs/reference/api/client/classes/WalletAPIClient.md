@@ -33,19 +33,19 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:58](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L58)
+[packages/client/src/WalletAPIClient.ts:69](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L69)
 
 ## Properties
 
 ### bitcoin
 
-• **bitcoin**: `Bitcoin`
+• **bitcoin**: `BitcoinModule`
 
 Instance of the Bitcoin module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:54](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L54)
+[packages/client/src/WalletAPIClient.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L60)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L56)
+[packages/client/src/WalletAPIClient.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L67)
 
 ___
 
@@ -77,31 +77,31 @@ ___
 
 packages/core/lib/JSONRPC/RpcNode.d.ts:9
 
-## Methods
+___
 
-### capabilities
+### storage
 
-▸ **capabilities**(): `Promise`<`string`[]\>
+• **storage**: `StorageModule`
 
-List the wallet's implemented methodIds
-
-**`Throws`**
-
-[RpcError](RpcError.md) if an error occured on server side
-
- Filtering not yet implemented
-
-#### Returns
-
-`Promise`<`string`[]\>
-
-The list of implemented method ids
+Instance of the Storage module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:283](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L283)
+[packages/client/src/WalletAPIClient.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L55)
 
 ___
+
+### wallet
+
+• **wallet**: `WalletModule`
+
+Instance of the Wallet module
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L65)
+
+## Methods
 
 ### deviceTransport
 
@@ -132,7 +132,7 @@ An instance of Transport compatible with @ledgerhq/hw-transport
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:257](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L257)
+[packages/client/src/WalletAPIClient.ts:275](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L275)
 
 ___
 
@@ -161,7 +161,7 @@ The list of accounts on the connected wallet
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:165](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L165)
+[packages/client/src/WalletAPIClient.ts:178](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L178)
 
 ___
 
@@ -192,7 +192,7 @@ The list of corresponding cryptocurrencies
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:234](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L234)
+[packages/client/src/WalletAPIClient.ts:252](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L252)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L64)
+[packages/client/src/WalletAPIClient.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L77)
 
 ___
 
@@ -271,7 +271,7 @@ The verified address or an error message if the verification doesn't succeed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:212](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L212)
+[packages/client/src/WalletAPIClient.ts:230](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L230)
 
 ___
 
@@ -321,7 +321,7 @@ Ask the connected wallet for an account matching a specific set of critterias.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params?` | `Object` | Parameters of the request. |
-| `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled |
+| `params.currencyIds?` | `string`[] | Select a set of currencies by id. Globing is enabled. This list of currencies ids can be found [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/currencies.ts) and the list of tokens ids [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts). You can find more info on how the tokens ids are built for each chain / family you want to use by looking at the converter functions used [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts#L25-L33). You can easily search for a token in the corresponding data file using it's contract address. For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`. |
 
 #### Returns
 
@@ -331,7 +331,7 @@ The account selected by the user
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:188](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L188)
+[packages/client/src/WalletAPIClient.ts:201](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L201)
 
 ___
 
@@ -362,7 +362,7 @@ Message signed
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:146](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L146)
+[packages/client/src/WalletAPIClient.ts:159](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L159)
 
 ___
 
@@ -393,7 +393,7 @@ The raw signed transaction
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L88)
+[packages/client/src/WalletAPIClient.ts:101](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L101)
 
 ___
 
@@ -424,4 +424,4 @@ The transaction hash
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:115](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L115)
+[packages/client/src/WalletAPIClient.ts:128](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L128)

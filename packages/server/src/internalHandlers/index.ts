@@ -28,6 +28,8 @@ export const internalHandlers: InternalHandlers = {
   "transaction.signAndBroadcast": transaction.signAndBroadcast,
 
   "wallet.capabilities": wallet.capabilities,
+  "wallet.userId": wallet.userId,
+  "wallet.info": wallet.info,
 
   "storage.set": storage.set,
   "storage.get": storage.get,

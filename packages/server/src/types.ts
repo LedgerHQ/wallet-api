@@ -5,7 +5,6 @@ import type {
   DeviceClose,
   DeviceExchange,
   DeviceTransport,
-  Permission,
   Promisable,
   RpcRequest,
   Transaction,
@@ -17,7 +16,7 @@ import type { BehaviorSubject, Observable } from "rxjs";
 export type WalletContext = {
   currencies$: Observable<Currency[]>;
   accounts$: Observable<Account[]>;
-  appId: string;
+  config: ServerConfig;
 };
 
 export type RPCHandler<TResult> = (
@@ -85,7 +84,14 @@ export type ClientContext = {
   accounts$: BehaviorSubject<Account[]>;
 } & ClientParams;
 
-export type AppConfig = {
+export type WalletInfo = {
+  name: string;
+  version: string;
+};
+
+export type ServerConfig = {
+  userId: string;
+  tracking: boolean;
+  wallet: WalletInfo;
   appId: string;
-  permissions: Permission;
 };

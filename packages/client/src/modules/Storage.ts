@@ -1,7 +1,7 @@
 import { schemaStorageGet, schemaStorageSet } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
-export class Storage {
+export class StorageModule {
   private client: WalletAPIClient;
 
   constructor(client: WalletAPIClient) {

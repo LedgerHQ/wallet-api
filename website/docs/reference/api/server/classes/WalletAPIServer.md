@@ -16,13 +16,14 @@ custom_edit_url: null
 
 ### constructor
 
-• **new WalletAPIServer**(`transport`, `logger?`)
+• **new WalletAPIServer**(`transport`, `config`, `logger?`)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `transport` | `Transport` | `undefined` |
+| `config` | [`ServerConfig`](../#serverconfig) | `undefined` |
 | `logger` | `Logger` | `defaultLogger` |
 
 #### Overrides

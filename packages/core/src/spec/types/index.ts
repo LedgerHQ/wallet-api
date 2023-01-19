@@ -11,4 +11,6 @@ export * from "./TransactionSignAndBroadcast";
 export * from "./WalletCapabilities";
 export * from "./StorageGet";
 export * from "./StorageSet";
+export * from "./WalletUserId";
+export * from "./WalletInfo";
 export * from "./BitcoinGetXPub";

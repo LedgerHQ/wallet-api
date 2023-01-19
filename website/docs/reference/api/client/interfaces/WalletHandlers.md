@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:15
 
 ___
 
@@ -98,6 +98,26 @@ packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:10
 
 ___
 
+### storage.get
+
+• **storage.get**: [`StorageGetHandler`](../#storagegethandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+
+___
+
+### storage.set
+
+• **storage.set**: [`StorageSetHandler`](../#storagesethandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
+
+___
+
 ### transaction.sign
 
 • **transaction.sign**: [`TransactionSignHandler`](../#transactionsignhandler)
@@ -124,4 +144,24 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:16
+
+___
+
+### wallet.info
+
+• **wallet.info**: [`WalletInfoHandler`](../#walletinfohandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:18
+
+___
+
+### wallet.userId
+
+• **wallet.userId**: [`WalletUserIdHandler`](../#walletuseridhandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:17
