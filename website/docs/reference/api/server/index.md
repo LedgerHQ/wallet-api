@@ -144,3 +144,34 @@ ___
 #### Defined in
 
 [server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
+
+## Functions
+
+### useWalletAPIServer
+
+▸ **useWalletAPIServer**(`«destructured»`): `Object`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
+| › `accounts` | `Account`[] |
+| › `config` | [`ServerConfig`](#serverconfig) |
+| › `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
+| › `logger?` | `Logger` |
+| › `permission` | `Permission` |
+| › `transport` | `Transport` |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `onMessage` | (`event`: `string`) => `void` |
+| `server` | [`WalletAPIServer`](classes/WalletAPIServer.md) |
+
+#### Defined in
+
+[server/src/react.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/react.ts#L12)
