@@ -11,6 +11,8 @@ import type {
   TransactionSignAndBroadcastHandler,
   TransactionSignHandler,
   WalletCapabilitiesHandler,
+  WalletInfoHandler,
+  WalletUserIdHandler,
 } from "../types";
 
 export interface WalletHandlers {
@@ -24,6 +26,8 @@ export interface WalletHandlers {
   "message.sign": MessageSignHandler;
   "transaction.sign": TransactionSignHandler;
   "transaction.signAndBroadcast": TransactionSignAndBroadcastHandler;
-  "wallet.capabilities": WalletCapabilitiesHandler;
   "bitcoin.getXPub": BitcoinGetXPubHandler;
+  "wallet.capabilities": WalletCapabilitiesHandler;
+  "wallet.userId": WalletUserIdHandler;
+  "wallet.info": WalletInfoHandler;
 }

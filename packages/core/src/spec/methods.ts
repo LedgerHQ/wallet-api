@@ -14,4 +14,6 @@ export const schemaRPCMethod = z.enum([
   "transaction.sign",
   "transaction.signAndBroadcast",
   "wallet.capabilities",
+  "wallet.info",
+  "wallet.userId",
 ]);

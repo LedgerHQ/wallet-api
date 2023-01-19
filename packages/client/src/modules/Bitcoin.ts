@@ -1,7 +1,7 @@
 import { schemaBitcoinGetXPub } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
-export class Bitcoin {
+export class BitcoinModule {
   private client: WalletAPIClient;
 
   constructor(client: WalletAPIClient) {

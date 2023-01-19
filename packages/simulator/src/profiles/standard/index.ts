@@ -5,6 +5,8 @@ import {
 } from "@ledgerhq/wallet-api-core";
 
 import { firstValueFrom } from "rxjs";
+import packageJson from "../../../package.json";
+
 import type { SimulatorProfile } from "../../types";
 
 import rawAccounts from "./accounts.json";
@@ -15,6 +17,14 @@ const allCurrencies: Currency[] = rawCurrencies as Currency[];
 const allAccounts: Account[] = rawAccounts.map(deserializeAccount);
 
 export const standardProfile: SimulatorProfile = {
+  config: {
+    userId: "standard-profile-user",
+    tracking: false,
+    wallet: {
+      name: "wallet-api-simulator",
+      version: packageJson.version,
+    },
+  },
   permissions: {
     currencyIds: ["ethereum", "bitcoin"],
     methodIds: [
@@ -26,6 +36,8 @@ export const standardProfile: SimulatorProfile = {
       "message.sign",
       "account.receive",
       "wallet.capabilities",
+      "wallet.userId",
+      "wallet.info",
       "bitcoin.getXPub",
     ],
   },

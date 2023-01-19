@@ -29,7 +29,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L32)
+[server/src/types.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L33)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L28)
+[server/src/types.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L29)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L50)
+[server/src/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L51)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L47)
+[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
+[server/src/types.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L49)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L49)
+[server/src/types.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L50)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L33)
+[server/src/types.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L34)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:37](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L37)
+[server/src/types.ts:38](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L38)
 
 ___
 
@@ -242,4 +242,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L42)
+[server/src/types.ts:43](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L43)

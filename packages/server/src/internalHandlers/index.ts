@@ -27,6 +27,8 @@ export const internalHandlers: InternalHandlers = {
   "transaction.signAndBroadcast": transaction.signAndBroadcast,
 
   "wallet.capabilities": wallet.capabilities,
+  "wallet.userId": wallet.userId,
+  "wallet.info": wallet.info,
 
   "bitcoin.getXPub": bitcoin.getXPub,
 };

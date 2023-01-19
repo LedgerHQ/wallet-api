@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L72)
+[server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L64)
+[server/src/types.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L65)
 
 ___
 
@@ -73,7 +73,25 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L21)
+[server/src/types.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L22)
+
+___
+
+### ServerConfig
+
+Ƭ **ServerConfig**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `tracking` | `boolean` |
+| `userId` | `string` |
+| `wallet` | [`WalletInfo`](#walletinfo) |
+
+#### Defined in
+
+[server/src/types.ts:83](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L83)
 
 ___
 
@@ -89,7 +107,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L60)
+[server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
 
 ___
 
@@ -102,8 +120,26 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `accounts$` | `Observable`<`Account`[]\> |
+| `config` | [`ServerConfig`](#serverconfig) |
 | `currencies$` | `Observable`<`Currency`[]\> |
 
 #### Defined in
 
 [server/src/types.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L16)
+
+___
+
+### WalletInfo
+
+Ƭ **WalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `version` | `string` |
+
+#### Defined in
+
+[server/src/types.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L78)

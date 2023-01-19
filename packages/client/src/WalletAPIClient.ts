@@ -19,7 +19,6 @@ import {
   schemaMessageSign,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
-  schemaWalletCapabilities,
   serializeTransaction,
   Transaction,
   TransactionSign,
@@ -27,7 +26,8 @@ import {
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
-import { Bitcoin } from "./modules/Bitcoin";
+import { BitcoinModule } from "./modules/Bitcoin";
+import { WalletModule } from "./modules/Wallet";
 import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
@@ -51,14 +51,20 @@ export class WalletAPIClient extends RpcNode<
   /**
    * Instance of the Bitcoin module
    */
-  public bitcoin: Bitcoin;
+  public bitcoin: BitcoinModule;
+
+  /**
+   * Instance of the Wallet module
+   */
+  public wallet: WalletModule;
 
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
-    this.bitcoin = new Bitcoin(this);
+    this.bitcoin = new BitcoinModule(this);
+    this.wallet = new WalletModule(this);
   }
 
   protected onRequest(request: RpcRequest) {
@@ -275,26 +281,5 @@ export class WalletAPIClient extends RpcNode<
       walletApi: this,
       transportId: safeResults.transportId,
     });
-  }
-
-  /**
-   * List the wallet's implemented methodIds
-   *
-   * @returns The list of implemented method ids
-   * @throws {@link RpcError} if an error occured on server side
-   *
-   * @beta Filtering not yet implemented
-   */
-  async capabilities(): Promise<string[]> {
-    const walletCapabilitiesResult = await this.request(
-      "wallet.capabilities",
-      {}
-    );
-
-    const safeResults = schemaWalletCapabilities.result.parse(
-      walletCapabilitiesResult
-    );
-
-    return safeResults.methodIds;
   }
 }

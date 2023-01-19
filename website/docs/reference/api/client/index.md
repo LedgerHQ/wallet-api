@@ -1134,6 +1134,88 @@ ___
 
 packages/core/lib/spec/types/WalletCapabilities.d.ts:24
 
+___
+
+### WalletInfo
+
+Ƭ **WalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaWalletInfoParams`\> |
+| `result` | `z.infer`<typeof `schemaWalletInfoResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:56
+
+___
+
+### WalletInfoHandler
+
+Ƭ **WalletInfoHandler**: (`params`: [`WalletInfo`](#walletinfo)[``"params"``]) => [`WalletInfo`](#walletinfo)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`WalletInfo`](#walletinfo)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`WalletInfo`](#walletinfo)[``"params"``] |
+
+##### Returns
+
+[`WalletInfo`](#walletinfo)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:60
+
+___
+
+### WalletUserId
+
+Ƭ **WalletUserId**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaWalletUserIdParams`\> |
+| `result` | `z.infer`<typeof `schemaWalletUserIdResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:20
+
+___
+
+### WalletUserIdHandler
+
+Ƭ **WalletUserIdHandler**: (`params`: [`WalletUserId`](#walletuserid)[``"params"``]) => [`WalletUserId`](#walletuserid)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`WalletUserId`](#walletuserid)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`WalletUserId`](#walletuserid)[``"params"``] |
+
+##### Returns
+
+[`WalletUserId`](#walletuserid)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:24
+
 ## Variables
 
 ### FAMILIES
@@ -1411,7 +1493,7 @@ ___
 
 ### schemaRPCMethod
 
-• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``]\>
+• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
 
 #### Defined in
 
@@ -1597,6 +1679,40 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/WalletCapabilities.d.ts:10
+
+___
+
+### schemaWalletInfo
+
+• `Const` **schemaWalletInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+| `result` | `z.ZodObject`<{ `tracking`: `z.ZodBoolean` ; `wallet`: `z.ZodObject`<{ `name`: `z.ZodString` ; `version`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `name`: `string` ; `version`: `string`  }, { `name`: `string` ; `version`: `string`  }\>  }, ``"strip"``, `z.ZodTypeAny`, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletInfo.d.ts:28
+
+___
+
+### schemaWalletUserId
+
+• `Const` **schemaWalletUserId**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+| `result` | `z.ZodObject`<{ `userId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `userId`: `string`  }, { `userId`: `string`  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/WalletUserId.d.ts:10
 
 ## Functions
 
