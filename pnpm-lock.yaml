@@ -258,6 +258,8 @@ importers:
       '@docusaurus/core': 2.2.0
       '@docusaurus/module-type-aliases': 2.2.0
       '@docusaurus/preset-classic': 2.2.0
+      '@ledgerhq/wallet-api-client': workspace:*
+      '@ledgerhq/wallet-api-server': workspace:*
       '@mdx-js/react': ^1.6.22
       '@tsconfig/docusaurus': ^1.0.5
       clsx: ^1.2.1
@@ -280,6 +282,8 @@ importers:
       react-dom: 17.0.2_react@17.0.2
     devDependencies:
       '@docusaurus/module-type-aliases': 2.2.0_sfoxds7t5ydpegc3knd667wn6m
+      '@ledgerhq/wallet-api-client': link:../packages/client
+      '@ledgerhq/wallet-api-server': link:../packages/server
       '@tsconfig/docusaurus': 1.0.6
       docusaurus-plugin-typedoc: 0.18.0_zjocmvzdex3apj67izcwxkkege
       typedoc: 0.23.19_typescript@4.8.4
