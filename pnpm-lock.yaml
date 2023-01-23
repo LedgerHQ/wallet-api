@@ -219,7 +219,8 @@ importers:
 
   packages/simulator:
     specifiers:
-      '@ledgerhq/hw-transport-http': ^6.27.7
+      '@ledgerhq/hw-transport': ^6.27.10
+      '@ledgerhq/hw-transport-http': ^6.27.10
       '@ledgerhq/wallet-api-client': workspace:*
       '@ledgerhq/wallet-api-core': workspace:*
       '@ledgerhq/wallet-api-server': workspace:*
@@ -237,7 +238,8 @@ importers:
       typescript: ^4.8.4
       ws: ^8.10.0
     dependencies:
-      '@ledgerhq/hw-transport-http': 6.27.7
+      '@ledgerhq/hw-transport': 6.27.10
+      '@ledgerhq/hw-transport-http': 6.27.10
       '@ledgerhq/wallet-api-client': link:../client
       '@ledgerhq/wallet-api-core': link:../core
       '@ledgerhq/wallet-api-server': link:../server
@@ -3770,10 +3772,6 @@ packages:
       rxjs: 6.6.7
       semver: 7.3.8
 
-  /@ledgerhq/errors/6.12.0:
-    resolution: {integrity: sha512-gDUpXDz3Os4bK9tzqvwZtjXMCB8LQwNft1f3x6WrwIGuM4Wo5D6ccJDybw4rP9TOJ4qPbRcXFH4avzQGFvwWNA==}
-    dev: false
-
   /@ledgerhq/errors/6.12.1:
     resolution: {integrity: sha512-2qeUSUCpQbMhV9eLJDLI8wycFwTcWszP8g3cJycBt9Jf1VczC5MRERwAQv5AYhPa4rcy+jLKBOVZYxc35r5l7g==}
     dev: false
@@ -3781,10 +3779,10 @@ packages:
   /@ledgerhq/errors/6.12.3:
     resolution: {integrity: sha512-djiMSgB/7hnK3aLR/c5ZMMivxjcI7o2+y3VKcsZZpydPoVf9+FXqeJPRfOwmJ0JxbQ//LinUfWpIfHew8LkaVw==}
 
-  /@ledgerhq/hw-transport-http/6.27.7:
-    resolution: {integrity: sha512-wXAm8482pc60CecLZmfOYCITHiRFCzbPbEprUOnkSKB//WWNOcGQCQpftCcKA6yneJHRZsci4XJKBKwWFfTqJg==}
+  /@ledgerhq/hw-transport-http/6.27.10:
+    resolution: {integrity: sha512-QECJHU5qryQI2o9HAjj/TESWM6ygmYp3QQrTuRx8kXcFiK1rww2ZyUJ5gz+ftmRiZgfkRTcI8FXg5ydQELGPtw==}
     dependencies:
-      '@ledgerhq/errors': 6.12.0
+      '@ledgerhq/errors': 6.12.3
       '@ledgerhq/hw-transport': 6.27.10
       '@ledgerhq/logs': 6.10.1
       axios: 0.26.1

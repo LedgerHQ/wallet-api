@@ -15,7 +15,6 @@ custom_edit_url: null
 
 ## Classes
 
-- [HWTransport](classes/HWTransport.md)
 - [RpcError](classes/RpcError.md)
 - [RpcNode](classes/RpcNode.md)
 - [ServerError](classes/ServerError.md)

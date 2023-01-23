@@ -10,7 +10,7 @@ Wallet API Transport implementation
 
 ## Hierarchy
 
-- [`HWTransport`](HWTransport.md)
+- `default`
 
   ↳ **`TransportWalletAPI`**
 
@@ -29,7 +29,7 @@ Wallet API Transport implementation
 
 #### Overrides
 
-[HWTransport](HWTransport.md).[constructor](HWTransport.md#constructor)
+Transport.constructor
 
 #### Defined in
 
@@ -43,11 +43,11 @@ Wallet API Transport implementation
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[_appAPIlock](HWTransport.md#_appapilock)
+Transport.\_appAPIlock
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
 
 ___
 
@@ -57,11 +57,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[_events](HWTransport.md#_events)
+Transport.\_events
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:103
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:104
 
 ___
 
@@ -71,11 +71,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[deviceModel](HWTransport.md#devicemodel)
+Transport.deviceModel
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:43
 
 ___
 
@@ -99,11 +99,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[exchangeAtomicImpl](HWTransport.md#exchangeatomicimpl)
+Transport.exchangeAtomicImpl
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
 
 ___
 
@@ -113,11 +113,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[exchangeBusyPromise](HWTransport.md#exchangebusypromise)
+Transport.exchangeBusyPromise
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
 
 ___
 
@@ -127,11 +127,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[exchangeTimeout](HWTransport.md#exchangetimeout)
+Transport.exchangeTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:40
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
 
 ___
 
@@ -164,11 +164,11 @@ a Promise of response buffer
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[send](HWTransport.md#send)
+Transport.send
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:137
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:138
 
 ___
 
@@ -188,11 +188,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[unresponsiveTimeout](HWTransport.md#unresponsivetimeout)
+Transport.unresponsiveTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
 
 ___
 
@@ -212,11 +212,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[ErrorMessage_ListenTimeout](HWTransport.md#errormessage_listentimeout)
+Transport.ErrorMessage\_ListenTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
 
 ___
 
@@ -226,11 +226,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[ErrorMessage_NoDeviceFound](HWTransport.md#errormessage_nodevicefound)
+Transport.ErrorMessage\_NoDeviceFound
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:153
 
 ## Methods
 
@@ -250,7 +250,7 @@ Close the current transport communication.
 
 #### Overrides
 
-[HWTransport](HWTransport.md).[close](HWTransport.md#close)
+Transport.close
 
 #### Defined in
 
@@ -296,11 +296,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[decorateAppAPIMethod](HWTransport.md#decorateappapimethod)
+Transport.decorateAppAPIMethod
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
 
 ___
 
@@ -322,11 +322,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[decorateAppAPIMethods](HWTransport.md#decorateappapimethods)
+Transport.decorateAppAPIMethods
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
 
 ___
 
@@ -347,11 +347,11 @@ ___
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[emit](HWTransport.md#emit)
+Transport.emit
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:115
 
 ___
 
@@ -379,7 +379,7 @@ a promise of apdu response
 
 #### Overrides
 
-[HWTransport](HWTransport.md).[exchange](HWTransport.md#exchange)
+Transport.exchange
 
 #### Defined in
 
@@ -406,11 +406,11 @@ Stop listening to an event on an instance of transport.
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[off](HWTransport.md#off)
+Transport.off
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:113
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
 
 ___
 
@@ -435,11 +435,11 @@ Transport implementation can have specific events. Here is the common events:
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[on](HWTransport.md#on)
+Transport.on
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:109
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:110
 
 ___
 
@@ -455,11 +455,11 @@ Enable or not logs of the binary exchange
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[setDebugMode](HWTransport.md#setdebugmode)
+Transport.setDebugMode
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:118
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:119
 
 ___
 
@@ -481,11 +481,11 @@ Set a timeout (in milliseconds) for the exchange call. Only some transport might
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[setExchangeTimeout](HWTransport.md#setexchangetimeout)
+Transport.setExchangeTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:122
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:123
 
 ___
 
@@ -507,11 +507,11 @@ Define the delay before emitting "unresponsive" on an exchange that does not res
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[setExchangeUnresponsiveTimeout](HWTransport.md#setexchangeunresponsivetimeout)
+Transport.setExchangeUnresponsiveTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:126
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:127
 
 ___
 
@@ -519,16 +519,13 @@ ___
 
 ▸ **setScrambleKey**(): `void`
 
-set the "scramble key" for the next exchanges with the device.
-Each App can have a different scramble key and they internally will set it at instanciation.
-
 #### Returns
 
 `void`
 
 #### Overrides
 
-[HWTransport](HWTransport.md).[setScrambleKey](HWTransport.md#setscramblekey)
+Transport.setScrambleKey
 
 #### Defined in
 
@@ -538,7 +535,7 @@ ___
 
 ### create
 
-▸ `Static` **create**(`openTimeout?`, `listenTimeout?`): `Promise`<[`HWTransport`](HWTransport.md)\>
+▸ `Static` **create**(`openTimeout?`, `listenTimeout?`): `Promise`<`default`\>
 
 create() allows to open the first descriptor available or
 throw if there is none or if timeout is reached.
@@ -559,15 +556,15 @@ TransportFoo.create().then(transport => ...)
 
 #### Returns
 
-`Promise`<[`HWTransport`](HWTransport.md)\>
+`Promise`<`default`\>
 
 #### Inherited from
 
-[HWTransport](HWTransport.md).[create](HWTransport.md#create)
+Transport.create
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:145
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146
 
 ___
 
@@ -615,38 +612,15 @@ ___
 
 ▸ `Static` **listen**(`_observer`): `Object`
 
-Listen all device events for a given Transport. The method takes an Obverver of DescriptorEvent and returns a Subscription (according to Observable paradigm https://github.com/tc39/proposal-observable )
-a DescriptorEvent is a `{ descriptor, type }` object. type can be `"add"` or `"remove"` and descriptor is a value you can pass to `open(descriptor)`.
-each listen() call will first emit all potential device already connected and then will emit events can come over times,
-for instance if you plug a USB device after listen() or a bluetooth device become discoverable.
-
-**`Example`**
-
-```ts
-const sub = TransportFoo.listen({
-next: e => {
- if (e.type==="add") {
-   sub.unsubscribe();
-   const transport = await TransportFoo.open(e.descriptor);
-   ...
- }
-},
-error: error => {},
-complete: () => {}
-})
-```
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `_observer` | `unknown` | is an object with a next, error and complete function (compatible with observer pattern) |
+| Name | Type |
+| :------ | :------ |
+| `_observer` | `unknown` |
 
 #### Returns
 
 `Object`
-
-a Subscription object on which you can `.unsubscribe()` to stop listening descriptors.
 
 | Name | Type |
 | :------ | :------ |
@@ -664,7 +638,7 @@ ___
 
 ### open
 
-▸ `Static` **open**(`«destructured»`): `Promise`<[`HWTransport`](HWTransport.md)\>
+▸ `Static` **open**(`«destructured»`): `Promise`<`default`\>
 
 Create a Ledger transport with the Wallet API transport
 
@@ -678,7 +652,7 @@ Create a Ledger transport with the Wallet API transport
 
 #### Returns
 
-`Promise`<[`HWTransport`](HWTransport.md)\>
+`Promise`<`default`\>
 
 #### Overrides
 
