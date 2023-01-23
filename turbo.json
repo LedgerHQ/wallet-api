@@ -33,6 +33,14 @@
       "dependsOn": ["^build"],
       "outputs": ["build/**"],
       "inputs": ["src/**", "docs/**", "static/**", "*.js"]
+    },
+    "wallet-api-tools#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "wallet-api-tools#dev": {
+      "dependsOn": ["^build"],
+      "cache": false
     }
   }
 }

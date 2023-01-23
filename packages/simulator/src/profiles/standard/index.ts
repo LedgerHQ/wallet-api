@@ -5,7 +5,6 @@ import {
 } from "@ledgerhq/wallet-api-core";
 
 import { firstValueFrom } from "rxjs";
-import packageJson from "../../../package.json";
 
 import type { SimulatorProfile } from "../../types";
 
@@ -25,7 +24,7 @@ export const standardProfile: SimulatorProfile = {
     tracking: false,
     wallet: {
       name: "wallet-api-simulator",
-      version: packageJson.version,
+      version: "0.0.0",
     },
   },
   permissions: {

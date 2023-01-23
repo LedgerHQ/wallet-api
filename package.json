@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "website",
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "clean": "git clean -fdX",
