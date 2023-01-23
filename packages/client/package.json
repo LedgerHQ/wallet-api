@@ -19,13 +19,20 @@
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
     "test": "jest"
   },
+  "peerDependencies": {
+    "@ledgerhq/hw-transport": "^6.x"
+  },
+  "peerDependenciesMeta": {
+    "@ledgerhq/hw-transport": {
+      "optional": true
+    }
+  },
   "dependencies": {
-    "@ledgerhq/hw-transport": "^6.27.6",
     "@ledgerhq/wallet-api-core": "workspace:*",
-    "bignumber.js": "^9.0.2",
-    "json-rpc-2.0": "^1.1.0"
+    "bignumber.js": "^9.0.2"
   },
   "devDependencies": {
+    "@ledgerhq/hw-transport": "^6.27.10",
     "@tsconfig/node18-strictest": "^1.0.0",
     "@types/jest": "^29.2.1",
     "@types/node": "^18.11.8",
