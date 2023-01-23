@@ -105,7 +105,7 @@ Instance of the Wallet module
 
 ### deviceTransport
 
-▸ **deviceTransport**(`params`): `Promise`<[`HWTransport`](HWTransport.md)\>
+▸ **deviceTransport**(`params`): `Promise`<`default`\>
 
 Open low-level transport in the connected wallet
 
@@ -126,7 +126,7 @@ Open low-level transport in the connected wallet
 
 #### Returns
 
-`Promise`<[`HWTransport`](HWTransport.md)\>
+`Promise`<`default`\>
 
 An instance of Transport compatible with @ledgerhq/hw-transport
 
