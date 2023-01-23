@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client
 
+## 0.13.0
+
+### Minor Changes
+
+- [#103](https://github.com/LedgerHQ/wallet-api/pull/103) [`8455d18`](https://github.com/LedgerHQ/wallet-api/commit/8455d18bbc8cb9f6e0be08096f88b510b415a82a) Thanks [@Justkant](https://github.com/Justkant)! - chore: move hw-transport to peer deps
+
 ## 0.12.0
 
 ### Minor Changes
