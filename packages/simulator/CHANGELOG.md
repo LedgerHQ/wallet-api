@@ -1,5 +1,12 @@
 # @ledgerhq/wallet-api-simulator
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`b7b4327`](https://github.com/LedgerHQ/wallet-api/commit/b7b432754aa80ab4aefce748f040fe4c9172e90f)]:
+  - @ledgerhq/wallet-api-client@0.14.0
+
 ## 0.10.1
 
 ### Patch Changes

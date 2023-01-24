@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client
 
+## 0.14.0
+
+### Minor Changes
+
+- [#102](https://github.com/LedgerHQ/wallet-api/pull/102) [`b7b4327`](https://github.com/LedgerHQ/wallet-api/commit/b7b432754aa80ab4aefce748f040fe4c9172e90f) Thanks [@Justkant](https://github.com/Justkant)! - refactor: client into modules
+
 ## 0.13.0
 
 ### Minor Changes
