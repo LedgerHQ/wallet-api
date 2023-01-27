@@ -1,0 +1,17 @@
+name: "Auto Assign"
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened]
+
+jobs:
+  add-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.1.7
+        id: request_review
+        with:
+          route: POST /repos/LedgerHQ/${{ github.event.repository.name }}/pulls/${{ github.event.pull_request.number }}/requested_reviewers
+          team_reviewers: '["wallet-api"]'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: "echo 'latest release: ${{ steps.request_review.outputs.data }}'"
