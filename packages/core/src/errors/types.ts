@@ -11,6 +11,7 @@ export const schemaServerErrorCode = z.enum([
   "CURRENCY_NOT_FOUND",
   "PERMISSION_DENIED",
   "UNKNOWN_ERROR",
+  "UNAUTHORIZED_STORE",
 ]);
 
 export type ServerErrorCode = z.infer<typeof schemaServerErrorCode>;
@@ -91,12 +92,27 @@ export const schemaUnknownError = z.object({
 
 export type UnknownError = z.infer<typeof schemaUnknownError>;
 
+/*
+    PERMISSION_DENIED
+*/
+
+export const schemaUnauthorizedStore = z.object({
+  code: z.literal(schemaServerErrorCode.enum.UNAUTHORIZED_STORE),
+  message: z.string(),
+  data: z.object({
+    storeId: z.string(),
+  }),
+});
+
+export type UnauthorizedStore = z.infer<typeof schemaUnauthorizedStore>;
+
 export const schemaServerErrorData = z.discriminatedUnion("code", [
   schemaNotImplementedByWallet,
   schemaAccountNotFound,
   schemaCurrencyNotFound,
   schemaPermissionDenied,
   schemaUnknownError,
+  schemaUnauthorizedStore,
 ]);
 
 export type ServerErrorData = z.infer<typeof schemaServerErrorData>;
