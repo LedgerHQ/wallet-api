@@ -1,35 +1,22 @@
 // TODO: reimplement all methods
 
-import type HWTransport from "@ledgerhq/hw-transport";
 import {
-  Account,
-  Currency,
-  deserializeAccount,
-  DeviceTransport,
   Logger,
   RpcError,
   RpcErrorCode,
   RpcNode,
   RpcRequest,
-  schemaAccountList,
-  schemaAccountReceive,
-  schemaAccountRequest,
-  schemaCurrencyList,
-  schemaDeviceTransport,
-  schemaMessageSign,
-  schemaTransactionSign,
-  schemaTransactionSignAndBroadcast,
-  serializeTransaction,
-  Transaction,
-  TransactionSign,
-  TransactionSignAndBroadcast,
   Transport,
   WalletHandlers,
 } from "@ledgerhq/wallet-api-core";
-import { StorageModule } from "./modules/Storage";
+import { AccountModule } from "./modules/Account";
 import { BitcoinModule } from "./modules/Bitcoin";
+import { CurrencyModule } from "./modules/Currency";
+import { DeviceModule } from "./modules/Device";
+import { MessageModule } from "./modules/Message";
+import { StorageModule } from "./modules/Storage";
+import { TransactionModule } from "./modules/Transaction";
 import { WalletModule } from "./modules/Wallet";
-import { TransportWalletAPI } from "./TransportWalletAPI";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -50,14 +37,39 @@ export class WalletAPIClient extends RpcNode<
   WalletHandlers
 > {
   /**
-   * Instance of the Storage module
+   * Instance of the Account module
    */
-  public storage: StorageModule;
+  public account: AccountModule;
 
   /**
    * Instance of the Bitcoin module
    */
   public bitcoin: BitcoinModule;
+
+  /**
+   * Instance of the Currency module
+   */
+  public currency: CurrencyModule;
+
+  /**
+   * Instance of the Device module
+   */
+  public device: DeviceModule;
+
+  /**
+   * Instance of the Message module
+   */
+  public message: MessageModule;
+
+  /**
+   * Instance of the Storage module
+   */
+  public storage: StorageModule;
+
+  /**
+   * Instance of the Transaction module
+   */
+  public transaction: TransactionModule;
 
   /**
    * Instance of the Wallet module
@@ -69,9 +81,14 @@ export class WalletAPIClient extends RpcNode<
   constructor(transport: Transport, logger: Logger = defaultLogger) {
     super(transport, requestHandlers);
     this.logger = logger;
+    this.account = new AccountModule(this);
     this.bitcoin = new BitcoinModule(this);
-    this.wallet = new WalletModule(this);
+    this.currency = new CurrencyModule(this);
+    this.device = new DeviceModule(this);
+    this.message = new MessageModule(this);
     this.storage = new StorageModule(this);
+    this.transaction = new TransactionModule(this);
+    this.wallet = new WalletModule(this);
   }
 
   protected onRequest(request: RpcRequest) {
@@ -87,206 +104,5 @@ export class WalletAPIClient extends RpcNode<
     }
 
     return handler(request);
-  }
-
-  /**
-   * Let the user sign a transaction that won't be broadcasted by the connected wallet
-   * @param accountId - id of the account
-   * @param transaction - The transaction object in the currency family-specific format
-   * @param options - Extra parameters
-   *
-   * @returns The raw signed transaction
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async signTransaction(
-    accountId: string,
-    transaction: Transaction,
-    options?: TransactionSign["params"]["options"]
-  ): Promise<Buffer> {
-    const transactionSignResult = await this.request("transaction.sign", {
-      accountId,
-      rawTransaction: serializeTransaction(transaction),
-      options,
-    });
-
-    const safeResults = schemaTransactionSign.result.parse(
-      transactionSignResult
-    );
-
-    return Buffer.from(safeResults.signedTransactionHex, "hex");
-  }
-
-  /**
-   * Let the user sign and broadcast a transaction
-   * @param accountId - id of the account
-   * @param transaction - The transaction object in the currency family-specific format
-   * @param options - Extra parameters
-   *
-   * @returns The transaction hash
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async signTransactionAndBroadcast(
-    accountId: string,
-    transaction: Transaction,
-    options?: TransactionSignAndBroadcast["params"]["options"]
-  ): Promise<string> {
-    const transactionSignResult = await this.request(
-      "transaction.signAndBroadcast",
-      {
-        accountId,
-        rawTransaction: serializeTransaction(transaction),
-        options,
-      }
-    );
-
-    const safeResults = schemaTransactionSignAndBroadcast.result.parse(
-      transactionSignResult
-    );
-
-    return safeResults.transactionHash;
-  }
-
-  /**
-   * Let the user sign the provided message.
-   * In Ethereum context, this is an [EIP-191 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md)
-   * or an [EIP-712 message](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md)
-   * @param accountId - Ledger Live id of the account
-   * @param message - Message the user should sign
-   *
-   * @returns Message signed
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async signMessage(accountId: string, message: Buffer): Promise<Buffer> {
-    const messageSignResult = await this.request("message.sign", {
-      accountId,
-      hexMessage: message.toString("hex"),
-    });
-
-    const safeResults = schemaMessageSign.result.parse(messageSignResult);
-
-    return Buffer.from(safeResults.hexSignedMessage, "hex");
-  }
-
-  /**
-   * List accounts added by user on the connected wallet
-   *
-   * @param params - Filters for currencies
-   *
-   * @returns The list of accounts on the connected wallet
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async listAccounts(params?: {
-    /**
-     * Select a set of currencies by id to filter accounts against.
-     */
-    currencyIds?: string[];
-  }): Promise<Account[]> {
-    const listAccountsResult = await this.request("account.list", {
-      currencyIds: params?.currencyIds,
-    });
-
-    const safeResults = schemaAccountList.result.parse(listAccountsResult);
-
-    return safeResults.rawAccounts.map(deserializeAccount);
-  }
-
-  /**
-   * Ask the connected wallet for an account matching a specific set of critterias.
-   *
-   * @param params - Parameters of the request.
-   *
-   * @returns The account selected by the user
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async requestAccount(params?: {
-    /**
-     * Select a set of currencies by id. Globing is enabled.
-     * This list of currencies ids can be found [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/currencies.ts)
-     * and the list of tokens ids [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts).
-     * You can find more info on how the tokens ids are built for each chain / family you want to use by looking at the converter functions used [here](https://github.com/LedgerHQ/ledger-live/blob/main/libs/ledgerjs/packages/cryptoassets/src/tokens.ts#L25-L33).
-     * You can easily search for a token in the corresponding data file using it's contract address.
-     * For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`.
-     */
-    currencyIds?: string[];
-  }): Promise<Account> {
-    const requestAccountsResult = await this.request("account.request", {
-      currencyIds: params?.currencyIds,
-    });
-
-    const safeResults = schemaAccountRequest.result.parse(
-      requestAccountsResult
-    );
-
-    return deserializeAccount(safeResults.rawAccount);
-  }
-
-  /**
-   * Let user verify it's account address on his device through Ledger Live
-   *
-   * @param accountId - id of the account
-   *
-   * @returns The verified address or an error message if the verification doesn't succeed
-   */
-  async receive(accountId: string): Promise<string> {
-    const receiveAccountsResult = await this.request("account.receive", {
-      accountId,
-    });
-
-    const safeResults = schemaAccountReceive.result.parse(
-      receiveAccountsResult
-    );
-
-    return safeResults.address;
-  }
-
-  /**
-   * List cryptocurrencies supported by the connected wallet, providing filters by name or ticker
-   *
-   * @param params - Filters for currencies
-   *
-   * @returns The list of corresponding cryptocurrencies
-   * @throws {@link RpcError} if an error occured on server side
-   *
-   * @beta Filtering not yet implemented
-   */
-  async listCurrencies(params?: {
-    /**
-     * Select a set of currencies by id. Globing is enabled
-     */
-    currencyIds?: string[];
-  }): Promise<Currency[]> {
-    const listCurrenciesResult = await this.request("currency.list", {
-      currencyIds: params?.currencyIds,
-    });
-
-    const safeResults = schemaCurrencyList.result.parse(listCurrenciesResult);
-
-    return safeResults.currencies;
-  }
-
-  /**
-   * Open low-level transport in the connected wallet
-   *
-   * @param params - Params for the transport
-   *
-   * @returns An instance of Transport compatible with @ledgerhq/hw-transport
-   * @throws {@link RpcError} if an error occured on server side
-   */
-  async deviceTransport(
-    params: DeviceTransport["params"]
-  ): Promise<HWTransport> {
-    const deviceTransportResult = await this.request(
-      "device.transport",
-      params
-    );
-
-    const safeResults = schemaDeviceTransport.result.parse(
-      deviceTransportResult
-    );
-
-    return TransportWalletAPI.open({
-      walletApi: this,
-      transportId: safeResults.transportId,
-    });
   }
 }

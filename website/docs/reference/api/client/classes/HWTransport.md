@@ -30,7 +30,7 @@ it can be for instance an ID, an file path, a URL,...
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:103
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:104
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:43
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:40
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
 
 ___
 
@@ -127,7 +127,7 @@ a Promise of response buffer
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:137
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:138
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:153
 
 ___
 
@@ -177,7 +177,7 @@ Statically check if a transport is supported on the user's platform/browser.
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:46
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:47
 
 ___
 
@@ -205,13 +205,13 @@ a promise of descriptors
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:53
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:54
 
 ___
 
 ### listen
 
-▪ `Static` `Readonly` **listen**: (`observer`: `Readonly`<{ `complete`: () => `unknown` ; `error`: (`e`: `any`) => `unknown` ; `next`: (`event`: `DescriptorEvent`<`any`\>) => `unknown`  }\>) => `Subscription`
+▪ `Static` `Readonly` **listen**: (`observer`: `Readonly`<{ `complete`: () => `unknown` ; `error`: (`e`: `unknown`) => `unknown` ; `next`: (`event`: `DescriptorEvent`<`any`\>) => `unknown`  }\>) => `Subscription`
 
 #### Type declaration
 
@@ -242,7 +242,7 @@ complete: () => {}
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `observer` | `Readonly`<{ `complete`: () => `unknown` ; `error`: (`e`: `any`) => `unknown` ; `next`: (`event`: `DescriptorEvent`<`any`\>) => `unknown`  }\> | is an object with a next, error and complete function (compatible with observer pattern) |
+| `observer` | `Readonly`<{ `complete`: () => `unknown` ; `error`: (`e`: `unknown`) => `unknown` ; `next`: (`event`: `DescriptorEvent`<`any`\>) => `unknown`  }\> | is an object with a next, error and complete function (compatible with observer pattern) |
 
 ##### Returns
 
@@ -252,7 +252,7 @@ a Subscription object on which you can `.unsubscribe()` to stop listening descri
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:74
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:75
 
 ___
 
@@ -287,7 +287,7 @@ a Promise of Transport instance
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:83
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:84
 
 ## Methods
 
@@ -305,7 +305,7 @@ a Promise that ends when the transport is closed.
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:102
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:103
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
 
 ___
 
@@ -369,7 +369,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
 
 ___
 
@@ -390,7 +390,7 @@ ___
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:115
 
 ___
 
@@ -416,7 +416,7 @@ a Promise of response data
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:91
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:92
 
 ___
 
@@ -439,7 +439,7 @@ Stop listening to an event on an instance of transport.
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:113
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
 
 ___
 
@@ -464,7 +464,7 @@ Transport implementation can have specific events. Here is the common events:
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:109
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:110
 
 ___
 
@@ -480,7 +480,7 @@ Enable or not logs of the binary exchange
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:118
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:119
 
 ___
 
@@ -502,7 +502,7 @@ Set a timeout (in milliseconds) for the exchange call. Only some transport might
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:122
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:123
 
 ___
 
@@ -524,7 +524,7 @@ Define the delay before emitting "unresponsive" on an exchange that does not res
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:126
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:127
 
 ___
 
@@ -547,7 +547,7 @@ Each App can have a different scramble key and they internally will set it at in
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:97
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:98
 
 ___
 
@@ -578,4 +578,4 @@ TransportFoo.create().then(transport => ...)
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.6/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:145
+node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146

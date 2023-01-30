@@ -15,7 +15,6 @@ custom_edit_url: null
 
 ## Classes
 
-- [HWTransport](classes/HWTransport.md)
 - [RpcError](classes/RpcError.md)
 - [RpcNode](classes/RpcNode.md)
 - [ServerError](classes/ServerError.md)
@@ -758,7 +757,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L36)
+[packages/client/src/WalletAPIClient.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L23)
 
 ___
 

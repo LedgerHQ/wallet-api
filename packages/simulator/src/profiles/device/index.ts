@@ -1,5 +1,5 @@
+import type HWTransport from "@ledgerhq/hw-transport";
 import TransportHttp from "@ledgerhq/hw-transport-http";
-import type { HWTransport } from "@ledgerhq/wallet-api-client";
 import type { SimulatorProfile } from "../../types";
 import { standardProfile } from "../standard";
 

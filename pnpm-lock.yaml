@@ -22,7 +22,7 @@ importers:
 
   packages/client:
     specifiers:
-      '@ledgerhq/hw-transport': ^6.27.6
+      '@ledgerhq/hw-transport': ^6.27.10
       '@ledgerhq/wallet-api-core': workspace:*
       '@tsconfig/node18-strictest': ^1.0.0
       '@types/jest': ^29.2.1
@@ -32,17 +32,15 @@ importers:
       jest: ^29.1.2
       jest-environment-jsdom: ^29.2.2
       jest-shared-config: workspace:*
-      json-rpc-2.0: ^1.1.0
       prettier: ^2.7.1
       ts-jest: ^29.0.3
       ts-node: ^10.9.1
       typescript: ^4.8.4
     dependencies:
-      '@ledgerhq/hw-transport': 6.27.6
       '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
-      json-rpc-2.0: 1.4.1
     devDependencies:
+      '@ledgerhq/hw-transport': 6.27.10
       '@tsconfig/node18-strictest': 1.0.0
       '@types/jest': 29.2.1
       '@types/node': 18.11.8
@@ -221,7 +219,8 @@ importers:
 
   packages/simulator:
     specifiers:
-      '@ledgerhq/hw-transport-http': ^6.27.7
+      '@ledgerhq/hw-transport': ^6.27.10
+      '@ledgerhq/hw-transport-http': ^6.27.10
       '@ledgerhq/wallet-api-client': workspace:*
       '@ledgerhq/wallet-api-core': workspace:*
       '@ledgerhq/wallet-api-server': workspace:*
@@ -239,7 +238,8 @@ importers:
       typescript: ^4.8.4
       ws: ^8.10.0
     dependencies:
-      '@ledgerhq/hw-transport-http': 6.27.7
+      '@ledgerhq/hw-transport': 6.27.10
+      '@ledgerhq/hw-transport-http': 6.27.10
       '@ledgerhq/wallet-api-client': link:../client
       '@ledgerhq/wallet-api-core': link:../core
       '@ledgerhq/wallet-api-server': link:../server
@@ -3764,41 +3764,26 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@ledgerhq/devices/7.0.3:
-    resolution: {integrity: sha512-URlcgq6yKklWxj35nIu/eTF0UpGLGUOp69xp8uHeyoMK2wqVC0GNGeD2MvKyJ+ul83edqMEI98GycA98Y7trsg==}
+  /@ledgerhq/devices/7.0.7:
+    resolution: {integrity: sha512-PZ9TtaTGBYUm/g0qNKPbECZt7DDNvqM3ILS5wAtOMna2cBR+mrywUGXrkjuOWlHpuqZ8wenaAKveQBbzF2ba8w==}
     dependencies:
-      '@ledgerhq/errors': 6.11.1
+      '@ledgerhq/errors': 6.12.3
       '@ledgerhq/logs': 6.10.1
       rxjs: 6.6.7
       semver: 7.3.8
-    dev: false
-
-  /@ledgerhq/devices/7.0.4:
-    resolution: {integrity: sha512-smN5/38w/a/TRBjFuqZTs3aSiADpRx6EF0yyFYBbwj/itkw/xfAnGeYzgrUdccEk26yZypcIzjjyCk+wr6gKhw==}
-    dependencies:
-      '@ledgerhq/errors': 6.12.0
-      '@ledgerhq/logs': 6.10.1
-      rxjs: 6.6.7
-      semver: 7.3.8
-    dev: false
-
-  /@ledgerhq/errors/6.11.1:
-    resolution: {integrity: sha512-HT1PFvNrejcN5z3ba6xikacIdHWMkjBeE9U5FFoGHhaKBKGjC74mnCeEo0/oJunyuVId+9mhGnv6lrBl6Mkqdg==}
-    dev: false
-
-  /@ledgerhq/errors/6.12.0:
-    resolution: {integrity: sha512-gDUpXDz3Os4bK9tzqvwZtjXMCB8LQwNft1f3x6WrwIGuM4Wo5D6ccJDybw4rP9TOJ4qPbRcXFH4avzQGFvwWNA==}
-    dev: false
 
   /@ledgerhq/errors/6.12.1:
     resolution: {integrity: sha512-2qeUSUCpQbMhV9eLJDLI8wycFwTcWszP8g3cJycBt9Jf1VczC5MRERwAQv5AYhPa4rcy+jLKBOVZYxc35r5l7g==}
     dev: false
 
-  /@ledgerhq/hw-transport-http/6.27.7:
-    resolution: {integrity: sha512-wXAm8482pc60CecLZmfOYCITHiRFCzbPbEprUOnkSKB//WWNOcGQCQpftCcKA6yneJHRZsci4XJKBKwWFfTqJg==}
+  /@ledgerhq/errors/6.12.3:
+    resolution: {integrity: sha512-djiMSgB/7hnK3aLR/c5ZMMivxjcI7o2+y3VKcsZZpydPoVf9+FXqeJPRfOwmJ0JxbQ//LinUfWpIfHew8LkaVw==}
+
+  /@ledgerhq/hw-transport-http/6.27.10:
+    resolution: {integrity: sha512-QECJHU5qryQI2o9HAjj/TESWM6ygmYp3QQrTuRx8kXcFiK1rww2ZyUJ5gz+ftmRiZgfkRTcI8FXg5ydQELGPtw==}
     dependencies:
-      '@ledgerhq/errors': 6.12.0
-      '@ledgerhq/hw-transport': 6.27.7
+      '@ledgerhq/errors': 6.12.3
+      '@ledgerhq/hw-transport': 6.27.10
       '@ledgerhq/logs': 6.10.1
       axios: 0.26.1
       ws: 7.5.9
@@ -3808,25 +3793,15 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@ledgerhq/hw-transport/6.27.6:
-    resolution: {integrity: sha512-DRGUsB8WfbeEPuU42nAtwYpA5D6Bq3q1CvC2VjDinkukLcf6XMc22YUJl9mxt+h+/cLTU1Ff/pz+fqYqeELLEA==}
+  /@ledgerhq/hw-transport/6.27.10:
+    resolution: {integrity: sha512-3cmwQZsiRKe6VcHA1kAtC8+Wt0xjCa9Y0TO/Ns2k4BmEhIlG143I4H1dJntkX6XhDpE1pK9Xn2niBQsTTeGhqA==}
     dependencies:
-      '@ledgerhq/devices': 7.0.3
-      '@ledgerhq/errors': 6.11.1
+      '@ledgerhq/devices': 7.0.7
+      '@ledgerhq/errors': 6.12.3
       events: 3.3.0
-    dev: false
-
-  /@ledgerhq/hw-transport/6.27.7:
-    resolution: {integrity: sha512-VLgqUaQo0PkvSUWJgltD89Q4uj9VGvgwR9i8OBYem+4j0NyDXee7tRxIfGp7SaavzNrnrUh5lXtXQfjfjkMZRg==}
-    dependencies:
-      '@ledgerhq/devices': 7.0.4
-      '@ledgerhq/errors': 6.12.0
-      events: 3.3.0
-    dev: false
 
   /@ledgerhq/logs/6.10.1:
     resolution: {integrity: sha512-z+ILK8Q3y+nfUl43ctCPuR4Y2bIxk/ooCQFwZxhtci1EhAtMDzMAx2W25qx8G1PPL9UUOdnUax19+F0OjXoj4w==}
-    dev: false
 
   /@leichtgewicht/ip-codec/2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
@@ -11407,7 +11382,6 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       tslib: 1.14.1
-    dev: false
 
   /rxjs/7.5.7:
     resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
@@ -12332,7 +12306,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: false
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
