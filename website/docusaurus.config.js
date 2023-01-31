@@ -11,7 +11,7 @@ const config = {
   title: TITLE,
   tagline:
     "Integrate your application or service inside a Ledger client wallet",
-  url: "https://wallet.api.ledger.com",
+  url: "https://wallet.api.live.ledger.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
