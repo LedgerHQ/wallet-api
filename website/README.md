@@ -28,4 +28,4 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-This website is deployed on Vercel.
+This website is deployed on Vercel. URL is https://wallet.api.live.ledger.com/
