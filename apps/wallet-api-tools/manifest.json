@@ -1,35 +1,44 @@
 {
-    "id": "wallet-api-tools",
-    "name": "Wallet Api Tools",
-    "url": "http://localhost:3000",
-    "homepageUrl": "https://developers.ledger.com/",
-    "icon": "https://cdn.live.ledger.com/icons/platform/debugger.png",
-    "platform": "all",
-    "apiVersion": "^2.0.0",
-    "manifestVersion": "1",
-    "branch": "debug",
-    "categories": [
-      "tools"
-    ],
-    "currencies": "*",
-    "content": {
-      "shortDescription": {
-        "en": "Try out the Wallet API to test capabilities of our platform integration solution. Use at your own risk."
-      },
-      "description": {
-        "en": "Try out the Wallet API to test capabilities of our platform integration solution. Use at your own risk."
-      }
+  "id": "wallet-api-tools",
+  "name": "Wallet API Tools",
+  "url": "https://wallet-api-wallet-api-tools.vercel.app",
+  "homepageUrl": "https://developers.ledger.com/",
+  "icon": "",
+  "platform": "all",
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "1",
+  "branch": "debug",
+  "categories": [
+    "tools"
+  ],
+  "currencies": "*",
+  "content": {
+    "shortDescription": {
+      "en": "Try out the Wallet API to test capabilities of our platform integration solution. Use at your own risk."
     },
-    "permissions": [
-      "account.request",
-      "account.list",
-      "account.receive",
-      "message.sign",
-      "transaction.sign",
-      "transaction.signAndBroadcast",
-      "currency.list"
-    ],
-    "domains": [
-      "https://*"
-    ]
-  }
+    "description": {
+      "en": "Try out the Wallet API to test capabilities of our platform integration solution. Use at your own risk."
+    }
+  },
+  "permissions": [
+    "account.list",
+    "account.receive",
+    "account.request",
+    "currency.list",
+    "device.close",
+    "device.exchange",
+    "device.transport",
+    "message.sign",
+    "transaction.sign",
+    "transaction.signAndBroadcast",
+    "storage.set",
+    "storage.get",
+    "bitcoin.getXPub",
+    "wallet.capabilities",
+    "wallet.userId",
+    "wallet.info"
+  ],
+  "domains": [
+    "https://*"
+  ]
+}
