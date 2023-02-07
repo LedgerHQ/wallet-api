@@ -106,8 +106,111 @@ const data: Group[] = [
       },
     ],
   },
+  {
+    name: "device",
+    options: [
+      {
+        label: "close",
+        value: {
+          method: "transaction.close",
+          params: {
+            transportId: "",
+          },
+        },
+      },
+      {
+        label: "exchange",
+        value: {
+          method: "transaction.exchange",
+          params: {
+            apduHex: "",
+            transportId: "",
+          },
+        },
+      },
+      {
+        label: "transport",
+        value: {
+          method: "transaction.transport",
+          params: {
+            appName: "",
+            appVersionRange: "",
+            firmwareVersionRange: "",
+            seeded: true,
+            devices: ["blue", "nanoS", "nanoSP", "nanoX", "stax"],
+          },
+        },
+      },
+    ],
+  },
+  {
+    name: "storage",
+    options: [
+      {
+        label: "set",
+        value: {
+          method: "transaction.set",
+          params: {
+            key: "",
+            value: "",
+            storeId: "",
+          },
+        },
+      },
+      {
+        label: "get",
+        value: {
+          method: "transaction.get",
+          params: {
+            key: "",
+            storeId: "",
+          },
+        },
+      },
+    ],
+  },
+  {
+    name: "bitcoin",
+    options: [
+      {
+        label: "getXPub",
+        value: {
+          method: "bitcoin.getXPub",
+          params: {
+            accountId: "",
+          },
+        },
+      },
+    ],
+  },
+  {
+    name: "wallet",
+    options: [
+      {
+        label: "capabilities",
+        value: {
+          method: "wallet.capabilities",
+          params: {},
+        },
+      },
+      {
+        label: "userId",
+        value: {
+          method: "wallet.userId",
+          params: {},
+        },
+      },
+      {
+        label: "info",
+        value: {
+          method: "wallet.info",
+          params: {},
+        },
+      },
+    ],
+  },
 ];
-
+  
 type TemplateSelectorProps = {
   onSelectTemplate: (value: string) => void;
 };
