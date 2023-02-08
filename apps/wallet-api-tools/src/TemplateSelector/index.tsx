@@ -112,7 +112,7 @@ const data: Group[] = [
       {
         label: "close",
         value: {
-          method: "transaction.close",
+          method: "device.close",
           params: {
             transportId: "",
           },
@@ -121,7 +121,7 @@ const data: Group[] = [
       {
         label: "exchange",
         value: {
-          method: "transaction.exchange",
+          method: "device.exchange",
           params: {
             apduHex: "",
             transportId: "",
@@ -131,7 +131,7 @@ const data: Group[] = [
       {
         label: "transport",
         value: {
-          method: "transaction.transport",
+          method: "device.transport",
           params: {
             appName: "",
             appVersionRange: "",
@@ -149,7 +149,7 @@ const data: Group[] = [
       {
         label: "set",
         value: {
-          method: "transaction.set",
+          method: "storage.set",
           params: {
             key: "",
             value: "",
@@ -160,7 +160,7 @@ const data: Group[] = [
       {
         label: "get",
         value: {
-          method: "transaction.get",
+          method: "storage.get",
           params: {
             key: "",
             storeId: "",
