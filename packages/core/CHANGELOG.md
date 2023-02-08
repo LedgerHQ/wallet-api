@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.13.0
+
+### Minor Changes
+
+- [#110](https://github.com/LedgerHQ/wallet-api/pull/110) [`17560c6`](https://github.com/LedgerHQ/wallet-api/commit/17560c643fac448b3b49f35244472dce97c454e0) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Added simple storage API permission and error
+
 ## 0.12.0
 
 ### Minor Changes
