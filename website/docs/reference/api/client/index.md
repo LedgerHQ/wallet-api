@@ -942,7 +942,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:275
+packages/core/lib/errors/types.d.ts:321
 
 ___
 
@@ -1163,6 +1163,16 @@ ___
 #### Defined in
 
 packages/core/lib/families/tron/types.d.ts:5
+
+___
+
+### UnauthorizedStore
+
+Ƭ **UnauthorizedStore**: `z.infer`<typeof [`schemaUnauthorizedStore`](#schemaunauthorizedstore)\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:167
 
 ___
 
@@ -1654,7 +1664,7 @@ ___
 
 ### schemaServerErrorCode
 
-• `Const` **schemaServerErrorCode**: `z.ZodEnum`<[``"NOT_IMPLEMENTED_BY_WALLET"``, ``"ACCOUNT_NOT_FOUND"``, ``"CURRENCY_NOT_FOUND"``, ``"PERMISSION_DENIED"``, ``"UNKNOWN_ERROR"``]\>
+• `Const` **schemaServerErrorCode**: `z.ZodEnum`<[``"NOT_IMPLEMENTED_BY_WALLET"``, ``"ACCOUNT_NOT_FOUND"``, ``"CURRENCY_NOT_FOUND"``, ``"PERMISSION_DENIED"``, ``"UNKNOWN_ERROR"``, ``"UNAUTHORIZED_STORE"``]\>
 
 #### Defined in
 
@@ -1664,11 +1674,11 @@ ___
 
 ### schemaServerErrorData
 
-• `Const` **schemaServerErrorData**: `z.ZodDiscriminatedUnion`<``"code"``, `z.Primitive`, `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\>\>
+• `Const` **schemaServerErrorData**: `z.ZodDiscriminatedUnion`<``"code"``, `z.Primitive`, `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNAUTHORIZED_STORE"``\> ; `data`: `z.ZodObject`<{ `storeId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `storeId`: `string`  }, { `storeId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }\>\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:144
+packages/core/lib/errors/types.d.ts:168
 
 ___
 
@@ -1767,6 +1777,16 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/TransactionSignAndBroadcast.d.ts:387
+
+___
+
+### schemaUnauthorizedStore
+
+• `Const` **schemaUnauthorizedStore**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNAUTHORIZED_STORE"``\> ; `data`: `z.ZodObject`<{ `storeId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `storeId`: `string`  }, { `storeId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }\>
+
+#### Defined in
+
+packages/core/lib/errors/types.d.ts:144
 
 ___
 
@@ -1961,6 +1981,26 @@ ___
 #### Defined in
 
 packages/core/lib/JSONRPC/helpers.d.ts:16
+
+___
+
+### createUnauthorizedStore
+
+▸ **createUnauthorizedStore**(`storeId`): [`UnauthorizedStore`](#unauthorizedstore)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `storeId` | `string` |
+
+#### Returns
+
+[`UnauthorizedStore`](#unauthorizedstore)
+
+#### Defined in
+
+packages/core/lib/errors/creators.d.ts:7
 
 ___
 

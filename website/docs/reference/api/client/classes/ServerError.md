@@ -22,7 +22,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `errorData` | { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } |
+| `errorData` | { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  } |
 
 #### Overrides
 
@@ -137,13 +137,13 @@ node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.
 
 ### getCode
 
-▸ **getCode**(): ``"NOT_IMPLEMENTED_BY_WALLET"`` \| ``"ACCOUNT_NOT_FOUND"`` \| ``"CURRENCY_NOT_FOUND"`` \| ``"PERMISSION_DENIED"`` \| ``"UNKNOWN_ERROR"``
+▸ **getCode**(): ``"NOT_IMPLEMENTED_BY_WALLET"`` \| ``"ACCOUNT_NOT_FOUND"`` \| ``"CURRENCY_NOT_FOUND"`` \| ``"PERMISSION_DENIED"`` \| ``"UNKNOWN_ERROR"`` \| ``"UNAUTHORIZED_STORE"``
 
 Retrieve error code
 
 #### Returns
 
-``"NOT_IMPLEMENTED_BY_WALLET"`` \| ``"ACCOUNT_NOT_FOUND"`` \| ``"CURRENCY_NOT_FOUND"`` \| ``"PERMISSION_DENIED"`` \| ``"UNKNOWN_ERROR"``
+``"NOT_IMPLEMENTED_BY_WALLET"`` \| ``"ACCOUNT_NOT_FOUND"`` \| ``"CURRENCY_NOT_FOUND"`` \| ``"PERMISSION_DENIED"`` \| ``"UNKNOWN_ERROR"`` \| ``"UNAUTHORIZED_STORE"``
 
 error code
 
@@ -155,13 +155,13 @@ ___
 
 ### getData
 
-▸ **getData**(): { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }
+▸ **getData**(): { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }
 
 Retrieve underlying data info
 
 #### Returns
 
-{ `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }
+{ `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }
 
 data info
 
