@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import CodeMirror from "@uiw/react-codemirror";
 import { json } from "@codemirror/lang-json";
+import CodeMirror from "@uiw/react-codemirror";
+import { useCallback, useState } from "react";
 import { TemplateSelector } from "./TemplateSelector";
 
 export type InputProps = {
@@ -12,8 +12,8 @@ export type InputProps = {
 
 export function Input({ onSend, onClear }: InputProps) {
   const [value, setValue] = useState("");
-  const onChange = useCallback((value: string) => {
-    setValue(value);
+  const onChange = useCallback((input: string) => {
+    setValue(input);
   }, []);
 
   const handleSend = useCallback(() => {
