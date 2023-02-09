@@ -12,6 +12,9 @@
         "pattern": "${0#} must be a string of 3 to 50 characters"
       }
     },
+    "author": {
+      "type": "string"
+    },
     "name": {
       "type": "string",
       "minLength": 1,
