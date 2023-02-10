@@ -43,6 +43,8 @@ export const standardProfile: SimulatorProfile = {
       "wallet.userId",
       "wallet.info",
       "bitcoin.getXPub",
+      "exchange.start",
+      "exchange.complete",
     ],
   },
   accounts: allAccounts,
@@ -93,6 +95,12 @@ export const standardProfile: SimulatorProfile = {
     },
     "bitcoin.getXPub": () => {
       return "xpub";
+    },
+    "exchange.start": ({ exchangeType }) => {
+      return `simulator-dummy-transaction-id-${exchangeType}`;
+    },
+    "exchange.complete": () => {
+      return `simulator-dummy-transaction-hash`;
     },
   },
 };

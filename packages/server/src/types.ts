@@ -5,6 +5,7 @@ import type {
   DeviceClose,
   DeviceExchange,
   DeviceTransport,
+  ExchangeStart,
   Promisable,
   RpcRequest,
   Transaction,
@@ -58,6 +59,17 @@ export interface WalletHandlers {
     storeId: string;
   }) => Promisable<string | undefined>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
+  "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
+  "exchange.complete": (params: {
+    provider: string;
+    fromAccount: Account;
+    toAccount?: Account | undefined;
+    transaction: Transaction;
+    binaryPayload: Buffer;
+    signature: Buffer;
+    feeStrategy: string;
+    exchangeType: "SWAP" | "SELL" | "FUND";
+  }) => Promisable<string>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown

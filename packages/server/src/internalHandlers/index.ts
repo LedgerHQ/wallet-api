@@ -8,6 +8,7 @@ import * as transaction from "./transaction";
 import * as wallet from "./wallet";
 import * as storage from "./storage";
 import * as bitcoin from "./bitcoin";
+import * as exchange from "./exchange";
 
 type InternalHandlers = TransformHandler<WalletHandlers>;
 
@@ -33,5 +34,9 @@ export const internalHandlers: InternalHandlers = {
 
   "storage.set": storage.set,
   "storage.get": storage.get,
+
   "bitcoin.getXPub": bitcoin.getXPub,
+
+  "exchange.start": exchange.start,
+  "exchange.complete": exchange.complete,
 };
