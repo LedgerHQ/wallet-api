@@ -1,11 +1,10 @@
-import React from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import "./style.css";
 
 type Option = {
   label: string;
-  value: any;
+  value: object;
 };
 
 type Group = {
@@ -210,9 +209,9 @@ const data: Group[] = [
     ],
   },
 ];
-  
+
 type TemplateSelectorProps = {
-  onSelectTemplate: (value: string) => void;
+  onSelectTemplate: (value: object) => void;
 };
 
 export function TemplateSelector({ onSelectTemplate }: TemplateSelectorProps) {

@@ -1,25 +1,17 @@
 "use client";
 
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { json } from "@codemirror/lang-json";
-import { Input } from "./Input";
 import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-core";
-import { v4 as uuidv4 } from "uuid";
-import { z } from "zod";
 import {
   getSimulatorTransport,
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
+import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { useSearchParams } from "next/navigation";
-
-export type EditorProps = {};
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { z } from "zod";
+import { Input } from "./Input";
 
 const schemaRequest = z.object({
   method: z.string(),
@@ -32,7 +24,24 @@ type Message = {
   date: Date;
 };
 
-export function Editor(props: EditorProps) {
+function getMessageStatus(message: Message) {
+  switch (message.type) {
+    case "in":
+      return "<- [received]";
+    case "out":
+      return "-> [sent]";
+    case "error":
+      return "[error]";
+    case "info":
+      return "[info]";
+    default: {
+      const exhaustiveCheck: never = message.type; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+      return exhaustiveCheck;
+    }
+  }
+}
+
+export function Editor() {
   const [history, setHistory] = useState<Message[]>([]);
   const searchParams = useSearchParams();
   const codeMirrorRef = useRef<ReactCodeMirrorRef | null>(null);
@@ -40,36 +49,31 @@ export function Editor(props: EditorProps) {
 
   const isSimulator = searchParams.get("simulator");
 
-  const pushMessage = useCallback((type: Message["type"], value: Message["value"]) => {
-    setHistory((history) => [
-      ...history,
-      { date: new Date(), type, value },
-    ]);
-  }, [])
+  const pushMessage = useCallback(
+    (type: Message["type"], value: Message["value"]) => {
+      setHistory((prev) => [...prev, { date: new Date(), type, value }]);
+    },
+    []
+  );
 
   const value = useMemo(() => {
     return history
       .map(
         (message) =>
-          `${
-            message.type === "in"
-              ? "<- [received]"
-              : message.type === "out"
-              ? "-> [sent]"
-              : message.type === "error"
-              ? "[error]"
-              : "[info]"
-          } ${message.date.toLocaleTimeString()}\n${message.value}`
+          `${getMessageStatus(message)} ${message.date.toLocaleTimeString()}\n${
+            message.value
+          }`
       )
       .join("\n\n\n");
   }, [history]);
 
-  const handleMessage = useCallback((message: string) => {
-    const parsedJson = JSON.parse(message);
-
-    const prettifiedJson = JSON.stringify(parsedJson, null, 3);
-    pushMessage("in", prettifiedJson);
-  }, [pushMessage]);
+  const handleMessage = useCallback(
+    (message: string) => {
+      const prettifiedJson = JSON.stringify(JSON.parse(message), null, 2);
+      pushMessage("in", prettifiedJson);
+    },
+    [pushMessage]
+  );
 
   useEffect(() => {
     const codeMirror = codeMirrorRef.current;
@@ -80,7 +84,10 @@ export function Editor(props: EditorProps) {
   }, [history]);
 
   useEffect(() => {
-    pushMessage("info", `Connected to ${isSimulator ? "simulator" : "software"} wallet`)
+    pushMessage(
+      "info",
+      `Connected to ${isSimulator ? "simulator" : "software"} wallet`
+    );
 
     // real conditions
     if (!isSimulator) {
@@ -106,10 +113,10 @@ export function Editor(props: EditorProps) {
 
   const handleClear = useCallback(() => {
     setHistory([]);
-  }, [])
+  }, []);
 
   const handleSend = useCallback(
-    (value: string) => {
+    (input: string) => {
       const requestId = uuidv4();
 
       const transport = transportRef.current;
@@ -119,7 +126,7 @@ export function Editor(props: EditorProps) {
           throw new Error("No transport initialized");
         }
 
-        const parsedRequest = schemaRequest.parse(JSON.parse(value));
+        const parsedRequest = schemaRequest.parse(JSON.parse(input));
 
         const request = {
           id: requestId,
@@ -127,15 +134,13 @@ export function Editor(props: EditorProps) {
           ...parsedRequest,
         };
 
-        const date = new Date();
-
-        const message = JSON.stringify(request, null, 3);
-        pushMessage("out", message)
+        const message = JSON.stringify(request, null, 2);
+        pushMessage("out", message);
 
         transport.send(message);
       } catch (error) {
-        setHistory((history) => [
-          ...history,
+        setHistory((prev) => [
+          ...prev,
           {
             date: new Date(),
             type: "error",
