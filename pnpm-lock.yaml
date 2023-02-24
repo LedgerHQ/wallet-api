@@ -94,10 +94,10 @@ importers:
       ts-node: ^10.9.1
       typescript: ^4.8.4
     dependencies:
+      '@ledgerhq/hw-transport': 6.27.10
       '@ledgerhq/wallet-api-core': link:../core
       bignumber.js: 9.1.0
     devDependencies:
-      '@ledgerhq/hw-transport': 6.27.10
       '@tsconfig/node18-strictest': 1.0.0
       '@types/jest': 29.2.1
       '@types/node': 18.11.8
@@ -3965,6 +3965,7 @@ packages:
       '@ledgerhq/logs': 6.10.1
       rxjs: 6.6.7
       semver: 7.3.8
+    dev: false
 
   /@ledgerhq/errors/6.12.1:
     resolution: {integrity: sha512-2qeUSUCpQbMhV9eLJDLI8wycFwTcWszP8g3cJycBt9Jf1VczC5MRERwAQv5AYhPa4rcy+jLKBOVZYxc35r5l7g==}
@@ -3972,6 +3973,7 @@ packages:
 
   /@ledgerhq/errors/6.12.3:
     resolution: {integrity: sha512-djiMSgB/7hnK3aLR/c5ZMMivxjcI7o2+y3VKcsZZpydPoVf9+FXqeJPRfOwmJ0JxbQ//LinUfWpIfHew8LkaVw==}
+    dev: false
 
   /@ledgerhq/hw-transport-http/6.27.10:
     resolution: {integrity: sha512-QECJHU5qryQI2o9HAjj/TESWM6ygmYp3QQrTuRx8kXcFiK1rww2ZyUJ5gz+ftmRiZgfkRTcI8FXg5ydQELGPtw==}
@@ -3993,9 +3995,11 @@ packages:
       '@ledgerhq/devices': 7.0.7
       '@ledgerhq/errors': 6.12.3
       events: 3.3.0
+    dev: false
 
   /@ledgerhq/logs/6.10.1:
     resolution: {integrity: sha512-z+ILK8Q3y+nfUl43ctCPuR4Y2bIxk/ooCQFwZxhtci1EhAtMDzMAx2W25qx8G1PPL9UUOdnUax19+F0OjXoj4w==}
+    dev: false
 
   /@leichtgewicht/ip-codec/2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
@@ -13040,6 +13044,7 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       tslib: 1.14.1
+    dev: false
 
   /rxjs/7.5.7:
     resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
@@ -14058,6 +14063,7 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: false
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
