@@ -43,6 +43,13 @@ const data: Group[] = [
           },
         },
       },
+      {
+        label: "selected",
+        value: {
+          method: "account.selected",
+          params: {},
+        },
+      },
     ],
   },
   {

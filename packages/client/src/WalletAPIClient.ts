@@ -1,6 +1,7 @@
 // TODO: reimplement all methods
 
 import {
+  AppHandlers,
   Logger,
   RpcError,
   RpcErrorCode,
@@ -22,18 +23,22 @@ const defaultLogger = new Logger("LL-PlatformSDK");
 
 export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
-// temporary
-const requestHandlers = {
-  "event.account.updated": async (_request: RpcRequest) => {
-    console.log("accounts updated !");
-  },
+type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
+  ? ReturnType<T>
+  : unknown;
+type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
+  ? ReturnTypeOfMethod<T[S]>
+  : unknown;
+
+export type TransformHandler<T> = {
+  [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;
 };
 
 /**
  * WalletAPI Client which rely on WindowMessage communication
  */
 export class WalletAPIClient extends RpcNode<
-  typeof requestHandlers,
+  Partial<TransformHandler<AppHandlers>>,
   WalletHandlers
 > {
   /**
@@ -78,8 +83,12 @@ export class WalletAPIClient extends RpcNode<
 
   private logger: Logger;
 
+  public appHandlers: Partial<TransformHandler<AppHandlers>>;
+
   constructor(transport: Transport, logger: Logger = defaultLogger) {
-    super(transport, requestHandlers);
+    const appHandlers: Partial<TransformHandler<AppHandlers>> = {};
+    super(transport, appHandlers);
+    this.appHandlers = appHandlers;
     this.logger = logger;
     this.account = new AccountModule(this);
     this.bitcoin = new BitcoinModule(this);
@@ -91,11 +100,13 @@ export class WalletAPIClient extends RpcNode<
     this.wallet = new WalletModule(this);
   }
 
-  protected onRequest(request: RpcRequest) {
+  protected async onRequest(
+    request: RpcRequest<string, unknown>
+  ): Promise<unknown> {
     this.logger.log(request.method);
-    const handler =
-      this.requestHandlers[request.method as keyof typeof this.requestHandlers];
+    const methodId = request.method as keyof typeof this.requestHandlers;
 
+    const handler = this.requestHandlers[methodId];
     if (!handler) {
       throw new RpcError({
         code: RpcErrorCode.METHOD_NOT_FOUND,

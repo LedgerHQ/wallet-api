@@ -12,8 +12,6 @@ export const FAMILIES = [
   "crypto_org",
   "ripple",
   "cosmos",
-  "ripple",
-  "cosmos",
   "tezos",
   "polkadot",
   "stellar",

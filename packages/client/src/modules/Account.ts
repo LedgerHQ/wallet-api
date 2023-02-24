@@ -4,7 +4,10 @@ import {
   schemaAccountList,
   schemaAccountReceive,
   schemaAccountRequest,
+  schemaAccountSelected,
+  schemaAccountSelectedEvent,
 } from "@ledgerhq/wallet-api-core";
+import { Subject } from "rxjs";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
 export class AccountModule {
@@ -12,6 +15,8 @@ export class AccountModule {
 
   constructor(client: WalletAPIClient) {
     this.client = client;
+
+    void this._subscribeToSelected();
   }
 
   /**
@@ -85,4 +90,42 @@ export class AccountModule {
 
     return safeResults.address;
   }
+
+  /**
+   * Get the currently selected account
+   *
+   * @returns The selected account or null if none is selected
+   */
+  async selected(): Promise<Account | null> {
+    const currentAccountsResult = await this.client.request(
+      "account.selected",
+      {}
+    );
+    const { rawAccount } = schemaAccountSelected.result.parse(
+      currentAccountsResult
+    );
+
+    const account = rawAccount ? deserializeAccount(rawAccount) : null;
+
+    return account;
+  }
+
+  private _subscribeToSelected() {
+    this.client.appHandlers["event.account.selected"] = async (request) => {
+      console.log({ request });
+      const { rawAccount } = schemaAccountSelectedEvent.params.parse(
+        request.params
+      );
+      const account = rawAccount ? deserializeAccount(rawAccount) : null;
+
+      this.selectedChanged$.next(account);
+    };
+  }
+
+  /**
+   * Subscribe to selected account changes
+   *
+   */
+
+  selectedChanged$: Subject<Account | null> = new Subject<Account | null>();
 }

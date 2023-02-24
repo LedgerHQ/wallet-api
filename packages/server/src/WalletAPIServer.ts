@@ -11,6 +11,7 @@ import {
   Permission,
   createPermissionDenied,
   ServerError,
+  serializeAccount,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject, combineLatest } from "rxjs";
 import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
@@ -36,6 +37,9 @@ export class WalletAPIServer extends RpcNode<
     Currency[]
   >([]);
 
+  private selectedAccountId$: BehaviorSubject<string | null> =
+    new BehaviorSubject<string | null>(null);
+
   private walletHandlers: Partial<WalletHandlers> = {};
 
   private permissions: {
@@ -60,6 +64,30 @@ export class WalletAPIServer extends RpcNode<
   setAccounts(accounts: Account[]) {
     this.allAccounts$.next(accounts);
     return this;
+  }
+
+  setSelectedAccountId(accountId: string) {
+    this.selectedAccountId$.next(accountId);
+    return this;
+  }
+
+  getWalletContext(): WalletContext {
+    return this.walletContext;
+  }
+
+  async selectAccount() {
+    const walletHandler = this.walletHandlers["account.request"];
+
+    if (!walletHandler) {
+      throw new Error("request.account is not implemented");
+    }
+
+    const account = await walletHandler({
+      currencies$: this.walletContext.currencies$,
+      accounts$: this.walletContext.accounts$,
+    });
+
+    this.setSelectedAccountId(account.id);
   }
 
   public setHandler<K extends keyof WalletHandlers>(
@@ -116,14 +144,37 @@ export class WalletAPIServer extends RpcNode<
       filterAccountsForCurrencies
     ).subscribe(allowedAccounts$);
 
+    const selectedAccount$ = new BehaviorSubject<Account | null>(null);
+    combineLatest(
+      [allowedAccounts$, this.selectedAccountId$],
+      (accounts, accountId) => {
+        if (!accountId) {
+          return null;
+        }
+        return accounts.find((account) => account.id === accountId) || null;
+      }
+    ).subscribe(selectedAccount$);
+
     this.walletContext = {
       currencies$: allowedCurrencies$,
       accounts$: allowedAccounts$,
+      selectedAccount$,
       config,
     };
 
     this.walletContext.accounts$.subscribe(() => {
       this.notify("event.account.updated", undefined);
+    });
+
+    this.walletContext.selectedAccount$.subscribe((account) => {
+      const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
+
+      // only emit this event if app has "account.selected" permission
+      if (allowedMethodIds.has("account.selected")) {
+        this.notify("event.account.selected", {
+          rawAccount: account ? serializeAccount(account) : null,
+        });
+      }
     });
   }
 }

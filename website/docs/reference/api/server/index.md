@@ -16,35 +16,6 @@ custom_edit_url: null
 
 ## Type Aliases
 
-### ClientContext
-
-Ƭ **ClientContext**: { `accounts$`: `BehaviorSubject`<`Account`[]\> ; `currencies$`: `BehaviorSubject`<`Currency`[]\>  } & [`ClientParams`](#clientparams)
-
-#### Defined in
-
-[server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
-
-___
-
-### ClientParams
-
-Ƭ **ClientParams**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `permissions` | { `currencies`: `string`[] ; `methods`: `string`[]  } |
-| `permissions.currencies` | `string`[] |
-| `permissions.methods` | `string`[] |
-
-#### Defined in
-
-[server/src/types.ts:74](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L74)
-
-___
-
 ### RPCHandler
 
 Ƭ **RPCHandler**<`TResult`\>: (`request`: `RpcRequest`<`string`, `unknown`\>, `context`: [`WalletContext`](#walletcontext), `handlers`: `Partial`<[`WalletHandlers`](interfaces/WalletHandlers.md)\>) => `Promise`<`TResult`\>
@@ -73,7 +44,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L22)
+[server/src/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L23)
 
 ___
 
@@ -92,7 +63,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
+[server/src/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L80)
 
 ___
 
@@ -108,7 +79,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L70)
+[server/src/types.ts:71](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L71)
 
 ___
 
@@ -120,9 +91,10 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `accounts$` | `Observable`<`Account`[]\> |
+| `accounts$` | `Subject`<`Account`[]\> |
 | `config` | [`ServerConfig`](#serverconfig) |
-| `currencies$` | `Observable`<`Currency`[]\> |
+| `currencies$` | `Subject`<`Currency`[]\> |
+| `selectedAccount$` | `Subject`<`Account` \| ``null``\> |
 
 #### Defined in
 
@@ -143,7 +115,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
+[server/src/types.ts:75](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L75)
 
 ## Functions
 
@@ -161,6 +133,7 @@ ___
 | › `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
 | › `logger?` | `Logger` |
 | › `permission` | `Permission` |
+| › `selectedAccountId` | `string` |
 | › `transport` | `Transport` |
 
 #### Returns

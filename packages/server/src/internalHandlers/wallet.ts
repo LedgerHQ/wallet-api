@@ -17,6 +17,7 @@ export const capabilities: RPCHandler<WalletCapabilities["result"]> = async (
   const methodIds: MethodId[] = [
     ...walletHandlerIds,
     "account.list",
+    "account.selected",
     "currency.list",
     "wallet.capabilities",
     "wallet.info",

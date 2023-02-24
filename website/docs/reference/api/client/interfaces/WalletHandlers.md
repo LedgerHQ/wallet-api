@@ -38,13 +38,23 @@ packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:5
 
 ___
 
+### account.selected
+
+• **account.selected**: [`AccountSelectedHandler`](../#accountselectedhandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:6
+
+___
+
 ### bitcoin.getXPub
 
 • **bitcoin.getXPub**: [`BitcoinGetXPubHandler`](../#bitcoingetxpubhandler)
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:15
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:16
 
 ___
 
@@ -54,7 +64,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:6
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:7
 
 ___
 
@@ -64,7 +74,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:7
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:8
 
 ___
 
@@ -74,7 +84,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:8
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:9
 
 ___
 
@@ -84,7 +94,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:9
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:10
 
 ___
 
@@ -94,7 +104,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:10
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:11
 
 ___
 
@@ -104,7 +114,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:15
 
 ___
 
@@ -114,7 +124,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:14
 
 ___
 
@@ -124,7 +134,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:11
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:12
 
 ___
 
@@ -134,7 +144,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:12
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:13
 
 ___
 
@@ -144,7 +154,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:16
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:17
 
 ___
 
@@ -154,7 +164,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:18
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:19
 
 ___
 
@@ -164,4 +174,4 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:17
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:18

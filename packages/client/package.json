@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
-    "bignumber.js": "^9.0.2"
+    "bignumber.js": "^9.0.2",
+    "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@ledgerhq/hw-transport": "^6.27.10",

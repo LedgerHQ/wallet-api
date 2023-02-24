@@ -3,6 +3,7 @@ import {
   AccountList,
   AccountReceive,
   AccountRequest,
+  AccountSelected,
   createAccountNotFound,
   createNotImplementedByWallet,
   Currency,
@@ -112,5 +113,17 @@ export const receive: RPCHandler<AccountReceive["result"]> = async (
 
   return {
     address: result,
+  };
+};
+
+export const selected: RPCHandler<AccountSelected["result"]> = async (
+  _req,
+  context,
+  _handlers
+) => {
+  const account = await firstValueFrom(context.selectedAccount$);
+
+  return {
+    rawAccount: account ? serializeAccount(account) : null,
   };
 };

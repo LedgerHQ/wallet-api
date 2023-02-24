@@ -6,6 +6,7 @@ export const schemaRPCMethod = z.enum([
   "account.list",
   "account.receive",
   "account.request",
+  "account.selected",
   "currency.list",
   "device.close",
   "device.exchange",

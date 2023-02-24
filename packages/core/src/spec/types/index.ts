@@ -1,6 +1,7 @@
 export * from "./AccountList";
 export * from "./AccountReceive";
 export * from "./AccountRequest";
+export * from "./AccountSelected";
 export * from "./CurrencyList";
 export * from "./DeviceClose";
 export * from "./DeviceExchange";

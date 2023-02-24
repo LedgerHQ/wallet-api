@@ -15,6 +15,7 @@ export const internalHandlers: InternalHandlers = {
   "account.request": account.request,
   "account.list": account.list,
   "account.receive": account.receive,
+  "account.selected": account.selected,
 
   "currency.list": currency.list,
 

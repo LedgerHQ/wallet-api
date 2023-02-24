@@ -14,6 +14,7 @@ export function useWalletAPIServer({
   config,
   logger,
   accounts,
+  selectedAccountId,
   currencies,
   permission,
 }: {
@@ -21,6 +22,7 @@ export function useWalletAPIServer({
   config: ServerConfig;
   logger?: Logger;
   accounts: Account[];
+  selectedAccountId: string;
   currencies: Currency[];
   permission: Permission;
 }) {
@@ -39,6 +41,10 @@ export function useWalletAPIServer({
   useEffect(() => {
     server.setAccounts(accounts);
   }, [accounts, server]);
+
+  useEffect(() => {
+    server.setSelectedAccountId(selectedAccountId);
+  }, [selectedAccountId, server]);
 
   const onMessage = useCallback(
     (event: string) => {

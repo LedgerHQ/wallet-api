@@ -10,7 +10,7 @@ WalletAPI Client which rely on WindowMessage communication
 
 ## Hierarchy
 
-- [`RpcNode`](RpcNode.md)<typeof `requestHandlers`, [`WalletHandlers`](../interfaces/WalletHandlers.md)\>
+- [`RpcNode`](RpcNode.md)<`Partial`<[`TransformHandler`](../#transformhandler)<[`AppHandlers`](../interfaces/AppHandlers.md)\>\>, [`WalletHandlers`](../interfaces/WalletHandlers.md)\>
 
   ↳ **`WalletAPIClient`**
 
@@ -33,7 +33,7 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L81)
+[packages/client/src/WalletAPIClient.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L88)
 
 ## Properties
 
@@ -45,7 +45,17 @@ Instance of the Account module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L42)
+[packages/client/src/WalletAPIClient.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L47)
+
+___
+
+### appHandlers
+
+• **appHandlers**: `Partial`<[`TransformHandler`](../#transformhandler)<[`AppHandlers`](../interfaces/AppHandlers.md)\>\>
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:86](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L86)
 
 ___
 
@@ -57,7 +67,7 @@ Instance of the Bitcoin module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L47)
+[packages/client/src/WalletAPIClient.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L52)
 
 ___
 
@@ -69,7 +79,7 @@ Instance of the Currency module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L52)
+[packages/client/src/WalletAPIClient.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L57)
 
 ___
 
@@ -81,7 +91,7 @@ Instance of the Device module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L57)
+[packages/client/src/WalletAPIClient.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L62)
 
 ___
 
@@ -91,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L79)
+[packages/client/src/WalletAPIClient.ts:84](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L84)
 
 ___
 
@@ -103,19 +113,13 @@ Instance of the Message module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L62)
+[packages/client/src/WalletAPIClient.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L67)
 
 ___
 
 ### requestHandlers
 
-• `Protected` **requestHandlers**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `event.account.updated` | (`_request`: [`RpcRequest`](../interfaces/RpcRequest.md)<`string`, `unknown`\>) => `Promise`<`void`\> |
+• `Protected` **requestHandlers**: `Partial`<[`TransformHandler`](../#transformhandler)<[`AppHandlers`](../interfaces/AppHandlers.md)\>\>
 
 #### Inherited from
 
@@ -135,7 +139,7 @@ Instance of the Storage module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L67)
+[packages/client/src/WalletAPIClient.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L72)
 
 ___
 
@@ -147,7 +151,7 @@ Instance of the Transaction module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L72)
+[packages/client/src/WalletAPIClient.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L77)
 
 ___
 
@@ -159,7 +163,7 @@ Instance of the Wallet module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L77)
+[packages/client/src/WalletAPIClient.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L82)
 
 ## Methods
 
@@ -196,7 +200,7 @@ ___
 
 ### onRequest
 
-▸ `Protected` **onRequest**(`request`): `Promise`<`void`\>
+▸ `Protected` **onRequest**(`request`): `Promise`<`unknown`\>
 
 #### Parameters
 
@@ -206,7 +210,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`unknown`\>
 
 #### Overrides
 
@@ -214,7 +218,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:94](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L94)
+[packages/client/src/WalletAPIClient.ts:103](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L103)
 
 ___
 

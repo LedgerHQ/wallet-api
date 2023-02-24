@@ -212,6 +212,88 @@ packages/core/lib/spec/types/AccountRequest.d.ts:126
 
 ___
 
+### AccountSelected
+
+Ƭ **AccountSelected**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaAccountSelectedParams`\> |
+| `result` | `z.infer`<typeof `schemaAccountSelectedResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/AccountSelected.d.ts:110
+
+___
+
+### AccountSelectedEvent
+
+Ƭ **AccountSelectedEvent**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaAccountSelectedEventParams`\> |
+| `result` | `z.infer`<typeof `schemaAccountSelectedEventResults`\> |
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/AppHandlers.d.ts:110
+
+___
+
+### AccountSelectedEventHandler
+
+Ƭ **AccountSelectedEventHandler**: (`params`: [`AccountSelectedEvent`](#accountselectedevent)[``"params"``]) => [`AccountSelectedEvent`](#accountselectedevent)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`AccountSelectedEvent`](#accountselectedevent)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`AccountSelectedEvent`](#accountselectedevent)[``"params"``] |
+
+##### Returns
+
+[`AccountSelectedEvent`](#accountselectedevent)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/AppHandlers.d.ts:114
+
+___
+
+### AccountSelectedHandler
+
+Ƭ **AccountSelectedHandler**: (`params`: [`AccountSelected`](#accountselected)[``"params"``]) => [`AccountSelected`](#accountselected)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`AccountSelected`](#accountselected)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`AccountSelected`](#accountselected)[``"params"``] |
+
+##### Returns
+
+[`AccountSelected`](#accountselected)[``"result"``]
+
+#### Defined in
+
+packages/core/lib/spec/types/AccountSelected.d.ts:114
+
+___
+
 ### AlgorandOperationMode
 
 Ƭ **AlgorandOperationMode**: `z.infer`<typeof `schemaAlgorandOperationMode`\>
@@ -757,7 +839,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L23)
+[packages/client/src/WalletAPIClient.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L24)
 
 ___
 
@@ -1146,6 +1228,22 @@ packages/core/lib/spec/types/TransactionSign.d.ts:778
 
 ___
 
+### TransformHandler
+
+Ƭ **TransformHandler**<`T`\>: { [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K\>\> }
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L33)
+
+___
+
 ### TronOperationMode
 
 Ƭ **TronOperationMode**: `z.infer`<typeof `schemaTronOperationMode`\>
@@ -1311,7 +1409,7 @@ packages/core/lib/spec/types/WalletUserId.d.ts:24
 
 ### FAMILIES
 
-• `Const` **FAMILIES**: readonly [``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]
+• `Const` **FAMILIES**: readonly [``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]
 
 #### Defined in
 
@@ -1380,6 +1478,40 @@ packages/core/lib/spec/types/AccountRequest.d.ts:61
 
 ___
 
+### schemaAccountSelected
+
+• `Const` **schemaAccountSelected**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+| `result` | `z.ZodObject`<{ `rawAccount`: `z.ZodNullable`<`z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  } \| ``null``  }, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  } \| ``null``  }\> |
+
+#### Defined in
+
+packages/core/lib/spec/types/AccountSelected.d.ts:55
+
+___
+
+### schemaAccountSelectedEvent
+
+• `Const` **schemaAccountSelectedEvent**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.ZodObject`<{ `rawAccount`: `z.ZodNullable`<`z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  } \| ``null``  }, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  } \| ``null``  }\> |
+| `result` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/AppHandlers.d.ts:55
+
+___
+
 ### schemaBaseCurrency
 
 • `Const` **schemaBaseCurrency**: `z.ZodObject`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }\>
@@ -1409,7 +1541,7 @@ ___
 
 ### schemaCryptoCurrency
 
-• `Const` **schemaCryptoCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>
+• `Const` **schemaCryptoCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>
 
 #### Defined in
 
@@ -1419,7 +1551,7 @@ ___
 
 ### schemaCurrency
 
-• `Const` **schemaCurrency**: `z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>
+• `Const` **schemaCurrency**: `z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>
 
 #### Defined in
 
@@ -1436,7 +1568,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `params` | `z.ZodOptional`<`z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
-| `result` | `z.ZodObject`<{ `currencies`: `z.ZodArray`<`z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }\> |
+| `result` | `z.ZodObject`<{ `currencies`: `z.ZodArray`<`z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }\> |
 
 #### Defined in
 
@@ -1527,7 +1659,7 @@ ___
 
 ### schemaFamilies
 
-• `Const` **schemaFamilies**: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\>
+• `Const` **schemaFamilies**: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``]\>
 
 #### Defined in
 
@@ -1584,7 +1716,7 @@ ___
 
 ### schemaRPCMethod
 
-• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
+• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"account.selected"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
 
 #### Defined in
 

@@ -2,6 +2,7 @@ import type {
   AccountListHandler,
   AccountReceiveHandler,
   AccountRequestHandler,
+  AccountSelectedHandler,
   BitcoinGetXPubHandler,
   CurrencyListHandler,
   DeviceCloseHandler,
@@ -21,6 +22,7 @@ export interface WalletHandlers {
   "account.list": AccountListHandler;
   "account.receive": AccountReceiveHandler;
   "account.request": AccountRequestHandler;
+  "account.selected": AccountSelectedHandler;
   "currency.list": CurrencyListHandler;
   "device.close": DeviceCloseHandler;
   "device.exchange": DeviceExchangeHandler;

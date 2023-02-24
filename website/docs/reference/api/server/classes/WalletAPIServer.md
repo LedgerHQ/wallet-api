@@ -35,7 +35,7 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:99](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L99)
+[server/src/WalletAPIServer.ts:127](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L127)
 
 ## Properties
 
@@ -45,7 +45,7 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L31)
+[server/src/WalletAPIServer.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L32)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L35)
+[server/src/WalletAPIServer.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L36)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L27)
+[server/src/WalletAPIServer.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L28)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L41)
+[server/src/WalletAPIServer.ts:45](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L45)
 
 ___
 
@@ -100,13 +100,23 @@ core/lib/JSONRPC/RpcNode.d.ts:9
 
 ___
 
+### selectedAccountId$
+
+• `Private` **selectedAccountId$**: `BehaviorSubject`<``null`` \| `string`\>
+
+#### Defined in
+
+[server/src/WalletAPIServer.ts:40](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L40)
+
+___
+
 ### walletContext
 
 • `Private` **walletContext**: [`WalletContext`](../#walletcontext)
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L29)
+[server/src/WalletAPIServer.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L30)
 
 ___
 
@@ -116,9 +126,23 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L39)
+[server/src/WalletAPIServer.ts:43](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L43)
 
 ## Methods
+
+### getWalletContext
+
+▸ **getWalletContext**(): [`WalletContext`](../#walletcontext)
+
+#### Returns
+
+[`WalletContext`](../#walletcontext)
+
+#### Defined in
+
+[server/src/WalletAPIServer.ts:74](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L74)
+
+___
 
 ### notify
 
@@ -128,7 +152,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends ``"event.account.updated"`` |
+| `K` | extends keyof `AppHandlers` |
 
 #### Parameters
 
@@ -171,7 +195,7 @@ RpcNode.onRequest
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L73)
+[server/src/WalletAPIServer.ts:101](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L101)
 
 ___
 
@@ -183,7 +207,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `K` | extends ``"event.account.updated"`` |
+| `K` | extends keyof `AppHandlers` |
 
 #### Parameters
 
@@ -206,6 +230,20 @@ core/lib/JSONRPC/RpcNode.d.ts:14
 
 ___
 
+### selectAccount
+
+▸ **selectAccount**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[server/src/WalletAPIServer.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L78)
+
+___
+
 ### setAccounts
 
 ▸ **setAccounts**(`accounts`): [`WalletAPIServer`](WalletAPIServer.md)
@@ -222,7 +260,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L60)
+[server/src/WalletAPIServer.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L64)
 
 ___
 
@@ -242,7 +280,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L55)
+[server/src/WalletAPIServer.ts:59](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L59)
 
 ___
 
@@ -269,7 +307,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L65)
+[server/src/WalletAPIServer.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L93)
 
 ___
 
@@ -289,4 +327,24 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L49)
+[server/src/WalletAPIServer.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L53)
+
+___
+
+### setSelectedAccountId
+
+▸ **setSelectedAccountId**(`accountId`): [`WalletAPIServer`](WalletAPIServer.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `accountId` | `string` |
+
+#### Returns
+
+[`WalletAPIServer`](WalletAPIServer.md)
+
+#### Defined in
+
+[server/src/WalletAPIServer.ts:69](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L69)

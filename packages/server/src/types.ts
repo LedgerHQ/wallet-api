@@ -11,11 +11,12 @@ import type {
   TransactionSign,
   TransactionSignAndBroadcast,
 } from "@ledgerhq/wallet-api-core";
-import type { BehaviorSubject, Observable } from "rxjs";
+import type { Observable, Subject } from "rxjs";
 
 export type WalletContext = {
-  currencies$: Observable<Currency[]>;
-  accounts$: Observable<Account[]>;
+  currencies$: Subject<Currency[]>;
+  accounts$: Subject<Account[]>;
+  selectedAccount$: Subject<Account | null>;
   config: ServerConfig;
 };
 
@@ -70,19 +71,6 @@ type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
 export type TransformHandler<T> = {
   [K in keyof T]: RPCHandler<ReturnTypeOfMethodIfExists<T, K>>;
 };
-
-export type ClientParams = {
-  id: string;
-  permissions: {
-    currencies: string[];
-    methods: string[];
-  };
-};
-
-export type ClientContext = {
-  currencies$: BehaviorSubject<Currency[]>;
-  accounts$: BehaviorSubject<Account[]>;
-} & ClientParams;
 
 export type WalletInfo = {
   name: string;
