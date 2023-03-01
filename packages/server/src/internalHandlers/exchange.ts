@@ -52,27 +52,40 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
     (acc) => acc.id === safeParams.fromAccountId
   );
 
-  const toAccount =
-    safeParams.exchangeType === "SWAP"
-      ? accounts.find((acc) => acc.id === safeParams.toAccountId)
-      : undefined;
-
   if (!fromAccount) {
     throw new ServerError(createAccountNotFound(safeParams.fromAccountId));
   }
 
-  if (safeParams.exchangeType === "SWAP" && !toAccount) {
-    throw new ServerError(createAccountNotFound(safeParams.toAccountId));
-  }
-
-  const transactionHash = await walletHandler({
+  // those params are common to all exchange types
+  const commonParams = {
     provider: safeParams.provider,
     transaction: deserializeTransaction(safeParams.rawTransaction),
     signature: Buffer.from(safeParams.hexSignature, "hex"),
     binaryPayload: Buffer.from(safeParams.hexBinaryPayload, "hex"),
     fromAccount,
-    toAccount,
     feeStrategy: safeParams.feeStrategy,
+  };
+
+  // if the exchange type is SWAP we need to process an extra parameter
+  if (safeParams.exchangeType === "SWAP") {
+    const toAccount = accounts.find((acc) => acc.id === safeParams.toAccountId);
+
+    if (!toAccount) {
+      throw new ServerError(createAccountNotFound(safeParams.toAccountId));
+    }
+
+    const transactionHash = await walletHandler({
+      ...commonParams,
+      exchangeType: safeParams.exchangeType,
+      toAccount,
+    });
+
+    return { transactionHash };
+  }
+
+  // or else we proceed with SELL / FUND
+  const transactionHash = await walletHandler({
+    ...commonParams,
     exchangeType: safeParams.exchangeType,
   });
 
