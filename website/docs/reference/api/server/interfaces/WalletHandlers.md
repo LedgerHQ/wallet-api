@@ -29,7 +29,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L33)
+[server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L29)
+[server/src/types.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L57)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L60)
+[server/src/types.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L88)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:48](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L48)
+[server/src/types.ts:76](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L76)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L49)
+[server/src/types.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L77)
 
 ___
 
@@ -160,7 +160,56 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:50](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L50)
+[server/src/types.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L78)
+
+___
+
+### exchange.complete
+
+• **exchange.complete**: (`params`: `ExchangeParams`) => `Promisable`<`string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`string`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `ExchangeParams` |
+
+##### Returns
+
+`Promisable`<`string`\>
+
+#### Defined in
+
+[server/src/types.ts:90](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L90)
+
+___
+
+### exchange.start
+
+• **exchange.start**: (`params`: { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"``  }) => `Promisable`<`string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`string`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.exchangeType` | ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` |
+
+##### Returns
+
+`Promisable`<`string`\>
+
+#### Defined in
+
+[server/src/types.ts:89](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L89)
 
 ___
 
@@ -186,7 +235,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L34)
+[server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
 
 ___
 
@@ -212,7 +261,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L56)
+[server/src/types.ts:84](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L84)
 
 ___
 
@@ -239,7 +288,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L51)
+[server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
 
 ___
 
@@ -267,7 +316,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:38](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L38)
+[server/src/types.ts:66](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L66)
 
 ___
 
@@ -295,4 +344,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:43](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L43)
+[server/src/types.ts:71](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L71)

@@ -7,6 +7,8 @@ import type {
   DeviceCloseHandler,
   DeviceExchangeHandler,
   DeviceTransportHandler,
+  ExchangeCompleteHandler,
+  ExchangeStartHandler,
   MessageSignHandler,
   StorageGetHandler,
   StorageSetHandler,
@@ -34,4 +36,6 @@ export interface WalletHandlers {
   "wallet.capabilities": WalletCapabilitiesHandler;
   "wallet.userId": WalletUserIdHandler;
   "wallet.info": WalletInfoHandler;
+  "exchange.start": ExchangeStartHandler;
+  "exchange.complete": ExchangeCompleteHandler;
 }

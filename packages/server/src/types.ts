@@ -5,6 +5,7 @@ import type {
   DeviceClose,
   DeviceExchange,
   DeviceTransport,
+  ExchangeStart,
   Promisable,
   RpcRequest,
   Transaction,
@@ -24,6 +25,33 @@ export type RPCHandler<TResult> = (
   context: WalletContext,
   handlers: Partial<WalletHandlers>
 ) => Promise<TResult>;
+
+type ExchangeBaseParams = {
+  provider: string;
+  fromAccount: Account;
+  transaction: Transaction;
+  binaryPayload: Buffer;
+  signature: Buffer;
+  feeStrategy: string;
+};
+
+type ExchangeFundParams = {
+  exchangeType: "FUND";
+} & ExchangeBaseParams;
+
+type ExchangeSellParams = {
+  exchangeType: "SELL";
+} & ExchangeBaseParams;
+
+type ExchangeSwapParams = {
+  exchangeType: "SWAP";
+  toAccount: Account;
+} & ExchangeBaseParams;
+
+type ExchangeParams =
+  | ExchangeFundParams
+  | ExchangeSellParams
+  | ExchangeSwapParams;
 
 export interface WalletHandlers {
   "account.request": (params: {
@@ -58,6 +86,8 @@ export interface WalletHandlers {
     storeId: string;
   }) => Promisable<string | undefined>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
+  "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
+  "exchange.complete": (params: ExchangeParams) => Promisable<string>;
 }
 
 type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown

@@ -208,6 +208,75 @@ const data: Group[] = [
       },
     ],
   },
+  {
+    name: "exchange",
+    options: [
+      {
+        label: "start",
+        value: {
+          method: "exchange.start",
+          params: {
+            exchangeType: "SWAP | SELL | FUND",
+          },
+        },
+      },
+      {
+        label: "complete (swap)",
+        value: {
+          method: "exchange.complete",
+          params: {
+            exchangeType: "SWAP",
+            provider: "",
+            fromAccountId: "",
+            toAccountId: "",
+            rawTransaction: {
+              amount: "",
+              recipient: "",
+            },
+            hexBinaryPayload: "",
+            hexSignature: "",
+            feeStrategy: "SLOW | MEDIUM | FAST",
+          },
+        },
+      },
+      {
+        label: "complete (fund)",
+        value: {
+          method: "exchange.complete",
+          params: {
+            exchangeType: "FUND",
+            provider: "",
+            fromAccountId: "",
+            rawTransaction: {
+              amount: "",
+              recipient: "",
+            },
+            hexBinaryPayload: "",
+            hexSignature: "",
+            feeStrategy: "SLOW | MEDIUM | FAST",
+          },
+        },
+      },
+      {
+        label: "complete (sell)",
+        value: {
+          method: "exchange.complete",
+          params: {
+            exchangeType: "SELL",
+            provider: "",
+            fromAccountId: "",
+            rawTransaction: {
+              amount: "",
+              recipient: "",
+            },
+            hexBinaryPayload: "",
+            hexSignature: "",
+            feeStrategy: "SLOW | MEDIUM | FAST",
+          },
+        },
+      },
+    ],
+  },
 ];
 
 type TemplateSelectorProps = {

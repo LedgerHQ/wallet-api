@@ -14,3 +14,5 @@ export * from "./StorageSet";
 export * from "./WalletUserId";
 export * from "./WalletInfo";
 export * from "./BitcoinGetXPub";
+export * from "./ExchangeComplete";
+export * from "./ExchangeStart";

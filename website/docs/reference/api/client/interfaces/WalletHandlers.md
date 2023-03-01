@@ -88,6 +88,26 @@ packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:9
 
 ___
 
+### exchange.complete
+
+• **exchange.complete**: [`ExchangeCompleteHandler`](../#exchangecompletehandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:20
+
+___
+
+### exchange.start
+
+• **exchange.start**: [`ExchangeStartHandler`](../#exchangestarthandler)
+
+#### Defined in
+
+packages/core/lib/spec/rpcHandlers/WalletHandlers.d.ts:19
+
+___
+
 ### message.sign
 
 • **message.sign**: [`MessageSignHandler`](../#messagesignhandler)

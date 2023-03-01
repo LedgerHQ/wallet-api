@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 const schemaStorageGetParams = z.object({
-  key: z.string(),
-  storeId: z.string().optional(),
+  key: z.string().min(1),
+  storeId: z.string().min(1).optional(),
 });
 
 const schemaStorageGetResults = z.object({
