@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-manifest-validator
 
+## 0.3.0
+
+### Minor Changes
+
+- [#118](https://github.com/LedgerHQ/wallet-api/pull/118) [`8275660`](https://github.com/LedgerHQ/wallet-api/commit/8275660f43cc025594b7eb116a64e5288cb59f36) Thanks [@RamyEB](https://github.com/RamyEB)! - Adding optional author field
+
+### Patch Changes
+
+- Updated dependencies [[`331a0af`](https://github.com/LedgerHQ/wallet-api/commit/331a0af27d2aa2af6d8e2d6f5a3ea0c4a0ca43ac)]:
+  - @ledgerhq/wallet-api-core@0.14.0
+
 ## 0.2.7
 
 ### Patch Changes
