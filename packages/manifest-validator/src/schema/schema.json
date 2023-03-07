@@ -57,9 +57,15 @@
       "enum": ["dApp", "walletApp", "webBrowserApp"]
     },
     "platform": {
-      "enum": ["desktop", "mobile", "all"],
-      "errorMessage": {
-        "enum": "must be equal to one of the allowed values: desktop, mobile, all"
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["desktop", "ios", "android"],
+        "errorMessage": {
+          "enum": "must be equal to one of the allowed values: desktop, mobile, all"
+        }
       }
     },
     "apiVersion": {
