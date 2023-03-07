@@ -45,7 +45,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/bitcoin/types.d.ts:6
+packages/core/lib/families/bitcoin/types.d.ts:7
 
 ___
 
@@ -55,7 +55,17 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/bitcoin/types.d.ts:7
+packages/core/lib/families/bitcoin/types.d.ts:8
+
+___
+
+### opReturnData
+
+• `Optional` **opReturnData**: `Buffer`
+
+#### Defined in
+
+packages/core/lib/families/bitcoin/types.d.ts:9
 
 ___
 
