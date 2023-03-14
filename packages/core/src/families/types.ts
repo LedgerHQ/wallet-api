@@ -13,6 +13,7 @@ import type { NearTransaction } from "./near/types";
 import type { NeoTransaction } from "./neo/types";
 import type { PolkadotTransaction } from "./polkadot/types";
 import type { RippleTransaction } from "./ripple/types";
+import type { SolanaTransaction } from "./solana/types";
 import type { StellarTransaction } from "./stellar/types";
 import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
@@ -77,4 +78,5 @@ export type Transaction =
   | NearTransaction
   | NeoTransaction
   | ElrondTransaction
-  | CardanoTransaction;
+  | CardanoTransaction
+  | SolanaTransaction;

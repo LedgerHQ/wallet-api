@@ -60,7 +60,10 @@ import {
   deserializeCardanoTransaction,
   serializeCardanoTransaction,
 } from "./cardano/serializer";
-
+import {
+  deserializeSolanaTransaction,
+  serializeSolanaTransaction,
+} from "./solana/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -106,6 +109,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeElrondTransaction(transaction);
     case "cardano":
       return serializeCardanoTransaction(transaction);
+    case "solana":
+      return serializeSolanaTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -159,6 +164,8 @@ export function deserializeTransaction(
       return deserializeElrondTransaction(rawTransaction);
     case "cardano":
       return deserializeCardanoTransaction(rawTransaction);
+    case "solana":
+      return deserializeSolanaTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
