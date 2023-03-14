@@ -10,6 +10,7 @@ import type { EthereumTransaction } from "./ethereum/types";
 import type { HederaTransaction } from "./hedera/types";
 import type { FilecoinTransaction } from "./filecoin/types";
 import type { NearTransaction } from "./near/types";
+import type { NeoTransaction } from "./neo/types";
 import type { PolkadotTransaction } from "./polkadot/types";
 import type { RippleTransaction } from "./ripple/types";
 import type { StellarTransaction } from "./stellar/types";
@@ -71,4 +72,5 @@ export type Transaction =
   | PolkadotTransaction
   | StellarTransaction
   | TronTransaction
-  | NearTransaction;
+  | NearTransaction
+  | NeoTransaction;

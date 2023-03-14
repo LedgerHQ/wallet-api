@@ -31,6 +31,7 @@ import {
   deserializeFilecoinTransaction,
   serializeFilecoinTransaction,
 } from "./filecoin/serializer";
+import * as neo from "./neo/serializer";
 import {
   deserializePolkadotTransaction,
   serializePolkadotTransaction,
@@ -91,6 +92,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeTronTransaction(transaction);
     case "near":
       return near.serialize(transaction);
+    case "neo":
+      return neo.serialize(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -138,6 +141,8 @@ export function deserializeTransaction(
       return deserializeTronTransaction(rawTransaction);
     case "near":
       return near.deserialize(rawTransaction);
+    case "neo":
+      return neo.deserialize(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
