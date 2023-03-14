@@ -22,6 +22,7 @@ import {
   deserializeEthereumTransaction,
   serializeEthereumTransaction,
 } from "./ethereum/serializer";
+import * as near from "./near/serializer";
 import {
   deserializeHederaTransaction,
   serializeHederaTransaction,
@@ -88,6 +89,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeStellarTransaction(transaction);
     case "tron":
       return serializeTronTransaction(transaction);
+    case "near":
+      return near.serialize(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -133,6 +136,8 @@ export function deserializeTransaction(
       return deserializeStellarTransaction(rawTransaction);
     case "tron":
       return deserializeTronTransaction(rawTransaction);
+    case "near":
+      return near.deserialize(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
