@@ -22,6 +22,8 @@ import {
   RawTezosTransaction,
   RawTransaction,
   RawTronTransaction,
+  RawSolanaTransaction,
+  SolanaTransaction,
   RippleTransaction,
   serializeAccount,
   serializeTransaction,
@@ -672,6 +674,40 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("solana", () => {
+      const family = schemaFamilies.enum.solana;
+
+      it("should succeed to serialize a solana transaction with resource and duration", () => {
+        const transaction: SolanaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to serialize a solana transaction without resource and duration", () => {
+        const transaction: SolanaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -1272,6 +1308,42 @@ describe("serializers.ts", () => {
           mode: "test",
           memo: undefined,
           fees: undefined,
+        });
+      });
+    });
+
+    describe("solana", () => {
+      const family = schemaFamilies.enum.solana;
+
+      it("should succeed to deserialize a solana transaction with resource and duration", () => {
+        const serializedTransaction: RawSolanaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        });
+      });
+
+      it("should succeed to deserialize a solana transaction without resource and duration", () => {
+        const serializedTransaction: RawSolanaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
         });
       });
     });
