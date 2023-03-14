@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.15.0
+
+### Minor Changes
+
+- [#122](https://github.com/LedgerHQ/wallet-api/pull/122) [`10f0321`](https://github.com/LedgerHQ/wallet-api/commit/10f03217bc435c7e9af3de614940c80a65752a1d) Thanks [@JunichiSugiura](https://github.com/JunichiSugiura)! - Support OP_RETURN data in Bitcoin transaction
+
 ## 0.14.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @ledgerhq/wallet-api-client
 
+## 0.15.1
+
+### Patch Changes
+
+- [#121](https://github.com/LedgerHQ/wallet-api/pull/121) [`da89c62`](https://github.com/LedgerHQ/wallet-api/commit/da89c629c2d952fb78b30efbe7fb8bc8deb8b251) Thanks [@Justkant](https://github.com/Justkant)! - chore: move `@ledgerhq/hw-transport` to deps
+
+- Updated dependencies [[`10f0321`](https://github.com/LedgerHQ/wallet-api/commit/10f03217bc435c7e9af3de614940c80a65752a1d)]:
+  - @ledgerhq/wallet-api-core@0.15.0
+
 ## 0.15.0
 
 ### Minor Changes

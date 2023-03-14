@@ -1,5 +1,12 @@
 # @ledgerhq/wallet-api-server
 
+## 0.13.1
+
+### Patch Changes
+
+- Updated dependencies [[`10f0321`](https://github.com/LedgerHQ/wallet-api/commit/10f03217bc435c7e9af3de614940c80a65752a1d)]:
+  - @ledgerhq/wallet-api-core@0.15.0
+
 ## 0.13.0
 
 ### Minor Changes
