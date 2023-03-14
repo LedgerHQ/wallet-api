@@ -6,6 +6,7 @@ import type { schemaRawBitcoinTransaction } from "./validation";
 export interface BitcoinTransaction extends TransactionCommon {
   readonly family: RawBitcoinTransaction["family"];
   feePerByte?: BigNumber;
+  opReturnData?: Buffer;
 }
 
 export type RawBitcoinTransaction = z.infer<typeof schemaRawBitcoinTransaction>;

@@ -287,6 +287,7 @@ importers:
       '@types/jest': ^29.2.1
       '@types/node': ^18.11.8
       '@types/ws': ^8.5.3
+      bignumber.js: ^9.0.2
       eslint: ^8.26.0
       jest: ^29.1.2
       jest-environment-jsdom: ^29.2.2
@@ -309,6 +310,7 @@ importers:
       '@types/jest': 29.2.1
       '@types/node': 18.11.8
       '@types/ws': 8.5.3
+      bignumber.js: 9.1.0
       eslint: 8.26.0
       jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
       jest-environment-jsdom: 29.2.2
@@ -6093,7 +6095,6 @@ packages:
 
   /bignumber.js/9.1.0:
     resolution: {integrity: sha512-4LwHK4nfDOraBCtst+wOWIHbu1vhvAPJK8g8nROd4iuc3PSEjWif/qwbkh8jwCJz6yDBvtU4KPynETgrfh7y3A==}
-    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
