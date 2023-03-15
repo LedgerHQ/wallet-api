@@ -596,9 +596,11 @@ describe("serializers.ts", () => {
       expect(serializedTransaction).toEqual({
         family,
         mode: "send",
-        fees: 0,
+        fees: "0",
         amount: "100",
         recipient: "recipient",
+        gasLimit: undefined,
+        data: undefined,
       });
     });
 
@@ -617,7 +619,9 @@ describe("serializers.ts", () => {
         mode: "send",
         amount: "100",
         recipient: "recipient",
-        fees: 0,
+        fees: "0",
+        gasLimit: undefined,
+        data: undefined,
       });
     });
   });
