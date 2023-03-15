@@ -56,7 +56,7 @@
       "type": "string",
       "enum": ["dApp", "walletApp", "webBrowserApp"]
     },
-    "platform": {
+    "platforms": {
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
@@ -284,7 +284,7 @@
     "name",
     "url",
     "type",
-    "platform",
+    "platforms",
     "apiVersion",
     "version",
     "categories",
