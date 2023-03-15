@@ -16,6 +16,7 @@ import type { RippleTransaction } from "./ripple/types";
 import type { StellarTransaction } from "./stellar/types";
 import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
+import type { ElrondTransaction } from "./elrond/types";
 import type { schemaRawTransaction } from "./validation";
 
 /**
@@ -73,4 +74,5 @@ export type Transaction =
   | StellarTransaction
   | TronTransaction
   | NearTransaction
-  | NeoTransaction;
+  | NeoTransaction
+  | ElrondTransaction;

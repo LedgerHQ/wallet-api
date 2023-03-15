@@ -52,6 +52,10 @@ import {
   deserializeTronTransaction,
   serializeTronTransaction,
 } from "./tron/serializer";
+import {
+  deserializeElrondTransaction,
+  serializeElrondTransaction,
+} from "./elrond/serializer";
 
 import type { RawTransaction, Transaction } from "./types";
 
@@ -94,6 +98,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return near.serialize(transaction);
     case "neo":
       return neo.serialize(transaction);
+    case "elrond":
+      return serializeElrondTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -143,6 +149,8 @@ export function deserializeTransaction(
       return near.deserialize(rawTransaction);
     case "neo":
       return neo.deserialize(rawTransaction);
+    case "elrond":
+      return deserializeElrondTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;

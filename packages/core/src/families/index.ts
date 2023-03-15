@@ -13,7 +13,7 @@ export * from "./ripple/types";
 export * from "./stellar/types";
 export * from "./tezos/types";
 export * from "./tron/types";
-
+export * from "./elrond/types";
 export * from "./common";
 export * from "./serializer";
 export * from "./types";
