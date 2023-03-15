@@ -44,6 +44,7 @@ custom_edit_url: null
 - [RpcResponseError](interfaces/RpcResponseError.md)
 - [RpcResponseFailed](interfaces/RpcResponseFailed.md)
 - [RpcResponseSuccess](interfaces/RpcResponseSuccess.md)
+- [SolanaTransaction](interfaces/SolanaTransaction.md)
 - [StellarTransaction](interfaces/StellarTransaction.md)
 - [TezosTransaction](interfaces/TezosTransaction.md)
 - [TransactionCommon](interfaces/TransactionCommon.md)
@@ -1003,6 +1004,16 @@ ___
 #### Defined in
 
 packages/core/lib/families/ripple/types.d.ts:10
+
+___
+
+### RawSolanaTransaction
+
+Ƭ **RawSolanaTransaction**: `z.infer`<typeof `schemaRawSolanaTransaction`\>
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:7
 
 ___
 
