@@ -15,6 +15,7 @@ export const FAMILIES = [
   "ripple",
   "cosmos",
   "hedera",
+  "filecoin",
   "tezos",
   "polkadot",
   "stellar",

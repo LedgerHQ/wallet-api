@@ -7,6 +7,7 @@ import type { CosmosTransaction } from "./cosmos/types";
 import type { CryptoOrgTransaction } from "./crypto_org/types";
 import type { EthereumTransaction } from "./ethereum/types";
 import type { HederaTransaction } from "./hedera/types";
+import type { FilecoinTransaction } from "./filecoin/types";
 import type { PolkadotTransaction } from "./polkadot/types";
 import type { RippleTransaction } from "./ripple/types";
 import type { StellarTransaction } from "./stellar/types";
@@ -60,6 +61,7 @@ export type Transaction =
   | AlgorandTransaction
   | CryptoOrgTransaction
   | HederaTransaction
+  | FilecoinTransaction
   | RippleTransaction
   | CosmosTransaction
   | TezosTransaction
