@@ -9,6 +9,7 @@ import { schemaRawRippleTransaction } from "./ripple/validation";
 import { schemaRawStellarTransaction } from "./stellar/validation";
 import { schemaRawTezosTransaction } from "./tezos/validation";
 import { schemaRawTronTransaction } from "./tron/validation";
+import { schemaRawHederaTransaction } from "./hedera/validation";
 
 export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawAlgorandTransaction,
@@ -16,6 +17,7 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawCosmosTransaction,
   schemaRawCryptoOrgTransaction,
   schemaRawEthereumTransaction,
+  schemaRawHederaTransaction,
   schemaRawPolkadotTransaction,
   schemaRawRippleTransaction,
   schemaRawStellarTransaction,

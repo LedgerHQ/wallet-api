@@ -22,6 +22,8 @@ Common fields for all cryptocurrency transactions
 
   ↳ [`EthereumTransaction`](EthereumTransaction.md)
 
+  ↳ [`HederaTransaction`](HederaTransaction.md)
+
   ↳ [`PolkadotTransaction`](PolkadotTransaction.md)
 
   ↳ [`RippleTransaction`](RippleTransaction.md)
@@ -43,19 +45,19 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:37
+packages/core/lib/families/types.d.ts:38
 
 ___
 
 ### family
 
-• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"``
+• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"hedera"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"``
 
 The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:32
+packages/core/lib/families/types.d.ts:33
 
 ___
 
@@ -67,4 +69,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:41
+packages/core/lib/families/types.d.ts:42
