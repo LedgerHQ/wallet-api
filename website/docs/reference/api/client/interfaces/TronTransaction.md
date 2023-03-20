@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:39
+packages/core/lib/families/types.d.ts:40
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 ### mode
 
-• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"freeze"`` \| ``"unfreeze"`` \| ``"vote"``
+• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"``
 
 #### Defined in
 
@@ -81,7 +81,7 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:43
+packages/core/lib/families/types.d.ts:44
 
 ___
 

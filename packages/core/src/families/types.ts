@@ -3,6 +3,7 @@ import type { z } from "zod";
 import type { AlgorandTransaction } from "./algorand/types";
 import type { BitcoinTransaction } from "./bitcoin/types";
 import type { schemaFamilies } from "./common";
+import type { CeloTransaction } from "./celo/types";
 import type { CosmosTransaction } from "./cosmos/types";
 import type { CryptoOrgTransaction } from "./crypto_org/types";
 import type { EthereumTransaction } from "./ethereum/types";
@@ -63,6 +64,7 @@ export type Transaction =
   | HederaTransaction
   | FilecoinTransaction
   | RippleTransaction
+  | CeloTransaction
   | CosmosTransaction
   | TezosTransaction
   | PolkadotTransaction

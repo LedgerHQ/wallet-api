@@ -1,7 +1,7 @@
 ---
-id: "CosmosTransaction"
-title: "Interface: CosmosTransaction"
-sidebar_label: "CosmosTransaction"
+id: "CeloTransaction"
+title: "Interface: CeloTransaction"
+sidebar_label: "CeloTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`CosmosTransaction`**
+  ↳ **`CeloTransaction`**
 
 ## Properties
 
@@ -35,7 +35,7 @@ ___
 
 ### family
 
-• `Readonly` **family**: ``"cosmos"``
+• `Readonly` **family**: ``"celo"``
 
 The family of the transaction
 
@@ -45,7 +45,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:7
+packages/core/lib/families/celo/types.d.ts:6
 
 ___
 
@@ -55,37 +55,27 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:9
+packages/core/lib/families/celo/types.d.ts:7
 
 ___
 
-### gas
+### index
 
-• `Optional` **gas**: `BigNumber`
-
-#### Defined in
-
-packages/core/lib/families/cosmos/types.d.ts:10
-
-___
-
-### memo
-
-• `Optional` **memo**: `string`
+• `Optional` **index**: ``null`` \| `number`
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:11
+packages/core/lib/families/celo/types.d.ts:8
 
 ___
 
 ### mode
 
-• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"``
+• **mode**: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"``
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:8
+packages/core/lib/families/celo/types.d.ts:9
 
 ___
 

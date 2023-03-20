@@ -7,6 +7,10 @@ import {
   serializeBitcoinTransaction,
 } from "./bitcoin/serializer";
 import {
+  deserializeCeloTransaction,
+  serializeCeloTransaction,
+} from "./celo/serializer";
+import {
   deserializeCosmosTransaction,
   serializeCosmosTransaction,
 } from "./cosmos/serializer";
@@ -68,6 +72,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCryptoOrgTransaction(transaction);
     case "ripple":
       return serializeRippleTransaction(transaction);
+    case "celo":
+      return serializeCeloTransaction(transaction);
     case "cosmos":
       return serializeCosmosTransaction(transaction);
     case "hedera":
@@ -111,6 +117,8 @@ export function deserializeTransaction(
       return deserializeCryptoOrgTransaction(rawTransaction);
     case "ripple":
       return deserializeRippleTransaction(rawTransaction);
+    case "celo":
+      return deserializeCeloTransaction(rawTransaction);
     case "cosmos":
       return deserializeCosmosTransaction(rawTransaction);
     case "hedera":
