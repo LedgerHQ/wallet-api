@@ -6,6 +6,7 @@ export * from "./crypto_org/types";
 export * from "./ethereum/types";
 export * from "./hedera/types";
 export * from "./filecoin/types";
+export * from "./near/types";
 export * from "./polkadot/types";
 export * from "./ripple/types";
 export * from "./stellar/types";

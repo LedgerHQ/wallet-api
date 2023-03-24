@@ -5,6 +5,7 @@ import { schemaRawCeloTransaction } from "./celo/validation";
 import { schemaRawCosmosTransaction } from "./cosmos/validation";
 import { schemaRawCryptoOrgTransaction } from "./crypto_org/validation";
 import { schemaRawEthereumTransaction } from "./ethereum/validation";
+import { schemaRawNearTransaction } from "./near/validation";
 import { schemaRawPolkadotTransaction } from "./polkadot/validation";
 import { schemaRawRippleTransaction } from "./ripple/validation";
 import { schemaRawStellarTransaction } from "./stellar/validation";
@@ -22,6 +23,7 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawEthereumTransaction,
   schemaRawHederaTransaction,
   schemaRawFilecoinTransaction,
+  schemaRawNearTransaction,
   schemaRawPolkadotTransaction,
   schemaRawRippleTransaction,
   schemaRawStellarTransaction,

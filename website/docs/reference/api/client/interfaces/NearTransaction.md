@@ -1,7 +1,7 @@
 ---
-id: "CryptoOrgTransaction"
-title: "Interface: CryptoOrgTransaction"
-sidebar_label: "CryptoOrgTransaction"
+id: "NearTransaction"
+title: "Interface: NearTransaction"
+sidebar_label: "NearTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`CryptoOrgTransaction`**
+  ↳ **`NearTransaction`**
 
 ## Properties
 
@@ -35,7 +35,7 @@ ___
 
 ### family
 
-• `Readonly` **family**: ``"crypto_org"``
+• `Readonly` **family**: ``"near"``
 
 The family of the transaction
 
@@ -45,7 +45,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/crypto_org/types.d.ts:6
+packages/core/lib/families/near/types.d.ts:6
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/crypto_org/types.d.ts:8
+packages/core/lib/families/near/types.d.ts:8
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/crypto_org/types.d.ts:7
+packages/core/lib/families/near/types.d.ts:7
 
 ___
 
