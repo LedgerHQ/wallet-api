@@ -23,6 +23,10 @@ import {
   serializeHederaTransaction,
 } from "./hedera/serializer";
 import {
+  deserializeFilecoinTransaction,
+  serializeFilecoinTransaction,
+} from "./filecoin/serializer";
+import {
   deserializePolkadotTransaction,
   serializePolkadotTransaction,
 } from "./polkadot/serializer";
@@ -68,6 +72,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCosmosTransaction(transaction);
     case "hedera":
       return serializeHederaTransaction(transaction);
+    case "filecoin":
+      return serializeFilecoinTransaction(transaction);
     case "tezos":
       return serializeTezosTransaction(transaction);
     case "polkadot":
@@ -109,6 +115,8 @@ export function deserializeTransaction(
       return deserializeCosmosTransaction(rawTransaction);
     case "hedera":
       return deserializeHederaTransaction(rawTransaction);
+    case "filecoin":
+      return deserializeFilecoinTransaction(rawTransaction);
     case "tezos":
       return deserializeTezosTransaction(rawTransaction);
     case "polkadot":

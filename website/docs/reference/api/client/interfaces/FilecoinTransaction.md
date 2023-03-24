@@ -1,7 +1,7 @@
 ---
-id: "TezosTransaction"
-title: "Interface: TezosTransaction"
-sidebar_label: "TezosTransaction"
+id: "FilecoinTransaction"
+title: "Interface: FilecoinTransaction"
+sidebar_label: "FilecoinTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`TezosTransaction`**
+  ↳ **`FilecoinTransaction`**
 
 ## Properties
 
@@ -33,9 +33,19 @@ packages/core/lib/families/types.d.ts:39
 
 ___
 
+### data
+
+• `Optional` **data**: `Buffer`
+
+#### Defined in
+
+packages/core/lib/families/filecoin/types.d.ts:9
+
+___
+
 ### family
 
-• `Readonly` **family**: ``"tezos"``
+• `Readonly` **family**: ``"filecoin"``
 
 The family of the transaction
 
@@ -45,37 +55,67 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:7
+packages/core/lib/families/filecoin/types.d.ts:7
 
 ___
 
-### fees
+### gasFeeCap
 
-• `Optional` **fees**: `BigNumber`
+• **gasFeeCap**: `BigNumber`
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:9
+packages/core/lib/families/filecoin/types.d.ts:14
 
 ___
 
 ### gasLimit
 
-• `Optional` **gasLimit**: `BigNumber`
+• **gasLimit**: `BigNumber`
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:10
+packages/core/lib/families/filecoin/types.d.ts:13
 
 ___
 
-### mode
+### gasPremium
 
-• **mode**: ``"send"`` \| ``"delegate"`` \| ``"undelegate"``
+• **gasPremium**: `BigNumber`
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:8
+packages/core/lib/families/filecoin/types.d.ts:15
+
+___
+
+### method
+
+• **method**: `number`
+
+#### Defined in
+
+packages/core/lib/families/filecoin/types.d.ts:10
+
+___
+
+### nonce
+
+• **nonce**: `number`
+
+#### Defined in
+
+packages/core/lib/families/filecoin/types.d.ts:8
+
+___
+
+### params
+
+• `Optional` **params**: `string`
+
+#### Defined in
+
+packages/core/lib/families/filecoin/types.d.ts:12
 
 ___
 
@@ -92,3 +132,13 @@ The address of the transaction's recipient
 #### Defined in
 
 packages/core/lib/families/types.d.ts:43
+
+___
+
+### version
+
+• **version**: `number`
+
+#### Defined in
+
+packages/core/lib/families/filecoin/types.d.ts:11
