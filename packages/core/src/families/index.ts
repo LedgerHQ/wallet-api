@@ -1,5 +1,6 @@
 export * from "./algorand/types";
 export * from "./bitcoin/types";
+export * from "./celo/types";
 export * from "./cosmos/types";
 export * from "./crypto_org/types";
 export * from "./ethereum/types";
