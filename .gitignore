@@ -40,3 +40,6 @@ lib-es/
 
 # eslint cache
 .eslintcache
+
+# ide
+.idea

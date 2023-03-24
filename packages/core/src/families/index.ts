@@ -3,6 +3,7 @@ export * from "./bitcoin/types";
 export * from "./cosmos/types";
 export * from "./crypto_org/types";
 export * from "./ethereum/types";
+export * from "./hedera/types";
 export * from "./polkadot/types";
 export * from "./ripple/types";
 export * from "./stellar/types";

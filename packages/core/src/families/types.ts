@@ -6,6 +6,7 @@ import type { schemaFamilies } from "./common";
 import type { CosmosTransaction } from "./cosmos/types";
 import type { CryptoOrgTransaction } from "./crypto_org/types";
 import type { EthereumTransaction } from "./ethereum/types";
+import type { HederaTransaction } from "./hedera/types";
 import type { PolkadotTransaction } from "./polkadot/types";
 import type { RippleTransaction } from "./ripple/types";
 import type { StellarTransaction } from "./stellar/types";
@@ -58,6 +59,7 @@ export type Transaction =
   | BitcoinTransaction
   | AlgorandTransaction
   | CryptoOrgTransaction
+  | HederaTransaction
   | RippleTransaction
   | CosmosTransaction
   | TezosTransaction

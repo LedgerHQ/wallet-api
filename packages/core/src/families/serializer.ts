@@ -19,6 +19,10 @@ import {
   serializeEthereumTransaction,
 } from "./ethereum/serializer";
 import {
+  deserializeHederaTransaction,
+  serializeHederaTransaction,
+} from "./hedera/serializer";
+import {
   deserializePolkadotTransaction,
   serializePolkadotTransaction,
 } from "./polkadot/serializer";
@@ -62,6 +66,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeRippleTransaction(transaction);
     case "cosmos":
       return serializeCosmosTransaction(transaction);
+    case "hedera":
+      return serializeHederaTransaction(transaction);
     case "tezos":
       return serializeTezosTransaction(transaction);
     case "polkadot":
@@ -101,6 +107,8 @@ export function deserializeTransaction(
       return deserializeRippleTransaction(rawTransaction);
     case "cosmos":
       return deserializeCosmosTransaction(rawTransaction);
+    case "hedera":
+      return deserializeHederaTransaction(rawTransaction);
     case "tezos":
       return deserializeTezosTransaction(rawTransaction);
     case "polkadot":

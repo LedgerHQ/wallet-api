@@ -1,7 +1,7 @@
 ---
-id: "TronTransaction"
-title: "Interface: TronTransaction"
-sidebar_label: "TronTransaction"
+id: "HederaTransaction"
+title: "Interface: HederaTransaction"
+sidebar_label: "HederaTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`TronTransaction`**
+  ↳ **`HederaTransaction`**
 
 ## Properties
 
@@ -33,19 +33,9 @@ packages/core/lib/families/types.d.ts:38
 
 ___
 
-### duration
-
-• `Optional` **duration**: `number`
-
-#### Defined in
-
-packages/core/lib/families/tron/types.d.ts:10
-
-___
-
 ### family
 
-• `Readonly` **family**: ``"tron"``
+• `Readonly` **family**: ``"hedera"``
 
 The family of the transaction
 
@@ -55,17 +45,17 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/tron/types.d.ts:7
+packages/core/lib/families/hedera/types.d.ts:5
 
 ___
 
-### mode
+### memo
 
-• **mode**: ``"send"`` \| ``"claimReward"`` \| ``"freeze"`` \| ``"unfreeze"`` \| ``"vote"``
+• `Optional` **memo**: `string`
 
 #### Defined in
 
-packages/core/lib/families/tron/types.d.ts:8
+packages/core/lib/families/hedera/types.d.ts:6
 
 ___
 
@@ -82,13 +72,3 @@ The address of the transaction's recipient
 #### Defined in
 
 packages/core/lib/families/types.d.ts:42
-
-___
-
-### resource
-
-• `Optional` **resource**: ``"BANDWIDTH"`` \| ``"ENERGY"``
-
-#### Defined in
-
-packages/core/lib/families/tron/types.d.ts:9
