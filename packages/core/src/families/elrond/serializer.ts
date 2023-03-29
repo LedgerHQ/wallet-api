@@ -2,13 +2,13 @@ import BigNumber from "bignumber.js";
 import type { ElrondTransaction, RawElrondTransaction } from "./types";
 
 export function serializeElrondTransaction({
-  family,
-  mode,
   amount,
-  recipient,
-  fees,
   data,
+  family,
+  fees,
   gasLimit,
+  mode,
+  recipient,
 }: ElrondTransaction): RawElrondTransaction {
   return {
     family,
@@ -17,18 +17,18 @@ export function serializeElrondTransaction({
     mode,
     fees: fees ? fees.toString() : undefined,
     data: data ? data.toString("hex") : undefined,
-    gasLimit: gasLimit ? gasLimit.toString() : undefined,
+    gasLimit: gasLimit?.toString(),
   };
 }
 
 export function deserializeElrondTransaction({
-  family,
-  mode,
   amount,
-  recipient,
-  fees,
   data,
+  family,
+  fees,
   gasLimit,
+  mode,
+  recipient,
 }: RawElrondTransaction): ElrondTransaction {
   return {
     family,
