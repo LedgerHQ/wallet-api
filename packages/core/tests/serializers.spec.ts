@@ -29,6 +29,10 @@ import {
   TezosTransaction,
   Transaction,
   TronTransaction,
+  RawNearTransaction,
+  RawNeoTransaction,
+  NearTransaction,
+  NeoTransaction,
 } from "../src";
 
 const date = new Date();
@@ -520,6 +524,58 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("near", () => {
+      function createTx(): NearTransaction {
+        return {
+          family: schemaFamilies.enum.near,
+          amount: BigNumber(100),
+          recipient: "recipient",
+          mode: "send",
+        };
+      }
+
+      it("should succeed to serialize a near transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+        });
+      });
+
+      it("should succeed to serialize a near transaction, with options", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction({ ...tx, fees: BigNumber(1) });
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+          fees: "1",
+        });
+      });
+    });
+
+    describe("neo", () => {
+      function createTx(): NeoTransaction {
+        return {
+          family: schemaFamilies.enum.neo,
+          amount: BigNumber(100),
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to serialize a neo transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -974,6 +1030,58 @@ describe("serializers.ts", () => {
           duration: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
+        });
+      });
+    });
+
+    describe("near", () => {
+      function createRawTx(): RawNearTransaction {
+        return {
+          family: schemaFamilies.enum.near,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to deserialize a near transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+        });
+      });
+
+      it("should succeed to deserialize a near transaction with fees", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction({ ...rawTx, fees: "1" });
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+          fees: new BigNumber(1),
+        });
+      });
+    });
+
+    describe("neo", () => {
+      function createRawTx(): RawNeoTransaction {
+        return {
+          family: schemaFamilies.enum.neo,
+          amount: "100",
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to deserialize a neo transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
         });
       });
     });
