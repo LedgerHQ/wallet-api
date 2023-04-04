@@ -18,6 +18,7 @@ import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
 import type { ElrondTransaction } from "./elrond/types";
 import type { schemaRawTransaction } from "./validation";
+import type { CardanoTransaction } from "./cardano/types";
 
 /**
  * Supported coin families
@@ -75,4 +76,5 @@ export type Transaction =
   | TronTransaction
   | NearTransaction
   | NeoTransaction
-  | ElrondTransaction;
+  | ElrondTransaction
+  | CardanoTransaction;

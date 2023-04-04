@@ -15,6 +15,7 @@ import { schemaRawTronTransaction } from "./tron/validation";
 import { schemaRawHederaTransaction } from "./hedera/validation";
 import { schemaRawFilecoinTransaction } from "./filecoin/validation";
 import { schemaRawElrondTransaction } from "./elrond/validation";
+import { schemaRawCardanoTransaction } from "./cardano/validation";
 
 export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawAlgorandTransaction,
@@ -33,4 +34,5 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawTezosTransaction,
   schemaRawTronTransaction,
   schemaRawElrondTransaction,
+  schemaRawCardanoTransaction,
 ]);
