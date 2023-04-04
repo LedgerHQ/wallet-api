@@ -599,7 +599,7 @@ describe("serializers.ts", () => {
           data: "test",
           gasLimit: 0,
           family,
-          fees: "0",
+          fees: "100",
           mode: "send",
           recipient: "recipient",
         });
