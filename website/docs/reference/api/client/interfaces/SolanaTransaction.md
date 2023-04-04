@@ -45,17 +45,17 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:5
+packages/core/lib/families/solana/types.d.ts:132
 
 ___
 
 ### model
 
-• **model**: `object`
+• **model**: [`TransactionModel`](../#transactionmodel)
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:6
+packages/core/lib/families/solana/types.d.ts:133
 
 ___
 

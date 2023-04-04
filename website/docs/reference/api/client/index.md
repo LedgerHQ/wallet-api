@@ -290,6 +290,35 @@ packages/core/lib/spec/types/BitcoinGetXPub.d.ts:36
 
 ___
 
+### Command
+
+Ƭ **Command**: [`TransferCommand`](#transfercommand) \| [`TokenTransferCommand`](#tokentransfercommand) \| [`TokenCreateATACommand`](#tokencreateatacommand) \| [`StakeCreateAccountCommand`](#stakecreateaccountcommand) \| [`StakeDelegateCommand`](#stakedelegatecommand) \| [`StakeUndelegateCommand`](#stakeundelegatecommand) \| [`StakeWithdrawCommand`](#stakewithdrawcommand) \| [`StakeSplitCommand`](#stakesplitcommand)
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:69
+
+___
+
+### CommandDescriptor
+
+Ƭ **CommandDescriptor**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `command` | [`Command`](#command) |
+| `errors` | `Record`<`string`, `Error`\> |
+| `fee` | `number` |
+| `warnings` | `Record`<`string`, `Error`\> |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:70
+
+___
+
 ### CosmosOperationMode
 
 Ƭ **CosmosOperationMode**: `z.infer`<typeof `schemaCosmosOperationMode`\>
@@ -1013,7 +1042,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:8
+packages/core/lib/families/solana/types.d.ts:135
 
 ___
 
@@ -1116,6 +1145,199 @@ packages/core/lib/errors/types.d.ts:321
 
 ___
 
+### StakeCreateAccountCommand
+
+Ƭ **StakeCreateAccountCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `amount` | `number` |
+| `delegate` | { `voteAccAddress`: `string`  } |
+| `delegate.voteAccAddress` | `string` |
+| `fromAccAddress` | `string` |
+| `kind` | ``"stake.createAccount"`` |
+| `seed` | `string` |
+| `stakeAccAddress` | `string` |
+| `stakeAccRentExemptAmount` | `number` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:17
+
+___
+
+### StakeCreateAccountTransaction
+
+Ƭ **StakeCreateAccountTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"stake.createAccount"`` |
+| `uiState` | { `delegate`: { `voteAccAddress`: `string`  }  } |
+| `uiState.delegate` | { `voteAccAddress`: `string`  } |
+| `uiState.delegate.voteAccAddress` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:95
+
+___
+
+### StakeDelegateCommand
+
+Ƭ **StakeDelegateCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `authorizedAccAddr` | `string` |
+| `kind` | ``"stake.delegate"`` |
+| `stakeAccAddr` | `string` |
+| `voteAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:28
+
+___
+
+### StakeDelegateTransaction
+
+Ƭ **StakeDelegateTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"stake.delegate"`` |
+| `uiState` | { `stakeAccAddr`: `string` ; `voteAccAddr`: `string`  } |
+| `uiState.stakeAccAddr` | `string` |
+| `uiState.voteAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:103
+
+___
+
+### StakeSplitCommand
+
+Ƭ **StakeSplitCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `amount` | `number` |
+| `authorizedAccAddr` | `string` |
+| `kind` | ``"stake.split"`` |
+| `seed` | `string` |
+| `splitStakeAccAddr` | `string` |
+| `stakeAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:46
+
+___
+
+### StakeSplitTransaction
+
+Ƭ **StakeSplitTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"stake.split"`` |
+| `uiState` | { `stakeAccAddr`: `string`  } |
+| `uiState.stakeAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:122
+
+___
+
+### StakeUndelegateCommand
+
+Ƭ **StakeUndelegateCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `authorizedAccAddr` | `string` |
+| `kind` | ``"stake.undelegate"`` |
+| `stakeAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:34
+
+___
+
+### StakeUndelegateTransaction
+
+Ƭ **StakeUndelegateTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"stake.undelegate"`` |
+| `uiState` | { `stakeAccAddr`: `string`  } |
+| `uiState.stakeAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:110
+
+___
+
+### StakeWithdrawCommand
+
+Ƭ **StakeWithdrawCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `amount` | `number` |
+| `authorizedAccAddr` | `string` |
+| `kind` | ``"stake.withdraw"`` |
+| `stakeAccAddr` | `string` |
+| `toAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:39
+
+___
+
+### StakeWithdrawTransaction
+
+Ƭ **StakeWithdrawTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"stake.withdraw"`` |
+| `uiState` | { `stakeAccAddr`: `string`  } |
+| `uiState.stakeAccAddr` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:116
+
+___
+
 ### StorageGet
 
 Ƭ **StorageGet**: `Object`
@@ -1208,6 +1430,61 @@ packages/core/lib/families/tezos/types.d.ts:5
 
 ___
 
+### TokenCreateATACommand
+
+Ƭ **TokenCreateATACommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `associatedTokenAccountAddress` | `string` |
+| `kind` | ``"token.createATA"`` |
+| `mint` | `string` |
+| `owner` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:11
+
+___
+
+### TokenCreateATATransaction
+
+Ƭ **TokenCreateATATransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"token.createATA"`` |
+| `uiState` | { `tokenId`: `string`  } |
+| `uiState.tokenId` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:89
+
+___
+
+### TokenRecipientDescriptor
+
+Ƭ **TokenRecipientDescriptor**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `shouldCreateAsAssociatedTokenAccount` | `boolean` |
+| `tokenAccAddress` | `string` |
+| `walletAddress` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:54
+
+___
+
 ### TokenStandard
 
 Ƭ **TokenStandard**: `z.infer`<typeof [`schemaTokenStandard`](#schematokenstandard)\>
@@ -1217,6 +1494,48 @@ Token standards
 #### Defined in
 
 packages/core/lib/currencies/types.d.ts:10
+
+___
+
+### TokenTransferCommand
+
+Ƭ **TokenTransferCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `amount` | `number` |
+| `kind` | ``"token.transfer"`` |
+| `memo?` | `string` |
+| `mintAddress` | `string` |
+| `mintDecimals` | `number` |
+| `ownerAddress` | `string` |
+| `ownerAssociatedTokenAccountAddress` | `string` |
+| `recipientDescriptor` | [`TokenRecipientDescriptor`](#tokenrecipientdescriptor) |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:59
+
+___
+
+### TokenTransferTransaction
+
+Ƭ **TokenTransferTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"token.transfer"`` |
+| `uiState` | { `memo?`: `string` ; `subAccountId`: `string`  } |
+| `uiState.memo?` | `string` |
+| `uiState.subAccountId` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:82
 
 ___
 
@@ -1231,6 +1550,16 @@ them to the network upon user validation.
 #### Defined in
 
 packages/core/lib/families/types.d.ts:59
+
+___
+
+### TransactionModel
+
+Ƭ **TransactionModel**: { `commandDescriptor?`: [`CommandDescriptor`](#commanddescriptor)  } & [`TransferTransaction`](#transfertransaction) \| [`TokenTransferTransaction`](#tokentransfertransaction) \| [`TokenCreateATATransaction`](#tokencreateatatransaction) \| [`StakeCreateAccountTransaction`](#stakecreateaccounttransaction) \| [`StakeDelegateTransaction`](#stakedelegatetransaction) \| [`StakeUndelegateTransaction`](#stakeundelegatetransaction) \| [`StakeWithdrawTransaction`](#stakewithdrawtransaction) \| [`StakeSplitTransaction`](#stakesplittransaction)
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:128
 
 ___
 
@@ -1313,6 +1642,44 @@ ___
 #### Defined in
 
 packages/core/lib/spec/types/TransactionSign.d.ts:1292
+
+___
+
+### TransferCommand
+
+Ƭ **TransferCommand**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `amount` | `number` |
+| `kind` | ``"transfer"`` |
+| `memo?` | `string` |
+| `recipient` | `string` |
+| `sender` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:4
+
+___
+
+### TransferTransaction
+
+Ƭ **TransferTransaction**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `kind` | ``"transfer"`` |
+| `uiState` | { `memo?`: `string`  } |
+| `uiState.memo?` | `string` |
+
+#### Defined in
+
+packages/core/lib/families/solana/types.d.ts:76
 
 ___
 

@@ -683,7 +683,12 @@ describe("serializers.ts", () => {
           family,
           amount: new BigNumber(100),
           recipient: "recipient",
-          model: { test: "test" },
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+          },
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -691,7 +696,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
-          model: '{"test":"test"}',
+          model: '{"kind":"transfer","uiState":{"memo":"test"}}',
         });
       });
     });
@@ -1307,7 +1312,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
-          model: '{"test":"test"}',
+          model: '{"kind":"transfer","uiState":{"memo":"test"}}',
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
@@ -1316,7 +1321,12 @@ describe("serializers.ts", () => {
           family,
           amount: new BigNumber(100),
           recipient: "recipient",
-          model: { test: "test" },
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+          },
         });
       });
     });

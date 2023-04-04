@@ -24,7 +24,7 @@ export function deserializeSolanaTransaction({
   return {
     amount: new BigNumber(amount),
     family,
-    model: JSON.parse(model) as object,
+    model: JSON.parse(model),
     recipient,
   };
 }
