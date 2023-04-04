@@ -22,8 +22,6 @@ import {
   RawTezosTransaction,
   RawTransaction,
   RawTronTransaction,
-  RawSolanaTransaction,
-  SolanaTransaction,
   RippleTransaction,
   serializeAccount,
   serializeTransaction,
@@ -39,6 +37,8 @@ import {
   RawElrondTransaction,
   CardanoTransaction,
   RawCardanoTransaction,
+  RawSolanaTransaction,
+  SolanaTransaction,
 } from "../src";
 
 const date = new Date();
@@ -691,7 +691,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
-          model: "{test: 'test'}",
+          model: '{"test":"test"}',
         });
       });
     });
@@ -1307,7 +1307,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
-          model: "{test: 'test'}",
+          model: '{"test":"test"}',
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
