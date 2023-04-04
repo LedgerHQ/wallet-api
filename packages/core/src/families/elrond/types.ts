@@ -9,7 +9,7 @@ import type {
 export interface ElrondTransaction extends TransactionCommon {
   readonly family: RawElrondTransaction["family"];
   mode: ElrondOperationMode;
-  data?: Buffer;
+  data?: string;
   fees?: BigNumber;
   gasLimit: number;
 }
