@@ -71,7 +71,7 @@ ___
 
 ### gasLimit
 
-• **gasLimit**: `BigNumber`
+• **gasLimit**: `number`
 
 #### Defined in
 

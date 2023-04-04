@@ -11,7 +11,7 @@ export interface ElrondTransaction extends TransactionCommon {
   mode: ElrondOperationMode;
   data?: Buffer;
   fees?: BigNumber;
-  gasLimit: BigNumber;
+  gasLimit: number;
 }
 
 export type RawElrondTransaction = z.infer<typeof schemaRawElrondTransaction>;

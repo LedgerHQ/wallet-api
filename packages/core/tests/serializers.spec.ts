@@ -590,7 +590,7 @@ describe("serializers.ts", () => {
         fees: new BigNumber(0),
         mode: "send",
         recipient: "recipient",
-        gasLimit: new BigNumber(0),
+        gasLimit: 0,
       };
       const serializedTransaction = serializeTransaction(transaction);
 
@@ -1135,6 +1135,8 @@ describe("serializers.ts", () => {
         mode: "send",
         recipient: "recipient",
         gasLimit: 0,
+        fees: undefined,
+        data: undefined,
       });
     });
   });

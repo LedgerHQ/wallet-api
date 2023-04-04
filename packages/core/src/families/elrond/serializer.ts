@@ -17,7 +17,7 @@ export function serializeElrondTransaction({
     mode,
     fees: fees ? fees.toString() : undefined,
     data: data ? data.toString("hex") : undefined,
-    gasLimit: gasLimit.toNumber(),
+    gasLimit,
   };
 }
 
@@ -37,6 +37,6 @@ export function deserializeElrondTransaction({
     recipient,
     fees: fees ? new BigNumber(fees) : undefined,
     data: data ? Buffer.from(data, "hex") : undefined,
-    gasLimit: new BigNumber(gasLimit),
+    gasLimit,
   };
 }
