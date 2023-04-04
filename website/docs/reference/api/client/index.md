@@ -921,7 +921,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:13
+packages/core/lib/families/elrond/types.d.ts:12
 
 ___
 

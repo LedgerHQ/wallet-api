@@ -35,11 +35,11 @@ ___
 
 ### data
 
-• `Optional` **data**: `Buffer`
+• `Optional` **data**: `string`
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:9
+packages/core/lib/families/elrond/types.d.ts:8
 
 ___
 
@@ -55,7 +55,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:7
+packages/core/lib/families/elrond/types.d.ts:6
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:10
+packages/core/lib/families/elrond/types.d.ts:9
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:11
+packages/core/lib/families/elrond/types.d.ts:10
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:8
+packages/core/lib/families/elrond/types.d.ts:7
 
 ___
 
