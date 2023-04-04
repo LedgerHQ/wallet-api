@@ -1,7 +1,7 @@
 ---
-id: "NeoTransaction"
-title: "Interface: NeoTransaction"
-sidebar_label: "NeoTransaction"
+id: "ElrondTransaction"
+title: "Interface: ElrondTransaction"
+sidebar_label: "ElrondTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`NeoTransaction`**
+  ↳ **`ElrondTransaction`**
 
 ## Properties
 
@@ -33,9 +33,19 @@ packages/core/lib/families/types.d.ts:43
 
 ___
 
+### data
+
+• `Optional` **data**: `string`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:8
+
+___
+
 ### family
 
-• `Readonly` **family**: ``"neo"``
+• `Readonly` **family**: ``"elrond"``
 
 The family of the transaction
 
@@ -45,7 +55,37 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/neo/types.d.ts:5
+packages/core/lib/families/elrond/types.d.ts:6
+
+___
+
+### fees
+
+• `Optional` **fees**: `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:9
+
+___
+
+### gasLimit
+
+• **gasLimit**: `number`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:10
+
+___
+
+### mode
+
+• **mode**: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"``
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:7
 
 ___
 

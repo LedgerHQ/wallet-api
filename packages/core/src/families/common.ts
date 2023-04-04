@@ -23,6 +23,7 @@ export const FAMILIES = [
   "tron",
   "near",
   "neo",
+  "elrond",
 ] as const;
 
 export const schemaFamilies = z.enum(FAMILIES);
