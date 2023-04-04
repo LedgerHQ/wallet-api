@@ -1,6 +1,17 @@
 import { z } from "zod";
 import { schemaFamilies, schemaTransactionCommon } from "../common";
 
+export const schemaOperationMode = z.enum([
+  "send",
+  "delegate",
+  "reDelegateRewards",
+  "unDelegate",
+  "claimRewards",
+  "withdraw",
+]);
+
+export type ElrondOperationMode = z.infer<typeof schemaOperationMode>;
+
 export const schemaRawElrondTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.elrond),
   mode: z.union([
@@ -13,5 +24,5 @@ export const schemaRawElrondTransaction = schemaTransactionCommon.extend({
   ]),
   fees: z.string().optional(),
   data: z.string().optional(),
-  gasLimit: z.string().optional(),
+  gasLimit: z.number(),
 });
