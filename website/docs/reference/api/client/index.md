@@ -27,6 +27,7 @@ custom_edit_url: null
 - [AlgorandTransaction](interfaces/AlgorandTransaction.md)
 - [AppHandlers](interfaces/AppHandlers.md)
 - [BitcoinTransaction](interfaces/BitcoinTransaction.md)
+- [CardanoTransaction](interfaces/CardanoTransaction.md)
 - [CeloTransaction](interfaces/CeloTransaction.md)
 - [CosmosTransaction](interfaces/CosmosTransaction.md)
 - [CryptoOrgTransaction](interfaces/CryptoOrgTransaction.md)
@@ -882,6 +883,16 @@ ___
 #### Defined in
 
 packages/core/lib/families/bitcoin/types.d.ts:11
+
+___
+
+### RawCardanoTransaction
+
+Ƭ **RawCardanoTransaction**: `z.infer`<typeof `schemaRawCardanoTransaction`\>
+
+#### Defined in
+
+packages/core/lib/families/cardano/types.d.ts:11
 
 ___
 
