@@ -578,30 +578,30 @@ describe("serializers.ts", () => {
         });
       });
     });
-  });
 
-  describe("elrond", () => {
-    const family = schemaFamilies.enum.elrond;
+    describe("elrond", () => {
+      const family = schemaFamilies.enum.elrond;
 
-    it("should serialize an Elrond transaction", () => {
-      const transaction: ElrondTransaction = {
-        amount: new BigNumber(100),
-        family,
-        fees: new BigNumber(0),
-        mode: "send",
-        recipient: "recipient",
-        gasLimit: 0,
-      };
-      const serializedTransaction = serializeTransaction(transaction);
+      it("should serialize an Elrond transaction", () => {
+        const transaction: ElrondTransaction = {
+          amount: new BigNumber(100),
+          family,
+          fees: new BigNumber(0),
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
 
-      expect(serializedTransaction).toEqual({
-        amount: "100",
-        data: undefined,
-        gasLimit: 0,
-        family,
-        fees: "0",
-        mode: "send",
-        recipient: "recipient",
+        expect(serializedTransaction).toEqual({
+          amount: "100",
+          data: undefined,
+          gasLimit: 0,
+          family,
+          fees: "0",
+          mode: "send",
+          recipient: "recipient",
+        });
       });
     });
   });
@@ -1113,30 +1113,30 @@ describe("serializers.ts", () => {
         });
       });
     });
-  });
 
-  describe("elrond", () => {
-    const family = schemaFamilies.enum.elrond;
+    describe("elrond", () => {
+      const family = schemaFamilies.enum.elrond;
 
-    it("should serialize an Elrond transaction", () => {
-      const serializedTransaction: RawElrondTransaction = {
-        amount: "100",
-        family,
-        mode: "send",
-        recipient: "recipient",
-        gasLimit: 0,
-      };
+      it("should serialize an Elrond transaction", () => {
+        const serializedTransaction: RawElrondTransaction = {
+          amount: "100",
+          family,
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
 
-      const transaction = deserializeTransaction(serializedTransaction);
+        const transaction = deserializeTransaction(serializedTransaction);
 
-      expect(transaction).toEqual({
-        amount: new BigNumber(100),
-        family,
-        mode: "send",
-        recipient: "recipient",
-        gasLimit: 0,
-        fees: undefined,
-        data: undefined,
+        expect(transaction).toEqual({
+          amount: new BigNumber(100),
+          family,
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+          fees: undefined,
+          data: undefined,
+        });
       });
     });
   });
