@@ -678,7 +678,7 @@ describe("serializers.ts", () => {
     describe("solana", () => {
       const family = schemaFamilies.enum.solana;
 
-      it("should succeed to serialize a solana transaction with resource and duration", () => {
+      it("should serialize a Solana transaction", () => {
         const transaction: SolanaTransaction = {
           family,
           amount: new BigNumber(100),
@@ -1302,7 +1302,7 @@ describe("serializers.ts", () => {
     describe("solana", () => {
       const family = schemaFamilies.enum.solana;
 
-      it("should succeed to deserialize a solana transaction with resource and duration", () => {
+      it("should deserialize a Solana transaction", () => {
         const serializedTransaction: RawSolanaTransaction = {
           family,
           amount: "100",

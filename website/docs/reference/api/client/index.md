@@ -1013,7 +1013,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:7
+packages/core/lib/families/solana/types.d.ts:8
 
 ___
 

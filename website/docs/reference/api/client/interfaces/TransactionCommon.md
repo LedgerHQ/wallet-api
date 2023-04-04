@@ -43,7 +43,7 @@ Common fields for all cryptocurrency transactions
   ↳ [`TronTransaction`](TronTransaction.md)
 
   ↳ [`ElrondTransaction`](ElrondTransaction.md)
-  
+
   ↳ [`SolanaTransaction`](SolanaTransaction.md)
 
   ↳ [`CardanoTransaction`](CardanoTransaction.md)
