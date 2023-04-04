@@ -590,13 +590,14 @@ describe("serializers.ts", () => {
         fees: new BigNumber(0),
         mode: "send",
         recipient: "recipient",
+        gasLimit: new BigNumber(0),
       };
       const serializedTransaction = serializeTransaction(transaction);
 
       expect(serializedTransaction).toEqual({
         amount: "100",
         data: undefined,
-        gasLimit: undefined,
+        gasLimit: 0,
         family,
         fees: "0",
         mode: "send",
@@ -1123,7 +1124,7 @@ describe("serializers.ts", () => {
         family,
         mode: "send",
         recipient: "recipient",
-        gasLimit: "0",
+        gasLimit: 0,
       };
 
       const transaction = deserializeTransaction(serializedTransaction);
@@ -1133,7 +1134,7 @@ describe("serializers.ts", () => {
         family,
         mode: "send",
         recipient: "recipient",
-        gasLimit: "0",
+        gasLimit: 0,
       });
     });
   });

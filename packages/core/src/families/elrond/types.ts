@@ -10,7 +10,7 @@ export interface ElrondTransaction extends TransactionCommon {
   readonly family: RawElrondTransaction["family"];
   mode: ElrondOperationMode;
   data?: Buffer;
-  fees: BigNumber | null | undefined;
+  fees?: BigNumber;
   gasLimit: BigNumber;
 }
 
