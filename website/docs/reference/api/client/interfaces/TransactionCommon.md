@@ -16,21 +16,11 @@ Common fields for all cryptocurrency transactions
 
   ↳ [`BitcoinTransaction`](BitcoinTransaction.md)
 
-  ↳ [`CeloTransaction`](CeloTransaction.md)
-
   ↳ [`CosmosTransaction`](CosmosTransaction.md)
 
   ↳ [`CryptoOrgTransaction`](CryptoOrgTransaction.md)
 
   ↳ [`EthereumTransaction`](EthereumTransaction.md)
-
-  ↳ [`HederaTransaction`](HederaTransaction.md)
-
-  ↳ [`FilecoinTransaction`](FilecoinTransaction.md)
-
-  ↳ [`NearTransaction`](NearTransaction.md)
-
-  ↳ [`NeoTransaction`](NeoTransaction.md)
 
   ↳ [`PolkadotTransaction`](PolkadotTransaction.md)
 
@@ -41,6 +31,8 @@ Common fields for all cryptocurrency transactions
   ↳ [`TezosTransaction`](TezosTransaction.md)
 
   ↳ [`TronTransaction`](TronTransaction.md)
+
+  ↳ [`ElrondTransaction`](ElrondTransaction.md)
 
 ## Properties
 
@@ -53,19 +45,19 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:42
+packages/core/lib/families/types.d.ts:38
 
 ___
 
 ### family
 
-• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"``
+• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"elrond"``
 
 The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:37
+packages/core/lib/families/types.d.ts:33
 
 ___
 
@@ -77,4 +69,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:46
+packages/core/lib/families/types.d.ts:42

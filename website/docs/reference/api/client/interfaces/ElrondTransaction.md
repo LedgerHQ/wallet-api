@@ -29,7 +29,17 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:42
+packages/core/lib/families/types.d.ts:38
+
+___
+
+### data
+
+• `Optional` **data**: `Buffer`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:10
 
 ___
 
@@ -45,7 +55,37 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:6
+packages/core/lib/families/elrond/types.d.ts:8
+
+___
+
+### fees
+
+• **fees**: `undefined` \| ``null`` \| `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:11
+
+___
+
+### gasLimit
+
+• `Optional` **gasLimit**: `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:12
+
+___
+
+### mode
+
+• **mode**: [`ElrondTransactionMode`](../#elrondtransactionmode)
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:9
 
 ___
 
@@ -61,53 +101,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:46
-
-___
-
-### fees
-
-• `Optional` **fees**: `BigNumber`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:7
-
-___
-
-### mode
-
-• **mode**: ``"send"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` \| ``"withdraw"``
-
-#### Defined in
-
-packages/core/lib/families/elrond/validation.d.ts:9
-
-
-### mode
-
-• **mode**: ``"send"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` \| ``"withdraw"``
-
-#### Defined in
-
-packages/core/lib/families/elrond/validation.d.ts:9
-
-___
-
-### data
-
-• `Optional` **data**: `Buffer`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:9
-
-___
-
-### data
-
-• `Optional` **data**: `Buffer`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:9
+packages/core/lib/families/types.d.ts:42
