@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:38
+packages/core/lib/families/types.d.ts:43
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:10
+packages/core/lib/families/elrond/types.d.ts:9
 
 ___
 
@@ -55,13 +55,23 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:8
+packages/core/lib/families/elrond/types.d.ts:7
 
 ___
 
 ### fees
 
-• **fees**: `undefined` \| ``null`` \| `BigNumber`
+• `Optional` **fees**: `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/elrond/types.d.ts:10
+
+___
+
+### gasLimit
+
+• **gasLimit**: `BigNumber`
 
 #### Defined in
 
@@ -69,23 +79,13 @@ packages/core/lib/families/elrond/types.d.ts:11
 
 ___
 
-### gasLimit
-
-• `Optional` **gasLimit**: `BigNumber`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:12
-
-___
-
 ### mode
 
-• **mode**: [`ElrondTransactionMode`](../#elrondtransactionmode)
+• **mode**: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"``
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:9
+packages/core/lib/families/elrond/types.d.ts:8
 
 ___
 
@@ -101,4 +101,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:42
+packages/core/lib/families/types.d.ts:47
