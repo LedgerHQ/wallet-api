@@ -683,6 +683,7 @@ describe("serializers.ts", () => {
           family,
           amount: new BigNumber(100),
           recipient: "recipient",
+          model: { test: "test" },
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -690,21 +691,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
-        });
-      });
-
-      it("should succeed to serialize a solana transaction without resource and duration", () => {
-        const transaction: SolanaTransaction = {
-          family,
-          amount: new BigNumber(100),
-          recipient: "recipient",
-        };
-        const serializedTransaction = serializeTransaction(transaction);
-
-        expect(serializedTransaction).toEqual({
-          family,
-          amount: "100",
-          recipient: "recipient",
+          model: "{test: 'test'}",
         });
       });
     });
@@ -1320,6 +1307,7 @@ describe("serializers.ts", () => {
           family,
           amount: "100",
           recipient: "recipient",
+          model: "{test: 'test'}",
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
@@ -1328,22 +1316,7 @@ describe("serializers.ts", () => {
           family,
           amount: new BigNumber(100),
           recipient: "recipient",
-        });
-      });
-
-      it("should succeed to deserialize a solana transaction without resource and duration", () => {
-        const serializedTransaction: RawSolanaTransaction = {
-          family,
-          amount: "100",
-          recipient: "recipient",
-        };
-
-        const transaction = deserializeTransaction(serializedTransaction);
-
-        expect(transaction).toEqual({
-          family,
-          amount: new BigNumber(100),
-          recipient: "recipient",
+          model: { test: "test" },
         });
       });
     });

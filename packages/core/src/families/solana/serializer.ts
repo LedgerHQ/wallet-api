@@ -2,13 +2,15 @@ import BigNumber from "bignumber.js";
 import type { SolanaTransaction, RawSolanaTransaction } from "./types";
 
 export function serializeSolanaTransaction({
-  family,
   amount,
+  family,
+  model,
   recipient,
 }: SolanaTransaction): RawSolanaTransaction {
   return {
-    family,
     amount: amount.toString(),
+    family,
+    model: JSON.stringify(model),
     recipient,
   };
 }
@@ -16,11 +18,13 @@ export function serializeSolanaTransaction({
 export function deserializeSolanaTransaction({
   family,
   amount,
+  model,
   recipient,
 }: RawSolanaTransaction): SolanaTransaction {
   return {
-    family,
     amount: new BigNumber(amount),
+    family,
+    model: JSON.parse(model) as object,
     recipient,
   };
 }
