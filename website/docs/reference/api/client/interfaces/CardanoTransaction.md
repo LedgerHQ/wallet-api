@@ -61,7 +61,7 @@ ___
 
 ### memo
 
-• **memo**: `string`
+• `Optional` **memo**: `string`
 
 #### Defined in
 

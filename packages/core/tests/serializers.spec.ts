@@ -652,6 +652,25 @@ describe("serializers.ts", () => {
           fees: "100",
         });
       });
+
+      it("should serialize a Cardano transaction whithout optional params", () => {
+        const transaction: CardanoTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
+        });
+      });
     });
   });
 
@@ -1234,6 +1253,25 @@ describe("serializers.ts", () => {
           mode: "test",
           memo: "test2",
           fees: new BigNumber(100),
+        });
+      });
+
+      it("should deserialize a Cardano transaction without optional params", () => {
+        const transaction: RawCardanoTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
         });
       });
     });

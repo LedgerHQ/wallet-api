@@ -6,7 +6,7 @@ import type { schemaRawCardanoTransaction } from "./validation";
 export interface CardanoTransaction extends TransactionCommon {
   readonly family: RawCardanoTransaction["family"];
   fees?: BigNumber;
-  memo: string;
+  memo?: string;
   mode: string;
 }
 
