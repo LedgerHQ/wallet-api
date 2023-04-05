@@ -19,11 +19,15 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
         throw new Error("WalletAPIClient is not initialised");
       }
 
-      setPending(true);
-      const result = await client.transaction.signAndBroadcast(...params);
-      setPending(false);
-
-      return result;
+      try {
+        setPending(true);
+        const result = await client.transaction.signAndBroadcast(...params);
+        setPending(false);
+        return result;
+      } catch (error) {
+        setPending(false);
+        throw error;
+      }
     },
     [client]
   );

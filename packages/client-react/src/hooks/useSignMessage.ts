@@ -19,11 +19,16 @@ export function useSignMessage(): UseSignMessageReturn {
         throw new Error("WalletAPIClient is not initialised");
       }
 
-      setPending(true);
-      const result = await client.message.sign(...params);
-      setPending(false);
+      try {
+        setPending(true);
+        const result = await client.message.sign(...params);
+        setPending(false);
 
-      return result;
+        return result;
+      } catch (error) {
+        setPending(false);
+        throw error;
+      }
     },
     [client]
   );
