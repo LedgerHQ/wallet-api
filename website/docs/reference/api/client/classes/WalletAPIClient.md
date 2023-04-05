@@ -33,7 +33,7 @@ WalletAPI Client which rely on WindowMessage communication
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L81)
+[packages/client/src/WalletAPIClient.ts:85](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L85)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Instance of the Account module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L42)
+[packages/client/src/WalletAPIClient.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L41)
 
 ___
 
@@ -57,7 +57,7 @@ Instance of the Bitcoin module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L47)
+[packages/client/src/WalletAPIClient.ts:46](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L46)
 
 ___
 
@@ -69,7 +69,7 @@ Instance of the Currency module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L52)
+[packages/client/src/WalletAPIClient.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L51)
 
 ___
 
@@ -81,7 +81,19 @@ Instance of the Device module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L57)
+[packages/client/src/WalletAPIClient.ts:56](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L56)
+
+___
+
+### exchange
+
+• **exchange**: `ExchangeModule`
+
+Instance of the Wallet module
+
+#### Defined in
+
+[packages/client/src/WalletAPIClient.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L81)
 
 ___
 
@@ -91,7 +103,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L79)
+[packages/client/src/WalletAPIClient.ts:83](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L83)
 
 ___
 
@@ -103,7 +115,7 @@ Instance of the Message module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L62)
+[packages/client/src/WalletAPIClient.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L61)
 
 ___
 
@@ -135,7 +147,7 @@ Instance of the Storage module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L67)
+[packages/client/src/WalletAPIClient.ts:66](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L66)
 
 ___
 
@@ -147,7 +159,7 @@ Instance of the Transaction module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:72](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L72)
+[packages/client/src/WalletAPIClient.ts:71](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L71)
 
 ___
 
@@ -159,7 +171,7 @@ Instance of the Wallet module
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L77)
+[packages/client/src/WalletAPIClient.ts:76](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L76)
 
 ## Methods
 
@@ -214,7 +226,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:94](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L94)
+[packages/client/src/WalletAPIClient.ts:99](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L99)
 
 ___
 
