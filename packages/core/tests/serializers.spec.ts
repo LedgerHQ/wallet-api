@@ -35,6 +35,8 @@ import {
   NeoTransaction,
   ElrondTransaction,
   RawElrondTransaction,
+  CardanoTransaction,
+  RawCardanoTransaction,
 } from "../src";
 
 const date = new Date();
@@ -626,6 +628,50 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("cardano", () => {
+      const family = schemaFamilies.enum.cardano;
+
+      it("should serialize a Cardano transaction", () => {
+        const transaction: CardanoTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: new BigNumber(100),
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: "100",
+        });
+      });
+
+      it("should serialize a Cardano transaction whithout optional params", () => {
+        const transaction: CardanoTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -1182,6 +1228,50 @@ describe("serializers.ts", () => {
           mode: "send",
           recipient: "recipient",
           gasLimit: 0,
+        });
+      });
+    });
+
+    describe("cardano", () => {
+      const family = schemaFamilies.enum.cardano;
+
+      it("should deserialize a Cardano transaction", () => {
+        const transaction: RawCardanoTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: "100",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: new BigNumber(100),
+        });
+      });
+
+      it("should deserialize a Cardano transaction without optional params", () => {
+        const transaction: RawCardanoTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
         });
       });
     });

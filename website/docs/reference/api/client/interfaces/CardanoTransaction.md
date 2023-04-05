@@ -1,7 +1,7 @@
 ---
-id: "RippleTransaction"
-title: "Interface: RippleTransaction"
-sidebar_label: "RippleTransaction"
+id: "CardanoTransaction"
+title: "Interface: CardanoTransaction"
+sidebar_label: "CardanoTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`RippleTransaction`**
+  ↳ **`CardanoTransaction`**
 
 ## Properties
 
@@ -35,7 +35,7 @@ ___
 
 ### family
 
-• `Readonly` **family**: ``"ripple"``
+• `Readonly` **family**: ``"cardano"``
 
 The family of the transaction
 
@@ -45,17 +45,37 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/ripple/types.d.ts:6
+packages/core/lib/families/cardano/types.d.ts:6
 
 ___
 
-### fee
+### fees
 
-• `Optional` **fee**: `BigNumber`
+• `Optional` **fees**: `BigNumber`
 
 #### Defined in
 
-packages/core/lib/families/ripple/types.d.ts:7
+packages/core/lib/families/cardano/types.d.ts:7
+
+___
+
+### memo
+
+• `Optional` **memo**: `string`
+
+#### Defined in
+
+packages/core/lib/families/cardano/types.d.ts:8
+
+___
+
+### mode
+
+• **mode**: `string`
+
+#### Defined in
+
+packages/core/lib/families/cardano/types.d.ts:9
 
 ___
 
@@ -72,13 +92,3 @@ The address of the transaction's recipient
 #### Defined in
 
 packages/core/lib/families/types.d.ts:48
-
-___
-
-### tag
-
-• **tag**: `number`
-
-#### Defined in
-
-packages/core/lib/families/ripple/types.d.ts:8
