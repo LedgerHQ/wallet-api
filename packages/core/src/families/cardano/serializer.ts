@@ -22,7 +22,7 @@ export function serializeCardanoTransaction({
 export function deserializeCardanoTransaction({
   amount,
   family,
-  fees = undefined,
+  fees,
   memo,
   mode,
   recipient,
