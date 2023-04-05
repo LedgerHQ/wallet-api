@@ -1,7 +1,7 @@
 ---
-id: "ElrondTransaction"
-title: "Interface: ElrondTransaction"
-sidebar_label: "ElrondTransaction"
+id: "SolanaTransaction"
+title: "Interface: SolanaTransaction"
+sidebar_label: "SolanaTransaction"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -12,7 +12,7 @@ Common fields for all cryptocurrency transactions
 
 - [`TransactionCommon`](TransactionCommon.md)
 
-  ↳ **`ElrondTransaction`**
+  ↳ **`SolanaTransaction`**
 
 ## Properties
 
@@ -33,19 +33,9 @@ packages/core/lib/families/types.d.ts:45
 
 ___
 
-### data
-
-• `Optional` **data**: `string`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:8
-
-___
-
 ### family
 
-• `Readonly` **family**: ``"elrond"``
+• `Readonly` **family**: ``"solana"``
 
 The family of the transaction
 
@@ -55,37 +45,17 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:6
+packages/core/lib/families/solana/types.d.ts:132
 
 ___
 
-### fees
+### model
 
-• `Optional` **fees**: `BigNumber`
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:9
-
-___
-
-### gasLimit
-
-• **gasLimit**: `number`
+• **model**: [`TransactionModel`](../#transactionmodel)
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:10
-
-___
-
-### mode
-
-• **mode**: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"``
-
-#### Defined in
-
-packages/core/lib/families/elrond/types.d.ts:7
+packages/core/lib/families/solana/types.d.ts:133
 
 ___
 

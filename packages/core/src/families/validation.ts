@@ -9,6 +9,7 @@ import { schemaRawNearTransaction } from "./near/validation";
 import { schemaRawNeoTransaction } from "./neo/validation";
 import { schemaRawPolkadotTransaction } from "./polkadot/validation";
 import { schemaRawRippleTransaction } from "./ripple/validation";
+import { schemaRawSolanaTransaction } from "./solana/validation";
 import { schemaRawStellarTransaction } from "./stellar/validation";
 import { schemaRawTezosTransaction } from "./tezos/validation";
 import { schemaRawTronTransaction } from "./tron/validation";
@@ -35,4 +36,5 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawTronTransaction,
   schemaRawElrondTransaction,
   schemaRawCardanoTransaction,
+  schemaRawSolanaTransaction,
 ]);

@@ -46,6 +46,8 @@ Common fields for all cryptocurrency transactions
 
   ↳ [`CardanoTransaction`](CardanoTransaction.md)
 
+  ↳ [`SolanaTransaction`](SolanaTransaction.md)
+
 ## Properties
 
 ### amount
@@ -57,19 +59,19 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:44
+packages/core/lib/families/types.d.ts:45
 
 ___
 
 ### family
 
-• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"``
+• **family**: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"``
 
 The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:39
+packages/core/lib/families/types.d.ts:40
 
 ___
 
@@ -81,4 +83,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:48
+packages/core/lib/families/types.d.ts:49
