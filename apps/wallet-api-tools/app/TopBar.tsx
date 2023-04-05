@@ -1,49 +1,89 @@
+"use client";
+
 import Link from "next/link";
+import React from "react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "../src/components/NavigationMenu";
+import { cn } from "../src/lib/utils";
+
+const tools: { title: string; href: string; description: string }[] = [
+  {
+    title: "Exchange Debug",
+    href: "/exchange",
+    description:
+      "This tool can be used to debug the Ledger secure handshake protocol implementation in wallets",
+  },
+];
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-700 dark:focus:bg-slate-700",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="text-sm leading-snug text-slate-500 line-clamp-2 dark:text-slate-400">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
 
 export function TopBar() {
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-zinc-900">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center hidden md:block">
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
             Wallet API Tools
           </span>
         </Link>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-6 h-6"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="flex flex-col p-3 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-violet-500 dark:border-gray-700">
-            <li>
-              <Link
-                href="/"
-                className="block py-2 pl-3 pr-4 text-white bg-zinc-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                aria-current="page"
-              >
-                Wallet CLI
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  CLI
+                </NavigationMenuLink>
               </Link>
-            </li>
-          </ul>
-        </div>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {tools.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </nav>
   );

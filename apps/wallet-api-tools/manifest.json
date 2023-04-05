@@ -1,7 +1,7 @@
 {
   "id": "wallet-api-tools",
   "name": "Wallet API Tools",
-  "url": "https://wallet-api-wallet-api-tools.vercel.app",
+  "url": "http://localhost:3000",
   "homepageUrl": "https://developers.ledger.com/",
   "icon": "",
   "platform": "all",
@@ -36,7 +36,9 @@
     "bitcoin.getXPub",
     "wallet.capabilities",
     "wallet.userId",
-    "wallet.info"
+    "wallet.info",
+    "exchange.start",
+    "exchange.complete"
   ],
   "domains": [
     "https://*"
