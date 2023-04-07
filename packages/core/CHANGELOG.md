@@ -1,5 +1,23 @@
 # @ledgerhq/wallet-api-core
 
+## 0.16.0
+
+### Minor Changes
+
+- [#148](https://github.com/LedgerHQ/wallet-api/pull/148) [`900319a`](https://github.com/LedgerHQ/wallet-api/commit/900319ada2377c2660f7bf43fdaf6718bbc63602) Thanks [@RamyEB](https://github.com/RamyEB)! - support cardano family
+
+- [#133](https://github.com/LedgerHQ/wallet-api/pull/133) [`bb79e38`](https://github.com/LedgerHQ/wallet-api/commit/bb79e3863020f48ae90c12922a06ab429d44a569) Thanks [@RamyEB](https://github.com/RamyEB)! - support elrond family
+
+- [#132](https://github.com/LedgerHQ/wallet-api/pull/132) [`c7ffb18`](https://github.com/LedgerHQ/wallet-api/commit/c7ffb182a5d895d7c60a9ecfddf1ab0066b20408) Thanks [@RamyEB](https://github.com/RamyEB)! - support solana family
+
+- [#131](https://github.com/LedgerHQ/wallet-api/pull/131) [`3b42a93`](https://github.com/LedgerHQ/wallet-api/commit/3b42a935d701a346cc418f078945011109c9e9ae) Thanks [@JunichiSugiura](https://github.com/JunichiSugiura)! - Support Neo family
+
+- [#130](https://github.com/LedgerHQ/wallet-api/pull/130) [`fa9508e`](https://github.com/LedgerHQ/wallet-api/commit/fa9508e23314a0060028f99febf0373d463e0941) Thanks [@JunichiSugiura](https://github.com/JunichiSugiura)! - Support Near family
+
+### Patch Changes
+
+- [#147](https://github.com/LedgerHQ/wallet-api/pull/147) [`3420226`](https://github.com/LedgerHQ/wallet-api/commit/3420226c6c932f83153893ff2acb5a7bff495faf) Thanks [@JunichiSugiura](https://github.com/JunichiSugiura)! - Add (de)serializer tests for Near and Neo family
+
 ## 0.15.0
 
 ### Minor Changes
