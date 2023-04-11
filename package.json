@@ -18,6 +18,7 @@
     "test": "turbo run test",
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
+    "tsc": "turbo run tsc",
     "prepare": "husky install",
     "publish-packages": "turbo run build lint && changeset publish"
   },

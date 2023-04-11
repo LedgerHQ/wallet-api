@@ -17,7 +17,8 @@
     "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
     "dev": "tsc -p prod.tsconfig.json --watch",
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.27.10",

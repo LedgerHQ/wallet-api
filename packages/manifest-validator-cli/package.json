@@ -12,6 +12,7 @@
     "format:fix": "prettier --write \"src\"",
     "lint": "eslint --cache --ext .ts \"src\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
+    "tsc": "tsc",
     "validate": "node bin/cli.js"
   },
   "bin": {
