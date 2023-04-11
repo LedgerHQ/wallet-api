@@ -29,6 +29,9 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },
+    "tsc": {
+      "outputs": []
+    },
     "wallet-api-website#build": {
       "dependsOn": ["^build"],
       "outputs": ["build/**"],

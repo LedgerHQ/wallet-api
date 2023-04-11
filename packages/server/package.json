@@ -15,7 +15,8 @@
     "lint": "eslint --cache --ext .ts \"src\"",
     "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
     "dev": "tsc -p prod.tsconfig.json --watch",
-    "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json"
+    "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@tsconfig/node18-strictest": "^1.0.0",
