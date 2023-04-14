@@ -10,12 +10,10 @@
     "/lib-es"
   ],
   "scripts": {
-    "format:check": "prettier --check \"src\"",
-    "format:fix": "prettier --write \"src\"",
-    "lint": "eslint --cache --ext .ts \"src\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
-    "dev": "tsc -p prod.tsconfig.json --watch",
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
+    "dev": "tsc -p prod.tsconfig.json --watch",
+    "format": "prettier --write './**/*.{js,md,json,ts,tsx}'",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "tsc": "tsc"
   },

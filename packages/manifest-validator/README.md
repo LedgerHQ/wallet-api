@@ -109,7 +109,7 @@ Using CLI:
 
 ```bash
 npm run validate *fileOrDirectoryName* --details --enableState --throwError
-```                                                                                                                                          
+```
 
 </br>
 </br>

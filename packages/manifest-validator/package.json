@@ -13,10 +13,8 @@
   ],
   "scripts": {
     "build": "rm -rf bin/* lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
-    "format:check": "prettier --check \"src\" \"tests\"",
-    "format:fix": "prettier --write \"src\"  \"tests\"",
-    "lint": "eslint --cache --ext .ts \"src\"  \"tests\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\" \"tests\"",
+    "format": "prettier --write './**/*.{js,md,json,ts,tsx}'",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "tsc": "tsc"
   },

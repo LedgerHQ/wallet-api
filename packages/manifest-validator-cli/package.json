@@ -8,10 +8,8 @@
   ],
   "scripts": {
     "build": "rm -rf bin/* && tsc",
-    "format:check": "prettier --check \"src\"",
-    "format:fix": "prettier --write \"src\"",
-    "lint": "eslint --cache --ext .ts \"src\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
+    "format": "prettier --write './**/*.{js,md,json,ts,tsx}'",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "tsc": "tsc",
     "validate": "node bin/cli.js"
   },

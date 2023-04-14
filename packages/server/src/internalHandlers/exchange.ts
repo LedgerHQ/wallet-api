@@ -53,6 +53,7 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
   );
 
   if (!fromAccount) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     throw new ServerError(createAccountNotFound(safeParams.fromAccountId));
   }
 
@@ -60,7 +61,9 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
   const commonParams = {
     provider: safeParams.provider,
     transaction: deserializeTransaction(safeParams.rawTransaction),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     signature: Buffer.from(safeParams.hexSignature, "hex"),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     binaryPayload: Buffer.from(safeParams.hexBinaryPayload, "hex"),
     fromAccount,
     feeStrategy: safeParams.feeStrategy,
@@ -71,6 +74,7 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
     const toAccount = accounts.find((acc) => acc.id === safeParams.toAccountId);
 
     if (!toAccount) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       throw new ServerError(createAccountNotFound(safeParams.toAccountId));
     }
 

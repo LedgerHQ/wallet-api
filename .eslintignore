@@ -1,0 +1,12 @@
+**/bin
+
+**/build
+
+node_modules
+**/node_modules
+
+.turbo
+**/.turbo
+
+**/.next
+**/next-env.d.ts

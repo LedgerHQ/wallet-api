@@ -6,26 +6,17 @@
       "outputs": ["lib/**", "lib-es/**"],
       "inputs": ["src/**/*.ts"]
     },
-    "lint": {
-      "dependsOn": ["^build"],
-      "outputs": []
-    },
-    "lint:fix": {
-      "dependsOn": ["^build"],
-      "outputs": []
-    },
-    "format:check": {
-      "outputs": []
-    },
-    "format:fix": {
-      "outputs": []
-    },
     "dev": {
       "dependsOn": ["build"],
       "cache": false
     },
+    "format": {
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
     "test": {
-      "dependsOn": ["build", "lint"],
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },

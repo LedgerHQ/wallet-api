@@ -6,8 +6,7 @@
     "ignoreDeprecations": "5.0",
     "resolveJsonModule": true,
     "outDir": "./lib",
-    "exactOptionalPropertyTypes": false,
-    },
-  "include": ["src/**/*", "cli/**/*","jest.config.ts", "tests/**/*"]
-
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src/**/*", "cli/**/*", "jest.config.ts", "tests/**/*"]
 }
