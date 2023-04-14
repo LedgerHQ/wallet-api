@@ -18,7 +18,7 @@
   "homepageUrl": "https://earn.alkemi.network",
   "supportUrl": "https://earn.alkemi.network",
   "icon": "https://cdn.live.ledger.com/icons/platform/alkemi.png",
-  "platform": "all",
+  "platforms": ["ios"],
   "apiVersion": "^1.0.0 || ~0.0.1",
   "version": 2,
   "categories": ["farm"],

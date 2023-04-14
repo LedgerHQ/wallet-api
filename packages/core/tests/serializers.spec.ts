@@ -29,6 +29,16 @@ import {
   TezosTransaction,
   Transaction,
   TronTransaction,
+  RawNearTransaction,
+  RawNeoTransaction,
+  NearTransaction,
+  NeoTransaction,
+  ElrondTransaction,
+  RawElrondTransaction,
+  CardanoTransaction,
+  RawCardanoTransaction,
+  RawSolanaTransaction,
+  SolanaTransaction,
 } from "../src";
 
 const date = new Date();
@@ -520,6 +530,216 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("near", () => {
+      function createTx(): NearTransaction {
+        return {
+          family: schemaFamilies.enum.near,
+          amount: BigNumber(100),
+          recipient: "recipient",
+          mode: "send",
+        };
+      }
+
+      it("should succeed to serialize a near transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+        });
+      });
+
+      it("should succeed to serialize a near transaction, with options", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction({ ...tx, fees: BigNumber(1) });
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+          fees: "1",
+        });
+      });
+    });
+
+    describe("neo", () => {
+      function createTx(): NeoTransaction {
+        return {
+          family: schemaFamilies.enum.neo,
+          amount: BigNumber(100),
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to serialize a neo transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+        });
+      });
+    });
+
+    describe("elrond", () => {
+      const family = schemaFamilies.enum.elrond;
+
+      it("should serialize an Elrond transaction with data and fees", () => {
+        const transaction: ElrondTransaction = {
+          amount: new BigNumber(100),
+          data: "test",
+          family,
+          fees: new BigNumber(100),
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          amount: "100",
+          data: "test",
+          gasLimit: 0,
+          family,
+          fees: "100",
+          mode: "send",
+          recipient: "recipient",
+        });
+      });
+
+      it("should serialize an Elrond transaction without data and fees", () => {
+        const transaction: ElrondTransaction = {
+          amount: new BigNumber(100),
+          family,
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          amount: "100",
+          data: undefined,
+          gasLimit: 0,
+          family,
+          fees: undefined,
+          mode: "send",
+          recipient: "recipient",
+        });
+      });
+    });
+
+    describe("cardano", () => {
+      const family = schemaFamilies.enum.cardano;
+
+      it("should serialize a Cardano transaction", () => {
+        const transaction: CardanoTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: new BigNumber(100),
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: "100",
+        });
+      });
+
+      it("should serialize a Cardano transaction whithout optional params", () => {
+        const transaction: CardanoTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
+        });
+      });
+    });
+
+    describe("solana", () => {
+      const family = schemaFamilies.enum.solana;
+
+      it("should serialize a Solana transaction", () => {
+        const transaction: SolanaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+          },
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          model: '{"kind":"transfer","uiState":{"memo":"test"}}',
+        });
+      });
+
+      it("should serialize a Solana transaction with type CommandDescriptor", () => {
+        const transaction: SolanaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+            commandDescriptor: {
+              command: {
+                kind: "stake.split",
+                authorizedAccAddr: "test",
+                stakeAccAddr: "test",
+                amount: 100,
+                seed: "test",
+                splitStakeAccAddr: "test",
+              },
+              fee: 100,
+              warnings: {
+                Warning: { name: "warning", message: "warning message" },
+              },
+              errors: {
+                Error: { name: "error", message: "error message" },
+              },
+            },
+          },
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          model:
+            '{"kind":"transfer","uiState":{"memo":"test"},"commandDescriptor":{"command":{"kind":"stake.split","authorizedAccAddr":"test","stakeAccAddr":"test","amount":100,"seed":"test","splitStakeAccAddr":"test"},"fee":100,"warnings":{"Warning":{"name":"warning","message":"warning message"}},"errors":{"Error":{"name":"error","message":"error message"}}}}',
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -974,6 +1194,220 @@ describe("serializers.ts", () => {
           duration: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
+        });
+      });
+    });
+
+    describe("near", () => {
+      function createRawTx(): RawNearTransaction {
+        return {
+          family: schemaFamilies.enum.near,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to deserialize a near transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+        });
+      });
+
+      it("should succeed to deserialize a near transaction with fees", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction({ ...rawTx, fees: "1" });
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+          fees: new BigNumber(1),
+        });
+      });
+    });
+
+    describe("neo", () => {
+      function createRawTx(): RawNeoTransaction {
+        return {
+          family: schemaFamilies.enum.neo,
+          amount: "100",
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to deserialize a neo transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+        });
+      });
+    });
+
+    describe("elrond", () => {
+      const family = schemaFamilies.enum.elrond;
+
+      it("should serialize an Elrond transaction with data and fees", () => {
+        const serializedTransaction: RawElrondTransaction = {
+          amount: "100",
+          data: "test",
+          family,
+          fees: "100",
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          amount: new BigNumber(100),
+          data: "test",
+          family,
+          fees: new BigNumber(100),
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        });
+      });
+
+      it("should serialize an Elrond transaction without data and fees", () => {
+        const serializedTransaction: RawElrondTransaction = {
+          amount: "100",
+          family,
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          amount: new BigNumber(100),
+          data: undefined,
+          family,
+          fees: undefined,
+          mode: "send",
+          recipient: "recipient",
+          gasLimit: 0,
+        });
+      });
+    });
+
+    describe("cardano", () => {
+      const family = schemaFamilies.enum.cardano;
+
+      it("should deserialize a Cardano transaction", () => {
+        const transaction: RawCardanoTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: "100",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: "test2",
+          fees: new BigNumber(100),
+        });
+      });
+
+      it("should deserialize a Cardano transaction without optional params", () => {
+        const transaction: RawCardanoTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          mode: "test",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          mode: "test",
+          memo: undefined,
+          fees: undefined,
+        });
+      });
+    });
+
+    describe("solana", () => {
+      const family = schemaFamilies.enum.solana;
+
+      it("should deserialize a Solana transaction", () => {
+        const serializedTransaction: RawSolanaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          model: '{"kind":"transfer","uiState":{"memo":"test"}}',
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+          },
+        });
+      });
+
+      it("should deserialize a Solana transaction with type CommandDescriptor", () => {
+        const serializedTransaction: RawSolanaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          model:
+            '{"kind":"transfer","uiState":{"memo":"test"},"commandDescriptor":{"command":{"kind":"stake.split","authorizedAccAddr":"test","stakeAccAddr":"test","amount":100,"seed":"test","splitStakeAccAddr":"test"},"fee":100,"warnings":{"Warning":{"name":"warning","message":"warning message"}},"errors":{"Error":{"name":"error","message":"error message"}}}}',
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          model: {
+            kind: "transfer",
+            uiState: {
+              memo: "test",
+            },
+            commandDescriptor: {
+              command: {
+                kind: "stake.split",
+                authorizedAccAddr: "test",
+                stakeAccAddr: "test",
+                amount: 100,
+                seed: "test",
+                splitStakeAccAddr: "test",
+              },
+              fee: 100,
+              warnings: {
+                Warning: { name: "warning", message: "warning message" },
+              },
+              errors: {
+                Error: { name: "error", message: "error message" },
+              },
+            },
+          },
         });
       });
     });

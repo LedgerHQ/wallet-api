@@ -7,6 +7,10 @@ import {
   serializeBitcoinTransaction,
 } from "./bitcoin/serializer";
 import {
+  deserializeCeloTransaction,
+  serializeCeloTransaction,
+} from "./celo/serializer";
+import {
   deserializeCosmosTransaction,
   serializeCosmosTransaction,
 } from "./cosmos/serializer";
@@ -18,6 +22,16 @@ import {
   deserializeEthereumTransaction,
   serializeEthereumTransaction,
 } from "./ethereum/serializer";
+import * as near from "./near/serializer";
+import {
+  deserializeHederaTransaction,
+  serializeHederaTransaction,
+} from "./hedera/serializer";
+import {
+  deserializeFilecoinTransaction,
+  serializeFilecoinTransaction,
+} from "./filecoin/serializer";
+import * as neo from "./neo/serializer";
 import {
   deserializePolkadotTransaction,
   serializePolkadotTransaction,
@@ -38,7 +52,18 @@ import {
   deserializeTronTransaction,
   serializeTronTransaction,
 } from "./tron/serializer";
-
+import {
+  deserializeElrondTransaction,
+  serializeElrondTransaction,
+} from "./elrond/serializer";
+import {
+  deserializeCardanoTransaction,
+  serializeCardanoTransaction,
+} from "./cardano/serializer";
+import {
+  deserializeSolanaTransaction,
+  serializeSolanaTransaction,
+} from "./solana/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -60,8 +85,14 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCryptoOrgTransaction(transaction);
     case "ripple":
       return serializeRippleTransaction(transaction);
+    case "celo":
+      return serializeCeloTransaction(transaction);
     case "cosmos":
       return serializeCosmosTransaction(transaction);
+    case "hedera":
+      return serializeHederaTransaction(transaction);
+    case "filecoin":
+      return serializeFilecoinTransaction(transaction);
     case "tezos":
       return serializeTezosTransaction(transaction);
     case "polkadot":
@@ -70,6 +101,16 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeStellarTransaction(transaction);
     case "tron":
       return serializeTronTransaction(transaction);
+    case "near":
+      return near.serialize(transaction);
+    case "neo":
+      return neo.serialize(transaction);
+    case "elrond":
+      return serializeElrondTransaction(transaction);
+    case "cardano":
+      return serializeCardanoTransaction(transaction);
+    case "solana":
+      return serializeSolanaTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -99,8 +140,14 @@ export function deserializeTransaction(
       return deserializeCryptoOrgTransaction(rawTransaction);
     case "ripple":
       return deserializeRippleTransaction(rawTransaction);
+    case "celo":
+      return deserializeCeloTransaction(rawTransaction);
     case "cosmos":
       return deserializeCosmosTransaction(rawTransaction);
+    case "hedera":
+      return deserializeHederaTransaction(rawTransaction);
+    case "filecoin":
+      return deserializeFilecoinTransaction(rawTransaction);
     case "tezos":
       return deserializeTezosTransaction(rawTransaction);
     case "polkadot":
@@ -109,6 +156,16 @@ export function deserializeTransaction(
       return deserializeStellarTransaction(rawTransaction);
     case "tron":
       return deserializeTronTransaction(rawTransaction);
+    case "near":
+      return near.deserialize(rawTransaction);
+    case "neo":
+      return neo.deserialize(rawTransaction);
+    case "elrond":
+      return deserializeElrondTransaction(rawTransaction);
+    case "cardano":
+      return deserializeCardanoTransaction(rawTransaction);
+    case "solana":
+      return deserializeSolanaTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;

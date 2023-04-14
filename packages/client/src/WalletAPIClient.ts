@@ -1,5 +1,3 @@
-// TODO: reimplement all methods
-
 import {
   Logger,
   RpcError,
@@ -17,6 +15,7 @@ import { MessageModule } from "./modules/Message";
 import { StorageModule } from "./modules/Storage";
 import { TransactionModule } from "./modules/Transaction";
 import { WalletModule } from "./modules/Wallet";
+import { ExchangeModule } from "./modules/Exchange";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -76,6 +75,11 @@ export class WalletAPIClient extends RpcNode<
    */
   public wallet: WalletModule;
 
+  /**
+   * Instance of the Wallet module
+   */
+  public exchange: ExchangeModule;
+
   private logger: Logger;
 
   constructor(transport: Transport, logger: Logger = defaultLogger) {
@@ -89,6 +93,7 @@ export class WalletAPIClient extends RpcNode<
     this.storage = new StorageModule(this);
     this.transaction = new TransactionModule(this);
     this.wallet = new WalletModule(this);
+    this.exchange = new ExchangeModule(this);
   }
 
   protected onRequest(request: RpcRequest) {

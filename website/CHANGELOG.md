@@ -1,5 +1,13 @@
 # wallet-api-website
 
+## 0.2.0
+
+### Minor Changes
+
+- [#133](https://github.com/LedgerHQ/wallet-api/pull/133) [`bb79e38`](https://github.com/LedgerHQ/wallet-api/commit/bb79e3863020f48ae90c12922a06ab429d44a569) Thanks [@RamyEB](https://github.com/RamyEB)! - support elrond family
+
+- [#132](https://github.com/LedgerHQ/wallet-api/pull/132) [`c7ffb18`](https://github.com/LedgerHQ/wallet-api/commit/c7ffb182a5d895d7c60a9ecfddf1ab0066b20408) Thanks [@RamyEB](https://github.com/RamyEB)! - support solana family
+
 ## 0.1.0
 
 ### Minor Changes

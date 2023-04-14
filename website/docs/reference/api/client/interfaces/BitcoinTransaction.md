@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:37
+packages/core/lib/families/types.d.ts:45
 
 ___
 
@@ -45,7 +45,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/bitcoin/types.d.ts:6
+packages/core/lib/families/bitcoin/types.d.ts:7
 
 ___
 
@@ -55,7 +55,17 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/bitcoin/types.d.ts:7
+packages/core/lib/families/bitcoin/types.d.ts:8
+
+___
+
+### opReturnData
+
+• `Optional` **opReturnData**: `Buffer`
+
+#### Defined in
+
+packages/core/lib/families/bitcoin/types.d.ts:9
 
 ___
 
@@ -71,4 +81,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:41
+packages/core/lib/families/types.d.ts:49

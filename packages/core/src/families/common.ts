@@ -13,11 +13,19 @@ export const FAMILIES = [
   "ripple",
   "cosmos",
   "ripple",
+  "celo",
   "cosmos",
+  "hedera",
+  "filecoin",
   "tezos",
   "polkadot",
   "stellar",
   "tron",
+  "near",
+  "neo",
+  "elrond",
+  "cardano",
+  "solana",
 ] as const;
 
 export const schemaFamilies = z.enum(FAMILIES);
