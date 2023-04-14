@@ -9,6 +9,8 @@ export function serializeEthereumTransaction({
   data,
   gasPrice,
   gasLimit,
+  maxPriorityFeePerGas,
+  maxFeePerGas,
 }: EthereumTransaction): RawEthereumTransaction {
   return {
     family,
@@ -18,6 +20,10 @@ export function serializeEthereumTransaction({
     data: data ? data.toString("hex") : undefined,
     gasPrice: gasPrice ? gasPrice.toString() : undefined,
     gasLimit: gasLimit ? gasLimit.toString() : undefined,
+    maxPriorityFeePerGas: maxPriorityFeePerGas
+      ? maxPriorityFeePerGas.toString()
+      : undefined,
+    maxFeePerGas: maxFeePerGas ? maxFeePerGas.toString() : undefined,
   };
 }
 
@@ -29,6 +35,8 @@ export function deserializeEthereumTransaction({
   data,
   gasPrice,
   gasLimit,
+  maxPriorityFeePerGas,
+  maxFeePerGas,
 }: RawEthereumTransaction): EthereumTransaction {
   return {
     family,
@@ -38,5 +46,9 @@ export function deserializeEthereumTransaction({
     data: data ? Buffer.from(data, "hex") : undefined,
     gasPrice: gasPrice ? new BigNumber(gasPrice) : undefined,
     gasLimit: gasLimit ? new BigNumber(gasLimit) : undefined,
+    maxPriorityFeePerGas: maxPriorityFeePerGas
+      ? new BigNumber(maxPriorityFeePerGas)
+      : undefined,
+    maxFeePerGas: maxFeePerGas ? new BigNumber(maxFeePerGas) : undefined,
   };
 }
