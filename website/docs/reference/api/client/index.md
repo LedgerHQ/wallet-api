@@ -876,7 +876,7 @@ ___
 
 #### Defined in
 
-[packages/client/src/WalletAPIClient.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L23)
+[packages/client/src/WalletAPIClient.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/client/src/WalletAPIClient.ts#L22)
 
 ___
 
