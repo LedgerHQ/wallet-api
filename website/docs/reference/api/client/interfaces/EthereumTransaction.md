@@ -79,6 +79,26 @@ packages/core/lib/families/ethereum/types.d.ts:10
 
 ___
 
+### maxFeePerGas
+
+• `Optional` **maxFeePerGas**: `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/ethereum/types.d.ts:13
+
+___
+
+### maxPriorityFeePerGas
+
+• `Optional` **maxPriorityFeePerGas**: `BigNumber`
+
+#### Defined in
+
+packages/core/lib/families/ethereum/types.d.ts:12
+
+___
+
 ### nonce
 
 • `Optional` **nonce**: `number`

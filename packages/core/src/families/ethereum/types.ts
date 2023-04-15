@@ -9,6 +9,8 @@ export interface EthereumTransaction extends TransactionCommon {
   data?: Buffer;
   gasPrice?: BigNumber;
   gasLimit?: BigNumber;
+  maxPriorityFeePerGas?: BigNumber;
+  maxFeePerGas?: BigNumber;
 }
 
 export type RawEthereumTransaction = z.infer<
