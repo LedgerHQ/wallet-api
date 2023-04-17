@@ -1,5 +1,14 @@
 # @ledgerhq/wallet-api-client
 
+## 0.15.3
+
+### Patch Changes
+
+- [#151](https://github.com/LedgerHQ/wallet-api/pull/151) [`f01c3ea`](https://github.com/LedgerHQ/wallet-api/commit/f01c3ea098d3053da72b3ca78c17f79410efbcb1) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - fix: added exchange module in client
+
+- Updated dependencies [[`7f56de7`](https://github.com/LedgerHQ/wallet-api/commit/7f56de7e147a59a7f383c19067aafcf33e6ca2dc)]:
+  - @ledgerhq/wallet-api-core@0.17.0
+
 ## 0.15.2
 
 ### Patch Changes

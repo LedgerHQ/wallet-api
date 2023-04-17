@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.17.0
+
+### Minor Changes
+
+- [#157](https://github.com/LedgerHQ/wallet-api/pull/157) [`7f56de7`](https://github.com/LedgerHQ/wallet-api/commit/7f56de7e147a59a7f383c19067aafcf33e6ca2dc) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Added EIP-1559 support to the ethereum family transaction object
+
 ## 0.16.0
 
 ### Minor Changes
