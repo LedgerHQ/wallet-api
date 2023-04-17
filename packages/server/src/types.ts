@@ -62,16 +62,19 @@ export interface WalletHandlers {
   "message.sign": (params: {
     account: Account;
     message: Buffer;
+    meta?: unknown;
   }) => Promisable<Buffer>;
   "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
     options?: TransactionSign["params"]["options"];
+    meta?: unknown;
   }) => Promisable<Buffer>;
   "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
+    meta?: unknown;
   }) => Promisable<string>;
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;

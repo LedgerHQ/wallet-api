@@ -9,6 +9,7 @@ const schemaTransactionSignAndBroadcastParams = z.object({
   accountId: z.string(),
   rawTransaction: schemaRawTransaction,
   options: schemaTransactionOptions.optional(),
+  meta: z.unknown(),
 });
 
 const schemaTransactionSignAndBroadcastResults = z.object({

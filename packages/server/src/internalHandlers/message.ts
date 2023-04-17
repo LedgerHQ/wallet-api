@@ -23,7 +23,7 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, hexMessage } = safeParams;
+  const { accountId, hexMessage, meta } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -34,6 +34,7 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
   const signedMessage = await walletHandler({
     account,
     message: Buffer.from(hexMessage, "hex"),
+    meta,
   });
 
   return {

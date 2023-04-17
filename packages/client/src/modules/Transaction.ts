@@ -57,7 +57,8 @@ export class TransactionModule {
   async signAndBroadcast(
     accountId: string,
     transaction: Transaction,
-    options?: TransactionSignAndBroadcast["params"]["options"]
+    options?: TransactionSignAndBroadcast["params"]["options"],
+    meta?: unknown
   ): Promise<string> {
     const transactionSignResult = await this.client.request(
       "transaction.signAndBroadcast",
@@ -65,6 +66,7 @@ export class TransactionModule {
         accountId,
         rawTransaction: serializeTransaction(transaction),
         options,
+        meta,
       }
     );
 
