@@ -27,7 +27,8 @@ export class TransactionModule {
   async sign(
     accountId: string,
     transaction: Transaction,
-    options?: TransactionSign["params"]["options"]
+    options?: TransactionSign["params"]["options"],
+    meta?: Record<string, unknown>
   ): Promise<Buffer> {
     const transactionSignResult = await this.client.request(
       "transaction.sign",
@@ -35,6 +36,7 @@ export class TransactionModule {
         accountId,
         rawTransaction: serializeTransaction(transaction),
         options,
+        meta,
       }
     );
 
@@ -58,7 +60,7 @@ export class TransactionModule {
     accountId: string,
     transaction: Transaction,
     options?: TransactionSignAndBroadcast["params"]["options"],
-    meta?: unknown
+    meta?: Record<string, unknown>
   ): Promise<string> {
     const transactionSignResult = await this.client.request(
       "transaction.signAndBroadcast",
