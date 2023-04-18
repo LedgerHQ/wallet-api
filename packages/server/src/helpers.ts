@@ -17,6 +17,7 @@ export function matchCurrencies(
       for (let j = 0; j < currencyCount; j += 1) {
         const currentCurrency = currencies[j];
         if (currentCurrency) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           if (isMatch(currentCurrency.id)) {
             matchedCurrencies.push(currentCurrency);
           }

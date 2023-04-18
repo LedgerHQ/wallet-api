@@ -7,8 +7,4 @@ module.exports = {
     project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,
   },
-  rules: {
-    "no-underscore-dangle": "off",
-    "class-methods-use-this": "warn",
-  },
 };

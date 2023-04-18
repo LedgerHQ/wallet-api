@@ -73,7 +73,7 @@ pnpm format:check
 Format source (`src`) files in-place with
 
 ```bash
-pnpm format:fix
+pnpm format
 ```
 
 ### Lint

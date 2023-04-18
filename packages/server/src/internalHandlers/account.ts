@@ -26,6 +26,7 @@ function filterCurrenciesByCurrencyIds(
   currencies: Currency[],
   currencyIds: string[]
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   return currencies.filter((currency) => currencyIds.includes(currency.id));
 }
 

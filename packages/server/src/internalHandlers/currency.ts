@@ -12,6 +12,7 @@ function filterCurrenciesByCurrencyIds(
 ) {
   const currencyIdsSet = new Set(currencyIds);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   return currencies.filter((currency) => currencyIdsSet.has(currency.id));
 }
 

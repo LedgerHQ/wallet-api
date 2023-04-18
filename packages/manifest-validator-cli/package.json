@@ -8,10 +8,9 @@
   ],
   "scripts": {
     "build": "rm -rf bin/* && tsc",
-    "format:check": "prettier --check \"src\"",
-    "format:fix": "prettier --write \"src\"",
-    "lint": "eslint --cache --ext .ts \"src\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
+    "format": "prettier --write './**/*.{js,md,json,ts,tsx}'",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "tsc": "tsc",
     "validate": "node bin/cli.js"
   },
   "bin": {
@@ -20,9 +19,9 @@
   "devDependencies": {
     "@tsconfig/node18-strictest": "^1.0.0",
     "@types/node": "^18.11.8",
-    "eslint": "^8.26.0",
+    "eslint": "^8.38.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",

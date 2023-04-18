@@ -137,7 +137,7 @@ ___
 
 ### device.transport
 
-• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
+• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -150,7 +150,7 @@ ___
 | `params` | `Object` |
 | `params.appName?` | `string` |
 | `params.appVersionRange?` | `string` |
-| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] |
 | `params.firmwareVersionRange?` | `string` |
 | `params.seeded?` | `boolean` |
 
