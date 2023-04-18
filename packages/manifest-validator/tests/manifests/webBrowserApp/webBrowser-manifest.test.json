@@ -20,5 +20,6 @@
     "shortDescription": "Earn high yields on your assets with our professional DeFi borrowing and lending platform.",
     "description": "Earn high yields on your assets with our professional DeFi borrowing and lending platform."
   },
-  "permissions": ["test"]
+  "permissions": ["test"],
+  "visibility": "deep"
 }

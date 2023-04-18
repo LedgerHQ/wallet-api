@@ -158,6 +158,10 @@
         "errorMessage": {}
       }
     },
+    "visibility": {
+      "type": "string",
+      "enum": ["complete", "searchable", "deep"]
+    },
     "params": {
       "type": "object"
     }
