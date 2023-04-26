@@ -3,31 +3,52 @@ import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
 type UseSignMessageReturn = {
-  signMessage: (
-    ...params: Parameters<MessageModule["sign"]>
-  ) => Promise<Buffer>;
+  signMessage: (...params: Parameters<MessageModule["sign"]>) => Promise<void>;
+  state: UseSignMessageState;
+};
+
+type UseSignMessageState = {
   pending: boolean;
+  signature: Buffer | null;
+  error: unknown | null;
+};
+
+const initialState: UseSignMessageState = {
+  pending: false,
+  signature: null,
+  error: null,
 };
 
 export function useSignMessage(): UseSignMessageReturn {
   const { client } = useContext(WalletAPIProviderContext);
-  const [pending, setPending] = useState(false);
+  const [state, setState] = useState<UseSignMessageState>(initialState);
 
   const signMessage = useCallback(
     async (...params: Parameters<MessageModule["sign"]>) => {
-      if (!client) {
-        throw new Error("WalletAPIClient is not initialised");
-      }
-
       try {
-        setPending(true);
-        const result = await client.message.sign(...params);
-        setPending(false);
+        setState((oldState) => ({
+          ...oldState,
+          pending: true,
+          error: null,
+        }));
 
-        return result;
+        if (!client) {
+          throw new Error("WalletAPIClient is not initialised");
+        }
+
+        const signature = await client.message.sign(...params);
+
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          signature,
+        }));
       } catch (error) {
-        setPending(false);
-        throw error;
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          error,
+        }));
       }
     },
     [client]
@@ -36,9 +57,9 @@ export function useSignMessage(): UseSignMessageReturn {
   const result = useMemo(
     () => ({
       signMessage,
-      pending,
+      state,
     }),
-    [signMessage, pending]
+    [signMessage, state]
   );
 
   return result;

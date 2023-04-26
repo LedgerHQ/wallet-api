@@ -5,29 +5,52 @@ import { WalletAPIProviderContext } from "../components/WalletAPIProvider/contex
 type UseSignTransactionReturn = {
   signTransaction: (
     ...params: Parameters<TransactionModule["sign"]>
-  ) => Promise<Buffer>;
+  ) => Promise<void>;
+  state: UseSignTransactionState;
+};
+
+type UseSignTransactionState = {
   pending: boolean;
+  signature: Buffer | null;
+  error: unknown | null;
+};
+
+const initialState: UseSignTransactionState = {
+  pending: false,
+  signature: null,
+  error: null,
 };
 
 export function useSignTransaction(): UseSignTransactionReturn {
   const { client } = useContext(WalletAPIProviderContext);
-  const [pending, setPending] = useState(false);
+  const [state, setState] = useState<UseSignTransactionState>(initialState);
 
   const signTransaction = useCallback(
     async (...params: Parameters<TransactionModule["sign"]>) => {
-      if (!client) {
-        throw new Error("WalletAPIClient is not initialised");
-      }
-
       try {
-        setPending(true);
-        const result = await client.transaction.sign(...params);
-        setPending(false);
+        setState((oldState) => ({
+          ...oldState,
+          pending: true,
+          error: null,
+        }));
 
-        return result;
+        if (!client) {
+          throw new Error("WalletAPIClient is not initialised");
+        }
+
+        const signature = await client.transaction.sign(...params);
+
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          signature,
+        }));
       } catch (error) {
-        setPending(false);
-        throw error;
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          error,
+        }));
       }
     },
     [client]
@@ -36,9 +59,9 @@ export function useSignTransaction(): UseSignTransactionReturn {
   const result = useMemo(
     () => ({
       signTransaction,
-      pending,
+      state,
     }),
-    [signTransaction, pending]
+    [signTransaction, state]
   );
 
   return result;

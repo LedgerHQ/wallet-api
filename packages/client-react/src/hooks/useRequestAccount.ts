@@ -6,28 +6,52 @@ import { WalletAPIProviderContext } from "../components/WalletAPIProvider/contex
 type UseRequestAccountReturn = {
   requestAccount: (
     ...params: Parameters<AccountModule["request"]>
-  ) => Promise<Account>;
+  ) => Promise<void>;
+  state: UseRequestAccountState;
+};
+
+type UseRequestAccountState = {
   pending: boolean;
+  account: Account | null;
+  error: unknown | null;
+};
+
+const initialState: UseRequestAccountState = {
+  pending: false,
+  account: null,
+  error: null,
 };
 
 export function useRequestAccount(): UseRequestAccountReturn {
   const { client } = useContext(WalletAPIProviderContext);
-  const [pending, setPending] = useState(false);
+  const [state, setState] = useState<UseRequestAccountState>(initialState);
 
   const requestAccount = useCallback(
     async (...params: Parameters<AccountModule["request"]>) => {
-      if (!client) {
-        throw new Error("WalletAPIClient is not initialised");
-      }
-
       try {
-        setPending(true);
-        const result = await client.account.request(...params);
-        setPending(false);
-        return result;
+        setState((oldState) => ({
+          ...oldState,
+          pending: true,
+          error: null,
+        }));
+
+        if (!client) {
+          throw new Error("WalletAPIClient is not initialised");
+        }
+
+        const account = await client.account.request(...params);
+
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          account,
+        }));
       } catch (error) {
-        setPending(false);
-        throw error;
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          error,
+        }));
       }
     },
     [client]
@@ -36,9 +60,9 @@ export function useRequestAccount(): UseRequestAccountReturn {
   const result = useMemo(
     () => ({
       requestAccount,
-      pending,
+      state,
     }),
-    [requestAccount, pending]
+    [requestAccount, state]
   );
 
   return result;

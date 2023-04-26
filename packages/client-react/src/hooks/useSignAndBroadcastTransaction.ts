@@ -5,28 +5,54 @@ import { WalletAPIProviderContext } from "../components/WalletAPIProvider/contex
 type UseSignAndBroadcastTransactionReturn = {
   signAndBroadcastTransaction: (
     ...params: Parameters<TransactionModule["signAndBroadcast"]>
-  ) => Promise<string>;
+  ) => Promise<void>;
+  state: UseSignAndBroadcastTransactionState;
+};
+
+type UseSignAndBroadcastTransactionState = {
   pending: boolean;
+  transactionHash: string | null;
+  error: unknown | null;
+};
+
+const initialState: UseSignAndBroadcastTransactionState = {
+  pending: false,
+  transactionHash: null,
+  error: null,
 };
 
 export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransactionReturn {
   const { client } = useContext(WalletAPIProviderContext);
-  const [pending, setPending] = useState(false);
+  const [state, setState] = useState(initialState);
 
   const signAndBroadcastTransaction = useCallback(
     async (...params: Parameters<TransactionModule["signAndBroadcast"]>) => {
-      if (!client) {
-        throw new Error("WalletAPIClient is not initialised");
-      }
-
       try {
-        setPending(true);
-        const result = await client.transaction.signAndBroadcast(...params);
-        setPending(false);
-        return result;
+        setState((oldState) => ({
+          ...oldState,
+          pending: true,
+          error: null,
+        }));
+
+        if (!client) {
+          throw new Error("WalletAPIClient is not initialised");
+        }
+
+        const transactionHash = await client.transaction.signAndBroadcast(
+          ...params
+        );
+
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          transactionHash,
+        }));
       } catch (error) {
-        setPending(false);
-        throw error;
+        setState((oldState) => ({
+          ...oldState,
+          pending: false,
+          error,
+        }));
       }
     },
     [client]
@@ -35,9 +61,9 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
   const result = useMemo(
     () => ({
       signAndBroadcastTransaction,
-      pending,
+      state,
     }),
-    [signAndBroadcastTransaction, pending]
+    [signAndBroadcastTransaction, state]
   );
 
   return result;
