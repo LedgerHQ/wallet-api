@@ -3,18 +3,17 @@ import type { AccountModule } from "@ledgerhq/wallet-api-client/lib/modules/Acco
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
+type UseRequestAccountState = {
+  pending: boolean;
+  account: Account | null;
+  error: unknown;
+};
+
 type UseRequestAccountReturn = {
   requestAccount: (
     ...params: Parameters<AccountModule["request"]>
   ) => Promise<void>;
-  state: UseRequestAccountState;
-};
-
-type UseRequestAccountState = {
-  pending: boolean;
-  account: Account | null;
-  error: unknown | null;
-};
+} & UseRequestAccountState;
 
 const initialState: UseRequestAccountState = {
   pending: false,
@@ -60,7 +59,7 @@ export function useRequestAccount(): UseRequestAccountReturn {
   const result = useMemo(
     () => ({
       requestAccount,
-      state,
+      ...state,
     }),
     [requestAccount, state]
   );

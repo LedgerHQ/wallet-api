@@ -2,18 +2,17 @@ import type { TransactionModule } from "@ledgerhq/wallet-api-client/lib/modules/
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
+type UseSignAndBroadcastTransactionState = {
+  pending: boolean;
+  transactionHash: string | null;
+  error: unknown;
+};
+
 type UseSignAndBroadcastTransactionReturn = {
   signAndBroadcastTransaction: (
     ...params: Parameters<TransactionModule["signAndBroadcast"]>
   ) => Promise<void>;
-  state: UseSignAndBroadcastTransactionState;
-};
-
-type UseSignAndBroadcastTransactionState = {
-  pending: boolean;
-  transactionHash: string | null;
-  error: unknown | null;
-};
+} & UseSignAndBroadcastTransactionState;
 
 const initialState: UseSignAndBroadcastTransactionState = {
   pending: false,
@@ -61,7 +60,7 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
   const result = useMemo(
     () => ({
       signAndBroadcastTransaction,
-      state,
+      ...state,
     }),
     [signAndBroadcastTransaction, state]
   );

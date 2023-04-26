@@ -2,16 +2,15 @@ import type { MessageModule } from "@ledgerhq/wallet-api-client/lib/modules/Mess
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
-type UseSignMessageReturn = {
-  signMessage: (...params: Parameters<MessageModule["sign"]>) => Promise<void>;
-  state: UseSignMessageState;
-};
-
 type UseSignMessageState = {
   pending: boolean;
   signature: Buffer | null;
-  error: unknown | null;
+  error: unknown;
 };
+
+type UseSignMessageReturn = {
+  signMessage: (...params: Parameters<MessageModule["sign"]>) => Promise<void>;
+} & UseSignMessageState;
 
 const initialState: UseSignMessageState = {
   pending: false,
@@ -57,7 +56,7 @@ export function useSignMessage(): UseSignMessageReturn {
   const result = useMemo(
     () => ({
       signMessage,
-      state,
+      ...state,
     }),
     [signMessage, state]
   );

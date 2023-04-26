@@ -2,18 +2,17 @@ import type { TransactionModule } from "@ledgerhq/wallet-api-client/lib/modules/
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
-type UseSignTransactionReturn = {
-  signTransaction: (
-    ...params: Parameters<TransactionModule["sign"]>
-  ) => Promise<void>;
-  state: UseSignTransactionState;
-};
-
 type UseSignTransactionState = {
   pending: boolean;
   signature: Buffer | null;
   error: unknown | null;
 };
+
+type UseSignTransactionReturn = {
+  signTransaction: (
+    ...params: Parameters<TransactionModule["sign"]>
+  ) => Promise<void>;
+} & UseSignTransactionState;
 
 const initialState: UseSignTransactionState = {
   pending: false,
@@ -59,7 +58,7 @@ export function useSignTransaction(): UseSignTransactionReturn {
   const result = useMemo(
     () => ({
       signTransaction,
-      state,
+      ...state,
     }),
     [signTransaction, state]
   );
