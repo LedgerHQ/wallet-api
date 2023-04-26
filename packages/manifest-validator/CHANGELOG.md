@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-manifest-validator
 
+## 0.5.0
+
+### Minor Changes
+
+- [#160](https://github.com/LedgerHQ/wallet-api/pull/160) [`7ca7612`](https://github.com/LedgerHQ/wallet-api/commit/7ca7612774e8e9ee3e3fe5275d3967bae8e8dc5c) Thanks [@RamyEB](https://github.com/RamyEB)! - add visibility field into validator
+
 ## 0.4.1
 
 ### Patch Changes
