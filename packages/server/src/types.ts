@@ -62,13 +62,13 @@ export interface WalletHandlers {
   "message.sign": (params: {
     account: Account;
     message: Buffer;
-    meta?: unknown;
+    meta?: Record<string, unknown>;
   }) => Promisable<Buffer>;
   "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
     options?: TransactionSign["params"]["options"];
-    meta?: unknown;
+    meta?: Record<string, unknown>;
   }) => Promisable<Buffer>;
   "transaction.signAndBroadcast": (params: {
     account: Account;
