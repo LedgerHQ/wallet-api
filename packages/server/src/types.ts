@@ -74,7 +74,7 @@ export interface WalletHandlers {
     account: Account;
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
-    meta?: unknown;
+    meta?: Record<string, unknown>;
   }) => Promisable<string>;
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
