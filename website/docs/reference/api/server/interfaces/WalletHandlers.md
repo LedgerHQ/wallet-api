@@ -215,7 +215,7 @@ ___
 
 ### message.sign
 
-• **message.sign**: (`params`: { `account`: `Account` ; `message`: `Buffer` ; `meta?`: `unknown`  }) => `Promisable`<`Buffer`\>
+• **message.sign**: (`params`: { `account`: `Account` ; `message`: `Buffer` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\>  }) => `Promisable`<`Buffer`\>
 
 #### Type declaration
 
@@ -228,7 +228,7 @@ ___
 | `params` | `Object` |
 | `params.account` | `Account` |
 | `params.message` | `Buffer` |
-| `params.meta?` | `unknown` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 
 ##### Returns
 
@@ -295,7 +295,7 @@ ___
 
 ### transaction.sign
 
-• **transaction.sign**: (`params`: { `account`: `Account` ; `meta?`: `unknown` ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`Buffer`\>
+• **transaction.sign**: (`params`: { `account`: `Account` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`Buffer`\>
 
 #### Type declaration
 
@@ -307,7 +307,7 @@ ___
 | :------ | :------ |
 | `params` | `Object` |
 | `params.account` | `Account` |
-| `params.meta?` | `unknown` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 | `params.options?` | `Object` |
 | `params.options.hwAppId?` | `string` |
 | `params.transaction` | `Transaction` |
@@ -324,7 +324,7 @@ ___
 
 ### transaction.signAndBroadcast
 
-• **transaction.signAndBroadcast**: (`params`: { `account`: `Account` ; `meta?`: `unknown` ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`string`\>
+• **transaction.signAndBroadcast**: (`params`: { `account`: `Account` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -336,7 +336,7 @@ ___
 | :------ | :------ |
 | `params` | `Object` |
 | `params.account` | `Account` |
-| `params.meta?` | `unknown` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 | `params.options?` | `Object` |
 | `params.options.hwAppId?` | `string` |
 | `params.transaction` | `Transaction` |
