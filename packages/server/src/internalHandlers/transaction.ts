@@ -20,7 +20,7 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options } = safeParams;
+  const { accountId, rawTransaction, options, meta } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -38,6 +38,7 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
     account,
     transaction: deserializeTransaction(rawTransaction),
     options,
+    meta,
   });
 
   return {
@@ -60,7 +61,7 @@ export const signAndBroadcast: RPCHandler<
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options } = safeParams;
+  const { accountId, rawTransaction, options, meta } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -72,6 +73,7 @@ export const signAndBroadcast: RPCHandler<
     account,
     transaction: deserializeTransaction(rawTransaction),
     options,
+    meta,
   });
 
   return {

@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L88)
+[server/src/types.ts:91](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L91)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:76](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L76)
+[server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:77](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L77)
+[server/src/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L80)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:78](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L78)
+[server/src/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L81)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:90](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L90)
+[server/src/types.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L93)
 
 ___
 
@@ -209,13 +209,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:89](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L89)
+[server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
 
 ___
 
 ### message.sign
 
-• **message.sign**: (`params`: { `account`: `Account` ; `message`: `Buffer`  }) => `Promisable`<`Buffer`\>
+• **message.sign**: (`params`: { `account`: `Account` ; `message`: `Buffer` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\>  }) => `Promisable`<`Buffer`\>
 
 #### Type declaration
 
@@ -228,6 +228,7 @@ ___
 | `params` | `Object` |
 | `params.account` | `Account` |
 | `params.message` | `Buffer` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 
 ##### Returns
 
@@ -261,7 +262,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:84](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L84)
+[server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
 
 ___
 
@@ -288,13 +289,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
+[server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
 
 ___
 
 ### transaction.sign
 
-• **transaction.sign**: (`params`: { `account`: `Account` ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`Buffer`\>
+• **transaction.sign**: (`params`: { `account`: `Account` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`Buffer`\>
 
 #### Type declaration
 
@@ -306,6 +307,7 @@ ___
 | :------ | :------ |
 | `params` | `Object` |
 | `params.account` | `Account` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 | `params.options?` | `Object` |
 | `params.options.hwAppId?` | `string` |
 | `params.transaction` | `Transaction` |
@@ -316,13 +318,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:66](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L66)
+[server/src/types.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L67)
 
 ___
 
 ### transaction.signAndBroadcast
 
-• **transaction.signAndBroadcast**: (`params`: { `account`: `Account` ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`string`\>
+• **transaction.signAndBroadcast**: (`params`: { `account`: `Account` ; `meta`: `undefined` \| `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `transaction`: `Transaction`  }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -334,6 +336,7 @@ ___
 | :------ | :------ |
 | `params` | `Object` |
 | `params.account` | `Account` |
+| `params.meta` | `undefined` \| `Record`<`string`, `unknown`\> |
 | `params.options?` | `Object` |
 | `params.options.hwAppId?` | `string` |
 | `params.transaction` | `Transaction` |
@@ -344,4 +347,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:71](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L71)
+[server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)

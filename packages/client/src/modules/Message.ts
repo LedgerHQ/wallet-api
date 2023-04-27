@@ -18,10 +18,15 @@ export class MessageModule {
    * @returns Message signed
    * @throws {@link RpcError} if an error occured on server side
    */
-  async sign(accountId: string, message: Buffer): Promise<Buffer> {
+  async sign(
+    accountId: string,
+    message: Buffer,
+    meta?: Record<string, unknown>
+  ): Promise<Buffer> {
     const messageSignResult = await this.client.request("message.sign", {
       accountId,
       hexMessage: message.toString("hex"),
+      meta,
     });
 
     const safeResults = schemaMessageSign.result.parse(messageSignResult);

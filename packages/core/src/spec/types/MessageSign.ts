@@ -3,6 +3,7 @@ import { z } from "zod";
 const schemaMessageSignParams = z.object({
   accountId: z.string(),
   hexMessage: z.string(),
+  meta: z.record(z.string(), z.unknown()).optional(),
 });
 
 const schemaMessageSignResults = z.object({
