@@ -51,6 +51,7 @@ Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These typ
 - [CosmosOperationMode](#cosmosoperationmode)
 - [PolkadotOperationMode](#polkadotoperationmode)
 - [TezosOperationMode](#tezosoperationmode)
+- [StellarMemoType](#stellarmemotype)
 - [ApplicationDetails](#applicationdetails)
 - [BaseCurrency](#basecurrency)
 - [CryptoCurrency](#cryptocurrency)
@@ -256,7 +257,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 | ------------ | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `amount`     | `BigNumber`                               | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
 | `family`     | [`STELLAR`](/spec/core/types.md#families) |                                                                                                                                                                                                                 |
-| `memoType?`  | `string`                                  |                                                                                                                                                                                                                 |
+| `memoType?`  | [`StellarMemoType`](/spec/core/types.md#stellarmemotype)                                 |                                                                                                                                                                                                                 |
 | `memoValue?` | `string`                                  |                                                                                                                                                                                                                 |
 | `fees?`      | `BigNumber`                               |                                                                                                                                                                                                                 |
 | `recipient`  | `string`                                  | The address of the transaction's recipient                                                                                                                                                                      |
@@ -267,7 +268,7 @@ The raw representation of the common transaction fields found in [TransactionCom
 | ------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `amount`     | `string`                                | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
 | `family`     | [STELLAR](/spec/core/types.md#families) |                                                                                                                                                                                                                 |
-| `memoType?`  | `string`                                |                                                                                                                                                                                                                 |
+| `memoType?`  | [`StellarMemoType`](/spec/core/types.md#stellarmemotype)                               |                                                                                                                                                                                                                 |
 | `memoValue?` | `string`                                |                                                                                                                                                                                                                 |
 | `fees?`      | `string`                                |                                                                                                                                                                                                                 |
 | `recipient`  | `string`                                | The address of the transaction's recipient                                                                                                                                                                      |
@@ -425,6 +426,10 @@ The raw representation of the [Account](/spec/core/types.md#account) type.
 ## TezosOperationMode
 
 `"send"` \| `"delegate"` \| `"undelegate"`
+
+## StellarMemoType
+
+`"MEMO_TEXT"` \| `"MEMO_ID"` \| `"MEMO_HASH"` \| `"MEMO_RETURN"`
 
 ## ApplicationDetails
 
