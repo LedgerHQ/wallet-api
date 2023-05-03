@@ -407,7 +407,7 @@ describe("serializers.ts", () => {
         const transaction: StellarTransaction = {
           family,
           fees: new BigNumber(1),
-          memoType: "memo type",
+          memoType: "MEMO_TEXT",
           memoValue: "memo value",
           amount: new BigNumber(100),
           recipient: "recipient",
@@ -417,7 +417,7 @@ describe("serializers.ts", () => {
         expect(serializedTransaction).toEqual({
           family,
           fees: "1",
-          memoType: "memo type",
+          memoType: "MEMO_TEXT",
           memoValue: "memo value",
           amount: "100",
           recipient: "recipient",
@@ -1068,7 +1068,7 @@ describe("serializers.ts", () => {
         const serializedTransaction: RawStellarTransaction = {
           family,
           fees: "1",
-          memoType: "memo type",
+          memoType: "MEMO_TEXT",
           memoValue: "memo value",
           amount: "100",
           recipient: "recipient",
@@ -1079,7 +1079,7 @@ describe("serializers.ts", () => {
         expect(transaction).toEqual({
           family,
           fees: new BigNumber(1),
-          memoType: "memo type",
+          memoType: "MEMO_TEXT",
           memoValue: "memo value",
           amount: new BigNumber(100),
           recipient: "recipient",
