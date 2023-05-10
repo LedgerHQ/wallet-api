@@ -17,7 +17,7 @@ export function useUserId(): UseUserIdReturn {
 
   const updateData = useCallback(async () => {
     if (!client) {
-      throw new Error("WalletAPIClient is not initialised");
+      return;
     }
 
     updateLoadableInState(setState, "userId", { loading: true });
