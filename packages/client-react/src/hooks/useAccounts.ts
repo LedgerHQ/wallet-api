@@ -18,7 +18,7 @@ export function useAccounts(): UseAccountReturn {
 
   const updateData = useCallback(async () => {
     if (!client) {
-      throw new Error("WalletAPIClient is not initialised");
+      return;
     }
 
     updateLoadableInState(setState, "accounts", { loading: true });
