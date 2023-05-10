@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.17.1
+
+### Patch Changes
+
+- [#159](https://github.com/LedgerHQ/wallet-api/pull/159) [`524f96b`](https://github.com/LedgerHQ/wallet-api/commit/524f96bb0faba8238be546b96271689ea70b3d16) Thanks [@IAmMorrow](https://github.com/IAmMorrow)! - Added optional meta object to all sign operations
+
 ## 0.17.0
 
 ### Minor Changes
