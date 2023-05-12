@@ -1,6 +1,6 @@
 import type BigNumber from "bignumber.js";
 import type { z } from "zod";
-import type { TransactionCommon } from "../index";
+import type { TransactionCommon } from "..";
 import type { schemaRawEthereumTransaction } from "./validation";
 
 export interface EthereumTransaction extends TransactionCommon {

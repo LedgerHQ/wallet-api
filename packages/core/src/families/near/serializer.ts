@@ -1,34 +1,18 @@
 import BigNumber from "bignumber.js";
 import type { RawNearTransaction, NearTransaction } from "./types";
 
-export function serialize({
-  amount,
-  recipient,
-  family,
-  mode,
-  fees,
-}: NearTransaction): RawNearTransaction {
+export function serialize(tx: NearTransaction): RawNearTransaction {
   return {
-    amount: amount.toString(),
-    recipient,
-    family,
-    mode,
-    fees: fees?.toString(),
+    ...tx,
+    amount: tx.amount.toString(),
+    fees: tx.fees?.toString(),
   };
 }
 
-export function deserialize({
-  amount,
-  recipient,
-  family,
-  mode,
-  fees,
-}: RawNearTransaction): NearTransaction {
+export function deserialize(rawTx: RawNearTransaction): NearTransaction {
   return {
-    amount: new BigNumber(amount),
-    recipient,
-    family,
-    mode,
-    fees: fees ? new BigNumber(fees) : undefined,
+    ...rawTx,
+    amount: new BigNumber(rawTx.amount),
+    fees: rawTx.fees ? new BigNumber(rawTx.fees) : undefined,
   };
 }

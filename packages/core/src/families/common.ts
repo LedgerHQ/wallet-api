@@ -6,26 +6,25 @@ export const schemaTransactionCommon = z.object({
 });
 
 export const FAMILIES = [
-  "bitcoin",
-  "ethereum",
   "algorand",
-  "crypto_org",
-  "ripple",
-  "cosmos",
-  "ripple",
+  "bitcoin",
+  "cardano",
   "celo",
   "cosmos",
-  "hedera",
+  "crypto_org",
+  "elrond",
+  "ethereum",
+  "evm",
   "filecoin",
-  "tezos",
-  "polkadot",
-  "stellar",
-  "tron",
+  "hedera",
   "near",
   "neo",
-  "elrond",
-  "cardano",
+  "polkadot",
+  "ripple",
   "solana",
+  "stellar",
+  "tezos",
+  "tron",
 ] as const;
 
 export const schemaFamilies = z.enum(FAMILIES);

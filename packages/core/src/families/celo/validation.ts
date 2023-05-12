@@ -14,9 +14,9 @@ export const schemaOperationMode = z.enum([
 
 export const schemaRawCeloTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.celo),
-  fees: z.string().optional().nullable(),
+  fees: z.string().nullish(),
   mode: schemaOperationMode,
-  index: z.number().optional().nullable(),
+  index: z.number().nullish(),
 });
 
 export type CeloOperationMode = z.infer<typeof schemaOperationMode>;

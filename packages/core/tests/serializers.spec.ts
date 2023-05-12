@@ -39,6 +39,7 @@ import {
   RawCardanoTransaction,
   RawSolanaTransaction,
   SolanaTransaction,
+  EvmTransaction,
 } from "../src";
 
 const date = new Date();
@@ -140,6 +141,22 @@ describe("serializers.ts", () => {
           gasPrice: undefined,
           gasLimit: undefined,
         });
+      });
+    });
+
+    // TODO
+    describe("evm", () => {
+      function createTx(): EthereumTransaction {
+        return {
+          family: schemaFamilies.enum.evm,
+        };
+      }
+
+      it("should succeed to serialize an evm transaction with nullish/optional fields", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({ ...tx });
       });
     });
 
@@ -789,6 +806,22 @@ describe("serializers.ts", () => {
           gasPrice: undefined,
           gasLimit: undefined,
         });
+      });
+    });
+
+    // TODO
+    describe("evm", () => {
+      function createRawTx(): EvmTransaction {
+        return {
+          family: schemaFamilies.enum.evm,
+        };
+      }
+
+      it("should succeed to deserialize an evm transaction without nullish/optional fields", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({ ...rawTx });
       });
     });
 

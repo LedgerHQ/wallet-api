@@ -1,14 +1,18 @@
 import type BigNumber from "bignumber.js";
 import type { z } from "zod";
+import type { schemaFamilies } from "./common";
+import type { schemaRawTransaction } from "./validation";
 import type { AlgorandTransaction } from "./algorand/types";
 import type { BitcoinTransaction } from "./bitcoin/types";
-import type { schemaFamilies } from "./common";
+import type { CardanoTransaction } from "./cardano/types";
 import type { CeloTransaction } from "./celo/types";
 import type { CosmosTransaction } from "./cosmos/types";
 import type { CryptoOrgTransaction } from "./crypto_org/types";
+import type { ElrondTransaction } from "./elrond/types";
 import type { EthereumTransaction } from "./ethereum/types";
-import type { HederaTransaction } from "./hedera/types";
+import type { EvmTransaction } from "./evm/types";
 import type { FilecoinTransaction } from "./filecoin/types";
+import type { HederaTransaction } from "./hedera/types";
 import type { NearTransaction } from "./near/types";
 import type { NeoTransaction } from "./neo/types";
 import type { PolkadotTransaction } from "./polkadot/types";
@@ -17,9 +21,6 @@ import type { SolanaTransaction } from "./solana/types";
 import type { StellarTransaction } from "./stellar/types";
 import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
-import type { ElrondTransaction } from "./elrond/types";
-import type { schemaRawTransaction } from "./validation";
-import type { CardanoTransaction } from "./cardano/types";
 
 /**
  * Supported coin families
@@ -62,21 +63,22 @@ export type RawTransaction = z.infer<typeof schemaRawTransaction>;
  * them to the network upon user validation.
  */
 export type Transaction =
-  | EthereumTransaction
-  | BitcoinTransaction
   | AlgorandTransaction
-  | CryptoOrgTransaction
-  | HederaTransaction
-  | FilecoinTransaction
-  | RippleTransaction
+  | BitcoinTransaction
+  | CardanoTransaction
   | CeloTransaction
   | CosmosTransaction
-  | TezosTransaction
-  | PolkadotTransaction
-  | StellarTransaction
-  | TronTransaction
+  | CryptoOrgTransaction
+  | ElrondTransaction
+  | EthereumTransaction
+  | EvmTransaction
+  | FilecoinTransaction
+  | HederaTransaction
   | NearTransaction
   | NeoTransaction
-  | ElrondTransaction
-  | CardanoTransaction
-  | SolanaTransaction;
+  | PolkadotTransaction
+  | RippleTransaction
+  | SolanaTransaction
+  | StellarTransaction
+  | TronTransaction
+  | TezosTransaction;
