@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 0.18.0
+
+### Minor Changes
+
+- [#164](https://github.com/LedgerHQ/wallet-api/pull/164) [`4f69de3`](https://github.com/LedgerHQ/wallet-api/commit/4f69de36f08fbbe5fa7fc5ecfb123d1cf63d7132) Thanks [@bill0x2A](https://github.com/bill0x2A)! - Adds an enum with the valid values for a StellarTransaction memoType - replacing the current string type
+
 ## 0.17.1
 
 ### Patch Changes
