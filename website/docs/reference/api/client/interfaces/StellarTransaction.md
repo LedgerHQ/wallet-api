@@ -61,7 +61,7 @@ ___
 
 ### memoType
 
-• `Optional` **memoType**: `string`
+• `Optional` **memoType**: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"``
 
 #### Defined in
 
