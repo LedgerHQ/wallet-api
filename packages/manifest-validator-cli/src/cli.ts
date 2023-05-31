@@ -4,8 +4,7 @@ import * as fs from "fs";
 import path from "path";
 import { validateManifest } from "@ledgerhq/wallet-api-manifest-validator";
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-runExit(
+void runExit(
   class ValidateFile extends Command {
     static override paths: string[][] = [[`validate -h |`], Command.Default];
 
@@ -71,10 +70,12 @@ runExit(
       }
     };
 
-    async execute() {
-      this.processRecursivlyFilesInDeepFirstSearchPostOrder(
-        0,
-        path.join(process.cwd(), this.fileOrDir)
+    execute() {
+      return Promise.resolve(
+        this.processRecursivlyFilesInDeepFirstSearchPostOrder(
+          0,
+          path.join(process.cwd(), this.fileOrDir)
+        )
       );
     }
   }

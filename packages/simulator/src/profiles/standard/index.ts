@@ -59,20 +59,11 @@ export const standardProfile: SimulatorProfile = {
 
       return accounts[0];
     },
-    "transaction.signAndBroadcast": () => {
-      return "0xtxHash";
-    },
-    "transaction.sign": () => {
-      return Buffer.from(
-        "0x123O182493423928734983247923847293847293847923847293487"
-      );
-    },
-    "message.sign": () => {
-      return Buffer.from("0x123456789123456789");
-    },
-    "account.receive": () => {
-      return "eth address";
-    },
+    "transaction.signAndBroadcast": () => "0xtxHash",
+    "transaction.sign": () =>
+      Buffer.from("0x123O182493423928734983247923847293847293847923847293487"),
+    "message.sign": () => Buffer.from("0x123456789123456789"),
+    "account.receive": () => "eth address",
     "storage.set": ({ value, key, storeId }) => {
       if (!storage[storeId]) {
         storage[storeId] = {};
@@ -93,14 +84,9 @@ export const standardProfile: SimulatorProfile = {
 
       return store[key];
     },
-    "bitcoin.getXPub": () => {
-      return "xpub";
-    },
-    "exchange.start": ({ exchangeType }) => {
-      return `simulator-dummy-transaction-id-${exchangeType}`;
-    },
-    "exchange.complete": () => {
-      return `simulator-dummy-transaction-hash`;
-    },
+    "bitcoin.getXPub": () => "xpub",
+    "exchange.start": ({ exchangeType }) =>
+      `simulator-dummy-transaction-id-${exchangeType}`,
+    "exchange.complete": () => `simulator-dummy-transaction-hash`,
   },
 };

@@ -24,6 +24,7 @@ export function deserializeSolanaTransaction({
   return {
     amount: new BigNumber(amount),
     family,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     model: JSON.parse(model),
     recipient,
   };

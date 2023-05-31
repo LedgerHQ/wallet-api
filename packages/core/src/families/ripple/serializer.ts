@@ -7,15 +7,13 @@ export const serializeRippleTransaction = ({
   tag,
   amount,
   recipient,
-}: RippleTransaction): RawRippleTransaction => {
-  return {
-    family,
-    amount: amount.toString(),
-    recipient,
-    fee: fee ? fee.toString() : undefined,
-    tag,
-  };
-};
+}: RippleTransaction): RawRippleTransaction => ({
+  family,
+  amount: amount.toString(),
+  recipient,
+  fee: fee ? fee.toString() : undefined,
+  tag,
+});
 
 export const deserializeRippleTransaction = ({
   family,
@@ -23,12 +21,10 @@ export const deserializeRippleTransaction = ({
   tag,
   amount,
   recipient,
-}: RawRippleTransaction): RippleTransaction => {
-  return {
-    family,
-    amount: new BigNumber(amount),
-    recipient,
-    fee: fee ? new BigNumber(fee) : undefined,
-    tag,
-  };
-};
+}: RawRippleTransaction): RippleTransaction => ({
+  family,
+  amount: new BigNumber(amount),
+  recipient,
+  fee: fee ? new BigNumber(fee) : undefined,
+  tag,
+});

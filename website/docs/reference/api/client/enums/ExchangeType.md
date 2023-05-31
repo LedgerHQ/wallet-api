@@ -16,7 +16,7 @@ Enum describing the different types of exchanges.
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:58
+[packages/core/src/types/index.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L64)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:57
+[packages/core/src/types/index.ts:63](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L63)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:56
+[packages/core/src/types/index.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L62)

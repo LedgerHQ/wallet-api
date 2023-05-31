@@ -56,16 +56,14 @@ export function Editor() {
     []
   );
 
-  const value = useMemo(() => {
-    return history
+  const value = useMemo(() => history
       .map(
         (message) =>
           `${getMessageStatus(message)} ${message.date.toLocaleTimeString()}\n${
             message.value
           }`
       )
-      .join("\n\n\n");
-  }, [history]);
+      .join("\n\n\n"), [history]);
 
   const handleMessage = useCallback(
     (message: string) => {

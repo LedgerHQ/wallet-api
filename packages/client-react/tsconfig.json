@@ -1,16 +1,8 @@
 {
-  "extends": "@tsconfig/node18-strictest/tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "declaration": true,
-    "declarationMap": true,
-    "outDir": "./lib",
-    "exactOptionalPropertyTypes": false,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "outDir": "./lib"
   },
   "include": ["src/**/*", "jest.config.ts", "tests/**/*"]
 }

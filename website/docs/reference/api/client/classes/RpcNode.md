@@ -41,67 +41,21 @@ custom_edit_url: null
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:11
+[packages/core/src/JSONRPC/RpcNode.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L39)
 
 ## Properties
 
-### \_notify
-
-• `Private` **\_notify**: `any`
-
-#### Defined in
-
-packages/core/lib/JSONRPC/RpcNode.d.ts:13
-
-___
-
-### \_request
-
-• `Private` **\_request**: `any`
-
-#### Defined in
-
-packages/core/lib/JSONRPC/RpcNode.d.ts:12
-
-___
-
-### handleMessage
-
-• `Private` **handleMessage**: `any`
-
-#### Defined in
-
-packages/core/lib/JSONRPC/RpcNode.d.ts:17
-
-___
-
-### handleRpcRequest
-
-• `Private` **handleRpcRequest**: `any`
-
-#### Defined in
-
-packages/core/lib/JSONRPC/RpcNode.d.ts:16
-
-___
-
-### handleRpcResponse
-
-• `Private` **handleRpcResponse**: `any`
-
-#### Defined in
-
-packages/core/lib/JSONRPC/RpcNode.d.ts:19
-
-___
-
 ### ongoingRequests
 
-• `Private` **ongoingRequests**: `any`
+• `Private` **ongoingRequests**: `Object` = `{}`
+
+#### Index signature
+
+▪ [requestId: `number` \| `string`]: `Resolver`<[`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<`TCHandlers`, keyof `TCHandlers`\>, `unknown`\>\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:10
+[packages/core/src/JSONRPC/RpcNode.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L30)
 
 ___
 
@@ -111,19 +65,131 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:9
+[packages/core/src/JSONRPC/RpcNode.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L28)
 
 ___
 
 ### transport
 
-• `Private` **transport**: `any`
+• `Private` **transport**: [`Transport`](../interfaces/Transport.md)
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:8
+[packages/core/src/JSONRPC/RpcNode.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L26)
 
 ## Methods
+
+### \_notify
+
+▸ `Private` **_notify**<`K`\>(`request`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | [`RpcRequest`](../interfaces/RpcRequest.md)<`K`, `MethodParamsIfExists`<`TCHandlers`, `K`\>\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/core/src/JSONRPC/RpcNode.ts:83](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L83)
+
+___
+
+### \_request
+
+▸ `Private` **_request**<`K`\>(`request`): `Promise`<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `K` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | [`RpcRequest`](../interfaces/RpcRequest.md)<`K`, `MethodParamsIfExists`<`TCHandlers`, `K`\>\> |
+
+#### Returns
+
+`Promise`<`ReturnTypeOfMethodIfExists`<`TCHandlers`, `K`\>\>
+
+#### Defined in
+
+[packages/core/src/JSONRPC/RpcNode.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L47)
+
+___
+
+### handleMessage
+
+▸ `Private` **handleMessage**(`message`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[packages/core/src/JSONRPC/RpcNode.ts:151](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L151)
+
+___
+
+### handleRpcRequest
+
+▸ `Private` **handleRpcRequest**(`request`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | [`RpcRequest`](../interfaces/RpcRequest.md)<`string`, `unknown`\> |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[packages/core/src/JSONRPC/RpcNode.ts:113](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L113)
+
+___
+
+### handleRpcResponse
+
+▸ `Private` **handleRpcResponse**(`response`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `response` | [`RpcResponse`](../#rpcresponse)<`ReturnTypeOfMethodIfExists`<`TCHandlers`, keyof `TCHandlers`\>, `unknown`\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/core/src/JSONRPC/RpcNode.ts:196](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L196)
+
+___
 
 ### notify
 
@@ -148,7 +214,7 @@ packages/core/lib/JSONRPC/RpcNode.d.ts:8
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:15
+[packages/core/src/JSONRPC/RpcNode.ts:102](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L102)
 
 ___
 
@@ -168,7 +234,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:18
+[packages/core/src/JSONRPC/RpcNode.ts:194](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L194)
 
 ___
 
@@ -195,4 +261,4 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RpcNode.d.ts:14
+[packages/core/src/JSONRPC/RpcNode.ts:89](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L89)

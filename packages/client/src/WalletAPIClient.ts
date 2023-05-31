@@ -23,8 +23,10 @@ export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
 // temporary
 const requestHandlers = {
-  "event.account.updated": async (_request: RpcRequest) => {
+  "event.account.updated": (_request: RpcRequest) => {
+    // eslint-disable-next-line no-console
     console.log("accounts updated !");
+    return Promise.resolve();
   },
 };
 

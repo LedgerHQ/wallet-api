@@ -1,5 +1,4 @@
-import type { Account } from "@ledgerhq/wallet-api-client";
-import type { AccountModule } from "@ledgerhq/wallet-api-client/lib/modules/Account";
+import type { Account, WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
@@ -9,10 +8,10 @@ type UseRequestAccountState = {
   error: unknown;
 };
 
+type RequestAccountParams = Parameters<WalletAPIClient["account"]["request"]>;
+
 type UseRequestAccountReturn = {
-  requestAccount: (
-    ...params: Parameters<AccountModule["request"]>
-  ) => Promise<void>;
+  requestAccount: (...params: RequestAccountParams) => Promise<void>;
 } & UseRequestAccountState;
 
 const initialState: UseRequestAccountState = {
@@ -26,7 +25,7 @@ export function useRequestAccount(): UseRequestAccountReturn {
   const [state, setState] = useState<UseRequestAccountState>(initialState);
 
   const requestAccount = useCallback(
-    async (...params: Parameters<AccountModule["request"]>) => {
+    async (...params: RequestAccountParams) => {
       try {
         setState((oldState) => ({
           ...oldState,

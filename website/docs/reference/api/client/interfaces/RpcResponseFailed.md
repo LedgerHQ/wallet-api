@@ -30,7 +30,7 @@ The value for this member MUST be an Object of Type `RpcResponseError`.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:113
+[packages/core/src/JSONRPC/types.ts:127](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L127)
 
 ___
 
@@ -51,7 +51,7 @@ it **MUST** be `Null`.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:91
+[packages/core/src/JSONRPC/types.ts:98](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L98)
 
 ___
 
@@ -68,4 +68,4 @@ A String specifying the version of the JSON-RPC protocol.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:82
+[packages/core/src/JSONRPC/types.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L88)

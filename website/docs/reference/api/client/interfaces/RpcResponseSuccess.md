@@ -37,7 +37,7 @@ it **MUST** be `Null`.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:91
+[packages/core/src/JSONRPC/types.ts:98](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L98)
 
 ___
 
@@ -54,7 +54,7 @@ A String specifying the version of the JSON-RPC protocol.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:82
+[packages/core/src/JSONRPC/types.ts:88](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L88)
 
 ___
 
@@ -68,4 +68,4 @@ The value of this member is determined by the method invoked on the Server.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:105
+[packages/core/src/JSONRPC/types.ts:117](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L117)

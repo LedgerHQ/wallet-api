@@ -47,7 +47,7 @@ Transport.\_appAPIlock
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:150
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:164
 
 ___
 
@@ -61,7 +61,7 @@ Transport.\_events
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:104
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:116
 
 ___
 
@@ -75,7 +75,7 @@ Transport.deviceModel
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:43
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:45
 
 ___
 
@@ -103,7 +103,7 @@ Transport.exchangeAtomicImpl
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:148
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:162
 
 ___
 
@@ -117,7 +117,7 @@ Transport.exchangeBusyPromise
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:147
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:161
 
 ___
 
@@ -131,7 +131,7 @@ Transport.exchangeTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:41
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:43
 
 ___
 
@@ -143,24 +143,24 @@ ___
 
 ▸ (`cla`, `ins`, `p1`, `p2`, `data?`, `statusList?`): `Promise`<`Buffer`\>
 
-wrapper on top of exchange to simplify work of the implementation.
+Send data to the device using the higher level API.
 
 ##### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cla` | `number` |  |
-| `ins` | `number` |  |
-| `p1` | `number` |  |
-| `p2` | `number` |  |
-| `data?` | `Buffer` |  |
-| `statusList?` | `number`[] | is a list of accepted status code (shorts). [0x9000] by default |
+| `cla` | `number` | The instruction class for the command. |
+| `ins` | `number` | The instruction code for the command. |
+| `p1` | `number` | The first parameter for the instruction. |
+| `p2` | `number` | The second parameter for the instruction. |
+| `data?` | `Buffer` | The data to be sent. Defaults to an empty buffer. |
+| `statusList?` | `number`[] | A list of acceptable status codes for the response. Defaults to [StatusCodes.OK]. |
 
 ##### Returns
 
 `Promise`<`Buffer`\>
 
-a Promise of response buffer
+A promise that resolves with the response data from the device.
 
 #### Inherited from
 
@@ -168,7 +168,7 @@ Transport.send
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:138
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
 
 ___
 
@@ -192,7 +192,7 @@ Transport.unresponsiveTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:42
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:44
 
 ___
 
@@ -216,7 +216,7 @@ Transport.ErrorMessage\_ListenTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:152
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:166
 
 ___
 
@@ -230,7 +230,7 @@ Transport.ErrorMessage\_NoDeviceFound
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:153
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:167
 
 ## Methods
 
@@ -300,7 +300,7 @@ Transport.decorateAppAPIMethod
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:151
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:165
 
 ___
 
@@ -326,7 +326,7 @@ Transport.decorateAppAPIMethods
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:149
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:163
 
 ___
 
@@ -351,7 +351,7 @@ Transport.emit
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:115
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:129
 
 ___
 
@@ -387,6 +387,36 @@ Transport.exchange
 
 ___
 
+### exchangeBulk
+
+▸ **exchangeBulk**(`apdus`, `observer`): `Subscription`
+
+Send apdus in batch to the device using a low level API.
+The default implementation is to call exchange for each apdu.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `apdus` | `Buffer`[] | array of apdus to send. |
+| `observer` | `Readonly`<{ `complete`: () => `unknown` ; `error`: (`e`: `unknown`) => `unknown` ; `next`: (`event`: `Buffer`) => `unknown`  }\> | an observer that will receive the response of each apdu. |
+
+#### Returns
+
+`Subscription`
+
+A Subscription object on which you can call ".unsubscribe()" to stop sending apdus.
+
+#### Inherited from
+
+Transport.exchangeBulk
+
+#### Defined in
+
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:103
+
+___
+
 ### off
 
 ▸ **off**(`eventName`, `cb`): `void`
@@ -410,7 +440,7 @@ Transport.off
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:114
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:128
 
 ___
 
@@ -418,16 +448,16 @@ ___
 
 ▸ **on**(`eventName`, `cb`): `void`
 
-Listen to an event on an instance of transport.
-Transport implementation can have specific events. Here is the common events:
-* `"disconnect"` : triggered if Transport is disconnected
+Listen for an event on the transport instance.
+Transport implementations may have specific events. Common events include:
+"disconnect" : triggered when the transport is disconnected.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `eventName` | `string` |
-| `cb` | (...`args`: `any`[]) => `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eventName` | `string` | The name of the event to listen for. |
+| `cb` | (...`args`: `any`[]) => `any` | The callback function to be invoked when the event occurs. |
 
 #### Returns
 
@@ -439,7 +469,7 @@ Transport.on
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:110
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:124
 
 ___
 
@@ -459,7 +489,7 @@ Transport.setDebugMode
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:119
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:133
 
 ___
 
@@ -485,7 +515,7 @@ Transport.setExchangeTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:123
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:137
 
 ___
 
@@ -511,7 +541,7 @@ Transport.setExchangeUnresponsiveTimeout
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:127
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:141
 
 ___
 
@@ -564,7 +594,7 @@ Transport.create
 
 #### Defined in
 
-node_modules/.pnpm/@ledgerhq+hw-transport@6.27.10/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:146
+node_modules/.pnpm/@ledgerhq+hw-transport@6.28.4/node_modules/@ledgerhq/hw-transport/lib/Transport.d.ts:160
 
 ___
 

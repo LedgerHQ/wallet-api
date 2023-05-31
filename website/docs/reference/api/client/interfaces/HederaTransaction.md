@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:45
+[packages/core/src/families/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L47)
 
 ___
 
@@ -45,7 +45,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/hedera/types.d.ts:5
+[packages/core/src/families/hedera/types.ts:6](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/hedera/types.ts#L6)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/hedera/types.d.ts:6
+[packages/core/src/families/hedera/types.ts:7](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/hedera/types.ts#L7)
 
 ___
 
@@ -71,4 +71,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:49
+[packages/core/src/families/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L51)

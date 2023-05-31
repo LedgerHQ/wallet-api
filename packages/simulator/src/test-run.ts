@@ -1,4 +1,4 @@
-import { WalletAPIClient } from "@ledgerhq/wallet-api-client/lib/WalletAPIClient";
+import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { profiles } from "./profiles";
 // import { deserializeTransaction } from "@ledgerhq/wallet-api-core";
 import { getSimulatorTransport } from "./transport";

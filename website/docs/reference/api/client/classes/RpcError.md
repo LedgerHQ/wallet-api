@@ -42,17 +42,17 @@ Error.constructor
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RPCError.d.ts:4
+[packages/core/src/JSONRPC/RPCError.ts:6](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RPCError.ts#L6)
 
 ## Properties
 
 ### err
 
-• `Private` `Readonly` **err**: `any`
+• `Private` `Readonly` **err**: [`RpcResponseError`](../interfaces/RpcResponseError.md)<`TError`\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RPCError.d.ts:3
+[packages/core/src/JSONRPC/RPCError.ts:4](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RPCError.ts#L4)
 
 ___
 
@@ -66,7 +66,7 @@ Error.message
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1041
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1055
 
 ___
 
@@ -80,7 +80,7 @@ Error.name
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1040
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1054
 
 ___
 
@@ -94,7 +94,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1042
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1056
 
 ___
 
@@ -129,7 +129,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:11
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -143,7 +143,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:13
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -161,7 +161,7 @@ error code
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RPCError.d.ts:9
+[packages/core/src/JSONRPC/RPCError.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RPCError.ts#L15)
 
 ___
 
@@ -179,7 +179,7 @@ data info
 
 #### Defined in
 
-packages/core/lib/JSONRPC/RPCError.d.ts:14
+[packages/core/src/JSONRPC/RPCError.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RPCError.ts#L23)
 
 ___
 
@@ -206,4 +206,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:4
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:4

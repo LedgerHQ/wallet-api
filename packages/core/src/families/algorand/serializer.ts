@@ -9,17 +9,15 @@ export const serializeAlgorandTransaction = ({
   memo,
   amount,
   recipient,
-}: AlgorandTransaction): RawAlgorandTransaction => {
-  return {
-    family,
-    amount: amount.toString(),
-    recipient,
-    fees: fees ? fees.toString() : undefined,
-    memo,
-    mode,
-    assetId,
-  };
-};
+}: AlgorandTransaction): RawAlgorandTransaction => ({
+  family,
+  amount: amount.toString(),
+  recipient,
+  fees: fees ? fees.toString() : undefined,
+  memo,
+  mode,
+  assetId,
+});
 
 export const deserializeAlgorandTransaction = ({
   family,
@@ -29,14 +27,12 @@ export const deserializeAlgorandTransaction = ({
   memo,
   amount,
   recipient,
-}: RawAlgorandTransaction): AlgorandTransaction => {
-  return {
-    family,
-    amount: new BigNumber(amount),
-    recipient,
-    fees: fees ? new BigNumber(fees) : undefined,
-    memo,
-    mode,
-    assetId,
-  };
-};
+}: RawAlgorandTransaction): AlgorandTransaction => ({
+  family,
+  amount: new BigNumber(amount),
+  recipient,
+  fees: fees ? new BigNumber(fees) : undefined,
+  memo,
+  mode,
+  assetId,
+});

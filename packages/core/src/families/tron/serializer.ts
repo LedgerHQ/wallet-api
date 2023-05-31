@@ -8,16 +8,14 @@ export const serializeTronTransaction = ({
   mode,
   resource,
   duration,
-}: TronTransaction): RawTronTransaction => {
-  return {
-    amount: amount.toString(),
-    recipient,
-    family,
-    mode,
-    resource,
-    duration,
-  };
-};
+}: TronTransaction): RawTronTransaction => ({
+  amount: amount.toString(),
+  recipient,
+  family,
+  mode,
+  resource,
+  duration,
+});
 
 export const deserializeTronTransaction = ({
   amount,
@@ -26,13 +24,11 @@ export const deserializeTronTransaction = ({
   mode,
   resource,
   duration,
-}: RawTronTransaction): TronTransaction => {
-  return {
-    amount: new BigNumber(amount),
-    recipient,
-    family,
-    mode,
-    resource,
-    duration,
-  };
-};
+}: RawTronTransaction): TronTransaction => ({
+  amount: new BigNumber(amount),
+  recipient,
+  family,
+  mode,
+  resource,
+  duration,
+});

@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:45
+[packages/core/src/families/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L47)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:8
+[packages/core/src/families/elrond/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L12)
 
 ___
 
@@ -55,7 +55,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:6
+[packages/core/src/families/elrond/types.ts:10](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L10)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:9
+[packages/core/src/families/elrond/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L13)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:10
+[packages/core/src/families/elrond/types.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L14)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:7
+[packages/core/src/families/elrond/types.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L11)
 
 ___
 
@@ -101,4 +101,4 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:49
+[packages/core/src/families/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L51)

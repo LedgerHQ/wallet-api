@@ -18,25 +18,23 @@
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json"
   },
   "devDependencies": {
-    "@tsconfig/node18-strictest": "^1.0.0",
-    "@types/jest": "^29.2.1",
-    "@types/node": "^18.11.8",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.2.5",
     "@types/picomatch": "^2.3.0",
-    "@types/react": "^18.0.27",
-    "eslint": "^8.26.0",
-    "jest": "^29.1.2",
-    "jest-environment-jsdom": "^29.2.2",
+    "@types/react": "^18.2.7",
+    "eslint": "^8.41.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "jest-shared-config": "workspace:*",
     "react": "^18.2.0",
-    "rxjs": "^7.8.0",
-    "ts-jest": "^29.0.3",
+    "rxjs": "^7.8.1",
+    "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
-    "bignumber.js": "^9.0.2",
-    "json-rpc-2.0": "^1.1.0",
+    "bignumber.js": "^9.1.1",
     "picomatch": "^2.3.1"
   },
   "peerDependencies": {

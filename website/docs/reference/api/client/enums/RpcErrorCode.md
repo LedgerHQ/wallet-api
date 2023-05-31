@@ -18,7 +18,7 @@ Internal JSON-RPC error.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:26
+[packages/core/src/JSONRPC/types.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L26)
 
 ___
 
@@ -30,7 +30,7 @@ Invalid method parameter(s).
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:22
+[packages/core/src/JSONRPC/types.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L22)
 
 ___
 
@@ -42,7 +42,7 @@ The JSON sent is not a valid Request object.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:14
+[packages/core/src/JSONRPC/types.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L14)
 
 ___
 
@@ -54,7 +54,7 @@ The method does not exist / is not available.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:18
+[packages/core/src/JSONRPC/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L18)
 
 ___
 
@@ -67,7 +67,7 @@ or An error occurred on the server while parsing the JSON text.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:10
+[packages/core/src/JSONRPC/types.ts:10](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L10)
 
 ___
 
@@ -79,4 +79,4 @@ Reserved for implementation-defined server-errors.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:30
+[packages/core/src/JSONRPC/types.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L30)

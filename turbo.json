@@ -7,11 +7,11 @@
       "inputs": ["src/**/*.ts"]
     },
     "lint": {
-      "dependsOn": ["^build"],
+      "dependsOn": [],
       "outputs": []
     },
     "lint:fix": {
-      "dependsOn": ["^build"],
+      "dependsOn": [],
       "outputs": []
     },
     "format:check": {
@@ -29,6 +29,11 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },
+    "manifest-validator-cli#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["bin/**"],
+      "inputs": ["src/**/*.ts"]
+    },
     "wallet-api-website#build": {
       "dependsOn": ["^build"],
       "outputs": ["build/**"],
@@ -36,7 +41,8 @@
     },
     "wallet-api-tools#build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**", ".next/**"],
+      "inputs": ["src/**"]
     },
     "wallet-api-tools#dev": {
       "dependsOn": ["^build"],

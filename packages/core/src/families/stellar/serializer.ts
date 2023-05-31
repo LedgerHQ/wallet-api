@@ -8,16 +8,14 @@ export const serializeStellarTransaction = ({
   fees,
   memoType,
   memoValue,
-}: StellarTransaction): RawStellarTransaction => {
-  return {
-    amount: amount.toString(),
-    recipient,
-    family,
-    fees: fees ? fees.toString() : undefined,
-    memoType,
-    memoValue,
-  };
-};
+}: StellarTransaction): RawStellarTransaction => ({
+  amount: amount.toString(),
+  recipient,
+  family,
+  fees: fees ? fees.toString() : undefined,
+  memoType,
+  memoValue,
+});
 
 export const deserializeStellarTransaction = ({
   amount,
@@ -26,13 +24,11 @@ export const deserializeStellarTransaction = ({
   fees,
   memoType,
   memoValue,
-}: RawStellarTransaction): StellarTransaction => {
-  return {
-    amount: new BigNumber(amount),
-    recipient,
-    family,
-    fees: fees ? new BigNumber(fees) : undefined,
-    memoType,
-    memoValue,
-  };
-};
+}: RawStellarTransaction): StellarTransaction => ({
+  amount: new BigNumber(amount),
+  recipient,
+  family,
+  fees: fees ? new BigNumber(fees) : undefined,
+  memoType,
+  memoValue,
+});
