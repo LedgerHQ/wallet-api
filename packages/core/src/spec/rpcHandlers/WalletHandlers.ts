@@ -6,6 +6,8 @@ import type {
   CurrencyListHandler,
   DeviceCloseHandler,
   DeviceExchangeHandler,
+  DeviceOpenHandler,
+  DeviceSelectHandler,
   DeviceTransportHandler,
   ExchangeCompleteHandler,
   ExchangeStartHandler,
@@ -26,6 +28,8 @@ export interface WalletHandlers {
   "currency.list": CurrencyListHandler;
   "device.close": DeviceCloseHandler;
   "device.exchange": DeviceExchangeHandler;
+  "device.open": DeviceOpenHandler;
+  "device.select": DeviceSelectHandler;
   "device.transport": DeviceTransportHandler;
   "message.sign": MessageSignHandler;
   "transaction.sign": TransactionSignHandler;

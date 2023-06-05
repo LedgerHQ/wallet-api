@@ -1,14 +1,14 @@
 import type { WalletHandlers } from "@ledgerhq/wallet-api-core";
 import type { TransformHandler } from "../types";
 import * as account from "./account";
+import * as bitcoin from "./bitcoin";
 import * as currency from "./currency";
 import * as device from "./device";
+import * as exchange from "./exchange";
 import * as message from "./message";
+import * as storage from "./storage";
 import * as transaction from "./transaction";
 import * as wallet from "./wallet";
-import * as storage from "./storage";
-import * as bitcoin from "./bitcoin";
-import * as exchange from "./exchange";
 
 type InternalHandlers = TransformHandler<WalletHandlers>;
 
@@ -21,6 +21,8 @@ export const internalHandlers: InternalHandlers = {
 
   "device.close": device.close,
   "device.exchange": device.exchange,
+  "device.open": device.open,
+  "device.select": device.select,
   "device.transport": device.transport,
 
   "message.sign": message.sign,
