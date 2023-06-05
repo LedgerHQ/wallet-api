@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L23)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L25)
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L24)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L26)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L25)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L27)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L35)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L39)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L26)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L28)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L27)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L29)
 
 ___
 
@@ -74,7 +74,27 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L28)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L30)
+
+___
+
+### device.open
+
+• **device.open**: [`DeviceOpenHandler`](../#deviceopenhandler)
+
+#### Defined in
+
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L31)
+
+___
+
+### device.select
+
+• **device.select**: [`DeviceSelectHandler`](../#deviceselecthandler)
+
+#### Defined in
+
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L32)
 
 ___
 
@@ -84,7 +104,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L29)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L33)
 
 ___
 
@@ -94,7 +114,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:40](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L40)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:44](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L44)
 
 ___
 
@@ -104,7 +124,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L39)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:43](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L43)
 
 ___
 
@@ -114,7 +134,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L30)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L34)
 
 ___
 
@@ -124,7 +144,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L34)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:38](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L38)
 
 ___
 
@@ -134,7 +154,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L33)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:37](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L37)
 
 ___
 
@@ -144,7 +164,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L31)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L35)
 
 ___
 
@@ -154,7 +174,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L32)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L36)
 
 ___
 
@@ -164,7 +184,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L36)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:40](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L40)
 
 ___
 
@@ -174,7 +194,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:38](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L38)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L42)
 
 ___
 
@@ -184,4 +204,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:37](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L37)
+[packages/core/src/spec/rpcHandlers/WalletHandlers.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/WalletHandlers.ts#L41)

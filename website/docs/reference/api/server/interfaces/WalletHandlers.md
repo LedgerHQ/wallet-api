@@ -29,7 +29,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[packages/server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
+[packages/server/src/types.ts:63](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L63)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L57)
+[packages/server/src/types.ts:59](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L59)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:91](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L91)
+[packages/server/src/types.ts:95](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L95)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
+[packages/server/src/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L81)
 
 ___
 
@@ -131,7 +131,61 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L80)
+[packages/server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
+
+___
+
+### device.open
+
+• **device.open**: (`params`: { `deviceId`: `string`  }) => `Promisable`<`string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`string`\>
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | - |
+| `params.deviceId` | `string` | ID of the device to select |
+
+##### Returns
+
+`Promisable`<`string`\>
+
+#### Defined in
+
+[packages/server/src/types.ts:83](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L83)
+
+___
+
+### device.select
+
+• **device.select**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
+
+#### Type declaration
+
+▸ (`params`): `Promisable`<`string`\>
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | - |
+| `params.appName?` | `string` | Select the BOLOS App. If undefined selects BOLOS |
+| `params.appVersionRange?` | `string` | Checks the BOLOS App version range. If undefined no checks Can be any ranges supported here: https://github.com/npm/node-semver#ranges |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] | Checks if the device matches one of the types. If undefined no checks |
+| `params.firmwareVersionRange?` | `string` | Checks the BOLOS Firmware version range. If undefined no checks Can be any ranges supported here: https://github.com/npm/node-semver#ranges |
+| `params.seeded?` | `boolean` | Checks if the device is seeded. If undefined no checks |
+
+##### Returns
+
+`Promisable`<`string`\>
+
+#### Defined in
+
+[packages/server/src/types.ts:84](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L84)
 
 ___
 
@@ -160,7 +214,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L81)
+[packages/server/src/types.ts:85](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L85)
 
 ___
 
@@ -184,7 +238,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L93)
+[packages/server/src/types.ts:97](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L97)
 
 ___
 
@@ -209,7 +263,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
+[packages/server/src/types.ts:96](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L96)
 
 ___
 
@@ -236,7 +290,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
+[packages/server/src/types.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L64)
 
 ___
 
@@ -262,7 +316,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
+[packages/server/src/types.ts:91](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L91)
 
 ___
 
@@ -289,7 +343,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
+[packages/server/src/types.ts:86](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L86)
 
 ___
 
@@ -318,7 +372,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L67)
+[packages/server/src/types.ts:69](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L69)
 
 ___
 
@@ -347,4 +401,4 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)
+[packages/server/src/types.ts:75](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L75)
