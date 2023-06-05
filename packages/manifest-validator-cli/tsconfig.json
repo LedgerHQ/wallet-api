@@ -1,10 +1,9 @@
 {
-  "extends": "@tsconfig/node18-strictest/tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "resolveJsonModule": true,
     "outDir": "./bin",
-    "exactOptionalPropertyTypes": false,    
     "module": "commonjs"
   },
   "include": ["src/**/*"]
-
 }

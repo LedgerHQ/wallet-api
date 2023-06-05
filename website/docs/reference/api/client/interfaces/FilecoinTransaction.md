@@ -29,7 +29,7 @@ For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx cor
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:45
+[packages/core/src/families/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L47)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:9
+[packages/core/src/families/filecoin/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L9)
 
 ___
 
@@ -55,7 +55,7 @@ The family of the transaction
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:7
+[packages/core/src/families/filecoin/types.ts:7](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L7)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:14
+[packages/core/src/families/filecoin/types.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L14)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:13
+[packages/core/src/families/filecoin/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L13)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:15
+[packages/core/src/families/filecoin/types.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L15)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:10
+[packages/core/src/families/filecoin/types.ts:10](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L10)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:8
+[packages/core/src/families/filecoin/types.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L8)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:12
+[packages/core/src/families/filecoin/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L12)
 
 ___
 
@@ -131,7 +131,7 @@ The address of the transaction's recipient
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:49
+[packages/core/src/families/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L51)
 
 ___
 
@@ -141,4 +141,4 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:11
+[packages/core/src/families/filecoin/types.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L11)

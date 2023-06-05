@@ -18,15 +18,14 @@
     "validate": "bin/cli.js"
   },
   "devDependencies": {
-    "@tsconfig/node18-strictest": "^1.0.0",
-    "@types/node": "^18.11.8",
-    "eslint": "^8.26.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "@types/node": "^20.2.5",
+    "eslint": "^8.41.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-manifest-validator": "workspace:*",
-    "clipanion": "3.2.0-rc.13"
+    "clipanion": "3.2.0"
   }
 }

@@ -1,0 +1,33 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": false,
+    "baseUrl": ".",
+    "paths": {
+      "@ledgerhq/wallet-api-*": ["packages/*/src/index.ts"]
+    },
+
+    "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "checkJs": true,
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["DOM", "DOM.Iterable"]
+  },
+  "exclude": ["node_modules"]
+}

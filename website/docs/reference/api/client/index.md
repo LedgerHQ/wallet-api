@@ -83,7 +83,7 @@ This is a slightly modified subset of the Account type used by the Ledger Live p
 
 #### Defined in
 
-packages/core/lib/accounts/types.d.ts:12
+[packages/core/src/accounts/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/accounts/types.ts#L13)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountList.d.ts:122
+[packages/core/src/spec/types/AccountList.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountList.ts#L19)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountList.d.ts:126
+[packages/core/src/spec/types/AccountList.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountList.ts#L24)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:51
+[packages/core/src/errors/types.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L47)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountReceive.d.ts:32
+[packages/core/src/spec/types/AccountReceive.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountReceive.ts#L16)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountReceive.d.ts:36
+[packages/core/src/spec/types/AccountReceive.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountReceive.ts#L21)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountRequest.d.ts:122
+[packages/core/src/spec/types/AccountRequest.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountRequest.ts#L17)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountRequest.d.ts:126
+[packages/core/src/spec/types/AccountRequest.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountRequest.ts#L22)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/algorand/types.d.ts:5
+[packages/core/src/families/algorand/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/algorand/types.ts#L9)
 
 ___
 
@@ -245,7 +245,7 @@ Informations about a device application
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:63
+[packages/core/src/types/index.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L70)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/BitcoinGetXPub.d.ts:32
+[packages/core/src/spec/types/BitcoinGetXPub.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/BitcoinGetXPub.ts#L16)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/BitcoinGetXPub.d.ts:36
+[packages/core/src/spec/types/BitcoinGetXPub.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/BitcoinGetXPub.ts#L21)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:69
+[packages/core/src/families/solana/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L79)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:70
+[packages/core/src/families/solana/types.ts:89](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L89)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:5
+[packages/core/src/families/cosmos/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/cosmos/types.ts#L9)
 
 ___
 
@@ -337,7 +337,7 @@ Crypto currency model
 
 #### Defined in
 
-packages/core/lib/currencies/types.d.ts:14
+[packages/core/src/currencies/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/types.ts#L23)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/currencies/types.d.ts:19
+[packages/core/src/currencies/types.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/types.ts#L30)
 
 ___
 
@@ -364,7 +364,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/CurrencyList.d.ts:218
+[packages/core/src/spec/types/CurrencyList.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/CurrencyList.ts#L19)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/CurrencyList.d.ts:222
+[packages/core/src/spec/types/CurrencyList.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/CurrencyList.ts#L24)
 
 ___
 
@@ -398,7 +398,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:75
+[packages/core/src/errors/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L61)
 
 ___
 
@@ -410,7 +410,7 @@ Currency types
 
 #### Defined in
 
-packages/core/lib/currencies/types.d.ts:6
+[packages/core/src/currencies/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/types.ts#L13)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceClose.d.ts:32
+[packages/core/src/spec/types/DeviceClose.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceClose.ts#L16)
 
 ___
 
@@ -451,7 +451,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceClose.d.ts:36
+[packages/core/src/spec/types/DeviceClose.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceClose.ts#L21)
 
 ___
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceExchange.d.ts:38
+[packages/core/src/spec/types/DeviceExchange.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceExchange.ts#L17)
 
 ___
 
@@ -492,7 +492,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceExchange.d.ts:42
+[packages/core/src/spec/types/DeviceExchange.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceExchange.ts#L22)
 
 ___
 
@@ -506,12 +506,12 @@ Information about a device
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `modelId` | [`DeviceModel`](enums/DeviceModel.md) | The [model](enums/DeviceModel.md) of the device |
+| `modelId` | [`DeviceModel`](enums/DeviceModel.md) | The [[DeviceModel \| model]] of the device |
 | `version` | `string` | The version of the firmware |
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:42
+[packages/core/src/types/index.ts:47](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L47)
 
 ___
 
@@ -528,7 +528,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceTransport.d.ts:88
+[packages/core/src/spec/types/DeviceTransport.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L39)
 
 ___
 
@@ -552,7 +552,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceTransport.d.ts:92
+[packages/core/src/spec/types/DeviceTransport.ts:44](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L44)
 
 ___
 
@@ -562,7 +562,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceTransport.d.ts:3
+[packages/core/src/spec/types/DeviceTransport.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L5)
 
 ___
 
@@ -574,7 +574,7 @@ ERC20 token currency model
 
 #### Defined in
 
-packages/core/lib/currencies/types.d.ts:18
+[packages/core/src/currencies/types.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/types.ts#L28)
 
 ___
 
@@ -582,11 +582,11 @@ ___
 
 Ƭ **EcdsaSignature**: `Buffer`
 
-The ECDSA signature of the [payload](#exchangepayload)
+The ECDSA signature of the [[ExchangePayload | payload]]
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:12
+[packages/core/src/types/index.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L13)
 
 ___
 
@@ -603,7 +603,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeComplete.d.ts:4064
+[packages/core/src/spec/types/ExchangeComplete.ts:46](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeComplete.ts#L46)
 
 ___
 
@@ -627,7 +627,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeComplete.d.ts:4068
+[packages/core/src/spec/types/ExchangeComplete.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeComplete.ts#L51)
 
 ___
 
@@ -639,7 +639,7 @@ A transaction ID used to complete the exchange process
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:16
+[packages/core/src/types/index.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L18)
 
 ___
 
@@ -653,7 +653,7 @@ and a partner (for sell, swap and funding)
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:8
+[packages/core/src/types/index.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L8)
 
 ___
 
@@ -670,7 +670,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeStart.d.ts:32
+[packages/core/src/spec/types/ExchangeStart.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeStart.ts#L18)
 
 ___
 
@@ -694,7 +694,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeStart.d.ts:36
+[packages/core/src/spec/types/ExchangeStart.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeStart.ts#L23)
 
 ___
 
@@ -706,7 +706,7 @@ Supported coin families
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:26
+[packages/core/src/families/types.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L27)
 
 ___
 
@@ -718,7 +718,7 @@ ___
 
 ▸ (`message`): `void`
 
-Simple contract for handling a Message received through a [Transport](interfaces/Transport.md) protocol
+Simple contract for handling a Message received through a [[Transport]] protocol
 
 ##### Parameters
 
@@ -732,7 +732,7 @@ Simple contract for handling a Message received through a [Transport](interfaces
 
 #### Defined in
 
-packages/core/lib/transports/types.d.ts:6
+[packages/core/src/transports/types.ts:6](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/transports/types.ts#L6)
 
 ___
 
@@ -749,7 +749,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/MessageSign.d.ts:44
+[packages/core/src/spec/types/MessageSign.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/MessageSign.ts#L18)
 
 ___
 
@@ -773,7 +773,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/MessageSign.d.ts:48
+[packages/core/src/spec/types/MessageSign.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/MessageSign.ts#L23)
 
 ___
 
@@ -783,7 +783,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/methods.d.ts:2
+[packages/core/src/spec/methods.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/methods.ts#L3)
 
 ___
 
@@ -793,7 +793,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:27
+[packages/core/src/errors/types.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L31)
 
 ___
 
@@ -810,7 +810,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:73
+[packages/core/src/types/index.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L81)
 
 ___
 
@@ -820,7 +820,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:99
+[packages/core/src/errors/types.ts:75](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L75)
 
 ___
 
@@ -830,7 +830,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/polkadot/types.d.ts:5
+[packages/core/src/families/polkadot/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/polkadot/types.ts#L9)
 
 ___
 
@@ -846,7 +846,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:2
+[packages/core/src/types/index.ts:1](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L1)
 
 ___
 
@@ -884,15 +884,15 @@ ___
 
 Ƭ **RawAccount**: `z.infer`<typeof [`schemaRawAccount`](#schemarawaccount)\>
 
-The raw representation of the [Account](#account) type
+The raw representation of the [[Account]] type
 
 **`See`**
 
-[Account](#account) for information regarding individual fields. Each field type is the serialized version of the corresponding [Account](#account) type
+[[Account]] for information regarding individual fields. Each field type is the serialized version of the corresponding [[Account]] type
 
 #### Defined in
 
-packages/core/lib/accounts/types.d.ts:51
+[packages/core/src/accounts/types.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/accounts/types.ts#L53)
 
 ___
 
@@ -902,7 +902,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/algorand/types.d.ts:13
+[packages/core/src/families/algorand/types.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/algorand/types.ts#L19)
 
 ___
 
@@ -912,7 +912,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/bitcoin/types.d.ts:11
+[packages/core/src/families/bitcoin/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/bitcoin/types.ts#L12)
 
 ___
 
@@ -922,7 +922,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/cardano/types.d.ts:11
+[packages/core/src/families/cardano/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/cardano/types.ts#L13)
 
 ___
 
@@ -932,7 +932,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/celo/types.d.ts:11
+[packages/core/src/families/celo/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/celo/types.ts#L13)
 
 ___
 
@@ -942,7 +942,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/cosmos/types.d.ts:13
+[packages/core/src/families/cosmos/types.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/cosmos/types.ts#L19)
 
 ___
 
@@ -952,7 +952,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/crypto_org/types.d.ts:10
+[packages/core/src/families/crypto_org/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/crypto_org/types.ts#L12)
 
 ___
 
@@ -962,7 +962,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/elrond/types.d.ts:12
+[packages/core/src/families/elrond/types.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/elrond/types.ts#L17)
 
 ___
 
@@ -972,7 +972,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/ethereum/types.d.ts:15
+[packages/core/src/families/ethereum/types.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/ethereum/types.ts#L16)
 
 ___
 
@@ -982,7 +982,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/filecoin/types.d.ts:17
+[packages/core/src/families/filecoin/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/filecoin/types.ts#L18)
 
 ___
 
@@ -992,7 +992,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/hedera/types.d.ts:8
+[packages/core/src/families/hedera/types.ts:10](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/hedera/types.ts#L10)
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/near/types.d.ts:10
+[packages/core/src/families/near/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/near/types.ts#L12)
 
 ___
 
@@ -1012,7 +1012,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/neo/types.d.ts:7
+[packages/core/src/families/neo/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/neo/types.ts#L9)
 
 ___
 
@@ -1022,7 +1022,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/polkadot/types.d.ts:12
+[packages/core/src/families/polkadot/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/polkadot/types.ts#L18)
 
 ___
 
@@ -1032,7 +1032,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/ripple/types.d.ts:10
+[packages/core/src/families/ripple/types.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/ripple/types.ts#L12)
 
 ___
 
@@ -1042,7 +1042,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:135
+[packages/core/src/families/solana/types.ts:172](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L172)
 
 ___
 
@@ -1052,7 +1052,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/stellar/types.d.ts:11
+[packages/core/src/families/stellar/types.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/stellar/types.ts#L16)
 
 ___
 
@@ -1062,7 +1062,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:12
+[packages/core/src/families/tezos/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/tezos/types.ts#L18)
 
 ___
 
@@ -1070,11 +1070,11 @@ ___
 
 Ƭ **RawTransaction**: `z.infer`<typeof [`schemaRawTransaction`](#schemarawtransaction)\>
 
-The raw representation of the generic [Transaction](#transaction) type.
+The raw representation of the generic [[Transaction]] type.
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:54
+[packages/core/src/families/types.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L57)
 
 ___
 
@@ -1082,15 +1082,15 @@ ___
 
 Ƭ **RawTransactionCommon**: `z.infer`<typeof [`schemaRawTransaction`](#schemarawtransaction)\>
 
-The raw representation of the common transaction fields found in [TransactionCommon](interfaces/TransactionCommon.md) type
+The raw representation of the common transaction fields found in [[TransactionCommon]] type
 
 **`See`**
 
-[TransactionCommon](interfaces/TransactionCommon.md) for information regarding individual fields. Each field type is the serialized version of the corresponding [TransactionCommon](interfaces/TransactionCommon.md) type
+[[TransactionCommon]] for information regarding individual fields. Each field type is the serialized version of the corresponding [[TransactionCommon]] type
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:32
+[packages/core/src/families/types.ts:33](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L33)
 
 ___
 
@@ -1100,7 +1100,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/tron/types.d.ts:12
+[packages/core/src/families/tron/types.ts:20](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/tron/types.ts#L20)
 
 ___
 
@@ -1121,7 +1121,7 @@ The Response is expressed as a single JSON Object
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:98
+[packages/core/src/JSONRPC/types.ts:106](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L106)
 
 ___
 
@@ -1131,7 +1131,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:3
+[packages/core/src/errors/types.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L17)
 
 ___
 
@@ -1141,7 +1141,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:321
+[packages/core/src/errors/types.ts:118](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L118)
 
 ___
 
@@ -1164,7 +1164,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:17
+[packages/core/src/families/solana/types.ts:20](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L20)
 
 ___
 
@@ -1183,7 +1183,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:95
+[packages/core/src/families/solana/types.ts:118](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L118)
 
 ___
 
@@ -1202,7 +1202,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:28
+[packages/core/src/families/solana/types.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L32)
 
 ___
 
@@ -1221,7 +1221,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:103
+[packages/core/src/families/solana/types.ts:127](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L127)
 
 ___
 
@@ -1242,7 +1242,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:46
+[packages/core/src/families/solana/types.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L53)
 
 ___
 
@@ -1260,7 +1260,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:122
+[packages/core/src/families/solana/types.ts:149](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L149)
 
 ___
 
@@ -1278,7 +1278,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:34
+[packages/core/src/families/solana/types.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L39)
 
 ___
 
@@ -1296,7 +1296,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:110
+[packages/core/src/families/solana/types.ts:135](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L135)
 
 ___
 
@@ -1316,7 +1316,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:39
+[packages/core/src/families/solana/types.ts:45](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L45)
 
 ___
 
@@ -1334,7 +1334,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:116
+[packages/core/src/families/solana/types.ts:142](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L142)
 
 ___
 
@@ -1344,7 +1344,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/stellar/types.d.ts:12
+[packages/core/src/families/stellar/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/stellar/types.ts#L18)
 
 ___
 
@@ -1361,7 +1361,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageGet.d.ts:38
+[packages/core/src/spec/types/StorageGet.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageGet.ts#L17)
 
 ___
 
@@ -1385,7 +1385,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageGet.d.ts:42
+[packages/core/src/spec/types/StorageGet.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageGet.ts#L22)
 
 ___
 
@@ -1402,7 +1402,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageSet.d.ts:32
+[packages/core/src/spec/types/StorageSet.ts:16](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageSet.ts#L16)
 
 ___
 
@@ -1426,7 +1426,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageSet.d.ts:36
+[packages/core/src/spec/types/StorageSet.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageSet.ts#L21)
 
 ___
 
@@ -1436,7 +1436,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/tezos/types.d.ts:5
+[packages/core/src/families/tezos/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/tezos/types.ts#L9)
 
 ___
 
@@ -1455,7 +1455,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:11
+[packages/core/src/families/solana/types.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L13)
 
 ___
 
@@ -1473,7 +1473,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:89
+[packages/core/src/families/solana/types.ts:111](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L111)
 
 ___
 
@@ -1491,7 +1491,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:54
+[packages/core/src/families/solana/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L62)
 
 ___
 
@@ -1503,7 +1503,7 @@ Token standards
 
 #### Defined in
 
-packages/core/lib/currencies/types.d.ts:10
+[packages/core/src/currencies/types.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/types.ts#L18)
 
 ___
 
@@ -1526,7 +1526,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:59
+[packages/core/src/families/solana/types.ts:68](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L68)
 
 ___
 
@@ -1545,7 +1545,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:82
+[packages/core/src/families/solana/types.ts:103](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L103)
 
 ___
 
@@ -1559,7 +1559,7 @@ them to the network upon user validation.
 
 #### Defined in
 
-packages/core/lib/families/types.d.ts:60
+[packages/core/src/families/types.ts:64](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/types.ts#L64)
 
 ___
 
@@ -1569,7 +1569,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:128
+[packages/core/src/families/solana/types.ts:156](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L156)
 
 ___
 
@@ -1586,7 +1586,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSign.d.ts:1366
+[packages/core/src/spec/types/TransactionSign.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSign.ts#L24)
 
 ___
 
@@ -1603,7 +1603,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSignAndBroadcast.d.ts:1366
+[packages/core/src/spec/types/TransactionSignAndBroadcast.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSignAndBroadcast.ts#L24)
 
 ___
 
@@ -1627,7 +1627,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSignAndBroadcast.d.ts:1370
+[packages/core/src/spec/types/TransactionSignAndBroadcast.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSignAndBroadcast.ts#L29)
 
 ___
 
@@ -1651,7 +1651,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSign.d.ts:1370
+[packages/core/src/spec/types/TransactionSign.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSign.ts#L29)
 
 ___
 
@@ -1671,7 +1671,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:4
+[packages/core/src/families/solana/types.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L5)
 
 ___
 
@@ -1689,7 +1689,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/solana/types.d.ts:76
+[packages/core/src/families/solana/types.ts:96](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/solana/types.ts#L96)
 
 ___
 
@@ -1699,7 +1699,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/tron/types.d.ts:4
+[packages/core/src/families/tron/types.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/tron/types.ts#L9)
 
 ___
 
@@ -1709,7 +1709,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/families/tron/types.d.ts:5
+[packages/core/src/families/tron/types.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/tron/types.ts#L11)
 
 ___
 
@@ -1719,7 +1719,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:167
+[packages/core/src/errors/types.ts:107](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L107)
 
 ___
 
@@ -1729,7 +1729,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:143
+[packages/core/src/errors/types.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L93)
 
 ___
 
@@ -1746,7 +1746,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletCapabilities.d.ts:20
+[packages/core/src/spec/types/WalletCapabilities.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletCapabilities.ts#L14)
 
 ___
 
@@ -1770,7 +1770,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletCapabilities.d.ts:24
+[packages/core/src/spec/types/WalletCapabilities.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletCapabilities.ts#L19)
 
 ___
 
@@ -1787,7 +1787,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletInfo.d.ts:56
+[packages/core/src/spec/types/WalletInfo.ts:18](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletInfo.ts#L18)
 
 ___
 
@@ -1811,7 +1811,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletInfo.d.ts:60
+[packages/core/src/spec/types/WalletInfo.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletInfo.ts#L23)
 
 ___
 
@@ -1828,7 +1828,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletUserId.d.ts:20
+[packages/core/src/spec/types/WalletUserId.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletUserId.ts#L14)
 
 ___
 
@@ -1852,7 +1852,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletUserId.d.ts:24
+[packages/core/src/spec/types/WalletUserId.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletUserId.ts#L19)
 
 ## Variables
 
@@ -1862,7 +1862,7 @@ packages/core/lib/spec/types/WalletUserId.d.ts:24
 
 #### Defined in
 
-packages/core/lib/families/common.d.ts:12
+[packages/core/src/families/common.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/common.ts#L8)
 
 ___
 
@@ -1874,22 +1874,22 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodOptional`<`z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
-| `result` | `z.ZodObject`<{ `rawAccounts`: `z.ZodArray`<`z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `rawAccounts`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }[]  }, { `rawAccounts`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }[]  }\> |
+| `params` | `ZodOptional`<`ZodObject`<{ `currencyIds`: `ZodOptional`<`ZodArray`<`ZodString`, ``"many"``\>\>  }, ``"strip"``, `ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
+| `result` | `ZodObject`<{ `rawAccounts`: `ZodArray`<`ZodObject`<{ `address`: `ZodString` ; `balance`: `ZodString` ; `blockHeight`: `ZodNumber` ; `currency`: `ZodString` ; `id`: `ZodString` ; `lastSyncDate`: `ZodString` ; `name`: `ZodString` ; `spendableBalance`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>, ``"many"``\>  }, ``"strip"``, `ZodTypeAny`, { `rawAccounts`: { id: string; address: string; name: string; currency: string; balance: string; spendableBalance: string; blockHeight: number; lastSyncDate: string; }[]  }, { `rawAccounts`: { id: string; address: string; name: string; currency: string; balance: string; spendableBalance: string; blockHeight: number; lastSyncDate: string; }[]  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountList.d.ts:61
+[packages/core/src/spec/types/AccountList.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountList.ts#L14)
 
 ___
 
 ### schemaAccountNotFound
 
-• `Const` **schemaAccountNotFound**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaAccountNotFound**: `ZodObject`<{ `code`: `ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `ZodObject`<{ `accountId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:28
+[packages/core/src/errors/types.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L39)
 
 ___
 
@@ -1901,12 +1901,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> |
-| `result` | `z.ZodObject`<{ `address`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string`  }, { `address`: `string`  }\> |
+| `params` | `ZodObject`<{ `accountId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> |
+| `result` | `ZodObject`<{ `address`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `address`: `string`  }, { `address`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountReceive.d.ts:16
+[packages/core/src/spec/types/AccountReceive.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountReceive.ts#L11)
 
 ___
 
@@ -1918,22 +1918,22 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\> |
-| `result` | `z.ZodObject`<{ `rawAccount`: `z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>  }, ``"strip"``, `z.ZodTypeAny`, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }  }, { `rawAccount`: { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }  }\> |
+| `params` | `ZodObject`<{ `currencyIds`: `ZodOptional`<`ZodArray`<`ZodString`, ``"many"``\>\>  }, ``"strip"``, `ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\> |
+| `result` | `ZodObject`<{ `rawAccount`: `ZodObject`<{ `address`: `ZodString` ; `balance`: `ZodString` ; `blockHeight`: `ZodNumber` ; `currency`: `ZodString` ; `id`: `ZodString` ; `lastSyncDate`: `ZodString` ; `name`: `ZodString` ; `spendableBalance`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\> = schemaRawAccount }, ``"strip"``, `ZodTypeAny`, { `rawAccount`: { id: string; address: string; name: string; currency: string; balance: string; spendableBalance: string; blockHeight: number; lastSyncDate: string; } = schemaRawAccount }, { `rawAccount`: { id: string; address: string; name: string; currency: string; balance: string; spendableBalance: string; blockHeight: number; lastSyncDate: string; } = schemaRawAccount }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/AccountRequest.d.ts:61
+[packages/core/src/spec/types/AccountRequest.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/AccountRequest.ts#L12)
 
 ___
 
 ### schemaBaseCurrency
 
-• `Const` **schemaBaseCurrency**: `z.ZodObject`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }\>
+• `Const` **schemaBaseCurrency**: `ZodObject`<{ `color`: `ZodString` ; `decimals`: `ZodNumber` ; `id`: `ZodString` ; `name`: `ZodString` ; `ticker`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `ticker`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:4
+[packages/core/src/currencies/validation.ts:7](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L7)
 
 ___
 
@@ -1945,32 +1945,32 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> |
-| `result` | `z.ZodObject`<{ `xPub`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `xPub`: `string`  }, { `xPub`: `string`  }\> |
+| `params` | `ZodObject`<{ `accountId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> |
+| `result` | `ZodObject`<{ `xPub`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `xPub`: `string`  }, { `xPub`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/BitcoinGetXPub.d.ts:16
+[packages/core/src/spec/types/BitcoinGetXPub.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/BitcoinGetXPub.ts#L11)
 
 ___
 
 ### schemaCryptoCurrency
 
-• `Const` **schemaCryptoCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>
+• `Const` **schemaCryptoCurrency**: `ZodObject`<{ `color`: `ZodString` ; `decimals`: `ZodNumber` ; `family`: `ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> = schemaFamilies; `id`: `ZodString` ; `name`: `ZodString` ; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"CryptoCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:23
+[packages/core/src/currencies/validation.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L15)
 
 ___
 
 ### schemaCurrency
 
-• `Const` **schemaCurrency**: `z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>
+• `Const` **schemaCurrency**: `ZodDiscriminatedUnion`<``"type"``, [`ZodObject`<{ `color`: `ZodString` ; `decimals`: `ZodNumber` ; `family`: `ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> = schemaFamilies; `id`: `ZodString` ; `name`: `ZodString` ; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"CryptoCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>, `ZodObject`<{ `color`: `ZodString` ; `contract`: `ZodString` ; `decimals`: `ZodNumber` ; `id`: `ZodString` ; `name`: `ZodString` ; `parent`: `ZodString` ; `standard`: `ZodEnum`<[``"ERC20"``]\> = schemaTokenStandard; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"TokenCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>]\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:108
+[packages/core/src/currencies/validation.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L30)
 
 ___
 
@@ -1982,32 +1982,32 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodOptional`<`z.ZodObject`<{ `currencyIds`: `z.ZodOptional`<`z.ZodArray`<`z.ZodString`, ``"many"``\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
-| `result` | `z.ZodObject`<{ `currencies`: `z.ZodArray`<`z.ZodDiscriminatedUnion`<``"type"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `family`: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> ; `type`: `z.ZodLiteral`<``"CryptoCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\> \| `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>\>, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }\> |
+| `params` | `ZodOptional`<`ZodObject`<{ `currencyIds`: `ZodOptional`<`ZodArray`<`ZodString`, ``"many"``\>\>  }, ``"strip"``, `ZodTypeAny`, { `currencyIds?`: `string`[]  }, { `currencyIds?`: `string`[]  }\>\> |
+| `result` | `ZodObject`<{ `currencies`: `ZodArray`<`ZodDiscriminatedUnion`<``"type"``, [`ZodObject`<{ `color`: `ZodString` ; `decimals`: `ZodNumber` ; `family`: `ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\> = schemaFamilies; `id`: `ZodString` ; `name`: `ZodString` ; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"CryptoCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  }\>, `ZodObject`<{ `color`: `ZodString` ; `contract`: `ZodString` ; `decimals`: `ZodNumber` ; `id`: `ZodString` ; `name`: `ZodString` ; `parent`: `ZodString` ; `standard`: `ZodEnum`<[``"ERC20"``]\> = schemaTokenStandard; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"TokenCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>]\>, ``"many"``\>  }, ``"strip"``, `ZodTypeAny`, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }, { `currencies`: ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/CurrencyList.d.ts:109
+[packages/core/src/spec/types/CurrencyList.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/CurrencyList.ts#L14)
 
 ___
 
 ### schemaCurrencyNotFound
 
-• `Const` **schemaCurrencyNotFound**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaCurrencyNotFound**: `ZodObject`<{ `code`: `ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `ZodObject`<{ `currencyId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:52
+[packages/core/src/errors/types.ts:53](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L53)
 
 ___
 
 ### schemaCurrencyType
 
-• `Const` **schemaCurrencyType**: `z.ZodEnum`<[``"CryptoCurrency"``, ``"TokenCurrency"``]\>
+• `Const` **schemaCurrencyType**: `ZodEnum`<[``"CryptoCurrency"``, ``"TokenCurrency"``]\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:2
+[packages/core/src/currencies/validation.ts:4](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L4)
 
 ___
 
@@ -2019,12 +2019,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `transportId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
-| `result` | `z.ZodObject`<{ `transportId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
+| `params` | `ZodObject`<{ `transportId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
+| `result` | `ZodObject`<{ `transportId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceClose.d.ts:16
+[packages/core/src/spec/types/DeviceClose.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceClose.ts#L11)
 
 ___
 
@@ -2036,12 +2036,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `apduHex`: `z.ZodString` ; `transportId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `apduHex`: `string` ; `transportId`: `string`  }, { `apduHex`: `string` ; `transportId`: `string`  }\> |
-| `result` | `z.ZodObject`<{ `responseHex`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `responseHex`: `string`  }, { `responseHex`: `string`  }\> |
+| `params` | `ZodObject`<{ `apduHex`: `ZodString` ; `transportId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `apduHex`: `string` ; `transportId`: `string`  }, { `apduHex`: `string` ; `transportId`: `string`  }\> |
+| `result` | `ZodObject`<{ `responseHex`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `responseHex`: `string`  }, { `responseHex`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceExchange.d.ts:19
+[packages/core/src/spec/types/DeviceExchange.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceExchange.ts#L12)
 
 ___
 
@@ -2053,22 +2053,22 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `appName`: `z.ZodOptional`<`z.ZodString`\> ; `appVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `devices`: `z.ZodOptional`<`z.ZodArray`<`z.ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"stax"``]\>, ``"atleastone"``\>\> ; `firmwareVersionRange`: `z.ZodOptional`<`z.ZodString`\> ; `seeded`: `z.ZodOptional`<`z.ZodBoolean`\>  }, ``"strip"``, `z.ZodTypeAny`, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }\> |
-| `result` | `z.ZodObject`<{ `transportId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
+| `params` | `ZodObject`<{ `appName`: `ZodOptional`<`ZodString`\> ; `appVersionRange`: `ZodOptional`<`ZodString`\> ; `devices`: `ZodOptional`<`ZodArray`<`ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"stax"``]\>, ``"atleastone"``\>\> ; `firmwareVersionRange`: `ZodOptional`<`ZodString`\> ; `seeded`: `ZodOptional`<`ZodBoolean`\>  }, ``"strip"``, `ZodTypeAny`, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }\> |
+| `result` | `ZodObject`<{ `transportId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/DeviceTransport.d.ts:45
+[packages/core/src/spec/types/DeviceTransport.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L34)
 
 ___
 
 ### schemaERC20TokenCurrency
 
-• `Const` **schemaERC20TokenCurrency**: `z.ZodObject`<`z.extendShape`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, { `contract`: `z.ZodString` ; `standard`: `z.ZodEnum`<[``"ERC20"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>
+• `Const` **schemaERC20TokenCurrency**: `ZodObject`<{ `color`: `ZodString` ; `contract`: `ZodString` ; `decimals`: `ZodNumber` ; `id`: `ZodString` ; `name`: `ZodString` ; `parent`: `ZodString` ; `standard`: `ZodEnum`<[``"ERC20"``]\> = schemaTokenStandard; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"TokenCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:75
+[packages/core/src/currencies/validation.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L25)
 
 ___
 
@@ -2080,12 +2080,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodDiscriminatedUnion`<``"exchangeType"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `feeStrategy`: `z.ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> ; `fromAccountId`: `z.ZodString` ; `hexBinaryPayload`: `z.ZodString` ; `hexSignature`: `z.ZodString` ; `provider`: `z.ZodString` ; `rawTransaction`: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>  }, { `exchangeType`: `z.ZodLiteral`<``"FUND"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `exchangeType`: ``"FUND"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }, { `exchangeType`: ``"FUND"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }\> \| `z.ZodObject`<`z.extendShape`<{ `feeStrategy`: `z.ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> ; `fromAccountId`: `z.ZodString` ; `hexBinaryPayload`: `z.ZodString` ; `hexSignature`: `z.ZodString` ; `provider`: `z.ZodString` ; `rawTransaction`: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>  }, { `exchangeType`: `z.ZodLiteral`<``"SELL"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `exchangeType`: ``"SELL"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }, { `exchangeType`: ``"SELL"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }\> \| `z.ZodObject`<`z.extendShape`<{ `feeStrategy`: `z.ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> ; `fromAccountId`: `z.ZodString` ; `hexBinaryPayload`: `z.ZodString` ; `hexSignature`: `z.ZodString` ; `provider`: `z.ZodString` ; `rawTransaction`: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>  }, { `exchangeType`: `z.ZodLiteral`<``"SWAP"``\> ; `toAccountId`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `exchangeType`: ``"SWAP"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } ; `toAccountId`: `string`  }, { `exchangeType`: ``"SWAP"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` ; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } ; `toAccountId`: `string`  }\>\> |
-| `result` | `z.ZodObject`<{ `transactionHash`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transactionHash`: `string`  }, { `transactionHash`: `string`  }\> |
+| `params` | `ZodDiscriminatedUnion`<``"exchangeType"``, [`ZodObject`<{ `exchangeType`: `ZodLiteral`<``"FUND"``\> ; `feeStrategy`: `ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> = schemaFeeStrategyType; `fromAccountId`: `ZodString` ; `hexBinaryPayload`: `ZodString` ; `hexSignature`: `ZodString` ; `provider`: `ZodString` ; `rawTransaction`: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"algorand"\>; mode: ZodEnum<["send", "optIn", "claimReward", "optOut"]\>; fees: ZodOptional<...\>; assetId: ZodOptional<...\>; memo: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"bitcoin"\>; feePerByte: ZodOptional<ZodString\>; opReturnDataHex: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"celo"\>; fees: ZodNullable<ZodOptional<ZodString\>\>; mode: ZodEnum<...\>; index: ZodNullable<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }\>]\> = schemaRawTransaction }, ``"strip"``, `ZodTypeAny`, { `exchangeType`: ``"FUND"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction }, { `exchangeType`: ``"FUND"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction }\>, `ZodObject`<{ `exchangeType`: `ZodLiteral`<``"SELL"``\> ; `feeStrategy`: `ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> = schemaFeeStrategyType; `fromAccountId`: `ZodString` ; `hexBinaryPayload`: `ZodString` ; `hexSignature`: `ZodString` ; `provider`: `ZodString` ; `rawTransaction`: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"algorand"\>; mode: ZodEnum<["send", "optIn", "claimReward", "optOut"]\>; fees: ZodOptional<...\>; assetId: ZodOptional<...\>; memo: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"bitcoin"\>; feePerByte: ZodOptional<ZodString\>; opReturnDataHex: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"celo"\>; fees: ZodNullable<ZodOptional<ZodString\>\>; mode: ZodEnum<...\>; index: ZodNullable<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }\>]\> = schemaRawTransaction }, ``"strip"``, `ZodTypeAny`, { `exchangeType`: ``"SELL"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction }, { `exchangeType`: ``"SELL"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction }\>, `ZodObject`<{ `exchangeType`: `ZodLiteral`<``"SWAP"``\> ; `feeStrategy`: `ZodEnum`<[``"SLOW"``, ``"MEDIUM"``, ``"FAST"``]\> = schemaFeeStrategyType; `fromAccountId`: `ZodString` ; `hexBinaryPayload`: `ZodString` ; `hexSignature`: `ZodString` ; `provider`: `ZodString` ; `rawTransaction`: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"algorand"\>; mode: ZodEnum<["send", "optIn", "claimReward", "optOut"]\>; fees: ZodOptional<...\>; assetId: ZodOptional<...\>; memo: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }, { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"bitcoin"\>; feePerByte: ZodOptional<ZodString\>; opReturnDataHex: ZodOptional<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }, { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; }\>, `ZodObject`<{ amount: ZodString; recipient: ZodString; family: ZodLiteral<"celo"\>; fees: ZodNullable<ZodOptional<ZodString\>\>; mode: ZodEnum<...\>; index: ZodNullable<...\>; }, ``"strip"``, `ZodTypeAny`, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }, { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; }\>]\> = schemaRawTransaction; `toAccountId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `exchangeType`: ``"SWAP"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction; `toAccountId`: `string`  }, { `exchangeType`: ``"SWAP"`` ; `feeStrategy`: ``"SLOW"`` \| ``"MEDIUM"`` \| ``"FAST"`` = schemaFeeStrategyType; `fromAccountId`: `string` ; `hexBinaryPayload`: `string` ; `hexSignature`: `string` ; `provider`: `string` ; `rawTransaction`: { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } & `undefined` \| { family: "algorand"; amount: string; recipient: string; mode: "send" \| "optIn" \| "claimReward" \| "optOut"; fees?: string \| undefined; assetId?: string \| undefined; memo?: string \| undefined; } \| { family: "bitcoin"; amount: string; recipient: string; feePerByte?: string \| undefined; opReturnDataHex?: string \| undefined; } \| { family: "celo"; amount: string; recipient: string; mode: "send" \| "lock" \| "unlock" \| "withdraw" \| "vote" \| "revoke" \| "activate" \| "register"; fees?: string \| null \| undefined; index?: number \| ... 1 more ... \| undefined; } \| { family: "cosmos"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "delegate" \| "undelegate" \| "redelegate" \| "claimRewardCompound"; fees?: string \| undefined; gas?: string \| undefined; memo?: string \| undefined; } \| { family: "crypto\_org"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "ethereum"; amount: string; recipient: string; nonce?: number \| undefined; data?: string \| undefined; gasPrice?: string \| undefined; gasLimit?: string \| undefined; maxPriorityFeePerGas?: string \| undefined; maxFeePerGas?: string \| undefined; } \| { family: "hedera"; amount: string; recipient: string; memo?: string \| undefined; } \| { method: number; nonce: number; family: "filecoin"; amount: string; recipient: string; gasLimit: number; gasFeeCap: string; gasPremium: string; version: number; data?: string \| undefined; params?: string \| undefined; } \| { family: "near"; amount: string; recipient: string; mode: string; fees?: string \| undefined; } \| { family: "neo"; amount: string; recipient: string; } \| { family: "polkadot"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "bond" \| "unbond" \| "rebond" \| "withdrawUnbonded" \| "setController" \| "nominate" \| "chill"; fee?: string \| undefined; era?: number \| undefined; } \| { family: "ripple"; amount: string; recipient: string; tag: number; fee?: string \| undefined; } \| { family: "stellar"; amount: string; recipient: string; fees?: string \| undefined; memoType?: "MEMO\_TEXT" \| "MEMO\_ID" \| "MEMO\_HASH" \| "MEMO\_RETURN" \| undefined; memoValue?: string \| undefined; } \| { family: "tezos"; amount: string; recipient: string; mode: "send" \| "delegate" \| "undelegate"; fees?: string \| undefined; gasLimit?: string \| undefined; } \| { family: "tron"; amount: string; recipient: string; mode: "send" \| "claimReward" \| "vote" \| "freeze" \| "unfreeze"; resource?: "BANDWIDTH" \| "ENERGY" \| undefined; duration?: number \| undefined; } \| { family: "elrond"; amount: string; recipient: string; mode: "send" \| "withdraw" \| "delegate" \| "reDelegateRewards" \| "unDelegate" \| "claimRewards"; gasLimit: number; fees?: string \| undefined; data?: string \| undefined; } \| { family: "cardano"; amount: string; recipient: string; mode: string; fees?: string \| undefined; memo?: string \| undefined; } \| { family: "solana"; amount: string; recipient: string; model: string; } = schemaRawTransaction; `toAccountId`: `string`  }\>]\> |
+| `result` | `ZodObject`<{ `transactionHash`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transactionHash`: `string`  }, { `transactionHash`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeComplete.d.ts:2032
+[packages/core/src/spec/types/ExchangeComplete.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeComplete.ts#L41)
 
 ___
 
@@ -2097,22 +2097,22 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `exchangeType`: `z.ZodEnum`<[``"SWAP"``, ``"SELL"``, ``"FUND"``]\>  }, ``"strip"``, `z.ZodTypeAny`, { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"``  }, { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"``  }\> |
-| `result` | `z.ZodObject`<{ `transactionId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transactionId`: `string`  }, { `transactionId`: `string`  }\> |
+| `params` | `ZodObject`<{ `exchangeType`: `ZodEnum`<[``"SWAP"``, ``"SELL"``, ``"FUND"``]\> = schemaExchangeType }, ``"strip"``, `ZodTypeAny`, { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` = schemaExchangeType }, { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` = schemaExchangeType }\> |
+| `result` | `ZodObject`<{ `transactionId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transactionId`: `string`  }, { `transactionId`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/ExchangeStart.d.ts:16
+[packages/core/src/spec/types/ExchangeStart.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/ExchangeStart.ts#L13)
 
 ___
 
 ### schemaFamilies
 
-• `Const` **schemaFamilies**: `z.ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\>
+• `Const` **schemaFamilies**: `ZodEnum`<[``"bitcoin"``, ``"ethereum"``, ``"algorand"``, ``"crypto_org"``, ``"ripple"``, ``"cosmos"``, ``"ripple"``, ``"celo"``, ``"cosmos"``, ``"hedera"``, ``"filecoin"``, ``"tezos"``, ``"polkadot"``, ``"stellar"``, ``"tron"``, ``"near"``, ``"neo"``, ``"elrond"``, ``"cardano"``, ``"solana"``]\>
 
 #### Defined in
 
-packages/core/lib/families/common.d.ts:13
+[packages/core/src/families/common.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/common.ts#L31)
 
 ___
 
@@ -2124,142 +2124,142 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString` ; `hexMessage`: `z.ZodString` ; `meta`: `z.ZodOptional`<`z.ZodRecord`<`z.ZodString`, `z.ZodUnknown`\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string` ; `hexMessage`: `string` ; `meta?`: `Record`<`string`, `unknown`\>  }, { `accountId`: `string` ; `hexMessage`: `string` ; `meta?`: `Record`<`string`, `unknown`\>  }\> |
-| `result` | `z.ZodObject`<{ `hexSignedMessage`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `hexSignedMessage`: `string`  }, { `hexSignedMessage`: `string`  }\> |
+| `params` | `ZodObject`<{ `accountId`: `ZodString` ; `hexMessage`: `ZodString` ; `meta`: `ZodOptional`<`ZodRecord`<`ZodString`, `ZodUnknown`\>\>  }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string` ; `hexMessage`: `string` ; `meta?`: `Record`<`string`, `unknown`\>  }, { `accountId`: `string` ; `hexMessage`: `string` ; `meta?`: `Record`<`string`, `unknown`\>  }\> |
+| `result` | `ZodObject`<{ `hexSignedMessage`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `hexSignedMessage`: `string`  }, { `hexSignedMessage`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/MessageSign.d.ts:22
+[packages/core/src/spec/types/MessageSign.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/MessageSign.ts#L13)
 
 ___
 
 ### schemaNotImplementedByWallet
 
-• `Const` **schemaNotImplementedByWallet**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaNotImplementedByWallet**: `ZodObject`<{ `code`: `ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `ZodObject`<{ `methodId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:4
+[packages/core/src/errors/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L23)
 
 ___
 
 ### schemaPermissionDenied
 
-• `Const` **schemaPermissionDenied**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaPermissionDenied**: `ZodObject`<{ `code`: `ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `ZodObject`<{ `methodId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:76
+[packages/core/src/errors/types.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L67)
 
 ___
 
 ### schemaRPCCall
 
-• `Const` **schemaRPCCall**: `z.ZodUnion`<[`z.ZodObject`<{ `id`: `z.ZodOptional`<`z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\>\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `method`: `z.ZodString` ; `params`: `z.ZodAny`  }, ``"strict"``, `z.ZodTypeAny`, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>, `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>]\>]\>
+• `Const` **schemaRPCCall**: `ZodUnion`<[`ZodObject`<{ `id`: `ZodOptional`<`ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\>\> ; `jsonrpc`: `ZodLiteral`<``"2.0"``\> ; `method`: `ZodString` ; `params`: `ZodAny`  }, ``"strict"``, `ZodTypeAny`, { `id?`: ``null`` \| `string` \| `number` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: ``null`` \| `string` \| `number` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>, `ZodUnion`<[`ZodObject`<{ `error`: `ZodObject`<{ `code`: `ZodNumber` ; `data`: `ZodOptional`<`ZodAny`\> ; `message`: `ZodString`  }, ``"strict"``, `ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> = schemaRPCResponseErrorData; `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `ZodTypeAny`, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }\>, `ZodObject`<{ `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\> ; `result`: `ZodObject`<{}, ``"passthrough"``, `ZodTypeAny`, `objectOutputType`<{}, `ZodTypeAny`, ``"passthrough"``\>, `objectInputType`<{}, `ZodTypeAny`, ``"passthrough"``\>\>  }, ``"strict"``, `ZodTypeAny`, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }\>]\>]\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:122
+[packages/core/src/JSONRPC/validation.ts:43](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L43)
 
 ___
 
 ### schemaRPCMethod
 
-• `Const` **schemaRPCMethod**: `z.ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
+• `Const` **schemaRPCMethod**: `ZodEnum`<[``"account.list"``, ``"account.receive"``, ``"account.request"``, ``"currency.list"``, ``"device.close"``, ``"device.exchange"``, ``"device.transport"``, ``"message.sign"``, ``"transaction.sign"``, ``"transaction.signAndBroadcast"``, ``"wallet.capabilities"``, ``"wallet.info"``, ``"wallet.userId"``]\>
 
 #### Defined in
 
-packages/core/lib/spec/methods.d.ts:3
+[packages/core/src/spec/methods.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/methods.ts#L5)
 
 ___
 
 ### schemaRPCRequest
 
-• `Const` **schemaRPCRequest**: `z.ZodObject`<{ `id`: `z.ZodOptional`<`z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\>\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `method`: `z.ZodString` ; `params`: `z.ZodAny`  }, ``"strict"``, `z.ZodTypeAny`, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>
+• `Const` **schemaRPCRequest**: `ZodObject`<{ `id`: `ZodOptional`<`ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\>\> ; `jsonrpc`: `ZodLiteral`<``"2.0"``\> ; `method`: `ZodString` ; `params`: `ZodAny`  }, ``"strict"``, `ZodTypeAny`, { `id?`: ``null`` \| `string` \| `number` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }, { `id?`: ``null`` \| `string` \| `number` ; `jsonrpc`: ``"2.0"`` ; `method`: `string` ; `params?`: `any`  }\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:2
+[packages/core/src/JSONRPC/validation.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L5)
 
 ___
 
 ### schemaRPCResponse
 
-• `Const` **schemaRPCResponse**: `z.ZodUnion`<[`z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>, `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>]\>
+• `Const` **schemaRPCResponse**: `ZodUnion`<[`ZodObject`<{ `error`: `ZodObject`<{ `code`: `ZodNumber` ; `data`: `ZodOptional`<`ZodAny`\> ; `message`: `ZodString`  }, ``"strict"``, `ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> = schemaRPCResponseErrorData; `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `ZodTypeAny`, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }\>, `ZodObject`<{ `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\> ; `result`: `ZodObject`<{}, ``"passthrough"``, `ZodTypeAny`, `objectOutputType`<{}, `ZodTypeAny`, ``"passthrough"``\>, `objectInputType`<{}, `ZodTypeAny`, ``"passthrough"``\>\>  }, ``"strict"``, `ZodTypeAny`, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }\>]\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:77
+[packages/core/src/JSONRPC/validation.ts:38](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L38)
 
 ___
 
 ### schemaRPCResponseError
 
-• `Const` **schemaRPCResponseError**: `z.ZodObject`<{ `error`: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> ; `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `z.ZodTypeAny`, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }, { `error`: { `code`: `number` ; `data?`: `any` ; `message`: `string`  } ; `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"``  }\>
+• `Const` **schemaRPCResponseError**: `ZodObject`<{ `error`: `ZodObject`<{ `code`: `ZodNumber` ; `data`: `ZodOptional`<`ZodAny`\> ; `message`: `ZodString`  }, ``"strict"``, `ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\> = schemaRPCResponseErrorData; `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\>  }, ``"strict"``, `ZodTypeAny`, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }, { `error`: { code: number; message: string; data?: any; } = schemaRPCResponseErrorData; `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"``  }\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:44
+[packages/core/src/JSONRPC/validation.ts:30](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L30)
 
 ___
 
 ### schemaRPCResponseErrorData
 
-• `Const` **schemaRPCResponseErrorData**: `z.ZodObject`<{ `code`: `z.ZodNumber` ; `data`: `z.ZodOptional`<`z.ZodAny`\> ; `message`: `z.ZodString`  }, ``"strict"``, `z.ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\>
+• `Const` **schemaRPCResponseErrorData**: `ZodObject`<{ `code`: `ZodNumber` ; `data`: `ZodOptional`<`ZodAny`\> ; `message`: `ZodString`  }, ``"strict"``, `ZodTypeAny`, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }, { `code`: `number` ; `data?`: `any` ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:18
+[packages/core/src/JSONRPC/validation.ts:14](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L14)
 
 ___
 
 ### schemaRPCResponseSuccess
 
-• `Const` **schemaRPCResponseSuccess**: `z.ZodObject`<{ `id`: `z.ZodUnion`<[`z.ZodString`, `z.ZodNumber`, `z.ZodNull`]\> ; `jsonrpc`: `z.ZodLiteral`<``"2.0"``\> ; `result`: `z.ZodObject`<{}, ``"passthrough"``, `z.ZodTypeAny`, {}, {}\>  }, ``"strict"``, `z.ZodTypeAny`, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }, { `id`: `string` \| `number` \| ``null`` ; `jsonrpc`: ``"2.0"`` ; `result`: {}  }\>
+• `Const` **schemaRPCResponseSuccess**: `ZodObject`<{ `id`: `ZodUnion`<[`ZodString`, `ZodNumber`, `ZodNull`]\> = schemaRPCId; `jsonrpc`: `ZodLiteral`<``"2.0"``\> ; `result`: `ZodObject`<{}, ``"passthrough"``, `ZodTypeAny`, `objectOutputType`<{}, `ZodTypeAny`, ``"passthrough"``\>, `objectInputType`<{}, `ZodTypeAny`, ``"passthrough"``\>\>  }, ``"strict"``, `ZodTypeAny`, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }, { `id`: ``null`` \| `string` \| `number` = schemaRPCId; `jsonrpc`: ``"2.0"`` ; `result`: {} & { `[k: string]`: `unknown`;  }  }\>
 
 #### Defined in
 
-packages/core/lib/JSONRPC/validation.d.ts:31
+[packages/core/src/JSONRPC/validation.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/validation.ts#L22)
 
 ___
 
 ### schemaRawAccount
 
-• `Const` **schemaRawAccount**: `z.ZodObject`<{ `address`: `z.ZodString` ; `balance`: `z.ZodString` ; `blockHeight`: `z.ZodNumber` ; `currency`: `z.ZodString` ; `id`: `z.ZodString` ; `lastSyncDate`: `z.ZodString` ; `name`: `z.ZodString` ; `spendableBalance`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>
+• `Const` **schemaRawAccount**: `ZodObject`<{ `address`: `ZodString` ; `balance`: `ZodString` ; `blockHeight`: `ZodNumber` ; `currency`: `ZodString` ; `id`: `ZodString` ; `lastSyncDate`: `ZodString` ; `name`: `ZodString` ; `spendableBalance`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }, { `address`: `string` ; `balance`: `string` ; `blockHeight`: `number` ; `currency`: `string` ; `id`: `string` ; `lastSyncDate`: `string` ; `name`: `string` ; `spendableBalance`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/accounts/validation.d.ts:2
+[packages/core/src/accounts/validation.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/accounts/validation.ts#L3)
 
 ___
 
 ### schemaRawTransaction
 
-• `Const` **schemaRawTransaction**: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>
+• `Const` **schemaRawTransaction**: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ `amount`: `ZodString` ; `assetId`: `ZodOptional`<`ZodString`\> ; `family`: `ZodLiteral`<``"algorand"``\> ; `fees`: `ZodOptional`<`ZodString`\> ; `memo`: `ZodOptional`<`ZodString`\> ; `mode`: `ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\> = schemaAlgorandOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `ZodOptional`<`ZodString`\> ; `opReturnDataHex`: `ZodOptional`<`ZodString`\> ; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"celo"``\> ; `fees`: `ZodNullable`<`ZodOptional`<`ZodString`\>\> ; `index`: `ZodNullable`<`ZodOptional`<`ZodNumber`\>\> ; `mode`: `ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\> = schemaOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }\>]\>
 
 #### Defined in
 
-packages/core/lib/families/validation.d.ts:2
+[packages/core/src/families/validation.ts:21](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/validation.ts#L21)
 
 ___
 
 ### schemaServerErrorCode
 
-• `Const` **schemaServerErrorCode**: `z.ZodEnum`<[``"NOT_IMPLEMENTED_BY_WALLET"``, ``"ACCOUNT_NOT_FOUND"``, ``"CURRENCY_NOT_FOUND"``, ``"PERMISSION_DENIED"``, ``"UNKNOWN_ERROR"``, ``"UNAUTHORIZED_STORE"``]\>
+• `Const` **schemaServerErrorCode**: `ZodEnum`<[``"NOT_IMPLEMENTED_BY_WALLET"``, ``"ACCOUNT_NOT_FOUND"``, ``"CURRENCY_NOT_FOUND"``, ``"PERMISSION_DENIED"``, ``"UNKNOWN_ERROR"``, ``"UNAUTHORIZED_STORE"``]\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:2
+[packages/core/src/errors/types.ts:8](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L8)
 
 ___
 
 ### schemaServerErrorData
 
-• `Const` **schemaServerErrorData**: `z.ZodDiscriminatedUnion`<``"code"``, `z.Primitive`, `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `accountId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `z.ZodObject`<{ `currencyId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"PERMISSION_DENIED"``\> ; `data`: `z.ZodObject`<{ `methodId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }, { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\> \| `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNAUTHORIZED_STORE"``\> ; `data`: `z.ZodObject`<{ `storeId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `storeId`: `string`  }, { `storeId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }\>\>
+• `Const` **schemaServerErrorData**: `ZodDiscriminatedUnion`<``"code"``, [`ZodObject`<{ `code`: `ZodLiteral`<``"NOT_IMPLEMENTED_BY_WALLET"``\> ; `data`: `ZodObject`<{ `methodId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `methodId`: `string`  }, { `methodId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  }, { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  }\>, `ZodObject`<{ `code`: `ZodLiteral`<``"ACCOUNT_NOT_FOUND"``\> ; `data`: `ZodObject`<{ `accountId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string`  }, { `accountId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  }, { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  }\>, `ZodObject`<{ `code`: `ZodLiteral`<``"CURRENCY_NOT_FOUND"``\> ; `data`: `ZodObject`<{ `currencyId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `currencyId`: `string`  }, { `currencyId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  }, { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  }\>]\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:168
+[packages/core/src/errors/types.ts:109](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L109)
 
 ___
 
@@ -2271,12 +2271,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string`  }, { `key`: `string` ; `storeId?`: `string`  }\> |
-| `result` | `z.ZodObject`<{ `value`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `value?`: `string`  }, { `value?`: `string`  }\> |
+| `params` | `ZodObject`<{ `key`: `ZodString` ; `storeId`: `ZodOptional`<`ZodString`\>  }, ``"strip"``, `ZodTypeAny`, { `key`: `string` ; `storeId?`: `string`  }, { `key`: `string` ; `storeId?`: `string`  }\> |
+| `result` | `ZodObject`<{ `value`: `ZodOptional`<`ZodString`\>  }, ``"strip"``, `ZodTypeAny`, { `value?`: `string`  }, { `value?`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageGet.d.ts:19
+[packages/core/src/spec/types/StorageGet.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageGet.ts#L12)
 
 ___
 
@@ -2288,42 +2288,42 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `key`: `z.ZodString` ; `storeId`: `z.ZodOptional`<`z.ZodString`\> ; `value`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }\> |
-| `result` | `z.ZodVoid` |
+| `params` | `ZodObject`<{ `key`: `ZodString` ; `storeId`: `ZodOptional`<`ZodString`\> ; `value`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }, { `key`: `string` ; `storeId?`: `string` ; `value`: `string`  }\> |
+| `result` | `ZodVoid` |
 
 #### Defined in
 
-packages/core/lib/spec/types/StorageSet.d.ts:16
+[packages/core/src/spec/types/StorageSet.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/StorageSet.ts#L11)
 
 ___
 
 ### schemaTokenCurrency
 
-• `Const` **schemaTokenCurrency**: `z.ZodObject`<`z.extendShape`<{ `color`: `z.ZodString` ; `decimals`: `z.ZodNumber` ; `id`: `z.ZodString` ; `name`: `z.ZodString` ; `ticker`: `z.ZodString`  }, { `parent`: `z.ZodString` ; `type`: `z.ZodLiteral`<``"TokenCurrency"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>
+• `Const` **schemaTokenCurrency**: `ZodObject`<{ `color`: `ZodString` ; `decimals`: `ZodNumber` ; `id`: `ZodString` ; `name`: `ZodString` ; `parent`: `ZodString` ; `ticker`: `ZodString` ; `type`: `ZodLiteral`<``"TokenCurrency"``\>  }, ``"strip"``, `ZodTypeAny`, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }, { `color`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  }\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:49
+[packages/core/src/currencies/validation.ts:20](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L20)
 
 ___
 
 ### schemaTokenStandard
 
-• `Const` **schemaTokenStandard**: `z.ZodEnum`<[``"ERC20"``]\>
+• `Const` **schemaTokenStandard**: `ZodEnum`<[``"ERC20"``]\>
 
 #### Defined in
 
-packages/core/lib/currencies/validation.d.ts:3
+[packages/core/src/currencies/validation.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/currencies/validation.ts#L5)
 
 ___
 
 ### schemaTransactionCommon
 
-• `Const` **schemaTransactionCommon**: `z.ZodObject`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `recipient`: `string`  }\>
+• `Const` **schemaTransactionCommon**: `ZodObject`<{ `amount`: `ZodString` ; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `recipient`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/families/common.d.ts:2
+[packages/core/src/families/common.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/common.ts#L3)
 
 ___
 
@@ -2335,12 +2335,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString` ; `meta`: `z.ZodOptional`<`z.ZodRecord`<`z.ZodString`, `z.ZodUnknown`\>\> ; `options`: `z.ZodOptional`<`z.ZodObject`<{ `hwAppId`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `hwAppId?`: `string`  }, { `hwAppId?`: `string`  }\>\> ; `rawTransaction`: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }\> |
-| `result` | `z.ZodObject`<{ `signedTransactionHex`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `signedTransactionHex`: `string`  }, { `signedTransactionHex`: `string`  }\> |
+| `params` | `ZodObject`<{ `accountId`: `ZodString` ; `meta`: `ZodOptional`<`ZodRecord`<`ZodString`, `ZodUnknown`\>\> ; `options`: `ZodOptional`<`ZodObject`<{ `hwAppId`: `ZodOptional`<`ZodString`\>  }, ``"strip"``, `ZodTypeAny`, { `hwAppId?`: `string`  }, { `hwAppId?`: `string`  }\>\> ; `rawTransaction`: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ `amount`: `ZodString` ; `assetId`: `ZodOptional`<`ZodString`\> ; `family`: `ZodLiteral`<``"algorand"``\> ; `fees`: `ZodOptional`<`ZodString`\> ; `memo`: `ZodOptional`<`ZodString`\> ; `mode`: `ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\> = schemaAlgorandOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `ZodOptional`<`ZodString`\> ; `opReturnDataHex`: `ZodOptional`<`ZodString`\> ; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"celo"``\> ; `fees`: `ZodNullable`<`ZodOptional`<`ZodString`\>\> ; `index`: `ZodNullable`<`ZodOptional`<`ZodNumber`\>\> ; `mode`: `ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\> = schemaOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }\>]\> = schemaRawTransaction }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { hwAppId?: string \| undefined; } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } & `undefined` \| { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } = schemaRawTransaction }, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { hwAppId?: string \| undefined; } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } & `undefined` \| { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } = schemaRawTransaction }\> |
+| `result` | `ZodObject`<{ `signedTransactionHex`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `signedTransactionHex`: `string`  }, { `signedTransactionHex`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSign.d.ts:683
+[packages/core/src/spec/types/TransactionSign.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSign.ts#L19)
 
 ___
 
@@ -2352,32 +2352,32 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{ `accountId`: `z.ZodString` ; `meta`: `z.ZodOptional`<`z.ZodRecord`<`z.ZodString`, `z.ZodUnknown`\>\> ; `options`: `z.ZodOptional`<`z.ZodObject`<{ `hwAppId`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `hwAppId?`: `string`  }, { `hwAppId?`: `string`  }\>\> ; `rawTransaction`: `z.ZodDiscriminatedUnion`<``"family"``, `z.Primitive`, `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `assetId`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"algorand"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `z.ZodOptional`<`z.ZodString`\> ; `opReturnDataHex`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"celo"``\> ; `fees`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodString`\>\> ; `index`: `z.ZodNullable`<`z.ZodOptional`<`z.ZodNumber`\>\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cosmos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gas`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``, ``"redelegate"``, ``"claimReward"``, ``"claimRewardCompound"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"crypto_org"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"ethereum"``\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `gasPrice`: `z.ZodOptional`<`z.ZodString`\> ; `maxFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `maxPriorityFeePerGas`: `z.ZodOptional`<`z.ZodString`\> ; `nonce`: `z.ZodOptional`<`z.ZodNumber`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"hedera"``\> ; `memo`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"filecoin"``\> ; `gasFeeCap`: `z.ZodString` ; `gasLimit`: `z.ZodNumber` ; `gasPremium`: `z.ZodString` ; `method`: `z.ZodNumber` ; `nonce`: `z.ZodNumber` ; `params`: `z.ZodOptional`<`z.ZodString`\> ; `version`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"near"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"neo"``\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `era`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"polkadot"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"bond"``, ``"unbond"``, ``"rebond"``, ``"withdrawUnbonded"``, ``"setController"``, ``"nominate"``, ``"chill"``, ``"claimReward"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }, { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"ripple"``\> ; `fee`: `z.ZodOptional`<`z.ZodString`\> ; `tag`: `z.ZodNumber`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }, { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"stellar"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memoType`: `z.ZodOptional`<`z.ZodEnum`<[``"MEMO_TEXT"``, ``"MEMO_ID"``, ``"MEMO_HASH"``, ``"MEMO_RETURN"``]\>\> ; `memoValue`: `z.ZodOptional`<`z.ZodString`\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"tezos"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"delegate"``, ``"undelegate"``]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `duration`: `z.ZodOptional`<`z.ZodNumber`\> ; `family`: `z.ZodLiteral`<``"tron"``\> ; `mode`: `z.ZodEnum`<[``"send"``, ``"freeze"``, ``"unfreeze"``, ``"vote"``, ``"claimReward"``]\> ; `resource`: `z.ZodOptional`<`z.ZodEnum`<[``"BANDWIDTH"``, ``"ENERGY"``]\>\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }, { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `data`: `z.ZodOptional`<`z.ZodString`\> ; `family`: `z.ZodLiteral`<``"elrond"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `gasLimit`: `z.ZodNumber` ; `mode`: `z.ZodUnion`<[`z.ZodLiteral`<``"send"``\>, `z.ZodLiteral`<``"delegate"``\>, `z.ZodLiteral`<``"reDelegateRewards"``\>, `z.ZodLiteral`<``"unDelegate"``\>, `z.ZodLiteral`<``"claimRewards"``\>, `z.ZodLiteral`<``"withdraw"``\>]\>  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }, { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"cardano"``\> ; `fees`: `z.ZodOptional`<`z.ZodString`\> ; `memo`: `z.ZodOptional`<`z.ZodString`\> ; `mode`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  }\> \| `z.ZodObject`<`z.extendShape`<{ `amount`: `z.ZodString` ; `recipient`: `z.ZodString`  }, { `family`: `z.ZodLiteral`<``"solana"``\> ; `model`: `z.ZodString`  }\>, ``"strip"``, `z.ZodTypeAny`, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }\>\>  }, ``"strip"``, `z.ZodTypeAny`, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { `hwAppId?`: `string`  } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: `string` \| ``null`` ; `index?`: `number` \| ``null`` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  }  }\> |
-| `result` | `z.ZodObject`<{ `transactionHash`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `transactionHash`: `string`  }, { `transactionHash`: `string`  }\> |
+| `params` | `ZodObject`<{ `accountId`: `ZodString` ; `meta`: `ZodOptional`<`ZodRecord`<`ZodString`, `ZodUnknown`\>\> ; `options`: `ZodOptional`<`ZodObject`<{ `hwAppId`: `ZodOptional`<`ZodString`\>  }, ``"strip"``, `ZodTypeAny`, { `hwAppId?`: `string`  }, { `hwAppId?`: `string`  }\>\> ; `rawTransaction`: `ZodDiscriminatedUnion`<``"family"``, [`ZodObject`<{ `amount`: `ZodString` ; `assetId`: `ZodOptional`<`ZodString`\> ; `family`: `ZodLiteral`<``"algorand"``\> ; `fees`: `ZodOptional`<`ZodString`\> ; `memo`: `ZodOptional`<`ZodString`\> ; `mode`: `ZodEnum`<[``"send"``, ``"optIn"``, ``"claimReward"``, ``"optOut"``]\> = schemaAlgorandOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"bitcoin"``\> ; `feePerByte`: `ZodOptional`<`ZodString`\> ; `opReturnDataHex`: `ZodOptional`<`ZodString`\> ; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  }\>, `ZodObject`<{ `amount`: `ZodString` ; `family`: `ZodLiteral`<``"celo"``\> ; `fees`: `ZodNullable`<`ZodOptional`<`ZodString`\>\> ; `index`: `ZodNullable`<`ZodOptional`<`ZodNumber`\>\> ; `mode`: `ZodEnum`<[``"send"``, ``"lock"``, ``"unlock"``, ``"withdraw"``, ``"vote"``, ``"revoke"``, ``"activate"``, ``"register"``]\> = schemaOperationMode; `recipient`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }, { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  }\>]\> = schemaRawTransaction }, ``"strip"``, `ZodTypeAny`, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { hwAppId?: string \| undefined; } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } & `undefined` \| { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } = schemaRawTransaction }, { `accountId`: `string` ; `meta?`: `Record`<`string`, `unknown`\> ; `options?`: { hwAppId?: string \| undefined; } ; `rawTransaction`: { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } & `undefined` \| { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } = schemaRawTransaction }\> |
+| `result` | `ZodObject`<{ `transactionHash`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transactionHash`: `string`  }, { `transactionHash`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/TransactionSignAndBroadcast.d.ts:683
+[packages/core/src/spec/types/TransactionSignAndBroadcast.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/TransactionSignAndBroadcast.ts#L19)
 
 ___
 
 ### schemaUnauthorizedStore
 
-• `Const` **schemaUnauthorizedStore**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNAUTHORIZED_STORE"``\> ; `data`: `z.ZodObject`<{ `storeId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `storeId`: `string`  }, { `storeId`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaUnauthorizedStore**: `ZodObject`<{ `code`: `ZodLiteral`<``"UNAUTHORIZED_STORE"``\> ; `data`: `ZodObject`<{ `storeId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `storeId`: `string`  }, { `storeId`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  }, { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:144
+[packages/core/src/errors/types.ts:99](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L99)
 
 ___
 
 ### schemaUnknownError
 
-• `Const` **schemaUnknownError**: `z.ZodObject`<{ `code`: `z.ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `z.ZodObject`<{ `cause`: `z.ZodOptional`<`z.ZodUnknown`\> ; `code`: `z.ZodOptional`<`z.ZodString`\> ; `message`: `z.ZodOptional`<`z.ZodString`\> ; `name`: `z.ZodOptional`<`z.ZodString`\> ; `stack`: `z.ZodOptional`<`z.ZodString`\>  }, ``"strip"``, `z.ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  }\>
+• `Const` **schemaUnknownError**: `ZodObject`<{ `code`: `ZodLiteral`<``"UNKNOWN_ERROR"``\> ; `data`: `ZodObject`<{ `cause`: `ZodOptional`<`ZodUnknown`\> ; `code`: `ZodOptional`<`ZodString`\> ; `message`: `ZodOptional`<`ZodString`\> ; `name`: `ZodOptional`<`ZodString`\> ; `stack`: `ZodOptional`<`ZodString`\>  }, ``"strip"``, `ZodTypeAny`, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }, { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  }\> ; `message`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  }, { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  }\>
 
 #### Defined in
 
-packages/core/lib/errors/types.d.ts:100
+[packages/core/src/errors/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/types.ts#L81)
 
 ___
 
@@ -2389,12 +2389,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
-| `result` | `z.ZodObject`<{ `methodIds`: `z.ZodArray`<`z.ZodString`, ``"many"``\>  }, ``"strip"``, `z.ZodTypeAny`, { `methodIds`: `string`[]  }, { `methodIds`: `string`[]  }\> |
+| `params` | `ZodObject`<{}, ``"strip"``, `ZodTypeAny`, {}, {}\> |
+| `result` | `ZodObject`<{ `methodIds`: `ZodArray`<`ZodString`, ``"many"``\>  }, ``"strip"``, `ZodTypeAny`, { `methodIds`: `string`[]  }, { `methodIds`: `string`[]  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletCapabilities.d.ts:10
+[packages/core/src/spec/types/WalletCapabilities.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletCapabilities.ts#L9)
 
 ___
 
@@ -2406,12 +2406,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
-| `result` | `z.ZodObject`<{ `tracking`: `z.ZodBoolean` ; `wallet`: `z.ZodObject`<{ `name`: `z.ZodString` ; `version`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `name`: `string` ; `version`: `string`  }, { `name`: `string` ; `version`: `string`  }\>  }, ``"strip"``, `z.ZodTypeAny`, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }, { `tracking`: `boolean` ; `wallet`: { `name`: `string` ; `version`: `string`  }  }\> |
+| `params` | `ZodObject`<{}, ``"strip"``, `ZodTypeAny`, {}, {}\> |
+| `result` | `ZodObject`<{ `tracking`: `ZodBoolean` ; `wallet`: `ZodObject`<{ `name`: `ZodString` ; `version`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `name`: `string` ; `version`: `string`  }, { `name`: `string` ; `version`: `string`  }\>  }, ``"strip"``, `ZodTypeAny`, { `tracking`: `boolean` ; `wallet`: { name: string; version: string; }  }, { `tracking`: `boolean` ; `wallet`: { name: string; version: string; }  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletInfo.d.ts:28
+[packages/core/src/spec/types/WalletInfo.ts:13](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletInfo.ts#L13)
 
 ___
 
@@ -2423,12 +2423,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `z.ZodObject`<{}, ``"strip"``, `z.ZodTypeAny`, {}, {}\> |
-| `result` | `z.ZodObject`<{ `userId`: `z.ZodString`  }, ``"strip"``, `z.ZodTypeAny`, { `userId`: `string`  }, { `userId`: `string`  }\> |
+| `params` | `ZodObject`<{}, ``"strip"``, `ZodTypeAny`, {}, {}\> |
+| `result` | `ZodObject`<{ `userId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `userId`: `string`  }, { `userId`: `string`  }\> |
 
 #### Defined in
 
-packages/core/lib/spec/types/WalletUserId.d.ts:10
+[packages/core/src/spec/types/WalletUserId.ts:9](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/WalletUserId.ts#L9)
 
 ## Functions
 
@@ -2448,7 +2448,7 @@ packages/core/lib/spec/types/WalletUserId.d.ts:10
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:5
+[packages/core/src/errors/creators.ts:42](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L42)
 
 ___
 
@@ -2468,7 +2468,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:4
+[packages/core/src/errors/creators.ts:32](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L32)
 
 ___
 
@@ -2488,7 +2488,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:2
+[packages/core/src/errors/creators.ts:10](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L10)
 
 ___
 
@@ -2508,7 +2508,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:3
+[packages/core/src/errors/creators.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L22)
 
 ___
 
@@ -2534,7 +2534,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/helpers.d.ts:8
+[packages/core/src/JSONRPC/helpers.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/helpers.ts#L39)
 
 ___
 
@@ -2561,7 +2561,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/helpers.d.ts:16
+[packages/core/src/JSONRPC/helpers.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/helpers.ts#L57)
 
 ___
 
@@ -2581,7 +2581,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:7
+[packages/core/src/errors/creators.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L60)
 
 ___
 
@@ -2606,7 +2606,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/errors/creators.d.ts:6
+[packages/core/src/errors/creators.ts:52](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/creators.ts#L52)
 
 ___
 
@@ -2614,7 +2614,7 @@ ___
 
 ▸ **deserializeAccount**(`rawAccount`): [`Account`](#account)
 
-Deserialize a [RawAccount](#rawaccount) object after it has been received over JSON-RPC
+Deserialize a [[RawAccount]] object after it has been received over JSON-RPC
 protocol from the Ledger Live platform
 
 #### Parameters
@@ -2639,7 +2639,7 @@ The object account of the provided raw account representation
 
 #### Defined in
 
-packages/core/lib/accounts/serializers.d.ts:17
+[packages/core/src/accounts/serializers.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/accounts/serializers.ts#L41)
 
 ___
 
@@ -2647,14 +2647,14 @@ ___
 
 ▸ **deserializeTransaction**(`rawTransaction`): [`Transaction`](#transaction)
 
-Deserialize a [RawTransaction](#rawtransaction) object after it has been received over
+Deserialize a [[RawTransaction]] object after it has been received over
 JSON-RPC protocol from the Ledger Live platform
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `rawTransaction` | { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` ; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } | The raw transaction representation to deserialize |
+| `rawTransaction` | { `amount`: `string` ; `assetId?`: `string` ; `family`: ``"algorand"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"optIn"`` \| ``"claimReward"`` \| ``"optOut"`` = schemaAlgorandOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"bitcoin"`` ; `feePerByte?`: `string` ; `opReturnDataHex?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"celo"`` ; `fees?`: ``null`` \| `string` ; `index?`: ``null`` \| `number` ; `mode`: ``"send"`` \| ``"lock"`` \| ``"unlock"`` \| ``"withdraw"`` \| ``"vote"`` \| ``"revoke"`` \| ``"activate"`` \| ``"register"`` = schemaOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cosmos"`` ; `fees?`: `string` ; `gas?`: `string` ; `memo?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"delegate"`` \| ``"undelegate"`` \| ``"redelegate"`` \| ``"claimRewardCompound"`` = schemaCosmosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"crypto_org"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"ethereum"`` ; `gasLimit?`: `string` ; `gasPrice?`: `string` ; `maxFeePerGas?`: `string` ; `maxPriorityFeePerGas?`: `string` ; `nonce?`: `number` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"hedera"`` ; `memo?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"filecoin"`` ; `gasFeeCap`: `string` ; `gasLimit`: `number` ; `gasPremium`: `string` ; `method`: `number` ; `nonce`: `number` ; `params?`: `string` ; `recipient`: `string` ; `version`: `number`  } \| { `amount`: `string` ; `family`: ``"near"`` ; `fees?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"neo"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `era?`: `number` ; `family`: ``"polkadot"`` ; `fee?`: `string` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"bond"`` \| ``"unbond"`` \| ``"rebond"`` \| ``"withdrawUnbonded"`` \| ``"setController"`` \| ``"nominate"`` \| ``"chill"`` = schemaPolkadotOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"ripple"`` ; `fee?`: `string` ; `recipient`: `string` ; `tag`: `number`  } \| { `amount`: `string` ; `family`: ``"stellar"`` ; `fees?`: `string` ; `memoType?`: ``"MEMO_TEXT"`` \| ``"MEMO_ID"`` \| ``"MEMO_HASH"`` \| ``"MEMO_RETURN"`` ; `memoValue?`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"tezos"`` ; `fees?`: `string` ; `gasLimit?`: `string` ; `mode`: ``"send"`` \| ``"delegate"`` \| ``"undelegate"`` = schemaTezosOperationMode; `recipient`: `string`  } \| { `amount`: `string` ; `duration?`: `number` ; `family`: ``"tron"`` ; `mode`: ``"send"`` \| ``"claimReward"`` \| ``"vote"`` \| ``"freeze"`` \| ``"unfreeze"`` = schemaTronOperationMode; `recipient`: `string` ; `resource?`: ``"BANDWIDTH"`` \| ``"ENERGY"``  } \| { `amount`: `string` ; `data?`: `string` ; `family`: ``"elrond"`` ; `fees?`: `string` ; `gasLimit`: `number` ; `mode`: ``"send"`` \| ``"withdraw"`` \| ``"delegate"`` \| ``"reDelegateRewards"`` \| ``"unDelegate"`` \| ``"claimRewards"`` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"cardano"`` ; `fees?`: `string` ; `memo?`: `string` ; `mode`: `string` ; `recipient`: `string`  } \| { `amount`: `string` ; `family`: ``"solana"`` ; `model`: `string` ; `recipient`: `string`  } | The raw transaction representation to deserialize |
 
 #### Returns
 
@@ -2664,7 +2664,7 @@ The object transaction of the provided raw transaction representation
 
 #### Defined in
 
-packages/core/lib/families/serializer.d.ts:17
+[packages/core/src/families/serializer.ts:129](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/serializer.ts#L129)
 
 ___
 
@@ -2684,7 +2684,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/JSONRPC/helpers.d.ts:2
+[packages/core/src/JSONRPC/helpers.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/helpers.ts#L11)
 
 ___
 
@@ -2692,7 +2692,7 @@ ___
 
 ▸ **serializeAccount**(`account`): [`RawAccount`](#rawaccount)
 
-Serialize an [Account](#account) object in order to send it over JSON-RPC protocol
+Serialize an [[Account]] object in order to send it over JSON-RPC protocol
 to the Ledger Live platform
 
 #### Parameters
@@ -2709,7 +2709,7 @@ The raw representation of the provided account object
 
 #### Defined in
 
-packages/core/lib/accounts/serializers.d.ts:9
+[packages/core/src/accounts/serializers.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/accounts/serializers.ts#L12)
 
 ___
 
@@ -2717,7 +2717,7 @@ ___
 
 ▸ **serializeTransaction**(`transaction`): [`RawTransaction`](#rawtransaction)
 
-Serialize an [Transaction](#transaction) object in order to send it over JSON-RPC
+Serialize an [[Transaction]] object in order to send it over JSON-RPC
 protocol to the Ledger Live platform
 
 #### Parameters
@@ -2734,4 +2734,4 @@ The raw representation of the provided transaction object
 
 #### Defined in
 
-packages/core/lib/families/serializer.d.ts:9
+[packages/core/src/families/serializer.ts:76](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/families/serializer.ts#L76)

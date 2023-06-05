@@ -1,4 +1,4 @@
-import type { TransactionModule } from "@ledgerhq/wallet-api-client/lib/modules/Transaction";
+import type { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
@@ -8,10 +8,10 @@ type UseSignTransactionState = {
   error: unknown | null;
 };
 
+type SignTransactionParams = Parameters<WalletAPIClient["transaction"]["sign"]>;
+
 type UseSignTransactionReturn = {
-  signTransaction: (
-    ...params: Parameters<TransactionModule["sign"]>
-  ) => Promise<void>;
+  signTransaction: (...params: SignTransactionParams) => Promise<void>;
 } & UseSignTransactionState;
 
 const initialState: UseSignTransactionState = {
@@ -25,7 +25,7 @@ export function useSignTransaction(): UseSignTransactionReturn {
   const [state, setState] = useState<UseSignTransactionState>(initialState);
 
   const signTransaction = useCallback(
-    async (...params: Parameters<TransactionModule["sign"]>) => {
+    async (...params: SignTransactionParams) => {
       try {
         setState((oldState) => ({
           ...oldState,

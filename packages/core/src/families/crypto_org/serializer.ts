@@ -7,15 +7,13 @@ export const serializeCryptoOrgTransaction = ({
   fees,
   amount,
   recipient,
-}: CryptoOrgTransaction): RawCryptoOrgTransaction => {
-  return {
-    family,
-    amount: amount.toString(),
-    recipient,
-    fees: fees ? fees.toString() : undefined,
-    mode,
-  };
-};
+}: CryptoOrgTransaction): RawCryptoOrgTransaction => ({
+  family,
+  amount: amount.toString(),
+  recipient,
+  fees: fees ? fees.toString() : undefined,
+  mode,
+});
 
 export const deserializeCryptoOrgTransaction = ({
   family,
@@ -23,12 +21,10 @@ export const deserializeCryptoOrgTransaction = ({
   fees,
   amount,
   recipient,
-}: RawCryptoOrgTransaction): CryptoOrgTransaction => {
-  return {
-    family,
-    amount: new BigNumber(amount),
-    recipient,
-    fees: fees ? new BigNumber(fees) : undefined,
-    mode,
-  };
-};
+}: RawCryptoOrgTransaction): CryptoOrgTransaction => ({
+  family,
+  amount: new BigNumber(amount),
+  recipient,
+  fees: fees ? new BigNumber(fees) : undefined,
+  mode,
+});

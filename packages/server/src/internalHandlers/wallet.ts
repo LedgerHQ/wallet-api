@@ -6,7 +6,7 @@ import type {
 } from "@ledgerhq/wallet-api-core";
 import type { RPCHandler } from "../types";
 
-export const capabilities: RPCHandler<WalletCapabilities["result"]> = async (
+export const capabilities: RPCHandler<WalletCapabilities["result"]> = (
   _req,
   _context,
   handlers
@@ -23,27 +23,21 @@ export const capabilities: RPCHandler<WalletCapabilities["result"]> = async (
     "wallet.userId",
   ];
 
-  return {
+  return Promise.resolve({
     methodIds,
-  };
+  });
 };
 
-export const userId: RPCHandler<WalletUserId["result"]> = async (
-  _req,
-  context
-) => {
-  const { userId } = context.config;
+export const userId: RPCHandler<WalletUserId["result"]> = (_req, context) =>
+  Promise.resolve({
+    userId: context.config.userId,
+  });
 
-  return {
-    userId,
-  };
-};
-
-export const info: RPCHandler<WalletInfo["result"]> = async (_req, context) => {
+export const info: RPCHandler<WalletInfo["result"]> = (_req, context) => {
   const { wallet, tracking } = context.config;
 
-  return {
+  return Promise.resolve({
     tracking,
     wallet,
-  };
+  });
 };

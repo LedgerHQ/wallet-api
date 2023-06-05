@@ -24,9 +24,10 @@ export function useWalletAPIServer({
   currencies: Currency[];
   permission: Permission;
 }) {
-  const server = useMemo(() => {
-    return new WalletAPIServer(transport, config, logger);
-  }, [config, logger, transport]);
+  const server = useMemo(
+    () => new WalletAPIServer(transport, config, logger),
+    [config, logger, transport]
+  );
 
   useEffect(() => {
     server.setPermissions(permission);

@@ -16,7 +16,7 @@ Abstract level of fees for a transaction
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:23
+[packages/core/src/types/index.ts:26](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L26)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:22
+[packages/core/src/types/index.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L25)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-packages/core/lib/types/index.d.ts:21
+[packages/core/src/types/index.ts:24](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/types/index.ts#L24)

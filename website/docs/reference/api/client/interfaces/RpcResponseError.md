@@ -25,7 +25,7 @@ A Number that indicates the error type that occurred.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:65
+[packages/core/src/JSONRPC/types.ts:70](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L70)
 
 ___
 
@@ -39,7 +39,7 @@ The value of this member is defined by the Server
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:75
+[packages/core/src/JSONRPC/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L80)
 
 ___
 
@@ -51,4 +51,4 @@ A String providing a short description of the error.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:69
+[packages/core/src/JSONRPC/types.ts:74](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L74)

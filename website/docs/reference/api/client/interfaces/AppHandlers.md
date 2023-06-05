@@ -14,4 +14,4 @@ custom_edit_url: null
 
 #### Defined in
 
-packages/core/lib/spec/rpcHandlers/AppHandlers.d.ts:2
+[packages/core/src/spec/rpcHandlers/AppHandlers.ts:2](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/rpcHandlers/AppHandlers.ts#L2)

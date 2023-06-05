@@ -29,13 +29,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
+[packages/server/src/types.ts:61](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L61)
 
 ___
 
 ### account.request
 
-• **account.request**: (`params`: { `accounts$`: `Observable`<`Account`[]\> ; `currencies$`: `Observable`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>  }) => `Promisable`<`Account`\>
+• **account.request**: (`params`: { `accounts$`: `Observable`<`Account`[]\> ; `currencies$`: `Observable`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>  }) => `Promisable`<`Account`\>
 
 #### Type declaration
 
@@ -47,7 +47,7 @@ ___
 | :------ | :------ |
 | `params` | `Object` |
 | `params.accounts$` | `Observable`<`Account`[]\> |
-| `params.currencies$` | `Observable`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\> |
+| `params.currencies$` | `Observable`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\> |
 
 ##### Returns
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L57)
+[packages/server/src/types.ts:57](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L57)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:91](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L91)
+[packages/server/src/types.ts:91](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L91)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
+[packages/server/src/types.ts:79](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L79)
 
 ___
 
@@ -131,13 +131,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L80)
+[packages/server/src/types.ts:80](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L80)
 
 ___
 
 ### device.transport
 
-• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
+• **device.transport**: (`params`: { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -145,14 +145,14 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `params` | `Object` |
-| `params.appName?` | `string` |
-| `params.appVersionRange?` | `string` |
-| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] |
-| `params.firmwareVersionRange?` | `string` |
-| `params.seeded?` | `boolean` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | - |
+| `params.appName?` | `string` | Select the BOLOS App. If undefined selects BOLOS |
+| `params.appVersionRange?` | `string` | Checks the BOLOS App version range. If undefined no checks Can be any ranges supported here: https://github.com/npm/node-semver#ranges |
+| `params.devices?` | [``"blue"`` \| ``"nanoS"`` \| ``"nanoX"`` \| ``"nanoSP"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoX" \| "nanoSP" \| "stax")[]] | Checks if the device matches one of the types. If undefined no checks |
+| `params.firmwareVersionRange?` | `string` | Checks the BOLOS Firmware version range. If undefined no checks Can be any ranges supported here: https://github.com/npm/node-semver#ranges |
+| `params.seeded?` | `boolean` | Checks if the device is seeded. If undefined no checks |
 
 ##### Returns
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L81)
+[packages/server/src/types.ts:81](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L81)
 
 ___
 
@@ -184,13 +184,13 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L93)
+[packages/server/src/types.ts:93](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L93)
 
 ___
 
 ### exchange.start
 
-• **exchange.start**: (`params`: { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"``  }) => `Promisable`<`string`\>
+• **exchange.start**: (`params`: { `exchangeType`: ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` = schemaExchangeType }) => `Promisable`<`string`\>
 
 #### Type declaration
 
@@ -198,10 +198,10 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `params` | `Object` |
-| `params.exchangeType` | ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `params` | `Object` | `undefined` |
+| `params.exchangeType` | ``"FUND"`` \| ``"SELL"`` \| ``"SWAP"`` | `schemaExchangeType` |
 
 ##### Returns
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
+[packages/server/src/types.ts:92](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L92)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
+[packages/server/src/types.ts:62](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L62)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
+[packages/server/src/types.ts:87](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L87)
 
 ___
 
@@ -289,7 +289,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
+[packages/server/src/types.ts:82](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L82)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L67)
+[packages/server/src/types.ts:67](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L67)
 
 ___
 
@@ -347,4 +347,4 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)
+[packages/server/src/types.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L73)

@@ -28,7 +28,7 @@ The value **SHOULD** normally not be Null and Numbers **SHOULD NOT** contain fra
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:55
+[packages/core/src/JSONRPC/types.ts:59](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L59)
 
 ___
 
@@ -40,7 +40,7 @@ A String specifying the version of the JSON-RPC protocol. **MUST** be exactly "2
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:39
+[packages/core/src/JSONRPC/types.ts:40](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L40)
 
 ___
 
@@ -52,7 +52,7 @@ A String containing the name of the method to be invoked.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:43
+[packages/core/src/JSONRPC/types.ts:45](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L45)
 
 ___
 
@@ -65,4 +65,4 @@ to be used during the invocation of the method.
 
 #### Defined in
 
-packages/core/lib/JSONRPC/types.d.ts:48
+[packages/core/src/JSONRPC/types.ts:51](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/types.ts#L51)

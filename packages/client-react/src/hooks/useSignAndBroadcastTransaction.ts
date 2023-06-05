@@ -1,4 +1,4 @@
-import type { TransactionModule } from "@ledgerhq/wallet-api-client/lib/modules/Transaction";
+import type { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
@@ -8,9 +8,13 @@ type UseSignAndBroadcastTransactionState = {
   error: unknown;
 };
 
+type SignAndBroadcastTransactionParams = Parameters<
+  WalletAPIClient["transaction"]["signAndBroadcast"]
+>;
+
 type UseSignAndBroadcastTransactionReturn = {
   signAndBroadcastTransaction: (
-    ...params: Parameters<TransactionModule["signAndBroadcast"]>
+    ...params: SignAndBroadcastTransactionParams
   ) => Promise<void>;
 } & UseSignAndBroadcastTransactionState;
 
@@ -25,7 +29,7 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
   const [state, setState] = useState(initialState);
 
   const signAndBroadcastTransaction = useCallback(
-    async (...params: Parameters<TransactionModule["signAndBroadcast"]>) => {
+    async (...params: SignAndBroadcastTransactionParams) => {
       try {
         setState((oldState) => ({
           ...oldState,

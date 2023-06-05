@@ -8,6 +8,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
+    "no-console": "off",
     "no-underscore-dangle": "off",
     "class-methods-use-this": "warn",
   },

@@ -9,17 +9,15 @@ export const serializeCosmosTransaction = ({
   fees,
   gas,
   memo,
-}: CosmosTransaction): RawCosmosTransaction => {
-  return {
-    amount: amount.toString(),
-    recipient,
-    family,
-    mode,
-    fees: fees ? fees.toString() : undefined,
-    gas: gas ? gas.toString() : undefined,
-    memo,
-  };
-};
+}: CosmosTransaction): RawCosmosTransaction => ({
+  amount: amount.toString(),
+  recipient,
+  family,
+  mode,
+  fees: fees ? fees.toString() : undefined,
+  gas: gas ? gas.toString() : undefined,
+  memo,
+});
 
 export const deserializeCosmosTransaction = ({
   amount,
@@ -29,14 +27,12 @@ export const deserializeCosmosTransaction = ({
   fees,
   gas,
   memo,
-}: RawCosmosTransaction): CosmosTransaction => {
-  return {
-    amount: new BigNumber(amount),
-    recipient,
-    family,
-    mode,
-    fees: fees ? new BigNumber(fees) : undefined,
-    gas: gas ? new BigNumber(gas) : undefined,
-    memo,
-  };
-};
+}: RawCosmosTransaction): CosmosTransaction => ({
+  amount: new BigNumber(amount),
+  recipient,
+  family,
+  mode,
+  fees: fees ? new BigNumber(fees) : undefined,
+  gas: gas ? new BigNumber(gas) : undefined,
+  memo,
+});

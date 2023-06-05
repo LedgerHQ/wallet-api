@@ -35,7 +35,7 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:99](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L99)
+[packages/server/src/WalletAPIServer.ts:99](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L99)
 
 ## Properties
 
@@ -45,17 +45,17 @@ RpcNode&lt;
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L31)
+[packages/server/src/WalletAPIServer.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L31)
 
 ___
 
 ### allCurrencies$
 
-• `Private` **allCurrencies$**: `BehaviorSubject`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>
+• `Private` **allCurrencies$**: `BehaviorSubject`<({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[]\>
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L35)
+[packages/server/src/WalletAPIServer.ts:35](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L35)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L27)
+[packages/server/src/WalletAPIServer.ts:27](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L27)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L41)
+[packages/server/src/WalletAPIServer.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L41)
 
 ___
 
@@ -96,7 +96,7 @@ RpcNode.requestHandlers
 
 #### Defined in
 
-core/lib/JSONRPC/RpcNode.d.ts:9
+[packages/core/src/JSONRPC/RpcNode.ts:28](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L28)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L29)
+[packages/server/src/WalletAPIServer.ts:29](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L29)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L39)
+[packages/server/src/WalletAPIServer.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L39)
 
 ## Methods
 
@@ -147,7 +147,7 @@ RpcNode.notify
 
 #### Defined in
 
-core/lib/JSONRPC/RpcNode.d.ts:15
+[packages/core/src/JSONRPC/RpcNode.ts:102](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L102)
 
 ___
 
@@ -171,7 +171,7 @@ RpcNode.onRequest
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L73)
+[packages/server/src/WalletAPIServer.ts:73](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L73)
 
 ___
 
@@ -202,7 +202,7 @@ RpcNode.request
 
 #### Defined in
 
-core/lib/JSONRPC/RpcNode.d.ts:14
+[packages/core/src/JSONRPC/RpcNode.ts:89](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/JSONRPC/RpcNode.ts#L89)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L60)
+[packages/server/src/WalletAPIServer.ts:60](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L60)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
+| `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
 
 #### Returns
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L55)
+[packages/server/src/WalletAPIServer.ts:55](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L55)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L65)
+[packages/server/src/WalletAPIServer.ts:65](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L65)
 
 ___
 
@@ -289,4 +289,4 @@ ___
 
 #### Defined in
 
-[server/src/WalletAPIServer.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L49)
+[packages/server/src/WalletAPIServer.ts:49](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts#L49)

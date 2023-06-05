@@ -1,4 +1,4 @@
-import type { MessageModule } from "@ledgerhq/wallet-api-client/lib/modules/Message";
+import type { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
@@ -8,8 +8,10 @@ type UseSignMessageState = {
   error: unknown;
 };
 
+type SignMessageParams = Parameters<WalletAPIClient["message"]["sign"]>;
+
 type UseSignMessageReturn = {
-  signMessage: (...params: Parameters<MessageModule["sign"]>) => Promise<void>;
+  signMessage: (...params: SignMessageParams) => Promise<void>;
 } & UseSignMessageState;
 
 const initialState: UseSignMessageState = {
@@ -23,7 +25,7 @@ export function useSignMessage(): UseSignMessageReturn {
   const [state, setState] = useState<UseSignMessageState>(initialState);
 
   const signMessage = useCallback(
-    async (...params: Parameters<MessageModule["sign"]>) => {
+    async (...params: SignMessageParams) => {
       try {
         setState((oldState) => ({
           ...oldState,

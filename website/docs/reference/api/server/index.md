@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[server/src/types.ts:115](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L115)
+[packages/server/src/types.ts:115](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L115)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:107](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L107)
+[packages/server/src/types.ts:107](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L107)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L23)
+[packages/server/src/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L23)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:125](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L125)
+[packages/server/src/types.ts:125](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L125)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:103](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L103)
+[packages/server/src/types.ts:103](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L103)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L17)
+[packages/server/src/types.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L17)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[server/src/types.ts:120](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L120)
+[packages/server/src/types.ts:120](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L120)
 
 ## Functions
 
@@ -158,7 +158,7 @@ ___
 | `«destructured»` | `Object` |
 | › `accounts` | `Account`[] |
 | › `config` | [`ServerConfig`](#serverconfig) |
-| › `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` ; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` ; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
+| › `currencies` | ({ `color`: `string` ; `decimals`: `number` ; `family`: ``"bitcoin"`` \| ``"ethereum"`` \| ``"algorand"`` \| ``"crypto_org"`` \| ``"ripple"`` \| ``"cosmos"`` \| ``"celo"`` \| ``"hedera"`` \| ``"filecoin"`` \| ``"tezos"`` \| ``"polkadot"`` \| ``"stellar"`` \| ``"tron"`` \| ``"near"`` \| ``"neo"`` \| ``"elrond"`` \| ``"cardano"`` \| ``"solana"`` = schemaFamilies; `id`: `string` ; `name`: `string` ; `ticker`: `string` ; `type`: ``"CryptoCurrency"``  } \| { `color`: `string` ; `contract`: `string` ; `decimals`: `number` ; `id`: `string` ; `name`: `string` ; `parent`: `string` ; `standard`: ``"ERC20"`` = schemaTokenStandard; `ticker`: `string` ; `type`: ``"TokenCurrency"``  })[] |
 | › `logger?` | `Logger` |
 | › `permission` | `Permission` |
 | › `transport` | `Transport` |
@@ -174,4 +174,4 @@ ___
 
 #### Defined in
 
-[server/src/react.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/react.ts#L12)
+[packages/server/src/react.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/react.ts#L12)

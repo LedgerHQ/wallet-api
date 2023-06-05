@@ -64,6 +64,7 @@ export default class WindowMessageTransport implements Transport {
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
             this._onMessage(error.message);
           }
+          // eslint-disable-next-line no-console
           console.error("unknown error");
         }
       } else {
@@ -88,12 +89,14 @@ export default class WindowMessageTransport implements Transport {
       if (this.target.ReactNativeWebView) {
         this.logger.log("sending message (ReactNativeWebview)", message);
         // @ts-expect-error: injected value
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         this.target.ReactNativeWebView.postMessage(message);
       }
       // @ts-expect-error: injected value
       else if (this.target.ElectronWebview) {
         this.logger.log("sending message (ElectronWebview)", message);
         // @ts-expect-error: injected value
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         this.target.ElectronWebview.postMessage(message);
       } else {
         this.logger.log("sending message", message);

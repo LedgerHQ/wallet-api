@@ -22,7 +22,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `errorData` | { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  } |
+| `errorData` | { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  } |
 
 #### Overrides
 
@@ -30,17 +30,17 @@ Error.constructor
 
 #### Defined in
 
-packages/core/lib/errors/ServerError.d.ts:4
+[packages/core/src/errors/ServerError.ts:6](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/ServerError.ts#L6)
 
 ## Properties
 
 ### errorData
 
-• `Private` `Readonly` **errorData**: `any`
+• `Private` `Readonly` **errorData**: { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  }
 
 #### Defined in
 
-packages/core/lib/errors/ServerError.d.ts:3
+[packages/core/src/errors/ServerError.ts:4](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/ServerError.ts#L4)
 
 ___
 
@@ -54,7 +54,7 @@ Error.message
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1041
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1055
 
 ___
 
@@ -68,7 +68,7 @@ Error.name
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1040
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1054
 
 ___
 
@@ -82,7 +82,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/.pnpm/typescript@4.8.4/node_modules/typescript/lib/lib.es5.d.ts:1042
+node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es5.d.ts:1056
 
 ___
 
@@ -117,7 +117,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:11
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -131,7 +131,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:13
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -149,25 +149,25 @@ error code
 
 #### Defined in
 
-packages/core/lib/errors/ServerError.d.ts:9
+[packages/core/src/errors/ServerError.ts:15](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/ServerError.ts#L15)
 
 ___
 
 ### getData
 
-▸ **getData**(): { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }
+▸ **getData**(): { `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  }
 
 Retrieve underlying data info
 
 #### Returns
 
-{ `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { `accountId`: `string`  } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { `currencyId`: `string`  } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { `methodId`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { `cause?`: `unknown` ; `code?`: `string` ; `message?`: `string` ; `name?`: `string` ; `stack?`: `string`  } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { `storeId`: `string`  } ; `message`: `string`  }
+{ `code`: ``"NOT_IMPLEMENTED_BY_WALLET"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"ACCOUNT_NOT_FOUND"`` ; `data`: { accountId: string; } ; `message`: `string`  } \| { `code`: ``"CURRENCY_NOT_FOUND"`` ; `data`: { currencyId: string; } ; `message`: `string`  } \| { `code`: ``"PERMISSION_DENIED"`` ; `data`: { methodId: string; } ; `message`: `string`  } \| { `code`: ``"UNKNOWN_ERROR"`` ; `data`: { name?: string \| undefined; message?: string \| undefined; stack?: string \| undefined; cause?: unknown; code?: string \| undefined; } ; `message`: `string`  } \| { `code`: ``"UNAUTHORIZED_STORE"`` ; `data`: { storeId: string; } ; `message`: `string`  }
 
 data info
 
 #### Defined in
 
-packages/core/lib/errors/ServerError.d.ts:14
+[packages/core/src/errors/ServerError.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/errors/ServerError.ts#L23)
 
 ___
 
@@ -194,4 +194,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/.pnpm/@types+node@18.11.8/node_modules/@types/node/ts4.8/globals.d.ts:4
+node_modules/.pnpm/@types+node@20.2.5/node_modules/@types/node/globals.d.ts:4
