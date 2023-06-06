@@ -1,0 +1,14 @@
+{
+  "react-link": {
+    "title": "React",
+    "href": "/react"
+  },
+  "core-link": {
+    "title": "Core",
+    "href": "/core"
+  },
+  "examples-link": {
+    "title": "Examples",
+    "href": "/examples"
+  }
+}

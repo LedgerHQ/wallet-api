@@ -1,0 +1,16 @@
+{
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true
+    }
+  },
+  "hooks": "Hooks",
+  "actions": {
+    "title": "Actions",
+    "href": "/core"
+  }
+}

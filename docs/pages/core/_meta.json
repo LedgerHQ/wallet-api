@@ -1,0 +1,11 @@
+{
+  "index": {
+    "title": "Coming soon",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true
+    }
+  }
+}
