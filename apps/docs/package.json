@@ -2,10 +2,11 @@
   "name": "docs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "next build"
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,12 @@
     "next": "^13.4.4",
     "nextra": "^2.7.1",
     "nextra-theme-blog": "^2.7.1",
+    "nextra-theme-docs": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "typescript": "^5.1.3"
   }
 }
