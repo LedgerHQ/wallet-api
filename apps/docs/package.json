@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "next build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^13.4.4",
+    "nextra": "^2.7.1",
+    "nextra-theme-blog": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
