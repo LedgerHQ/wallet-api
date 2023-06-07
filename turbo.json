@@ -39,6 +39,15 @@
       "outputs": ["build/**"],
       "inputs": ["src/**", "docs/**", "static/**", "*.js"]
     },
+    "wallet-api-docs#dev": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "wallet-api-docs#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"],
+      "inputs": ["src/**"]
+    },
     "wallet-api-tools#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
