@@ -20,10 +20,9 @@
     "type": "page",
     "display": "hidden"
   },
-  "examples": {
-    "title": "Examples",
-    "type": "page",
-    "display": "hidden"
+  "examples-and-tutorials": {
+    "title": "Examples & Tutorials",
+    "type": "page"
   },
   "---": {
     "type": "separator"
@@ -39,7 +38,7 @@
     "display": "hidden"
   },
   "examples-link": {
-    "title": "Examples",
+    "title": "Examples & Tutorials",
     "href": "/examples",
     "display": "hidden"
   }
