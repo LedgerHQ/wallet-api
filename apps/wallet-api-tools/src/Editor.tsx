@@ -1,11 +1,11 @@
 "use client";
 
-import { json } from "@codemirror/lang-json";
 import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-core";
 import {
   getSimulatorTransport,
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
+import { langs } from '@uiw/codemirror-extensions-langs';
 import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -155,7 +155,7 @@ export function Editor() {
       <CodeMirror
         ref={codeMirrorRef}
         value={value}
-        extensions={[json()]}
+        extensions={[langs.json()]}
         theme={"dark"}
         minHeight="100%"
         style={{
