@@ -1,6 +1,6 @@
 "use client";
 
-import { json } from "@codemirror/lang-json";
+import { langs } from '@uiw/codemirror-extensions-langs';
 import CodeMirror from "@uiw/react-codemirror";
 import { useCallback, useState } from "react";
 import { TemplateSelector } from "./TemplateSelector";
@@ -26,7 +26,7 @@ export function Input({ onSend, onClear }: InputProps) {
       <CodeMirror
         value={value}
         height="200px"
-        extensions={[json()]}
+        extensions={[langs.json()]}
         onChange={onChange}
         theme="dark"
         autoFocus
