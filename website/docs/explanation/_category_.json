@@ -1,8 +1,0 @@
-{
-  "label": "Explanations",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "description": "General explanations of the Wallet-API and related topics and concepts used inside of it"
-  }
-}
