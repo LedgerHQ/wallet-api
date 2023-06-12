@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[packages/server/src/types.ts:115](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L115)
+[packages/server/src/types.ts:119](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L119)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:107](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L107)
+[packages/server/src/types.ts:111](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L111)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:23](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L23)
+[packages/server/src/types.ts:25](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L25)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:125](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L125)
+[packages/server/src/types.ts:129](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L129)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:103](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L103)
+[packages/server/src/types.ts:107](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L107)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L17)
+[packages/server/src/types.ts:19](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L19)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[packages/server/src/types.ts:120](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L120)
+[packages/server/src/types.ts:124](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/types.ts#L124)
 
 ## Functions
 

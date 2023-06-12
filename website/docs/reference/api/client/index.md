@@ -515,6 +515,88 @@ Information about a device
 
 ___
 
+### DeviceOpen
+
+Ƭ **DeviceOpen**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaDeviceOpenParams`\> |
+| `result` | `z.infer`<typeof `schemaDeviceOpenResults`\> |
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceOpen.ts:17](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceOpen.ts#L17)
+
+___
+
+### DeviceOpenHandler
+
+Ƭ **DeviceOpenHandler**: (`params`: [`DeviceOpen`](#deviceopen)[``"params"``]) => [`DeviceOpen`](#deviceopen)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`DeviceOpen`](#deviceopen)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`DeviceOpen`](#deviceopen)[``"params"``] |
+
+##### Returns
+
+[`DeviceOpen`](#deviceopen)[``"result"``]
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceOpen.ts:22](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceOpen.ts#L22)
+
+___
+
+### DeviceSelect
+
+Ƭ **DeviceSelect**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `z.infer`<typeof `schemaDeviceSelectParams`\> |
+| `result` | `z.infer`<typeof `schemaDeviceSelectResults`\> |
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceSelect.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceSelect.ts#L36)
+
+___
+
+### DeviceSelectHandler
+
+Ƭ **DeviceSelectHandler**: (`params`: [`DeviceSelect`](#deviceselect)[``"params"``]) => [`DeviceSelect`](#deviceselect)[``"result"``]
+
+#### Type declaration
+
+▸ (`params`): [`DeviceSelect`](#deviceselect)[``"result"``]
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`DeviceSelect`](#deviceselect)[``"params"``] |
+
+##### Returns
+
+[`DeviceSelect`](#deviceselect)[``"result"``]
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceSelect.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceSelect.ts#L41)
+
+___
+
 ### DeviceTransport
 
 Ƭ **DeviceTransport**: `Object`
@@ -528,7 +610,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/types/DeviceTransport.ts:39](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L39)
+[packages/core/src/spec/types/DeviceTransport.ts:36](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L36)
 
 ___
 
@@ -552,17 +634,17 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/types/DeviceTransport.ts:44](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L44)
+[packages/core/src/spec/types/DeviceTransport.ts:41](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L41)
 
 ___
 
 ### DeviceType
 
-Ƭ **DeviceType**: `z.infer`<typeof `schemaDeviceType`\>
+Ƭ **DeviceType**: `z.infer`<typeof [`schemaDeviceType`](#schemadevicetype)\>
 
 #### Defined in
 
-[packages/core/src/spec/types/DeviceTransport.ts:5](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L5)
+[packages/core/src/spec/types/Device.ts:11](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/Device.ts#L11)
 
 ___
 
@@ -2045,6 +2127,40 @@ ___
 
 ___
 
+### schemaDeviceOpen
+
+• `Const` **schemaDeviceOpen**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `ZodObject`<{ `deviceId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `deviceId`: `string`  }, { `deviceId`: `string`  }\> |
+| `result` | `ZodObject`<{ `transportId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `transportId`: `string`  }, { `transportId`: `string`  }\> |
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceOpen.ts:12](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceOpen.ts#L12)
+
+___
+
+### schemaDeviceSelect
+
+• `Const` **schemaDeviceSelect**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `ZodObject`<{ `appName`: `ZodOptional`<`ZodString`\> ; `appVersionRange`: `ZodOptional`<`ZodString`\> ; `devices`: `ZodOptional`<`ZodArray`<`ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"stax"``]\>, ``"atleastone"``\>\> ; `firmwareVersionRange`: `ZodOptional`<`ZodString`\> ; `seeded`: `ZodOptional`<`ZodBoolean`\>  }, ``"strip"``, `ZodTypeAny`, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }, { `appName?`: `string` ; `appVersionRange?`: `string` ; `devices?`: [``"blue"`` \| ``"nanoS"`` \| ``"nanoSP"`` \| ``"nanoX"`` \| ``"stax"``, ...("blue" \| "nanoS" \| "nanoSP" \| "nanoX" \| "stax")[]] ; `firmwareVersionRange?`: `string` ; `seeded?`: `boolean`  }\> |
+| `result` | `ZodObject`<{ `deviceId`: `ZodString`  }, ``"strip"``, `ZodTypeAny`, { `deviceId`: `string`  }, { `deviceId`: `string`  }\> |
+
+#### Defined in
+
+[packages/core/src/spec/types/DeviceSelect.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceSelect.ts#L31)
+
+___
+
 ### schemaDeviceTransport
 
 • `Const` **schemaDeviceTransport**: `Object`
@@ -2058,7 +2174,17 @@ ___
 
 #### Defined in
 
-[packages/core/src/spec/types/DeviceTransport.ts:34](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L34)
+[packages/core/src/spec/types/DeviceTransport.ts:31](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/DeviceTransport.ts#L31)
+
+___
+
+### schemaDeviceType
+
+• `Const` **schemaDeviceType**: `ZodEnum`<[``"blue"``, ``"nanoS"``, ``"nanoSP"``, ``"nanoX"``, ``"stax"``]\>
+
+#### Defined in
+
+[packages/core/src/spec/types/Device.ts:3](https://github.com/LedgerHQ/wallet-api/blob/main/packages/core/src/spec/types/Device.ts#L3)
 
 ___
 

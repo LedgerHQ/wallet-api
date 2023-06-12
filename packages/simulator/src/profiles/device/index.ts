@@ -16,6 +16,8 @@ export const deviceProfile: SimulatorProfile = {
     methodIds: [
       ...standardProfile.permissions.methodIds,
       "device.transport",
+      "device.select",
+      "device.open",
       "device.exchange",
       "device.close",
     ],
@@ -23,6 +25,17 @@ export const deviceProfile: SimulatorProfile = {
   methods: {
     ...standardProfile.methods,
     "device.transport": async () => {
+      if (!httpTransport) {
+        throw new Error("Proxy not setup");
+      }
+      if (transport) {
+        throw new Error("Transport already opened");
+      }
+      transport = await httpTransport.create(3000, 5000);
+      return "1";
+    },
+    "device.select": () => "",
+    "device.open": async () => {
       if (!httpTransport) {
         throw new Error("Proxy not setup");
       }

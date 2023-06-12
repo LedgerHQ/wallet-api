@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { schemaDeviceType } from "./Device";
 
-const schemaDeviceTransportParams = z.object({
+const schemaDeviceSelectParams = z.object({
   /** Select the BOLOS App. If undefined selects BOLOS */
   appName: z.string().optional(),
   /**
@@ -24,20 +24,20 @@ const schemaDeviceTransportParams = z.object({
   devices: schemaDeviceType.array().nonempty().optional(),
 });
 
-const schemaDeviceTransportResults = z.object({
-  transportId: z.string(),
+const schemaDeviceSelectResults = z.object({
+  deviceId: z.string(),
 });
 
-export const schemaDeviceTransport = {
-  params: schemaDeviceTransportParams,
-  result: schemaDeviceTransportResults,
+export const schemaDeviceSelect = {
+  params: schemaDeviceSelectParams,
+  result: schemaDeviceSelectResults,
 };
 
-export type DeviceTransport = {
-  params: z.infer<typeof schemaDeviceTransportParams>;
-  result: z.infer<typeof schemaDeviceTransportResults>;
+export type DeviceSelect = {
+  params: z.infer<typeof schemaDeviceSelectParams>;
+  result: z.infer<typeof schemaDeviceSelectResults>;
 };
 
-export type DeviceTransportHandler = (
-  params: DeviceTransport["params"]
-) => DeviceTransport["result"];
+export type DeviceSelectHandler = (
+  params: DeviceSelect["params"]
+) => DeviceSelect["result"];

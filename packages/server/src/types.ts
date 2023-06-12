@@ -4,6 +4,8 @@ import type {
   Currency,
   DeviceClose,
   DeviceExchange,
+  DeviceOpen,
+  DeviceSelect,
   DeviceTransport,
   ExchangeStart,
   Promisable,
@@ -78,6 +80,8 @@ export interface WalletHandlers {
   }) => Promisable<string>;
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
+  "device.open": (params: DeviceOpen["params"]) => Promisable<string>;
+  "device.select": (params: DeviceSelect["params"]) => Promisable<string>;
   "device.transport": (params: DeviceTransport["params"]) => Promisable<string>;
   "storage.set": (params: {
     key: string;

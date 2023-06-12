@@ -2,9 +2,13 @@ import {
   createNotImplementedByWallet,
   DeviceClose,
   DeviceExchange,
+  DeviceOpen,
+  DeviceSelect,
   DeviceTransport,
   schemaDeviceClose,
   schemaDeviceExchange,
+  schemaDeviceOpen,
+  schemaDeviceSelect,
   schemaDeviceTransport,
   ServerError,
 } from "@ledgerhq/wallet-api-core";
@@ -49,6 +53,48 @@ export const exchange: RPCHandler<DeviceExchange["result"]> = async (
 
   return {
     responseHex,
+  };
+};
+
+const DEVICE_OPEN = "device.open";
+export const open: RPCHandler<DeviceOpen["result"]> = async (
+  req,
+  _,
+  handlers
+) => {
+  const safeParams = schemaDeviceOpen.params.parse(req.params);
+
+  const walletHandler = handlers[DEVICE_OPEN];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet(DEVICE_OPEN));
+  }
+
+  const transportId = await walletHandler(safeParams);
+
+  return {
+    transportId,
+  };
+};
+
+const DEVICE_SELECT = "device.select";
+export const select: RPCHandler<DeviceSelect["result"]> = async (
+  req,
+  _,
+  handlers
+) => {
+  const safeParams = schemaDeviceSelect.params.parse(req.params);
+
+  const walletHandler = handlers[DEVICE_SELECT];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet(DEVICE_SELECT));
+  }
+
+  const deviceId = await walletHandler(safeParams);
+
+  return {
+    deviceId,
   };
 };
 
