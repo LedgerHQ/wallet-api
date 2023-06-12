@@ -1,0 +1,19 @@
+{
+  "manifestV1": {
+    "title": " Manifest V1",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": false,
+      "toc": false
+    }
+  },
+  "manifestV2": {
+    "title": "Manifest v2 (soon)",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": false,
+      "toc": false
+    }
+  }
+}

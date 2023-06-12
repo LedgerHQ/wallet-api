@@ -25,6 +25,10 @@
     "type": "page",
     "display": "hidden"
   },
+  "manifest": {
+    "title": "Manifest",
+    "type": "page"
+  },
   "---": {
     "type": "separator"
   },
