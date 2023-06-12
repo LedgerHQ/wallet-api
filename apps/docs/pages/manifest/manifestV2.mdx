@@ -1,11 +1,6 @@
 # **Manifest V2**
 
-## **What is the manifest ?** 
-A Manifest is an config file that allows external applications and decentralized applications (dApps) to be integrated inside the Ledger Live software as a Live app and interact with all provided feature. 
-
-This page is not talking about live apps, but If you want to know more about the Discover tab and the Live Apps, you can read this page : [Start here](https://developers.ledger.com/docs/live-app/start-here/)
-
-_template of a manifest.json file :_ 
+_Template of a manifest.json file :_ 
 
 ```json
 {
@@ -39,21 +34,7 @@ _template of a manifest.json file :_
       "en": "Desc"
     }
   },
-  "permissions": [
-    "account.list",
-    "account.receive",
-    "account.request",
-    "currency.list",
-    "device.close",
-    "device.exchange",
-    "device.transport",
-    "message.sign",
-    "transaction.sign",
-    "transaction.signAndBroadcast",
-    "wallet.capabilities",
-    "wallet.info",
-    "wallet.userId"
-  ],
+  "permissions": [],
   "domains": ["http://*"],
   "visibility": "complete"
 }
@@ -74,8 +55,8 @@ _template of a manifest.json file :_
 | manifestVersion  | enum            | 2                           |
 | categories       | Array(string)   | num items: min 1 → *        |
 | currencies       | Array(string)   | num items: min 1 → *        |
-| content          | Object          | {shortDescription: string, description: string} |      |
-| [permissions](/permissions)| enum  |                             |
+| content          | Object          | \{shortDescription: string, description: string\} |      |
+| [permissions](/manifest/permissions)| enum  |                             |
 | domains          | Array(string)   |  optional | *               |
 | type             | enum            | "dapp", "walletApp", "webBrowser" |
 | params           | Object          | depend on the type          |

@@ -1,18 +1,20 @@
 {
-  "manifestV1": {
-    "title": " Manifest V1",
+  "index": {
+    "title": "What is a manifest",
     "theme": {
       "breadcrumb": false,
-      "sidebar": false,
+      "toc": false
+    }
+  },
+  "manifestV1": {
+    "title": " Manifest v1",
+    "theme": {
       "toc": false
     }
   },
   "manifestV2": {
     "title": "Manifest v2 (soon)",
-    "display": "hidden",
     "theme": {
-      "breadcrumb": false,
-      "sidebar": false,
       "toc": false
     }
   }
