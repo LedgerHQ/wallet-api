@@ -1,0 +1,113 @@
+# Using the `useCurrencies` Hook
+
+In this section, we will be looking at how to use the `useCurrencies` hook to retrieve a list of available cryptocurrencies and tokens. This method is essential when you need to get information on the various currencies supported by Ledger's Wallet API.
+
+## Introduction to `useCurrencies` Hook
+
+The `useCurrencies` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch an array of supported cryptocurrencies and tokens.
+
+Each currency object in the array contains essential information such as its type (e.g., `CryptoCurrency` or `TokenCurrency`), `id`, `ticker`, `name`, `family`, `color`, and `decimals`.
+
+For tokens, additional properties like `standard` and `contract` are included.
+
+## Handling Large Datasets
+
+As of the latest data, the `useCurrencies` hook returns an array with up to 7501 elements when unfiltered. Due to the size of this dataset, it is essential to handle this data efficiently.
+
+You might not want to render all elements on the UI simultaneously, as it could affect the performance. Instead, you can implement pagination, virtualisation or selectively display the data based on user input.
+
+In addition, you can filter the currencies accessible by setting the `"currencies"` property inside your manifest. See the families subsection for more information about currencies filtering.
+
+## Sample Code
+
+Here is an example that shows how to use the `useCurrencies` hook inside a React component:
+
+```jsx
+import React, { useState } from "react";
+import { useCurrencies } from "@ledgerhq/wallet-api-client-react";
+
+function App() {
+  const { currencies } = useCurrencies();
+  const [response, setResponse] = useState(undefined);
+
+  const handleCurrencies = () => {
+    setResponse(currencies?.map((currency) => <p>{currency.name}</p>));
+  };
+
+  return (
+    <>
+      <h1>Supported Currencies</h1>
+      <button onClick={handleCurrencies}>Show Currencies</button>
+      <div>{response}</div>
+    </>
+  );
+}
+
+export default App;
+```
+
+In this example:
+
+- We import the `useCurrencies` hook from the `@ledgerhq/wallet-api-client-react` package.
+
+- We use the hook to get the `currencies` array.
+
+- We define a `handleCurrencies` function that updates the state with a list of currency names.
+
+- When the button is clicked, it displays the list of supported currencies.
+
+## Understanding the Response
+
+Here is an example of a partial response from the `useCurrencies` hook:
+
+```json
+[
+  {
+    "type": "CryptoCurrency",
+    "id": "bitcoin",
+    "ticker": "BTC",
+    "name": "Bitcoin",
+    "family": "bitcoin",
+    "color": "#ffae35",
+    "decimals": 8
+  },
+  {
+    "type": "TokenCurrency",
+    "standard": "ERC20",
+    "id": "ethereum/erc20/gods_unchained",
+    "ticker": "GODS",
+    "contract": "0xccC8cb5229B0ac8069C51fd58367Fd1e622aFD97",
+    "name": "Gods Unchained",
+    "parent": "ethereum",
+    "color": "#0ebdcd",
+    "decimals": 18
+  }
+]
+```
+
+Each object in the array represents a cryptocurrency or token and contains the following properties:
+
+- `type`: Specifies whether the currency is a base cryptocurrency like Bitcoin or Ethereum (`CryptoCurrency`) or a token like an ERC20 token (`TokenCurrency`).
+
+- `id`: A unique identifier for the currency.
+
+- `ticker`: The ticker symbol of the currency.
+
+- `name`: The full name of the currency.
+
+- `family`: The blockchain family the currency belongs to, such as `bitcoin` or `ethereum`.
+
+- `color`: A color code usually associated with the currency for branding.
+
+- `decimals`: The number of decimals the smallest unit of this currency can be divided into.
+
+For tokens (`TokenCurrency`), there are additional properties:
+
+- `standard`: Indicates the token standard (only`ERC20` this is in fact a bug as multiple standards should be represented. We advise not to rely on this property for now).
+
+- `contract`: The smart contract address for the token.
+
+- `parent`: Specifies the parent blockchain of the token.
+
+Keep in mind that the actual response from the `useCurrencies` hook might be extensive, especially if you set the `"currencies" `property of your manifest to `"*"`.
+
