@@ -1,0 +1,82 @@
+# Using the `useSignMessage` hook
+
+The `useSignMessage` hook is part of the Ledger Wallet API Client for React. It allows the application to request the user to sign a message with their Ledger Wallet.
+
+### Introduction
+
+The `useSignMessage` hook facilitates the process of signing a message using a user's Ledger Wallet.
+
+### Usage
+
+1. Import the necessary dependencies and hooks from the Wallet API Client.
+
+2. Use the `useSignMessage` hook in your component.
+
+3. Call the `signMessage` function with the account ID and the message to be signed.
+
+### Example
+
+Here's an example of how to use the `useSignMessage` hook within a simple React application:
+
+```javascript
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import {
+  useRequestAccount,
+  useSignMessage,
+} from "@ledgerhq/wallet-api-client-react";
+
+function App() {
+  const { requestAccount, account } = useRequestAccount();
+  const { signMessage } = useSignMessage();
+  const [response, setResponse] = useState(null);
+
+  // Prompt the user to select an account on component mount
+  useEffect(() => {
+    requestAccount();
+  }, [requestAccount]);
+
+  const handleSignMessage = async () => {
+    if (account) {
+      const signedMessage = await signMessage(account.id, "Hello, Ledger!");
+      setResponse(signedMessage);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Test Live App - Wallet API</h1>
+      <div className="card">
+        <button onClick={handleSignMessage}>Sign Message</button>
+        {response && (
+          <div>
+            <h3>Signed Message:</h3>
+            <p>{response}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Parameters
+
+The `signMessage` function takes the following parameters:
+
+- `accountId`: A string representing the account ID, typically obtained through the `useRequestAccount` hook.
+- `message`: A string representing the message to be signed.
+
+### Return Value
+
+The `signMessage` function returns a promise that resolves to a string, representing the signed message.
+
+### Handling Responses
+
+Once the `signMessage` function is called, it will trigger the Ledger Wallet interface for the user to confirm the signing. After confirmation, the promise will resolve with the signed message. You should handle this asynchronously and update the UI accordingly.
+
+### Errors
+
+If an error occurs during the message signing, such as the user declining to sign the message, the promise will be rejected. It is good practice to catch and handle these errors appropriately.
