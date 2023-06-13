@@ -1,0 +1,21 @@
+{
+  "index": {
+    "title": "What is a manifest",
+    "theme": {
+      "breadcrumb": false,
+      "toc": false
+    }
+  },
+  "manifestV1": {
+    "title": " Manifest v1",
+    "theme": {
+      "toc": false
+    }
+  },
+  "manifestV2": {
+    "title": "Manifest v2 (soon)",
+    "theme": {
+      "toc": false
+    }
+  }
+}
