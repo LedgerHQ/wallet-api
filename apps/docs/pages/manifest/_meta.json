@@ -17,5 +17,11 @@
     "theme": {
       "toc": false
     }
+  },
+  "permissions": {
+    "title": "Permissions",
+    "theme": {
+      "toc": false
+    }
   }
 }
