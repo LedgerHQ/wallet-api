@@ -1,0 +1,65 @@
+# Create a manifest
+
+In order to test your Live App inside Ledger Live, you will first need to create a manifest.
+
+A manifest is a `.json` file providing information about your Live App.
+
+Create a `manifest.json` file at the root of your project and paste in the following content:
+
+```json
+{
+  "id": "ReplaceAppName",
+  "name": "ReplaceAppName",
+  "url": "http://localhost:3000/",
+  "params": {
+    "dappUrl": "http://localhost:3000/",
+    "nanoApp": "ReplaceAppName",
+    "dappName": "ReplaceAppName",
+    "networks": [
+      {
+        "currency": "ethereum",
+        "chainID": 1,
+        "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/0fyudoTG94QWC0tEtfJViM9v2ZXJuij2"
+      }
+    ]
+  },
+  "homepageUrl": "http://localhost:3000/",
+  "platform": ["ios","android","desktop"],
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "1",
+  "branch": "stable",
+  "categories": ["ReplaceCatagories"],
+  "currencies": "*",
+  "content": {
+    "shortDescription": {
+      "en": "Desc"
+    },
+    "description": {
+      "en": "Desc"
+    }
+  },
+  "permissions": [
+    "account.list",
+    "account.receive",
+    "account.request",
+    "currency.list",
+    "device.close",
+    "device.exchange",
+    "device.transport",
+    "message.sign",
+    "transaction.sign",
+    "transaction.signAndBroadcast",
+    "wallet.capabilities",
+    "wallet.info",
+    "wallet.userId"
+  ],
+  "domains": ["http://*"],
+  "visibility": "complete"
+}
+```
+
+We won’t go too much into the details of each field in this tutorial (check out the manifest file reference [here](/manifest/) for explanation of each field).
+
+The main thing you have to care about for now is the `url` field, it must match the url of your Live App. Here it is set at `http://localhost:3000` because we are currently running our app in local for development and test purposes.
+
+Now that we have our Live App manifest, we need to add it into Ledger Live, this is what we will see in the next section.

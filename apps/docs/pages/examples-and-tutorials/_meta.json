@@ -1,0 +1,13 @@
+{
+  "index": {
+    "title": " Coming soon",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true
+    }
+  },
+  "tutorials": "How to"
+}
