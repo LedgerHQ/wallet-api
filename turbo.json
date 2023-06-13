@@ -48,11 +48,6 @@
       "outputs": ["dist/**", ".next/**"],
       "inputs": ["src/**"]
     },
-    "wallet-api-website#build": {
-      "dependsOn": ["^build"],
-      "outputs": ["build/**"],
-      "inputs": ["src/**", "docs/**", "static/**", "*.js"]
-    },
     "wallet-api-tools#dev": {
       "dependsOn": ["^build"],
       "cache": false
