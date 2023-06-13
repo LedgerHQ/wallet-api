@@ -17,8 +17,7 @@
   },
   "core": {
     "title": "Core",
-    "type": "page",
-    "display": "hidden"
+    "type": "page"
   },
   "examples-and-tutorials": {
     "title": "Examples & Tutorials",
