@@ -28,10 +28,6 @@
     "title": "Manifest",
     "type": "page"
   },
-  "---": {
-    "type": "separator"
-  },
-
   "react-link": {
     "title": "React",
     "href": "/react"
