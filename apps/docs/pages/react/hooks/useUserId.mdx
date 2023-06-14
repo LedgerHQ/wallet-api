@@ -1,0 +1,71 @@
+# Using the `useUserId` Hook
+
+The `useUserId` hook is part of the Ledger Wallet API Client for React. It allows the user to fetch the User ID associated with the connected wallet. This documentation provides a detailed explanation of how to use this hook in your application.
+
+### Introduction
+
+`useUserId` returns an object with the User ID, the time at which the data was updated, a loading state, any error that occurred during the fetching process, and a function to manually update the data.
+
+### Usage
+
+1. Import the required dependencies and hooks from the Wallet API Client.
+
+2. Use the `useUserId` hook in your component.
+
+3. Optionally, call the `updateData` function to manually update the User ID.
+
+### Example
+
+Below is an example demonstrating how to use the `useUserId` hook to fetch and display the User ID.
+
+```jsx
+import React, { useEffect } from 'react';
+import { useUserId } from '@ledgerhq/wallet-api-client-react';
+
+function App() {
+  const { userId, updatedAt, error, loading, updateData } = useUserId();
+
+  useEffect(() => {
+    updateData();
+  }, [updateData]);
+
+  return (
+    <div>
+      <h1>Fetch User ID</h1>
+
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.toString()}</p>}
+      {userId && (
+        <div>
+          <p>User ID: {userId}</p>
+          <p>Last Updated At: {updatedAt?.toLocaleString()}</p>
+        </div>
+      )}
+
+      <button onClick={updateData} disabled={loading}>
+        Refresh User ID
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Return Value
+
+The `useUserId` hook returns an object with the following properties:
+
+- `userId`: The User ID as a string or `null` if not fetched.
+- `updatedAt`: A `Date` object representing the last time the data was updated or `null` if not updated.
+- `loading`: A boolean indicating if the fetching process is ongoing.
+- `error`: An error object if the fetching process failed.
+- `updateData`: A function that can be called to manually refresh the User ID.
+
+### Manual Updating
+
+The `updateData` function allows you to manually trigger the fetching process. This might be useful if you need to re-fetch the User ID due to some user interaction or event in your application.
+
+### Error Handling
+
+If an error occurs during the fetching process, the `error` property will be set with the error information. It's good practice to always check this property and handle errors accordingly in your UI.

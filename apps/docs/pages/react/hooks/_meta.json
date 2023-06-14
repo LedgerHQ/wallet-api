@@ -2,25 +2,43 @@
   "useCurrencies": {
     "title": "useCurrencies",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "useRequestAccount": {
     "title": "useRequestAccount",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "useSignMessage": {
     "title": "useSignMessage",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "useSignTransaction": {
     "title": "useSignTransaction",
     "theme": {
-      "toc": false
+      "toc": true
+    }
+  },
+  "useSignAndBroadcastTransaction": {
+    "title": "useSignAndBroadcastTransaction",
+    "theme": {
+      "toc": true
+    }
+  },
+  "useUserId": {
+    "title": "useUserId",
+    "theme": {
+      "toc": true
+    }
+  },
+  "useWalletInfo": {
+    "title": "useWalletInfo",
+    "theme": {
+      "toc": true
     }
   }
 }
