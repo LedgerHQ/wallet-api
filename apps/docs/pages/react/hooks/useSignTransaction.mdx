@@ -28,11 +28,9 @@ import BigNumber from 'bignumber.js';
 
 function App() {
   const { requestAccount, account } = useRequestAccount();
-  const { signTransaction } = useSignTransaction();
+  const { signTransaction, pending, signature, error } = useSignTransaction();
 
   const [response, setResponse] = useState(null);
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     requestAccount();
@@ -50,16 +48,11 @@ function App() {
       nonce: 0, // Replace with the correct nonce
     };
 
-    setPending(true);
-    setError(null);
-
     try {
       const signature = await signTransaction(account.id, ethereumTransaction);
       setResponse(signature);
     } catch (e) {
-      setError(e);
-    } finally {
-      setPending(false);
+      console.error(e);
     }
   }, [account, signTransaction]);
 

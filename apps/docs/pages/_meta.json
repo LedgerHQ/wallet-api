@@ -29,7 +29,8 @@
   },
   "react-link": {
     "title": "React",
-    "href": "/react"
+    "href": "/react",
+    "display": "hidden"
   },
   "core-link": {
     "title": "Core",

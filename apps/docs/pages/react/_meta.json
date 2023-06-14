@@ -11,30 +11,26 @@
   "getting-started": {
     "title": "Getting Started",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "configuration": {
     "title": "Configuration",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "families": {
     "title": "Families",
     "theme": {
-      "toc": false
+      "toc": true
     }
   },
   "hooks": "Hooks",
-  "actions": {
-    "title": "Actions",
-    "href": "/core"
-  },
   "migration-guide": {
     "title": "Migration Guide",
     "theme": {
-      "toc": false
+      "toc": true
     }
   }
 }
