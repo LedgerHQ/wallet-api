@@ -8,9 +8,33 @@
       "toc": true
     }
   },
+  "getting-started": {
+    "title": "Getting Started",
+    "theme": {
+      "toc": false
+    }
+  },
+  "configuration": {
+    "title": "Configuration",
+    "theme": {
+      "toc": false
+    }
+  },
+  "families": {
+    "title": "Families",
+    "theme": {
+      "toc": false
+    }
+  },
   "hooks": "Hooks",
   "actions": {
     "title": "Actions",
     "href": "/core"
+  },
+  "migration-guide": {
+    "title": "Migration Guide",
+    "theme": {
+      "toc": false
+    }
   }
 }

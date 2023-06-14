@@ -1,0 +1,26 @@
+{
+  "useCurrencies": {
+    "title": "useCurrencies",
+    "theme": {
+      "toc": false
+    }
+  },
+  "useRequestAccount": {
+    "title": "useRequestAccount",
+    "theme": {
+      "toc": false
+    }
+  },
+  "useSignMessage": {
+    "title": "useSignMessage",
+    "theme": {
+      "toc": false
+    }
+  },
+  "useSignTransaction": {
+    "title": "useSignTransaction",
+    "theme": {
+      "toc": false
+    }
+  }
+}

@@ -7,13 +7,19 @@
     }
   },
   "manifestV1": {
-    "title": " Manifest v1",
+    "title": "Manifest v1",
     "theme": {
       "toc": false
     }
   },
   "manifestV2": {
     "title": "Manifest v2 (soon)",
+    "theme": {
+      "toc": false
+    }
+  },
+  "permissions": {
+    "title": "Permissions",
     "theme": {
       "toc": false
     }

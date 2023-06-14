@@ -17,8 +17,7 @@
   },
   "core": {
     "title": "Core",
-    "type": "page",
-    "display": "hidden"
+    "type": "page"
   },
   "examples-and-tutorials": {
     "title": "Examples & Tutorials",
@@ -28,10 +27,6 @@
     "title": "Manifest",
     "type": "page"
   },
-  "---": {
-    "type": "separator"
-  },
-
   "react-link": {
     "title": "React",
     "href": "/react"

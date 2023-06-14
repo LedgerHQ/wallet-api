@@ -1,0 +1,79 @@
+# Using the `useRequestAccount` hook
+
+The `useRequestAccount` hook is part of the Ledger Wallet API Client for React. It is used to request an account from the Ledger Wallet. When the hook is called, the user will be prompted to select the desired account.
+
+### Introduction
+
+The `useRequestAccount` hook facilitates requesting access to a user’s account. On component mount, the user will be prompted to select an account from the Ledger Wallet.
+
+### Usage
+
+1. Import the necessary dependencies and hooks from the Wallet API Client.
+
+2. Use the `useRequestAccount` hook in your component.
+
+3. Call the `requestAccount` function within a `useEffect` to prompt the user to select an account when the component mounts.
+
+### Example
+
+Here is an example of how to use the `useRequestAccount` hook within a simple React application:
+
+```javascript
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { useRequestAccount } from "@ledgerhq/wallet-api-client-react";
+
+function App() {
+  // Use the useRequestAccount hook
+  const { requestAccount, account } = useRequestAccount();
+  // State to store the response
+  const [response, setResponse] = useState(null);
+
+  // Prompt the user to select an account on component mount
+  useEffect(() => {
+    requestAccount();
+  }, [requestAccount]);
+
+  // Trigger a re-render after the user selects an account to handle the account response
+  useEffect(() => {
+    if (account) {
+      setResponse(`${account.address} : ${account.id}`);
+    }
+  }, [account]);
+
+  return (
+    <div>
+      <h1>Test Live App - Wallet API</h1>
+      <div className="card">
+        {response ? (
+          <p>Selected Account: {response}</p>
+        ) : (
+          <p>Selecting account...</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Parameters
+
+The `requestAccount` function does not take any parameters.
+
+### Return Value
+
+The `useRequestAccount` hook returns an object with the following properties:
+
+- `requestAccount`: A function to trigger the account selection prompt.
+- `account`: The selected account object. It will be `null` until the user selects an account.
+
+The account object typically contains the following properties:
+
+- `id`: A string representing the account ID.
+- `address`: A string representing the account address.
+
+### Handling Responses
+
+After invoking `requestAccount`, you can keep track of the `account` object to determine if the user has selected an account. Once selected, the `account` object will populate with the relevant account information.
