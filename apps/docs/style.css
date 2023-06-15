@@ -1,0 +1,39 @@
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    margin: 0.5em 0 1em;
+    font-size: 0.9em;
+}
+
+.card-link {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    background-color: #45a049;
+}

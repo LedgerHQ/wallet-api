@@ -9,5 +9,7 @@
       "toc": true
     }
   },
-  "tutorials": "How to"
+  "test-live-app": {
+    "title": "Test your live app"
+  }
 }

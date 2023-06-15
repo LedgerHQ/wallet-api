@@ -20,6 +20,12 @@
       "toc": true
     }
   },
+  "simulator": {
+    "title": "Simulator",
+    "theme": {
+      "toc": true
+    }
+  },
   "families": {
     "title": "Families",
     "theme": {

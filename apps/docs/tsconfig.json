@@ -1,8 +1,10 @@
 {
   "parserOptions": {
-    "project": "./tsconfig.json",
+    "project": "./tsconfig.json"
   },
   "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -15,11 +17,16 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",

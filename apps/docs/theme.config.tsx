@@ -34,8 +34,17 @@ export default {
   project: {
     link: "https://github.com/ledgerhq/wallet-api",
   },
+  docsRepositoryBase:
+    "https://github.com/LedgerHQ/wallet-api/tree/main/apps/docs",
   chat: {
     link: "https://developers.ledger.com/discord/",
+  },
+  editLink: {
+    text: "Edit this page on GitHub →",
+  },
+  feedback: {
+    content: "Question? Give us feedback →",
+    labels: "feedback",
   },
   useNextSeoProps() {
     const { asPath } = useRouter();

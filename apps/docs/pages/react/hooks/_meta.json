@@ -11,6 +11,24 @@
       "toc": true
     }
   },
+  "useCapabilities": {
+    "title": "useCapabilities",
+    "theme": {
+      "toc": true
+    }
+  },
+  "useUserId": {
+    "title": "useUserId",
+    "theme": {
+      "toc": true
+    }
+  },
+  "useWalletInfo": {
+    "title": "useWalletInfo",
+    "theme": {
+      "toc": true
+    }
+  },
   "useRequestAccount": {
     "title": "useRequestAccount",
     "theme": {
@@ -31,18 +49,6 @@
   },
   "useSignAndBroadcastTransaction": {
     "title": "useSignAndBroadcastTransaction",
-    "theme": {
-      "toc": true
-    }
-  },
-  "useUserId": {
-    "title": "useUserId",
-    "theme": {
-      "toc": true
-    }
-  },
-  "useWalletInfo": {
-    "title": "useWalletInfo",
     "theme": {
       "toc": true
     }

@@ -2,40 +2,42 @@
 title: Ledger Live Apps Documentation
 ---
 
-# Welcome to the Wallet API Documentation 🚀
+export function Card({ title, link, children }) {
+  return (
+    <div className="card">
+      <h2>{title}</h2>
+      <p>{children}</p>
+      <a href={link} className="card-link">
+        Explore
+      </a>
+    </div>
+  );
+}
 
-Welcome to the comprehensive documentation for developing Live Apps within Ledger Live. Ledger Live is a state-of-the-art application that connects users to the decentralized world through their Ledger hardware wallets. As a developer, you have the unique opportunity to build innovative decentralized applications (dApps) that can be embedded directly within Ledger Live, thereby providing users a seamless and secure experience.
+# Welcome to Ledger Live Apps Documentation 🚀
 
-Our documentation is divided into several sections, each dedicated to different aspects of Live App development:
+Welcome to the comprehensive guide for developing Live Apps within Ledger Live using the Wallet API. By leveraging the Wallet API, you can build and integrate your application seamlessly into Ledger Live, providing users with a secure and streamlined experience.
 
-## Sections
+## What is a Live App?
 
-### [React](./react)
+A Live App is an application that is integrated directly into Ledger Live. It enables users to interact with blockchain technologies securely through their Ledger hardware wallets without leaving Ledger Live.
 
-This section is dedicated to developers who want to leverage the power of React in their Live Apps. It includes a React library which offers a set of hooks and utilities for connecting your Live App to Ledger wallets with ease. This section covers everything from setting up your environment to using various hooks for account management, signing transactions, and more.
+<div className="flex-container">
 
-👉 [Dive into React Section](./react)
+  <Card title="React API" link="./react">
+    If you are using React, this API offers a set of hooks and utilities which make connecting your Live App to Ledger
+    wallets a breeze.
+  </Card>
 
-### [Core](./core)
+  <Card title="Core API" link="./core">
+    Prefer plain JavaScript? The Core API allows you to interact with Ledger hardware wallets directly using vanilla JS.
+  </Card>
 
-If you're looking to use plain JavaScript without the abstractions provided by React, the Core section is for you. It contains a vanilla JS library that allows you to interact with Ledger hardware wallets. This section includes guides and references for setting up and utilizing the Core library.
+</div>
 
-👉 [Explore Core Section](./core)
+## Additional Resources
 
-### [Manifest](./manifest)
+- **Manifest Guide:** Learn how to write manifests for your Live Apps, which define how your app interacts with Ledger Live. [Read Guide](./manifest)
+- **Examples & Tutorials:** Practical guides and tutorials that walk you through the process of building a Live App from scratch. [View Examples](./examples-and-tutorials)
 
-Manifests are an essential part of Live Apps, as they define how your Live App interacts with Ledger Live. In the Manifest section, you'll learn how to write manifests for your Live Apps. This section covers the structure, properties, and validation of manifests.
-
-👉 [Learn About Manifests](./manifest)
-
-### [Examples](./examples-and-tutorials)
-
-Examples and tutorials are practical guides that walk you through the process of building a Live App from scratch. These guided examples are invaluable for getting hands-on experience and understanding the practical applications of the tools and libraries provided in the documentation.
-
-👉 [View Examples](./examples-and-tutorials)
-
-## Get Started!
-
-Whether you are new to blockchain development or an experienced developer looking to integrate your dApp with Ledger Live, this documentation has everything you need. Start with the section that suits your development approach and follow through the guides and references.
-
-Happy coding! We are excited to see the amazing Live Apps you build!
+Whether you are new to blockchain development or an experienced developer looking to integrate your dApp with Ledger Live, this documentation is your compass. Happy coding! We are excited to see the amazing Live Apps you will build.
