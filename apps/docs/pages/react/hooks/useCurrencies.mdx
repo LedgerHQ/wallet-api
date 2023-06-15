@@ -2,15 +2,15 @@
 
 In this section, we will be looking at how to use the `useCurrencies` hook to retrieve a list of available cryptocurrencies and tokens. This method is essential when you need to get information on the various currencies supported by Ledger's Wallet API.
 
-## Introduction to `useCurrencies` Hook
+### Introduction to `useCurrencies` Hook
 
 The `useCurrencies` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch an array of supported cryptocurrencies and tokens.
 
-Each currency object in the array contains essential information such as its type (e.g., `CryptoCurrency` or `TokenCurrency`), `id`, `ticker`, `name`, `family`, `color`, and `decimals`.
+Each currency object in the array contains essential information such as its type (e.g., `CryptoCurrency` or `TokenCurrency`, `id`, `ticker`, `name`, `family`, `color`, and `decimals`).
 
 For tokens, additional properties like `standard` and `contract` are included.
 
-## Handling Large Datasets
+### Handling Large Datasets
 
 As of the latest data, the `useCurrencies` hook returns an array with up to 7501 elements when unfiltered. Due to the size of this dataset, it is essential to handle this data efficiently.
 
@@ -18,7 +18,7 @@ You might not want to render all elements on the UI simultaneously, as it could 
 
 In addition, you can filter the currencies accessible by setting the `"currencies"` property inside your manifest. See the families subsection for more information about currencies filtering.
 
-## Sample Code
+### Sample Code
 
 Here is an example that shows how to use the `useCurrencies` hook inside a React component:
 
@@ -56,7 +56,7 @@ In this example:
 
 - When the button is clicked, it displays the list of supported currencies.
 
-## Understanding the Response
+### Understanding the Response
 
 Here is an example of a partial response from the `useCurrencies` hook:
 

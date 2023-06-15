@@ -1,4 +1,10 @@
 {
+  "useAccounts": {
+    "title": "useAccounts",
+    "theme": {
+      "toc": true
+    }
+  },
   "useCurrencies": {
     "title": "useCurrencies",
     "theme": {

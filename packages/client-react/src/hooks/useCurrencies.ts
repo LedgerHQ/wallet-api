@@ -3,7 +3,7 @@ import { useCallback, useContext, useEffect, useMemo } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 import { updateLoadableInState } from "../components/WalletAPIProvider/helpers";
 
-type UseAccountReturn = {
+type UseCurrenciesReturn = {
   currencies: Currency[] | null;
   updatedAt: Date | null;
   error: unknown;
@@ -11,7 +11,7 @@ type UseAccountReturn = {
   updateData: () => Promise<void>;
 };
 
-export function useCurrencies(): UseAccountReturn {
+export function useCurrencies(): UseCurrenciesReturn {
   const { client, state, setState } = useContext(WalletAPIProviderContext);
 
   const { currencies } = state;

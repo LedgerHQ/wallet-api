@@ -1,0 +1,116 @@
+# Using the `useAccounts` Hook
+
+In this section, we will be looking at how to use the `useAccounts` hook to retrieve a list of available crypto asset accounts. This method is essential when you need to query information on user's account.
+
+### Introduction to `useAccounts` Hook
+
+The `useAccounts` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch an array of crypto accounts of the user.
+
+Each account object in the array contains essential information such as its type (e.g., `id`, `name`, `address`, `currency`, `balance`, `spendableBalance`, `blockHeight`, and `lastSyncDate`).
+
+### Example
+
+Here is an example that shows how to use the `useAccounts` hook inside a React component:
+
+```jsx
+import React from "react";
+import { useAccounts } from "@ledgerhq/wallet-api-client-react";
+
+export default function App() {
+  const { accounts, loading, error } = useAccounts();
+
+  return (
+    <>
+      <h1>User's Crypto Accounts</h1>
+
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {(error as Error).message}</p>
+      ) : (
+        <ul>
+          {(accounts ?? []).map(({ id, name, address, currency, balance }) => (
+            <li>
+              <p>id: {id}</p>
+              <p>name: {name}</p>
+              <p>address: {address}</p>
+              <p>currency: {currency}</p>
+              {/* Make sure to parse BigNumber */}
+              <p>balance: {balance.toString()}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
+```
+
+In this example:
+
+- We import the `useAccounts` hook from the `@ledgerhq/wallet-api-client-react` package.
+
+- We use the hook to get the `accounts` array as well as loading and error state.
+
+- If it's loading, show `Loading...` message
+
+- Else if there's an error fetching accounts, show error message
+
+- Lastly if accouts array is loaded, show the list of account info
+
+### Understanding the Response
+
+Here is an example of a partial response from the `useAccounts` hook:
+
+```json
+[
+  {
+    "id": "js:2:ethereum:0x0000000000000000000000000000000000000000:",
+    "name": "Ethereum Account 1",
+    "address": "0x0000000000000000000000000000000000000000",
+    "currency": "ethereum",
+    "balance": "10000000000000000000",
+    "spendableBalance": "10000000000000000000",
+    "blockHeight": 17484563,
+    "lastSyncDate": "2023-06-15T10:02:36.611Z"
+  },
+  {
+    "id": "js:2:ethereum:0x0000000000000000000000000000000000000000:+ethereum%2Ferc20%2Fusd__coin",
+    "name": "USDC Account 1",
+    "address": "0x0000000000000000000000000000000000000000",
+    "currency": "ethereum/erc20/usd__coin",
+    "balance": "100000000",
+    "spendableBalance": "100000000",
+    "blockHeight": 17484563,
+    "lastSyncDate": "2023-06-15T10:02:37.992Z"
+  },
+  {
+    "id": "js:2:polygon:0x0000000000000000000000000000000000000000:",
+    "name": "Polygon Account 1",
+    "address": "0x0000000000000000000000000000000000000000",
+    "currency": "polygon",
+    "balance": "10000000000000000000",
+    "spendableBalance": "10000000000000000000",
+    "blockHeight": 43935011,
+    "lastSyncDate": "2023-06-15T10:02:37.682Z"
+  },
+]
+```
+
+Each object in the array represents an account and contains the following properties:
+
+- `id` (string): The unique identifier of this account used internally by Ledger Live software
+
+- `name` (string): The account’s name set by the user.
+
+- `address` (string): The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change 
+
+- `currency` (string): The associated cryptocurrency id of the Account
+
+- `balance` (BigNumber): The total amount of assets that this account holds
+
+- `spendableBalance` (BigNumber): The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains
+
+- `blockHeight` (number): Tracks the current blockchain block height
+
+- `lastSyncData` (Date): The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
