@@ -1,30 +1,60 @@
-.flex-container {
+/* Hero Section */
+
+.title {
+    font-size: 2em
+}
+
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Cards */
+.card-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 40px 0;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 20px;
-    width: 280px;
+    width: 250px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 20px;
 }
 
-.card h2 {
-    margin-top: 0;
+.card .icon {
+    font-size: 3em;
+}
+
+.card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 1.5em;
 }
 
 .card p {
-    margin: 0.5em 0 1em;
-    font-size: 0.9em;
+    font-size: 1em;
+    margin-bottom: 20px;
 }
 
-.card-link {
+.btn {
     display: inline-block;
     background-color: #4caf50;
     color: white;
@@ -34,6 +64,36 @@
     text-decoration: none;
 }
 
-.card-link:hover {
+.btn:hover {
     background-color: #45a049;
+}
+
+/* Additional Resources */
+.resources-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.resources-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.resources-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-container ul li {
+    margin: 10px 0;
+}
+
+.resources-container ul li a {
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #333;
+}
+
+.resources-container ul li a:hover {
+    text-decoration: underline;
 }
