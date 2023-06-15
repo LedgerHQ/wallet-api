@@ -1,0 +1,106 @@
+# Using the `useCapabilities` Hook
+
+In this section, we will be looking at how to use the `useCapabilities` hook to retrieve a list of available cryptocurrencies and tokens. 
+
+This method is essential when you need to get information on what you can do with the user's account.
+
+## Introduction to `useCapabilities` Hook
+
+The `useCapabilities` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch a list of permissions.
+
+## Sample Code
+
+Here is an example that shows how to use the `useCapabilities` hook inside a React component:
+
+```jsx
+
+import { useState } from "react";
+import { useCapabilities } from "@ledgerhq/wallet-api-client-react";
+ 
+function App() {
+  const { capabilities } = useCapabilities();
+ 
+  return (
+    <>
+      <h1>Capabilities</h1>
+      <button onClick={() => {console.log(capabilities)}}> log Capabilities </button>
+    </>
+  );
+}
+
+export default App;
+```
+
+In this example:
+
+- We import the `useCapabilities` hook from the `@ledgerhq/wallet-api-client-react` package.
+
+- We use the hook to get the `capabilities` array.
+
+- When the button is clicked, it log the list of capabilities.
+
+## Understanding the Response
+
+Here is an example of a partial response from the `useCurrencies` hook:
+
+```json
+[
+  'account.request', 
+  'account.receive', 
+  'message.sign', 
+  'storage.get', 
+  'storage.set', 
+  'transaction.sign', 
+  'transaction.signAndBroadcast', 
+  'device.transport', 
+  'device.exchange', 
+  'device.close', 
+  'bitcoin.getXPub', 
+  'exchange.start', 
+  'exchange.complete', 
+  'account.list', 
+  'currency.list', 
+  'wallet.capabilities', 
+  'wallet.info', 
+  'wallet.userId'
+]
+```
+
+Each string in the array represents a capability. 
+They are composed in two part ```group.method``` : 
+
+- `group`: Specifies in which area does the permission belong. 
+```
+wallet, currency, account, exchange, bitcoin, device, transaction, storage, message, account
+```
+- `method`: Specifies the method that you can call with this specific user. 
+
+## Other fields
+
+
+```jsx
+  const capabilitiesHook = useCapabilities();
+```
+
+`loading` : Loading state of capabilities field
+```jsx
+  if (capabilitiesHook.loading){
+    ...
+  };
+```
+
+`error` : State of the request
+
+```jsx
+  if (capabilitiesHook.error){
+    ...
+  };
+```
+
+`updateData` : Function that update the updateData
+
+```jsx
+  capabilitiesHook.updateData();
+```
+
+`updatedAt` : Last update of capabilities
