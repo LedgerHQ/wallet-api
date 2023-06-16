@@ -30,7 +30,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f9f9f9;
     border-radius: 8px;
     padding: 20px;
     width: 250px;
@@ -56,7 +55,7 @@
 
 .btn {
     display: inline-block;
-    background-color: #4caf50;
+    background-color: #FF5300;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -65,7 +64,7 @@
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #FF5300;
 }
 
 /* Additional Resources */
