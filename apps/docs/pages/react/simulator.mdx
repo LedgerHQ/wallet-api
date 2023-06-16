@@ -1,4 +1,4 @@
-# Using the Simulator with Ledger's Wallet API
+import { Callout } from "nextra/components";
 
 In this guide, we will walk through how to set up the Ledger Wallet API client to connect to a mock environment, called "The Simulator", instead of the real Ledger Live environment. This is especially helpful during development and testing phases, where you might not want to perform actions on the real Ledger Live.
 
@@ -13,6 +13,14 @@ Before proceeding, make sure that you have both the Ledger Wallet API client and
 ```sh
 npm install @ledgerhq/wallet-api-simulator
 ```
+
+<Callout type="warning" emoji="⚠️">
+  **Please Note:** The `@ledgerhq/wallet-api-simulator` package currently only functions with server-side
+  applications.
+  This is due to a dependency requiring `process`, which is polyfilled inside Server Side Rendering (SSR) frameworks
+  like Next.js or Remix. We are actively working to remove that dependency and will update this guide once it is
+  available.
+</Callout>
 
 ### Launching Live App from Browser
 
