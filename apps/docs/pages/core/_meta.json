@@ -19,5 +19,6 @@
     "theme": {
       "toc": true
     }
-  }
+  },
+  "modules": "Modules"
 }
