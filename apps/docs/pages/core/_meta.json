@@ -1,10 +1,22 @@
 {
   "index": {
-    "title": "Coming soon",
+    "title": "Introduction",
     "theme": {
       "breadcrumb": false,
       "footer": true,
       "sidebar": true,
+      "toc": true
+    }
+  },
+  "getting-started": {
+    "title": "Getting Started",
+    "theme": {
+      "toc": true
+    }
+  },
+  "configuration": {
+    "title": "Configuration",
+    "theme": {
       "toc": true
     }
   }

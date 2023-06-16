@@ -1,6 +1,43 @@
+import { Callout } from "nextra/components";
 
+# Welcome to the Ledger Wallet API Client documentation
 
-<div align="center">
-# 🚧 HEY ! What are you doing here ?! 🚧
-This page is under reflexion 
-</div>
+This library serves as a cornerstone for integrating decentralized applications (dApps) within Ledger Live, dubbed as Live Apps, in a framework-agnostic manner. By leveraging the Wallet API Client, your Live App can interact with Ledger hardware wallets through Ledger Live.
+
+## Warning
+
+<Callout type="warning" emoji="⚠️">
+  **Please Note:** Please note that this section of the documentation is still under construction. We are actively
+  working on adding the missing pieces, such as how to use the various modules exposed by this library. In the meantime,
+  please refer to the React section for more information, or reach us through discord.
+</Callout>
+
+## Target Audience
+
+The Wallet API Client is tailored for developers seeking to build Live Apps for embedding within Ledger Live. It ensures smooth communication between the Live App and the user’s Ledger hardware wallet through [Ledger Live](https://www.ledger.com/ledger-live).
+
+Similar to the React variant of this library, we anticipate expanding its capabilities to support additional use cases such as web apps connected to Ledger wallets through the [Ledger Extension](https://www.ledger.com/ledger-extension), but this is not yet supported.
+
+## Overview
+
+The Wallet API Client library empowers your Live App to:
+
+- **Seamlessly Connect with Ledger Wallets**: Establish a smooth connection to Ledger hardware wallets and access essential wallet information, via Ledger Live.
+
+- **Efficiently Manage Blockchain Accounts**: Handle multiple blockchain accounts effortlessly, including retrieving a list of accounts or requesting specific accounts from the user.
+
+- **Securely Sign Messages**: Utilize the user's private key to sign arbitrary messages which can be employed for user authentication, address verification, and other purposes.
+
+- **Support an Array of Cryptocurrencies**: The library boasts support for a wide range of cryptocurrencies including Bitcoin, Ethereum, Polygon, and more.
+
+- **Ensure Type Safety**: Incorporate TypeScript types to bolster the development process, making it more robust and error-resistant.
+
+## Navigating the Documentation
+
+This documentation is structured to provide you with a clear understanding of the various features and utilities available in the Ledger Wallet API Client library.
+
+- **Getting Started**: If you’re new to this library, the [Getting Started](./getting-started.md) section is the perfect launchpad. It navigates you through the installation and initial setup.
+
+- **Configuration**: The [Configuration](./configuration.md) section imparts insights on how to integrate your application with Ledger Live.
+
+- **Modules and Utilities**: Acquaint yourself with various modules and utilities for account management, message signing, transaction handling, and more in dedicated sections. Each section elucidates explanations, parameters, and practical applications.
