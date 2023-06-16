@@ -1,0 +1,87 @@
+# Using the Account Module in Wallet API Core Client
+
+In this section, we will be looking at how to use the Account module in the Wallet API Core Client to interact with user's accounts. The Account module is a part of the `@ledgerhq/wallet-api-client` package and it provides methods to list accounts, request an account, and verify account addresses on a Ledger device through Ledger Live.
+
+## Prerequisites
+
+- Initialized Wallet API Client. [Refer to this guide for initializing the Wallet API Client](#configuring-and-initializing-the-wallet-api-core-client).
+
+## Accessing the Account Module
+
+Once you've initialized the Wallet API Client, you can access the Account module using `walletApiClient.account`.
+
+## Methods
+
+### 1. `list(params?: { currencyIds?: string[] }): Promise<Account[]>`
+
+This method lists the accounts added by the user on the connected wallet. You can optionally provide an object with a `currencyIds` property to filter the accounts by currency IDs.
+
+- **Parameters**:
+- `params` (optional): An object which may contain:
+- `currencyIds` (optional): An array of strings specifying the currency IDs to filter the accounts.
+- **Returns**: A promise that resolves with an array of Account objects.
+
+#### Example:
+
+```javascript
+async function listAccounts(walletApiClient) {
+  try {
+    // List all accounts
+    const accounts = await walletApiClient.account.list();
+    console.log('Accounts:', accounts);
+
+    // Optionally, filter by currency IDs
+    const filteredAccounts = await walletApiClient.account.list({ currencyIds: ['bitcoin', 'ethereum'] });
+    console.log('Filtered Accounts:', filteredAccounts);
+  } catch (error) {
+    console.error('Error listing accounts:', error);
+  }
+}
+```
+
+### 2. `request(params?: { currencyIds?: string[] }): Promise<Account>`
+
+This method requests the user to select an account from the connected wallet that matches specific criteria. This method also allows you to filter by currency IDs.
+
+- **Parameters**:
+- `params` (optional): An object which may contain:
+- `currencyIds` (optional): An array of strings specifying the currency IDs for filtering the accounts the user can select from.
+- **Returns**: A promise that resolves with the selected Account object.
+
+#### Example:
+
+```javascript
+async function requestAccount(walletApiClient) {
+  try {
+    // Request an account, optionally filter by currency IDs
+    const account = await walletApiClient.account.request({ currencyIds: ['ethereum'] });
+    console.log('Requested account:', account);
+  } catch (error) {
+    console.error('Error requesting account:', error);
+  }
+}
+```
+
+### 3. `receive(accountId: string): Promise<string>`
+
+This method allows the user to verify the address of an account on their Ledger device through Ledger Live. This is an important security feature that should be used to ensure that the address is correct before receiving funds.
+
+- **Parameters**:
+- `accountId` (required): A string that represents the ID of the account whose address needs to be verified.
+- **Returns**: A promise that resolves with the verified address as a string.
+
+#### Example:
+
+```javascript
+async function verifyAccountAddress(walletApiClient, accountId) {
+  try {
+    // Verify the account address on the Ledger device
+    const address = await walletApiClient.account.receive(accountId);
+    console.log('Verified address:', address);
+  } catch (error) {
+    console.error('Error verifying account address:', error);
+  }
+}
+```
+
+Please ensure to handle errors appropriately and disconnect the `WindowMessageTransport` once you are done interacting with the Ledger Wallet API.
