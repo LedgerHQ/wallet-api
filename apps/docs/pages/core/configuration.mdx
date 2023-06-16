@@ -1,0 +1,45 @@
+# Configuring the Wallet API Core Client
+
+In this guide, you will learn how to set up and initialize the Wallet API Core client to interact with Ledger's Wallet API. This client allows you to communicate with Ledger devices, retrieve account information, and perform transactions.
+
+## Prerequisites
+
+- Make sure the `@ledgerhq/wallet-api-client` packages is installed in your project.
+
+## Initializing the Wallet API Client
+
+To initialize the Wallet API client, you need to set up a transport layer. The `WindowMessageTransport` class is provided by the `@ledgerhq/wallet-api-core` package and reexposed by `@ledgerhq/wallet-api-client` and is responsible for communication between your application and Ledger devices.
+
+Here's a step-by-step example to initialize the Wallet API client:
+
+```javascript
+import { WalletAPIClient, WindowMessageTransport } from "@ledgerhq/wallet-api-client";
+
+async function initializeWalletApiClient() {
+  // Step 1: Initialize and connect the Window Message Transport
+  const windowMessageTransport = new WindowMessageTransport();
+  windowMessageTransport.connect();
+
+  // Step 2: Initialize Wallet API Client with the Window Message Transport
+  const walletApiClient = new WalletAPIClient(windowMessageTransport);
+
+  // The Wallet API client is now initialized, and you can use it to interact with Wallet API.
+  // For example, accessing accounts:
+  // const accounts = await walletApiClient.account.getAccounts();
+
+  // Your application logic here...
+
+  // Step 3: Disconnect when done to ensure the communication is properly closed
+  windowMessageTransport.disconnect();
+}
+
+// Execute the function
+initializeWalletApiClient().catch((error) => console.error(error));
+```
+
+Once the Wallet API client is initialized, you can use its methods to interact with Ledger devices.
+Make sure to check the API documentation for a comprehensive list of available methods.
+
+## Disconnecting
+
+When you're done with your operations, it's important to disconnect the `WindowMessageTransport` to close the communication channel properly. You can do this by calling the `disconnect` method on the `WindowMessageTransport` instance as shown in the example above.
