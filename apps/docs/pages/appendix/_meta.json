@@ -1,0 +1,9 @@
+{
+  "manifest": "Manifest",
+  "transaction": {
+    "title": "Transaction",
+    "theme": {
+      "toc": true
+    }
+  }
+}

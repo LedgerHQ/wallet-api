@@ -1,0 +1,120 @@
+# Transaction Type Reference
+
+In the Wallet API Core Client, the `Transaction` type is a crucial part of transaction management. This reference guide aims to provide an in-depth understanding of the structure of the `Transaction` type.
+
+## Overview
+
+The `Transaction` type is used to describe an unsigned transaction. It's an umbrella type that can represent transactions of various cryptocurrency families. For example, it could be an Ethereum transaction, a Bitcoin transaction, or others.
+
+## Common Fields for All Transactions
+
+Regardless of the specific cryptocurrency, all transactions share some common fields.
+
+### Fields:
+
+- `family` (string): The cryptocurrency family to which the transaction belongs. This could be 'ethereum', 'bitcoin', etc.
+- `amount` (BigNumber): The amount of cryptocurrency to be sent in the transaction, represented in the smallest unit of the currency. For instance, in Bitcoin, an `amount` of 1 represents 0.00000001 BTC.
+- `recipient` (string): The address of the recipient of the transaction.
+
+## Cryptocurrency Specific Fields
+
+In addition to the common fields, each cryptocurrency family might have additional fields specific to its network.
+
+### Ethereum Transaction Example
+
+For instance, an Ethereum transaction could have the following fields:
+
+- `nonce` (number, optional): This is the number of transactions sent from the sender's address.
+- `data` (Buffer, optional): Input data of the transaction. This is often used for contract interactions.
+- `gasPrice` (BigNumber, optional): The price per gas in wei.
+- `gasLimit` (BigNumber, optional): The maximum amount of gas provided for the transaction.
+- `maxPriorityFeePerGas` (BigNumber, optional): Maximum fee per gas to be paid for a transaction to be included in a block.
+- `maxFeePerGas` (BigNumber, optional): Maximum fee per gas willing to be paid for a transaction.
+
+Here is how a typical Ethereum transaction might look:
+
+```javascript
+const ethereumTransaction = {
+  family: "ethereum",
+  amount: new BigNumber(100000000000000),
+  recipient: "0xRecipientAddress",
+  nonce: 2,
+  data: Buffer.from("SomeDataInHex", "hex"),
+  gasPrice: new BigNumber(20000000000),
+  gasLimit: new BigNumber(21000),
+};
+```
+
+## Raw Transactions
+
+There are also raw representations of transactions, often used when serializing the transaction data. The common fields in raw transactions are similar to the regular transaction type but serialized into strings or other primitive types.
+
+## TransactionSign and TransactionSignAndBroadcast Types
+
+`TransactionSign` and `TransactionSignAndBroadcast` are types that define the parameters and the expected results for the respective functions, `sign` and `signAndBroadcast` in the Wallet API Core Client's Transaction module.
+
+### TransactionSign Type
+
+#### Parameters:
+- `accountId` (string, required): The ID of the account where the transaction will be made.
+- `rawTransaction` (RawTransaction, required): The transaction object in a raw, serialized format specific to the cryptocurrency family.
+- `options` (object, optional):
+- `hwAppId` (string, optional): A hardware wallet application ID.
+- `meta` (object, optional): Metadata for the transaction in the format `{ [key: string]: unknown }`.
+
+#### Results:
+- `signedTransactionHex` (string): The hexadecimal string representation of the signed transaction.
+
+#### Type Definition:
+
+```typescript
+type TransactionSign = {
+  params: {
+    accountId: string,
+    rawTransaction: RawTransaction,
+    options?: {
+      hwAppId?: string
+    },
+    meta?: Record<string, unknown>
+  },
+  result: {
+    signedTransactionHex: string
+  }
+};
+```
+
+### TransactionSignAndBroadcast Type
+
+#### Parameters:
+- `accountId` (string, required): The ID of the account where the transaction will be made.
+- `rawTransaction` (RawTransaction, required): The transaction object in a raw, serialized format specific to the cryptocurrency family.
+- `options` (object, optional):
+- `hwAppId` (string, optional): A hardware wallet application ID.
+- `meta` (object, optional): Metadata for the transaction in the format `{ [key: string]: unknown }`.
+
+#### Results:
+- `transactionHash` (string): The hash of the transaction once it's been broadcasted to the network.
+
+#### Type Definition:
+
+```typescript
+type TransactionSignAndBroadcast = {
+  params: {
+    accountId: string,
+    rawTransaction: RawTransaction,
+    options?: {
+      hwAppId?: string
+    },
+    meta?: Record<string, unknown>
+  },
+  result: {
+    transactionHash: string
+  }
+};
+```
+
+### Notes
+
+- The `rawTransaction` parameter in both types expects the transaction object to be in a raw, serialized format, which is different from the regular `Transaction` object. You may need to convert your transaction object into this raw format before calling these functions.
+
+- The `hwAppId` option can be used if you are interacting with a hardware wallet. It is an optional field, and is not required if you are not using a hardware wallet.
