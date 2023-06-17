@@ -1,0 +1,81 @@
+# Using the Exchange Module in Wallet API Core Client
+
+The Exchange Module facilitates various exchange operations such as starting the exchange process, completing swap, sell, and fund transactions using Ledger Live.
+
+## Exchange Module Overview
+
+Access the Exchange module via `walletApiClient.exchange`.
+
+### Methods:
+
+#### 1. Start Exchange
+
+Start the exchange process by generating a nonce on Ledger device. This method is typically called before completing the exchange process.
+
+```javascript
+walletApiClient.exchange.start(exchangeType: 'SWAP' | 'SELL' | 'FUND'): Promise<{ transactionId: string }>
+```
+
+**Parameters**:
+- `exchangeType` (required): A string specifying the type of exchange operation (`"SWAP"`, `"SELL"`, or `"FUND"`).
+
+**Returns**: A promise that resolves with an object containing the `transactionId` which is used to complete the exchange process.
+
+##### Example:
+
+```javascript
+async function startExchange(walletApiClient, exchangeType) {
+  try {
+    const { transactionId } = await walletApiClient.exchange.start(exchangeType);
+    console.log('Transaction ID:', transactionId);
+  } catch (error) {
+    console.error('Error starting exchange:', error);
+  }
+}
+```
+
+#### 2. Complete Exchange
+
+Complete an exchange process (swap, sell, or fund) by passing the exchange content and its signature.
+
+```javascript
+walletApiClient.exchange.complete(params: {
+  provider: string,
+  fromAccountId: string,
+  rawTransaction: RawTransaction,
+  hexBinaryPayload: string,
+  hexSignature: string,
+  feeStrategy: 'SLOW' | 'MEDIUM' | 'FAST',
+  exchangeType: 'SWAP' | 'SELL' | 'FUND',
+  toAccountId?: string
+}): Promise<{ transactionHash: string }>
+```
+
+**Parameters**: An object containing:
+- `provider` (required): A string used to verify the signature.
+- `fromAccountId` (required): Identifier of the account used as a source for the transaction.
+- `rawTransaction` (required): A RawTransaction object containing the transaction details.
+- `hexBinaryPayload` (required): Hexadecimal string representing the blueprint of the data that will be allowed for signing.
+- `hexSignature` (required): Hexadecimal string ensuring the source of the payload.
+- `feeStrategy` (required): A string representing the fee strategy (`"SLOW"`, `"MEDIUM"`, or `"FAST"`).
+- `exchangeType` (required): A string specifying the type of exchange operation (`"SWAP"`, `"SELL"`, or `"FUND"`).
+- `toAccountId` (optional): Identifier of the account used as a destination (required for `"SWAP"`).
+
+**Returns**: A promise that resolves with an object containing the `transactionHash` of the broadcasted transaction.
+
+##### Example:
+
+```javascript
+async function completeExchange(walletApiClient, exchangeParams) {
+  try {
+    const { transactionHash } = await walletApiClient.exchange.complete(exchangeParams);
+    console.log('Transaction Hash:', transactionHash);
+  } catch (error) {
+    console.error('Error completing exchange:', error);
+  }
+}
+```
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

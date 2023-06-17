@@ -1,0 +1,91 @@
+# Using the Device Module in Wallet API Core Client
+
+The Device Module provides methods for handling the physical device, including opening low-level transport and selecting a device in the connected wallet.
+
+## Device Module Overview
+
+Access the Device module via `walletApiClient.device`.
+
+### Methods:
+
+#### 1. Open Low-Level Transport
+
+Open low-level transport in the connected wallet.
+
+```javascript
+walletApiClient.device.transport(params: DeviceTransport["params"]): Promise<HWTransport>
+```
+
+**Parameters**:
+- `params`: An object containing the parameters for the transport.
+
+**Returns**: A promise that resolves with an instance of Transport compatible with `@ledgerhq/hw-transport`.
+
+##### Example:
+
+```javascript
+async function openTransport(walletApiClient, params) {
+  try {
+    const transport = await walletApiClient.device.transport(params);
+    console.log('Transport opened:', transport);
+  } catch (error) {
+    console.error('Error opening transport:', error);
+  }
+}
+```
+
+#### 2. Open Device
+
+Open a device in the connected wallet.
+
+```javascript
+walletApiClient.device.open(params: DeviceOpen["params"]): Promise<HWTransport>
+```
+
+**Parameters**:
+- `params`: An object containing the parameters to open the device.
+
+**Returns**: A promise that resolves with an instance of Transport compatible with `@ledgerhq/hw-transport`.
+
+##### Example:
+
+```javascript
+async function openDevice(walletApiClient, params) {
+  try {
+    const device = await walletApiClient.device.open(params);
+    console.log('Device opened:', device);
+  } catch (error) {
+    console.error('Error opening device:', error);
+  }
+}
+```
+
+#### 3. Select Device
+
+Select a device in the connected wallet.
+
+```javascript
+walletApiClient.device.select(params: DeviceSelect["params"]): Promise<DeviceSelect["result"]>
+```
+
+**Parameters**:
+- `params`: An object containing the parameters to select and check the device.
+
+**Returns**: A promise that resolves with a `deviceId` which can be used with the `device.open` method.
+
+##### Example:
+
+```javascript
+async function selectDevice(walletApiClient, params) {
+  try {
+    const deviceId = await walletApiClient.device.select(params);
+    console.log('Device selected, ID:', deviceId);
+  } catch (error) {
+    console.error('Error selecting device:', error);
+  }
+}
+```
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

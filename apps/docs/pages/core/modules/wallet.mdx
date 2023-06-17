@@ -1,0 +1,82 @@
+# Using the Wallet Module in Wallet API Core Client
+
+The Wallet Module allows you to interact with the user's wallet. This includes retrieving the user's ID, fetching wallet information, and listing the capabilities of the wallet.
+
+## Wallet Module Overview
+
+Access the Wallet module via `walletApiClient.wallet`.
+
+### Methods:
+
+#### 1. Get User ID
+
+Retrieve the user ID of the connected wallet.
+
+```javascript
+walletApiClient.wallet.userId(): Promise<string>
+```
+
+- **Returns**: A promise that resolves with the user ID as a string.
+
+##### Example:
+
+```javascript
+async function getUserId(walletApiClient) {
+  try {
+    const userId = await walletApiClient.wallet.userId();
+    console.log('User ID:', userId);
+  } catch (error) {
+    console.error('Error retrieving user ID:', error);
+  }
+}
+```
+
+#### 2. Get Wallet Info
+
+Retrieve information about the connected wallet.
+
+```javascript
+walletApiClient.wallet.info(): Promise<WalletInfo["result"]>
+```
+
+- **Returns**: A promise that resolves with an object containing information about the connected wallet.
+
+##### Example:
+
+```javascript
+async function getWalletInfo(walletApiClient) {
+  try {
+    const walletInfo = await walletApiClient.wallet.info();
+    console.log('Wallet Info:', walletInfo);
+  } catch (error) {
+    console.error('Error retrieving wallet info:', error);
+  }
+}
+```
+
+#### 3. List Wallet Capabilities
+
+List the method IDs that are implemented by the wallet.
+
+```javascript
+walletApiClient.wallet.capabilities(): Promise<string[]>
+```
+
+- **Returns**: A promise that resolves with an array of strings representing the method IDs.
+
+##### Example:
+
+```javascript
+async function listWalletCapabilities(walletApiClient) {
+  try {
+    const capabilities = await walletApiClient.wallet.capabilities();
+    console.log('Wallet Capabilities:', capabilities);
+  } catch (error) {
+    console.error('Error listing wallet capabilities:', error);
+  }
+}
+```
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.
