@@ -1,0 +1,47 @@
+# Using the Currency Module in Wallet API Core Client
+
+The Currency Module enables interaction with various cryptocurrencies that are supported by the connected wallet. You can list the cryptocurrencies and apply filters by name or ticker.
+
+## Currency Module Overview
+
+Access the Currency module via `walletApiClient.currency`.
+
+### Methods:
+
+#### 1. List Cryptocurrencies
+
+List the cryptocurrencies supported by the connected wallet. You can optionally provide filters by currency IDs.
+
+```javascript
+walletApiClient.currency.list(params?: { currencyIds?: string[] }): Promise<Currency[]>
+```
+
+**Parameters**:
+- `params` (optional): An object which may contain:
+- `currencyIds` (optional): An array of strings specifying the currency IDs to filter the cryptocurrencies.
+
+**Returns**: A promise that resolves with an array of Currency objects.
+
+##### Example:
+
+```javascript
+async function listCurrencies(walletApiClient, currencyIds) {
+  try {
+    // List all supported cryptocurrencies
+    const currencies = await walletApiClient.currency.list();
+    console.log('Supported cryptocurrencies:', currencies);
+
+    // Optionally, filter by currency IDs
+    const filteredCurrencies = await walletApiClient.currency.list({ currencyIds: currencyIds });
+    console.log('Filtered cryptocurrencies:', filteredCurrencies);
+  } catch (error) {
+    console.error('Error listing cryptocurrencies:', error);
+  }
+}
+```
+
+> **Note**: Filtering by currency IDs is marked as beta and may not be fully implemented yet.
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

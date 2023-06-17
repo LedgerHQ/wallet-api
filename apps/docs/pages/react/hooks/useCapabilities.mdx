@@ -1,14 +1,14 @@
 # Using the `useCapabilities` Hook
 
-In this section, we will be looking at how to use the `useCapabilities` hook to retrieve a list of available cryptocurrencies and tokens. 
+In this section, we will be looking at how to use the `useCapabilities` hook to retrieve a list of available cryptocurrencies and tokens.
 
 This method is essential when you need to get information on what you can do with the user's account.
 
-## Introduction to `useCapabilities` Hook
+### Introduction to `useCapabilities` Hook
 
 The `useCapabilities` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch a list of permissions.
 
-## Sample Code
+### Sample Code
 
 Here is an example that shows how to use the `useCapabilities` hook inside a React component:
 
@@ -39,7 +39,7 @@ In this example:
 
 - When the button is clicked, it log the list of capabilities.
 
-## Understanding the Response
+### Understanding the Response
 
 Here is an example of a partial response from the `useCurrencies` hook:
 
@@ -66,16 +66,16 @@ Here is an example of a partial response from the `useCurrencies` hook:
 ]
 ```
 
-Each string in the array represents a capability. 
-They are composed in two part ```group.method``` : 
+Each string in the array represents a capability.
+They are composed in two part ```group.method``` :
 
-- `group`: Specifies in which area does the permission belong. 
+- `group`: Specifies in which area does the permission belong.
 ```
 wallet, currency, account, exchange, bitcoin, device, transaction, storage, message, account
 ```
-- `method`: Specifies the method that you can call with this specific user. 
+- `method`: Specifies the method that you can call with this specific user.
 
-## Other fields
+### Other fields
 
 
 ```jsx

@@ -1,6 +1,6 @@
 # Using the `useWalletInfo` Hook
 
-The `useWalletInfo` hook is part of the Ledger Wallet API Client for React. It allows the user to fetch the wallet information associated with the connected wallet. This documentation provides a detailed explanation of how to use this hook in your application.
+The `useWalletInfo` hook is part of the Ledger Wallet API Client for React. It allows you to fetch the wallet information associated with the connected wallet. This documentation provides a detailed explanation of how to use this hook in your application.
 
 ### Introduction
 
@@ -56,11 +56,32 @@ export default App;
 
 The `useWalletInfo` hook returns an object with the following properties:
 
-- `walletInfo`: The wallet information object or `null` if not fetched. This information might include things like balance, currency, addresses, etc.
+- `walletInfo`: The wallet information object or `null` if not fetched.
 - `updatedAt`: A `Date` object representing the last time the data was updated or `null` if not updated.
 - `loading`: A boolean indicating if the fetching process is ongoing.
 - `error`: An error object if the fetching process failed.
 - `updateData`: A function that can be called to manually update the wallet information.
+
+#### Structure of the `walletInfo` Object
+
+The `walletInfo` object contains the following properties:
+
+- `tracking`: A boolean indicating whether tracking is enabled or disabled.
+- `wallet`: An object containing the following properties:
+- `name`: A string representing the name of the wallet.
+- `version`: A string representing the version of the wallet.
+
+Example of a `walletInfo` object:
+
+```json
+{
+  "tracking": true,
+  "wallet": {
+    "name": "My Wallet",
+    "version": "1.0.0"
+  }
+}
+```
 
 ### Manual Updating
 

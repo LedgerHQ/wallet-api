@@ -1,0 +1,43 @@
+# Using the Message Module in Wallet API Core Client
+
+The Message Module enables users to sign messages using Ledger Live. In the Ethereum context, the messages can be [EIP-191](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-191.md) or [EIP-712](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md) messages.
+
+## Message Module Overview
+
+Access the Message module via `walletApiClient.message`.
+
+### Methods:
+
+#### 1. Sign Message
+
+Allow the user to sign the provided message. This method is used to get a signature for a given message, which proves that the owner of the account has agreed to the message content.
+
+```javascript
+walletApiClient.message.sign(accountId: string, message: Buffer, meta?: Record<string, unknown>): Promise<Buffer>
+```
+
+**Parameters**:
+- `accountId` (required): A string representing the Ledger Live ID of the account that should be used to sign the message.
+- `message` (required): A Buffer containing the message that should be signed.
+- `meta` (optional): An object with additional data associated with the message.
+
+**Returns**: A promise that resolves with a Buffer containing the signed message in hexadecimal format.
+
+**Errors**: This method can throw an `RpcError` if an error occurs on the server-side.
+
+##### Example:
+
+```javascript
+async function signMessage(walletApiClient, accountId, message, meta) {
+  try {
+    const signedMessage = await walletApiClient.message.sign(accountId, message, meta);
+    console.log('Signed Message (hex):', signedMessage.toString('hex'));
+  } catch (error) {
+    console.error('Error signing message:', error);
+  }
+}
+```
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

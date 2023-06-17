@@ -1,0 +1,39 @@
+# Using the Bitcoin Module in Wallet API Core Client
+
+The Bitcoin Module allows you to interact with Bitcoin accounts. Specifically, you can retrieve the extended public key (xPub) of a Bitcoin account. This is useful for deriving Bitcoin addresses without revealing the private key.
+
+## Bitcoin Module Overview
+
+Access the Bitcoin module via `walletApiClient.bitcoin`.
+
+### Methods:
+
+#### 1. Get Extended Public Key (xPub)
+
+Retrieve the extended public key (xPub) of a Bitcoin account. The xPub can be used to derive Bitcoin addresses without exposing the private key.
+
+```javascript
+walletApiClient.bitcoin.getXPub(accountId: string): Promise<string>
+```
+
+**Parameters**:
+- `accountId` (required): The ID of the Bitcoin account for which the xPub is to be retrieved.
+
+**Returns**: A promise that resolves with the xPub as a string.
+
+##### Example:
+
+```javascript
+async function getXPub(walletApiClient, accountId) {
+  try {
+    const xPub = await walletApiClient.bitcoin.getXPub(accountId);
+    console.log('Extended Public Key (xPub):', xPub);
+  } catch (error) {
+    console.error('Error retrieving xPub:', error);
+  }
+}
+```
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

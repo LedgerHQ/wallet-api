@@ -81,7 +81,7 @@
   ### `@ledgerhq/wallet-api-client`
 
   The minimal implementation is pretty similar to the `@ledgerhq/live-app-sdk`. This new package expose a vanilla JS
-  `WalletAPIClient` class. Please refer to the documentation for more. Here are a few differences:
+  `WalletAPIClient` class. Please refer to [the core section](/core) for more. Here are a few differences:
 
   1. **Signing transactions:** The `broadcastSignedTransaction` endpoint was removed. There are now only two ways to
   sign a transaction, with **transaction.sign** or **transaction.signAndBroadcast**. The first one will trigger a

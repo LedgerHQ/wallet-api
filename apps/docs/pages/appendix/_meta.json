@@ -1,0 +1,15 @@
+{
+  "manifest": "Manifest",
+  "transaction": {
+    "title": "Transaction",
+    "theme": {
+      "toc": true
+    }
+  },
+  "migration-guide": {
+    "title": "Migration Guide",
+    "theme": {
+      "toc": true
+    }
+  }
+}

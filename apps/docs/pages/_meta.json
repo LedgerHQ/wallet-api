@@ -19,12 +19,12 @@
     "title": "Core",
     "type": "page"
   },
-  "examples-and-tutorials": {
-    "title": "Examples & Tutorials",
+  "examples": {
+    "title": "Examples",
     "type": "page"
   },
-  "manifest": {
-    "title": "Manifest",
+  "appendix": {
+    "title": "Appendix",
     "type": "page"
   },
   "react-link": {
