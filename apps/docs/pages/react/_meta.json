@@ -32,11 +32,5 @@
       "toc": true
     }
   },
-  "hooks": "Hooks",
-  "migration-guide": {
-    "title": "Migration Guide",
-    "theme": {
-      "toc": true
-    }
-  }
+  "hooks": "Hooks"
 }

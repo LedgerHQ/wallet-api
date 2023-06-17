@@ -18,6 +18,10 @@
     font-size: 1.2em;
 }
 
+em {
+    color: #FF5300;
+}
+
 /* Cards */
 .card-container {
     display: flex;
