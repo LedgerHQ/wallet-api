@@ -11,5 +11,11 @@
     "theme": {
       "toc": true
     }
+  },
+  "families": {
+    "title": "Families",
+    "theme": {
+      "toc": true
+    }
   }
 }

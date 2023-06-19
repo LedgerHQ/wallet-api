@@ -26,11 +26,5 @@
       "toc": true
     }
   },
-  "families": {
-    "title": "Families",
-    "theme": {
-      "toc": true
-    }
-  },
   "hooks": "Hooks"
 }
