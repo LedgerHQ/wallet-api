@@ -1,5 +1,15 @@
 # wallet-api-tools
 
+## 0.2.7
+
+### Patch Changes
+
+- [#183](https://github.com/LedgerHQ/wallet-api/pull/183) [`7c06695`](https://github.com/LedgerHQ/wallet-api/commit/7c066956faeb345ae15d58be5050850a21297243) Thanks [@Justkant](https://github.com/Justkant)! - fix(wallet-api-tools): @codemirror/state deps version mismatch
+
+- Updated dependencies [[`9dd2fe3`](https://github.com/LedgerHQ/wallet-api/commit/9dd2fe3bec50c0856fe1ca761fa229bf67e9c386), [`34dad9f`](https://github.com/LedgerHQ/wallet-api/commit/34dad9fa26e0b6cb947cfc2544d63841abdda443)]:
+  - @ledgerhq/wallet-api-core@1.0.0
+  - @ledgerhq/wallet-api-simulator@1.0.0
+
 ## 0.2.6
 
 ### Patch Changes

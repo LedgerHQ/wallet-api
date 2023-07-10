@@ -1,5 +1,17 @@
 # @ledgerhq/wallet-api-core
 
+## 1.0.0
+
+### Major Changes
+
+- [#199](https://github.com/LedgerHQ/wallet-api/pull/199) [`9dd2fe3`](https://github.com/LedgerHQ/wallet-api/commit/9dd2fe3bec50c0856fe1ca761fa229bf67e9c386) Thanks [@ComradeAERGO](https://github.com/ComradeAERGO)! - Releasing Wallet API v1.0
+
+### Minor Changes
+
+- [#173](https://github.com/LedgerHQ/wallet-api/pull/173) [`34dad9f`](https://github.com/LedgerHQ/wallet-api/commit/34dad9fa26e0b6cb947cfc2544d63841abdda443) Thanks [@Justkant](https://github.com/Justkant)! - feat: add `device.select` and `device.open`
+
+  Split `device.transport` into `device.select` and `device.open` in order to be able to call multiple times `device.open` without having to select a device again
+
 ## 0.18.0
 
 ### Minor Changes
