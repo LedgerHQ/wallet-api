@@ -2,9 +2,9 @@
   "name": "@ledgerhq/wallet-api-server",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "lib/index.js",
-  "module": "lib-es/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/server/src/index.js",
+  "module": "lib-es/server/src/index.js",
+  "types": "lib/server/src/index.d.ts",
   "files": [
     "/lib",
     "/lib-es"
