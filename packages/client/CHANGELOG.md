@@ -1,5 +1,14 @@
 # @ledgerhq/wallet-api-client
 
+## 1.0.1
+
+### Patch Changes
+
+- [#206](https://github.com/LedgerHQ/wallet-api/pull/206) [`a863980`](https://github.com/LedgerHQ/wallet-api/commit/a8639807c69bd31113d820275ffb27d5b3ef6a8e) Thanks [@Justkant](https://github.com/Justkant)! - fix: missing baseUrl for prod tsconfig
+
+- Updated dependencies [[`a863980`](https://github.com/LedgerHQ/wallet-api/commit/a8639807c69bd31113d820275ffb27d5b3ef6a8e)]:
+  - @ledgerhq/wallet-api-core@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
