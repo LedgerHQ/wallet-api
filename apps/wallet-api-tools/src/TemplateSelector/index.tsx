@@ -140,6 +140,28 @@ const data: Group[] = [
           },
         },
       },
+      {
+        label: "select",
+        value: {
+          method: "device.select",
+          params: {
+            appName: "",
+            appVersionRange: "",
+            firmwareVersionRange: "",
+            seeded: true,
+            devices: ["blue", "nanoS", "nanoSP", "nanoX", "stax"],
+          },
+        },
+      },
+      {
+        label: "transport",
+        value: {
+          method: "device.open",
+          params: {
+            deviceId: "",
+          },
+        },
+      },
     ],
   },
   {
