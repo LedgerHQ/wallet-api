@@ -1,16 +1,16 @@
 import {
   Account,
+  AppHandlers,
   Currency,
   Logger,
-  Transport,
-  RpcNode,
-  RpcRequest,
+  Permission,
   RpcError,
   RpcErrorCode,
-  AppHandlers,
-  Permission,
-  createPermissionDenied,
+  RpcNode,
+  RpcRequest,
   ServerError,
+  Transport,
+  createPermissionDenied,
 } from "@ledgerhq/wallet-api-core";
 import { BehaviorSubject, combineLatest } from "rxjs";
 import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
@@ -60,6 +60,10 @@ export class WalletAPIServer extends RpcNode<
   setAccounts(accounts: Account[]) {
     this.allAccounts$.next(accounts);
     return this;
+  }
+
+  setConfig(config: ServerConfig) {
+    this.walletContext.config = config;
   }
 
   public setHandler<K extends keyof WalletHandlers>(
