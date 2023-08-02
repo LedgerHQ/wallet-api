@@ -10,7 +10,7 @@
     "networks": [
       {
         "chainID": 1,
-        "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/0fyudoTG94QWC0tEtfJViM9v2ZXJuij2"
+        "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/xxx"
       }
     ]
   },
