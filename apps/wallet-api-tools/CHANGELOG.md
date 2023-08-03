@@ -1,5 +1,19 @@
 # wallet-api-tools
 
+## 0.3.0
+
+### Minor Changes
+
+- [#209](https://github.com/LedgerHQ/wallet-api/pull/209) [`ded32bc`](https://github.com/LedgerHQ/wallet-api/commit/ded32bcdb42f1f815f8e20daf466926e7f836706) Thanks [@Justkant](https://github.com/Justkant)! - feat(wallet-api-tools): add `device.select` & `device.open` templates
+
+### Patch Changes
+
+- [#212](https://github.com/LedgerHQ/wallet-api/pull/212) [`e0d3933`](https://github.com/LedgerHQ/wallet-api/commit/e0d3933c3df5e1be56d17c61ba0dc316b37e15b5) Thanks [@sarneijim](https://github.com/sarneijim)! - Add custom fee to swap
+
+- Updated dependencies [[`e0d3933`](https://github.com/LedgerHQ/wallet-api/commit/e0d3933c3df5e1be56d17c61ba0dc316b37e15b5)]:
+  - @ledgerhq/wallet-api-core@1.0.2
+  - @ledgerhq/wallet-api-simulator@1.0.2
+
 ## 0.2.8
 
 ### Patch Changes
