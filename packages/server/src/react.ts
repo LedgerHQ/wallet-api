@@ -5,9 +5,9 @@ import type {
   Permission,
   Transport,
 } from "@ledgerhq/wallet-api-core";
-import { useCallback, useEffect, useMemo } from "react";
-import type { ServerConfig } from "./types";
+import { useCallback, useEffect, useRef } from "react";
 import { WalletAPIServer } from "./WalletAPIServer";
+import type { ServerConfig } from "./types";
 
 export function useWalletAPIServer({
   transport,
@@ -24,22 +24,28 @@ export function useWalletAPIServer({
   currencies: Currency[];
   permission: Permission;
 }) {
-  const server = useMemo(
-    () => new WalletAPIServer(transport, config, logger),
-    [config, logger, transport]
-  );
+  const server = useRef<WalletAPIServer>();
 
   useEffect(() => {
-    server.setPermissions(permission);
-  }, [permission, server]);
+    server.current = new WalletAPIServer(transport, config, logger);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
-    server.setCurrencies(currencies);
-  }, [currencies, server]);
+    server?.current?.setConfig(config);
+  }, [config]);
 
   useEffect(() => {
-    server.setAccounts(accounts);
-  }, [accounts, server]);
+    server?.current?.setPermissions(permission);
+  }, [permission]);
+
+  useEffect(() => {
+    server?.current?.setCurrencies(currencies);
+  }, [currencies]);
+
+  useEffect(() => {
+    server?.current?.setAccounts(accounts);
+  }, [accounts]);
 
   const onMessage = useCallback(
     (event: string) => {
