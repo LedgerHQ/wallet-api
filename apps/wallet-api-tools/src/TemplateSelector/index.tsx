@@ -216,7 +216,7 @@ const data: Group[] = [
         value: {
           method: "exchange.start",
           params: {
-            exchangeType: "SWAP | SELL | FUND",
+            exchangeType: "SWAP | SELL | FUND  | CUSTOM",
           },
         },
       },
@@ -235,7 +235,7 @@ const data: Group[] = [
             },
             hexBinaryPayload: "",
             hexSignature: "",
-            feeStrategy: "SLOW | MEDIUM | FAST",
+            feeStrategy: "SLOW | MEDIUM | FAST | CUSTOM",
           },
         },
       },
