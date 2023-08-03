@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.0.2
+
+### Patch Changes
+
+- [#212](https://github.com/LedgerHQ/wallet-api/pull/212) [`e0d3933`](https://github.com/LedgerHQ/wallet-api/commit/e0d3933c3df5e1be56d17c61ba0dc316b37e15b5) Thanks [@sarneijim](https://github.com/sarneijim)! - Add custom fee to swap
+
 ## 1.0.1
 
 ### Patch Changes

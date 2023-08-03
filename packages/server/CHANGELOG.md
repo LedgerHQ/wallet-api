@@ -1,5 +1,18 @@
 # @ledgerhq/wallet-api-server
 
+## 1.1.0
+
+### Minor Changes
+
+- [#210](https://github.com/LedgerHQ/wallet-api/pull/210) [`e7afa6e`](https://github.com/LedgerHQ/wallet-api/commit/e7afa6e7ee3e53459e7f27dcd3df8590530ae1c1) Thanks [@Justkant](https://github.com/Justkant)! - feat(server): react hooks use ref instead of memo
+
+  Add setConfig to server class
+
+### Patch Changes
+
+- Updated dependencies [[`e0d3933`](https://github.com/LedgerHQ/wallet-api/commit/e0d3933c3df5e1be56d17c61ba0dc316b37e15b5)]:
+  - @ledgerhq/wallet-api-core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
