@@ -27,7 +27,7 @@
     "eslint": "^8.26.0",
     "jest": "^29.1.2",
     "jest-environment-jsdom": "^29.2.2",
-    "jest-shared-config": "workspace:*",
+    "jest-shared-config": "link:/Users/sara.neila-jimenez/Desktop/wallet-api/packages/jest-shared-config",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
@@ -35,9 +35,9 @@
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.27.10",
     "@ledgerhq/hw-transport-http": "^6.27.10",
-    "@ledgerhq/wallet-api-client": "workspace:*",
-    "@ledgerhq/wallet-api-core": "workspace:*",
-    "@ledgerhq/wallet-api-server": "workspace:*",
+    "@ledgerhq/wallet-api-client": "link:/Users/sara.neila-jimenez/Desktop/wallet-api/packages/client",
+    "@ledgerhq/wallet-api-core": "link:/Users/sara.neila-jimenez/Desktop/wallet-api/packages/core",
+    "@ledgerhq/wallet-api-server": "link:/Users/sara.neila-jimenez/Desktop/wallet-api/packages/server",
     "rxjs": "^7.8.0",
     "ws": "^8.10.0"
   }

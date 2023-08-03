@@ -28,7 +28,7 @@
     "@changesets/changelog-github": "^0.4.7",
     "@changesets/cli": "^2.25.1",
     "eslint": "^8.26.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "link:/Users/sara.neila-jimenez/Desktop/wallet-api/packages/eslint-config-custom",
     "husky": "^8.0.0",
     "lint-staged": ">=13",
     "turbo": "^1.6.2"
