@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { schemaRawTransaction } from "../../families";
 
-const schemaFeeStrategyType = z.enum(["SLOW", "MEDIUM", "FAST"]);
+const schemaFeeStrategyType = z.enum(["SLOW", "MEDIUM", "FAST", "CUSTOM"]);
 
 const schemaExchangeCompleteBaseParams = z.object({
   provider: z.string(),
