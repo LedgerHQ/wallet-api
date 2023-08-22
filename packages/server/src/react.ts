@@ -25,26 +25,26 @@ export function useWalletAPIServer({
   permission: Permission;
 }) {
   const server = useRef<WalletAPIServer>();
-
-  useEffect(() => {
+  // I don't really like this but it comes from the doc
+  // https://react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
+  if (server.current === undefined) {
     server.current = new WalletAPIServer(transport, config, logger);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }
 
   useEffect(() => {
-    server?.current?.setConfig(config);
+    server.current?.setConfig(config);
   }, [config]);
 
   useEffect(() => {
-    server?.current?.setPermissions(permission);
+    server.current?.setPermissions(permission);
   }, [permission]);
 
   useEffect(() => {
-    server?.current?.setCurrencies(currencies);
+    server.current?.setCurrencies(currencies);
   }, [currencies]);
 
   useEffect(() => {
-    server?.current?.setAccounts(accounts);
+    server.current?.setAccounts(accounts);
   }, [accounts]);
 
   const onMessage = useCallback(
@@ -55,7 +55,7 @@ export function useWalletAPIServer({
   );
 
   return {
-    server,
+    server: server.current,
     onMessage,
   };
 }
