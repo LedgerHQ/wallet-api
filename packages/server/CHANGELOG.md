@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-server
 
+## 1.1.1
+
+### Patch Changes
+
+- [#217](https://github.com/LedgerHQ/wallet-api/pull/217) [`96dd717`](https://github.com/LedgerHQ/wallet-api/commit/96dd717a9d41cf9d62328c46167af5937b8cf5a4) Thanks [@Justkant](https://github.com/Justkant)! - fix: react hook return value
+
 ## 1.1.0
 
 ### Minor Changes
