@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.1.0
+
+### Minor Changes
+
+- [#220](https://github.com/LedgerHQ/wallet-api/pull/220) [`aa5e239`](https://github.com/LedgerHQ/wallet-api/commit/aa5e2394c934b378b727cf9ab503e61712e26d6d) Thanks [@Philippoes](https://github.com/Philippoes)! - Add optional validator properties to CosmosTransaction
+
 ## 1.0.2
 
 ### Patch Changes
