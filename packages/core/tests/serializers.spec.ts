@@ -230,7 +230,7 @@ describe("serializers.ts", () => {
     describe("cosmos", () => {
       const family = schemaFamilies.enum.cosmos;
 
-      it("should succeed to serialize a cosmos transaction with fees, gas and memo", () => {
+      it("should succeed to serialize a cosmos transaction with fees, gas, memo, validators and sourceValidator", () => {
         const transaction: CosmosTransaction = {
           family,
           mode: "send",
@@ -239,6 +239,8 @@ describe("serializers.ts", () => {
           memo: "memo",
           amount: new BigNumber(100),
           recipient: "recipient",
+          validators: [{ address: "recipient", amount: new BigNumber(100) }],
+          sourceValidator: "sourceValidator",
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -250,10 +252,12 @@ describe("serializers.ts", () => {
           memo: "memo",
           amount: "100",
           recipient: "recipient",
+          validators: [{ address: "recipient", amount: "100" }],
+          sourceValidator: "sourceValidator",
         });
       });
 
-      it("should succeed to serialize a cosmos transaction without fees, gas and memo", () => {
+      it("should succeed to serialize a cosmos transaction without fees, gas, memo, validators and sourceValidator", () => {
         const transaction: CosmosTransaction = {
           family,
           mode: "send",
@@ -270,6 +274,8 @@ describe("serializers.ts", () => {
           memo: undefined,
           amount: "100",
           recipient: "recipient",
+          validators: undefined,
+          sourceValidator: undefined,
         });
       });
     });

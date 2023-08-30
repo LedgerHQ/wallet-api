@@ -9,6 +9,8 @@ export const serializeCosmosTransaction = ({
   fees,
   gas,
   memo,
+  sourceValidator,
+  validators,
 }: CosmosTransaction): RawCosmosTransaction => ({
   amount: amount.toString(),
   recipient,
@@ -17,6 +19,13 @@ export const serializeCosmosTransaction = ({
   fees: fees ? fees.toString() : undefined,
   gas: gas ? gas.toString() : undefined,
   memo,
+  sourceValidator: sourceValidator ?? undefined,
+  validators: validators
+    ? validators.map((val) => ({
+        ...val,
+        amount: val.amount.toString(),
+      }))
+    : undefined,
 });
 
 export const deserializeCosmosTransaction = ({
@@ -27,6 +36,8 @@ export const deserializeCosmosTransaction = ({
   fees,
   gas,
   memo,
+  sourceValidator,
+  validators,
 }: RawCosmosTransaction): CosmosTransaction => ({
   amount: new BigNumber(amount),
   recipient,
@@ -35,4 +46,11 @@ export const deserializeCosmosTransaction = ({
   fees: fees ? new BigNumber(fees) : undefined,
   gas: gas ? new BigNumber(gas) : undefined,
   memo,
+  sourceValidator: sourceValidator ?? undefined,
+  validators: validators
+    ? validators.map((val) => ({
+        ...val,
+        amount: new BigNumber(val.amount),
+      }))
+    : undefined,
 });
