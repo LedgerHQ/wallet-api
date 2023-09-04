@@ -21,7 +21,7 @@ export default class WindowMessageTransport implements Transport {
     this.target.document?.addEventListener(
       "message",
       this._onMessageEvent,
-      false
+      false,
     );
     this.logger.debug("event listeners registered");
   };
@@ -32,7 +32,7 @@ export default class WindowMessageTransport implements Transport {
     this.target.document?.removeEventListener(
       "message",
       this._onMessageEvent,
-      false
+      false,
     );
     this.logger.debug("event listeners unregistered");
   };

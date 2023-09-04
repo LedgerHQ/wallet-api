@@ -15,7 +15,7 @@ export class Logger {
     console.log(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #fff",
-      ...args
+      ...args,
     );
   }
 
@@ -23,7 +23,7 @@ export class Logger {
     console.warn(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #f80",
-      ...args
+      ...args,
     );
   }
 
@@ -31,7 +31,7 @@ export class Logger {
     console.debug(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #777",
-      ...args
+      ...args,
     );
   }
 
@@ -39,7 +39,7 @@ export class Logger {
     console.error(
       `%c${this.prefix}${message}`,
       "background: #6490f1; color: #f00",
-      ...args
+      ...args,
     );
   }
 }

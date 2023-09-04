@@ -60,7 +60,7 @@ export class TransportWalletAPI extends Transport {
       {
         transportId: this.transportId,
         apduHex,
-      }
+      },
     );
 
     const safeResults = schemaDeviceExchange.result.parse(deviceExchangeResult);

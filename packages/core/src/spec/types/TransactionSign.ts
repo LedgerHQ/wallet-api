@@ -27,5 +27,5 @@ export type TransactionSign = {
 };
 
 export type TransactionSignHandler = (
-  params: TransactionSign["params"]
+  params: TransactionSign["params"],
 ) => TransactionSign["result"];

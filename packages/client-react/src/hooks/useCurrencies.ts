@@ -60,7 +60,7 @@ export function useCurrencies(): UseCurrenciesReturn {
       currencies.updatedAt,
       currencies.value,
       updateData,
-    ]
+    ],
   );
 
   return results;

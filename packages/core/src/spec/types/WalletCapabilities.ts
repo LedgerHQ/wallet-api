@@ -17,5 +17,5 @@ export type WalletCapabilities = {
 };
 
 export type WalletCapabilitiesHandler = (
-  params: WalletCapabilities["params"]
+  params: WalletCapabilities["params"],
 ) => WalletCapabilities["result"];

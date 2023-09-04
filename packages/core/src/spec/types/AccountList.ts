@@ -22,5 +22,5 @@ export type AccountList = {
 };
 
 export type AccountListHandler = (
-  params: AccountList["params"]
+  params: AccountList["params"],
 ) => AccountList["result"];

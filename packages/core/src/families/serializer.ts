@@ -127,7 +127,7 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
  * @returns The object transaction of the provided raw transaction representation
  */
 export function deserializeTransaction(
-  rawTransaction: RawTransaction
+  rawTransaction: RawTransaction,
 ): Transaction {
   switch (rawTransaction.family) {
     case "ethereum":

@@ -42,7 +42,7 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
         }
 
         const transactionHash = await client.transaction.signAndBroadcast(
-          ...params
+          ...params,
         );
 
         setState((oldState) => ({
@@ -58,7 +58,7 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
         }));
       }
     },
-    [client]
+    [client],
   );
 
   const result = useMemo(
@@ -66,7 +66,7 @@ export function useSignAndBroadcastTransaction(): UseSignAndBroadcastTransaction
       signAndBroadcastTransaction,
       ...state,
     }),
-    [signAndBroadcastTransaction, state]
+    [signAndBroadcastTransaction, state],
   );
 
   return result;

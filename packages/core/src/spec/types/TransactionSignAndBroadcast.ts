@@ -27,5 +27,5 @@ export type TransactionSignAndBroadcast = {
 };
 
 export type TransactionSignAndBroadcastHandler = (
-  params: TransactionSignAndBroadcast["params"]
+  params: TransactionSignAndBroadcast["params"],
 ) => TransactionSignAndBroadcast["result"];

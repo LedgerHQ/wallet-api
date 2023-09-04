@@ -52,11 +52,11 @@ export class WalletModule {
   async capabilities(): Promise<string[]> {
     const walletCapabilitiesResult = await this.client.request(
       "wallet.capabilities",
-      {}
+      {},
     );
 
     const safeResults = schemaWalletCapabilities.result.parse(
-      walletCapabilitiesResult
+      walletCapabilitiesResult,
     );
 
     return safeResults.methodIds;

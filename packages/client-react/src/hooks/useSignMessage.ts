@@ -52,7 +52,7 @@ export function useSignMessage(): UseSignMessageReturn {
         }));
       }
     },
-    [client]
+    [client],
   );
 
   const result = useMemo(
@@ -60,7 +60,7 @@ export function useSignMessage(): UseSignMessageReturn {
       signMessage,
       ...state,
     }),
-    [signMessage, state]
+    [signMessage, state],
   );
 
   return result;

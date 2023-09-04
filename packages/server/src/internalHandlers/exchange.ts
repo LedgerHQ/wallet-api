@@ -14,7 +14,7 @@ import type { RPCHandler } from "../types";
 export const start: RPCHandler<ExchangeStart["result"]> = async (
   req,
   _context,
-  handlers
+  handlers,
 ) => {
   const walletHandler = handlers["exchange.start"];
 
@@ -36,7 +36,7 @@ export const start: RPCHandler<ExchangeStart["result"]> = async (
 export const complete: RPCHandler<ExchangeComplete["result"]> = async (
   req,
   context,
-  handlers
+  handlers,
 ) => {
   const walletHandler = handlers["exchange.complete"];
 
@@ -49,7 +49,7 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
   const accounts = await firstValueFrom(context.accounts$);
 
   const fromAccount = accounts.find(
-    (acc) => acc.id === safeParams.fromAccountId
+    (acc) => acc.id === safeParams.fromAccountId,
   );
 
   if (!fromAccount) {

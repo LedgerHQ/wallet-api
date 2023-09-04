@@ -37,7 +37,7 @@ type CreateRpcRequestParams<T> = {
   params?: T;
 };
 export function createRpcRequest<T>(
-  params: CreateRpcRequestParams<T>
+  params: CreateRpcRequestParams<T>,
 ): RpcRequest<string, T> {
   return {
     jsonrpc: "2.0",
@@ -55,7 +55,7 @@ type CreateRpcResponseParams<T, E> =
       error: RpcResponseError<E>;
     };
 export function createRpcResponse<T, E>(
-  params: CreateRpcResponseParams<T, E>
+  params: CreateRpcResponseParams<T, E>,
 ): RpcResponse<T, E> {
   return {
     jsonrpc: "2.0",

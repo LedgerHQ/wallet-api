@@ -60,7 +60,7 @@ export function useAccounts(): UseAccountsReturn {
       accounts.updatedAt,
       accounts.value,
       updateData,
-    ]
+    ],
   );
 
   return results;

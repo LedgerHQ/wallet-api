@@ -14,7 +14,7 @@ import type { RPCHandler } from "../types";
 export const sign: RPCHandler<TransactionSign["result"]> = async (
   req,
   context,
-  handlers
+  handlers,
 ) => {
   const safeParams = schemaTransactionSign.params.parse(req.params);
 
@@ -53,7 +53,7 @@ export const signAndBroadcast: RPCHandler<
 
   if (!walletHandler) {
     throw new ServerError(
-      createNotImplementedByWallet("transaction.signAndBroadcast")
+      createNotImplementedByWallet("transaction.signAndBroadcast"),
     );
   }
 

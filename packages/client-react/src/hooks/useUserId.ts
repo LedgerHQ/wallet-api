@@ -53,7 +53,7 @@ export function useUserId(): UseUserIdReturn {
       error: userId.error,
       updateData,
     }),
-    [userId.error, userId.loading, userId.updatedAt, userId.value, updateData]
+    [userId.error, userId.loading, userId.updatedAt, userId.value, updateData],
   );
 
   return results;

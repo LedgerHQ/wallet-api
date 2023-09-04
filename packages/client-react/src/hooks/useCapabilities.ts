@@ -64,7 +64,7 @@ export function useCapabilities(): UseCapabilitiesReturn {
       capabilities.updatedAt,
       capabilities.value,
       updateData,
-    ]
+    ],
   );
 
   return results;

@@ -21,5 +21,5 @@ export type MessageSign = {
 };
 
 export type MessageSignHandler = (
-  params: MessageSign["params"]
+  params: MessageSign["params"],
 ) => MessageSign["result"];

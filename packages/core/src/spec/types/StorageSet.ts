@@ -19,5 +19,5 @@ export type StorageSet = {
 };
 
 export type StorageSetHandler = (
-  params: StorageSet["params"]
+  params: StorageSet["params"],
 ) => StorageSet["result"];

@@ -68,14 +68,14 @@ export class WalletAPIServer extends RpcNode<
 
   public setHandler<K extends keyof WalletHandlers>(
     methodName: K,
-    method: WalletHandlers[K]
+    method: WalletHandlers[K],
   ) {
     this.walletHandlers[methodName] = method;
     return this;
   }
 
   protected async onRequest(
-    request: RpcRequest<string, unknown>
+    request: RpcRequest<string, unknown>,
   ): Promise<unknown> {
     const methodId = request.method as keyof typeof this.requestHandlers;
 
@@ -83,7 +83,7 @@ export class WalletAPIServer extends RpcNode<
 
     if (!handler) {
       this.logger.error(
-        `no request handler found for methodId ${request.method}`
+        `no request handler found for methodId ${request.method}`,
       );
       throw new RpcError({
         code: RpcErrorCode.METHOD_NOT_FOUND,
@@ -103,7 +103,7 @@ export class WalletAPIServer extends RpcNode<
   constructor(
     transport: Transport,
     config: ServerConfig,
-    logger: Logger = defaultLogger
+    logger: Logger = defaultLogger,
   ) {
     super(transport, internalHandlers);
     this.logger = logger;
@@ -111,13 +111,13 @@ export class WalletAPIServer extends RpcNode<
     const allowedCurrencies$ = new BehaviorSubject<Currency[]>([]);
     combineLatest(
       [this.allCurrencies$, this.permissions.currencyIds$],
-      matchCurrencies
+      matchCurrencies,
     ).subscribe(allowedCurrencies$);
 
     const allowedAccounts$ = new BehaviorSubject<Account[]>([]);
     combineLatest(
       [this.allAccounts$, allowedCurrencies$],
-      filterAccountsForCurrencies
+      filterAccountsForCurrencies,
     ).subscribe(allowedAccounts$);
 
     this.walletContext = {

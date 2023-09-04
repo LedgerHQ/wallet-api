@@ -8,7 +8,7 @@ import type {
 } from "./types";
 
 export function createNotImplementedByWallet(
-  methodId: string
+  methodId: string,
 ): NotImplementedByWallet {
   return {
     code: "NOT_IMPLEMENTED_BY_WALLET",

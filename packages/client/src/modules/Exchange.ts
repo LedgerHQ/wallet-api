@@ -23,7 +23,7 @@ export class ExchangeModule {
    * @returns - A transaction ID used to complete the exchange process
    */
   async start(
-    exchangeType: ExchangeStart["params"]["exchangeType"]
+    exchangeType: ExchangeStart["params"]["exchangeType"],
   ): Promise<string> {
     const exchangeStartResult = await this.client.request("exchange.start", {
       exchangeType,
@@ -78,11 +78,11 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
-      }
+      },
     );
 
     const safeResults = schemaExchangeComplete.result.parse(
-      exchangeCompleteResult
+      exchangeCompleteResult,
     );
 
     return safeResults.transactionHash;
@@ -127,11 +127,11 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
-      }
+      },
     );
 
     const safeResults = schemaExchangeComplete.result.parse(
-      exchangeCompleteResult
+      exchangeCompleteResult,
     );
 
     return safeResults.transactionHash;
@@ -177,11 +177,11 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
-      }
+      },
     );
 
     const safeResults = schemaExchangeComplete.result.parse(
-      exchangeCompleteResult
+      exchangeCompleteResult,
     );
 
     return safeResults.transactionHash;

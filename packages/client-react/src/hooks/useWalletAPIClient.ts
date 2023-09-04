@@ -13,7 +13,7 @@ export function useWalletAPIClient(): UseWalletAPIClientReturn {
     () => ({
       client,
     }),
-    [client]
+    [client],
   );
 
   return results;

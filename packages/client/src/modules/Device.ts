@@ -28,11 +28,11 @@ export class DeviceModule {
   async transport(params: DeviceTransport["params"]): Promise<HWTransport> {
     const deviceTransportResult = await this.client.request(
       "device.transport",
-      params
+      params,
     );
 
     const safeResults = schemaDeviceTransport.result.parse(
-      deviceTransportResult
+      deviceTransportResult,
     );
 
     return TransportWalletAPI.open({
@@ -69,11 +69,11 @@ export class DeviceModule {
    * @throws {@link RpcError} if an error occurred on server side
    */
   async select(
-    params: DeviceSelect["params"]
+    params: DeviceSelect["params"],
   ): Promise<DeviceSelect["result"]> {
     const deviceSelectResult = await this.client.request(
       "device.select",
-      params
+      params,
     );
 
     return schemaDeviceSelect.result.parse(deviceSelectResult);

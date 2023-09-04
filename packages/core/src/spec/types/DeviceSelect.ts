@@ -39,5 +39,5 @@ export type DeviceSelect = {
 };
 
 export type DeviceSelectHandler = (
-  params: DeviceSelect["params"]
+  params: DeviceSelect["params"],
 ) => DeviceSelect["result"];

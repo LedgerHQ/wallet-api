@@ -39,5 +39,5 @@ export type DeviceTransport = {
 };
 
 export type DeviceTransportHandler = (
-  params: DeviceTransport["params"]
+  params: DeviceTransport["params"],
 ) => DeviceTransport["result"];

@@ -22,5 +22,5 @@ export type CurrencyList = {
 };
 
 export type CurrencyListHandler = (
-  params: CurrencyList["params"]
+  params: CurrencyList["params"],
 ) => CurrencyList["result"];

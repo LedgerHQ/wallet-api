@@ -20,5 +20,5 @@ export type StorageGet = {
 };
 
 export type StorageGetHandler = (
-  params: StorageGet["params"]
+  params: StorageGet["params"],
 ) => StorageGet["result"];

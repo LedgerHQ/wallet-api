@@ -21,5 +21,5 @@ export type WalletInfo = {
 };
 
 export type WalletInfoHandler = (
-  params: WalletInfo["params"]
+  params: WalletInfo["params"],
 ) => WalletInfo["result"];

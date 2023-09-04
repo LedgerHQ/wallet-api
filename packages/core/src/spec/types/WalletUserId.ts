@@ -17,5 +17,5 @@ export type WalletUserId = {
 };
 
 export type WalletUserIdHandler = (
-  params: WalletUserId["params"]
+  params: WalletUserId["params"],
 ) => WalletUserId["result"];
