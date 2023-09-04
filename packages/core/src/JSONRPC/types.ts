@@ -33,7 +33,7 @@ export enum RpcErrorCode {
 /**
  * A rpc call is represented by sending a Request object to a Server.
  */
-export interface RpcRequest<MParam = string, TParam = unknown> {
+export type RpcRequest<MParam = string, TParam = unknown> = {
   /**
    * A String specifying the version of the JSON-RPC protocol. **MUST** be exactly "2.0".
    */
@@ -57,17 +57,17 @@ export interface RpcRequest<MParam = string, TParam = unknown> {
    * The value **SHOULD** normally not be Null and Numbers **SHOULD NOT** contain fractional parts
    */
   id?: string | number | null;
-}
+};
 
 /**
  * When a rpc call encounters an error,
  * the Response Object MUST contain the error member with a value that is that object
  */
-export interface RpcResponseError<TErrorData = unknown> {
+export type RpcResponseError<TErrorData = unknown> = {
   /**
    * A Number that indicates the error type that occurred.
    */
-  code: number | RpcErrorCode;
+  code: RpcErrorCode;
   /**
    * A String providing a short description of the error.
    */
@@ -78,9 +78,9 @@ export interface RpcResponseError<TErrorData = unknown> {
    * (e.g. detailed error information, nested errors etc.).
    */
   data?: TErrorData;
-}
+};
 
-export interface RpcResponseCommon {
+export type RpcResponseCommon = {
   /**
    * A String specifying the version of the JSON-RPC protocol.
    * **MUST** be exactly "2.0".
@@ -96,7 +96,7 @@ export interface RpcResponseCommon {
    * it **MUST** be `Null`.
    */
   id: string | number | null;
-}
+};
 
 /**
  * When a rpc call is made, the Server **MUST** reply with a Response
@@ -107,22 +107,20 @@ export type RpcResponse<TResult = unknown, TErrorData = unknown> =
   | RpcResponseSuccess<TResult>
   | RpcResponseFailed<TErrorData>;
 
-export interface RpcResponseSuccess<TResult = unknown>
-  extends RpcResponseCommon {
+export type RpcResponseSuccess<TResult = unknown> = RpcResponseCommon & {
   /**
    * This member is **REQUIRED** on success.
    * This member **MUST NOT** exist if there was an error invoking the method.
    * The value of this member is determined by the method invoked on the Server.
    */
   result: TResult;
-}
+};
 
-export interface RpcResponseFailed<TErrorData = unknown>
-  extends RpcResponseCommon {
+export type RpcResponseFailed<TErrorData = unknown> = RpcResponseCommon & {
   /**
    * This member is REQUIRED on error.
    * This member MUST NOT exist if there was no error triggered during invocation.
    * The value for this member MUST be an Object of Type `RpcResponseError`.
    */
   error: RpcResponseError<TErrorData>;
-}
+};

@@ -1,13 +1,13 @@
+import { Logger } from "@ledgerhq/wallet-api-core";
 import Ajv, { ErrorObject } from "ajv";
 import ajvErrors from "ajv-errors";
-import { Logger } from "@ledgerhq/wallet-api-core";
 import SchemaJSON from "./schema/schema.json";
 
-export interface OptionsParams {
+export type OptionsParams = {
   details: boolean;
   enableState: boolean;
   fileName: string;
-}
+};
 
 const validate = ajvErrors(new Ajv({ allErrors: true })).compile(SchemaJSON);
 
@@ -27,7 +27,7 @@ export function validateManifest(
     details: false,
     enableState: false,
     fileName: "",
-  }
+  },
 ): boolean {
   const log = new Logger();
 
@@ -42,12 +42,7 @@ export function validateManifest(
     log.debug(`\x1b[31m \u2718 ${fileName}`);
   if (details && validate.errors) {
     const errorsPerCategories = validate.errors.reduce(
-      (
-        acc: {
-          [key: string]: string[];
-        },
-        e: ErrorObject<string>
-      ) => {
+      (acc: Record<string, string[]>, e: ErrorObject<string>) => {
         if (e.instancePath !== undefined && e.message !== undefined) {
           if (acc[e.instancePath] === undefined)
             acc[e.instancePath] = [e.message];
@@ -55,7 +50,7 @@ export function validateManifest(
         }
         return acc;
       },
-      {}
+      {},
     );
 
     log.warn(`\n${Object.keys(errorsPerCategories).length} errors detected:`);

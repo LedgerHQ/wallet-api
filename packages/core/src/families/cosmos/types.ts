@@ -13,7 +13,7 @@ export type CosmosDelegationInfo = {
   amount: BigNumber;
 };
 
-export interface CosmosTransaction extends TransactionCommon {
+export type CosmosTransaction = TransactionCommon & {
   readonly family: RawCosmosTransaction["family"];
   mode: CosmosOperationMode;
   fees?: BigNumber;
@@ -21,6 +21,6 @@ export interface CosmosTransaction extends TransactionCommon {
   memo?: string;
   sourceValidator?: string;
   validators?: CosmosDelegationInfo[];
-}
+};
 
 export type RawCosmosTransaction = z.infer<typeof schemaRawCosmosTransaction>;

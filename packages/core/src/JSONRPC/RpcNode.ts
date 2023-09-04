@@ -1,19 +1,19 @@
+import { deserializeError, serializeError } from "@ledgerhq/errors";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
-import { serializeError, deserializeError } from "@ledgerhq/errors";
 import {
+  ServerError,
   createUnknownError,
   schemaServerErrorData,
-  ServerError,
 } from "../errors";
 import type { Transport } from "../transports";
-import { parseRPCCall, createRpcResponse } from "./helpers";
 import { RpcError } from "./RPCError";
-import { RpcResponse, RpcRequest, RpcErrorCode } from "./types";
+import { createRpcResponse, parseRPCCall } from "./helpers";
+import { RpcErrorCode, RpcRequest, RpcResponse } from "./types";
 
 type Resolver<T> = (response: T) => void;
 
-type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
+type ReturnTypeOfMethod<T> = T extends (...args: unknown[]) => unknown
   ? ReturnType<T>
   : unknown;
 type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T
@@ -27,14 +27,15 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
 
   protected requestHandlers: TSHandlers;
 
-  private ongoingRequests: {
-    [requestId: number | string]: Resolver<
+  private ongoingRequests: Record<
+    number | string,
+    Resolver<
       RpcResponse<
         ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
         unknown
       >
-    >;
-  } = {};
+    >
+  > = {};
 
   constructor(transport: Transport, requestHandlers: TSHandlers) {
     this.transport = transport;
@@ -45,7 +46,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
   }
 
   private _request<K extends keyof TCHandlers>(
-    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
+    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>,
   ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
     return new Promise((resolve, reject) => {
       if (!request.id) {
@@ -58,7 +59,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         if ("error" in response) {
           if (response.error.code === RpcErrorCode.SERVER_ERROR) {
             const serverErrorData = schemaServerErrorData.parse(
-              response.error.data
+              response.error.data,
             );
 
             if (serverErrorData.code === "UNKNOWN_ERROR") {
@@ -81,14 +82,14 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
   }
 
   private _notify<K extends keyof TCHandlers>(
-    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>
+    request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>,
   ): void {
     this.transport.send(JSON.stringify(request));
   }
 
   public request<K extends keyof TCHandlers>(
     method: K,
-    params: MethodParamsIfExists<TCHandlers, K>
+    params: MethodParamsIfExists<TCHandlers, K>,
   ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
     const requestId = uuidv4();
     return this._request({
@@ -101,7 +102,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
 
   public notify<K extends keyof TCHandlers>(
     method: K,
-    params: MethodParamsIfExists<TCHandlers, K>
+    params: MethodParamsIfExists<TCHandlers, K>,
   ): void {
     return this._notify({
       jsonrpc: "2.0",
@@ -166,7 +167,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
           rpcCall as RpcResponse<
             ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
             unknown
-          >
+          >,
         );
       }
     } catch (error) {
@@ -175,7 +176,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
       }
       if (error instanceof RpcError) {
         const errorResponse = createRpcResponse({
-          id: callId || null,
+          id: callId ?? null,
           error: {
             code: error.getCode(),
             message: error.message,
@@ -197,7 +198,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     response: RpcResponse<
       ReturnTypeOfMethodIfExists<TCHandlers, keyof TCHandlers>,
       unknown
-    >
+    >,
   ) {
     if (!response.id) {
       return;

@@ -1,3 +1,3 @@
-export interface AppHandlers {
+export type AppHandlers = {
   "event.account.updated": undefined;
-}
+};

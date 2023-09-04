@@ -164,9 +164,9 @@ export type TransactionModel = { commandDescriptor?: CommandDescriptor } & (
   | StakeSplitTransaction
 );
 
-export interface SolanaTransaction extends TransactionCommon {
+export type SolanaTransaction = TransactionCommon & {
   readonly family: RawSolanaTransaction["family"];
   model: TransactionModel;
-}
+};
 
 export type RawSolanaTransaction = z.infer<typeof schemaRawSolanaTransaction>;

@@ -6,12 +6,12 @@ import type {
   stellarMemoTypeEnum,
 } from "./validation";
 
-export interface StellarTransaction extends TransactionCommon {
+export type StellarTransaction = TransactionCommon & {
   readonly family: RawStellarTransaction["family"];
   fees?: BigNumber;
   memoType?: StellarMemoType;
   memoValue?: string;
-}
+};
 
 export type RawStellarTransaction = z.infer<typeof schemaRawStellarTransaction>;
 

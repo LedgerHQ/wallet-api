@@ -21,7 +21,7 @@ import type {
   WalletUserIdHandler,
 } from "../types";
 
-export interface WalletHandlers {
+export type WalletHandlers = {
   "account.list": AccountListHandler;
   "account.receive": AccountReceiveHandler;
   "account.request": AccountRequestHandler;
@@ -42,4 +42,4 @@ export interface WalletHandlers {
   "wallet.info": WalletInfoHandler;
   "exchange.start": ExchangeStartHandler;
   "exchange.complete": ExchangeCompleteHandler;
-}
+};

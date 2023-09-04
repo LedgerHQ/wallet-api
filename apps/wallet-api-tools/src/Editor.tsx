@@ -76,7 +76,7 @@ export function Editor() {
   useEffect(() => {
     const codeMirror = codeMirrorRef.current;
 
-    if (codeMirror && codeMirror.editor) {
+    if (codeMirror?.editor) {
       codeMirror.editor.scrollTop = codeMirror.editor.scrollHeight;
     }
   }, [history]);

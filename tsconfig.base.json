@@ -1,6 +1,8 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
+    "target": "ES2022",
+    "moduleResolution": "Node10",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -13,7 +15,7 @@
     "strict": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": false,
+    "exactOptionalPropertyTypes": false, // change that to true when moving to typia
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -21,6 +23,8 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+
+    "isolatedModules": true,
 
     "checkJs": true,
 
