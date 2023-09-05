@@ -33,6 +33,15 @@ function App() {
     requestAccount();
   }, [requestAccount]);
 
+  // If needed you can filter the accounts by currency as follow
+  useEffect(() => {
+    const request = async () => {
+      await requestAccount({ currencyIds: ['currency_id'] })
+    }
+
+    request();
+  }, [requestAccount]);
+
   // Trigger a re-render after the user selects an account to handle the account response
   useEffect(() => {
     if (account) {
@@ -59,7 +68,9 @@ export default App;
 
 ### Parameters
 
-The `requestAccount` function does not take any parameters.
+The `requestAccount` accepts an object with a currencyIds property as parameter.
+
+- `currencyIds`: An array of currencyIds.
 
 ### Return Value
 
