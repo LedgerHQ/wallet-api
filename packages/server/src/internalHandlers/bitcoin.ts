@@ -9,7 +9,7 @@ import type { RPCHandler } from "../types";
 export const getXPub: RPCHandler<BitcoinGetXPub["result"]> = async (
   req,
   _context,
-  handlers
+  handlers,
 ) => {
   const walletHandler = handlers["bitcoin.getXPub"];
 

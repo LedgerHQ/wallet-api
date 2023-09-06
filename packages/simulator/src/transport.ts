@@ -10,7 +10,7 @@ export function getSimulatorTransport(profile: SimulatorProfile): Transport {
     onMessage: undefined,
     send: (payload) => {
       console.log("wallet -> app", payload);
-      if (clientTransport && clientTransport.onMessage) {
+      if (clientTransport?.onMessage) {
         clientTransport.onMessage(payload);
       }
     },
@@ -20,7 +20,7 @@ export function getSimulatorTransport(profile: SimulatorProfile): Transport {
     onMessage: undefined,
     send: (payload) => {
       console.log("app -> wallet", payload);
-      if (serverTransport && serverTransport.onMessage) {
+      if (serverTransport?.onMessage) {
         serverTransport.onMessage(payload);
       }
     },

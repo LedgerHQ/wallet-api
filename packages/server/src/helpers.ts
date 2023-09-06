@@ -3,7 +3,7 @@ import picomatch from "picomatch";
 
 export function matchCurrencies(
   currencies: Currency[],
-  patterns: string[]
+  patterns: string[],
 ): Currency[] {
   const matchedCurrencies: Currency[] = [];
   const patternCount = patterns.length;
@@ -29,7 +29,7 @@ export function matchCurrencies(
 
 export function filterAccountsForCurrencies(
   accounts: Account[],
-  currencies: Currency[]
+  currencies: Currency[],
 ): Account[] {
   const currencyIds = new Set(currencies.map((currency) => currency.id));
 

@@ -38,7 +38,7 @@ void runExit(
 
     processRecursivlyFilesInDeepFirstSearchPostOrder = (
       _depth: number,
-      _fileOrDir: string
+      _fileOrDir: string,
     ) => {
       if (fs.lstatSync(_fileOrDir).isFile()) {
         if (
@@ -48,14 +48,14 @@ void runExit(
               details: this.details,
               enableState: this.enableState,
               fileName: `${path.basename(
-                path.dirname(_fileOrDir)
+                path.dirname(_fileOrDir),
               )} : ${path.basename(_fileOrDir)}`,
-            }
+            },
           ) &&
           this.throwError
         )
           throw new Error(
-            "A least one of the JSON files doesn't correspond to the schema"
+            "A least one of the JSON files doesn't correspond to the schema",
           );
       } else {
         const depth = _depth + 1;
@@ -63,7 +63,7 @@ void runExit(
           filesOrDirs.forEach((element) => {
             this.processRecursivlyFilesInDeepFirstSearchPostOrder(
               depth,
-              path.join(_fileOrDir, element)
+              path.join(_fileOrDir, element),
             );
           });
         });
@@ -74,9 +74,9 @@ void runExit(
       return Promise.resolve(
         this.processRecursivlyFilesInDeepFirstSearchPostOrder(
           0,
-          path.join(process.cwd(), this.fileOrDir)
-        )
+          path.join(process.cwd(), this.fileOrDir),
+        ),
       );
     }
-  }
+  },
 );

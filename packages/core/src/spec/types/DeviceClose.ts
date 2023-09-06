@@ -19,5 +19,5 @@ export type DeviceClose = {
 };
 
 export type DeviceCloseHandler = (
-  params: DeviceClose["params"]
+  params: DeviceClose["params"],
 ) => DeviceClose["result"];

@@ -8,12 +8,12 @@ import type {
 
 export type PolkadotOperationMode = z.infer<typeof schemaPolkadotOperationMode>;
 
-export interface PolkadotTransaction extends TransactionCommon {
+export type PolkadotTransaction = TransactionCommon & {
   readonly family: RawPolkadotTransaction["family"];
   mode: PolkadotOperationMode;
   fee?: BigNumber;
   era?: number;
-}
+};
 
 export type RawPolkadotTransaction = z.infer<
   typeof schemaRawPolkadotTransaction

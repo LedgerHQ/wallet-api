@@ -5,7 +5,7 @@ import { WalletAPIProviderContext } from "../components/WalletAPIProvider/contex
 type UseSignTransactionState = {
   pending: boolean;
   signature: Buffer | null;
-  error: unknown | null;
+  error: unknown;
 };
 
 type SignTransactionParams = Parameters<WalletAPIClient["transaction"]["sign"]>;
@@ -52,7 +52,7 @@ export function useSignTransaction(): UseSignTransactionReturn {
         }));
       }
     },
-    [client]
+    [client],
   );
 
   const result = useMemo(
@@ -60,7 +60,7 @@ export function useSignTransaction(): UseSignTransactionReturn {
       signTransaction,
       ...state,
     }),
-    [signTransaction, state]
+    [signTransaction, state],
   );
 
   return result;

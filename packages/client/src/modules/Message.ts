@@ -21,7 +21,7 @@ export class MessageModule {
   async sign(
     accountId: string,
     message: Buffer,
-    meta?: Record<string, unknown>
+    meta?: Record<string, unknown>,
   ): Promise<Buffer> {
     const messageSignResult = await this.client.request("message.sign", {
       accountId,

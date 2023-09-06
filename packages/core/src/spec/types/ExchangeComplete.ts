@@ -49,5 +49,5 @@ export type ExchangeComplete = {
 };
 
 export type ExchangeCompleteHandler = (
-  params: ExchangeComplete["params"]
+  params: ExchangeComplete["params"],
 ) => ExchangeComplete["result"];

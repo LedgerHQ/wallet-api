@@ -19,5 +19,5 @@ export type AccountReceive = {
 };
 
 export type AccountReceiveHandler = (
-  params: AccountReceive["params"]
+  params: AccountReceive["params"],
 ) => AccountReceive["result"];

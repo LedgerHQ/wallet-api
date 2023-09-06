@@ -20,5 +20,5 @@ export type DeviceExchange = {
 };
 
 export type DeviceExchangeHandler = (
-  params: DeviceExchange["params"]
+  params: DeviceExchange["params"],
 ) => DeviceExchange["result"];

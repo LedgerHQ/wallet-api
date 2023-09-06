@@ -1,4 +1,4 @@
-import type { RpcErrorCode, RpcResponseError } from "./types";
+import type { RpcResponseError } from "./types";
 
 export class RpcError<TError = unknown> extends Error {
   private readonly err: RpcResponseError<TError>;
@@ -12,7 +12,7 @@ export class RpcError<TError = unknown> extends Error {
    * Retrieve error code
    * @returns error code
    */
-  public getCode(): RpcErrorCode | number {
+  public getCode() {
     return this.err.code;
   }
 
@@ -20,7 +20,7 @@ export class RpcError<TError = unknown> extends Error {
    * Retrieve underlying data info
    * @returns data info
    */
-  public getData(): TError | undefined {
+  public getData() {
     return this.err.data;
   }
 }

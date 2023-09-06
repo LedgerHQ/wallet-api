@@ -8,7 +8,7 @@ import type { RPCHandler } from "../types";
 
 function filterCurrenciesByCurrencyIds(
   currencies: Currency[],
-  currencyIds: string[]
+  currencyIds: string[],
 ) {
   const currencyIdsSet = new Set(currencyIds);
 
@@ -17,11 +17,11 @@ function filterCurrenciesByCurrencyIds(
 
 export const list: RPCHandler<CurrencyList["result"]> = async (
   req,
-  context
+  context,
 ) => {
   const safeParams = schemaCurrencyList.params.parse(req.params);
 
-  const { currencyIds } = safeParams || {};
+  const { currencyIds } = safeParams ?? {};
 
   const allCurrencies = await firstValueFrom(context.currencies$);
 

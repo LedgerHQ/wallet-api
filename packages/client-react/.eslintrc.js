@@ -9,7 +9,7 @@ module.exports = {
     SharedArrayBuffer: "readonly",
   },
   parserOptions: {
-    project: ["./tsconfig.json"],
+    project: true,
     tsconfigRootDir: __dirname,
   },
   settings: {

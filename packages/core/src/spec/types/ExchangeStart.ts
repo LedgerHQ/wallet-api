@@ -21,5 +21,5 @@ export type ExchangeStart = {
 };
 
 export type ExchangeStartHandler = (
-  params: ExchangeStart["params"]
+  params: ExchangeStart["params"],
 ) => ExchangeStart["result"];

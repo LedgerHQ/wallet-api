@@ -28,7 +28,7 @@ export class TransactionModule {
     accountId: string,
     transaction: Transaction,
     options?: TransactionSign["params"]["options"],
-    meta?: Record<string, unknown>
+    meta?: Record<string, unknown>,
   ): Promise<Buffer> {
     const transactionSignResult = await this.client.request(
       "transaction.sign",
@@ -37,11 +37,11 @@ export class TransactionModule {
         rawTransaction: serializeTransaction(transaction),
         options,
         meta,
-      }
+      },
     );
 
     const safeResults = schemaTransactionSign.result.parse(
-      transactionSignResult
+      transactionSignResult,
     );
 
     return Buffer.from(safeResults.signedTransactionHex, "hex");
@@ -60,7 +60,7 @@ export class TransactionModule {
     accountId: string,
     transaction: Transaction,
     options?: TransactionSignAndBroadcast["params"]["options"],
-    meta?: Record<string, unknown>
+    meta?: Record<string, unknown>,
   ): Promise<string> {
     const transactionSignResult = await this.client.request(
       "transaction.signAndBroadcast",
@@ -69,11 +69,11 @@ export class TransactionModule {
         rawTransaction: serializeTransaction(transaction),
         options,
         meta,
-      }
+      },
     );
 
     const safeResults = schemaTransactionSignAndBroadcast.result.parse(
-      transactionSignResult
+      transactionSignResult,
     );
 
     return safeResults.transactionHash;

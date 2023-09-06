@@ -8,11 +8,11 @@ import type {
 
 export type TezosOperationMode = z.infer<typeof schemaTezosOperationMode>;
 
-export interface TezosTransaction extends TransactionCommon {
+export type TezosTransaction = TransactionCommon & {
   readonly family: RawTezosTransaction["family"];
   mode: TezosOperationMode;
   fees?: BigNumber;
   gasLimit?: BigNumber;
-}
+};
 
 export type RawTezosTransaction = z.infer<typeof schemaRawTezosTransaction>;

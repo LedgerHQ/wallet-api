@@ -8,32 +8,32 @@ import path from "path";
 const manifestDapp = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "manifests/dapp/dapp-manifest.test.json"),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 
 const invalidManifestDapp = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "manifests/dapp/invalid-dapp-manifest.test.json"),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 
 //WalletApp
 const manifestWalletApp = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "manifests/walletApp/walletApp-manifest.test.json"),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 const invalidManifestWalletApp = JSON.parse(
   fs.readFileSync(
     path.join(
       __dirname,
-      "manifests/walletApp/invalid-walletApp-manifest.test.json"
+      "manifests/walletApp/invalid-walletApp-manifest.test.json",
     ),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 
 //WebBrowserApp
@@ -41,20 +41,20 @@ const manifestwebBrowser = JSON.parse(
   fs.readFileSync(
     path.join(
       __dirname,
-      "manifests/webBrowserApp/webBrowser-manifest.test.json"
+      "manifests/webBrowserApp/webBrowser-manifest.test.json",
     ),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 
 const invalidManifestwebBrowser = JSON.parse(
   fs.readFileSync(
     path.join(
       __dirname,
-      "manifests/webBrowserApp/invalid-webBrowser-manifest.test.json"
+      "manifests/webBrowserApp/invalid-webBrowser-manifest.test.json",
     ),
-    "utf-8"
-  )
+    "utf-8",
+  ),
 );
 
 test("Dapp's Manifest base is OK", () => {

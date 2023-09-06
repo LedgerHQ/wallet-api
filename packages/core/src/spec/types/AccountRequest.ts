@@ -20,5 +20,5 @@ export type AccountRequest = {
 };
 
 export type AccountRequestHandler = (
-  params: AccountRequest["params"]
+  params: AccountRequest["params"],
 ) => AccountRequest["result"];

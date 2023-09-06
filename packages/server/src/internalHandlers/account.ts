@@ -17,14 +17,14 @@ import type { RPCHandler } from "../types";
 
 function filterAccountsByCurrencyIds(
   accounts: Account[],
-  currencyIds: string[]
+  currencyIds: string[],
 ) {
   return accounts.filter((account) => currencyIds.includes(account.currency));
 }
 
 function filterCurrenciesByCurrencyIds(
   currencies: Currency[],
-  currencyIds: string[]
+  currencyIds: string[],
 ) {
   return currencies.filter((currency) => currencyIds.includes(currency.id));
 }
@@ -32,7 +32,7 @@ function filterCurrenciesByCurrencyIds(
 export const request: RPCHandler<AccountRequest["result"]> = async (
   req,
   context,
-  handlers
+  handlers,
 ) => {
   const safeParams = schemaAccountRequest.params.parse(req.params);
 
@@ -46,15 +46,15 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 
   const filteredAccounts$ = currencyIds
     ? context.accounts$.pipe(
-        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds)),
       )
     : context.accounts$;
 
   const filteredCurrencies$ = currencyIds
     ? context.currencies$.pipe(
         map((currencies) =>
-          filterCurrenciesByCurrencyIds(currencies, currencyIds)
-        )
+          filterCurrenciesByCurrencyIds(currencies, currencyIds),
+        ),
       )
     : context.currencies$;
 
@@ -71,11 +71,11 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
   const safeParams = schemaAccountList.params.parse(req.params);
 
-  const { currencyIds } = safeParams || {};
+  const { currencyIds } = safeParams ?? {};
 
   const filteredAccounts$ = currencyIds
     ? context.accounts$.pipe(
-        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds))
+        map((accounts) => filterAccountsByCurrencyIds(accounts, currencyIds)),
       )
     : context.accounts$;
 
@@ -89,7 +89,7 @@ export const list: RPCHandler<AccountList["result"]> = async (req, context) => {
 export const receive: RPCHandler<AccountReceive["result"]> = async (
   req,
   context,
-  handlers
+  handlers,
 ) => {
   const safeParams = schemaAccountReceive.params.parse(req.params);
   const { accountId } = safeParams;

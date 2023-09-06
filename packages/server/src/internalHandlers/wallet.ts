@@ -9,7 +9,7 @@ import type { RPCHandler } from "../types";
 export const capabilities: RPCHandler<WalletCapabilities["result"]> = (
   _req,
   _context,
-  handlers
+  handlers,
 ) => {
   const walletHandlerIds = Object.keys(handlers) as MethodId[];
 

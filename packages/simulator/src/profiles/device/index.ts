@@ -53,7 +53,7 @@ export const deviceProfile: SimulatorProfile = {
         throw new Error("No transport open with this transportId");
       }
       return (await transport.exchange(Buffer.from(apduHex, "hex"))).toString(
-        "hex"
+        "hex",
       );
     },
     "device.close": async ({ transportId }) => {

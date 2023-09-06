@@ -3,7 +3,7 @@ import type { z } from "zod";
 import type { TransactionCommon } from "../index";
 import type { schemaRawFilecoinTransaction } from "./validation";
 
-export interface FilecoinTransaction extends TransactionCommon {
+export type FilecoinTransaction = TransactionCommon & {
   readonly family: RawFilecoinTransaction["family"];
   nonce: number;
   data?: Buffer;
@@ -13,7 +13,7 @@ export interface FilecoinTransaction extends TransactionCommon {
   gasLimit: BigNumber;
   gasFeeCap: BigNumber;
   gasPremium: BigNumber;
-}
+};
 
 export type RawFilecoinTransaction = z.infer<
   typeof schemaRawFilecoinTransaction

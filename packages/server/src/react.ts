@@ -51,7 +51,7 @@ export function useWalletAPIServer({
     (event: string) => {
       transport.onMessage?.(event);
     },
-    [transport]
+    [transport],
   );
 
   return {

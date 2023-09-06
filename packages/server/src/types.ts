@@ -25,7 +25,7 @@ export type WalletContext = {
 export type RPCHandler<TResult> = (
   request: RpcRequest<string, unknown>,
   context: WalletContext,
-  handlers: Partial<WalletHandlers>
+  handlers: Partial<WalletHandlers>,
 ) => Promise<TResult>;
 
 type ExchangeBaseParams = {
@@ -55,7 +55,7 @@ type ExchangeParams =
   | ExchangeSellParams
   | ExchangeSwapParams;
 
-export interface WalletHandlers {
+export type WalletHandlers = {
   "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
@@ -95,9 +95,9 @@ export interface WalletHandlers {
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
   "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
   "exchange.complete": (params: ExchangeParams) => Promisable<string>;
-}
+};
 
-type ReturnTypeOfMethod<T> = T extends (...args: Array<unknown>) => unknown
+type ReturnTypeOfMethod<T> = T extends (...args: unknown[]) => unknown
   ? ReturnType<T>
   : unknown;
 type ReturnTypeOfMethodIfExists<T, S> = S extends keyof T

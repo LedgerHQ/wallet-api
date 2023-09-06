@@ -11,7 +11,7 @@ export function WalletAPIProvider(props: WalletAPIProviderProps) {
   const { children, transport } = props;
   const [client, setClient] = useState<WalletAPIClient | null>(null);
   const [state, setState] = useState<WalletAPIProviderContextState>(
-    initialContextValue.state
+    initialContextValue.state,
   );
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function WalletAPIProvider(props: WalletAPIProviderProps) {
       state,
       setState,
     }),
-    [client, state, setState]
+    [client, state, setState],
   );
 
   return (

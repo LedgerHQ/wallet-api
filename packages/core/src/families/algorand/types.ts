@@ -8,13 +8,13 @@ import type {
 
 export type AlgorandOperationMode = z.infer<typeof schemaAlgorandOperationMode>;
 
-export interface AlgorandTransaction extends TransactionCommon {
+export type AlgorandTransaction = TransactionCommon & {
   readonly family: RawAlgorandTransaction["family"];
   mode: AlgorandOperationMode;
   fees?: BigNumber;
   assetId?: string;
   memo?: string;
-}
+};
 
 export type RawAlgorandTransaction = z.infer<
   typeof schemaRawAlgorandTransaction

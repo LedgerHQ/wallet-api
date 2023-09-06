@@ -61,7 +61,7 @@ export class AccountModule {
     });
 
     const safeResults = schemaAccountRequest.result.parse(
-      requestAccountsResult
+      requestAccountsResult,
     );
 
     return deserializeAccount(safeResults.rawAccount);
@@ -80,7 +80,7 @@ export class AccountModule {
     });
 
     const safeResults = schemaAccountReceive.result.parse(
-      receiveAccountsResult
+      receiveAccountsResult,
     );
 
     return safeResults.address;

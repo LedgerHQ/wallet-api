@@ -60,7 +60,7 @@ export function useWalletInfo(): UseAccountReturn {
       walletInfo.updatedAt,
       walletInfo.value,
       updateData,
-    ]
+    ],
   );
 
   return results;

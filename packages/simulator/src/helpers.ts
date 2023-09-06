@@ -3,7 +3,7 @@ import type { SimulatorProfile } from "./types";
 
 export function applyProfile(
   serverInstance: WalletAPIServer,
-  profile: SimulatorProfile
+  profile: SimulatorProfile,
 ) {
   serverInstance.setAccounts(profile.accounts);
   serverInstance.setCurrencies(profile.currencies);

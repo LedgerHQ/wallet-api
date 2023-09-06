@@ -52,7 +52,7 @@ export function useRequestAccount(): UseRequestAccountReturn {
         }));
       }
     },
-    [client]
+    [client],
   );
 
   const result = useMemo(
@@ -60,7 +60,7 @@ export function useRequestAccount(): UseRequestAccountReturn {
       requestAccount,
       ...state,
     }),
-    [requestAccount, state]
+    [requestAccount, state],
   );
 
   return result;

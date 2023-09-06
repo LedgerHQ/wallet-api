@@ -28,18 +28,19 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.1",
-    "@tsconfig/node18": "^2.0.1",
-    "@tsconfig/strictest": "^2.0.1",
-    "eslint": "^8.41.0",
+    "@changesets/cli": "^2.26.2",
+    "eslint": "^8.48.0",
     "eslint-config-custom": "workspace:*",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "turbo": "^1.9.9"
+    "lint-staged": "^14.0.1",
+    "turbo": "^1.10.13"
   },
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
   },
-  "packageManager": "pnpm@8.6.0"
+  "packageManager": "pnpm@8.7.1",
+  "dependencies": {
+    "@tsconfig/recommended": "^1.0.2"
+  }
 }

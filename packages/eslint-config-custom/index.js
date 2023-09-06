@@ -11,8 +11,8 @@ module.exports = {
       parser: "@typescript-eslint/parser",
       extends: [
         "airbnb-typescript/base",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
         "prettier",
       ],
       // parserOptions: {
@@ -22,6 +22,7 @@ module.exports = {
       rules: {
         "import/prefer-default-export": "off",
         "no-void": "off",
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "@typescript-eslint/ban-ts-comment": "warn",
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/no-shadow": "warn",

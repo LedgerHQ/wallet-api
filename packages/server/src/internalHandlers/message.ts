@@ -11,7 +11,7 @@ import type { RPCHandler } from "../types";
 export const sign: RPCHandler<MessageSign["result"]> = async (
   req,
   context,
-  handlers
+  handlers,
 ) => {
   const walletHandler = handlers["message.sign"];
 

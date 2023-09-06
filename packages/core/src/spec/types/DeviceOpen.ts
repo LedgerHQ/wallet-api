@@ -20,5 +20,5 @@ export type DeviceOpen = {
 };
 
 export type DeviceOpenHandler = (
-  params: DeviceOpen["params"]
+  params: DeviceOpen["params"],
 ) => DeviceOpen["result"];

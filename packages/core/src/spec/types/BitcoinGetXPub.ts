@@ -19,5 +19,5 @@ export type BitcoinGetXPub = {
 };
 
 export type BitcoinGetXPubHandler = (
-  params: BitcoinGetXPub["params"]
+  params: BitcoinGetXPub["params"],
 ) => BitcoinGetXPub["result"];
