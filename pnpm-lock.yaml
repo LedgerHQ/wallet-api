@@ -385,8 +385,8 @@ importers:
         specifier: workspace:*
         version: link:../manifest-validator
       clipanion:
-        specifier: 3.2.0
-        version: 3.2.0(typanion@3.14.0)
+        specifier: 3.2.1
+        version: 3.2.1(typanion@3.14.0)
     devDependencies:
       '@types/node':
         specifier: ^20.5.9
@@ -3904,8 +3904,8 @@ packages:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
 
-  /clipanion@3.2.0(typanion@3.14.0):
-    resolution: {integrity: sha512-XaPQiJQZKbyaaDbv5yR/cAt/ORfZfENkr4wGQj+Go/Uf/65ofTQBCPirgWFeJctZW24V3mxrFiEnEmqBflrJYA==}
+  /clipanion@3.2.1(typanion@3.14.0):
+    resolution: {integrity: sha512-dYFdjLb7y1ajfxQopN05mylEpK9ZX0sO1/RfMXdfmwjlIsPkbh4p7A682x++zFPLDCo1x3p82dtljHf5cW2LKA==}
     peerDependencies:
       typanion: '*'
     dependencies:
