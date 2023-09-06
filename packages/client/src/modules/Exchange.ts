@@ -42,6 +42,8 @@ export class ExchangeModule {
    * @param provider - Used to verify the signature
    * @param fromAccountId - Identifier of the account used as a source for the tx
    * @param toAccountId - Identifier of the account used as a destination
+   * @param swapId - Identifier of the swap used by backend
+   * @param rate - Swap rate in the transaction
    * @param transaction - Transaction containing the recipient and amount
    * @param binaryPayload - Blueprint of the data that we'll allow signing
    * @param signature - Ensures the source of the payload
@@ -54,6 +56,8 @@ export class ExchangeModule {
     provider,
     fromAccountId,
     toAccountId,
+    swapId,
+    rate,
     transaction,
     binaryPayload,
     signature,
@@ -62,6 +66,8 @@ export class ExchangeModule {
     provider: string;
     fromAccountId: string;
     toAccountId: string;
+    swapId: string;
+    rate: number;
     transaction: Transaction;
     binaryPayload: Buffer;
     signature: Buffer;
@@ -74,6 +80,8 @@ export class ExchangeModule {
         provider,
         fromAccountId,
         toAccountId,
+        swapId,
+        rate,
         rawTransaction: serializeTransaction(transaction),
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),

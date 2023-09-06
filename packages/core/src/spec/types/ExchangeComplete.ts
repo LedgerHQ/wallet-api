@@ -26,6 +26,8 @@ const schemaExchangeCompleteSwapParams =
   schemaExchangeCompleteBaseParams.extend({
     exchangeType: z.literal("SWAP"),
     toAccountId: z.string(),
+    swapId: z.string(),
+    rate: z.number(),
   });
 
 const schemaExchangeCompleteParams = z.discriminatedUnion("exchangeType", [

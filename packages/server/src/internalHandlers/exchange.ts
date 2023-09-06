@@ -78,6 +78,8 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
       ...commonParams,
       exchangeType: safeParams.exchangeType,
       toAccount,
+      swapId: safeParams.swapId,
+      rate: safeParams.rate,
     });
 
     return { transactionHash };

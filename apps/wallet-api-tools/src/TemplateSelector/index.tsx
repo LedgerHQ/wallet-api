@@ -258,6 +258,8 @@ const data: Group[] = [
             hexBinaryPayload: "",
             hexSignature: "",
             feeStrategy: "SLOW | MEDIUM | FAST | CUSTOM",
+            swapId: "1234",
+            rate: 1,
           },
         },
       },
