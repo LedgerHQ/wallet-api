@@ -48,6 +48,8 @@ type ExchangeSellParams = {
 type ExchangeSwapParams = {
   exchangeType: "SWAP";
   toAccount: Account;
+  swapId: string;
+  rate: number;
 } & ExchangeBaseParams;
 
 type ExchangeParams =

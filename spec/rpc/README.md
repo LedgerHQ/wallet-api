@@ -360,6 +360,8 @@ Returns the broadcasted transaction details.
 - `signature (hexString)`: Ensures the source of the payload
 - `feesStrategy (FeesLevel)`: Slow / Medium / Fast
 - `exchangeType (ExchangeType)`: used by the exchange transport to discern between swap/sell/fund
+- `swapId (string)`: (Swap) Live identifier of the swap used by backend
+- `rate (number)`: (Swap) Rate provider used in the transaction
 
 #### Request
 
@@ -376,7 +378,9 @@ Returns the broadcasted transaction details.
     "binaryPayload": "",
     "signature": "",
     "feesStrategy": "medium",
-    "exchangeType": "SWAP"
+    "exchangeType": "SWAP",
+    "swapId": "1234",
+    "rate": 1,
   }
 }
 ```

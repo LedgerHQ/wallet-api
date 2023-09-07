@@ -47,7 +47,9 @@ walletApiClient.exchange.complete(params: {
   hexSignature: string,
   feeStrategy: 'SLOW' | 'MEDIUM' | 'FAST',
   exchangeType: 'SWAP' | 'SELL' | 'FUND',
-  toAccountId?: string
+  toAccountId?: string,
+  swapId?: string,
+  rate?: number,
 }): Promise<{ transactionHash: string }>
 ```
 
@@ -60,6 +62,8 @@ walletApiClient.exchange.complete(params: {
 - `feeStrategy` (required): A string representing the fee strategy (`"SLOW"`, `"MEDIUM"`, or `"FAST"`).
 - `exchangeType` (required): A string specifying the type of exchange operation (`"SWAP"`, `"SELL"`, or `"FUND"`).
 - `toAccountId` (optional): Identifier of the account used as a destination (required for `"SWAP"`).
+- `swapId` (optional): Identifier of the backend swap used (required for `"SWAP"`).
+- `rate` (optional): Swap rate used in the transaction (required for `"SWAP"`).
 
 **Returns**: A promise that resolves with an object containing the `transactionHash` of the broadcasted transaction.
 
