@@ -567,6 +567,17 @@ describe("serializers.ts", () => {
           fees: "1",
         });
       });
+
+      it("should succeed to serialize a stake near transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction({ ...tx, mode: "stake" });
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+          mode: "stake",
+        });
+      });
     });
 
     describe("neo", () => {
@@ -1457,7 +1468,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
         const stringifiedTransaction = JSON.stringify(serializedTransaction);
         const parsedTransaction = JSON.parse(
-          stringifiedTransaction
+          stringifiedTransaction,
         ) as RawTransaction;
         const expectedTransaction = deserializeTransaction(parsedTransaction);
 
