@@ -209,6 +209,26 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `nonce?`    | `number`                                   |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
 
+### NearTransaction
+
+| Name        | Type                                         | Description                                                                                                                                                                                                     |
+| ----------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount`    | `BigNumber`                                  | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
+| `family`    | [`NEAR`](/spec/core/types.md#families) |                                                                                                                                                                                                                 |
+| `fees?`     | `BigNumber`                                  |                                                                                                                                                                                                                 |
+| `mode`      | [`NearOperationMode`](/spec/core/types.md#nearoperationmode)                                     |                                                                                                                                                                                                                 |
+| `recipient` | `string`                                     | The address of the transaction's recipient                                                                                                                                                                      |
+
+### RawNearTransaction
+
+| Name        | Type                                       | Description                                                                                                                                                                                                     |
+| ----------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount`    | `string`                                   | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
+| `family`    | [NEAR](/spec/core/types.md#families) |                                                                                                                                                                                                                 |
+| `fees?`     | `string`                                   |                                                                                                                                                                                                                 |
+| `mode`      | `string`                                   |                                                                                                                                                                                                                 |
+| `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
+
 ### PolkadotTransaction
 
 | Name        | Type                                                                 | Description                                                                                                                                                                                                     |
@@ -349,6 +369,7 @@ Supported coin families
 | COSMOS     | `cosmos`     |
 | CRYPTO_ORG | `crypto_org` |
 | ETHEREUM   | `ethereum`   |
+| NEAR       | `near`       |
 | POLKADOT   | `polkadot`   |
 | RIPPLE     | `ripple`     |
 | STELLAR    | `stellar`    |
@@ -430,6 +451,11 @@ The raw representation of the [Account](/spec/core/types.md#account) type.
 ## StellarMemoType
 
 `"MEMO_TEXT"` \| `"MEMO_ID"` \| `"MEMO_HASH"` \| `"MEMO_RETURN"`
+
+## NearOperationMode
+
+`"send"` \| `"stake"` \| `"unstake"` \| `"withdraw"`
+
 
 ## ApplicationDetails
 
