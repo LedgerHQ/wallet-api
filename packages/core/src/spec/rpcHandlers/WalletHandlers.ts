@@ -4,6 +4,7 @@ import type {
   AccountRequestHandler,
   BitcoinGetXPubHandler,
   CurrencyListHandler,
+  CustomRequestHandler,
   DeviceCloseHandler,
   DeviceExchangeHandler,
   DeviceOpenHandler,
@@ -42,4 +43,4 @@ export type WalletHandlers = {
   "wallet.info": WalletInfoHandler;
   "exchange.start": ExchangeStartHandler;
   "exchange.complete": ExchangeCompleteHandler;
-};
+} & Record<`custom.${string}`, CustomRequestHandler>;

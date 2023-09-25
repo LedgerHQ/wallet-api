@@ -8,14 +8,5 @@ export function applyProfile(
   serverInstance.setAccounts(profile.accounts);
   serverInstance.setCurrencies(profile.currencies);
   serverInstance.setPermissions(profile.permissions);
-
-  const methodIds = Object.keys(profile.methods);
-
-  methodIds.forEach((methodId) => {
-    const key = methodId as keyof typeof profile.methods;
-    const handler = profile.methods[key];
-    if (handler) {
-      serverInstance.setHandler(key, handler);
-    }
-  });
+  serverInstance.setHandlers(profile.methods);
 }

@@ -10,12 +10,13 @@ import {
 import { AccountModule } from "./modules/Account";
 import { BitcoinModule } from "./modules/Bitcoin";
 import { CurrencyModule } from "./modules/Currency";
+import { CustomModule } from "./modules/Custom";
 import { DeviceModule } from "./modules/Device";
+import { ExchangeModule } from "./modules/Exchange";
 import { MessageModule } from "./modules/Message";
 import { StorageModule } from "./modules/Storage";
 import { TransactionModule } from "./modules/Transaction";
 import { WalletModule } from "./modules/Wallet";
-import { ExchangeModule } from "./modules/Exchange";
 
 const defaultLogger = new Logger("LL-PlatformSDK");
 
@@ -30,13 +31,17 @@ const requestHandlers = {
   },
 };
 
+export type WalletAPIClientOptions<M extends CustomModule> = {
+  logger?: Logger;
+  getCustomModule?: (client: WalletAPIClient<M>) => M;
+};
+
 /**
  * WalletAPI Client which rely on WindowMessage communication
  */
-export class WalletAPIClient extends RpcNode<
-  typeof requestHandlers,
-  WalletHandlers
-> {
+export class WalletAPIClient<
+  M extends CustomModule = CustomModule,
+> extends RpcNode<typeof requestHandlers, WalletHandlers> {
   /**
    * Instance of the Account module
    */
@@ -82,9 +87,17 @@ export class WalletAPIClient extends RpcNode<
    */
   public exchange: ExchangeModule;
 
+  /**
+   * Instance of the Custom module
+   */
+  public custom?: M;
+
   private logger: Logger;
 
-  constructor(transport: Transport, logger: Logger = defaultLogger) {
+  constructor(
+    transport: Transport,
+    { logger = defaultLogger, getCustomModule }: WalletAPIClientOptions<M> = {},
+  ) {
     super(transport, requestHandlers);
     this.logger = logger;
     this.account = new AccountModule(this);
@@ -96,6 +109,9 @@ export class WalletAPIClient extends RpcNode<
     this.transaction = new TransactionModule(this);
     this.wallet = new WalletModule(this);
     this.exchange = new ExchangeModule(this);
+    if (getCustomModule) {
+      this.custom = getCustomModule(this);
+    }
   }
 
   protected onRequest(request: RpcRequest) {

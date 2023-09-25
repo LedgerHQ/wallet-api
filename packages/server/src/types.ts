@@ -8,6 +8,7 @@ import type {
   DeviceSelect,
   DeviceTransport,
   ExchangeStart,
+  Logger,
   Promisable,
   RpcRequest,
   Transaction,
@@ -133,4 +134,9 @@ export type ServerConfig = {
   tracking: boolean;
   wallet: WalletInfo;
   appId: string;
+};
+
+export type WalletAPIServerOptions = {
+  logger?: Logger;
+  customHandlers?: Record<`custom.${string}`, RPCHandler<unknown>>;
 };

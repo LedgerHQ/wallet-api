@@ -42,3 +42,5 @@ export const internalHandlers: InternalHandlers = {
   "exchange.start": exchange.start,
   "exchange.complete": exchange.complete,
 };
+
+export { customWrapper } from "./custom";

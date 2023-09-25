@@ -1,9 +1,15 @@
 import type { Transport } from "@ledgerhq/wallet-api-core";
-import { WalletAPIServer } from "@ledgerhq/wallet-api-server";
+import {
+  WalletAPIServer,
+  WalletAPIServerOptions,
+} from "@ledgerhq/wallet-api-server";
 import { applyProfile } from "./helpers";
 import type { SimulatorProfile } from "./types";
 
-export function getSimulatorTransport(profile: SimulatorProfile): Transport {
+export function getSimulatorTransport(
+  profile: SimulatorProfile,
+  customHandlers?: WalletAPIServerOptions["customHandlers"],
+): Transport {
   let clientTransport: Transport | undefined;
 
   const serverTransport: Transport = {
@@ -26,7 +32,9 @@ export function getSimulatorTransport(profile: SimulatorProfile): Transport {
     },
   };
 
-  const serverInstance = new WalletAPIServer(serverTransport, profile.config);
+  const serverInstance = new WalletAPIServer(serverTransport, profile.config, {
+    customHandlers,
+  });
 
   applyProfile(serverInstance, profile);
 
