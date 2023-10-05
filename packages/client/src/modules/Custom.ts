@@ -16,13 +16,11 @@ export class CustomModule {
    * @returns Message signed
    * @throws {@link RpcError} if an error occured on server side
    */
-  protected async request(
-    method: string,
-    data: Record<string, unknown>,
-  ): Promise<Record<string, unknown>> {
+  protected async request<
+    D extends Record<string, unknown>,
+    R extends Record<string, unknown>,
+  >(method: string, data: D): Promise<R> {
     const customResult = await this.client.request(`custom.${method}`, data);
-
-    console.log("CustomModule", customResult);
 
     return schemaCustomRequest.result.parse(customResult);
   }

@@ -31,16 +31,14 @@ const requestHandlers = {
   },
 };
 
-export type WalletAPIClientOptions<M extends CustomModule> = {
-  logger?: Logger;
-  getCustomModule?: (client: WalletAPIClient<M>) => M;
-};
-
 /**
  * WalletAPI Client which rely on WindowMessage communication
  */
 export class WalletAPIClient<
   M extends CustomModule = CustomModule,
+  CustomGetter extends (client: WalletAPIClient<M>) => M | Record<string, M> = (
+    client: WalletAPIClient<M>,
+  ) => M | Record<string, M>,
 > extends RpcNode<typeof requestHandlers, WalletHandlers> {
   /**
    * Instance of the Account module
@@ -90,13 +88,21 @@ export class WalletAPIClient<
   /**
    * Instance of the Custom module
    */
-  public custom?: M;
+  public custom: CustomGetter extends (client: WalletAPIClient<M>) => infer U
+    ? U
+    : CustomModule | Record<string, CustomModule>;
 
   private logger: Logger;
 
   constructor(
     transport: Transport,
-    { logger = defaultLogger, getCustomModule }: WalletAPIClientOptions<M> = {},
+    {
+      logger = defaultLogger,
+      getCustomModule,
+    }: {
+      logger?: Logger;
+      getCustomModule?: CustomGetter;
+    } = {},
   ) {
     super(transport, requestHandlers);
     this.logger = logger;
@@ -109,9 +115,9 @@ export class WalletAPIClient<
     this.transaction = new TransactionModule(this);
     this.wallet = new WalletModule(this);
     this.exchange = new ExchangeModule(this);
-    if (getCustomModule) {
-      this.custom = getCustomModule(this);
-    }
+    this.custom = (
+      getCustomModule ? getCustomModule(this) : {}
+    ) as typeof this.custom;
   }
 
   protected onRequest(request: RpcRequest) {

@@ -17,6 +17,7 @@ import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
 import { internalHandlers } from "./internalHandlers";
 
 import type {
+  CustomHandlers,
   ServerConfig,
   WalletAPIServerOptions,
   WalletContext,
@@ -84,6 +85,10 @@ export class WalletAPIServer extends RpcNode<
   public setHandlers(handlers: Partial<WalletHandlers>) {
     this.walletHandlers = handlers;
     return this;
+  }
+
+  public setCustomHandlers(customHandlers: CustomHandlers) {
+    this.requestHandlers = { ...internalHandlers, ...customHandlers };
   }
 
   protected async onRequest(

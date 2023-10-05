@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { CustomModule, WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { BitcoinTransaction, schemaFamilies } from "@ledgerhq/wallet-api-core";
 import { customWrapper } from "@ledgerhq/wallet-api-server";
@@ -19,13 +20,30 @@ class CustomLog extends CustomModule {
   }
 }
 
+class CustomLog2 extends CustomModule {
+  log(message: string) {
+    return this.request("log2", { message });
+  }
+}
+
+class CustomDevice extends CustomModule {
+  open(id: string) {
+    return this.request("device.open", { id });
+  }
+}
+
 function createClient() {
   const transport = getSimulatorTransport(
     {
       ...profiles.STANDARD,
       permissions: {
         ...profiles.STANDARD.permissions,
-        methodIds: [...profiles.STANDARD.permissions.methodIds, "custom.log"],
+        methodIds: [
+          ...profiles.STANDARD.permissions.methodIds,
+          "custom.log",
+          "custom.log2",
+          "custom.device.open",
+        ],
       },
     },
     {
@@ -34,11 +52,25 @@ function createClient() {
         console.log(params);
         return { res: "hello" };
       }),
+      // Handler server
+      "custom.log2": customWrapper((params) => {
+        console.log(params);
+        return { res: params.message };
+      }),
+      // Handler server
+      "custom.device.open": customWrapper((params) => {
+        console.log(params);
+        return { id: params.id };
+      }),
     },
   );
-  return new WalletAPIClient<CustomLog>(transport, {
+  return new WalletAPIClient(transport, {
     getCustomModule(client) {
-      return new CustomLog(client);
+      return {
+        log: new CustomLog(client),
+        log2: new CustomLog2(client),
+        device: new CustomDevice(client),
+      };
     },
   });
 }
@@ -48,9 +80,13 @@ describe("Server", () => {
     it.only("should allow adding custom handlers", async () => {
       const client = createClient();
 
-      const res = await client.custom?.log("test");
+      const res = await client.custom.log.log("test");
+      const res2 = await client.custom.log2.log("test2");
+      const device = await client.custom.device.open("fake-id");
 
       console.log(res);
+      console.log(res2);
+      console.log(device);
 
       expect(res).not.toBeFalsy();
     });

@@ -136,7 +136,9 @@ export type ServerConfig = {
   appId: string;
 };
 
+export type CustomHandlers = Record<`custom.${string}`, RPCHandler<unknown>>;
+
 export type WalletAPIServerOptions = {
   logger?: Logger;
-  customHandlers?: Record<`custom.${string}`, RPCHandler<unknown>>;
+  customHandlers?: CustomHandlers;
 };
