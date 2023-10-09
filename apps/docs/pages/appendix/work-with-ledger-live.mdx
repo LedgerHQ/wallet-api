@@ -1,0 +1,29 @@
+# Work with Ledger Live
+
+This page document how to link the local packages of the wallet-api monorepo in order to work with Ledger Live locally (or any other application using the wallet-api) without having to deploy a new version to the npm registry.
+
+## In the wallet-api folder
+
+First you want to start the dev server to have every packages built and ready to be used by the application but also to have the watcher in place whenever we make changes.
+
+```bash
+pnpm dev
+```
+
+## In the Ledger Live monorepo
+
+> Small tip: you can search for all places to modify with `"@ledgerhq/wallet-api`
+
+Update all `package.json` file containing a wallet-api lib with the following version: `"@ledgerhq/wallet-api-<LIB>": "link:PATH_TO_WALLET_API/wallet-api/packages/<LIB>",`
+
+For example with the client lib: `"@ledgerhq/wallet-api-client": "link:/Users/dave/Documents/Projects/wallet-api/packages/client"`
+
+When you are done update all `package.json` files, you can run `pnpm i` to update the dependencies with the local ones
+
+Then you can start developping as usual with `pmpm dev:lld` and any modification in the wallet-api sources will be reflected automatically
+
+You might also want to run `pnpm watch:common` to keep it up to date, as we have a lot of code shared in the common folder
+
+### Before committing your work
+
+Don't forget to revert the changes in the `package.json` and `pnpm-lock.yaml`
