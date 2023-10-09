@@ -1,0 +1,29 @@
+
+### 9. **Creating a Manifest File**
+
+A manifest file is necessary to test your Live App inside Ledger Live. Create a `manifest.json` file at the root of your project with the following content:
+
+```json
+// manifest.json
+{
+  "id": "YourAppName",
+  "name": "YourAppName",
+  "url": "http://localhost:3000/",
+  // ... [TODO : ADD MISSING ELEMENTS]
+}
+```
+
+### 10. **Importing Manifest in Ledger Live**
+
+Ensure Ledger Live Desktop is installed on your computer. Enable Developer mode in Ledger Live by navigating to **Settings** -> **About**, and clicking ten times on the Ledger Live version. This will reveal a new **Developer** section in the settings menu.
+
+- Enable **platform dev tools**.
+- Click on **Browse** next to **Add a local app** and select the manifest you created.
+
+Now you'll see a new row in the menu with the name of your Live App. You can now open and test your Live App within Ledger Live.
+
+---
+
+This concludes the step-by-step guide to developing a Live App for Ledger Live from scratch. 
+
+Have any questions or suggestions for improvement? Leave an issue in our repo or reach out to us through our Discord.

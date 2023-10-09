@@ -1,4 +1,7 @@
 {
+  "live-app-creation": {
+    "title": "Build a live app from scratch"
+  },
   "test-live-app": {
     "title": "Test your live app"
   }
