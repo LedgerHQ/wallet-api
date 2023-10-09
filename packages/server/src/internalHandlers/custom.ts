@@ -9,7 +9,7 @@ export const customWrapper: (
   handler: (
     params: CustomRequest["params"],
   ) => Promisable<CustomRequest["result"]>,
-) => RPCHandler<CustomRequest["result"]> = (handler) => async (req) => {
+) => RPCHandler<CustomRequest["result"]> = (handler) => (req) => {
   const safeParams = schemaCustomRequest.params.parse(req.params);
 
   return handler(safeParams);
