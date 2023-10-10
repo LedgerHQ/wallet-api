@@ -13,22 +13,74 @@ function createBitcoinTx(): BitcoinTransaction {
   };
 }
 
+type CustomLogHandlersType = {
+  "custom.log": (message: string) => Promise<{ res: "hello" }>;
+};
+const CustomLogHandlers = {
+  // Handler server
+  "custom.log": customWrapper<
+    Parameters<CustomLogHandlersType["custom.log"]>[0],
+    ReturnType<CustomLogHandlersType["custom.log"]>
+  >((message) => {
+    console.log(message);
+    return Promise.resolve({ res: "hello" });
+  }),
+} as const;
+
 // Module client
 class CustomLog extends CustomModule {
   log(message: string) {
-    return this.request("log", { message });
+    return this.request<
+      Parameters<CustomLogHandlersType["custom.log"]>[0],
+      ReturnType<CustomLogHandlersType["custom.log"]>
+    >("custom.log", message);
   }
 }
+
+type CustomLog2HandlersType = {
+  "custom.log2": (params: { message: string }) => { res: string };
+};
+
+const CustomLog2Handlers = {
+  // Handler server
+  "custom.log2": customWrapper<
+    Parameters<CustomLog2HandlersType["custom.log2"]>[0],
+    ReturnType<CustomLog2HandlersType["custom.log2"]>
+  >((params) => {
+    console.log(params);
+    return { res: params?.message ?? "" };
+  }),
+} as const;
 
 class CustomLog2 extends CustomModule {
   log(message: string) {
-    return this.request("log2", { message });
+    return this.request<
+      Parameters<CustomLog2HandlersType["custom.log2"]>[0],
+      ReturnType<CustomLog2HandlersType["custom.log2"]>
+    >("custom.log2", { message });
   }
 }
 
+type CustomDeviceHandlersType = {
+  "custom.device.open": (params: { id: string }) => { id: string };
+};
+const CustomDeviceHandlers = {
+  // Handler server
+  "custom.device.open": customWrapper<
+    Parameters<CustomDeviceHandlersType["custom.device.open"]>[0],
+    ReturnType<CustomDeviceHandlersType["custom.device.open"]>
+  >((params) => {
+    console.log(params);
+    return { id: params?.id ?? "" };
+  }),
+} as const;
+
 class CustomDevice extends CustomModule {
   open(id: string) {
-    return this.request("device.open", { id });
+    return this.request<
+      Parameters<CustomDeviceHandlersType["custom.device.open"]>[0],
+      ReturnType<CustomDeviceHandlersType["custom.device.open"]>
+    >("custom.device.open", { id });
   }
 }
 
@@ -47,21 +99,9 @@ function createClient() {
       },
     },
     {
-      // Handler server
-      "custom.log": customWrapper((params) => {
-        console.log(params);
-        return { res: "hello" };
-      }),
-      // Handler server
-      "custom.log2": customWrapper((params) => {
-        console.log(params);
-        return { res: params.message };
-      }),
-      // Handler server
-      "custom.device.open": customWrapper((params) => {
-        console.log(params);
-        return { id: params.id };
-      }),
+      ...CustomLogHandlers,
+      ...CustomLog2Handlers,
+      ...CustomDeviceHandlers,
     },
   );
   return new WalletAPIClient(transport, {
@@ -89,6 +129,8 @@ describe("Server", () => {
       console.log(device);
 
       expect(res).not.toBeFalsy();
+      expect(res2).not.toBeFalsy();
+      expect(device).not.toBeFalsy();
     });
   });
 

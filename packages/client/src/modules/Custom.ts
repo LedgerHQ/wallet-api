@@ -1,4 +1,3 @@
-import { schemaCustomRequest } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
 export class CustomModule {
@@ -16,12 +15,7 @@ export class CustomModule {
    * @returns Message signed
    * @throws {@link RpcError} if an error occured on server side
    */
-  protected async request<
-    D extends Record<string, unknown>,
-    R extends Record<string, unknown>,
-  >(method: string, data: D): Promise<R> {
-    const customResult = await this.client.request(`custom.${method}`, data);
-
-    return schemaCustomRequest.result.parse(customResult);
+  protected request<D, R>(method: `custom.${string}`, data: D): Promise<R> {
+    return this.client.request(method, data) as Promise<R>;
   }
 }

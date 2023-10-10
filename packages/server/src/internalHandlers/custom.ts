@@ -1,16 +1,8 @@
-import {
-  CustomRequest,
-  Promisable,
-  schemaCustomRequest,
-} from "@ledgerhq/wallet-api-core";
+import { CustomRequestHandler } from "@ledgerhq/wallet-api-core";
 import type { RPCHandler } from "../types";
 
-export const customWrapper: (
-  handler: (
-    params: CustomRequest["params"],
-  ) => Promisable<CustomRequest["result"]>,
-) => RPCHandler<CustomRequest["result"]> = (handler) => (req) => {
-  const safeParams = schemaCustomRequest.params.parse(req.params);
-
-  return handler(safeParams);
+export const customWrapper: <P, R>(
+  handler: CustomRequestHandler<P | undefined, R>,
+) => RPCHandler<R, P> = (handler) => (req) => {
+  return handler(req.params);
 };

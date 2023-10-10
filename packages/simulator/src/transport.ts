@@ -10,6 +10,7 @@ export function getSimulatorTransport(
   profile: SimulatorProfile,
   customHandlers?: WalletAPIServerOptions["customHandlers"],
 ): Transport {
+  // eslint-disable-next-line prefer-const
   let clientTransport: Transport | undefined;
 
   const serverTransport: Transport = {

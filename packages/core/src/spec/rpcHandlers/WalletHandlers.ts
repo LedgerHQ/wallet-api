@@ -22,7 +22,12 @@ import type {
   WalletUserIdHandler,
 } from "../types";
 
-export type WalletHandlers = {
+export type UnknownCustomHandlers = Record<
+  `custom.${string}`,
+  CustomRequestHandler<unknown, unknown>
+>;
+
+export type WalletHandlers<GenericCustomHandlers = UnknownCustomHandlers> = {
   "account.list": AccountListHandler;
   "account.receive": AccountReceiveHandler;
   "account.request": AccountRequestHandler;
@@ -43,4 +48,4 @@ export type WalletHandlers = {
   "wallet.info": WalletInfoHandler;
   "exchange.start": ExchangeStartHandler;
   "exchange.complete": ExchangeCompleteHandler;
-} & Record<`custom.${string}`, CustomRequestHandler>;
+} & GenericCustomHandlers;

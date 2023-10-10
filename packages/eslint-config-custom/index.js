@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    "airbnb-base",
+    "eslint:recommended",
     "prettier",
     "turbo",
     "plugin:react-hooks/recommended",
@@ -10,7 +10,6 @@ module.exports = {
       files: ["**/*.{ts,tsx}"],
       parser: "@typescript-eslint/parser",
       extends: [
-        "airbnb-typescript/base",
         "plugin:@typescript-eslint/recommended-type-checked",
         "plugin:@typescript-eslint/stylistic-type-checked",
         "prettier",

@@ -19,7 +19,9 @@ export const initialContextValue: WalletAPIProviderContextValue = {
     walletInfo: initialLoadableValue(),
     userId: initialLoadableValue(),
   },
-  setState: () => {},
+  setState: () => {
+    return;
+  },
 };
 
 export const WalletAPIProviderContext =
