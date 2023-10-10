@@ -1,0 +1,58 @@
+import { Callout, Steps } from "nextra/components";
+
+# Working with Ledger Live
+
+This page documents how to link the local packages of the wallet-api monorepo in order to work with Ledger Live locally (or any other application using the Wallet-API) without having to deploy a new version to the npm registry.
+
+## In the Wallet-API folder
+
+First you want to start the dev server to have every packages built and ready to be used by the application but also to have the watcher in place whenever we make changes in the Wallet-API.
+
+```bash
+pnpm dev
+```
+
+## In the Ledger Live monorepo
+
+<Callout type="info" emoji="ℹ️">
+  Tip: Search for all places to modify with `"@ledgerhq/wallet-api`
+</Callout>
+
+<Steps>
+### Step 1
+ 
+Update all `package.json` file containing a wallet-api lib with the following version:  
+`"@ledgerhq/wallet-api-<LIB>": "link:PATH_TO_WALLET_API/wallet-api/packages/<LIB>",`
+
+For example with the client lib:  
+`"@ledgerhq/wallet-api-client": "link:/Users/dave/Documents/Projects/wallet-api/packages/client"`
+
+### Step 2
+
+When you are done updating all `package.json` files, you can run `pnpm i` to update the dependencies with the local ones.
+
+### Step 3
+
+Then you can start developping as usual with `pmpm dev:lld` and any modification in the wallet-api sources will be reflected automatically.
+
+### Step 4 (Optional)
+
+You might also want to run `pnpm watch:common` to keep it up to date, as we have a lot of code shared in the common folder.
+
+</Steps>
+
+<Callout type="warning" emoji="⚠️">
+  Don't forget to revert the changes in `package.json` and `pnpm-lock.yaml`
+  before committing
+</Callout>
+
+## Troubleshooting
+
+### LLD doesn't start properly and/or stay on the logo screen
+
+In this case you might need to update the vite config for LLD.
+
+The file to update is located at `apps/ledger-live-desktop/tools/utils/index.js`  
+Then you want to add the packages (like `"@ledgerhq/errors"`) in `optimizeDeps.exclude`.
+
+And you might need to `rm -rf apps/ledger-live-desktop/node_modules/.vite` in order to cleanup the pre-bundled deps from vite. ([more](https://vitejs.dev/guide/dep-pre-bundling.html) [infos](https://dev.to/hontas/using-vite-with-linked-dependencies-37n7))
