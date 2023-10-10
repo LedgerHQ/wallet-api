@@ -117,7 +117,7 @@ function createClient() {
 
 describe("Server", () => {
   describe("Custom handler", () => {
-    it.only("should allow adding custom handlers", async () => {
+    it("should allow adding custom handlers", async () => {
       const client = createClient();
 
       const res = await client.custom.log.log("test");
