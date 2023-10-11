@@ -1,14 +1,15 @@
 import type { Transport } from "@ledgerhq/wallet-api-core";
 import {
+  CustomHandlers,
   WalletAPIServer,
-  WalletAPIServerOptions,
+  defaultLogger,
 } from "@ledgerhq/wallet-api-server";
 import { applyProfile } from "./helpers";
 import type { SimulatorProfile } from "./types";
 
 export function getSimulatorTransport(
   profile: SimulatorProfile,
-  customHandlers?: WalletAPIServerOptions["customHandlers"],
+  customHandlers?: CustomHandlers,
 ): Transport {
   // eslint-disable-next-line prefer-const
   let clientTransport: Transport | undefined;
@@ -33,9 +34,12 @@ export function getSimulatorTransport(
     },
   };
 
-  const serverInstance = new WalletAPIServer(serverTransport, profile.config, {
+  const serverInstance = new WalletAPIServer(
+    serverTransport,
+    profile.config,
+    defaultLogger,
     customHandlers,
-  });
+  );
 
   applyProfile(serverInstance, profile);
 

@@ -8,7 +8,6 @@ import type {
   DeviceSelect,
   DeviceTransport,
   ExchangeStart,
-  Logger,
   Promisable,
   RpcRequest,
   Transaction,
@@ -142,8 +141,3 @@ export type CustomHandlers = Record<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   RPCHandler<unknown, any>
 >;
-
-export type WalletAPIServerOptions = {
-  logger?: Logger;
-  customHandlers?: CustomHandlers;
-};

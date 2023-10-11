@@ -18,7 +18,7 @@ import { StorageModule } from "./modules/Storage";
 import { TransactionModule } from "./modules/Transaction";
 import { WalletModule } from "./modules/Wallet";
 
-const defaultLogger = new Logger("LL-PlatformSDK");
+export const defaultLogger = new Logger("Wallet-API-Client");
 
 export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
@@ -96,13 +96,8 @@ export class WalletAPIClient<
 
   constructor(
     transport: Transport,
-    {
-      logger = defaultLogger,
-      getCustomModule,
-    }: {
-      logger?: Logger;
-      getCustomModule?: CustomGetter;
-    } = {},
+    logger = defaultLogger,
+    getCustomModule?: CustomGetter,
   ) {
     super(transport, requestHandlers);
     this.logger = logger;

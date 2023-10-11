@@ -3,7 +3,7 @@ import { useContext, useMemo } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
 
 type UseWalletAPIClientReturn = {
-  client: WalletAPIClient | null;
+  client?: WalletAPIClient;
 };
 
 export function useWalletAPIClient(): UseWalletAPIClientReturn {

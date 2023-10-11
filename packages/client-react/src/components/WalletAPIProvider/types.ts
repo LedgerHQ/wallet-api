@@ -1,6 +1,7 @@
 import type {
   Account,
   Currency,
+  Logger,
   Transport,
   WalletAPIClient,
   WalletInfo,
@@ -16,6 +17,8 @@ export type Loadable<T> = {
 
 export type WalletAPIProviderProps = PropsWithChildren<{
   transport: Transport;
+  logger: Logger;
+  getCustomModule?: ConstructorParameters<typeof WalletAPIClient>["2"];
 }>;
 
 export type WalletAPIProviderContextState = {
@@ -27,7 +30,7 @@ export type WalletAPIProviderContextState = {
 };
 
 export type WalletAPIProviderContextValue = {
-  client: WalletAPIClient | null;
+  client?: WalletAPIClient;
   state: WalletAPIProviderContextState;
   setState: React.Dispatch<React.SetStateAction<WalletAPIProviderContextState>>;
 };

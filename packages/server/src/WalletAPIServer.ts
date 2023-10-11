@@ -19,14 +19,13 @@ import { internalHandlers } from "./internalHandlers";
 import type {
   CustomHandlers,
   ServerConfig,
-  WalletAPIServerOptions,
   WalletContext,
   WalletHandlers,
 } from "./types";
 
 export { customWrapper } from "./internalHandlers";
 
-const defaultLogger = new Logger("Wallet-API-Server");
+export const defaultLogger = new Logger("Wallet-API-Server");
 
 export class WalletAPIServer extends RpcNode<
   typeof internalHandlers,
@@ -120,10 +119,8 @@ export class WalletAPIServer extends RpcNode<
   constructor(
     transport: Transport,
     config: ServerConfig,
-    {
-      logger = defaultLogger,
-      customHandlers = {},
-    }: WalletAPIServerOptions = {},
+    logger = defaultLogger,
+    customHandlers: CustomHandlers = {},
   ) {
     super(transport, { ...internalHandlers, ...customHandlers });
     this.logger = logger;

@@ -30,10 +30,12 @@ export function useWalletAPIServer({
   // I don't really like this but it comes from the doc
   // https://react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
   if (server.current === undefined) {
-    server.current = new WalletAPIServer(transport, config, {
+    server.current = new WalletAPIServer(
+      transport,
+      config,
       logger,
       customHandlers,
-    });
+    );
   }
 
   useEffect(() => {

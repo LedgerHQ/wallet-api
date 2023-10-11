@@ -11,7 +11,7 @@ function initialLoadableValue<T>(): Loadable<T> {
 }
 
 export const initialContextValue: WalletAPIProviderContextValue = {
-  client: null,
+  client: undefined,
   state: {
     accounts: initialLoadableValue(),
     currencies: initialLoadableValue(),

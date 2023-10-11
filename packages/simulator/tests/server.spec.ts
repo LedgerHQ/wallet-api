@@ -1,5 +1,9 @@
 /* eslint-disable max-classes-per-file */
-import { CustomModule, WalletAPIClient } from "@ledgerhq/wallet-api-client";
+import {
+  CustomModule,
+  WalletAPIClient,
+  defaultLogger,
+} from "@ledgerhq/wallet-api-client";
 import { BitcoinTransaction, schemaFamilies } from "@ledgerhq/wallet-api-core";
 import { customWrapper } from "@ledgerhq/wallet-api-server";
 import BigNumber from "bignumber.js";
@@ -104,14 +108,12 @@ function createClient() {
       ...CustomDeviceHandlers,
     },
   );
-  return new WalletAPIClient(transport, {
-    getCustomModule(client) {
-      return {
-        log: new CustomLog(client),
-        log2: new CustomLog2(client),
-        device: new CustomDevice(client),
-      };
-    },
+  return new WalletAPIClient(transport, defaultLogger, function (client) {
+    return {
+      log: new CustomLog(client),
+      log2: new CustomLog2(client),
+      device: new CustomDevice(client),
+    };
   });
 }
 

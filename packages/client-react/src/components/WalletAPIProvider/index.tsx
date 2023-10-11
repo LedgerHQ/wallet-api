@@ -10,19 +10,25 @@ import type {
 export function WalletAPIProvider({
   children,
   transport,
+  logger,
+  getCustomModule,
 }: WalletAPIProviderProps) {
-  const [client, setClient] = useState<WalletAPIClient | null>(null);
+  const [client, setClient] = useState<WalletAPIClient>();
   const [state, setState] = useState<WalletAPIProviderContextState>(
     initialContextValue.state,
   );
 
   useEffect(() => {
-    const walletApiClient = new WalletAPIClient(transport);
+    const walletApiClient = new WalletAPIClient(
+      transport,
+      logger,
+      getCustomModule,
+    );
 
     setClient(walletApiClient);
-  }, [transport]);
+  }, [getCustomModule, logger, transport]);
 
-  const value: WalletAPIProviderContextValue = useMemo(
+  const value = useMemo<WalletAPIProviderContextValue>(
     () => ({
       client,
       state,
