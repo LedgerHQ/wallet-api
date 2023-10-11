@@ -12,7 +12,7 @@ import * as wallet from "./wallet";
 
 type InternalHandlers = TransformHandler<WalletHandlers>;
 
-export const internalHandlers: InternalHandlers = {
+export const internalHandlers = {
   "account.request": account.request,
   "account.list": account.list,
   "account.receive": account.receive,
@@ -41,4 +41,6 @@ export const internalHandlers: InternalHandlers = {
 
   "exchange.start": exchange.start,
   "exchange.complete": exchange.complete,
-};
+} as const satisfies InternalHandlers;
+
+export { customWrapper } from "./custom";

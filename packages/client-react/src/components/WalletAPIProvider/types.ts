@@ -1,10 +1,12 @@
 import type {
   Account,
   Currency,
+  Logger,
   Transport,
   WalletAPIClient,
   WalletInfo,
 } from "@ledgerhq/wallet-api-client";
+import type { PropsWithChildren } from "react";
 
 export type Loadable<T> = {
   loading: boolean;
@@ -13,10 +15,11 @@ export type Loadable<T> = {
   value: T | null;
 };
 
-export type WalletAPIProviderProps = {
-  children: React.ReactElement;
+export type WalletAPIProviderProps = PropsWithChildren<{
   transport: Transport;
-};
+  logger: Logger;
+  getCustomModule?: ConstructorParameters<typeof WalletAPIClient>["2"];
+}>;
 
 export type WalletAPIProviderContextState = {
   accounts: Loadable<Account[]>;
@@ -27,7 +30,7 @@ export type WalletAPIProviderContextState = {
 };
 
 export type WalletAPIProviderContextValue = {
-  client: WalletAPIClient | null;
+  client?: WalletAPIClient;
   state: WalletAPIProviderContextState;
   setState: React.Dispatch<React.SetStateAction<WalletAPIProviderContextState>>;
 };

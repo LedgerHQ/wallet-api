@@ -1,26 +1,34 @@
-import { useEffect, useMemo, useState } from "react";
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
-import { initialContextValue, WalletAPIProviderContext } from "./context";
+import { useEffect, useMemo, useState } from "react";
+import { WalletAPIProviderContext, initialContextValue } from "./context";
 import type {
   WalletAPIProviderContextState,
   WalletAPIProviderContextValue,
   WalletAPIProviderProps,
 } from "./types";
 
-export function WalletAPIProvider(props: WalletAPIProviderProps) {
-  const { children, transport } = props;
-  const [client, setClient] = useState<WalletAPIClient | null>(null);
+export function WalletAPIProvider({
+  children,
+  transport,
+  logger,
+  getCustomModule,
+}: WalletAPIProviderProps) {
+  const [client, setClient] = useState<WalletAPIClient>();
   const [state, setState] = useState<WalletAPIProviderContextState>(
     initialContextValue.state,
   );
 
   useEffect(() => {
-    const walletApiClient = new WalletAPIClient(transport);
+    const walletApiClient = new WalletAPIClient(
+      transport,
+      logger,
+      getCustomModule,
+    );
 
     setClient(walletApiClient);
-  }, [transport]);
+  }, [getCustomModule, logger, transport]);
 
-  const value: WalletAPIProviderContextValue = useMemo(
+  const value = useMemo<WalletAPIProviderContextValue>(
     () => ({
       client,
       state,

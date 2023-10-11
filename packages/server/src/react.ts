@@ -7,7 +7,7 @@ import type {
 } from "@ledgerhq/wallet-api-core";
 import { useCallback, useEffect, useRef } from "react";
 import { WalletAPIServer } from "./WalletAPIServer";
-import type { ServerConfig } from "./types";
+import type { CustomHandlers, ServerConfig } from "./types";
 
 export function useWalletAPIServer({
   transport,
@@ -16,6 +16,7 @@ export function useWalletAPIServer({
   accounts,
   currencies,
   permission,
+  customHandlers,
 }: {
   transport: Transport;
   config: ServerConfig;
@@ -23,13 +24,25 @@ export function useWalletAPIServer({
   accounts: Account[];
   currencies: Currency[];
   permission: Permission;
+  customHandlers?: CustomHandlers;
 }) {
   const server = useRef<WalletAPIServer>();
   // I don't really like this but it comes from the doc
   // https://react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
   if (server.current === undefined) {
-    server.current = new WalletAPIServer(transport, config, logger);
+    server.current = new WalletAPIServer(
+      transport,
+      config,
+      logger,
+      customHandlers,
+    );
   }
+
+  useEffect(() => {
+    if (customHandlers) {
+      server.current?.setCustomHandlers(customHandlers);
+    }
+  }, [customHandlers]);
 
   useEffect(() => {
     server.current?.setConfig(config);

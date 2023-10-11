@@ -22,11 +22,11 @@ export type WalletContext = {
   config: ServerConfig;
 };
 
-export type RPCHandler<TResult> = (
-  request: RpcRequest<string, unknown>,
+export type RPCHandler<TResult, TParam = unknown> = (
+  request: RpcRequest<string, TParam>,
   context: WalletContext,
   handlers: Partial<WalletHandlers>,
-) => Promise<TResult>;
+) => Promisable<TResult>;
 
 type ExchangeBaseParams = {
   provider: string;
@@ -134,3 +134,10 @@ export type ServerConfig = {
   wallet: WalletInfo;
   appId: string;
 };
+
+export type CustomHandlers = Record<
+  `custom.${string}`,
+  // Need the any for the CustomHandlers passed to the Client with types
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  RPCHandler<unknown, any>
+>;

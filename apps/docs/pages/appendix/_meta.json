@@ -17,5 +17,11 @@
     "theme": {
       "toc": true
     }
+  },
+  "working-with-ledger-live": {
+    "title": "Working with Ledger Live",
+    "theme": {
+      "toc": true
+    }
   }
 }

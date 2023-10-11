@@ -1,11 +1,8 @@
+import type { PropsWithChildren } from "react";
 import "../styles/globals.css";
 import { TopBar } from "./TopBar";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren<object>) {
   return (
     <html className="dark">
       <head />

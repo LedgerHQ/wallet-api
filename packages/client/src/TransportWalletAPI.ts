@@ -30,7 +30,9 @@ export class TransportWalletAPI extends Transport {
   static override list = () => Promise.resolve([]);
 
   static override listen = (_observer: unknown) => ({
-    unsubscribe: () => {},
+    unsubscribe: () => {
+      return;
+    },
   });
 
   /**
@@ -69,7 +71,9 @@ export class TransportWalletAPI extends Transport {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  override setScrambleKey() {}
+  override setScrambleKey() {
+    return;
+  }
 
   /**
    * Close the current transport communication.

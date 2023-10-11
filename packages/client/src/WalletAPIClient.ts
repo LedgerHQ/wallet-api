@@ -10,14 +10,15 @@ import {
 import { AccountModule } from "./modules/Account";
 import { BitcoinModule } from "./modules/Bitcoin";
 import { CurrencyModule } from "./modules/Currency";
+import { CustomModule } from "./modules/Custom";
 import { DeviceModule } from "./modules/Device";
+import { ExchangeModule } from "./modules/Exchange";
 import { MessageModule } from "./modules/Message";
 import { StorageModule } from "./modules/Storage";
 import { TransactionModule } from "./modules/Transaction";
 import { WalletModule } from "./modules/Wallet";
-import { ExchangeModule } from "./modules/Exchange";
 
-const defaultLogger = new Logger("LL-PlatformSDK");
+export const defaultLogger = new Logger("Wallet-API-Client");
 
 export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
@@ -33,10 +34,12 @@ const requestHandlers = {
 /**
  * WalletAPI Client which rely on WindowMessage communication
  */
-export class WalletAPIClient extends RpcNode<
-  typeof requestHandlers,
-  WalletHandlers
-> {
+export class WalletAPIClient<
+  M extends CustomModule = CustomModule,
+  CustomGetter extends (client: WalletAPIClient<M>) => M | Record<string, M> = (
+    client: WalletAPIClient<M>,
+  ) => M | Record<string, M>,
+> extends RpcNode<typeof requestHandlers, WalletHandlers> {
   /**
    * Instance of the Account module
    */
@@ -82,9 +85,20 @@ export class WalletAPIClient extends RpcNode<
    */
   public exchange: ExchangeModule;
 
+  /**
+   * Instance of the Custom module
+   */
+  public custom: CustomGetter extends (client: WalletAPIClient<M>) => infer U
+    ? U
+    : CustomModule | Record<string, CustomModule>;
+
   private logger: Logger;
 
-  constructor(transport: Transport, logger: Logger = defaultLogger) {
+  constructor(
+    transport: Transport,
+    logger = defaultLogger,
+    getCustomModule?: CustomGetter,
+  ) {
     super(transport, requestHandlers);
     this.logger = logger;
     this.account = new AccountModule(this);
@@ -96,6 +110,9 @@ export class WalletAPIClient extends RpcNode<
     this.transaction = new TransactionModule(this);
     this.wallet = new WalletModule(this);
     this.exchange = new ExchangeModule(this);
+    this.custom = (
+      getCustomModule ? getCustomModule(this) : {}
+    ) as typeof this.custom;
   }
 
   protected onRequest(request: RpcRequest) {

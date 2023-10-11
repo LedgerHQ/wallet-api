@@ -3,6 +3,7 @@ export * from "./AccountReceive";
 export * from "./AccountRequest";
 export * from "./BitcoinGetXPub";
 export * from "./CurrencyList";
+export * from "./CustomRequest";
 export * from "./Device";
 export * from "./DeviceClose";
 export * from "./DeviceExchange";
