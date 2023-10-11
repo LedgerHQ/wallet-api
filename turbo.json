@@ -40,13 +40,13 @@
     },
     "wallet-api-docs#build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"],
-      "inputs": ["src/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "inputs": ["pages/**", "*.js", "*.ts", "*.tsx", "*.css"]
     },
     "wallet-api-tools#build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"],
-      "inputs": ["src/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "inputs": ["src/**", "app/**", "public/**", "styles/**", "*.js"]
     },
     "wallet-api-tools#dev": {
       "dependsOn": ["^build"],
