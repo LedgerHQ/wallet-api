@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.3.0
+
+### Minor Changes
+
+- [#237](https://github.com/LedgerHQ/wallet-api/pull/237) [`f897a3d`](https://github.com/LedgerHQ/wallet-api/commit/f897a3dd0553a02e3fd8358098de2ac9c6b7d73c) Thanks [@Justkant](https://github.com/Justkant)! - feat: add custom handlers support
+
+### Patch Changes
+
+- Updated dependencies [[`f897a3d`](https://github.com/LedgerHQ/wallet-api/commit/f897a3dd0553a02e3fd8358098de2ac9c6b7d73c)]:
+  - @ledgerhq/wallet-api-core@1.3.0
+
 ## 1.2.0
 
 ### Minor Changes
