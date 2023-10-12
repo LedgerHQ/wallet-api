@@ -80,8 +80,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/simulator
       '@next/font':
-        specifier: 13.4.19
-        version: 13.4.19
+        specifier: 13.5.4
+        version: 13.5.4
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.0.5
         version: 2.0.5(@types/react-dom@18.2.13)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)
@@ -2052,8 +2052,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/font@13.4.19:
-    resolution: {integrity: sha512-yOuSRYfqksWcaG/sATr1/DEGvvI8gnmAAnQCCZ0+L9p4Pio3/DMu71J56YHh9Hz84LDN4tMVzuux0ssCuM50sA==}
+  /@next/font@13.5.4:
+    resolution: {integrity: sha512-rOMki1/9BP9N93RZABiiF0EidMGgyCvNVSKvLLAnMkVh/IYk4Z827+NRuxCyRQCeT3vv/AeCiP5SFPAP10SPrQ==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.19:
