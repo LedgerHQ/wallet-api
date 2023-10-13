@@ -17,7 +17,7 @@ export type Loadable<T> = {
 
 export type WalletAPIProviderProps = PropsWithChildren<{
   transport: Transport;
-  logger: Logger;
+  logger?: Logger;
   getCustomModule?: ConstructorParameters<typeof WalletAPIClient>["2"];
 }>;
 
