@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.1.1
+
+### Patch Changes
+
+- [#242](https://github.com/LedgerHQ/wallet-api/pull/242) [`51e0687`](https://github.com/LedgerHQ/wallet-api/commit/51e0687bdaab89d14300dda4f0b7d6f0bc950031) Thanks [@Justkant](https://github.com/Justkant)! - fix(client-react): make provider's logger prop optional
+
 ## 1.1.0
 
 ### Minor Changes
