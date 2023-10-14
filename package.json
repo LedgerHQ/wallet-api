@@ -32,7 +32,7 @@
     "eslint": "^8.48.0",
     "eslint-config-custom": "workspace:*",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.0",
     "turbo": "^1.10.13"
   },
   "engines": {
