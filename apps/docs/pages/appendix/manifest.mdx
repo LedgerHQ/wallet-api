@@ -8,10 +8,6 @@ A Manifest is a config file that allows external applications and decentralized 
 
 If you have followed instructions on the [How to create a Live app(comming soon)](/) page, you should now be ready to interact with the Dapp directly from Ledger Live interface to make sure all the basic features work as expected.
 
-### Ethereum Dapp Browser
-
-Your DApp will be ran inside the Ethereum Dapp Browser, which is a separate application loaded inside Ledger Live to handle interactions between a Dapp and the Ledger Live application. Don’t hesitate to have a look at this project’s Readme to have more information on how to use it and what are the currently supported RPC calls.
-
 ### Manifest properties
 
 To test and integrate your application, you first need to write your application Manifest file. This file must contain some mandatory information, such as the app package names, the components, the permissions needed, the hardware and software features, etc.
@@ -120,22 +116,13 @@ _Complete manifest.json file with default or examples values :_
 {
   "id": "ReplaceAppName",
   "name": "ReplaceAppName",
-  "url": "http://localhost:3000/",
+  "url": "http://localhost:3000",
   "params": {
-    "dappUrl": "http://localhost:3000/",
-    "nanoApp": "ReplaceAppName",
-    "dappName": "ReplaceAppName",
-    "networks": [
-      {
-        "currency": "ethereum",
-        "chainID": 1,
-        "nodeURL": "..."
-      }
-    ]
+    "exampleParam": "value"
   },
   "homepageUrl": "http://localhost:3000/",
   "platform": ["ios","android","desktop"],
-  "apiVersion": "^1.0.0",
+  "apiVersion": "^2.0.0",
   "manifestVersion": "2",
   "branch": "stable",
   "categories": ["NFT", "Swap", "YourAppCategory"],
@@ -153,3 +140,93 @@ _Complete manifest.json file with default or examples values :_
   "visibility": "complete"
 }
 ```
+
+## Manifest Overrides Guide
+
+### Introduction to Overrides
+
+In the context of app manifests, the **overrides** feature offers a powerful mechanism to create conditional modifications to your manifest. With this feature, you can specify different values for specific conditions, such as Ledger Live versions (`llVersion`) and device  (`platform`). This ensures a tailored experience across multiple versions and platforms without the need for separate manifest files.
+
+### Structure of Overrides
+
+Inside your manifest, you can include an `overrides` section to define conditions and their corresponding modifications. Here's how you structure them:
+
+1. **ledgerLiveVersion Overrides**: Allows you to define variations of the manifest specific to different Ledger Live versions.
+
+   **Example**:
+   ```json
+   "overrides": {
+     "ledgerLiveVersion": {
+       "1.0.0": {
+         "name": "overrided manifest"
+       }
+     }
+   }
+   ```
+   In this example, users with Ledger Live version `1.0.0` will see the app name as "overrided manifest".
+
+2. **Platform Overrides**: Enables you to tailor the manifest for specific platforms like iOS, Android, etc.
+
+   **Example**:
+   ```json
+   "overrides": {
+     "platform": {
+       "ios": {
+         "name": "overrided for iOS"
+       },
+       "android": {
+         "name": "overrided for Android"
+       }
+     }
+   }
+   ```
+   Depending on the user's device platform, they will see a different app name – "overrided for iOS" on Apple devices and "overrided for Android" on Android devices.
+
+### Depth Limitation in Overrides
+
+It's important to note that only the first depth of fields can be overridden. This means you can't make granular changes to nested properties. If you need to override a field with nested properties, you must redefine the entire field, including all nested properties.
+
+**For example**, you can't override just a nested `url` inside a `params` field like this:
+```json
+"overrides": {
+  "platform": {
+    "ios": {
+      "params": {
+        "url": "new-url"
+      }
+    }
+  }
+}
+```
+Instead, you need to redefine the entire `params` field:
+```json
+"overrides": {
+  "platform": {
+    "ios": {
+      "params": {
+        "url": "new-url",
+        "anotherField": "value",
+        "yetAnotherField": "anotherValue"
+      }
+    }
+  }
+}
+```
+
+### Activating Overrides
+
+Overrides come into play when the manifest is requested with specific parameters. Here are the supported parameters and how they activate the overrides:
+
+1. **ledgerLiveVersion**: Activated by calling with the `llVersion` parameter.
+   - **Example**: `http://localhost:3000/api/v1/apps?llVersion=1.0.0`
+
+2. **Platform**: Activated by calling with the `platform` parameter. The `platforms` field inside the manifest will be replaced accordingly.
+   - **Example**: `http://localhost:3000/api/v1/apps?platform=ios` will generate all manifests for iOS and replace the `platforms` field in the manifest with `["ios"]`.
+
+3. **Combining Parameters**: You can combine multiple parameters to activate multiple overrides.
+   - **Example**: `http://localhost:3000/api/v1/apps?llVersion=1.0.0&platform=ios` will apply overrides for both Ledger Live version `1.0.0` and the `iOS` platform.
+
+
+### Priority in Overrides
+
+In cases where both `ledgerLiveVersion` and `platform` might have overriding values for the same field, the priority is determined by their order in the manifest. Whichever is higher takes precedence.
