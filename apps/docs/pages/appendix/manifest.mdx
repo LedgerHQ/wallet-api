@@ -116,18 +116,9 @@ _Complete manifest.json file with default or examples values :_
 {
   "id": "ReplaceAppName",
   "name": "ReplaceAppName",
-  "url": "http://localhost:3000/v2",
+  "url": "http://localhost:3000",
   "params": {
-    "dappUrl": "http://localhost:3000/",
-    "nanoApp": "ReplaceAppName",
-    "dappName": "ReplaceAppName",
-    "networks": [
-      {
-        "currency": "ethereum",
-        "chainID": 1,
-        "nodeURL": "..."
-      }
-    ]
+    "exampleQueryParam": "value"
   },
   "homepageUrl": "http://localhost:3000/",
   "platform": ["ios","android","desktop"],
@@ -150,13 +141,13 @@ _Complete manifest.json file with default or examples values :_
 }
 ```
 
-# Manifest Overrides Guide
+## Manifest Overrides Guide
 
-## Introduction to Overrides
+### Introduction to Overrides
 
 In the context of app manifests, the **overrides** feature offers a powerful mechanism to create conditional modifications to your manifest. With this feature, you can specify different values for specific conditions, such as Ledger Live versions (`llVersion`) and device  (`platform`). This ensures a tailored experience across multiple versions and platforms without the need for separate manifest files.
 
-## Structure of Overrides
+### Structure of Overrides
 
 Inside your manifest, you can include an `overrides` section to define conditions and their corresponding modifications. Here's how you structure them:
 
@@ -191,7 +182,7 @@ Inside your manifest, you can include an `overrides` section to define condition
    ```
    Depending on the user's device platform, they will see a different app name – "overrided for iOS" on Apple devices and "overrided for Android" on Android devices.
 
-## Depth Limitation in Overrides
+### Depth Limitation in Overrides
 
 It's important to note that only the first depth of fields can be overridden. This means you can't make granular changes to nested properties. If you need to override a field with nested properties, you must redefine the entire field, including all nested properties.
 
@@ -222,7 +213,7 @@ Instead, you need to redefine the entire `params` field:
 }
 ```
 
-## Activating Overrides
+### Activating Overrides
 
 Overrides come into play when the manifest is requested with specific parameters. Here are the supported parameters and how they activate the overrides:
 
@@ -236,6 +227,6 @@ Overrides come into play when the manifest is requested with specific parameters
    - **Example**: `http://localhost:3000/api/v1/apps?llVersion=1.0.0&platform=ios` will apply overrides for both Ledger Live version `1.0.0` and the `iOS` platform.
 
 
-## Priority in Overrides
+### Priority in Overrides
 
 In cases where both `ledgerLiveVersion` and `platform` might have overriding values for the same field, the priority is determined by their order in the manifest. Whichever is higher takes precedence.
