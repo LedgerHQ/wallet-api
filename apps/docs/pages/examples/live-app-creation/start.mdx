@@ -1,0 +1,88 @@
+import { FileTree } from 'nextra/components'
+
+# Building a Live App: A Step-by-Step Tutorial
+
+### 1. Introduction
+A Live App is a decentralized application (DApp) that interacts with Ledger Live, a software application used for managing crypto assets on Ledger hardware wallets. By creating a Live App, developers can provide users with seamless interactions with blockchain-based applications directly through Ledger Live. This tutorial will guide you through the process of building a Live App from scratch, utilizing the Ledger Wallet API Client to facilitate interactions with the Ledger Live environment.
+
+### 2. Setting up the Development Environment
+Before you begin building your Live App, we'll set up your development environment. This setup includes installing necessary tools and libraries that will assist in building, testing, and deploying your Live App.
+
+#### Scaffold a Next.js app
+First, scaffold a new Next.js app using the following command:
+
+```sh
+npx create-next-app my-app --typescript
+```
+This will create a new Next.js project called my-app with TypeScript support.
+
+#### Node.js and npm: 
+Ensure that you have Node.js and npm (Node Package Manager) installed on your computer. If not, download and install the latest LTS version of Node.js from the official website, which includes npm.
+
+#### Text Editor: 
+Use a text editor of your choice. Popular choices include Visual Studio Code, Sublime Text, or Atom.
+
+#### Simulator: 
+Install the Ledger Wallet API simulator for a mock environment to ease the development and testing phases. You can install the simulator library using npm:
+
+```sh
+npm install @ledgerhq/wallet-api-simulator
+```
+
+The simulator provides a mock environment with predefined responses for different Wallet API actions, allowing you to test your Live App without interacting with the real Ledger Live application.
+
+### 3. Creating the Project Structure
+Now organize your project with a clear and manageable architecture. Here's a simple project structure to start with:
+
+<FileTree>
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="components">
+      <FileTree.File name="Header.tsx" />
+      <FileTree.File name="Footer.tsx" />
+    </FileTree.Folder>
+
+    <FileTree.Folder name="hooks">
+      <FileTree.File name="useAccounts.tsx" />
+      <FileTree.File name="useSignTransaction.tsx" />  
+    </FileTree.Folder>
+    
+    <FileTree.Folder name="utils">
+    </FileTree.Folder>
+    
+    <FileTree.Folder name="assets">
+    </FileTree.Folder>
+    
+    <FileTree.File name="App.tsx" />
+  </FileTree.Folder>
+
+  <FileTree.Folder name="public">
+    <FileTree.File name="favicon.ico" />
+    <FileTree.File name="vercel.svg" />
+  </FileTree.Folder>  
+
+  <FileTree.File name="package.json" />
+
+  <FileTree.File name="tsconfig.json" />
+</FileTree>
+
+
+- /src: This directory contains all your TypeScript/JavaScript files.
+
+- /components: This is where you’ll place your React components.
+
+- /hooks: This will hold custom hooks, including those for 
+interacting with the Ledger Wallet API.
+
+- /utils: Any utility functions or constant values can be stored here.
+
+- /assets: Place images, icons, and other static files in this directory.
+
+- App.tsx: This is the main file where your React application is bootstrapped.
+
+- /public: This directory contains public assets like the index.html file.
+
+- package.json: This file holds various metadata relevant to your project.
+
+- tsconfig.json: This is your TypeScript configuration file if you're using TypeScript.
+
+Now that your development environment is set up, and you have a basic project structure in place, you are ready to start building your Live App. In the next section, we'll delve into configuring the Wallet API to establish a connection with Ledger Live.

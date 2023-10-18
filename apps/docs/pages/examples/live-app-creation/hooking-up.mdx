@@ -1,0 +1,123 @@
+### 6. **Fetching Account Information**
+
+With your environment set up, you can now start interacting with the Ledger Wallet API. Create a new file under the `/hooks` directory named `useAccounts.tsx`. This file will house a custom hook to fetch user account information using the `useAccounts` hook provided by Ledger.
+
+```jsx
+// src/hooks/useAccounts.tsx
+import { useAccounts } from "@ledgerhq/wallet-api-client-react";
+
+function useUserAccounts() {
+  const { accounts, loading, error } = useAccounts();
+
+  return {
+    accounts,
+    loading,
+    error,
+  };
+}
+
+export default useUserAccounts;
+```
+
+Now, you can use this custom hook in your components to fetch and display user account information.
+
+### 7. **Creating Transaction Signing Functionality**
+
+Now that you can fetch account information, the next step is to facilitate transaction signing within your app. Create a new file under the `/hooks` directory named `useSignTransaction.tsx`. This file will contain a custom hook to sign transactions using the `useSignTransaction` hook provided by Ledger.
+
+```jsx
+// src/hooks/useSignTransaction.tsx
+import { useSignTransaction, useRequestAccount } from '@ledgerhq/wallet-api-client-react';
+import { useCallback, useState, useEffect } from 'react';
+import BigNumber from 'bignumber.js';
+
+function useTransactionSigner() {
+  const { requestAccount, account } = useRequestAccount();
+  const { signTransaction, pending, signature, error } = useSignTransaction();
+  const [response, setResponse] = useState(null);
+
+  useEffect(() => {
+    requestAccount();
+  }, [requestAccount]);
+
+  const handleSignTransaction = useCallback(async () => {
+    if (!account) return;
+
+    const ethereumTransaction = {
+      family: 'ethereum',
+      amount: new BigNumber(1000000000000000), // 0.001 ETH in wei
+      recipient: '0xRecipientAddressHere',
+      gasPrice: new BigNumber(20000000000), // 20 Gwei
+      gasLimit: new BigNumber(21000),
+      nonce: 0, // Replace with the correct nonce
+    };
+
+    try {
+      const signature = await signTransaction(account.id, ethereumTransaction);
+      setResponse(signature);
+    } catch (e) {
+      console.error(e);
+    }
+  }, [account, signTransaction]);
+
+  return {
+    handleSignTransaction,
+    pending,
+    response,
+    error
+  };
+}
+
+export default useTransactionSigner;
+```
+
+### 8. **Building User Interface**
+
+Now it's time to create the UI where users will interact with your app. Create a new file named `App.tsx` under the `/src` directory.
+
+```jsx
+// src/App.tsx
+import React from 'react';
+import useUserAccounts from './hooks/useAccounts';
+import useTransactionSigner from './hooks/useSignTransaction';
+
+function App() {
+  const { accounts, loading, error } = useUserAccounts();
+  const { handleSignTransaction, pending, response, error: signError } = useTransactionSigner();
+
+  return (
+    <>
+      <h1>User's Crypto Accounts</h1>
+
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error.message}</p>
+      ) : (
+        <ul>
+          {(accounts ?? []).map(({ id, name, address, currency, balance }) => (
+            <li key={id}>
+              <p>id: {id}</p>
+              <p>name: {name}</p>
+              <p>address: {address}</p>
+              <p>currency: {currency}</p>
+              {/* Make sure to parse BigNumber */}
+              <p>balance: {balance.toString()}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <button onClick={handleSignTransaction} disabled={pending}>
+        Sign Ethereum Transaction
+      </button>
+
+      {pending && <p>Signing...</p>}
+      {signError && <p>Error: {signError.toString()}</p>}
+      {response && <p>Transaction signed successfully: {response.toString('hex')}</p>}
+    </>
+  );
+}
+
+export default App;
+```
