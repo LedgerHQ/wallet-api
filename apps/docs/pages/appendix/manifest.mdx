@@ -8,10 +8,6 @@ A Manifest is a config file that allows external applications and decentralized 
 
 If you have followed instructions on the [How to create a Live app(comming soon)](/) page, you should now be ready to interact with the Dapp directly from Ledger Live interface to make sure all the basic features work as expected.
 
-### Ethereum Dapp Browser
-
-Your DApp will be ran inside the Ethereum Dapp Browser, which is a separate application loaded inside Ledger Live to handle interactions between a Dapp and the Ledger Live application. Don’t hesitate to have a look at this project’s Readme to have more information on how to use it and what are the currently supported RPC calls.
-
 ### Manifest properties
 
 To test and integrate your application, you first need to write your application Manifest file. This file must contain some mandatory information, such as the app package names, the components, the permissions needed, the hardware and software features, etc.
@@ -135,7 +131,7 @@ _Complete manifest.json file with default or examples values :_
   },
   "homepageUrl": "http://localhost:3000/",
   "platform": ["ios","android","desktop"],
-  "apiVersion": "^1.0.0",
+  "apiVersion": "^2.0.0",
   "manifestVersion": "2",
   "branch": "stable",
   "categories": ["NFT", "Swap", "YourAppCategory"],

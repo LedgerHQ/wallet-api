@@ -1,10 +1,20 @@
+import { FileTree } from 'nextra/components'
+
 # Building a Live App: A Step-by-Step Tutorial
 
 ### 1. Introduction
 A Live App is a decentralized application (DApp) that interacts with Ledger Live, a software application used for managing crypto assets on Ledger hardware wallets. By creating a Live App, developers can provide users with seamless interactions with blockchain-based applications directly through Ledger Live. This tutorial will guide you through the process of building a Live App from scratch, utilizing the Ledger Wallet API Client to facilitate interactions with the Ledger Live environment.
 
 ### 2. Setting up the Development Environment
-Before you begin building your Live App, it's essential to set up your development environment. This setup includes installing necessary tools and libraries that will assist in building, testing, and deploying your Live App.
+Before you begin building your Live App, we'll set up your development environment. This setup includes installing necessary tools and libraries that will assist in building, testing, and deploying your Live App.
+
+#### Scaffold a Next.js app
+First, scaffold a new Next.js app using the following command:
+
+```sh
+npx create-next-app my-app --typescript
+```
+This will create a new Next.js project called my-app with TypeScript support.
 
 #### Node.js and npm: 
 Ensure that you have Node.js and npm (Node Package Manager) installed on your computer. If not, download and install the latest LTS version of Node.js from the official website, which includes npm.
@@ -22,21 +32,39 @@ npm install @ledgerhq/wallet-api-simulator
 The simulator provides a mock environment with predefined responses for different Wallet API actions, allowing you to test your Live App without interacting with the real Ledger Live application.
 
 ### 3. Creating the Project Structure
-Organizing your project with a clear structure is crucial for manageability and scalability. Here's a simple project structure to start with:
+Now organize your project with a clear and manageable architecture. Here's a simple project structure to start with:
 
-```plaintext
-Copy code
-/project-directory
-    /src
-        /components
-        /hooks
-        /utils
-        /assets
-        App.tsx
-    /public
-    package.json
-    tsconfig.json
-```
+<FileTree>
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="components">
+      <FileTree.File name="Header.tsx" />
+      <FileTree.File name="Footer.tsx" />
+    </FileTree.Folder>
+
+    <FileTree.Folder name="hooks">
+      <FileTree.File name="useAccounts.tsx" />
+      <FileTree.File name="useSignTransaction.tsx" />  
+    </FileTree.Folder>
+    
+    <FileTree.Folder name="utils">
+    </FileTree.Folder>
+    
+    <FileTree.Folder name="assets">
+    </FileTree.Folder>
+    
+    <FileTree.File name="App.tsx" />
+  </FileTree.Folder>
+
+  <FileTree.Folder name="public">
+    <FileTree.File name="favicon.ico" />
+    <FileTree.File name="vercel.svg" />
+  </FileTree.Folder>  
+
+  <FileTree.File name="package.json" />
+
+  <FileTree.File name="tsconfig.json" />
+</FileTree>
+
 
 - /src: This directory contains all your TypeScript/JavaScript files.
 

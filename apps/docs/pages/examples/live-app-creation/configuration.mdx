@@ -1,3 +1,5 @@
+import { Callout } from "nextra/components";
+
 ### 4. **Configuring Ledger's Wallet API**
 
 To interact with Ledger Live, you'll need to configure the Ledger's Wallet API. The first step is to install the necessary packages, and then set up the appropriate configuration through a transport layer named "Transport". This transport layer will enable communication with the Wallet API.
@@ -64,7 +66,8 @@ With this setup, your entire application can access Ledger's Wallet API and comm
 
 ### 5. **Setting Up The Simulator**
 
-During the development and testing phases, it's beneficial to use the Ledger Wallet API simulator instead of the real Ledger Live environment. Modify your `TransportProvider.tsx` file to use the `getSimulatorTransport` function provided by the simulator library.
+During the development and testing phases, the Ledger Wallet API simulator can help you develop without requiring to run Ledger Live in parallel. 
+You can modify your `TransportProvider.tsx` file to use the `getSimulatorTransport` function provided by the simulator library.
 
 ```jsx
 // src/TransportProvider.tsx
@@ -96,3 +99,7 @@ function TransportProvider({ children }) {
 
 export default TransportProvider;
 ```
+
+<Callout emoji="💡">
+  For more informations regarding the simulator, please checkout out [the simulator subsection](/react/simulator)
+</Callout>
