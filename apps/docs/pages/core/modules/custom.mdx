@@ -1,0 +1,73 @@
+import { Callout, Steps } from "nextra/components";
+
+# Using the Custom Module in Wallet API Client
+
+The Custom Module allows you to interact with any custom handler supported by the server.
+
+## Custom Module Overview
+
+<Callout type="info" emoji="ℹ️">
+  We are still working on improving the type safety of custom modules
+</Callout>
+
+<Steps>
+### Step 1
+
+Create the WalletAPIClient with the `getCustomModule` param.
+
+```javascript
+import {
+  CustomModule,
+  WalletAPIClient,
+  defaultLogger,
+} from "@ledgerhq/wallet-api-client";
+
+type CustomLogHandlersType = {
+  "custom.log": (message: string) => Promise<{ res: "hello" }>;
+};
+
+class CustomLog extends CustomModule {
+  log(message: string) {
+    return this.request<
+      Parameters<CustomLogHandlersType["custom.log"]>[0],
+      ReturnType<CustomLogHandlersType["custom.log"]>
+    >("custom.log", message);
+  }
+}
+
+const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
+  client
+) {
+  return new CustomLog(client);
+});
+```
+
+### Step 2
+
+Access the Custom module via `walletApiClient.custom`.
+
+```javascript
+const res = await walletApiClient.custom.log("test");
+```
+
+### Step 3 (Optional)
+
+You can also return multiple modules in an object.
+
+```javascript
+const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
+  client
+) {
+  return {
+    log: new CustomLog(client),
+    log2: new CustomLog2(client),
+    device: new CustomDevice(client),
+  };
+});
+```
+
+</Steps>
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.
