@@ -21,11 +21,7 @@ You can add any method you want in your class and do any logic you need to.
 Use `this.request<ParamType, ReturnType>("custom.handler", param)` to call the Custom Handler methods supported by the server.
 
 ```javascript
-import {
-  CustomModule,
-  WalletAPIClient,
-  defaultLogger,
-} from "@ledgerhq/wallet-api-client";
+import { CustomModule } from "@ledgerhq/wallet-api-client";
 
 type CustomLogHandlersType = {
   "custom.log": (message: string) => Promise<{ res: "hello" }>;
@@ -53,11 +49,15 @@ You need to adapt the WalletAPIClient by passing a function that returns your cu
 </Callout>
 
 ```javascript
-const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
-  client
-) {
-  return new CustomLog(client);
-});
+import { WalletAPIClient, defaultLogger } from "@ledgerhq/wallet-api-client";
+
+const walletApiClient = new WalletAPIClient(
+  transport,
+  defaultLogger,
+  (client) => {
+    return new CustomLog(client);
+  }
+);
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -65,15 +65,19 @@ const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
 </Callout>
 
 ```javascript
-const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
-  client
-) {
-  return {
-    log: new CustomLog(client),
-    log2: new CustomLog2(client),
-    device: new CustomDevice(client),
-  };
-});
+import { WalletAPIClient, defaultLogger } from "@ledgerhq/wallet-api-client";
+
+const walletApiClient = new WalletAPIClient(
+  transport,
+  defaultLogger,
+  (client) => {
+    return {
+      log: new CustomLog(client),
+      log2: new CustomLog2(client),
+      device: new CustomDevice(client),
+    };
+  }
+);
 ```
 
 ### Step 3
