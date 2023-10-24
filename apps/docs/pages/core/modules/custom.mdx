@@ -2,7 +2,7 @@ import { Callout, Steps } from "nextra/components";
 
 # Using the Custom Module in Wallet API Client
 
-The Custom Module allows you to interact with any custom handler supported by the server.
+The Custom Module allows you to interact with any Custom Handler supported by the server.
 
 ## Custom Module Overview
 
@@ -13,7 +13,9 @@ The Custom Module allows you to interact with any custom handler supported by th
 <Steps>
 ### Step 1
 
-Create the WalletAPIClient with the `getCustomModule` param.
+First, you need a Custom Module, you can import one from another lib or create it.
+To create a Custom Module, you need to import and extend the CustomModule class.
+You can create any method you want in your class and should use `this.request<ParamType, ReturnType>("custom.handler", param)` in order to call the Custom Handler methods supported by the server.
 
 ```javascript
 import {
@@ -34,7 +36,19 @@ class CustomLog extends CustomModule {
     >("custom.log", message);
   }
 }
+```
 
+### Step 2
+
+Go back to your transport declaration from your [Wallet API Configuration](/core/configuration).
+You need to adapt the WalletAPIClient by passing a function that returns your custom handler.
+
+<Callout type="info" emoji="ℹ️">
+  If you weren't using the `Logger` or second parameter of the WalletAPIClient,
+  you can use the `defaultLogger` export from the `@ledgerhq/wallet-api-client`
+</Callout>
+
+```javascript
 const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
   client
 ) {
@@ -42,17 +56,9 @@ const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
 });
 ```
 
-### Step 2
-
-Access the Custom module via `walletApiClient.custom`.
-
-```javascript
-const res = await walletApiClient.custom.log("test");
-```
-
-### Step 3 (Optional)
-
-You can also return multiple modules in an object.
+<Callout type="info" emoji="ℹ️">
+  You can also return multiple modules in an object.
+</Callout>
 
 ```javascript
 const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
@@ -64,6 +70,17 @@ const walletApiClient = new WalletAPIClient(transport, defaultLogger, function (
     device: new CustomDevice(client),
   };
 });
+```
+
+### Step 3
+
+Access the Custom Module via `walletApiClient.custom`.
+
+```javascript
+// Example using one module
+const res = await walletApiClient.custom.log("test");
+// Example using multiple modules
+const res2 = await walletApiClient.custom.log.log("test");
 ```
 
 </Steps>
