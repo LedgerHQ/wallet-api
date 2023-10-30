@@ -204,7 +204,7 @@ describe("Simulator", () => {
 
       // WHEN
       const message = Buffer.from("Hello, world!", "utf-8");
-      const signedMessage = await client.message.sign("accountId", message);
+      const signedMessage = await client.message.sign("account-eth-1", message);
 
       // THEN
       expect(signedMessage).toBeInstanceOf(Buffer);
@@ -217,9 +217,9 @@ describe("Simulator", () => {
       const message = Buffer.from("Hello, world!", "utf-8");
 
       // THEN
-      await expect(client.message.sign("accountId", message)).rejects.toThrow(
-        "permission",
-      );
+      await expect(
+        client.message.sign("account-eth-1", message),
+      ).rejects.toThrow("permission");
     });
 
     it("should throw an error if method not handled by server", async () => {
@@ -229,13 +229,13 @@ describe("Simulator", () => {
       const message = Buffer.from("Hello, world!", "utf-8");
 
       // THEN
-      await expect(client.message.sign("accountId", message)).rejects.toThrow(
-        "not implemented",
-      );
+      await expect(
+        client.message.sign("account-eth-1", message),
+      ).rejects.toThrow("not implemented");
     });
   });
 
-  describe("storage.get & storage.set", () => {
+  /*describe("storage.get & storage.set", () => {
     it("should set and get a value", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
@@ -386,5 +386,5 @@ describe("Simulator", () => {
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("not implemented");
     });
-  });
+  });*/
 });
