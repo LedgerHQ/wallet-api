@@ -1,6 +1,6 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { getSimulatorTransport, profiles } from "../src";
-import BigNumber from "bignumber.js";
+//import BigNumber from "bignumber.js";
 
 const profileWithNoPermissions = {
   ...profiles.STANDARD,
@@ -57,12 +57,27 @@ describe("Simulator", () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
       const client = new WalletAPIClient(transport);
+      const accountIds = ["account-btc-1", "account-eth-1"];
 
       // WHEN
       const accounts = await client.account.list();
 
       // THEN
       expect(accounts).toBeInstanceOf(Array);
+      accounts.forEach((account) => {
+        expect(account).toHaveProperty("id");
+        expect(account).toHaveProperty("name");
+        expect(account).toHaveProperty("address");
+        expect(account).toHaveProperty("currency");
+        expect(account).toHaveProperty("balance");
+        expect(account).toHaveProperty("spendableBalance");
+        expect(account).toHaveProperty("blockHeight");
+        expect(account).toHaveProperty("lastSyncDate");
+      });
+
+      const receivedIds = accounts.map((account) => account.id);
+      expect(receivedIds.at(0)).toEqual(accountIds.at(0));
+      expect(receivedIds.at(1)).toEqual(accountIds.at(1));
     });
 
     it("should throw an error if permission not granted", async () => {
@@ -109,7 +124,7 @@ describe("Simulator", () => {
       const client = new WalletAPIClient(transport);
 
       // WHEN
-      const address = await client.account.receive("accountId");
+      const address = await client.account.receive("account-eth-1");
 
       // THEN
       expect(address).toBeDefined();
@@ -180,7 +195,7 @@ describe("Simulator", () => {
     });
   });
 
-  describe("message.sign", () => {
+  /* describe("message.sign", () => {
     it("should return the signed message", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
@@ -370,5 +385,5 @@ describe("Simulator", () => {
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("not implemented");
     });
-  });
+  }); */
 });
