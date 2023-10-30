@@ -175,14 +175,15 @@ describe("Simulator", () => {
       const client = new WalletAPIClient(transport);
 
       // WHEN
-      const currencyIds = ["btc", "eth"];
+      const currencyIds = ["bitcoin", "ethereum"];
       const currencies = await client.currency.list({ currencyIds });
 
       // THEN
       expect(currencies).toBeDefined();
       expect(currencies.length).toBe(currencyIds.length);
-      expect(currencies[0]?.id).toBe(currencyIds[0]);
-      expect(currencies[1]?.id).toBe(currencyIds[1]);
+      expect(currencies[0]?.id).toBe(currencyIds[1]);
+      expect(currencies[1]?.id).toBe(currencyIds[0]);
+      // Notice that the order of the list isn't defined by the order of the arguments in the query
     });
 
     it("should throw an error if permission not granted", async () => {
@@ -195,7 +196,7 @@ describe("Simulator", () => {
     });
   });
 
-  /* describe("message.sign", () => {
+  describe("message.sign", () => {
     it("should return the signed message", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
@@ -385,5 +386,5 @@ describe("Simulator", () => {
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("not implemented");
     });
-  }); */
+  });
 });
