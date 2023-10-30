@@ -1,6 +1,6 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { getSimulatorTransport, profiles } from "../src";
-//import BigNumber from "bignumber.js";
+import BigNumber from "bignumber.js";
 
 const profileWithNoPermissions = {
   ...profiles.STANDARD,
@@ -235,7 +235,7 @@ describe("Simulator", () => {
     });
   });
 
-  /*describe("storage.get & storage.set", () => {
+  /* describe("storage.get & storage.set", () => {
     it("should set and get a value", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
@@ -244,8 +244,8 @@ describe("Simulator", () => {
       // WHEN
       const key = "testKey";
       const value = "testValue";
-      await client.storage.set(key, value);
-      const retrievedValue = await client.storage.get(key);
+      await client.storage.set(key, value, "ut");
+      const retrievedValue = await client.storage.get(key, "ut");
 
       // THEN
       expect(retrievedValue).toBe(value);
@@ -280,7 +280,7 @@ describe("Simulator", () => {
       );
       await expect(client.storage.get(key)).rejects.toThrow("not implemented");
     });
-  });
+  }); */
 
   describe("transaction.sign", () => {
     const transaction = {
@@ -321,12 +321,16 @@ describe("Simulator", () => {
 
       // WHEN
       const signedTransaction = await client.transaction.sign(
-        "accountId",
+        "account-eth-1",
         transaction,
       );
+      const stringifiedSignedTxn = JSON.stringify(signedTransaction);
 
       // THEN
-      expect(signedTransaction).toBe("signedTransaction");
+      expect(signedTransaction).toBeInstanceOf(Buffer);
+      expect(stringifiedSignedTxn).toBe(
+        `{"type":"Buffer","data":[48,120,49,50,51,79,49,56,50,52,57,51,52,50,51,57,50,56,55,51,52,57,56,51,50,52,55,57,50,51,56,52,55,50,57,51,56,52,55,50,57,51,56,52,55,57,50,51,56,52,55,50,57,51,52,56,55]}`,
+      );
     });
 
     it("should throw an error if permission not granted", async () => {
@@ -336,7 +340,7 @@ describe("Simulator", () => {
 
       // THEN
       await expect(
-        client.transaction.sign("accountId", transaction),
+        client.transaction.sign("account-eth-1", transaction),
       ).rejects.toThrow("permission");
     });
 
@@ -352,7 +356,7 @@ describe("Simulator", () => {
 
       // THEN
       await expect(
-        client.transaction.sign("accountId", transaction),
+        client.transaction.sign("account-eth-1", transaction),
       ).rejects.toThrow("not implemented");
     });
   });
@@ -366,7 +370,8 @@ describe("Simulator", () => {
       // WHEN
       const userId = await client.wallet.userId();
 
-      expect(userId).toBe("userId");
+      // THEN
+      expect(userId).toBe("standard-profile-user");
     });
 
     it("should throw an error if permission not granted", async () => {
@@ -377,14 +382,5 @@ describe("Simulator", () => {
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("permission");
     });
-
-    it("should throw an error if method not handled by server", async () => {
-      // GIVEN
-      const transport = getSimulatorTransport(profileWithUnhandledMethods);
-      const client = new WalletAPIClient(transport);
-
-      // THEN
-      await expect(client.wallet.userId()).rejects.toThrow("not implemented");
-    });
-  });*/
+  });
 });
