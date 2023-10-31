@@ -1,6 +1,6 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
-import { getSimulatorTransport, profiles } from "../src";
 import BigNumber from "bignumber.js";
+import { getSimulatorTransport, profiles } from "../src";
 
 const profileWithNoPermissions = {
   ...profiles.STANDARD,
@@ -235,7 +235,7 @@ describe("Simulator", () => {
     });
   });
 
-  /* describe("storage.get & storage.set", () => {
+  describe("storage.get & storage.set", () => {
     it("should set and get a value", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
@@ -244,8 +244,8 @@ describe("Simulator", () => {
       // WHEN
       const key = "testKey";
       const value = "testValue";
-      await client.storage.set(key, value, "ut");
-      const retrievedValue = await client.storage.get(key, "ut");
+      void client.storage.set(key, value); // TODO fix me when we can await
+      const retrievedValue = await client.storage.get(key);
 
       // THEN
       expect(retrievedValue).toBe(value);
@@ -280,7 +280,7 @@ describe("Simulator", () => {
       );
       await expect(client.storage.get(key)).rejects.toThrow("not implemented");
     });
-  }); */
+  });
 
   describe("transaction.sign", () => {
     const transaction = {
