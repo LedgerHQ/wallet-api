@@ -17,7 +17,7 @@ export function getSimulatorTransport(
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
-      console.log("wallet -> app", payload);
+      console.info("wallet -> app", payload);
       if (clientTransport?.onMessage) {
         clientTransport.onMessage(payload);
       }
@@ -27,7 +27,7 @@ export function getSimulatorTransport(
   clientTransport = {
     onMessage: undefined,
     send: (payload) => {
-      console.log("app -> wallet", payload);
+      console.info("app -> wallet", payload);
       if (serverTransport?.onMessage) {
         serverTransport.onMessage(payload);
       }

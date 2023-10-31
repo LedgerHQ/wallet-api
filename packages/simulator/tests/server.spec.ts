@@ -126,9 +126,6 @@ describe("Server", () => {
       const res2 = await client.custom.log2.log("test2");
       const device = await client.custom.device.open("fake-id");
 
-      console.log(res);
-      console.log(res2);
-      console.log(device);
 
       expect(res).not.toBeFalsy();
       expect(res2).not.toBeFalsy();
