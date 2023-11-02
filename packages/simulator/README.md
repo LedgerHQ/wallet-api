@@ -63,13 +63,13 @@ By following this documentation, you'll be equipped to install, set up, and make
 
 To install the Ledger Wallet Simulator, you'll first need to include the necessary dependencies in your project.
 
-```bash
+```sh
 npm install @ledgerhq/wallet-api-client
 ```
 
 Then, install the simulator package:
 
-```bash
+```sh
 npm install @ledgerHQ/simulator
 ```
 

@@ -19,6 +19,10 @@
     "title": "Core",
     "type": "page"
   },
+  "simulator": {
+    "title": "Simulator",
+    "type": "page"
+  },
   "examples": {
     "title": "Examples",
     "type": "page"
@@ -26,20 +30,5 @@
   "appendix": {
     "title": "Appendix",
     "type": "page"
-  },
-  "react-link": {
-    "title": "React",
-    "href": "/react",
-    "display": "hidden"
-  },
-  "core-link": {
-    "title": "Core",
-    "href": "/core",
-    "display": "hidden"
-  },
-  "examples-link": {
-    "title": "Examples & Tutorials",
-    "href": "/examples",
-    "display": "hidden"
   }
 }

@@ -1,0 +1,68 @@
+import { Callout } from "nextra/components";
+
+# Understanding the Simulator Profiles
+
+The Simulator provides different profiles. These profiles are predefined sets of responses for various API actions.
+For now, we recommend that you use `profiles.STANDARD` which includes a set of mock accounts, mock currencies, and method handlers.
+
+### Mock Accounts and Currencies
+
+The Simulator is set up with a predefined list of mock accounts and currencies. Here’s a brief overview of the mock accounts and currencies used within the simulator:
+
+### Mock Accounts
+
+```json
+[
+  {
+    "id": "account-btc-1",
+    "name": "Bitcoin 1",
+    "address": "address",
+    "currency": "bitcoin",
+    "balance": "42",
+    "spendableBalance": "42",
+    "blockHeight": 1,
+    "lastSyncDate": "1995-12-17T03:24:00"
+  },
+  {
+    "id": "account-eth-1",
+    "name": "Ethereum 1",
+    "address": "address",
+    "currency": "ethereum",
+    "balance": "42",
+    "spendableBalance": "42",
+    "blockHeight": 1,
+    "lastSyncDate": "1995-12-17T03:24:00"
+  }
+]
+```
+
+### Mock Currencies
+
+```json
+[
+  {
+    "type": "CryptoCurrency",
+    "id": "bitcoin",
+    "ticker": "BTC",
+    "name": "Bitcoin",
+    "family": "bitcoin",
+    "color": "#ffae35",
+    "decimals": 8
+  },
+  {
+    "type": "CryptoCurrency",
+    "id": "ethereum",
+    "ticker": "ETH",
+    "name": "Ethereum",
+    "family": "ethereum",
+    "color": "#0ebdcd",
+    "decimals": 18
+  }
+]
+```
+
+These mock accounts and currencies are used to emulate a realistic Ledger Live environment. You can interact with these accounts and currencies through the API without affecting any real-world assets.
+
+### Wrapping Up
+
+By using the Simulator, you can streamline the development and testing of your application with the Ledger Wallet API. This allows you to develop and test your Ledger Live integration in a safe and controlled environment. Don't forget to thoroughly test with real devices and the live environment before releasing your application.
