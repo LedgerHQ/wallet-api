@@ -50,7 +50,7 @@ Please read our [contribution guidelines](./CONTRIBUTING.md) before getting star
 
 The dependencies should be installed from the root directory
 
-```bash
+```sh
 pnpm i
 ```
 
@@ -58,7 +58,7 @@ pnpm i
 
 Build the client from the [root directory](../..)
 
-```bash
+```sh
 pnpm build:client
 ```
 
@@ -66,13 +66,13 @@ pnpm build:client
 
 Check code formatting with
 
-```bash
+```sh
 pnpm format:check
 ```
 
 Format source (`src`) files in-place with
 
-```bash
+```sh
 pnpm format:fix
 ```
 
@@ -80,13 +80,13 @@ pnpm format:fix
 
 Check code quality with
 
-```bash
+```sh
 pnpm lint
 ```
 
 Automatically fix code quality problems with
 
-```bash
+```sh
 pnpm lint:fix
 ```
 

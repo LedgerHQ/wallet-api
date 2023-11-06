@@ -1,6 +1,6 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
- <h2 align="center">WalletAPI Client SDK</h2>
+ <h2 align="center">WalletAPI Client</h2>
  <p align="center">Integrate your application or service inside <a href="https://www.ledger.com/ledger-live">Ledger Live</a></p>
 </p>
  <p align="center">
@@ -12,7 +12,7 @@
       <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
     </a>
     <a href="https://github.com/LedgerHQ/wallet-api/actions">
-      <img alt="Tests Passing" src="https://github.com/LedgerHQ/live-app-sdk/workflows/CI/badge.svg" />
+      <img alt="Tests Passing" src="https://github.com/LedgerHQ/wallet-api/workflows/Release/badge.svg" />
     </a>
     <a href="https://codecov.io/gh/LedgerHQ/wallet-api">
       <img src="https://codecov.io/gh/LedgerHQ/wallet-api/branch/main/graph/badge.svg" />
@@ -50,7 +50,7 @@ Please read our [contribution guidelines](./CONTRIBUTING.md) before getting star
 
 The dependencies should be installed from the root directory
 
-```bash
+```sh
 pnpm i
 ```
 
@@ -58,7 +58,7 @@ pnpm i
 
 Build the client from the [root directory](../..)
 
-```bash
+```sh
 pnpm build:client
 ```
 
@@ -66,13 +66,13 @@ pnpm build:client
 
 Check code formatting with
 
-```bash
+```sh
 pnpm format:check
 ```
 
 Format source (`src`) files in-place with
 
-```bash
+```sh
 pnpm format:fix
 ```
 
@@ -80,13 +80,13 @@ pnpm format:fix
 
 Check code quality with
 
-```bash
+```sh
 pnpm lint
 ```
 
 Automatically fix code quality problems with
 
-```bash
+```sh
 pnpm lint:fix
 ```
 

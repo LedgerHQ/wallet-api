@@ -20,5 +20,10 @@
       "toc": true
     }
   },
-  "hooks": "Hooks"
+  "profiles": {
+    "title": "Profiles",
+    "theme": {
+      "toc": true
+    }
+  }
 }

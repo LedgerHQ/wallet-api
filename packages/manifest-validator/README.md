@@ -1,23 +1,37 @@
 <p align="center">
  <img src="https://user-images.githubusercontent.com/9203826/154288895-670f5c23-81a1-4307-a080-1af83f7f8356.svg" align="center" alt="Ledger" />
- <h2 align="center">@ledgerhq/wallet-api-manifest-validator</h2>
- <p align="center">Verify your Live App manifest</p>
+ <h2 align="center">WalletAPI Client React Integration</h2>
+ <p align="center">Easily connect your react application to Ledger's wallet-api
 </p>
+ <p align="center">
   <p align="center">
-    <a href="https://www.npmjs.com/package/">
-      <img src="https://img.shields.io/npm/v/" />
+    <a href="https://www.npmjs.com/package/@ledgerhq/wallet-api-client-react?activeTab=versions">
+      <img src="https://img.shields.io/npm/v/@ledgerhq/wallet-api-client-react.svg?style=flat-square" />
+    </a>
+    <a href="https://opensource.org/licenses/Apache-2.0">
+      <img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
+    </a>
+    <a href="https://github.com/LedgerHQ/wallet-api/actions">
+      <img alt="Tests Passing" src="https://github.com/LedgerHQ/wallet-api/workflows/CI/badge.svg" />
+    </a>
+    <a href="https://codecov.io/gh/LedgerHQ/wallet-api">
+      <img src="https://codecov.io/gh/LedgerHQ/wallet-api/branch/main/graph/badge.svg" />
+    </a>
+    <a href="https://github.com/LedgerHQ/wallet-api/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/LedgerHQ/wallet-api?color=0088ff" />
+    </a>
+    <a href="https://github.com/LedgerHQ/wallet-api/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/LedgerHQ/wallet-api?color=0088ff" />
     </a>
     <a href="https://discord.gg/y6nZhxv2bC">
       <img alt="Discord" src="https://img.shields.io/discord/885256081289379850?color=1C1CE1&label=Ledger%20%7C%20Discord%20%F0%9F%91%8B%20&style=flat-square" />
     </a>
-    <a href="https://opensource.org/licenses/MIT">
-      <img alt="lICENCE" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-    </a>
-
+   
+   
   </p>
 
   <p align="center">
-    <a href="https://developers.ledger.com/docs/dapp/manifest">About the manifest</a>
+    <a href="https://developers.ledger.com/docs/live-app/start-here/">Full documentation</a>
     ·
     <a href="https://github.com/LedgerHQ/wallet-api/issues/new/choose">Report Bug</a>
     ·
@@ -25,97 +39,61 @@
   </p>
 </p>
 
-## Quick intro
+# Contributing
 
-The manifest Validator is a typescript package that checks if your `manifest.json` file meets the requirements for a Wallet App manifest submission.
+Please read our [contribution guidelines](./CONTRIBUTING.md) before getting started.
 
-To achieve this, the package uses [JSON Schema](https://json-schema.org/), a vocabulary for annotating and validating JSON documents.
+**You need to have a recent [Node.js](https://nodejs.org/) and
+[pnPM](https://pnpm.io/) installed.**
 
-In top of that, we use the [AJV](https://ajv.js.org/) and [AJV-errors](https://www.npmjs.com/package/ajv-errors) libraries which provides more possibilities (please refer to [AJV Github](https://github.com/ajv-validator/ajv) to know which version of JSON Schema we use).
+### Install dependencies
 
-## Installation
+The dependencies should be installed from the root directory
 
-```bash
-npm i @ledgerhq/wallet-api-manifest-validator
-
+```sh
+pnpm i
 ```
 
-_Can also be used globaly:_
+### Build
 
-```bash
-npm i -g @ledgerhq/wallet-api-manifest-validator
+Build the client from the [root directory](../..)
+
+```sh
+pnpm build:client
 ```
 
-## How to use
+### Format
 
-#### Import
+Check code formatting with
 
-```typescript
-import { validateManifest } from "@ledgerhq/wallet-api-manifest-validator";
-import MyjsonManifestFile from "./manifest.json";
-
-const result: boolean = validateManifest(MyjsonManifestFile);
+```sh
+pnpm format:check
 ```
 
-#### CLI
+Format source (`src`) files in-place with
 
-Once you have installed it, use the command:
-
-```bash
-npm run validate <*fileOrDirectoryName*>
+```sh
+pnpm format:fix
 ```
 
-_Or if you have installed it in global:_
+### Lint
 
-```bash
-validate <*fileOrDirectoryName*>
+Check code quality with
+
+```sh
+pnpm lint
 ```
 
-help command
+Automatically fix code quality problems with
 
-```bash
-npm run validate -h
+```sh
+pnpm lint:fix
 ```
 
-#### More info about the validator options
+---
 
-The validateManifest function takes 1 mandatory argument and options.
+[We are hiring, join us! 🚀](https://www.ledger.com/join-us)
 
-**Arguments**
+### See also:
 
-|   Args   |  Type  | Description                                                   |
-| :------: | :----: | ------------------------------------------------------------- |
-| manifest |  JSON  | Your JSON file. <span style="color:red">NOT your path</span>. |
-| options  | Object | More details bellow                                           |
-
-**Options**
-
-|   Options   |  Type   | Description                                                                                 |
-| :---------: | :-----: | ------------------------------------------------------------------------------------------- |
-|   details   | boolean | describe errors when they occur                                                             |
-| enableState | boolean | result description (e.g. show in console "The JSON file does not correspond to the schema") |
-|  fileName   | string  | file name, practical to validate multiple files via multiple calls                          |
-
-Imported in source code:
-
-```typescript
-validateManifest(MyjsonManifestFile, { details, enableState, fileName });
-```
-
-_Cli command don't allow you to use the fileName option._
-_--throwError option is only available on cli._
-
-Using CLI:
-
-```bash
-npm run validate *fileOrDirectoryName* --details --enableState --throwError
-```                                                                                                                                          
-
-</br>
-</br>
-</br>
-
-more infos about the manifest here:
-
-https://developers.ledger.com/docs/dapp/manifest/
-https://developers.ledger.com/docs/non-dapp/tutorial/2-manifest/
+- [Ledger Live](https://github.com/LedgerHQ/ledger-live)

@@ -1,28 +1,32 @@
-# Configuring Ledger's Wallet API
+# Configuring the simulator
 
-After installing the necessary packages for the Ledger's Wallet API, the next step is to set up the appropriate configuration through a layer that will call "Transport".
-This involves creating a transport provider to enable communication with the Wallet API.
+### Launching Live App from Browser
 
-We'll achieve this by creating a file named `TransportProvider.tsx`. This file contains a particular component that uses the Ledger Wallet API client to create a communication transport HOC (Higher Order Component).
+One of the benefits of using the Simulator is that it allows developers to launch their Live App from any browser, without the need to launch it from within Ledger Live. This greatly simplifies the development and testing process as it removes the dependency on the Ledger Live application.
 
-This is what this looks like:
+### Connecting to the Simulator
+
+To connect to the Simulator, you will need to modify your `TransportProvider.tsx` file. Specifically, you need to use the `getSimulatorTransport` function provided by the Simulator library.
+
+Here's how the modified `TransportProvider.tsx` file should look like:
 
 ```jsx
 import { WalletAPIProvider } from "@ledgerhq/wallet-api-client-react";
-import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-client";
+import { getSimulatorTransport, profiles } from "@ledgerhq/wallet-api-simulator";
+import type { Transport } from "@ledgerhq/wallet-api-core";
 
 function TransportProvider({ children }) {
   function getWalletAPITransport(): Transport {
     if (typeof window === "undefined") {
       return {
         onMessage: undefined,
-        send: () => {
-        }
+        send: () => {},
       };
     }
 
-    const transport = new WindowMessageTransport();
-    transport.connect();
+    // Use Simulator transport
+    const transport = getSimulatorTransport(profiles.STANDARD);
+
     return transport;
   }
 
@@ -35,6 +39,8 @@ function TransportProvider({ children }) {
 
 export default TransportProvider;
 ```
+
+In this file, the `getSimulatorTransport` function is passed a predefined profile, which is `profiles.STANDARD`. This sets up the transport to use the Simulator.
 
 Let's break it down:
 
