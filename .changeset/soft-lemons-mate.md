@@ -1,5 +1,5 @@
 ---
-"@ledgerhq/wallet-api-core": major
+"@ledgerhq/wallet-api-core": patch
 ---
 
 Enable blockHeight to be undefined
