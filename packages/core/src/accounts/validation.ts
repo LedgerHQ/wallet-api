@@ -7,6 +7,6 @@ export const schemaRawAccount = z.object({
   currency: z.string(),
   balance: z.string(),
   spendableBalance: z.string(),
-  blockHeight: z.number(),
+  blockHeight: z.union([z.number(), z.undefined()]),
   lastSyncDate: z.string(),
 });
