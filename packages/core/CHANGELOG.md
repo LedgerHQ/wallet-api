@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.3.1
+
+### Patch Changes
+
+- [#261](https://github.com/LedgerHQ/wallet-api/pull/261) [`2cb974c`](https://github.com/LedgerHQ/wallet-api/commit/2cb974c0e6ed4ed3c6a707cbf27b6a8ff12c5ca1) Thanks [@RamyEB](https://github.com/RamyEB)! - Enable blockHeight to be undefined
+
 ## 1.3.0
 
 ### Minor Changes
