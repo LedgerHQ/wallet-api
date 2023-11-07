@@ -38,7 +38,7 @@ export type Account = {
   /**
    * Tracks the current blockchain block height
    */
-  blockHeight: number;
+  blockHeight: number | undefined;
   /**
    * The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
    */
