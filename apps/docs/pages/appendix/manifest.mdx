@@ -149,60 +149,74 @@ In the context of app manifests, the **overrides** feature offers a powerful mec
 
 ### Structure of Overrides
 
-Inside your manifest, you can include an `overrides` section to define conditions and their corresponding modifications. Here's how you structure them:
+Inside your manifest, you can include an `overrides` section to define conditions and their corresponding modifications. Here's how you can structure them:
 
 1. **ledgerLiveVersion Overrides**: Allows you to define variations of the manifest specific to different Ledger Live versions.
 
-   **Example**:
-   ```json
-   "overrides": {
-     "ledgerLiveVersion": {
-       "1.0.0": {
-         "name": "overrided manifest"
+`Request: /api/v1/apps?llVersion=1.0.0`
+
+   ``` Example:
+   "overrides": [
+     {
+       "version": "1.0.0",
+       "changes": {
+         "name": "overridden manifest"
        }
      }
-   }
+   ]
    ```
-   In this example, users with Ledger Live version `1.0.0` will see the app name as "overrided manifest".
+   In this example, users with Ledger Live version `1.0.0` will see the app name as "overridden manifest".
+
 
 2. **Platform Overrides**: Enables you to tailor the manifest for specific platforms like iOS, Android, etc.
 
-   **Example**:
-   ```json
-   "overrides": {
-     "platform": {
-       "ios": {
-         "name": "overrided for iOS"
-       },
-       "android": {
-         "name": "overrided for Android"
+Request param: 
+- `/api/v1/apps?platform=ios`
+- `/api/v1/apps?platform=android`
+
+
+
+   ``` Example:
+   "overrides": [
+     {
+       "platform": "ios",
+       "changes": {
+         "name": "overridden for iOS"
+       }
+     },
+     {
+       "platform": "android",
+       "changes": {
+         "name": "overridden for Android"
        }
      }
-   }
+   ]
    ```
-   Depending on the user's device platform, they will see a different app name – "overrided for iOS" on Apple devices and "overrided for Android" on Android devices.
+   Depending on the user's device platform, they will see a different app name – "overridden for iOS" on Apple devices and "overridden for Android" on Android devices.
 
-### Depth Limitation in Overrides
+## Depth Limitation in Overrides
 
-It's important to note that only the first depth of fields can be overridden. This means you can't make granular changes to nested properties. If you need to override a field with nested properties, you must redefine the entire field, including all nested properties.
+Only the first depth of fields can be overridden, meaning granular changes to nested properties are not supported directly. To override a field with nested properties, the entire field, including all nested properties, must be redefined.
 
-**For example**, you can't override just a nested `url` inside a `params` field like this:
-```json
-"overrides": {
-  "platform": {
-    "ios": {
+ For example, you cannot override just a nested `url`:
+ ```
+"overrides": [
+  {
+    "platform": "ios",
+    "changes": {
       "params": {
         "url": "new-url"
       }
     }
   }
-}
+]
 ```
 Instead, you need to redefine the entire `params` field:
-```json
-"overrides": {
-  "platform": {
-    "ios": {
+```
+"overrides": [
+  {
+    "platform": "ios",
+    "changes": {
       "params": {
         "url": "new-url",
         "anotherField": "value",
@@ -210,23 +224,64 @@ Instead, you need to redefine the entire `params` field:
       }
     }
   }
+]
+```
+
+## Activating Overrides
+
+Overrides are activated when the manifest is requested with specific parameters. Here are the supported parameters and how they activate the overrides:
+
+1. **ledgerLiveVersion**: Activated by calling with the `llVersion` parameter.
+
+      Will return all defaults manifests with the 1.0.0 overr if it exist: 
+
+      `http://localhost:3000/api/v1/apps?llVersion=1.0.0`
+
+2. **Platform**: Activated by calling with the `platform` parameter. The `platforms` field inside the manifest will be replaced accordingly.
+
+      Will return all defaults manifests and override for iOS and replace the `platforms` field in the manifest with `["ios"]` if it exist inside the manifest : 
+      
+      `http://localhost:3000/api/v1/apps?platform=ios` 
+      
+
+3. **Combining Parameters**: You can combine multiple parameters to activate multiple overrides.
+      
+      Apply overrides for both Ledger Live version `1.0.0` and the `iOS` platform : 
+      
+      `http://localhost:3000/api/v1/apps?llVersion=1.0.0&platform=ios` 
+
+## Priority in Overrides
+
+In cases where both `ledgerLiveVersion` and `platform` might have overriding values for the same field, the priority is determined by their order in the manifest. Whichever is listed first takes precedence.
+
+## Override Process for Specific Platform Requests
+
+When a request specifies a platform, such as 'ios' (?platform=ios), the system performs an override process as follows:
+
+
+`Request: ?platform=ios`
+
+``` 
+Manifest before override:
+{
+  "platforms": ["desktop", "android"],
+  "overrides": [
+    {
+      "platform": "ios",
+      "changes": {
+        "visibility": "searchable"
+      }
+    }
+  ]
 }
 ```
 
-### Activating Overrides
-
-Overrides come into play when the manifest is requested with specific parameters. Here are the supported parameters and how they activate the overrides:
-
-1. **ledgerLiveVersion**: Activated by calling with the `llVersion` parameter.
-   - **Example**: `http://localhost:3000/api/v1/apps?llVersion=1.0.0`
-
-2. **Platform**: Activated by calling with the `platform` parameter. The `platforms` field inside the manifest will be replaced accordingly.
-   - **Example**: `http://localhost:3000/api/v1/apps?platform=ios` will generate all manifests for iOS and replace the `platforms` field in the manifest with `["ios"]`.
-
-3. **Combining Parameters**: You can combine multiple parameters to activate multiple overrides.
-   - **Example**: `http://localhost:3000/api/v1/apps?llVersion=1.0.0&platform=ios` will apply overrides for both Ledger Live version `1.0.0` and the `iOS` platform.
-
-
-### Priority in Overrides
-
-In cases where both `ledgerLiveVersion` and `platform` might have overriding values for the same field, the priority is determined by their order in the manifest. Whichever is higher takes precedence.
+It begins with the main manifest as the default.
+Searches for any overrides within the manifest relevant to the requested platform (here "platform": "ios"), and applies them to the default fields.
+Returns a manifest specific for the requested platform, in this case 'ios'.
+``` Resulting manifest.json:
+{
+    "platforms": ["ios"],
+    "visibility": "searchable"
+}
+```
