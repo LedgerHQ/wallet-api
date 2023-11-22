@@ -9,26 +9,23 @@ import type { SimulatorProfile } from "./types";
 
 export function getSimulatorTransport(
   profile: SimulatorProfile,
-  customHandlers?: CustomHandlers,
+  customHandlers?: CustomHandlers
 ): Transport {
-  // eslint-disable-next-line prefer-const
-  let clientTransport: Transport | undefined;
-
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
       console.info("wallet -> app", payload);
-      if (clientTransport?.onMessage) {
+      if (clientTransport.onMessage) {
         clientTransport.onMessage(payload);
       }
     },
   };
 
-  clientTransport = {
+  const clientTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
       console.info("app -> wallet", payload);
-      if (serverTransport?.onMessage) {
+      if (serverTransport.onMessage) {
         serverTransport.onMessage(payload);
       }
     },
@@ -38,7 +35,7 @@ export function getSimulatorTransport(
     serverTransport,
     profile.config,
     defaultLogger,
-    customHandlers,
+    customHandlers
   );
 
   applyProfile(serverInstance, profile);

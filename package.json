@@ -4,14 +4,15 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "examples/*"
   ],
   "scripts": {
     "clean": "git clean -fdX",
     "changelog": "changeset add",
     "build": "turbo run build",
     "build:client": "turbo run build --filter=wallet-api-client",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --filter=!./examples/*",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
