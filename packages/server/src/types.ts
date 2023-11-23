@@ -35,6 +35,7 @@ type ExchangeBaseParams = {
   binaryPayload: Buffer;
   signature: Buffer;
   feeStrategy: string;
+  tokenCurrency?: string;
 };
 
 type ExchangeFundParams = {

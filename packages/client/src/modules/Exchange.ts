@@ -1,8 +1,8 @@
 import {
   ExchangeComplete,
   ExchangeStart,
-  schemaExchangeComplete,
   Transaction,
+  schemaExchangeComplete,
   schemaExchangeStart,
   serializeTransaction,
 } from "@ledgerhq/wallet-api-core";
@@ -62,6 +62,7 @@ export class ExchangeModule {
     binaryPayload,
     signature,
     feeStrategy,
+    tokenCurrency,
   }: {
     provider: string;
     fromAccountId: string;
@@ -72,6 +73,7 @@ export class ExchangeModule {
     binaryPayload: Buffer;
     signature: Buffer;
     feeStrategy: ExchangeComplete["params"]["feeStrategy"];
+    tokenCurrency?: string;
   }) {
     const exchangeCompleteResult = await this.client.request(
       "exchange.complete",
@@ -86,6 +88,7 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
+        tokenCurrency,
       },
     );
 
@@ -167,6 +170,7 @@ export class ExchangeModule {
     binaryPayload,
     signature,
     feeStrategy,
+    tokenCurrency,
   }: {
     provider: string;
     fromAccountId: string;
@@ -174,6 +178,7 @@ export class ExchangeModule {
     binaryPayload: Buffer;
     signature: Buffer;
     feeStrategy: ExchangeComplete["params"]["feeStrategy"];
+    tokenCurrency?: string;
   }): Promise<string> {
     const exchangeCompleteResult = await this.client.request(
       "exchange.complete",
@@ -185,6 +190,7 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
+        tokenCurrency,
       },
     );
 
