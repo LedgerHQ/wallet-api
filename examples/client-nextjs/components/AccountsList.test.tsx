@@ -45,7 +45,7 @@ const Providers = ({ children }: PropsWithChildren) => {
   );
 };
 
-it("accountsList can refresh accounts", async () => {
+it("should get and show accounts", async () => {
   const user = userEvent.setup();
   render(<AccountsList />, { wrapper: Providers });
   expect(screen.getByRole("heading")).toHaveTextContent(
@@ -56,4 +56,7 @@ it("accountsList can refresh accounts", async () => {
   await user.click(screen.getByRole("button"));
   screen.debug();
   await waitFor(() => expect(screen.getByRole("status")).toBeEmptyDOMElement());
+  // Should add a check for the list of accounts
 });
+
+// it("should allow to sign")
