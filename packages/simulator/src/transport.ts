@@ -7,17 +7,23 @@ import {
 import { applyProfile } from "./helpers";
 import type { SimulatorProfile } from "./types";
 
+export { declarativeHandlers } from "./helpers";
+
 export function getSimulatorTransport(
   profile: SimulatorProfile,
-  customHandlers?: CustomHandlers
+  customHandlers?: CustomHandlers,
 ): Transport {
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
       console.info("wallet -> app", payload);
-      if (clientTransport.onMessage) {
-        clientTransport.onMessage(payload);
-      }
+      // Using setTimeout to simulate async call (Do we want to keep this sync ?)
+      // It also avoids an act warning when using RTL to test components
+      setTimeout(() => {
+        if (clientTransport.onMessage) {
+          clientTransport.onMessage(payload);
+        }
+      }, 0);
     },
   };
 
@@ -25,9 +31,13 @@ export function getSimulatorTransport(
     onMessage: undefined,
     send: (payload) => {
       console.info("app -> wallet", payload);
-      if (serverTransport.onMessage) {
-        serverTransport.onMessage(payload);
-      }
+      // Using setTimeout to simulate async call (Do we want to keep this sync ?)
+      // It also avoids an act warning when using RTL to test components
+      setTimeout(() => {
+        if (serverTransport.onMessage) {
+          serverTransport.onMessage(payload);
+        }
+      }, 0);
     },
   };
 
@@ -35,7 +45,7 @@ export function getSimulatorTransport(
     serverTransport,
     profile.config,
     defaultLogger,
-    customHandlers
+    customHandlers,
   );
 
   applyProfile(serverInstance, profile);

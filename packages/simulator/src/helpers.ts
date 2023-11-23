@@ -6,7 +6,7 @@ import type { SimulatorProfile } from "./types";
 
 export function applyProfile(
   serverInstance: WalletAPIServer,
-  profile: SimulatorProfile
+  profile: SimulatorProfile,
 ) {
   serverInstance.setAccounts(profile.accounts);
   serverInstance.setCurrencies(profile.currencies);
@@ -20,10 +20,11 @@ type MockedResponse<
 > = ReturnType<H> | H;
 
 export function declarativeHandler<K extends keyof WalletHandlers>(
-  mocks: MockedResponse<K>[]
+  mocks: MockedResponse<K>[],
 ): WalletHandlers[K] {
   let numCalls = 0;
 
+  // @ts-expect-error: issue with types
   return (...args) => {
     // Finding the mock matching with the number of calls
     // Or fallback to the first mock
@@ -36,6 +37,8 @@ export function declarativeHandler<K extends keyof WalletHandlers>(
     }
 
     if (typeof mock === "function") {
+      // @ts-expect-error: issue with types
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       return mock(...args);
     }
 
@@ -48,22 +51,15 @@ export type MockedHandlers = {
 };
 
 export function declarativeHandlers(
-  mocks: MockedHandlers
+  mocks: MockedHandlers,
 ): Partial<WalletHandlers> {
   const handlers = {};
 
   for (const key in mocks) {
+    // @ts-expect-error: issue with types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     handlers[key] = declarativeHandler(mocks[key]);
   }
 
   return handlers;
 }
-
-declarativeHandlers({
-  "account.receive": [
-    ({ account }) => {
-      console.log(account);
-      return Promise.resolve(account.address);
-    },
-  ],
-});
