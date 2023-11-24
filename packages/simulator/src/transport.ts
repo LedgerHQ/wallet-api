@@ -7,30 +7,37 @@ import {
 import { applyProfile } from "./helpers";
 import type { SimulatorProfile } from "./types";
 
+export { declarativeHandlers } from "./helpers";
+
 export function getSimulatorTransport(
   profile: SimulatorProfile,
   customHandlers?: CustomHandlers,
 ): Transport {
-  // eslint-disable-next-line prefer-const
-  let clientTransport: Transport | undefined;
-
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
       console.info("wallet -> app", payload);
-      if (clientTransport?.onMessage) {
-        clientTransport.onMessage(payload);
-      }
+      // Using setTimeout to simulate async call (Do we want to keep this sync ?)
+      // It also avoids an act warning when using RTL to test components
+      setTimeout(() => {
+        if (clientTransport.onMessage) {
+          clientTransport.onMessage(payload);
+        }
+      }, 0);
     },
   };
 
-  clientTransport = {
+  const clientTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
       console.info("app -> wallet", payload);
-      if (serverTransport?.onMessage) {
-        serverTransport.onMessage(payload);
-      }
+      // Using setTimeout to simulate async call (Do we want to keep this sync ?)
+      // It also avoids an act warning when using RTL to test components
+      setTimeout(() => {
+        if (serverTransport.onMessage) {
+          serverTransport.onMessage(payload);
+        }
+      }, 0);
     },
   };
 
