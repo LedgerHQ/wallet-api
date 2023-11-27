@@ -41,9 +41,10 @@ export class ExchangeModule {
    * If the exchange is validated, the transaction is then signed and broadcasted to the network.
    * @param provider - Used to verify the signature
    * @param fromAccountId - Identifier of the account used as a source for the tx
-   * @param toAccountId - Identifier of the account used as a destination
+   * @param toAccountId - Identifier of the account or parent account (for "new token") used as a destination
    * @param swapId - Identifier of the swap used by backend
    * @param rate - Swap rate in the transaction
+   * @param tokenCurrency - "new token" used in the transaction, not listed yet in wallet-api list
    * @param transaction - Transaction containing the recipient and amount
    * @param binaryPayload - Blueprint of the data that we'll allow signing
    * @param signature - Ensures the source of the payload
