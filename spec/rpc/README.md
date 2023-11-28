@@ -353,7 +353,7 @@ Returns the broadcasted transaction details.
 #### Parameters
 
 - `provider (string)`: Used to verify the signature
-- `fromAccountId (string)`: Live identifier of the account used as a source for the tx
+- `fromAccountId (string)`: Live identifier of the account used as a source for the tx or the parent when a new token is not listed yet.
 - `toAccountId (string)`: (Swap) Live identifier of the account used as a destination or the parent when a new token is not listed yet.
 - `transaction (RawTransaction)`: Transaction containing the recipient and amount
 - `binaryPayload (hexString)`: Blueprint of the data that we'll allow signing
