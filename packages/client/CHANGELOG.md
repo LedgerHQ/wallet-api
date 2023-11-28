@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-client
 
+## 1.3.0
+
+### Minor Changes
+
+- [#266](https://github.com/LedgerHQ/wallet-api/pull/266) [`746a6ab`](https://github.com/LedgerHQ/wallet-api/commit/746a6ab9e2e826625d41d5df3d516ffe30b3941d) Thanks [@Justkant](https://github.com/Justkant)! - feat(exchange): add optional tokenCurrency
+
+### Patch Changes
+
+- Updated dependencies [[`746a6ab`](https://github.com/LedgerHQ/wallet-api/commit/746a6ab9e2e826625d41d5df3d516ffe30b3941d)]:
+  - @ledgerhq/wallet-api-core@1.4.0
+
 ## 1.2.1
 
 ### Patch Changes
