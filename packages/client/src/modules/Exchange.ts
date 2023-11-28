@@ -40,7 +40,7 @@ export class ExchangeModule {
    * User will be prompted on its device to approve the swap exchange operation.
    * If the exchange is validated, the transaction is then signed and broadcasted to the network.
    * @param provider - Used to verify the signature
-   * @param fromAccountId - Identifier of the account used as a source for the tx
+   * @param fromAccountId - Identifier of the account used as a source for the tx or parent account (for "new token")
    * @param toAccountId - Identifier of the account or parent account (for "new token") used as a destination
    * @param swapId - Identifier of the swap used by backend
    * @param rate - Swap rate in the transaction
