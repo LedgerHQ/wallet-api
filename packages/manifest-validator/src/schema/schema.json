@@ -126,9 +126,19 @@
         "oneOf": "Must be type of array with a least 1 value or a string equal to \"*\""
       }
     },
+    "highlight": {
+      "type": "boolean"
+    },
     "content": {
       "type": "object",
       "properties": {
+        "cta": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "subtitle": {
+          "type": "string"
+        },
         "shortDescription": {
           "type": "string"
         },

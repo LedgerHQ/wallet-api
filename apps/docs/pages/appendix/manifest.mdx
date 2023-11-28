@@ -32,7 +32,7 @@ _To be filled in by you_
 | manifestVersion  | Version supported by the app that the wallet needs to implement in order to support (leave it as [default](#default-values)) | enum            | 2                           |
 | categories       | List of category related to your Live App ([example](#default-values)) | Array(string)   | items: min 1 → *        |
 | currencies       | currencies supported by your Live App | Array(string)   | items: min 1 → *        |
-| _content_          | Descripton of your Live App  (will be displayed inside the Discover section) | Object          | \{shortDescription: string, description: string\} |      |
+| _content_          | Descripton of your Live App  (will be displayed inside the Discover section) | Object          | \{shortDescription: string, description: string, subtitle: string (optional)\} |      |
 | [permissions](#permissions) | List of permissions you will need in order to interact with wallet-api | enum  |                             |
 | _domains_          | ___ | Array(string)   |  optional | *               |
 | [type](#params)  | Type of you Live app | enum            | "dapp", "walletApp", "webBrowser" |
