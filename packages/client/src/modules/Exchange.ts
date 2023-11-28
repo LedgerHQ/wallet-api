@@ -1,8 +1,8 @@
 import {
   ExchangeComplete,
   ExchangeStart,
-  schemaExchangeComplete,
   Transaction,
+  schemaExchangeComplete,
   schemaExchangeStart,
   serializeTransaction,
 } from "@ledgerhq/wallet-api-core";
@@ -40,10 +40,11 @@ export class ExchangeModule {
    * User will be prompted on its device to approve the swap exchange operation.
    * If the exchange is validated, the transaction is then signed and broadcasted to the network.
    * @param provider - Used to verify the signature
-   * @param fromAccountId - Identifier of the account used as a source for the tx
-   * @param toAccountId - Identifier of the account used as a destination
+   * @param fromAccountId - Identifier of the account used as a source for the tx or parent account (for "new token")
+   * @param toAccountId - Identifier of the account or parent account (for "new token") used as a destination
    * @param swapId - Identifier of the swap used by backend
    * @param rate - Swap rate in the transaction
+   * @param tokenCurrency - "new token" used in the transaction, not listed yet in wallet-api list
    * @param transaction - Transaction containing the recipient and amount
    * @param binaryPayload - Blueprint of the data that we'll allow signing
    * @param signature - Ensures the source of the payload
@@ -62,6 +63,7 @@ export class ExchangeModule {
     binaryPayload,
     signature,
     feeStrategy,
+    tokenCurrency,
   }: {
     provider: string;
     fromAccountId: string;
@@ -72,6 +74,7 @@ export class ExchangeModule {
     binaryPayload: Buffer;
     signature: Buffer;
     feeStrategy: ExchangeComplete["params"]["feeStrategy"];
+    tokenCurrency?: string;
   }) {
     const exchangeCompleteResult = await this.client.request(
       "exchange.complete",
@@ -86,6 +89,7 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
+        tokenCurrency,
       },
     );
 
@@ -167,6 +171,7 @@ export class ExchangeModule {
     binaryPayload,
     signature,
     feeStrategy,
+    tokenCurrency,
   }: {
     provider: string;
     fromAccountId: string;
@@ -174,6 +179,7 @@ export class ExchangeModule {
     binaryPayload: Buffer;
     signature: Buffer;
     feeStrategy: ExchangeComplete["params"]["feeStrategy"];
+    tokenCurrency?: string;
   }): Promise<string> {
     const exchangeCompleteResult = await this.client.request(
       "exchange.complete",
@@ -185,6 +191,7 @@ export class ExchangeModule {
         hexBinaryPayload: binaryPayload.toString("hex"),
         hexSignature: signature.toString("hex"),
         feeStrategy,
+        tokenCurrency,
       },
     );
 

@@ -10,6 +10,7 @@ const schemaExchangeCompleteBaseParams = z.object({
   hexBinaryPayload: z.string(),
   hexSignature: z.string(),
   feeStrategy: schemaFeeStrategyType,
+  tokenCurrency: z.string().optional(),
 });
 
 const schemaExchangeCompleteFundParams =

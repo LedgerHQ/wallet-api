@@ -64,6 +64,7 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
     binaryPayload: Buffer.from(safeParams.hexBinaryPayload, "hex"),
     fromAccount,
     feeStrategy: safeParams.feeStrategy,
+    tokenCurrency: safeParams.tokenCurrency,
   };
 
   // if the exchange type is SWAP we need to process an extra parameter

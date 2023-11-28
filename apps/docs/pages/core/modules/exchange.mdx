@@ -50,6 +50,7 @@ walletApiClient.exchange.complete(params: {
   toAccountId?: string,
   swapId?: string,
   rate?: number,
+  tokenCurrency?: string,
 }): Promise<{ transactionHash: string }>
 ```
 
@@ -64,6 +65,7 @@ walletApiClient.exchange.complete(params: {
 - `toAccountId` (optional): Identifier of the account used as a destination (required for `"SWAP"`).
 - `swapId` (optional): Identifier of the backend swap used (required for `"SWAP"`).
 - `rate` (optional): Swap rate used in the transaction (required for `"SWAP"`).
+- `tokenCurrency` (optional): Swap tokenCurrency is used when we want point a new token, as id does not exists in wallet-api (optional for `"SWAP"` and `"FUND"`).
 
 **Returns**: A promise that resolves with an object containing the `transactionHash` of the broadcasted transaction.
 

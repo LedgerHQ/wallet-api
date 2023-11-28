@@ -353,8 +353,8 @@ Returns the broadcasted transaction details.
 #### Parameters
 
 - `provider (string)`: Used to verify the signature
-- `fromAccountId (string)`: Live identifier of the account used as a source for the tx
-- `toAccountId (string)`: (Swap) Live identifier of the account used as a destination
+- `fromAccountId (string)`: Live identifier of the account used as a source for the tx or the parent when a new token is not listed yet.
+- `toAccountId (string)`: (Swap) Live identifier of the account used as a destination or the parent when a new token is not listed yet.
 - `transaction (RawTransaction)`: Transaction containing the recipient and amount
 - `binaryPayload (hexString)`: Blueprint of the data that we'll allow signing
 - `signature (hexString)`: Ensures the source of the payload
@@ -362,7 +362,8 @@ Returns the broadcasted transaction details.
 - `exchangeType (ExchangeType)`: used by the exchange transport to discern between swap/sell/fund
 - `swapId (string)`: (Swap) Live identifier of the swap used by backend
 - `rate (number)`: (Swap) Rate provider used in the transaction
-
+- `tokenCurrency (string)`: New token used not listed by wallet-api yet
+  
 #### Request
 
 ```json
