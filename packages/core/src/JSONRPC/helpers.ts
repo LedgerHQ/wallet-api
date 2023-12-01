@@ -48,7 +48,7 @@ export function createRpcRequest<T>(
 type CreateRpcResponseParams<T, E> =
   | {
       id: string | number | null;
-      result: T;
+      result?: T;
     }
   | {
       id: string | number | null;

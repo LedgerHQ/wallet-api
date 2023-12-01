@@ -23,7 +23,7 @@ export const schemaRPCResponseSuccess = z
   .object({
     jsonrpc: z.literal("2.0"),
     id: schemaRPCId,
-    result: z.object({}).passthrough(),
+    result: z.object({}).passthrough().optional(),
   })
   .strict();
 

@@ -113,7 +113,7 @@ export type RpcResponseSuccess<TResult = unknown> = RpcResponseCommon & {
    * This member **MUST NOT** exist if there was an error invoking the method.
    * The value of this member is determined by the method invoked on the Server.
    */
-  result: TResult;
+  result?: TResult;
 };
 
 export type RpcResponseFailed<TErrorData = unknown> = RpcResponseCommon & {

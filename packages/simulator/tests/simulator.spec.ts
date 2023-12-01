@@ -244,7 +244,7 @@ describe("Simulator", () => {
       // WHEN
       const key = "testKey";
       const value = "testValue";
-      void client.storage.set(key, value); // TODO fix me when we can await
+      await client.storage.set(key, value);
       const retrievedValue = await client.storage.get(key);
 
       // THEN
