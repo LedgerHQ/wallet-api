@@ -8,6 +8,9 @@ export const serializePolkadotTransaction = ({
   mode,
   fee,
   era,
+  validators,
+  numOfSlashingSpans,
+  rewardDestination,
 }: PolkadotTransaction): RawPolkadotTransaction => ({
   amount: amount.toString(),
   recipient,
@@ -15,6 +18,9 @@ export const serializePolkadotTransaction = ({
   mode,
   fee: fee ? fee.toString() : undefined,
   era,
+  validators,
+  numOfSlashingSpans,
+  rewardDestination,
 });
 
 export const deserializePolkadotTransaction = ({
@@ -24,6 +30,9 @@ export const deserializePolkadotTransaction = ({
   mode,
   fee,
   era,
+  validators,
+  numOfSlashingSpans,
+  rewardDestination,
 }: RawPolkadotTransaction): PolkadotTransaction => ({
   amount: new BigNumber(amount),
   recipient,
@@ -31,4 +40,7 @@ export const deserializePolkadotTransaction = ({
   mode,
   fee: fee ? new BigNumber(fee) : undefined,
   era,
+  validators,
+  numOfSlashingSpans,
+  rewardDestination,
 });
