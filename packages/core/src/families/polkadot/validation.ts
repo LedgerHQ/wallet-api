@@ -4,7 +4,6 @@ import { schemaFamilies, schemaTransactionCommon } from "../common";
 export const schemaPolkadotOperationMode = z.enum([
   "send",
   "bond",
-  "bondExtra",
   "unbond",
   "rebond",
   "withdrawUnbonded",
