@@ -40,11 +40,7 @@ export default class WindowMessageTransport implements Transport {
   _onMessageEvent = (event: MessageEvent): void => {
     if (this._onMessage) {
       this.logger.debug("received message event", event);
-      if (
-        event.origin !== this.target.location.origin &&
-        event.data &&
-        typeof event.data === "string"
-      ) {
+      if (event.data && typeof event.data === "string") {
         try {
           const message = event.data;
 
