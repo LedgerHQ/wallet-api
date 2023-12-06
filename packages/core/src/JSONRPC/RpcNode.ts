@@ -47,7 +47,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
 
   private _request<K extends keyof TCHandlers>(
     request: RpcRequest<K, MethodParamsIfExists<TCHandlers, K>>,
-  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
+  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K> | undefined> {
     return new Promise((resolve, reject) => {
       if (!request.id) {
         reject(new Error("requests need to have an id"));
@@ -90,7 +90,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
   public request<K extends keyof TCHandlers>(
     method: K,
     params: MethodParamsIfExists<TCHandlers, K>,
-  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K>> {
+  ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K> | undefined> {
     const requestId = uuidv4();
     return this._request({
       id: requestId,

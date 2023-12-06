@@ -6,7 +6,7 @@ const schemaStorageSetParams = z.object({
   storeId: z.string().optional(),
 });
 
-const schemaStorageSetResults = z.void();
+const schemaStorageSetResults = z.void().optional();
 
 export const schemaStorageSet = {
   params: schemaStorageSetParams,
