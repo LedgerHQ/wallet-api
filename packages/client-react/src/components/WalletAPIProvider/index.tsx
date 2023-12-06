@@ -7,6 +7,8 @@ import type {
   WalletAPIProviderProps,
 } from "./types";
 
+export * from "./types";
+
 export function WalletAPIProvider({
   children,
   transport,

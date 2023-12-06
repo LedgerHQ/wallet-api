@@ -108,13 +108,16 @@ function createClient() {
       ...CustomDeviceHandlers,
     },
   );
-  return new WalletAPIClient(transport, defaultLogger, function (client) {
+
+  const customGetter = function (client: WalletAPIClient) {
     return {
       log: new CustomLog(client),
       log2: new CustomLog2(client),
       device: new CustomDevice(client),
     };
-  });
+  };
+
+  return new WalletAPIClient(transport, defaultLogger, customGetter);
 }
 
 describe("Server", () => {
@@ -125,7 +128,6 @@ describe("Server", () => {
       const res = await client.custom.log.log("test");
       const res2 = await client.custom.log2.log("test2");
       const device = await client.custom.device.open("fake-id");
-
 
       expect(res).not.toBeFalsy();
       expect(res2).not.toBeFalsy();

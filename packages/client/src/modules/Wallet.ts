@@ -1,8 +1,8 @@
 import {
-  schemaWalletUserId,
-  schemaWalletInfo,
   WalletInfo,
   schemaWalletCapabilities,
+  schemaWalletInfo,
+  schemaWalletUserId,
 } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 

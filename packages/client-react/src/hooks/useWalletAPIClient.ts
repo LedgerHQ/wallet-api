@@ -1,9 +1,9 @@
-import type { WalletAPIClient } from "@ledgerhq/wallet-api-client";
 import { useContext, useMemo } from "react";
 import { WalletAPIProviderContext } from "../components/WalletAPIProvider/context";
+import { RegisteredClient } from "../components/WalletAPIProvider/types";
 
 type UseWalletAPIClientReturn = {
-  client?: WalletAPIClient;
+  client?: RegisteredClient;
 };
 
 export function useWalletAPIClient(): UseWalletAPIClientReturn {
