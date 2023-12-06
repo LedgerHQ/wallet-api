@@ -89,8 +89,10 @@ export class WalletAPIClient<
   /**
    * Instance of the Custom module
    */
-  public custom: CustomGetter extends (client: WalletAPIClient) => infer U
-    ? U
+  public custom: CustomGetter extends (
+    client: WalletAPIClient,
+  ) => infer TCustomModule
+    ? TCustomModule
     : ReturnType<CustomGetter>;
 
   private logger: Logger;
