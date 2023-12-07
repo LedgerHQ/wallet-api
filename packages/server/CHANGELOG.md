@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.4.1
+
+### Patch Changes
+
+- [#272](https://github.com/LedgerHQ/wallet-api/pull/272) [`e6da3b3`](https://github.com/LedgerHQ/wallet-api/commit/e6da3b3712f039b36b7595f055775c71b0aa14ca) Thanks [@Justkant](https://github.com/Justkant)! - fix: remove react exports from main index file
+
+  A React hooks was exported, making it impossible to import the server code from the main index file in other frameworks
+
+- Updated dependencies [[`a466649`](https://github.com/LedgerHQ/wallet-api/commit/a4666492fe8312f8fdfca135e30afc5d34cae865), [`6a5771c`](https://github.com/LedgerHQ/wallet-api/commit/6a5771c0ec0349f68f8be1c07d6adfce2a418a25), [`0bd66f5`](https://github.com/LedgerHQ/wallet-api/commit/0bd66f57e23e0f5704e2b780bd8e6eae7b1eba25), [`0eda7fa`](https://github.com/LedgerHQ/wallet-api/commit/0eda7fa899e9405eec46fa55cf8ea986d1b14484)]:
+  - @ledgerhq/wallet-api-core@1.5.0
+
 ## 1.4.0
 
 ### Minor Changes
