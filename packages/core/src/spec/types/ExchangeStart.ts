@@ -4,9 +4,9 @@ const schemaExchangeType = z.enum([
   "SWAP",
   "SELL",
   "FUND",
-  "SWAPNG",
-  "SELLNG",
-  "FUNDNG",
+  "SWAP_NG",
+  "SELL_NG",
+  "FUND_NG",
 ]);
 
 const schemaExchangeStartParams = z.object({
