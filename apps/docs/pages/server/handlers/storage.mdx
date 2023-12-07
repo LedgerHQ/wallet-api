@@ -1,0 +1,42 @@
+## overview
+
+The Storage handlers provides a way to interact with Ledger Live's internal storage.  
+The server can store and retrieve data using key-value pairs.
+
+## request handlers:
+
+### "storage.set" - Set Data
+
+{/* TODO: document this one better, could it be generalized for all wallets? */}
+
+Store data in Ledger Live's internal storage. You can specify a key and value, and optionally provide a store ID to store data in a specific store.
+
+| parameter (in req.params) | required? | note                                                                        |
+| ------------------------- | --------- | --------------------------------------------------------------------------- |
+| _key_                     | ✅        | A string representing the key under which you want to store the data.       |
+| _value_                   | ✅        | A string representing the data you want to store.                           |
+| _storeId_                 | ❌        | A string representing the ID of the store where you want to store the data. |
+|                           |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _storage.set_      |      |
+
+- **Returns**: A promise that resolves when the data is successfully stored. There is no return value.
+
+### "storage.get" - Get Data
+
+{/* TODO: dig over multi store documentaire */}
+
+Retrieve data from Ledger Live's internal storage by specifying a key. You can also specify a store ID to retrieve data from a particular store.
+
+| parameter (in req.params) | required? | note                                                                            |
+| ------------------------- | --------- | ------------------------------------------------------------------------------- |
+| _key_                     | ✅        | A string representing the key of the data you want to retrieve.                 |
+| _storeId_                 | ❌        | A string representing the ID of the store from which you want to retrieve data. |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _storaget.get_     |      |
+
+- **Returns**: A promise that resolves with the value as a string or `undefined` if the key does not exist.

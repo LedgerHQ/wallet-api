@@ -1,0 +1,62 @@
+import { Callout } from "nextra/components";
+
+## useWalletAPIServer
+
+[source code](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/react.ts)
+
+For convenience in a react environment, the hook `useWalletAPIServer`, is available.
+
+It is used to setup a WalletAPIServer
+
+<Callout type="info" emoji="ℹ️">
+  [It is how wallet API Server are created in ledger
+  live](../usage-examples/within-ledger-live)
+</Callout>
+
+```js filename="packages/server/src/WalletAPIServer.ts"
+
+export function useWalletAPIServer({
+  transport,
+  config,
+  logger,
+  accounts,
+  currencies,
+  permission,
+  customHandlers,
+}){...}
+
+```
+
+| Parameter (destructured from single object) | required? | note                                                                            |
+| ------------------------------------------- | --------- | ------------------------------------------------------------------------------- |
+| _transport_                                 | ✅        | sets the [transport](../wallet-api-server#transport)                            |
+| _config_                                    | ✅        | sets the [walletContext.config](../wallet-api-server#walletcontextconfig) value |
+| _logger_                                    | ❌        | (optional) sets the logger                                                      |
+| _accounts_                                  | ✅        | sets the [accounts](../wallet-api-server#allaccounts)                           |
+| _currencies_                                | ✅        | sets the [currencies](../wallet-api-server#allcurrencies)                       |
+| _permissions_                               | ✅        | sets the [permissions](../wallet-api-server#permissions)                        |
+| _customHandlers_                            | ❌        | (optional) sets [customHandlers](../wallet-api-server#walletcontextconfig)      |
+
+Once instantiated, it
+
+- Sets custom handlers, in all cases (even if no custom handlers are sent from LLC),
+  it will be called to set the [requestHandlers](../wallet-api-server#requesthandlers)
+- Sets config, permissions, currencies and accounts.
+
+Then, it returns:
+
+```ts
+return {
+  server,
+  onMessage,
+};
+```
+
+`server` is our walletAPIServer instance.  
+`onMessage`, which will allow _APP -> SERVER_ communication.
+
+<Callout type="info" emoji="ℹ️">
+  Note that WalletAPIServer is instantiated as a ref
+  [useRef](https://react.dev/reference/react/useRef) we actually return
+  ```server: server.current```
+</Callout>

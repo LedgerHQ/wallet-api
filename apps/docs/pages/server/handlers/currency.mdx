@@ -1,0 +1,16 @@
+## overview
+
+The Currency handlers enables interaction with various cryptocurrencies that are supported by the connected wallet.  
+The server can list the cryptocurrencies and apply filters by name or ticker.
+
+## request handlers:
+
+### "currency.list" - List Cryptocurrencies
+
+| parameter (in req.params) | required? | note                                                                            |
+| ------------------------- | --------- | ------------------------------------------------------------------------------- |
+| _currencyIds_             | ❌        | An array of strings specifying the currency IDs to filter the cryptocurrencies. |
+
+- Start with all currencies (available in [context.currencies](../wallet-api-server#walletcontextcurrencies))
+- Filter those against the parameter _currencyIds_
+- **Returns**: A promise that resolves with an array of Currency objects.

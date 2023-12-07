@@ -1,0 +1,44 @@
+## overview
+
+The Account handlers allows the server to interact with the user's accounts.  
+It can list accounts, request an account, and verify account addresses on a Ledger device through Ledger Live.
+
+## request handlers:
+
+### "account.list" - List Accounts
+
+| parameter (in req.params) | required? | note                                                                  |
+| ------------------------- | --------- | --------------------------------------------------------------------- |
+| _currencyIds_             | ❌        | An array of strings specifying the currency IDs to filter accounts by |
+
+- Retrieve the list of accounts added by the user on the connected wallet.
+- Filters those accounts using `req.params.currencyIds` parameter.
+- **Returns**: A promise that resolves with an array of Account objects
+
+### "account.request" - Request Account
+
+| parameter (in req.params) | required? | note                                                                  |
+| ------------------------- | --------- | --------------------------------------------------------------------- |
+| _currencyIds_             | ❌        | An array of strings specifying the currency IDs to filter accounts by |
+
+| walletHandler used | note                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| _account.request_  | Should prompt the user to select an account from the connected wallet. Accounts shown are filtered by _currencyIds_ parameter. |
+
+- Gets an account with _account.request_ walletHandler
+- **Returns**: A promise that resolves with the selected Account object.
+
+### "account.receive" - Verify Account Address
+
+| parameter (in req.params) | required? | note                                                     |
+| ------------------------- | --------- | -------------------------------------------------------- |
+| _accountId_               | ✅        | The ID of the account whose address needs to be verified |
+
+| walletHandler used | note                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| _account.receive_  | Allows the user to verify an account's address on their Ledger device through Ledger Live. |
+
+Allows the user to verify an account's address on their Ledger device through Ledger Live.
+
+- Let's the user verify an account with _account.receive_ walletHandler
+- **Returns**: A promise that resolves with the verified address as a string.

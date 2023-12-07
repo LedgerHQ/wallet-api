@@ -27,6 +27,10 @@
     "title": "Examples",
     "type": "page"
   },
+  "server": {
+    "title": "Server",
+    "type": "page"
+  },
   "appendix": {
     "title": "Appendix",
     "type": "page"

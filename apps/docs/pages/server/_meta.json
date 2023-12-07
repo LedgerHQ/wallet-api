@@ -1,0 +1,20 @@
+{
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": true,
+      "toc": true
+    }
+  },
+  "wallet-api-server": {
+    "title": "Wallet API Server",
+    "theme": {
+      "toc": true
+    }
+  },
+  "usage-examples": "Usage examples",
+  "handlers": "Handlers",
+  "extras": "Extras"
+}

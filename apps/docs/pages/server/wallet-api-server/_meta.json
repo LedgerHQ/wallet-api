@@ -1,0 +1,16 @@
+{
+  "index": {
+    "title": "Wallet API Server",
+    "theme": {
+      "sidebar": true,
+      "toc": true
+    }
+  },
+  "diagrams": {
+    "title": "Diagrams",
+    "theme": {
+      "sidebar": true,
+      "toc": false
+    }
+  }
+}

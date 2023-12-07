@@ -1,0 +1,80 @@
+## overview
+
+The Device handlers provides methods for handling the physical device,
+including opening low-level transport and selecting a device in the connected wallet.
+
+## request handlers:
+
+### "device.close" - Close Device
+
+{/* TODO: document this one better */}
+
+Close a device in the connected wallet.
+
+| parameter (in req.params) | required? | note                     |
+| ------------------------- | --------- | ------------------------ |
+| _transportId_             | ✅        | A device's transport id. |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _device.close_     |      |
+
+- **Returns**: A promise that resolves the transport id.
+
+### "device.exchange" -
+
+{/* TODO: document this one better */}
+
+| parameter (in req.params) | required? | note |
+| ------------------------- | --------- | ---- |
+| _transportId_             | ✅        |      |
+| _apduHex_                 | ✅        |      |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _device.exchange_  |      |
+
+- **Returns**: A promise that resolves with _responseHex_
+
+### "device.open" - Open Device
+
+Open a device in the connected wallet.
+
+| parameter    | required? | note                                                    |
+| ------------ | --------- | ------------------------------------------------------- |
+| _req.params_ | ✅        | An object containing the parameters to open the device. |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _device.open_      |      |
+
+- **Returns**: A promise that resolves with a _transportId_
+
+### "device.select" - Select Device
+
+Select a device in the connected wallet.
+
+| parameter | required? | note                                                                |
+| --------- | --------- | ------------------------------------------------------------------- |
+| params    | ✅        | An object containing the parameters to select and check the device. |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _device.select_    |      |
+
+- **Returns**: A promise that resolves with a `deviceId` which can be used with the `device.open` method.
+
+### "device.transport" - Open Low-Level Transport
+
+Open low-level transport in the connected wallet.
+
+| parameter    | required? | note                                                   |
+| ------------ | --------- | ------------------------------------------------------ |
+| _req.params_ | ✅        | An object containing the parameters for the transport. |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _device.transport_ |      |
+
+- Calls the wallet handler _device.transport_
+- **Returns**: **Returns**: A promise that resolves with an instance of Transport compatible with `@ledgerhq/hw-transport`.
