@@ -31,14 +31,15 @@ const requestHandlers = {
   },
 };
 
+export type AnyCustomGetter = (
+  client: WalletAPIClient,
+) => CustomModule | Record<string, CustomModule>;
+
 /**
  * WalletAPI Client which rely on WindowMessage communication
  */
 export class WalletAPIClient<
-  M extends CustomModule = CustomModule,
-  CustomGetter extends (client: WalletAPIClient<M>) => M | Record<string, M> = (
-    client: WalletAPIClient<M>,
-  ) => M | Record<string, M>,
+  CustomGetter extends AnyCustomGetter = AnyCustomGetter,
 > extends RpcNode<typeof requestHandlers, WalletHandlers> {
   /**
    * Instance of the Account module
@@ -88,9 +89,11 @@ export class WalletAPIClient<
   /**
    * Instance of the Custom module
    */
-  public custom: CustomGetter extends (client: WalletAPIClient<M>) => infer U
-    ? U
-    : CustomModule | Record<string, CustomModule>;
+  public custom: CustomGetter extends (
+    client: WalletAPIClient,
+  ) => infer TCustomModule
+    ? TCustomModule
+    : ReturnType<CustomGetter>;
 
   private logger: Logger;
 

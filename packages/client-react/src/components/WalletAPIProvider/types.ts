@@ -1,5 +1,6 @@
 import type {
   Account,
+  AnyCustomGetter,
   Currency,
   Logger,
   Transport,
@@ -18,7 +19,7 @@ export type Loadable<T> = {
 export type WalletAPIProviderProps = PropsWithChildren<{
   transport: Transport;
   logger?: Logger;
-  getCustomModule?: ConstructorParameters<typeof WalletAPIClient>["2"];
+  getCustomModule?: AnyCustomGetter;
 }>;
 
 export type WalletAPIProviderContextState = {
@@ -29,8 +30,20 @@ export type WalletAPIProviderContextState = {
   userId: Loadable<string>;
 };
 
+// Register is used to allow users of the lib to customize the default client used in our types
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions, @typescript-eslint/no-empty-interface
+export interface Register {
+  // client: WalletAPIClient
+}
+
+export type RegisteredClient = Register extends {
+  client: infer TClient extends WalletAPIClient;
+}
+  ? TClient
+  : WalletAPIClient;
+
 export type WalletAPIProviderContextValue = {
-  client?: WalletAPIClient;
+  client?: RegisteredClient;
   state: WalletAPIProviderContextState;
   setState: React.Dispatch<React.SetStateAction<WalletAPIProviderContextState>>;
 };
