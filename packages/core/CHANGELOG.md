@@ -1,5 +1,21 @@
 # @ledgerhq/wallet-api-core
 
+## 1.5.0
+
+### Minor Changes
+
+- [#274](https://github.com/LedgerHQ/wallet-api/pull/274) [`a466649`](https://github.com/LedgerHQ/wallet-api/commit/a4666492fe8312f8fdfca135e30afc5d34cae865) Thanks [@Justkant](https://github.com/Justkant)! - feat: improve custom handler types
+
+- [#271](https://github.com/LedgerHQ/wallet-api/pull/271) [`6a5771c`](https://github.com/LedgerHQ/wallet-api/commit/6a5771c0ec0349f68f8be1c07d6adfce2a418a25) Thanks [@jdomingos](https://github.com/jdomingos)! - add optional attributes for PolkadotTransaction
+
+### Patch Changes
+
+- [#270](https://github.com/LedgerHQ/wallet-api/pull/270) [`0bd66f5`](https://github.com/LedgerHQ/wallet-api/commit/0bd66f57e23e0f5704e2b780bd8e6eae7b1eba25) Thanks [@Wozacosta](https://github.com/Wozacosta)! - allow empty (void) values to be returned by the RPCNode requests
+
+- [#273](https://github.com/LedgerHQ/wallet-api/pull/273) [`0eda7fa`](https://github.com/LedgerHQ/wallet-api/commit/0eda7fa899e9405eec46fa55cf8ea986d1b14484) Thanks [@Justkant](https://github.com/Justkant)! - fix: WindowMessageTransport accepts same origin messages
+
+  In order to support browserViews in electron
+
 ## 1.4.0
 
 ### Minor Changes
