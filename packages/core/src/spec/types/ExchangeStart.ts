@@ -1,6 +1,13 @@
 import { z } from "zod";
 
-const schemaExchangeType = z.enum(["SWAP", "SELL", "FUND"]);
+const schemaExchangeType = z.enum([
+  "SWAP",
+  "SELL",
+  "FUND",
+  "SWAP_NG",
+  "SELL_NG",
+  "FUND_NG",
+]);
 
 const schemaExchangeStartParams = z.object({
   exchangeType: schemaExchangeType,
