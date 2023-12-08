@@ -22,6 +22,8 @@ export const defaultLogger = new Logger("Wallet-API-Client");
 
 export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
 
+export type EventHandlers = Record<`event.${string}`, RPCHandler<unknown>>;
+
 // temporary
 const requestHandlers = {
   "event.account.updated": (_request: RpcRequest) => {
@@ -101,8 +103,9 @@ export class WalletAPIClient<
     transport: Transport,
     logger = defaultLogger,
     getCustomModule?: CustomGetter,
+    eventHandlers: EventHandlers = {},
   ) {
-    super(transport, requestHandlers);
+    super(transport, { ...requestHandlers, ...eventHandlers });
     this.logger = logger;
     this.account = new AccountModule(this);
     this.bitcoin = new BitcoinModule(this);
