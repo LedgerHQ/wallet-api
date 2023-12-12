@@ -2,4 +2,4 @@
 "@ledgerhq/wallet-api-server": minor
 ---
 
-Adding sendMessage to RPCNode to let the server push messages to live apps
+Adding sendMessage to the server to push messages to live apps with permissions check
