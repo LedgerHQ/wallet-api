@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-core
 
+## 1.6.0
+
+### Minor Changes
+
+- [#277](https://github.com/LedgerHQ/wallet-api/pull/277) [`51b9152`](https://github.com/LedgerHQ/wallet-api/commit/51b91524dd1f7142810009b88384aca299372122) Thanks [@sprohaszka-ledger](https://github.com/sprohaszka-ledger)! - add start exchange ng
+
+- [#278](https://github.com/LedgerHQ/wallet-api/pull/278) [`e7e609e`](https://github.com/LedgerHQ/wallet-api/commit/e7e609e23203357b1d31927c860e33a37bcae9a8) Thanks [@ComradeAERGO](https://github.com/ComradeAERGO)! - Adding type support for custom events
+
 ## 1.5.0
 
 ### Minor Changes
