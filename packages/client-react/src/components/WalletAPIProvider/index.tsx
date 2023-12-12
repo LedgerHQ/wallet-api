@@ -17,7 +17,7 @@ export function WalletAPIProvider({
   eventHandlers,
 }: WalletAPIProviderProps) {
   const [state, setState] = useState<WalletAPIProviderContextState>(
-    initialContextValue.state
+    initialContextValue.state,
   );
 
   const client = useRef<WalletAPIClient>();
@@ -27,7 +27,7 @@ export function WalletAPIProvider({
       transport,
       logger,
       getCustomModule,
-      eventHandlers
+      eventHandlers,
     );
   }
 
@@ -43,7 +43,7 @@ export function WalletAPIProvider({
       state,
       setState,
     }),
-    [client, state, setState]
+    [client, state, setState],
   );
 
   return (
