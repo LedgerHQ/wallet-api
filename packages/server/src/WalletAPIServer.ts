@@ -27,6 +27,9 @@ export { customWrapper } from "./internalHandlers";
 
 export const defaultLogger = new Logger("Wallet-API-Server");
 
+type MethodParams<T> = T extends (...args: infer P) => unknown ? P[0] : T;
+type MethodParamsIfExists<T, S> = S extends keyof T ? MethodParams<T[S]> : S;
+
 export class WalletAPIServer extends RpcNode<
   typeof internalHandlers,
   AppHandlers
@@ -88,6 +91,19 @@ export class WalletAPIServer extends RpcNode<
 
   public setCustomHandlers(customHandlers: CustomHandlers) {
     this.requestHandlers = { ...internalHandlers, ...customHandlers };
+  }
+
+  public sendMessage(
+    method: keyof AppHandlers,
+    params: MethodParamsIfExists<AppHandlers, keyof AppHandlers>,
+  ) {
+    const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
+
+    if (!allowedMethodIds.has(method)) {
+      throw new ServerError(createPermissionDenied(method));
+    }
+
+    return this.notify(method, params);
   }
 
   protected async onRequest(

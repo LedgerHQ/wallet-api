@@ -2,6 +2,7 @@ import type {
   Account,
   AnyCustomGetter,
   Currency,
+  EventHandlers,
   Logger,
   Transport,
   WalletAPIClient,
@@ -20,6 +21,7 @@ export type WalletAPIProviderProps = PropsWithChildren<{
   transport: Transport;
   logger?: Logger;
   getCustomModule?: AnyCustomGetter;
+  eventHandlers?: EventHandlers;
 }>;
 
 export type WalletAPIProviderContextState = {
