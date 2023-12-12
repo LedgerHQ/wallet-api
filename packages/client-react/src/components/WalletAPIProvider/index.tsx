@@ -1,5 +1,5 @@
 import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { WalletAPIProviderContext, initialContextValue } from "./context";
 import type {
   WalletAPIProviderContextState,
@@ -16,24 +16,30 @@ export function WalletAPIProvider({
   getCustomModule,
   eventHandlers,
 }: WalletAPIProviderProps) {
-  const [client, setClient] = useState<WalletAPIClient>();
   const [state, setState] = useState<WalletAPIProviderContextState>(
     initialContextValue.state
   );
 
-  useEffect(() => {
-    const walletApiClient = new WalletAPIClient(
+  const client = useRef<WalletAPIClient>();
+
+  if (client.current === undefined) {
+    client.current = new WalletAPIClient(
       transport,
       logger,
-      getCustomModule
+      getCustomModule,
+      eventHandlers
     );
+  }
 
-    setClient(walletApiClient);
-  }, [getCustomModule, logger, transport]);
+  useEffect(() => {
+    if (eventHandlers) {
+      client.current?.setEventHandlers(eventHandlers);
+    }
+  }, [eventHandlers]);
 
   const value = useMemo<WalletAPIProviderContextValue>(
     () => ({
-      client,
+      client: client.current,
       state,
       setState,
     }),

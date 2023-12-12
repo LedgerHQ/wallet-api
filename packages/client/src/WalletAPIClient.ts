@@ -1,5 +1,6 @@
 import {
   Logger,
+  Promisable,
   RpcError,
   RpcErrorCode,
   RpcNode,
@@ -20,7 +21,7 @@ import { WalletModule } from "./modules/Wallet";
 
 export const defaultLogger = new Logger("Wallet-API-Client");
 
-export type RPCHandler<Result> = (request: RpcRequest) => Promise<Result>;
+export type RPCHandler<Result> = (request: RpcRequest) => Promisable<Result>;
 
 export type EventHandlers = Record<`event.${string}`, RPCHandler<unknown>>;
 
@@ -119,6 +120,10 @@ export class WalletAPIClient<
     this.custom = (
       getCustomModule ? getCustomModule(this) : {}
     ) as typeof this.custom;
+  }
+
+  public setEventHandlers(eventHandlers: EventHandlers) {
+    this.requestHandlers = { ...requestHandlers, ...eventHandlers };
   }
 
   protected onRequest(request: RpcRequest) {
