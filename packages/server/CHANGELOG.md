@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.5.0
+
+### Minor Changes
+
+- [#278](https://github.com/LedgerHQ/wallet-api/pull/278) [`e7e609e`](https://github.com/LedgerHQ/wallet-api/commit/e7e609e23203357b1d31927c860e33a37bcae9a8) Thanks [@ComradeAERGO](https://github.com/ComradeAERGO)! - Adding sendMessage to the server to push messages to live apps with permissions check
+
+### Patch Changes
+
+- Updated dependencies [[`51b9152`](https://github.com/LedgerHQ/wallet-api/commit/51b91524dd1f7142810009b88384aca299372122), [`e7e609e`](https://github.com/LedgerHQ/wallet-api/commit/e7e609e23203357b1d31927c860e33a37bcae9a8)]:
+  - @ledgerhq/wallet-api-core@1.6.0
+
 ## 1.4.1
 
 ### Patch Changes

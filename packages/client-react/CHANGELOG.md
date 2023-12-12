@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.3.0
+
+### Minor Changes
+
+- [#278](https://github.com/LedgerHQ/wallet-api/pull/278) [`e7e609e`](https://github.com/LedgerHQ/wallet-api/commit/e7e609e23203357b1d31927c860e33a37bcae9a8) Thanks [@ComradeAERGO](https://github.com/ComradeAERGO)! - Support custom events in the wallet-api client and client-react
+
+### Patch Changes
+
+- Updated dependencies [[`e7e609e`](https://github.com/LedgerHQ/wallet-api/commit/e7e609e23203357b1d31927c860e33a37bcae9a8)]:
+  - @ledgerhq/wallet-api-client@1.5.0
+
 ## 1.2.0
 
 ### Minor Changes
