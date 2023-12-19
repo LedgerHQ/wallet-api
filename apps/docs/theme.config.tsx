@@ -61,7 +61,14 @@ export default {
   },
   footer: {
     text: (
-      <div style={{ width: "100%", display: "grid", placeItems: "center" }}>
+      <div
+        style={{
+          height: "20vh",
+          width: "100%",
+          display: "grid",
+          placeItems: "center",
+        }}
+      >
         <svg
           style={{ fill: "currentColor", marginBottom: "20px" }}
           version="1.1"
