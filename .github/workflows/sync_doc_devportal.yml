@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "pages/APIs/*"
-      - "pages/docs/discover/*"
+      - "apps/docs/pages/APIs/wallet-api/*"
+      - "apps/docs/pages/docs/discover/*"
 
 jobs:
   syncAndCreatePR:
@@ -27,8 +27,8 @@ jobs:
           SYNC_DEV_PORTAL_TOKEN: ${{ secrets.SYNC_DEV_PORTAL_TOKEN }}
           SOURCE_REPO_NAME: "wallet-api"
           SOURCE_REPO: "github.com/LedgerHQ/wallet-api"
-          SOURCE_FILE_PATH_1: "pages/APIs/wallet-api"
-          SOURCE_FILE_PATH_2: "pages/docs/discover"
+          SOURCE_FILE_PATH_1: "apps/docs/pages/APIs/wallet-api"
+          SOURCE_FILE_PATH_2: "apps/docs/pages/docs/discover"
           TARGET_REPO_NAME: "developer-portal"
           TARGET_REPO: "github.com/LedgerHQ/developer-portal"
           TARGET_FILE_PATH_1: "pages/APIs/wallet-api"
