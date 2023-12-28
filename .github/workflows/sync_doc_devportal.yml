@@ -19,8 +19,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name 'RamyEB'
-          git config --global user.email 'ramyelb@gmail.com'
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Sync files to the other repository and create Pull Request
         env:
