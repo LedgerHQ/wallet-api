@@ -1,34 +1,17 @@
 {
   "index": {
     "title": "Home",
-    "display": "hidden",
     "theme": {
-      "breadcrumb": false,
-      "footer": true,
-      "sidebar": false,
-      "toc": true,
-      "pagination": false,
-      "layout": "full"
-    }
+      "layout": "raw"
+    },
+    "display": "hidden"
   },
-  "react": {
-    "title": "React",
+  "docs": {
+    "title": "Documentation",
     "type": "page"
   },
-  "core": {
-    "title": "Core",
-    "type": "page"
-  },
-  "simulator": {
-    "title": "Simulator",
-    "type": "page"
-  },
-  "examples": {
-    "title": "Examples",
-    "type": "page"
-  },
-  "appendix": {
-    "title": "Appendix",
+  "APIs": {
+    "title": "APIs",
     "type": "page"
   }
 }

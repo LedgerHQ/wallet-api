@@ -1,0 +1,34 @@
+import { Callout } from "nextra/components";
+
+# Wallet API Simulator
+
+The Simulator is a tool provided by Ledger that allows developers to test their application without interacting with the real Ledger Live application.
+
+It provides a mock environment with a set of predefined responses for different Wallet API actions.
+This enables you to develop and test your application safely.
+
+## Target audience
+
+This documentation and the Wallet API library are dedicated to developers building Live Apps that are intended to be embedded within a wallet implementing the Wallet API Server like [Ledger Live](https://www.ledger.com/ledger-live).
+
+## Overview
+
+The Wallet API Simulator library empowers you to:
+
+- **Easily develop your Live App in the browser**: Establish a fake connection to the Simulator acting as a wallet implementing the Wallet API Server, like Ledger Live would do.
+
+- **Test in more ways**: The simulator facilitate writing E2E, integration or unit tests, by allowing mocking any data used.
+
+- **Simulate errors that are hard to reproduce**: Just like you can write tests for the good path, you should also test your error handling code.
+
+## Navigating the documentation
+
+This documentation is structured to provide you with a clear understanding of the various features and utilities available in the Ledger Wallet API Simulator library.
+
+- **Getting Started**: If you're new to this library, begin with the [Getting Started](./getting-started.mdx) section. It guides you through the installation process.
+
+- **Configuration**: The [Configuration](./configuration.mdx) section contains information on how to add the simulator to your Live App.
+
+- **Profiles**: Learn about the various [Profiles](./profiles.mdx) we export for use with the simulator, as well as utilities to customize the profiles.
+
+We're thrilled to have you on board and excited to see the innovative Live Apps you build.

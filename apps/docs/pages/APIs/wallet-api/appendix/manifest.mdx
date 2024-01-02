@@ -1,0 +1,287 @@
+# Manifest
+
+_If you want to know more about the Discover tab and the Live Apps in general, you can read this page : [Start here](https://developers.ledger.com/docs/live-app/start-here/)_
+
+### What is a manifest ?
+
+A Manifest is a config file that allows external applications and decentralized applications (dApps) to be integrated inside the Ledger Live software as a Live app and interact with all provided features.
+
+If you have followed instructions on the [How to create a Live app](../examples/live-app-creation/start) page, you should now be ready to interact with the Dapp directly from Ledger Live interface to make sure all the basic features work as expected.
+
+### Manifest properties
+
+To test and integrate your application, you first need to write your application Manifest file. This file must contain some mandatory information, such as the app package names, the components, the permissions needed, the hardware and software features, etc.
+
+You don't have to fill in all the fields; we'll fill them in once your integration has been confirmed.
+
+However, here are a few elements you'll need to fill in yourself and their descriptions : 
+
+_To be filled in by you_
+
+| Properties       | Descripton      |  Type            | Requirements                |
+|------------------|-----------------|------------------|-----------------------------|
+| id               | uniq id of your app | string          | a-z &#124; 0-9 &#124;       |
+| _author_         | Name of your organisation | string          | optional &#124; *           |
+| _name_           | Name of your live app (will be displayed and used to search your app inside the Discover section) | string          | *                           |
+| _url_            | Url of the live app homepage (users will be redirected to this link once they open your app) | string (URL)    | *                           |
+| _homepageUrl_      | Url of your organisation | string (URL)    | optional &#124; *           |
+| _supportUrl_       | Your support url | string (URL)    | optional &#124; *           |
+| _icon_             | Icon URL (will be displayed inside the Discover section) | string (URL)    | optional &#124; *           |
+| platforms        | Platform compatibility | Array(enum)     | "ios", "android", "desktop" |
+| apiVersion       | Specific manifest schema version (leave it as [default](#default-values)) | string          | *                          |
+| manifestVersion  | Version supported by the app that the wallet needs to implement in order to support (leave it as [default](#default-values)) | enum            | 2                           |
+| categories       | List of category related to your Live App ([example](#default-values)) | Array(string)   | items: min 1 → *        |
+| currencies       | currencies supported by your Live App | Array(string)   | items: min 1 → *        |
+| _content_          | Descripton of your Live App  (will be displayed inside the Discover section) | Object          | \{shortDescription: string, description: string, subtitle: string (optional)\} |  |
+| [permissions](#permissions) | List of permissions you will need in order to interact with wallet-api | enum  |                             |
+| _domains_          | ___ | Array(string)   |  optional | *               |
+| [type](#params)  | Type of you Live app | enum            | "dapp", "walletApp", "webBrowser" |
+| [params](#params) | ___| Object          | depend on the type          |
+| visibility       | Visibility of your live app inside Ledger Live. (Leave it as [default](#default-values)) | string          | "complete", "searchable", "deep"  |
+
+### Params
+
+#### params when `type = "dapp"`
+
+_Your app uses the [ETH DApp Browser](https://github.com/LedgerHQ/eth-dapp-browser)_
+
+| Params    | Type            | Requirements                              |
+|-----------|-----------------|-------------------------------------------|
+| dappUrl   | string (URL)    | *                                         |
+| nanoApp   | string          | *                                         |
+| dappName  | string          | *                                         |
+| networks  | Array (unique Object) | (chainID: number, nodeURL: string, currency: enum) |
+
+
+#### params when `type = "walletApp"`
+
+_Your app uses the [Wallet API](https://github.com/LedgerHQ/wallet-api)_
+
+| Params    | Type      | Requirements       |
+|-----------|-----------|--------------------|
+| any param | any     | optional &#124; *  |
+
+
+
+#### params when `type = "webBrowser"`
+
+_Your app uses the [Platform App Web Browser](https://github.com/LedgerHQ/platform-app-web-browser)_
+
+
+| Params      | Type            | Requirements    |
+|-------------|-----------------|-----------------|
+| webUrl      | string (URL)    | *               |
+| webAppName  | string          | *               |
+| currencies  | Array (enum)    | "ethereum", "bitcoin", ... |
+
+
+#### Permissions
+
+Permissions that allow your app to interact with methods :
+
+```javascript
+"permissions": [
+
+    // Account and currencies
+    "account.list", 
+    "account.receive", 
+    "account.request",
+    "currency.list",
+
+    // Device permissions
+    "device.close",
+    "device.exchange",
+    "device.transport",
+
+    // Transaction
+    "message.sign",
+    "transaction.sign",
+    "transaction.signAndBroadcast",
+
+    // Wallet Info
+    "wallet.capabilities",
+    "wallet.info",
+    "wallet.userId"
+
+  ],
+
+  ```
+
+
+#### Default values
+
+_Complete manifest.json file with default or examples values :_
+
+```json
+{
+  "id": "ReplaceAppName",
+  "name": "ReplaceAppName",
+  "url": "http://localhost:3000",
+  "params": {
+    "exampleParam": "value"
+  },
+  "homepageUrl": "http://localhost:3000/",
+  "platform": ["ios","android","desktop"],
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "2",
+  "branch": "stable",
+  "categories": ["NFT", "Swap", "YourAppCategory"],
+  "currencies": "*",
+  "content": {
+    "shortDescription": {
+      "en": "Desc"
+    },
+    "description": {
+      "en": "Desc"
+    }
+  },
+  "permissions": [],
+  "domains": ["http://*"],
+  "visibility": "complete"
+}
+```
+
+## Manifest Overrides Guide
+
+### Introduction to Overrides
+
+In the context of app manifests, the **overrides** feature offers a powerful mechanism to create conditional modifications to your manifest. With this feature, you can specify different values for specific conditions, such as Ledger Live versions (`llVersion`) and device  (`platform`). This ensures a tailored experience across multiple versions and platforms without the need for separate manifest files.
+
+### Structure of Overrides
+
+Inside your manifest, you can include an `overrides` section to define conditions and their corresponding modifications. Here's how you can structure them:
+
+1. **ledgerLiveVersion Overrides**: Allows you to define variations of the manifest specific to different Ledger Live versions.
+
+`Request: /api/v1/apps?llVersion=1.0.0`
+
+   ``` Example:
+   "overrides": [
+     {
+       "version": "1.0.0",
+       "changes": {
+         "name": "overridden manifest"
+       }
+     }
+   ]
+   ```
+   In this example, users with Ledger Live version `1.0.0` will see the app name as "overridden manifest".
+
+
+2. **Platform Overrides**: Enables you to tailor the manifest for specific platforms like iOS, Android, etc.
+
+Request param: 
+- `/api/v1/apps?platform=ios`
+- `/api/v1/apps?platform=android`
+
+
+
+   ``` Example:
+   "overrides": [
+     {
+       "platform": "ios",
+       "changes": {
+         "name": "overridden for iOS"
+       }
+     },
+     {
+       "platform": "android",
+       "changes": {
+         "name": "overridden for Android"
+       }
+     }
+   ]
+   ```
+   Depending on the user's device platform, they will see a different app name – "overridden for iOS" on Apple devices and "overridden for Android" on Android devices.
+
+## Depth Limitation in Overrides
+
+Only the first depth of fields can be overridden, meaning granular changes to nested properties are not supported directly. To override a field with nested properties, the entire field, including all nested properties, must be redefined.
+
+ For example, you cannot override just a nested `url`:
+ ```
+"overrides": [
+  {
+    "platform": "ios",
+    "changes": {
+      "params": {
+        "url": "new-url"
+      }
+    }
+  }
+]
+```
+Instead, you need to redefine the entire `params` field:
+```
+"overrides": [
+  {
+    "platform": "ios",
+    "changes": {
+      "params": {
+        "url": "new-url",
+        "anotherField": "value",
+        "yetAnotherField": "anotherValue"
+      }
+    }
+  }
+]
+```
+
+## Activating Overrides
+
+Overrides are activated when the manifest is requested with specific parameters. Here are the supported parameters and how they activate the overrides:
+
+1. **ledgerLiveVersion**: Activated by calling with the `llVersion` parameter.
+
+      Will return all defaults manifests with the 1.0.0 overr if it exist: 
+
+      `http://localhost:3000/api/v1/apps?llVersion=1.0.0`
+
+2. **Platform**: Activated by calling with the `platform` parameter. The `platforms` field inside the manifest will be replaced accordingly.
+
+      Will return all defaults manifests and override for iOS and replace the `platforms` field in the manifest with `["ios"]` if it exist inside the manifest : 
+      
+      `http://localhost:3000/api/v1/apps?platform=ios` 
+      
+
+3. **Combining Parameters**: You can combine multiple parameters to activate multiple overrides.
+      
+      Apply overrides for both Ledger Live version `1.0.0` and the `iOS` platform : 
+      
+      `http://localhost:3000/api/v1/apps?llVersion=1.0.0&platform=ios` 
+
+## Priority in Overrides
+
+In cases where both `ledgerLiveVersion` and `platform` might have overriding values for the same field, the priority is determined by their order in the manifest. Whichever is listed first takes precedence.
+
+## Override Process for Specific Platform Requests
+
+When a request specifies a platform, such as 'ios' (?platform=ios), the system performs an override process as follows:
+
+
+`Request: ?platform=ios`
+
+``` 
+Manifest before override:
+{
+  "platforms": ["desktop", "android"],
+  "overrides": [
+    {
+      "platform": "ios",
+      "changes": {
+        "visibility": "searchable"
+      }
+    }
+  ]
+}
+```
+
+It begins with the main manifest as the default.
+Searches for any overrides within the manifest relevant to the requested platform (here "platform": "ios"), and applies them to the default fields.
+Returns a manifest specific for the requested platform, in this case 'ios'.
+``` Resulting manifest.json:
+{
+    "platforms": ["ios"],
+    "visibility": "searchable"
+}
+```

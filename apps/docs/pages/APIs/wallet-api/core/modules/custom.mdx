@@ -1,0 +1,99 @@
+import { Callout, Steps } from "nextra/components";
+
+# Using the Custom Module in Wallet API Client
+
+The Custom Module allows you to interact with any Custom Handler supported by the server.
+
+## Custom Module Overview
+
+<Callout type="info" emoji="ℹ️">
+  We are still working on improving the type safety of custom modules
+</Callout>
+
+<Steps>
+### Step 1
+
+First, you need a Custom Module, you can import one from another lib or create it.
+
+To create a Custom Module, you need to import and extend the CustomModule class.
+
+You can add any method you want in your class and do any logic you need to.  
+Use `this.request<ParamType, ReturnType>("custom.handler", param)` to call the Custom Handler methods supported by the server.
+
+```javascript
+import { CustomModule } from "@ledgerhq/wallet-api-client";
+
+type CustomLogHandlersType = {
+  "custom.log": (message: string) => Promise<{ res: "hello" }>;
+};
+
+class CustomLog extends CustomModule {
+  log(message: string) {
+    return this.request<
+      Parameters<CustomLogHandlersType["custom.log"]>[0],
+      ReturnType<CustomLogHandlersType["custom.log"]>
+    >("custom.log", message);
+  }
+}
+```
+
+### Step 2
+
+Go back to your transport declaration from your [Wallet API Configuration](../configuration).
+
+You need to adapt the WalletAPIClient by passing a function that returns your custom handler.
+
+<Callout type="info" emoji="ℹ️">
+  You can use the `defaultLogger` export from the `@ledgerhq/wallet-api-client`
+  if you weren't using the second parameter of the WalletAPIClient
+</Callout>
+
+```javascript
+import { WalletAPIClient, defaultLogger } from "@ledgerhq/wallet-api-client";
+
+const walletApiClient = new WalletAPIClient(
+  transport,
+  defaultLogger,
+  (client) => {
+    return new CustomLog(client);
+  }
+);
+```
+
+<Callout type="info" emoji="ℹ️">
+  You can also use multiple Custom Module in an object.
+</Callout>
+
+```javascript
+import { WalletAPIClient, defaultLogger } from "@ledgerhq/wallet-api-client";
+
+const walletApiClient = new WalletAPIClient(
+  transport,
+  defaultLogger,
+  (client) => {
+    return {
+      log: new CustomLog(client),
+      log2: new CustomLog2(client),
+      device: new CustomDevice(client),
+    };
+  }
+);
+```
+
+### Step 3
+
+Access the Custom Module via `walletApiClient.custom`.
+
+```javascript
+// Example using one module
+const res = await walletApiClient.custom.log("test");
+// Example using multiple modules
+const res2 = await walletApiClient.custom.log.log("test");
+```
+
+</Steps>
+
+## Handling Errors
+
+Make sure to handle errors gracefully and provide appropriate feedback to the user.  
+Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

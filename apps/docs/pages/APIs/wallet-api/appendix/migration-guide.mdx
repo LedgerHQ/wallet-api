@@ -1,0 +1,101 @@
+<div>
+  # Migrating from the Platform API
+
+  This guide aim to help migrating from the **Platform API** _(live-app-sdk)_ to the newer **Wallet-API**.
+
+  ## Key Differences
+
+  Although they mostly serve the same purpose, there are many key differences that separate the Wallet-API from the
+  Platform API. Here is a list of those key differences:
+
+  1. **Introspective design:** Wallet-API was designed to be implemented on uneven wallets. Some wallets will implement
+  all existing features, some won't. Live apps are now able to request a wallet's specific capabilities and adapt their
+  UX based on those.
+  2. **Method permissions:** Wallet-API adds plenty of new features. Since they can be used freely by the live app, it
+  made sense to restrict which app can use which method. Similarily to mobile apps and browser extensions, live apps now
+  need to declare which methods they intend to use in their respective manifests.
+  3. **Currency permissions:** Most live apps will only focus on a few specific crypto currencies. To avoid exposing
+  un-needed user account informations, live apps now have to declare in their manifests which currencies they intend to
+  use.
+  4. **More coin family support:** Wallet-API implement more crypto currency families than the Platform API. Please
+  refer to the doc to discover newly integrated crypto families.
+  5. **Unsollicited events:** Wallet-API enable live apps to subscribe to wallet events. This can be used to be notified
+  of any emitted events from the wallet.
+
+  ## Migrating the manifest
+
+  The manifest format hasn't been updated, however, some unused fields are now being used. Here is a list of the
+  required modifications:
+
+  ### `apiVersion`
+
+  This field need to be set at version `^2.0.0` to ensure the connected wallet will expose the Wallet-API. If a lower
+  version is used, the Platform API will be exposed instead
+
+  ```json
+  {
+    ...
+      "apiVersion": "^2.0.0",
+  }
+  ```
+
+  ### `currencies`
+
+  This field now specify which currencies will be used by the live app. From the point of view of the live app, the
+  wallet won't support crypto currencies that are not included in this list.
+
+  ```json
+  {
+    ...
+      "currencies": [
+    "ethereum",
+    "bitcoin"
+    ...
+    ],
+  }
+  ```
+
+  ### `permissions`
+
+  This field now specify which methods can be used by the live app. Trying to use a method that wasn't declared in this
+  list will result in a permission error.
+
+  ```json
+  {
+    ...
+      "permissions": [
+    "currency.list",
+    "account.list",
+    "account.request",
+    ...
+    ],
+  }
+  ```
+
+  ## Migrating the live app
+
+  Live apps using the Platform API are using the `@ledgerhq/live-app-sdk` package. This package provided a vanilla JS
+  client instance that could be used to communicate with the connected wallet. We now provide **two packages** to
+  integrate the Wallet-API into your website:
+
+  ### `@ledgerhq/wallet-api-client`
+
+  The minimal implementation is pretty similar to the `@ledgerhq/live-app-sdk`. This new package expose a vanilla JS
+  `WalletAPIClient` class. Please refer to [the core section](../core/getting-started) for more. Here are a few differences:
+
+  1. **Signing transactions:** The `broadcastSignedTransaction` endpoint was removed. There are now only two ways to
+  sign a transaction, with **transaction.sign** or **transaction.signAndBroadcast**. The first one will trigger a
+  signature flow and return a **signed transaction**, the second one will trigger a signature flow and broadcast the
+  signed transaction in one go, returning the **transaction hash**.
+  2. **Transports:** Transport is an interface for a simple connector allowing the live app to connect to the wallet.
+  `WindowMessageTransport` is still provided, but it now require the user to call `connect()` before it can be used.
+
+  ### `@ledgerhq/wallet-api-client-react`
+
+  React typically makes it difficult to manage anything that is **instance based**. Doing so generally involve more
+  advanced concepts such as _reference management_ and can introduce a lot of **bugs and complexity**. Although some
+  developers might want to manage the integration themselves, we now offer a react wrapper library in order facilitate
+  Wallet-API integration in their website, we are now providing the `@ledgerhq/wallet-api-client-react` library. This
+  library is exposing both a provider and a set of react hooks, facilitating integration.
+
+</div>

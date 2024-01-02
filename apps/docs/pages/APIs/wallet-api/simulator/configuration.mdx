@@ -1,0 +1,72 @@
+# Configuring the simulator
+
+### Launching Live App from Browser
+
+One of the benefits of using the Simulator is that it allows developers to launch their Live App from any browser, without the need to launch it from within Ledger Live. This greatly simplifies the development and testing process as it removes the dependency on the Ledger Live application.
+
+### Connecting to the Simulator
+
+To connect to the Simulator, you will need to modify your `TransportProvider.tsx` file. Specifically, you need to use the `getSimulatorTransport` function provided by the Simulator library.
+
+Here's how the modified `TransportProvider.tsx` file should look like:
+
+```jsx
+import { WalletAPIProvider } from "@ledgerhq/wallet-api-client-react";
+import { getSimulatorTransport, profiles } from "@ledgerhq/wallet-api-simulator";
+import type { Transport } from "@ledgerhq/wallet-api-core";
+
+function TransportProvider({ children }) {
+  function getWalletAPITransport(): Transport {
+    if (typeof window === "undefined") {
+      return {
+        onMessage: undefined,
+        send: () => {},
+      };
+    }
+
+    // Use Simulator transport
+    const transport = getSimulatorTransport(profiles.STANDARD);
+
+    return transport;
+  }
+
+  const transport = getWalletAPITransport();
+
+  return (
+    <WalletAPIProvider transport={transport}>{children}</WalletAPIProvider>
+  );
+}
+
+export default TransportProvider;
+```
+
+In this file, the `getSimulatorTransport` function is passed a predefined profile, which is `profiles.STANDARD`. This sets up the transport to use the Simulator.
+
+Let's break it down:
+
+- We import the necessary components and types from the Ledger's Wallet API packages.
+- The `TransportProvider` function component is created. This component receives its children as a prop and renders them within the `WalletAPIProvider`.
+- The `getWalletAPITransport` function provides a transport method for the `WalletAPIProvider`. It checks if the `window` object is defined (which it wouldn't be during server-side rendering) and returns an empty transport object if it's not.
+- If the `window` object is available, it initialises a `WindowMessageTransport`, connects it, and returns it as the transport method. This allows the app to communicate with the Ledger Wallet API through window messages.
+- The `WalletAPIProvider` is provided with the transport object returned by `getWalletAPITransport`. This setup allows the rest of your app (represented by `{children}`) to communicate with the Ledger Wallet API.
+
+After creating this `TransportProvider.tsx` file, you need to wrap your `<App />` with the `TransportProvider` in your root file. This would typically look like the following:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import TransportProvider from './TransportProvider';
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <TransportProvider>
+      <App />
+    </TransportProvider>
+  </React.StrictMode>
+);
+```
+
+With this setup, the entire application can access Ledger's Wallet API and communicate with it via the `TransportProvider`.
+
+You are now almost ready to use the wallet API's functionalities. The last step is to make your Live App ready to be registered by creating your manifest. You can head to this section to learn about [how to create your manifest](../examples/use-live-app/manifest)

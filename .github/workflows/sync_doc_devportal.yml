@@ -1,0 +1,75 @@
+name: Create Pull Request to DevPortal's repo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/docs/pages/APIs/wallet-api/*"
+      - "apps/docs/pages/docs/discover/*"
+
+jobs:
+  syncAndCreatePR:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/setup-node@v2
+        with:
+          node-version: "lts/*"
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync files to the other repository and create Pull Request
+        env:
+          SYNC_DEV_PORTAL_TOKEN: ${{ secrets.SYNC_DEV_PORTAL_TOKEN }}
+          SOURCE_REPO_NAME: "wallet-api"
+          SOURCE_REPO: "github.com/LedgerHQ/wallet-api"
+          SOURCE_FILE_PATH_1: "apps/docs/pages/APIs/wallet-api"
+          SOURCE_FILE_PATH_2: "apps/docs/pages/docs/discover"
+          TARGET_REPO_NAME: "developer-portal"
+          TARGET_REPO: "github.com/LedgerHQ/developer-portal"
+          TARGET_FILE_PATH_1: "pages/APIs/wallet-api"
+          TARGET_FILE_PATH_2: "pages/docs/discover"
+          TARGET_BRANCH: "main"
+          TARGET_PR_API_URL: "https://api.github.com/repos/LedgerHQ/developer-portal/pulls"
+          PR_TITLE: "Merging documentation from wallet-api"
+          PR_COMMIT_MESSAGE: "doc: add new changes from wallet-api doc"
+          PR_BRANCH_NAME: sync-discover-doc-$(date +%s)
+          PR_REVIEWERS: '{"reviewers": ["cfranceschi-ledger"]}'
+          PR_ASSIGN: '{"assignees": ["ramyeb"]}'
+        run: |
+          git clone --depth 1 https://${SYNC_DEV_PORTAL_TOKEN}@${SOURCE_REPO}
+          git clone --depth 1 https://${SYNC_DEV_PORTAL_TOKEN}@${TARGET_REPO}
+
+          cd ${TARGET_REPO_NAME}
+          git checkout -b ${PR_BRANCH_NAME}
+
+          # Replace files
+          cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_1} ${TARGET_FILE_PATH_1}
+          cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_2} ${TARGET_FILE_PATH_2}
+
+          # Push changes
+          git add ${TARGET_FILE_PATH_1}
+          git add ${TARGET_FILE_PATH_2}
+          git commit -m "${PR_COMMIT_MESSAGE}"
+          git push origin ${PR_BRANCH_NAME}
+
+          # Create Pull Request
+          PR_RESPONSE=$(curl -X POST -H "Authorization: token ${SYNC_DEV_PORTAL_TOKEN}" \
+              -d '{"title":"${PR_TITLE}","head":"'"$PR_BRANCH_NAME"'","base":"${TARGET_BRANCH}"}' \
+              ${TARGET_PR_API_URL})
+          PR_URL=$(echo $PR_RESPONSE | jq -r '.url') 
+          PR_ISSUE_URL=$(echo $PR_RESPONSE | jq -r '.issue_url') 
+
+          # Assign Reviewers
+          curl -s -X POST -H "Authorization: token ${SYNC_DEV_PORTAL_TOKEN}" \
+              -d "$PR_REVIEWERS" \
+              ${PR_URL}/requested_reviewers
+
+          # Assign Users to the Pull Request
+          curl -s -X POST -H "Authorization: token ${SYNC_DEV_PORTAL_TOKEN}" \
+              -d "$PR_ASSIGN" \
+              ${PR_ISSUE_URL}/assignees

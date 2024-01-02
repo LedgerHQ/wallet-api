@@ -7,6 +7,10 @@
 .hero {
     padding: 60px 20px;
     text-align: center;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero h1 {
