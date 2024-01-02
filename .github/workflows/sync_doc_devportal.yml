@@ -1,12 +1,12 @@
 name: Create Pull Request to DevPortal's repo
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "apps/docs/pages/APIs/wallet-api/*"
-      - "apps/docs/pages/docs/discover/*"
+on: workflow_dispatch
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - "apps/docs/pages/APIs/wallet-api/*"
+#      - "apps/docs/pages/docs/discover/*"
 
 jobs:
   syncAndCreatePR:
