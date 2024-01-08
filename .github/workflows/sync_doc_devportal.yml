@@ -57,7 +57,7 @@ jobs:
           git push origin ${PR_BRANCH_NAME}
 
           # Create Pull Request
-          JSON_PAYLOAD="{"title":"${PR_TITLE}","head":"${PR_BRANCH_NAME}","base":"main"}"
+          JSON_PAYLOAD="{\"title\":\"${PR_TITLE}\",\"head\":\"${PR_BRANCH_NAME}\",\"base\":\"${TARGET_BRANCH}\"}"
           echo "JSON payload: $JSON_PAYLOAD"
 
           PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d '{"title":"${PR_TITLE}","head":"${PR_BRANCH_NAME}","base":"main"}' ${TARGET_PR_API_URL})
