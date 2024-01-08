@@ -41,11 +41,12 @@ jobs:
           PR_ASSIGN: '{"assignees": ["ramyeb"]}'
         run: |
           git clone --depth 1 https://${SOURCE_REPO}
-          git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
+          git clone --depth 1 https://${TARGET_REPO}
           PR_BRANCH_NAME=sync-discover-doc-$(date +%s)
 
           cd ${TARGET_REPO_NAME}
           git checkout -b ${PR_BRANCH_NAME}
+          git remote set-url origin https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
 
           # Replace files
           cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_1} ${TARGET_FILE_PATH_1}
