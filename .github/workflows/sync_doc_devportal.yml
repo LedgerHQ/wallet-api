@@ -39,8 +39,8 @@ jobs:
           PR_REVIEWERS: '{"reviewers": ["cfranceschi-ledger"]}'
           PR_ASSIGN: '{"assignees": ["ramyeb"]}'
         run: |
-          git clone --depth 1 https://${SOURCE_REPO}
-          git clone --depth 1 https://${TARGET_REPO}
+          git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${SOURCE_REPO}
+          git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
           PR_BRANCH_NAME=sync-discover-doc-$(date +%s)
 
           cd ${TARGET_REPO_NAME}
