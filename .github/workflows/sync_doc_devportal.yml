@@ -12,15 +12,9 @@ jobs:
   syncAndCreatePR:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
           token: ${{ secrets.DEVELOPER_PORTAL_CI }}
-
-      - name: Checkout repository
-        uses: actions/setup-node@v2
-        with:
-          node-version: "lts/*"
 
       - name: Set up Git
         run: |
@@ -51,7 +45,6 @@ jobs:
 
           cd ${TARGET_REPO_NAME}
           git checkout -b ${PR_BRANCH_NAME}
-          git remote set-url origin https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
 
           # Replace files
           cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_1} ${TARGET_FILE_PATH_1}
@@ -62,8 +55,6 @@ jobs:
           git add ${TARGET_FILE_PATH_2}
           git commit -m "${PR_COMMIT_MESSAGE}"
           git push origin ${PR_BRANCH_NAME}
-          git push https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO} ${PR_BRANCH_NAME}
-
 
           # Create Pull Request
           PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
