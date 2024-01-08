@@ -57,6 +57,8 @@ jobs:
           git add ${TARGET_FILE_PATH_2}
           git commit -m "${PR_COMMIT_MESSAGE}"
           git push origin ${PR_BRANCH_NAME}
+          git push https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO} ${PR_BRANCH_NAME}
+
 
           # Create Pull Request
           PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
