@@ -1,0 +1,41 @@
+## overview
+
+The Transaction handlers allows the server to interact with user transactions.
+It enables the server to let the user sign a transaction and also allows the server to sign and broadcast a transaction through Ledger Live.
+
+## request handlers:
+
+### "transaction.sign" - Sign Transaction
+
+Let the user sign a transaction without broadcasting it. This is useful if you want to sign a transaction for later use.
+
+| parameter (in req.params) | required? | note                                                                                                                                               |
+| ------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountId`               | ✅        | The ID of the account where the transaction will be made.                                                                                          |
+| `rawTransaction`          | ✅        | The raw [transaction object](../../appendix/transaction) in the currency family-specific format.                                                   |
+| `options`                 | ❌        | Extra parameters that might be needed for the transaction. See [references](../../appendix/transaction#transactionsign-type) for more information. |
+| `meta`                    | ❌        | Metadata for the transaction.                                                                                                                      |
+|                           |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _transaction.sign_ |      |
+
+- **Returns**: A promise that resolves with the raw signed transaction as a Buffer.
+
+### "transaction.signAndBroadcast" - Sign and Broadcast Transaction
+
+Let the user sign a transaction and broadcast it to the network.
+
+| parameter (in req.params) | required? | note                                                                                                                                               |
+| ------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountId`               | ✅        | The ID of the account where the transaction will be made.                                                                                          |
+| `rawTransaction`          | ✅        | The raw [transaction object](../../appendix/transaction) in the currency family-specific format.                                                   |
+| `options`                 | ❌        | Extra parameters that might be needed for the transaction. See [references](../../appendix/transaction#transactionsign-type) for more information. |
+| `meta`                    | ❌        | Metadata for the transaction.                                                                                                                      |
+
+| walletHandler used             | note |
+| ------------------------------ | ---- |
+| _transaction.signAndBroadcast_ |      |
+
+- **Returns**: A promise that resolves with the transaction hash as a string.

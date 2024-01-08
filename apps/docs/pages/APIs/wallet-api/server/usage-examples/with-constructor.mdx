@@ -1,0 +1,81 @@
+## Example usage of the walletAPIServer
+
+Here's how you can instantiate a new `WalletAPIServer` using its [constructor](../wallet-api-server#constructor)
+
+### instantiation
+
+```ts {21}
+const transport: Transport = {
+  onMessage: undefined,
+  send: (message: string) => {
+    if (wapiView) {
+      wapiView.webContents.postMessage("message", message);
+    }
+  },
+};
+
+const config = {
+  appId: "fake-manifest-id", // should be the real manifest id, used in the storage handler code
+  wallet: {
+    name: "browserview-wallet",
+    version: "0.1.0",
+  },
+  tracking: false,
+  userId: "fake",
+};
+
+const wapiServer = new WalletAPIServer(transport, config);
+```
+
+two required arguments are passed, [transport](../wallet-api-server#transport) and [config](../wallet-api-server#walletcontextconfig).
+
+### setup accounts, currencies and permissions via setters
+
+```ts
+wapiServer.setAccounts(accounts);
+wapiServer.setCurrencies(currencies);
+wapiServer.setPermissions({
+  currencyIds: ["**"],
+  methodIds: ["account.list", "account.receive", "account.request"],
+});
+```
+
+Call setters to set the [accounts](../wallet-api-server#allaccounts),
+[currencies](../wallet-api-server#allcurrencies),
+and [permissions](../wallet-api-server#permissions)
+
+### set wallet handlers
+
+```ts
+    wapiServer.setHandler("account.request", async ({ accounts$, currencies$ }) => {
+      return new Promise((resolve, reject) => {
+        uiAccountRequest({
+          accounts$,
+          currencies: currencies.map({id} => id),
+          onSuccess: (account: AccountLike, parentAccount: Account | undefined) => {
+            resolve(accountToWalletAPIAccount(account, parentAccount));
+          },
+          onCancel: () => {
+            reject(new Error("Canceled by user"));
+          },
+        });
+      });
+    })
+
+```
+
+Set a [walletHandler](../wallet-api-server#wallethandlers) to handle
+actions that would request an account from the wallet.
+
+### wire up transport
+
+```ts {3}
+import { ipcMain } from "electron";
+ipcMain.on("walletAPI:postMessage", (_, data) => {
+  transport.onMessage?.(data);
+});
+```
+
+Set up the transport's `onMessage` value, which will allow _APP -> SERVER_ communication.
+
+More on transport [here](../wallet-api-server#transport).

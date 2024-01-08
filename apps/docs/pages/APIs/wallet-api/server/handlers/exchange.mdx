@@ -1,0 +1,48 @@
+## overview
+
+The Exchange handlers facilitates various exchange operations such as starting the exchange process,
+completing swap, sell, and fund transactions using Ledger Live.
+
+## request handlers:
+
+### "exchange.start" - Start Exchange
+
+{/* TODO: document this one better */}
+
+Start the exchange process by generating a nonce on Ledger device. This method is typically called before completing the exchange process.
+
+| parameter (in req.params) | required? | note                                       |
+| ------------------------- | --------- | ------------------------------------------ |
+| _exchangeType_            | ✅        | Type of exchange, "SWAP", "SELL" or "FUND" |
+
+| walletHandler used | note |
+| ------------------ | ---- |
+| _exchange.start_   |      |
+
+- **Returns**: A promise that resolves with an object containing the `transactionId` which is used to complete the exchange process.
+
+### "exchange.complete" - Complete Exchange
+
+{/* TODO: document this one better */}
+
+Complete an exchange process (swap, sell, or fund) by passing the exchange content and its signature.
+
+| parameter (in req.params) | required? | note                                                                                                                                 |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| _provider_                | ✅        | A string used to verify the signature.                                                                                               |
+| _fromAccountId_           | ✅        | Identifier of the account used as a source for the transaction.                                                                      |
+| _rawTransaction_          | ✅        | A RawTransaction object containing the transaction details.                                                                          |
+| _hexBinaryPayload_        | ✅        | Hexadecimal string representing the blueprint of the data that will be allowed for signing.                                          |
+| _hexSignature_            | ✅        | Hexadecimal string ensuring the source of the payload.                                                                               |
+| _feeStrategy_             | ✅        | A string representing the fee strategy (`"SLOW"`, `"MEDIUM"`, or `"FAST"`).                                                          |
+| _exchangeType_            | ✅        | A string specifying the type of exchange operation (`"SWAP"`, `"SELL"`, or `"FUND"`).                                                |
+| _toAccountId_             | ❌        | Identifier of the account used as a destination (required for `"SWAP"`).                                                             |
+| _swapId_                  | ❌        | Identifier of the backend swap used (required for `"SWAP"`).                                                                         |
+| _rate_                    | ❌        | Swap rate used in the transaction (required for `"SWAP"`).                                                                           |
+| _tokenCurrency_           | ❌        | Swap tokenCurrency is used when we want point a new token, as id does not exists in wallet-api (optional for `"SWAP"` and `"FUND"`). |
+
+| walletHandler used  | note |
+| ------------------- | ---- |
+| _exchange.complete_ |      |
+
+- **Returns**: A promise that resolves with an object containing the `transactionHash` of the broadcasted transaction.

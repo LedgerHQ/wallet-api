@@ -1,0 +1,52 @@
+import { Steps } from 'nextra/components'
+ 
+The WalletAPIServer is **a bi-directonnal JSON-RPC 2.0 server**
+
+These docs aim to explain the design of the WalletAPIServer and how to use it.
+
+There are a few ways you can go about reading it, depending on your use case:
+
+## How to grasp what it does
+
+<Steps>
+  ### Start of with the [visual introduction](./server/wallet-api-server/diagrams#slideshow)
+  
+  ### Look at the reference page [here](./server/wallet-api-server)
+
+### Check out [this example](./server/usage-examples/with-constructor)
+
+shows how a server can be used, instantiating it via its constructor
+
+</Steps>
+
+## How to use walletAPIServer
+
+<Steps>
+
+### Use [this page](./server/wallet-api-server) as your reference
+
+### Check out [here](./server/wallet-api-server#constructor)
+
+how to instantiate a server via its constructor
+
+### Check out [here](./server/wallet-api-server/react-hook)
+
+(optional, useful if using react) how to instantiate a server via a react hook
+
+### Check out [this example](./server/usage-examples/with-constructor)
+
+shows how a server can be used, instantiating it via its constructor
+
+### Check out [the usage of a server made within Ledger Live](./server/usage-examples/within-ledger-live)
+
+shows how a server can be used, instantiating it via the react hook
+
+</Steps>
+
+## Additional resources living outside of these docs
+
+- Source code: https://github.com/LedgerHQ/wallet-api/tree/main/packages/server
+- Main file: https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/WalletAPIServer.ts
+- Wallet API README: https://github.com/LedgerHQ/wallet-api/blob/main/README.md
+- Spec: https://github.com/LedgerHQ/wallet-api/blob/main/spec/server/README.md
+- Package name: **@ledgerhq/wallet-api-server**

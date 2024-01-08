@@ -4,5 +4,6 @@
   "core": "Core",
   "simulator": "Simulator",
   "examples": "Examples",
-  "appendix": "Appendix"
+  "appendix": "Appendix",
+  "server": "Server"
 }
