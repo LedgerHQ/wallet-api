@@ -12,6 +12,11 @@ jobs:
   syncAndCreatePR:
     runs-on: ubuntu-latest
     steps:
+     - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.DEVELOPER_PORTAL_CI }}
+
       - name: Checkout repository
         uses: actions/setup-node@v2
         with:
