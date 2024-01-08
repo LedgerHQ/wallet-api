@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "RamyEB"
+          git config --global user.email "ramyelb@gmail.com"
 
       - name: Sync files to the other repository and create Pull Request
         env:
@@ -40,7 +40,7 @@ jobs:
           PR_ASSIGN: '{"assignees": ["ramyeb"]}'
         run: |
           git clone --depth 1 https://${SOURCE_REPO}
-          git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
+          git clone --depth 1 https://${TARGET_REPO}
           PR_BRANCH_NAME=sync-discover-doc-$(date +%s)
 
           cd ${TARGET_REPO_NAME}
@@ -53,7 +53,7 @@ jobs:
           # Push changes
           git add ${TARGET_FILE_PATH_1}
           git add ${TARGET_FILE_PATH_2}
-          git commit -m "${PR_COMMIT_MESSAGE}"
+          git commit -m "${PR_COMMIT_MESSAGE}" || echo "No changes to commit"
           git push origin ${PR_BRANCH_NAME}
 
           # Create Pull Request
