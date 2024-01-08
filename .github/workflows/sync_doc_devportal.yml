@@ -57,9 +57,7 @@ jobs:
           git push origin ${PR_BRANCH_NAME}
 
           # Create Pull Request
-          PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
-              -d '{"title":"'${PR_TITLE}'","head":"'${PR_BRANCH_NAME}'","base":"'${TARGET_BRANCH}'"}' \
-              ${TARGET_PR_API_URL})
+          PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d '{"title":"'${PR_TITLE}'","head":"'${PR_BRANCH_NAME}'","base":"'${TARGET_BRANCH}'"}' ${TARGET_PR_API_URL})
 
           PR_URL=$(echo $PR_RESPONSE | jq -r '.url') 
           PR_ISSUE_URL=$(echo $PR_RESPONSE | jq -r '.issue_url') 
