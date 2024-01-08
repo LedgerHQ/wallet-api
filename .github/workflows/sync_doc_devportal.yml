@@ -1,12 +1,12 @@
 name: Create Pull Request to DevPortal's repo
 
-on: workflow_dispatch
-#  push:
-#    branches:
-#      - main
-#    paths:
-#      - "apps/docs/pages/APIs/wallet-api/*"
-#      - "apps/docs/pages/docs/discover/*"
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/docs/pages/APIs/wallet-api/*"
+      - "apps/docs/pages/docs/discover/*"
 
 jobs:
   syncAndCreatePR:
@@ -41,7 +41,7 @@ jobs:
         run: |
           git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${SOURCE_REPO}
           git clone --depth 1 https://ldg-github-ci:${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
-          PR_BRANCH_NAME=sync-discover-doc-$(date +%s)
+          PR_BRANCH_NAME=sync-discover-doc-$(date +%d-%m-%H-%M)
 
           cd ${TARGET_REPO_NAME}
           git checkout -b ${PR_BRANCH_NAME}
@@ -57,21 +57,16 @@ jobs:
           git push origin ${PR_BRANCH_NAME}
 
           # Create Pull Request
-          JSON_PAYLOAD="{\"title\":\"${PR_TITLE}\",\"head\":\"${PR_BRANCH_NAME}\",\"base\":\"${TARGET_BRANCH}\"}"
+          JSON_PAYLOAD="{\"title\":\"${PR_TITLE}-$(date +%d-%m-%H-%M)\",\"head\":\"${PR_BRANCH_NAME}\",\"base\":\"${TARGET_BRANCH}\"}"
 
           PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d "$JSON_PAYLOAD" ${TARGET_PR_API_URL})
-          echo "PR_RESPONSE : $PR_RESPONSE "
 
           PR_URL=$(echo $PR_RESPONSE | jq -r '.url') 
           PR_ISSUE_URL=$(echo $PR_RESPONSE | jq -r '.issue_url') 
 
 
           # Assign Reviewers
-          curl -s -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
-              -d "$PR_REVIEWERS" \
-              ${PR_URL}/requested_reviewers
+          curl -s -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d "$PR_REVIEWERS" ${PR_URL}/requested_reviewers
 
           # Assign Users to the Pull Request
-          curl -s -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
-              -d "$PR_ASSIGN" \
-              ${PR_ISSUE_URL}/assignees
+          curl -s -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d "$PR_ASSIGN" ${PR_URL}/assignees
