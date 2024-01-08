@@ -1,12 +1,12 @@
 name: Create Pull Request to DevPortal's repo
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "apps/docs/pages/APIs/wallet-api/*"
-      - "apps/docs/pages/docs/discover/*"
+on: workflow_dispatch
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - "apps/docs/pages/APIs/wallet-api/*"
+#      - "apps/docs/pages/docs/discover/*"
 
 jobs:
   syncAndCreatePR:
@@ -26,11 +26,11 @@ jobs:
         env:
           DEVELOPER_PORTAL_CI_TOKEN: ${{ secrets.DEVELOPER_PORTAL_CI }}
           SOURCE_REPO_NAME: "wallet-api"
-          SOURCE_REPO: "https://github.com/LedgerHQ/wallet-api"
+          SOURCE_REPO: "github.com/LedgerHQ/wallet-api"
           SOURCE_FILE_PATH_1: "apps/docs/pages/APIs/wallet-api"
           SOURCE_FILE_PATH_2: "apps/docs/pages/docs/discover"
           TARGET_REPO_NAME: "developer-portal"
-          TARGET_REPO: "https://github.com/LedgerHQ/developer-portal"
+          TARGET_REPO: "github.com/LedgerHQ/developer-portal"
           TARGET_FILE_PATH_1: "pages/APIs/wallet-api"
           TARGET_FILE_PATH_2: "pages/docs/discover"
           TARGET_BRANCH: "main"
@@ -40,7 +40,7 @@ jobs:
           PR_REVIEWERS: '{"reviewers": ["cfranceschi-ledger"]}'
           PR_ASSIGN: '{"assignees": ["ramyeb"]}'
         run: |
-          git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${SOURCE_REPO}
+          git clone --depth 1 https://${SOURCE_REPO}
           git clone --depth 1 https://${DEVELOPER_PORTAL_CI_TOKEN}@${TARGET_REPO}
           PR_BRANCH_NAME= sync-discover-doc-$(date +%s)
 
