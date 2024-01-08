@@ -1,0 +1,211 @@
+import { Callout } from "nextra/components";
+import { Steps } from "nextra/components";
+
+## Usage of the walletAPIServer in Ledger Live
+
+The react hook [useWalletAPIServer](../wallet-api-server/react-hook)
+is used within [Ledger Live](https://github.com/LedgerHQ/ledger-live/)
+to create a walletAPIServer
+
+It is used in _ledger-live-common_ here
+**ledger-live-common/src/wallet-api/react.ts**  
+In this file, a walletAPIServer
+is created, and exposed through another hook (also called
+`useWalletAPIServer`)
+
+This (LLC hook) is in turn used in both
+[LLD](https://github.com/LedgerHQ/ledger-live/blob/43aeb2a1c650c6231c14149b74e4a42135b15766/apps/ledger-live-desktop/src/renderer/components/Web3AppWebview/WalletAPIWebview.tsx#L10)
+and [LLM](https://github.com/LedgerHQ/ledger-live/blob/43aeb2a1c650c6231c14149b74e4a42135b15766/apps/ledger-live-mobile/src/components/Web3AppWebview/helpers.ts#L8)
+
+## useWebview()
+
+<Steps>
+### useWebView() gets called
+
+Both LLD and LLM, when creating live apps, use the hook `useWebView`,
+with the main arguments being:
+
+- [manifest](../../appendix/manifest)
+- [customHandlers](../wallet-api-server#requesthandlers)
+- webviewRef
+
+```ts filename="apps/ledger-live-desktop/src/renderer/components/Web3AppWebview/WalletAPIWebview.tsx"
+const WalletAPIWebview => {
+  ({ manifest customHandlers} ) => {
+    const { webviewRef } = useWebviewState();
+
+    useWebView({ manifest, customHandlers}, webviewRef);
+    return <webview />
+  }
+};
+```
+
+### Prepares transport
+
+Will allow communication with the webview.
+
+```ts filename="simplified"
+const webviewHook =  {
+  return {
+    postMessage: (message) => {
+        webviewRef.current.contentWindow?.postMessage(message);
+    },
+  };
+};
+```
+
+### Prepares uiHooks
+
+They will allow walletHandlers to trigger ui actions
+
+<details>
+    <summary>more on uiHooks</summary>
+
+uiHooks are created in useWebView and sent to LLC useWalletAPIServer
+`uiHook` is an object that maps a method like `"account.request"` to an action in LLD / LLM
+here's a list of actions it triggers in LLD:
+
+- opening a drawer to select an account, start an exchange process
+- opening modals to sign transactions, messages, start an exchange process, connect a device
+- store data / update account data
+- display toaster
+
+</details>
+
+### LLC useWalletAPIServer() gets called
+
+The goal of LLC's `useWalletAPIServer` is simply to call the walletAPIServer hook (also called `useWalletAPIServer`)
+
+Before doing so it:
+
+- Extracts [permissions](../wallet-api-server#permissions) From the manifest
+
+- Converts accounts sent from [useWebView](./within-ledger-live#usewebview) (coming from redux store) to [a format readable by walletAPIServer](../wallet-api-server#allaccounts)
+
+- Fetches and filters currencies (coming from `libs/ledger-live-common/src/currencies/helpers.ts` `listCurrencies`)
+
+- Converts filtered currencies to a format readable by wallet-api-server. More on that format [here](../wallet-api-server/react-hook#currencies)
+
+- Creates a [transport](../wallet-api-server#transport)
+
+```js
+function useTransport(postMessage: (message: string) => void | undefined): Transport {
+  return useMemo(() => {
+    return {
+      onMessage: undefined,
+      send: postMessage, // will allow WALLETAPISERVER -> LIVEAPP communication (via postMessage)
+    };
+  }, [postMessage]);
+}
+
+  const transport = useTransport(webviewHook.postMessage);
+```
+
+### walletAPIServer gets instantiated
+
+via the react hook [useWalletAPIServer](../wallet-api-server/react-hook)
+
+### post-instantiation transport setup
+
+walletAPIServer sends back its `onMessage` callback, the webview will use
+it to send message to it.
+
+```ts {1,12-13, 20}
+const { onMessage } = useWalletAPIServer({
+  manifest,
+  accounts,
+  config,
+  webviewHook,
+  uiHook,
+  customHandlers,
+});
+
+const handleMessage = useCallback(
+  (event: Electron.IpcMessageEvent) => {
+    if (event.channel === "webviewToParent") {
+      onMessage(event.args[0]);
+    }
+  },
+  [onMessage]
+);
+
+useEffect(() => {
+  webviewRef.current.addEventListener("ipc-message", handleMessage);
+}, [handleMessage, onLoad]);
+```
+
+### post-instantiation setup of wallet handlers
+
+[server.setHandler](../wallet-api-server#wallethandlers) is called
+to setup Ledger Live Wallet/UI/Store callbacks.
+
+<details>
+  <summary>Simplified example of setHandler() call</summary>
+
+```js filename="libs/ledger-live-common/src/wallet-api/react.ts"
+    server.setHandler("account.request", async ({ accounts$, currencies$ }) => {
+      const currencies = await firstValueFrom(currencies$);
+      return new Promise((resolve, reject) => {
+        let currencyList = currencyList = allCurrenciesAndTokens.filter(({ id }) => currencyIds.includes(id));
+        uiAccountRequest({
+          accounts$,
+          currencies: currencyList,
+          onSuccess: (account: AccountLike, parentAccount: Account | undefined) => {
+            resolve(accountToWalletAPIAccount(account, parentAccount));
+          },
+          onCancel: () => {
+            reject(new Error("Canceled by user"));
+          },
+        });
+      });
+    });
+  }, [manifest, server, tracking, uiAccountRequest]);
+```
+
+those handlers are saved in the property `WalletAPIServer.walletHandlers`
+
+To recap:
+
+- `WalletAPIServer.walletHandlers` -> callbacks defined in LLC, trigger modals / drawers / update redux store, etc.
+- `WalletAPIServer.requestHandlers` -> internalHandlers + customHandlers, can call `walletHandlers` inside of them
+
+</details>
+
+</Steps>
+
+```mermaid
+flowchart TD
+    A{LLD/LLM useWebView} -->|
+    SENDS:
+
+    manifest
+    accounts
+    uiHooks: so server can trigger LL ui
+    webviewHook: so server can communicate TO the webview
+    customHandlers
+    | B{LLC useWalletAPIServer}
+    B --> |
+      GETS BACK:
+
+      onMessage: so webview can communicate TO server
+    |A
+```
+
+```mermaid
+flowchart TD
+    A{LLC useWalletAPIServer} -->|
+    SENDS:
+
+    transport: so server can communicate TO webview
+    accounts
+    currencies
+    permissions
+    customHandlers
+    | B{wallet-api-server useWalletAPIServer}
+    B --> |
+      GETS BACK:
+
+      server: WalletAPIServer, a RPC Node
+      onMessage: so webview can communicate TO server
+    |A
+```

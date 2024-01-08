@@ -1,0 +1,26 @@
+## overview
+
+The Wallet handlers allows you to interact with the user's wallet.  
+This includes retrieving the user's ID, fetching wallet information, and listing the capabilities of the wallet.
+
+## request handlers:
+
+### "wallet.capabilities"
+
+List the method IDs that are implemented by the wallet. (ie. the [walletHandlers](../wallet-api-server#wallethandlers) method names)
+
+- **Returns**: A promise that resolves with an array of strings representing the method IDs.
+
+### "wallet.userId"
+
+Retrieve the user ID of the connected wallet.
+
+- Fetches the user ID stored in [walletContext.config](../wallet-api-server#walletcontextconfig)
+- **Returns**: A promise that resolves with the user ID as a string.
+
+### "wallet.info"
+
+Retrieve information about the connected wallet.
+
+- Fetches the wallet info stored in [walletContext.config](../wallet-api-server#walletcontextconfig)
+- **Returns**: A promise that resolves with an object containing information about the connected wallet.

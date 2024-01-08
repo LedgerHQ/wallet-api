@@ -1,0 +1,20 @@
+## overview
+
+The Bitcoin handler allows the server to interact with Bitcoin accounts.  
+Specifically, you can retrieve the extended public key (xPub) of a Bitcoin account.  
+This is useful for deriving Bitcoin addresses without revealing the private key.
+
+## request handlers:
+
+### "bitcoin.getXPub" - Get Extended Public Key (xPub)
+
+| parameter (in req.params) | required? | note                                                                 |
+| ------------------------- | --------- | -------------------------------------------------------------------- |
+| _accountId_               | ✅        | The ID of the Bitcoin account for which the xPub is to be retrieved. |
+
+| walletHandler used | note                                                     |
+| ------------------ | -------------------------------------------------------- |
+| _bitcoin.getXPub_  | Should retrieve the xPub of a particular bitcoin account |
+
+- Gets the xPub of a bitcoin account with _bitcoin.getXPub_ walletHandler
+- **Returns**: A promise that resolves with the xPub as a string.
