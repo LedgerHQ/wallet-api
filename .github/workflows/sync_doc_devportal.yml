@@ -58,9 +58,8 @@ jobs:
 
           # Create Pull Request
           JSON_PAYLOAD="{\"title\":\"${PR_TITLE}\",\"head\":\"${PR_BRANCH_NAME}\",\"base\":\"${TARGET_BRANCH}\"}"
-          echo "JSON payload: $JSON_PAYLOAD"
 
-          PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d '{"title":"${PR_TITLE}","head":"${PR_BRANCH_NAME}","base":"main"}' ${TARGET_PR_API_URL})
+          PR_RESPONSE=$(curl -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" -d "$JSON_PAYLOAD" ${TARGET_PR_API_URL})
           echo "PR_RESPONSE : $PR_RESPONSE "
 
           PR_URL=$(echo $PR_RESPONSE | jq -r '.url') 
