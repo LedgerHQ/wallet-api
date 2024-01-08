@@ -63,6 +63,8 @@ jobs:
           PR_URL=$(echo $PR_RESPONSE | jq -r '.url') 
           PR_ISSUE_URL=$(echo $PR_RESPONSE | jq -r '.issue_url') 
 
+          echo $PR_RESPONSE
+
           # Assign Reviewers
           curl -s -X POST -H "Authorization: token ${DEVELOPER_PORTAL_CI_TOKEN}" \
               -d "$PR_REVIEWERS" \
