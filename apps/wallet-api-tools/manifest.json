@@ -8,9 +8,7 @@
   "apiVersion": "^2.0.0",
   "manifestVersion": "1",
   "branch": "debug",
-  "categories": [
-    "tools"
-  ],
+  "categories": ["tools"],
   "currencies": "*",
   "content": {
     "shortDescription": {

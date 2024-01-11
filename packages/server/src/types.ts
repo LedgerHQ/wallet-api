@@ -63,23 +63,29 @@ export type WalletHandlers = {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
   }) => Promisable<Account>;
-  "account.receive": (params: { account: Account }) => Promisable<string>;
+  "account.receive": (params: {
+    account: Account;
+    tokenCurrency?: string;
+  }) => Promisable<string>;
   "message.sign": (params: {
     account: Account;
     message: Buffer;
     meta: Record<string, unknown> | undefined;
+    tokenCurrency?: string;
   }) => Promisable<Buffer>;
   "transaction.sign": (params: {
     account: Account;
     transaction: Transaction;
     options?: TransactionSign["params"]["options"];
     meta: Record<string, unknown> | undefined;
+    tokenCurrency?: string;
   }) => Promisable<Buffer>;
   "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
     meta: Record<string, unknown> | undefined;
+    tokenCurrency?: string;
   }) => Promisable<string>;
   "device.close": (params: DeviceClose["params"]) => Promisable<string>;
   "device.exchange": (params: DeviceExchange["params"]) => Promisable<string>;
