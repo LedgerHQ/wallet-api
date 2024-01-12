@@ -8,6 +8,7 @@ export const serializeTronTransaction = ({
   mode,
   resource,
   duration,
+  votes,
 }: TronTransaction): RawTronTransaction => ({
   amount: amount.toString(),
   recipient,
@@ -15,6 +16,7 @@ export const serializeTronTransaction = ({
   mode,
   resource,
   duration,
+  votes,
 });
 
 export const deserializeTronTransaction = ({
@@ -24,6 +26,7 @@ export const deserializeTronTransaction = ({
   mode,
   resource,
   duration,
+  votes,
 }: RawTronTransaction): TronTransaction => ({
   amount: new BigNumber(amount),
   recipient,
@@ -31,4 +34,5 @@ export const deserializeTronTransaction = ({
   mode,
   resource,
   duration,
+  votes,
 });

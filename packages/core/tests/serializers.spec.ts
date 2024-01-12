@@ -535,6 +535,33 @@ describe("serializers.ts", () => {
           recipient: "recipient",
         });
       });
+
+      it("should succeed to serialize a tron transaction with votes", () => {
+        const transaction: TronTransaction = {
+          family,
+          mode: "vote",
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          votes: [
+            { address: "recipient", voteCount: 50 },
+            { address: "recipient2", voteCount: 50 },
+          ],
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          mode: "vote",
+          resource: undefined,
+          duration: undefined,
+          amount: "100",
+          recipient: "recipient",
+          votes: [
+            { address: "recipient", voteCount: 50 },
+            { address: "recipient2", voteCount: 50 },
+          ],
+        });
+      });
     });
 
     describe("near", () => {
@@ -1457,7 +1484,7 @@ describe("serializers.ts", () => {
         const serializedTransaction = serializeTransaction(transaction);
         const stringifiedTransaction = JSON.stringify(serializedTransaction);
         const parsedTransaction = JSON.parse(
-          stringifiedTransaction
+          stringifiedTransaction,
         ) as RawTransaction;
         const expectedTransaction = deserializeTransaction(parsedTransaction);
 
