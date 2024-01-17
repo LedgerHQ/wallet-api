@@ -1,4 +1,4 @@
-# wallet-api-tools
+# @ledgerhq/wallet-api-tools
 
 ## 0.4.5
 

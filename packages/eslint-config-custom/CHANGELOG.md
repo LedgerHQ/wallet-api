@@ -1,4 +1,4 @@
-# eslint-config-custom
+# @ledgerhq/eslint-config-custom
 
 ## 0.3.0
 

@@ -1,5 +1,5 @@
 {
-  "name": "jest-shared-config",
+  "name": "@ledgerhq/jest-shared-config",
   "private": true,
   "version": "0.1.0",
   "main": "index.js",
