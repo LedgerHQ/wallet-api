@@ -1,4 +1,4 @@
-# client-nextjs
+# @ledgerhq/client-nextjs
 
 ## 0.1.3
 
