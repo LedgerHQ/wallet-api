@@ -93,7 +93,7 @@ Here is an example of a partial response from the `useAccounts` hook:
     "spendableBalance": "10000000000000000000",
     "blockHeight": 43935011,
     "lastSyncDate": "2023-06-15T10:02:37.682Z"
-  },
+  }
 ]
 ```
 
@@ -103,7 +103,7 @@ Each object in the array represents an account and contains the following proper
 
 - `name` (string): The account’s name set by the user.
 
-- `address` (string): The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change 
+- `address` (string): The "next" public address where a user should receive funds. In the context of Bitcoin, the address is "renewed" each time funds are received in order to allow some privacy. In other blockchains, the address might never change
 
 - `currency` (string): The associated cryptocurrency id of the Account
 
@@ -114,3 +114,19 @@ Each object in the array represents an account and contains the following proper
 - `blockHeight` (number): Tracks the current blockchain block height
 
 - `lastSyncData` (Date): The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
+
+### Manifest
+
+```json filename="manifest.json"
+
+{
+  ...
+  "currencies": ["bitcoin", "ethereum"], // for the example above we only asked "bitcoin", "ethereum"
+ ...
+  "permissions": [
+    "account.list",
+  ],
+}
+```
+
+for more info about the Manifest click [here](/APIs/wallet-api/appendix/manifest)
