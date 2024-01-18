@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["custom/next"],
+  extends: ["@ledgerhq/eslint-config-custom/next"],
   parserOptions: {
     project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,
