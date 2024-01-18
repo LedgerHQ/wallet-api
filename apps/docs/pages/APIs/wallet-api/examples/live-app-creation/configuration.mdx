@@ -5,68 +5,68 @@ import { Callout } from "nextra/components";
 To interact with Ledger Live, you'll need to configure the Ledger's Wallet API. The first step is to install the necessary packages, and then set up the appropriate configuration through a transport layer named "Transport". This transport layer will enable communication with the Wallet API.
 
 - **Installing Packages**:
-    Install the necessary packages using npm:
+  Install the necessary packages using npm:
 
-    ```sh
-    npm install @ledgerhq/wallet-api-client @ledgerhq/wallet-api-client-react
-    ```
+  ```sh npm2yarn
+  npm install @ledgerhq/wallet-api-client @ledgerhq/wallet-api-client-react
+  ```
 
 - **Creating Transport Provider**:
-    Create a file named `TransportProvider.tsx`. This file will contain a component that utilizes the Ledger Wallet API client to create a communication transport Higher Order Component (HOC).
+  Create a file named `TransportProvider.tsx`. This file will contain a component that utilizes the Ledger Wallet API client to create a communication transport Higher Order Component (HOC).
 
-    ```jsx
-    // src/TransportProvider.tsx
-    import { WalletAPIProvider } from "@ledgerhq/wallet-api-client-react";
-    import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-client";
+  ```jsx
+  // src/TransportProvider.tsx
+  import { WalletAPIProvider } from "@ledgerhq/wallet-api-client-react";
+  import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-client";
 
-    function TransportProvider({ children }) {
-      function getWalletAPITransport(): Transport {
-        if (typeof window === "undefined") {
-          return {
-            onMessage: undefined,
-            send: () => {}
-          };
-        }
-
-        const transport = new WindowMessageTransport();
-        transport.connect();
-        return transport;
+  function TransportProvider({ children }) {
+    function getWalletAPITransport(): Transport {
+      if (typeof window === "undefined") {
+        return {
+          onMessage: undefined,
+          send: () => {}
+        };
       }
 
-      const transport = getWalletAPITransport();
-
-      return (
-        <WalletAPIProvider transport={transport}>{children}</WalletAPIProvider>
-      );
+      const transport = new WindowMessageTransport();
+      transport.connect();
+      return transport;
     }
 
-    export default TransportProvider;
-    ```
+    const transport = getWalletAPITransport();
+
+    return (
+      <WalletAPIProvider transport={transport}>{children}</WalletAPIProvider>
+    );
+  }
+
+  export default TransportProvider;
+  ```
 
 - **Wrapping App with TransportProvider**:
-    In your root file, wrap your `<App />` with the `TransportProvider`:
+  In your root file, wrap your `<App />` with the `TransportProvider`:
 
-    ```jsx
-    // src/index.tsx or src/index.js
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import App from './App';
-    import TransportProvider from './TransportProvider';
+  ```jsx
+  // src/index.tsx or src/index.js
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import App from './App';
+  import TransportProvider from './TransportProvider';
 
-    ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-      <React.StrictMode>
-        <TransportProvider>
-          <App />
-        </TransportProvider>
-      </React.StrictMode>
-    );
-    ```
+  ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+    <React.StrictMode>
+      <TransportProvider>
+        <App />
+      </TransportProvider>
+    </React.StrictMode>
+  );
+  ```
 
 With this setup, your entire application can access Ledger's Wallet API and communicate with it via the `TransportProvider`.
 
 ### 5. **Setting Up The Simulator**
 
-During the development and testing phases, the Ledger Wallet API simulator can help you develop without requiring to run Ledger Live in parallel. 
+During the development and testing phases, the Ledger Wallet API simulator can help you develop without requiring to run Ledger Live in parallel.
 You can modify your `TransportProvider.tsx` file to use the `getSimulatorTransport` function provided by the simulator library.
 
 ```jsx
@@ -86,7 +86,7 @@ function TransportProvider({ children }) {
 
     // Use Simulator transport
     const transport = getSimulatorTransport(profiles.STANDARD);
-    
+
     return transport;
   }
 
@@ -101,5 +101,6 @@ export default TransportProvider;
 ```
 
 <Callout emoji="💡">
-  For more informations regarding the simulator, please checkout out [the simulator subsection](../../simulator/introduction)
+  For more informations regarding the simulator, please checkout out [the
+  simulator subsection](../../simulator/introduction)
 </Callout>
