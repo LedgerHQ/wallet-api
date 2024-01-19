@@ -92,7 +92,7 @@ export const receive: RPCHandler<AccountReceive["result"]> = async (
   handlers,
 ) => {
   const safeParams = schemaAccountReceive.params.parse(req.params);
-  const { accountId } = safeParams;
+  const { accountId, tokenCurrency } = safeParams;
 
   const accounts = await firstValueFrom(context.accounts$);
 
@@ -108,7 +108,7 @@ export const receive: RPCHandler<AccountReceive["result"]> = async (
     throw new ServerError(createNotImplementedByWallet("account.receive"));
   }
 
-  const result = await walletHandler({ account });
+  const result = await walletHandler({ account, tokenCurrency });
 
   return {
     address: result,

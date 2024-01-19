@@ -1,7 +1,7 @@
 {
   "id": "wallet-api-tools",
   "name": "Wallet API Tools",
-  "url": "https://wallet-api-wallet-api-tools.vercel.app",
+  "url": "http://localhost:3001",
   "homepageUrl": "https://developers.ledger.com/",
   "icon": "",
   "platform": "all",
