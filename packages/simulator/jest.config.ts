@@ -2,11 +2,11 @@ import path from "path";
 import type { JestConfigWithTsJest } from "ts-jest";
 
 const config: JestConfigWithTsJest = {
-  preset: "jest-shared-config",
+  preset: "@ledgerhq/jest-shared-config",
   moduleNameMapper: {
     "^@ledgerhq/wallet-api-(.*)$": path.join(
       __dirname,
-      "../../packages/$1/src/index.ts"
+      "../../packages/$1/src/index.ts",
     ),
   },
 };

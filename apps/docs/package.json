@@ -1,7 +1,8 @@
 {
-  "name": "wallet-api-docs",
+  "name": "@ledgerhq/wallet-api-docs",
   "version": "0.3.0",
   "description": "",
+  "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",

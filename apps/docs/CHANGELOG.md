@@ -1,4 +1,4 @@
-# wallet-api-docs
+# @ledgerhq/wallet-api-docs
 
 ## 0.3.0
 
