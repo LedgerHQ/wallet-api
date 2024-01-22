@@ -10,6 +10,7 @@ const schemaTransactionSignParams = z.object({
   rawTransaction: schemaRawTransaction,
   options: schemaTransactionOptions.optional(),
   meta: z.record(z.string(), z.unknown()).optional(),
+  tokenCurrency: z.string().optional(),
 });
 
 const schemaTransactionSignResults = z.object({

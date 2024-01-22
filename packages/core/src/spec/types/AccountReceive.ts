@@ -2,6 +2,7 @@ import { z } from "zod";
 
 const schemaAccountReceiveParams = z.object({
   accountId: z.string(),
+  tokenCurrency: z.string().optional(),
 });
 
 const schemaAccountReceiveResults = z.object({

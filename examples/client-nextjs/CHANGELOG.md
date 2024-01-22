@@ -1,5 +1,14 @@
 # @ledgerhq/client-nextjs
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @ledgerhq/wallet-api-simulator@1.1.6
+  - @ledgerhq/wallet-api-client@1.5.2
+  - @ledgerhq/wallet-api-client-react@1.3.2
+
 ## 0.1.4
 
 ### Patch Changes
