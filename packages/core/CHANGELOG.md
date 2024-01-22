@@ -1,5 +1,17 @@
 # @ledgerhq/wallet-api-core
 
+## 1.6.2
+
+### Patch Changes
+
+- [#289](https://github.com/LedgerHQ/wallet-api/pull/289) [`6f98647`](https://github.com/LedgerHQ/wallet-api/commit/6f986478bb04901fa5eb3828a2f3b9c0953d2b1a) Thanks [@Wozacosta](https://github.com/Wozacosta)! - Allows tokenCurrency field for handlers also accepting an account id
+
+## 1.6.1
+
+### Patch Changes
+
+- [#290](https://github.com/LedgerHQ/wallet-api/pull/290) [`d183e61`](https://github.com/LedgerHQ/wallet-api/commit/d183e61bd70b72a56d8fe293fcaaac0cd918bbbd) Thanks [@Justkant](https://github.com/Justkant)! - chore: scope all packages
+
 ## 1.6.0
 
 ### Minor Changes

@@ -29,26 +29,26 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },
-    "manifest-validator-cli#build": {
+    "@ledgerhq/manifest-validator-cli#build": {
       "dependsOn": ["^build"],
       "outputs": ["bin/**"],
       "inputs": ["src/**/*.ts"]
     },
-    "wallet-api-docs#dev": {
+    "@ledgerhq/wallet-api-docs#dev": {
       "dependsOn": ["^build"],
       "cache": false
     },
-    "wallet-api-docs#build": {
+    "@ledgerhq/wallet-api-docs#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
       "inputs": ["pages/**", "*.js", "*.ts", "*.tsx", "*.css"]
     },
-    "wallet-api-tools#build": {
+    "@ledgerhq/wallet-api-tools#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
       "inputs": ["src/**", "app/**", "public/**", "styles/**", "*.js"]
     },
-    "wallet-api-tools#dev": {
+    "@ledgerhq/wallet-api-tools#dev": {
       "dependsOn": ["^build"],
       "cache": false
     }

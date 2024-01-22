@@ -20,7 +20,8 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options, meta } = safeParams;
+  const { accountId, rawTransaction, options, meta, tokenCurrency } =
+    safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -36,6 +37,7 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
 
   const signedTransaction = await walletHandler({
     account,
+    tokenCurrency,
     transaction: deserializeTransaction(rawTransaction),
     options,
     meta,
@@ -61,7 +63,8 @@ export const signAndBroadcast: RPCHandler<
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, rawTransaction, options, meta } = safeParams;
+  const { accountId, rawTransaction, options, meta, tokenCurrency } =
+    safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -71,6 +74,7 @@ export const signAndBroadcast: RPCHandler<
 
   const transactionHash = await walletHandler({
     account,
+    tokenCurrency,
     transaction: deserializeTransaction(rawTransaction),
     options,
     meta,
