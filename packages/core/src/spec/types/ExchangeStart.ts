@@ -11,6 +11,7 @@ const schemaExchangeType = z.enum([
 
 const schemaExchangeStartParams = z.object({
   exchangeType: schemaExchangeType,
+  providerId: z.string()
 });
 
 const schemaExchangeStartResults = z.object({

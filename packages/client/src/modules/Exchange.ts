@@ -24,9 +24,11 @@ export class ExchangeModule {
    */
   async start(
     exchangeType: ExchangeStart["params"]["exchangeType"],
+    providerId: string
   ): Promise<string> {
     const exchangeStartResult = await this.client.request("exchange.start", {
       exchangeType,
+      providerId
     });
 
     const safeResults = schemaExchangeStart.result.parse(exchangeStartResult);
