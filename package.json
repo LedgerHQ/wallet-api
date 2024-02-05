@@ -40,7 +40,7 @@
     "node": ">=16",
     "pnpm": ">=7"
   },
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.15.1",
   "dependencies": {
     "@tsconfig/recommended": "^1.0.2"
   }
