@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.7.0
+
+### Minor Changes
+
+- [#288](https://github.com/LedgerHQ/wallet-api/pull/288) [`5fabdc6`](https://github.com/LedgerHQ/wallet-api/commit/5fabdc62fb10fae8e55b2a3f5a802feff9bd5911) Thanks [@Philippoes](https://github.com/Philippoes)! - add support for tron 2.0 staking
+
 ## 1.6.2
 
 ### Patch Changes
