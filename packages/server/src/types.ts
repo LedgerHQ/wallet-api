@@ -62,7 +62,7 @@ export type WalletHandlers = {
   "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
-  }) => Promisable<Account>;
+  }) => Promisable<[Account, Account | undefined]>;
   "account.receive": (params: {
     account: Account;
     tokenCurrency?: string;

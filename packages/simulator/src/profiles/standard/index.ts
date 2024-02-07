@@ -57,7 +57,7 @@ export const standardProfile: SimulatorProfile = {
         throw new Error("No accounts available");
       }
 
-      return accounts[0];
+      return [accounts[0], undefined];
     },
     "transaction.signAndBroadcast": () => "0xtxHash",
     "transaction.sign": () =>

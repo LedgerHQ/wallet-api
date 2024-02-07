@@ -64,7 +64,8 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
   });
 
   return {
-    rawAccount: serializeAccount(account),
+    rawAccount: serializeAccount(account[0]),
+    parentAccount: account[1] && serializeAccount(account[1]),
   };
 };
 
