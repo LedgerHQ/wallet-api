@@ -35,7 +35,7 @@
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.1.2",
-    "picomatch": "^2.3.1"
+    "picomatch": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^17.x || ^18.x",
