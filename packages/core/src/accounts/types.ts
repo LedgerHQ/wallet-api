@@ -44,7 +44,7 @@ export type Account = {
    */
   lastSyncDate: Date;
 
-  parentAccount?: Account;
+  parentAccountId?: string;
 };
 
 /**
