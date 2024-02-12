@@ -100,12 +100,17 @@ export class WalletAPIClient<
 
   private logger: Logger;
 
-  constructor(
-    transport: Transport,
+  constructor({
+    transport,
     logger = defaultLogger,
-    getCustomModule?: CustomGetter,
-    eventHandlers: EventHandlers = {},
-  ) {
+    getCustomModule = undefined,
+    eventHandlers = {},
+  }: {
+    transport: Transport;
+    logger: Logger;
+    getCustomModule?: CustomGetter;
+    eventHandlers: EventHandlers;
+  }) {
     super(transport, { ...requestHandlers, ...eventHandlers });
     this.logger = logger;
     this.account = new AccountModule(this);

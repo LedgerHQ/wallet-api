@@ -20,7 +20,7 @@ describe("Simulator", () => {
     it("should return the xpub", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const xPub = await client.bitcoin.getXPub("accountId");
@@ -32,7 +32,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.bitcoin.getXPub("accountId")).rejects.toThrow(
@@ -43,7 +43,7 @@ describe("Simulator", () => {
     it("should throw an error if method not handled by server", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithUnhandledMethods);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.bitcoin.getXPub("accountId")).rejects.toThrow(
@@ -56,7 +56,7 @@ describe("Simulator", () => {
     it("should return the list of accounts", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
       const accountIds = ["account-btc-1", "account-eth-1"];
 
       // WHEN
@@ -83,7 +83,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.account.list()).rejects.toThrow("permission");
@@ -94,7 +94,7 @@ describe("Simulator", () => {
     it("should return the requested account", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const account = await client.account.request({
@@ -108,7 +108,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(
@@ -121,7 +121,7 @@ describe("Simulator", () => {
     it("should return the account address", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const address = await client.account.receive("account-eth-1");
@@ -132,7 +132,7 @@ describe("Simulator", () => {
 
     it("should throw an error if permission not granted", async () => {
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.account.receive("accountId")).rejects.toThrow(
@@ -145,7 +145,7 @@ describe("Simulator", () => {
     it("should return a list of currencies", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const currencies = await client.currency.list();
@@ -172,7 +172,7 @@ describe("Simulator", () => {
     it("should return a filtered list of currencies", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const currencyIds = ["bitcoin", "ethereum"];
@@ -189,7 +189,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.currency.list()).rejects.toThrow("permission");
@@ -200,7 +200,7 @@ describe("Simulator", () => {
     it("should return the signed message", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const message = Buffer.from("Hello, world!", "utf-8");
@@ -213,7 +213,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
       const message = Buffer.from("Hello, world!", "utf-8");
 
       // THEN
@@ -225,7 +225,7 @@ describe("Simulator", () => {
     it("should throw an error if method not handled by server", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithUnhandledMethods);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
       const message = Buffer.from("Hello, world!", "utf-8");
 
       // THEN
@@ -239,7 +239,7 @@ describe("Simulator", () => {
     it("should set and get a value", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const key = "testKey";
@@ -254,7 +254,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       const key = "testKey";
       const value = "testValue";
@@ -269,7 +269,7 @@ describe("Simulator", () => {
     it("should throw an error if method not handled by server", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithUnhandledMethods);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       const key = "testKey";
       const value = "testValue";
@@ -317,7 +317,7 @@ describe("Simulator", () => {
     it("should return the signed transaction", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const signedTransaction = await client.transaction.sign(
@@ -336,7 +336,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(
@@ -352,7 +352,7 @@ describe("Simulator", () => {
       };
 
       const transport = getSimulatorTransport(profile);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(
@@ -365,7 +365,7 @@ describe("Simulator", () => {
     it("should return the userId", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profiles.STANDARD);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // WHEN
       const userId = await client.wallet.userId();
@@ -377,7 +377,7 @@ describe("Simulator", () => {
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
-      const client = new WalletAPIClient(transport);
+      const client = new WalletAPIClient({ transport });
 
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("permission");
