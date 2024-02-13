@@ -43,6 +43,8 @@ export type Account = {
    * The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
    */
   lastSyncDate: Date;
+
+  parentAccountId?: string;
 };
 
 /**

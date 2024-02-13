@@ -9,4 +9,5 @@ export const schemaRawAccount = z.object({
   spendableBalance: z.string(),
   blockHeight: z.union([z.number(), z.undefined()]),
   lastSyncDate: z.string(),
+  parentAccountId: z.string().optional(),
 });
