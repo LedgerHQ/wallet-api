@@ -1,5 +1,4 @@
 ---
-"@ledgerhq/wallet-api-server": patch
 "@ledgerhq/wallet-api-core": patch
 ---
 
