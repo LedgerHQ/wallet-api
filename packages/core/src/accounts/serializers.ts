@@ -18,6 +18,7 @@ export function serializeAccount({
   spendableBalance,
   blockHeight,
   lastSyncDate,
+  parentAccountId,
 }: Account): RawAccount {
   return {
     id,
@@ -28,6 +29,7 @@ export function serializeAccount({
     spendableBalance: spendableBalance.toString(),
     blockHeight,
     lastSyncDate: lastSyncDate.toISOString(),
+    parentAccountId,
   };
 }
 
