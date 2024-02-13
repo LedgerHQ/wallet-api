@@ -49,6 +49,7 @@ export function deserializeAccount({
   spendableBalance,
   blockHeight,
   lastSyncDate,
+  parentAccountId,
 }: RawAccount): Account {
   return {
     id,
@@ -59,5 +60,6 @@ export function deserializeAccount({
     spendableBalance: new BigNumber(spendableBalance),
     blockHeight,
     lastSyncDate: new Date(lastSyncDate),
+    parentAccountId,
   };
 }
