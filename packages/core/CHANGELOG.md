@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.7.1
+
+### Patch Changes
+
+- [#302](https://github.com/LedgerHQ/wallet-api/pull/302) [`181edfd`](https://github.com/LedgerHQ/wallet-api/commit/181edfd78d43bba156919afedd2b12b4e3e24290) Thanks [@Wozacosta](https://github.com/Wozacosta)! - handle parentAccount when requesting an account
+
 ## 1.7.0
 
 ### Minor Changes
