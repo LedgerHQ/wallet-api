@@ -1,5 +1,10 @@
+import { Suspense } from "react";
 import { Editor } from "../src/Editor";
 
 export default function Page() {
-  return <Editor />;
+  return (
+    <Suspense>
+      <Editor />
+    </Suspense>
+  );
 }
