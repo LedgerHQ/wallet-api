@@ -6,6 +6,7 @@ export const schemaDeviceType = z.enum([
   "nanoSP",
   "nanoX",
   "stax",
+  "europa",
 ]);
 
 export type DeviceType = z.infer<typeof schemaDeviceType>;
