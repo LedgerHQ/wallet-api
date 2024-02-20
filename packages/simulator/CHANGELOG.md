@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-simulator
 
+## 1.1.11
+
+### Patch Changes
+
+- [#315](https://github.com/LedgerHQ/wallet-api/pull/315) [`6883a33`](https://github.com/LedgerHQ/wallet-api/commit/6883a33467bb087be8ca3f35252ca9ed5f3aaa0a) Thanks [@Justkant](https://github.com/Justkant)! - fix: use Map to avoid prototype-polluting assignment
+
+- [#317](https://github.com/LedgerHQ/wallet-api/pull/317) [`50f0d3e`](https://github.com/LedgerHQ/wallet-api/commit/50f0d3e1d0159d41132fed20445697c678eb9503) Thanks [@Justkant](https://github.com/Justkant)! - fix: remove `@ledgerhq/hw-transport-http` that uses an old axios version
+
 ## 1.1.10
 
 ### Patch Changes
