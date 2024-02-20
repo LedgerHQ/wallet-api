@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.7.2
+
+### Patch Changes
+
+- [#310](https://github.com/LedgerHQ/wallet-api/pull/310) [`e1c2efa`](https://github.com/LedgerHQ/wallet-api/commit/e1c2efaa103d05b57d06c40897490cbf21394c57) Thanks [@ofreyssinet-ledger](https://github.com/ofreyssinet-ledger)! - add "europa" to DeviceType
+
 ## 1.7.1
 
 ### Patch Changes
