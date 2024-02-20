@@ -15,7 +15,7 @@ const allCurrencies: Currency[] = rawCurrencies as Currency[];
 
 const allAccounts: Account[] = rawAccounts.map(deserializeAccount);
 
-const storage: Record<string, Record<string, string>> = {};
+const storage: Record<string, Map<string, string>> = {};
 
 export const standardProfile: SimulatorProfile = {
   config: {
@@ -66,13 +66,13 @@ export const standardProfile: SimulatorProfile = {
     "account.receive": () => "eth address",
     "storage.set": ({ value, key, storeId }) => {
       if (!storage[storeId]) {
-        storage[storeId] = {};
+        storage[storeId] = new Map();
       }
 
       const store = storage[storeId];
 
       if (store) {
-        store[key] = value;
+        store.set(key, value);
       }
     },
     "storage.get": ({ key, storeId }) => {
@@ -82,7 +82,7 @@ export const standardProfile: SimulatorProfile = {
         return undefined;
       }
 
-      return store[key];
+      return store.get(key);
     },
     "bitcoin.getXPub": () => "xpub",
     "exchange.start": ({ exchangeType }) =>
