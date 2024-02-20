@@ -1,5 +1,14 @@
 # @ledgerhq/wallet-api-server
 
+## 1.5.5
+
+### Patch Changes
+
+- [#308](https://github.com/LedgerHQ/wallet-api/pull/308) [`25305e8`](https://github.com/LedgerHQ/wallet-api/commit/25305e8153fc0ad534be41839e5e76411731d8a2) Thanks [@Justkant](https://github.com/Justkant)! - fix(simulator): remove process usage
+
+  bumping picomatch to remove process usage
+  refactor device simulator profile to remove process usage
+
 ## 1.5.4
 
 ### Patch Changes
