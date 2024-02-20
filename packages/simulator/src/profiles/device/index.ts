@@ -1,15 +1,10 @@
-import type HWTransport from "@ledgerhq/hw-transport";
-import TransportHttp from "@ledgerhq/hw-transport-http";
+import HWTransport from "@ledgerhq/hw-transport";
 import type { SimulatorProfile } from "../../types";
 import { standardProfile } from "../standard";
 
-export const deviceProfile: (deviceProxyUrl?: string) => SimulatorProfile = (
-  deviceProxyUrl,
-) => {
-  const httpTransport = deviceProxyUrl
-    ? TransportHttp(deviceProxyUrl.split("|"))
-    : undefined;
-
+export const deviceProfile: (
+  mainTransport: typeof HWTransport,
+) => SimulatorProfile = (mainTransport) => {
   let transport: HWTransport | undefined;
 
   return {
@@ -28,24 +23,18 @@ export const deviceProfile: (deviceProxyUrl?: string) => SimulatorProfile = (
     methods: {
       ...standardProfile.methods,
       "device.transport": async () => {
-        if (!httpTransport) {
-          throw new Error("Proxy not setup");
-        }
         if (transport) {
           throw new Error("Transport already opened");
         }
-        transport = await httpTransport.create(3000, 5000);
+        transport = await mainTransport.create(3000, 5000);
         return "1";
       },
       "device.select": () => "",
       "device.open": async () => {
-        if (!httpTransport) {
-          throw new Error("Proxy not setup");
-        }
         if (transport) {
           throw new Error("Transport already opened");
         }
-        transport = await httpTransport.create(3000, 5000);
+        transport = await mainTransport.create(3000, 5000);
         return "1";
       },
       "device.exchange": async ({ apduHex, transportId }) => {

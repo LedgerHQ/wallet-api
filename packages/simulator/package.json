@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.30.4",
-    "@ledgerhq/hw-transport-http": "^6.29.4",
     "@ledgerhq/wallet-api-client": "workspace:*",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-server": "workspace:*",
