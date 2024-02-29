@@ -22,7 +22,7 @@
     <a href="https://github.com/LedgerHQ/platform-sdk/pulls">
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/LedgerHQ/platform-sdk?color=0088ff" />
     </a>
-    <a href="https://discord.gg/y6nZhxv2bC">
+    <a href="https://developers.ledger.com/discord-pro">
       <img alt="Discord" src="https://img.shields.io/discord/885256081289379850?color=1C1CE1&label=Ledger%20%7C%20Discord%20%F0%9F%91%8B%20&style=flat-square" />
     </a>
   </p>
@@ -63,7 +63,7 @@ Each wallet and application then needs to implement this interface. In this repo
 You can get help by:
 
 - Heading over to our [Ledger Develop Portal](https://developers.ledger.com)
-- Joining our [Discord](https://discord.gg/y6nZhxv2bC)
+- Joining our [Discord](https://developers.ledger.com/discord-pro)
 - See [SUPPORT.md](/SUPPORT.md)
 
 # Contributing
