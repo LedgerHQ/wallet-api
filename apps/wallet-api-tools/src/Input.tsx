@@ -1,17 +1,18 @@
 "use client";
 
-import { langs } from '@uiw/codemirror-extensions-langs';
+import { langs } from "@uiw/codemirror-extensions-langs";
 import CodeMirror from "@uiw/react-codemirror";
-import { useCallback, useState } from "react";
-import { TemplateSelector } from "./TemplateSelector";
+import { useCallback } from "react";
+import { CommandSelector } from "./CommandSelector";
 
 export type InputProps = {
+  value: string;
+  setValue: (value: string) => void;
   onSend: (value: string) => void;
   onClear: () => void;
 };
 
-export function Input({ onSend, onClear }: InputProps) {
-  const [value, setValue] = useState("");
+export function Input({ value, setValue, onSend, onClear }: InputProps) {
   const onChange = useCallback((input: string) => {
     setValue(input);
   }, []);
@@ -25,7 +26,7 @@ export function Input({ onSend, onClear }: InputProps) {
     <>
       <CodeMirror
         value={value}
-        height="200px"
+        height="150px"
         extensions={[langs.json()]}
         onChange={onChange}
         theme="dark"
@@ -48,8 +49,8 @@ export function Input({ onSend, onClear }: InputProps) {
         >
           Send
         </button>
-        <TemplateSelector
-          onSelectTemplate={(newValue) => {
+        <CommandSelector
+          onSelectCommand={(newValue) => {
             setValue(JSON.stringify(newValue, null, 2));
           }}
         />

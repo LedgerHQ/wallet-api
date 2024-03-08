@@ -5,86 +5,98 @@ import {
   getSimulatorTransport,
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
-import { langs } from '@uiw/codemirror-extensions-langs';
-import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 import { Input } from "./Input";
+import { MessageGrouped, Message } from "./types";
+import GroupedMessage from "./components/GroupedMessage";
+import InfoMessage from "./components/InfoMessage";
 
 const schemaRequest = z.object({
   method: z.string(),
   params: z.object({}).passthrough(),
 });
 
-type Message = {
-  type: "in" | "out" | "info" | "error";
-  value: string;
-  date: Date;
-};
-
-function getMessageStatus(message: Message) {
-  switch (message.type) {
-    case "in":
-      return "<- [received]";
-    case "out":
-      return "-> [sent]";
-    case "error":
-      return "[error]";
-    case "info":
-      return "[info]";
-    default: {
-      const exhaustiveCheck: never = message.type; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
-      return exhaustiveCheck;
-    }
-  }
-}
-
 export function Editor() {
-  const [history, setHistory] = useState<Message[]>([]);
+  const [history, setHistory] = useState<(Message | MessageGrouped)[]>([]);
+
   const searchParams = useSearchParams();
-  const codeMirrorRef = useRef<ReactCodeMirrorRef | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
+  const [value, setValue] = useState("");
 
   const isSimulator = searchParams.get("simulator");
 
   const pushMessage = useCallback(
     (type: Message["type"], value: Message["value"]) => {
-      setHistory((prev) => [...prev, { date: new Date(), type, value }]);
-    },
-    []
-  );
+      if (type === "error" || type === "info") {
+        setHistory((prev) => [...prev, { date: new Date(), type, value }]);
+      } else if (type === "out") {
+        const parsedValue = JSON.parse(value) as {
+          id: string;
+        };
+        setHistory((prev) => [
+          ...prev,
+          {
+            type: "group",
+            id: parsedValue.id,
+            messages: {
+              sent: { date: new Date(), type, value },
+              received: undefined,
+            },
+          },
+        ]);
+      } else {
+        const parsedValue = JSON.parse(value) as {
+          id: string;
+        };
+        setHistory((prev) => {
+          const updatedHistory = prev.map((item) => {
+            // Ensure the item is of type MessageGrouped before checking its ID
+            if (item.type === "group" && item.id === parsedValue.id) {
+              // Create a new object instead of mutating the existing one
+              return {
+                ...item,
+                messages: {
+                  ...item.messages,
+                  received: { date: new Date(), type, value },
+                },
+              };
+            }
+            return item;
+          });
 
-  const value = useMemo(() => history
-      .map(
-        (message) =>
-          `${getMessageStatus(message)} ${message.date.toLocaleTimeString()}\n${
-            message.value
-          }`
-      )
-      .join("\n\n\n"), [history]);
+          return updatedHistory;
+        });
+      }
+    },
+    [],
+  );
 
   const handleMessage = useCallback(
     (message: string) => {
       const prettifiedJson = JSON.stringify(JSON.parse(message), null, 2);
       pushMessage("in", prettifiedJson);
     },
-    [pushMessage]
+    [pushMessage],
   );
 
   useEffect(() => {
-    const codeMirror = codeMirrorRef.current;
+    const timer = setTimeout(() => {
+      if (panelRef.current !== null) {
+        panelRef.current.scrollTop = panelRef.current.scrollHeight;
+      }
+    }, 10);
 
-    if (codeMirror?.editor) {
-      codeMirror.editor.scrollTop = codeMirror.editor.scrollHeight;
-    }
+    return () => clearTimeout(timer);
   }, [history]);
 
   useEffect(() => {
     pushMessage(
       "info",
-      `Connected to ${isSimulator ? "simulator" : "software"} wallet`
+      `Connected to ${isSimulator ? "simulator" : "software"} wallet`,
     );
 
     // real conditions
@@ -147,31 +159,44 @@ export function Editor() {
         ]);
       }
     },
-    [setHistory, pushMessage]
+    [setHistory, pushMessage],
   );
 
   return (
-    <>
-      <CodeMirror
-        ref={codeMirrorRef}
+    <div className="flex flex-col h-full">
+      <div
+        ref={panelRef}
+        className="flex-1 flex flex-col overflow-y-auto p-6 pb-6 gap-y-6"
+      >
+        {history.map((message, index) => {
+          return (
+            <>
+              {index !== 0 && (
+                <div className="w-full border-b border-[#666]"></div>
+              )}
+
+              {message.type === "group" ? (
+                <GroupedMessage
+                  group={message.messages}
+                  setValue={setValue}
+                  displayModal={index === history.length - 1}
+                ></GroupedMessage>
+              ) : (
+                <InfoMessage message={message} />
+              )}
+            </>
+          );
+        })}
+      </div>
+
+      <div className="pt-1 bg-zinc-700 bottom-0 flex-none" />
+
+      <Input
         value={value}
-        extensions={[langs.json()]}
-        theme={"dark"}
-        minHeight="100%"
-        style={{
-          flex: 1,
-          overflow: "scroll",
-        }}
-        readOnly
-        basicSetup={{
-          lineNumbers: false,
-          highlightActiveLineGutter: false,
-          highlightActiveLine: false,
-          foldGutter: false,
-        }}
+        setValue={setValue}
+        onSend={handleSend}
+        onClear={handleClear}
       />
-      <div className="pt-1 bg-zinc-700" />
-      <Input onSend={handleSend} onClear={handleClear} />
-    </>
+    </div>
   );
 }
