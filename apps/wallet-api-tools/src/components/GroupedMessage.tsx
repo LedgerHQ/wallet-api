@@ -67,6 +67,7 @@ const GroupedMessage = ({ group, setValue, displayModal }: Props) => {
                   message={group.received}
                   theme={dracula}
                   date={getDate(group.received)}
+                  style={{ maxHeight: "50vh" }}
                 ></Message>
               ) : (
                 "..."

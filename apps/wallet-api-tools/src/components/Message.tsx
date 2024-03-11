@@ -27,10 +27,10 @@ const Message = ({ message, style, theme, date }: Props) => {
           }}
           readOnly
           basicSetup={{
+            foldGutter: true,
             lineNumbers: true,
             highlightActiveLineGutter: false,
             highlightActiveLine: false,
-            foldGutter: false,
           }}
         />
       </Suspense>
