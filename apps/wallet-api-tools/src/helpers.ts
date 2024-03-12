@@ -28,5 +28,6 @@ export function getDate(message: Message) {
     );
   } catch (e) {
     console.log("message", { message, e });
+    return "Error: Failed to generate the date.";
   }
 }
