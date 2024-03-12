@@ -18,11 +18,15 @@ export function getMessageStatus(message: Message) {
 }
 
 export function getDate(message: Message) {
-  return (
-    getMessageStatus(message) +
-    " " +
-    message.date.toDateString() +
-    " at " +
-    message.date.toLocaleTimeString()
-  );
+  try {
+    return (
+      getMessageStatus(message) +
+      " " +
+      new Date(message.date).toDateString() +
+      " at " +
+      new Date(message.date).toLocaleTimeString()
+    );
+  } catch (e) {
+    console.log("message", { message, e });
+  }
 }

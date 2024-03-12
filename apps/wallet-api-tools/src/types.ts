@@ -7,6 +7,7 @@ export type Message = {
 export type MessageGrouped = {
   type: "group";
   id: string;
+  date: Date;
   messages: {
     sent: Message;
     received: Message | undefined;
