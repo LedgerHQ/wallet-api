@@ -9,7 +9,7 @@ export default function InfoMessage({ message }: Props) {
   return (
     <>
       <div
-        className={`w-full h-[max-content] max-w-[700px] min-w-[720px] w-[max-content] bg-[#060521] p-3 rounded-xl border-solid border border-${color}`}
+        className={`w-full h-[max-content] w-[max-content] bg-[#060521] p-3 rounded-xl border-solid border border-${color}`}
       >
         {
           <p>
