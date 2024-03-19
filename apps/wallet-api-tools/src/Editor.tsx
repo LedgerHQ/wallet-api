@@ -14,6 +14,7 @@ import { Input } from "./Input";
 import { MessageGrouped, Message } from "./types";
 import GroupedMessage from "./components/GroupedMessage";
 import InfoMessage from "./components/InfoMessage";
+import { ArrowDown } from "lucide-react";
 
 const schemaRequest = z.object({
   method: z.string(),
@@ -27,11 +28,39 @@ const historyAtom = atomWithStorage<(MessageGrouped | Message)[]>(
 
 export function Editor() {
   const [history, setHistoryAtom] = useAtom(historyAtom);
-
+  const [initialHistoryLoad, setInitialHistoryLoad] = useState(true);
   const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
   const [value, setValue] = useState("");
+  const [scrollBottom, setScrollBottom] = useState(true);
+
+  useEffect(() => {
+    if (history.length > 0 && panelRef.current && initialHistoryLoad) {
+      const element = panelRef.current;
+      setTimeout(() => {
+        if (panelRef.current !== null) {
+          element.scrollTop = element.scrollHeight;
+        }
+      }, 30);
+      setInitialHistoryLoad(false);
+    }
+  }, [history, initialHistoryLoad]);
+
+  useEffect(() => {
+    const element = panelRef.current;
+    if (element) {
+      const updatePosition = () => {
+        const isAtBottom =
+          element.scrollHeight - element.scrollTop === element.clientHeight;
+        setScrollBottom(isAtBottom);
+      };
+      element.addEventListener("scroll", updatePosition);
+      updatePosition();
+
+      return () => element.removeEventListener("scroll", updatePosition);
+    }
+  }, [panelRef, history]);
 
   const isSimulator = searchParams.get("simulator");
 
@@ -94,15 +123,24 @@ export function Editor() {
     [pushMessage],
   );
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (panelRef.current !== null) {
-        panelRef.current.scrollTop = panelRef.current.scrollHeight;
-      }
-    }, 10);
+  const scrollToBottom = () => {
+    if (panelRef.current !== null) {
+      panelRef.current.scrollTop = panelRef.current.scrollHeight;
+    }
+  };
 
-    return () => clearTimeout(timer);
-  }, [history]);
+  const scrollToBottomButton = (
+    <div className="relative flex justify-center">
+      <button
+        className="w-[max-content] p-2 absolute bg-gray-600/50 bottom-0 mb-3 rounded"
+        onClick={() => {
+          scrollToBottom();
+        }}
+      >
+        <ArrowDown />
+      </button>
+    </div>
+  );
 
   useEffect(() => {
     pushMessage(
@@ -198,9 +236,9 @@ export function Editor() {
           );
         })}
       </div>
+      {!scrollBottom && scrollToBottomButton}
 
       <div className="pt-1 bg-zinc-700 bottom-0 flex-none" />
-
       <Input
         value={value}
         setValue={setValue}
