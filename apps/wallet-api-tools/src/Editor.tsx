@@ -35,8 +35,13 @@ export function Editor() {
   const [value, setValue] = useState("");
   const [scrollBottom, setScrollBottom] = useState(true);
 
+  //set the scroll to the bottom at first render or when the user is already to bottom
   useEffect(() => {
-    if (history.length > 0 && panelRef.current && initialHistoryLoad) {
+    if (
+      history.length > 0 &&
+      panelRef.current &&
+      (initialHistoryLoad || scrollBottom)
+    ) {
       const element = panelRef.current;
       setTimeout(() => {
         if (panelRef.current !== null) {
@@ -47,6 +52,7 @@ export function Editor() {
     }
   }, [history, initialHistoryLoad]);
 
+  //update scrollBottom when the user scroll
   useEffect(() => {
     const element = panelRef.current;
     if (element) {
@@ -60,7 +66,7 @@ export function Editor() {
 
       return () => element.removeEventListener("scroll", updatePosition);
     }
-  }, [panelRef, history]);
+  }, []);
 
   const isSimulator = searchParams.get("simulator");
 
