@@ -36,17 +36,20 @@ export function Editor() {
   const isSimulator = searchParams.get("simulator");
 
   const pushMessage = useCallback(
-    (type: Message["type"], value: Message["value"]) => {
+    (type: Message["type"], messageValue: Message["value"]) => {
+      const parsedValue: {
+        id: string;
+      } = type === "in" || type === "out" ? JSON.parse(messageValue) : null;
       if (
         type === "error" ||
         type === "info" ||
-        (type === "in" && !JSON.parse(value).id)
+        (type === "in" && !parsedValue.id)
       ) {
-        setHistoryAtom((prev) => [...prev, { date: new Date(), type, value }]);
+        setHistoryAtom((prev) => [
+          ...prev,
+          { date: new Date(), type, value: messageValue },
+        ]);
       } else if (type === "out") {
-        const parsedValue = JSON.parse(value) as {
-          id: string;
-        };
         setHistoryAtom((prev) => [
           ...prev,
           {
@@ -54,15 +57,12 @@ export function Editor() {
             id: parsedValue.id,
             date: new Date(),
             messages: {
-              sent: { date: new Date(), type, value },
+              sent: { date: new Date(), type, value: messageValue },
               received: undefined,
             },
           },
         ]);
       } else {
-        const parsedValue = JSON.parse(value) as {
-          id: string;
-        };
         setHistoryAtom((prev) => {
           const updatedHistory = prev.map((item) => {
             // Ensure the item is of type MessageGrouped before checking its ID
@@ -72,7 +72,7 @@ export function Editor() {
                 ...item,
                 messages: {
                   ...item.messages,
-                  received: { date: new Date(), type, value },
+                  received: { date: new Date(), type, value: messageValue },
                 },
               };
             }
