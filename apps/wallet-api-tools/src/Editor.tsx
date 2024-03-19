@@ -7,7 +7,7 @@ import {
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 import { Input } from "./Input";
@@ -20,20 +20,13 @@ const schemaRequest = z.object({
   params: z.object({}).passthrough(),
 });
 
-const historyAtom = atomWithStorage<MessageGrouped[]>("history", []);
+const historyAtom = atomWithStorage<(MessageGrouped | Message)[]>(
+  "history",
+  [],
+);
 
 export function Editor() {
   const [history, setHistoryAtom] = useAtom(historyAtom);
-
-  const [infoHistory, setInfoHistory] = useState<Message[]>([]);
-
-  const combinedHistory: (Message | MessageGrouped)[] = useMemo(
-    () =>
-      [...history, ...infoHistory].sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-      ),
-    [history, infoHistory],
-  );
 
   const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -49,7 +42,7 @@ export function Editor() {
         type === "info" ||
         (type === "in" && !JSON.parse(value).id)
       ) {
-        setInfoHistory((prev) => [...prev, { date: new Date(), type, value }]);
+        setHistoryAtom((prev) => [...prev, { date: new Date(), type, value }]);
       } else if (type === "out") {
         const parsedValue = JSON.parse(value) as {
           id: string;
@@ -140,7 +133,6 @@ export function Editor() {
 
   const handleClear = useCallback(() => {
     setHistoryAtom([]);
-    setInfoHistory([]);
   }, []);
 
   const handleSend = useCallback(
@@ -167,7 +159,7 @@ export function Editor() {
 
         transport.send(message);
       } catch (error) {
-        setInfoHistory((prev) => [
+        setHistoryAtom((prev) => [
           ...prev,
           {
             date: new Date(),
@@ -177,7 +169,7 @@ export function Editor() {
         ]);
       }
     },
-    [setInfoHistory, pushMessage],
+    [setHistoryAtom, pushMessage],
   );
 
   return (
@@ -186,7 +178,7 @@ export function Editor() {
         ref={panelRef}
         className="flex-1 flex flex-col overflow-y-auto p-6 pb-6 gap-y-6"
       >
-        {combinedHistory.map((message, index) => {
+        {history.map((message, index) => {
           return (
             <>
               {index !== 0 && (
@@ -197,7 +189,7 @@ export function Editor() {
                 <GroupedMessage
                   group={message.messages}
                   setValue={setValue}
-                  displayModal={index === combinedHistory.length - 1}
+                  displayModal={index === history.length - 1}
                 ></GroupedMessage>
               ) : (
                 <InfoMessage message={message} />

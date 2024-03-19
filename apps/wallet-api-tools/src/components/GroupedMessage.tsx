@@ -24,7 +24,7 @@ const GroupedMessage = ({ group, setValue, displayModal }: Props) => {
       <div className="text-lg">
         <p>Method : {parsedSentValue.method}</p>
       </div>
-      <p className="text-slate-400 text-sm mb-2">{getDate(group.sent)}</p>
+      <p className="text-slate-400 text-xs mb-2">{getDate(group.sent)}</p>
       <div className=" max-w-full">
         <div
           className={`max-w-full h-[max-content] bg-[#060521] p-4 pr-12 rounded-xl border-solid border-[1px] border-[#666]`}

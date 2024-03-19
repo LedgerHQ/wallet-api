@@ -1,6 +1,6 @@
 import React from "react";
 import { Message } from "../types";
-import { getMessageStatus } from "../helpers";
+import { getDate } from "../helpers";
 
 type Props = { message: Message };
 
@@ -12,10 +12,10 @@ export default function InfoMessage({ message }: Props) {
         className={`w-full h-[max-content] w-[max-content] bg-[#060521] p-3 rounded-xl border-solid border border-${color}`}
       >
         {
-          <p>
-            <span className={`text-${color}`}>{getMessageStatus(message)}</span>{" "}
-            {message.value}
-          </p>
+          <>
+            <p>{message.value}</p>
+            <p className="text-slate-400 text-xs">{getDate(message)}</p>
+          </>
         }
       </div>
     </>
