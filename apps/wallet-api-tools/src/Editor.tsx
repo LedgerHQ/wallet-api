@@ -66,6 +66,7 @@ export function Editor() {
 
       return () => element.removeEventListener("scroll", updatePosition);
     }
+    return undefined;
   }, []);
 
   const isSimulator = searchParams.get("simulator");
