@@ -27,7 +27,7 @@ const historyAtom = atomWithStorage<(MessageGrouped | Message)[]>(
 );
 
 export function Editor() {
-  const [history, setHistoryAtom] = useAtom(historyAtom);
+  const [history, setHistory] = useAtom(historyAtom);
   const [initialHistoryLoad, setInitialHistoryLoad] = useState(true);
   const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -81,12 +81,12 @@ export function Editor() {
         type === "info" ||
         (type === "in" && !parsedValue.id)
       ) {
-        setHistoryAtom((prev) => [
+        setHistory((prev) => [
           ...prev,
           { date: new Date(), type, value: messageValue },
         ]);
       } else if (type === "out") {
-        setHistoryAtom((prev) => [
+        setHistory((prev) => [
           ...prev,
           {
             type: "group",
@@ -99,7 +99,7 @@ export function Editor() {
           },
         ]);
       } else {
-        setHistoryAtom((prev) => {
+        setHistory((prev) => {
           const updatedHistory = prev.map((item) => {
             // Ensure the item is of type MessageGrouped before checking its ID
             if (item.type === "group" && item.id === parsedValue.id) {
@@ -177,7 +177,7 @@ export function Editor() {
   }, [handleMessage, isSimulator, pushMessage]);
 
   const handleClear = useCallback(() => {
-    setHistoryAtom([]);
+    setHistory([]);
   }, []);
 
   const handleSend = useCallback(
@@ -204,7 +204,7 @@ export function Editor() {
 
         transport.send(message);
       } catch (error) {
-        setHistoryAtom((prev) => [
+        setHistory((prev) => [
           ...prev,
           {
             date: new Date(),
@@ -214,7 +214,7 @@ export function Editor() {
         ]);
       }
     },
-    [setHistoryAtom, pushMessage],
+    [setHistory, pushMessage],
   );
 
   return (
