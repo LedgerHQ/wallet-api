@@ -9,19 +9,24 @@ import {
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { z } from "zod";
 import { Input } from "./Input";
-import { MessageGrouped, Message } from "./types";
+import {
+  MessageGrouped,
+  Response,
+  MessageOut,
+  MessageInfo,
+  ResponseResult,
+  ResponseError,
+  schemaRequest,
+  Request,
+  MessageIn,
+  schemaResponse,
+} from "./types";
 import GroupedMessage from "./components/GroupedMessage";
 import InfoMessage from "./components/InfoMessage";
 import { ArrowDown } from "lucide-react";
 
-const schemaRequest = z.object({
-  method: z.string(),
-  params: z.object({}).passthrough(),
-});
-
-const historyAtom = atomWithStorage<(MessageGrouped | Message)[]>(
+const historyAtom = atomWithStorage<(MessageGrouped | MessageInfo)[]>(
   "history",
   [],
 );
@@ -32,8 +37,16 @@ export function Editor() {
   const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
   const [scrollBottom, setScrollBottom] = useState(true);
+
+  const handleReUse = (request: MessageOut) => {
+    const parsedSentValue: Request = request.value;
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, jsonrpc, ...initialRequest } = parsedSentValue;
+    setValue(JSON.stringify(initialRequest, null, 2));
+  };
 
   //set the scroll to the bottom at first render or when the user is already to bottom
   useEffect(() => {
@@ -50,7 +63,7 @@ export function Editor() {
       }, 30);
       setInitialHistoryLoad(false);
     }
-  }, [history, initialHistoryLoad]);
+  }, [history, initialHistoryLoad, scrollBottom]);
 
   //update scrollBottom when the user scroll
   useEffect(() => {
@@ -71,63 +84,83 @@ export function Editor() {
 
   const isSimulator = searchParams.get("simulator");
 
-  const pushMessage = useCallback(
-    (type: Message["type"], messageValue: Message["value"]) => {
-      const parsedValue: {
-        id: string;
-      } = type === "in" || type === "out" ? JSON.parse(messageValue) : null;
-      if (
-        type === "error" ||
-        type === "info" ||
-        (type === "in" && !parsedValue.id)
-      ) {
-        setHistory((prev) => [
-          ...prev,
-          { date: new Date(), type, value: messageValue },
-        ]);
-      } else if (type === "out") {
-        setHistory((prev) => [
-          ...prev,
-          {
-            type: "group",
-            id: parsedValue.id,
-            date: new Date(),
-            messages: {
-              sent: { date: new Date(), type, value: messageValue },
-              received: undefined,
-            },
-          },
-        ]);
-      } else {
-        setHistory((prev) => {
-          const updatedHistory = prev.map((item) => {
-            // Ensure the item is of type MessageGrouped before checking its ID
-            if (item.type === "group" && item.id === parsedValue.id) {
-              // Create a new object instead of mutating the existing one
-              return {
-                ...item,
-                messages: {
-                  ...item.messages,
-                  received: { date: new Date(), type, value: messageValue },
-                },
-              };
-            }
-            return item;
-          });
-
-          return updatedHistory;
-        });
-      }
+  const pushInfoMessage = useCallback(
+    (type: "error" | "info", response: string) => {
+      setHistory((prev) => [
+        ...prev,
+        { date: new Date(), type, value: response },
+      ]);
     },
-    [],
+    [setHistory],
+  );
+
+  const pushOutgoingMessage = useCallback(
+    (request: Request) => {
+      setHistory((prev) => [
+        ...prev,
+        {
+          type: "group",
+          id: request.id,
+          date: new Date(),
+          messages: {
+            sent: {
+              date: new Date(),
+              type: "out",
+              value: request,
+            } as MessageOut,
+            received: undefined,
+          },
+        },
+      ]);
+    },
+    [setHistory],
+  );
+
+  const pushReceivedMessage = useCallback(
+    (response: ResponseResult | ResponseError) => {
+      setHistory((prev) => {
+        const updatedHistory = prev.map((item) => {
+          if (item.type === "group" && item.id === response.id) {
+            return {
+              ...item,
+              messages: {
+                ...item.messages,
+                received: {
+                  date: new Date(),
+                  type: "in",
+                  value: response,
+                } as MessageIn,
+              },
+            };
+          }
+          return item;
+        });
+
+        return updatedHistory;
+      });
+    },
+    [setHistory],
   );
 
   const handleMessage = useCallback(
-    (message: string) => {
-      const prettifiedJson = JSON.stringify(JSON.parse(message), null, 2);
-      pushMessage("in", prettifiedJson);
+    (response: string) => {
+      try {
+        const parsedResponse: Response = schemaResponse.parse(
+          JSON.parse(response),
+        );
+
+        if (parsedResponse.method) pushInfoMessage("info", "Update");
+
+        if (parsedResponse.result)
+          pushReceivedMessage(parsedResponse as ResponseResult);
+
+        if (parsedResponse.error)
+          pushReceivedMessage(parsedResponse as ResponseError);
+      } catch (e) {
+        console.error(e);
+      }
     },
-    [pushMessage],
+    [pushInfoMessage, pushReceivedMessage],
   );
 
   const scrollToBottom = () => {
@@ -150,7 +183,7 @@ export function Editor() {
   );
 
   useEffect(() => {
-    pushMessage(
+    pushInfoMessage(
       "info",
       `Connected to ${isSimulator ? "simulator" : "software"} wallet`,
     );
@@ -174,11 +207,7 @@ export function Editor() {
     return () => {
       transportRef.current = null;
     };
-  }, [handleMessage, isSimulator, pushMessage]);
-
-  const handleClear = useCallback(() => {
-    setHistory([]);
-  }, []);
+  }, [handleMessage, isSimulator, pushInfoMessage]);
 
   const handleSend = useCallback(
     (input: string) => {
@@ -193,16 +222,15 @@ export function Editor() {
 
         const parsedRequest = schemaRequest.parse(JSON.parse(input));
 
-        const request = {
+        const request: Request = {
           id: requestId,
           jsonrpc: "2.0",
           ...parsedRequest,
         };
 
-        const message = JSON.stringify(request, null, 2);
-        pushMessage("out", message);
+        pushOutgoingMessage(request);
 
-        transport.send(message);
+        transport.send(JSON.stringify(request, null, 2));
       } catch (error) {
         setHistory((prev) => [
           ...prev,
@@ -214,7 +242,7 @@ export function Editor() {
         ]);
       }
     },
-    [setHistory, pushMessage],
+    [pushOutgoingMessage, setHistory],
   );
 
   return (
@@ -232,6 +260,7 @@ export function Editor() {
 
               {message.type === "group" ? (
                 <GroupedMessage
+                  handleReUse={handleReUse}
                   group={message.messages}
                   setValue={setValue}
                   displayModal={index === history.length - 1}
@@ -250,7 +279,12 @@ export function Editor() {
         value={value}
         setValue={setValue}
         onSend={handleSend}
-        onClear={handleClear}
+        onClearHistory={() => {
+          setHistory([]);
+        }}
+        onClearValue={() => {
+          setValue("");
+        }}
       />
     </div>
   );

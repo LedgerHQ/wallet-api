@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageGrouped } from "../types";
+import { MessageGrouped, MessageOut } from "../types";
 import { getDate } from "../helpers";
 import { coolGlow, dracula } from "thememirror";
 import Message from "./Message";
@@ -7,22 +7,17 @@ import Message from "./Message";
 type Props = {
   group: MessageGrouped["messages"];
   setValue: (value: string) => void;
+  handleReUse: (request: MessageOut) => void;
   displayModal?: boolean;
 };
 
-const GroupedMessage = ({ group, setValue, displayModal }: Props) => {
-  const parsedSentValue = JSON.parse(group.sent.value) as {
-    id: string;
-    jsonrpc: string;
-    method: string;
-    [value: string]: string;
-  };
+const GroupedMessage = ({ group, handleReUse, displayModal }: Props) => {
   const [displayResponse, setDisplayResponse] = useState(displayModal ?? false);
 
   return (
     <div className="w-full  h-[max-content] rounded-md">
       <div className="text-lg">
-        <p>Method : {parsedSentValue.method}</p>
+        <p>Method : {group.sent.value.method}</p>
       </div>
       <p className="text-slate-400 text-xs mb-2">{getDate(group.sent)}</p>
       <div className=" max-w-full">
@@ -32,9 +27,7 @@ const GroupedMessage = ({ group, setValue, displayModal }: Props) => {
           <div className="flex gap-x-2">
             <button
               onClick={() => {
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                const { id, jsonrpc, ...rest } = parsedSentValue;
-                setValue(JSON.stringify(rest, null, 2));
+                handleReUse(group.sent);
               }}
               aria-label="Clear history"
               className="py-1 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 "

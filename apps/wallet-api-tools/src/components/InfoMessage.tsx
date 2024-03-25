@@ -1,10 +1,8 @@
 import React from "react";
-import { Message } from "../types";
 import { getDate } from "../helpers";
+import { MessageInfo } from "../types";
 
-type Props = { message: Message };
-
-export default function InfoMessage({ message }: Props) {
+export default function InfoMessage({ message }: { message: MessageInfo }) {
   const color = message.type === "info" ? "yellow-300" : "red-500";
   return (
     <>

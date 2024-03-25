@@ -1,6 +1,8 @@
-import { Message } from "./types";
+import { MessageIn, MessageInfo, MessageOut } from "./types";
 
-export function getMessageStatus(message: Message) {
+export function getMessageStatus(
+  message: MessageInfo | MessageIn | MessageOut,
+) {
   switch (message.type) {
     case "in":
       return "Received on";
@@ -11,13 +13,12 @@ export function getMessageStatus(message: Message) {
     case "info":
       return "[info]";
     default: {
-      const exhaustiveCheck: never = message.type; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
-      return exhaustiveCheck;
+      return undefined;
     }
   }
 }
 
-export function getDate(message: Message) {
+export function getDate(message: MessageInfo | MessageIn | MessageOut) {
   try {
     return (
       getMessageStatus(message) +
@@ -27,7 +28,7 @@ export function getDate(message: Message) {
       new Date(message.date).toLocaleTimeString()
     );
   } catch (e) {
-    console.log("message", { message, e });
+    console.error("message", { message, e });
     return "Error: Failed to generate the date.";
   }
 }

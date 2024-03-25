@@ -1,10 +1,10 @@
 import React, { CSSProperties, Suspense } from "react";
-import { Message } from "../types";
 import CodeMirror, { Extension } from "@uiw/react-codemirror";
 import { langs } from "@uiw/codemirror-extensions-langs";
+import { MessageIn, MessageOut } from "../types";
 
 type Props = {
-  message: Message;
+  message: MessageIn | MessageOut;
   style?: CSSProperties;
   theme?: Extension;
   date?: string;
@@ -16,7 +16,7 @@ const Message = ({ message, style, theme, date }: Props) => {
       <p className="text-slate-400 text-sm mb-2">{date}</p>
       <Suspense fallback={"..."}>
         <CodeMirror
-          value={`${message.value}`}
+          value={JSON.stringify(message.value, null, 2)}
           extensions={[langs.json()]}
           theme={theme ?? "dark"}
           minHeight="min-content"
