@@ -64,6 +64,10 @@ import {
   deserializeSolanaTransaction,
   serializeSolanaTransaction,
 } from "./solana/serializer";
+import {
+  deserializeVechainTransaction,
+  serializeVechainTransaction,
+} from "./vechain/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -111,6 +115,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCardanoTransaction(transaction);
     case "solana":
       return serializeSolanaTransaction(transaction);
+    case "vechain":
+      return serializeVechainTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -166,6 +172,8 @@ export function deserializeTransaction(
       return deserializeCardanoTransaction(rawTransaction);
     case "solana":
       return deserializeSolanaTransaction(rawTransaction);
+    case "vechain":
+      return deserializeVechainTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;

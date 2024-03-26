@@ -16,6 +16,7 @@ export * from "./tron/types";
 export * from "./elrond/types";
 export * from "./cardano/types";
 export * from "./solana/types";
+export * from "./vechain/types";
 
 export * from "./common";
 export * from "./serializer";
