@@ -15,7 +15,7 @@ const GroupedMessage = ({ group, handleReUse, displayModal }: Props) => {
   const [displayResponse, setDisplayResponse] = useState(displayModal ?? false);
 
   return (
-    <div className="w-full  h-[max-content] rounded-md">
+    <div className="w-full h-[max-content] rounded-md">
       <div className="text-lg">
         <p>Method : {group.sent.value.method}</p>
       </div>
@@ -38,7 +38,7 @@ const GroupedMessage = ({ group, handleReUse, displayModal }: Props) => {
               onClick={() => {
                 setDisplayResponse((prev) => !prev);
               }}
-              aria-label="Clear history"
+              aria-label="Clear  history"
               className=" py-1 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 "
             >
               {displayResponse ? "Hide" : "Show"} response
@@ -63,7 +63,9 @@ const GroupedMessage = ({ group, handleReUse, displayModal }: Props) => {
                   style={{ maxHeight: "50vh" }}
                 ></Message>
               ) : (
-                "..."
+                <div className="animate-pulse  h-[25vh] py-5">
+                  <div className="w-full h-full  bg-[#060521] rounded-xl"></div>
+                </div>
               )}
             </div>
           </div>

@@ -33,11 +33,11 @@ const historyAtom = atomWithStorage<(MessageGrouped | MessageInfo)[]>(
 
 export function Editor() {
   const [history, setHistory] = useAtom(historyAtom);
-  const [initialHistoryLoad, setInitialHistoryLoad] = useState(true);
   const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
   const [value, setValue] = useState<string>("");
+  const [newElement, setNewElement] = useState<boolean>(false);
   const [scrollBottom, setScrollBottom] = useState(true);
 
   const handleReUse = (request: MessageOut) => {
@@ -48,47 +48,41 @@ export function Editor() {
     setValue(JSON.stringify(initialRequest, null, 2));
   };
 
-  //set the scroll to the bottom at first render or when the user is already to bottom
-  useEffect(() => {
-    if (
-      history.length > 0 &&
-      panelRef.current &&
-      (initialHistoryLoad || scrollBottom)
-    ) {
-      const element = panelRef.current;
-      setTimeout(() => {
-        if (panelRef.current !== null) {
-          element.scrollTop = element.scrollHeight;
-        }
-      }, 30);
-      setInitialHistoryLoad(false);
-    }
-  }, [history, initialHistoryLoad, scrollBottom]);
-
   //update scrollBottom when the user scroll
-  useEffect(() => {
+  const handleScroll = () => {
     const element = panelRef.current;
     if (element) {
-      const updatePosition = () => {
-        const isAtBottom =
-          element.scrollHeight - element.scrollTop === element.clientHeight;
-        setScrollBottom(isAtBottom);
-      };
-      element.addEventListener("scroll", updatePosition);
-      updatePosition();
-
-      return () => element.removeEventListener("scroll", updatePosition);
+      setScrollBottom(() => {
+        const isBottom = element.scrollTop >= 0;
+        isBottom && setNewElement(false);
+        return isBottom;
+      });
     }
-    return undefined;
-  }, []);
+  };
 
+  useEffect(() => {
+    if (panelRef.current !== null) {
+      !scrollBottom && setNewElement(true);
+    }
+  }, [history]);
+
+  const scrollToBottom = () => {
+    if (panelRef.current !== null) {
+      panelRef.current.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+      setNewElement(false);
+    }
+  };
   const isSimulator = searchParams.get("simulator");
 
   const pushInfoMessage = useCallback(
     (type: "error" | "info", response: string) => {
       setHistory((prev) => [
-        ...prev,
         { date: new Date(), type, value: response },
+        ...prev,
       ]);
     },
     [setHistory],
@@ -97,7 +91,6 @@ export function Editor() {
   const pushOutgoingMessage = useCallback(
     (request: Request) => {
       setHistory((prev) => [
-        ...prev,
         {
           type: "group",
           id: request.id,
@@ -111,6 +104,7 @@ export function Editor() {
             received: undefined,
           },
         },
+        ...prev,
       ]);
     },
     [setHistory],
@@ -163,16 +157,10 @@ export function Editor() {
     [pushInfoMessage, pushReceivedMessage],
   );
 
-  const scrollToBottom = () => {
-    if (panelRef.current !== null) {
-      panelRef.current.scrollTop = panelRef.current.scrollHeight;
-    }
-  };
-
   const scrollToBottomButton = (
     <div className="relative flex justify-center">
       <button
-        className="w-[max-content] p-2 absolute bg-gray-600/50 bottom-0 mb-3 rounded"
+        className={`w-[max-content] ${newElement && "animate-bounce"} p-2 absolute bg-gray-600/50 bottom-0 mb-3 rounded`}
         onClick={() => {
           scrollToBottom();
         }}
@@ -233,12 +221,12 @@ export function Editor() {
         transport.send(JSON.stringify(request, null, 2));
       } catch (error) {
         setHistory((prev) => [
-          ...prev,
           {
             date: new Date(),
             type: "error",
             value: String(error),
           },
+          ...prev,
         ]);
       }
     },
@@ -249,7 +237,9 @@ export function Editor() {
     <div className="flex flex-col h-full">
       <div
         ref={panelRef}
-        className="flex-1 flex flex-col overflow-y-auto p-6 pb-6 gap-y-6"
+        onScroll={handleScroll}
+        className="flex-1 flex flex-col-reverse
+       overflow-y-auto p-6 pb-6 gap-y-6"
       >
         {history.map((message, index) => {
           return (
@@ -263,7 +253,7 @@ export function Editor() {
                   handleReUse={handleReUse}
                   group={message.messages}
                   setValue={setValue}
-                  displayModal={index === history.length - 1}
+                  displayModal={index === 0}
                 ></GroupedMessage>
               ) : (
                 <InfoMessage message={message} />

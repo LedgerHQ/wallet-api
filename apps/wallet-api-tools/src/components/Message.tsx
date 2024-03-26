@@ -10,7 +10,7 @@ type Props = {
   date?: string;
 };
 
-const Message = ({ message, style, theme, date }: Props) => {
+const Message = ({ message, theme, date }: Props) => {
   return (
     <>
       <p className="text-slate-400 text-sm mb-2">{date}</p>
@@ -20,10 +20,9 @@ const Message = ({ message, style, theme, date }: Props) => {
           extensions={[langs.json()]}
           theme={theme ?? "dark"}
           minHeight="min-content"
+          maxHeight="50vh"
           style={{
             flex: 1,
-            overflow: "scroll",
-            ...style,
           }}
           readOnly
           basicSetup={{
