@@ -19,6 +19,7 @@ import type { SolanaTransaction } from "./solana/types";
 import type { StellarTransaction } from "./stellar/types";
 import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
+import type { VechainTransaction } from "./vechain/types";
 import type { schemaRawTransaction } from "./validation";
 
 /**
@@ -79,4 +80,5 @@ export type Transaction =
   | NeoTransaction
   | ElrondTransaction
   | CardanoTransaction
-  | SolanaTransaction;
+  | SolanaTransaction
+  | VechainTransaction;
