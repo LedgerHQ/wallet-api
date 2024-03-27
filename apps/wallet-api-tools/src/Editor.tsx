@@ -7,7 +7,7 @@ import {
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Input } from "./Input";
 import {
@@ -81,7 +81,7 @@ export function Editor() {
   const pushInfoMessage = useCallback(
     (type: "error" | "info", response: string) => {
       setHistory((prev) => [
-        { date: new Date(), type, value: response },
+        { id: uuidv4(), date: new Date(), type, value: response },
         ...prev,
       ]);
     },
@@ -222,6 +222,7 @@ export function Editor() {
       } catch (error) {
         setHistory((prev) => [
           {
+            id: uuidv4(),
             date: new Date(),
             type: "error",
             value: String(error),
@@ -243,7 +244,7 @@ export function Editor() {
       >
         {history.map((message, index) => {
           return (
-            <>
+            <Fragment key={message.id}>
               {index !== 0 && (
                 <div className="w-full border-b border-[#666]"></div>
               )}
@@ -258,7 +259,7 @@ export function Editor() {
               ) : (
                 <InfoMessage message={message} />
               )}
-            </>
+            </Fragment>
           );
         })}
       </div>

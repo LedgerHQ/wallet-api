@@ -37,6 +37,7 @@ export type MessageOut = {
 };
 
 export type MessageInfo = {
+  id: string;
   type: "info" | "error";
   value: string;
   date: Date;
