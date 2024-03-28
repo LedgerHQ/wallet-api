@@ -10,13 +10,15 @@ type Props = {
   date?: string;
 };
 
+const extensions = [langs.json()];
+
 const Message = ({ message, theme, date }: Props) => {
   return (
     <>
       <p className="mb-2 text-sm text-slate-400">{date}</p>
       <CodeMirror
         value={JSON.stringify(message.value, null, 2)}
-        extensions={[langs.json()]}
+        extensions={extensions}
         theme={theme ?? "dark"}
         minHeight="min-content"
         maxHeight="50vh"
