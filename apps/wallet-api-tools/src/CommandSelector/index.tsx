@@ -303,19 +303,19 @@ const data: Group[] = [
   },
 ];
 
-type TemplateSelectorProps = {
-  onSelectTemplate: (value: object) => void;
+type CommandSelectorProps = {
+  onSelectCommand: (value: object) => void;
 };
 
-export function TemplateSelector({ onSelectTemplate }: TemplateSelectorProps) {
+export function CommandSelector({ onSelectCommand }: CommandSelectorProps) {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button
           aria-label="Customise options"
-          className="py-2.5 px-5 text-sm mr-2 font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          className="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
         >
-          Template
+          Commands
         </button>
       </DropdownMenu.Trigger>
 
@@ -342,7 +342,7 @@ export function TemplateSelector({ onSelectTemplate }: TemplateSelectorProps) {
                         key={methodName}
                         className="DropdownMenuItem"
                         onSelect={() => {
-                          onSelectTemplate(option.value);
+                          onSelectCommand(option.value);
                         }}
                       >
                         {methodName}

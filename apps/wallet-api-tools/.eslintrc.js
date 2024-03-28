@@ -7,5 +7,10 @@ module.exports = {
       presets: [require.resolve("next/babel")], // https://github.com/vercel/next.js/issues/40687#issuecomment-1264177674
     },
   },
-  rules: {},
+  rules: {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { ignoreRestSiblings: true },
+    ],
+  },
 };
