@@ -1,92 +1,182 @@
 "use client";
-
+import { useAtom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-core";
 import {
   getSimulatorTransport,
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
-import { langs } from '@uiw/codemirror-extensions-langs';
-import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { z } from "zod";
 import { Input } from "./Input";
+import {
+  MessageGrouped,
+  Response,
+  MessageOut,
+  MessageInfo,
+  ResponseResult,
+  ResponseError,
+  schemaRequest,
+  Request,
+  MessageIn,
+  schemaResponse,
+} from "./types";
+import GroupedMessage from "./components/GroupedMessage";
+import InfoMessage from "./components/InfoMessage";
+import { ArrowDown } from "lucide-react";
 
-const schemaRequest = z.object({
-  method: z.string(),
-  params: z.object({}).passthrough(),
-});
-
-type Message = {
-  type: "in" | "out" | "info" | "error";
-  value: string;
-  date: Date;
-};
-
-function getMessageStatus(message: Message) {
-  switch (message.type) {
-    case "in":
-      return "<- [received]";
-    case "out":
-      return "-> [sent]";
-    case "error":
-      return "[error]";
-    case "info":
-      return "[info]";
-    default: {
-      const exhaustiveCheck: never = message.type; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
-      return exhaustiveCheck;
-    }
-  }
-}
+const historyAtom = atomWithStorage<(MessageGrouped | MessageInfo)[]>(
+  "history",
+  [],
+);
 
 export function Editor() {
-  const [history, setHistory] = useState<Message[]>([]);
+  const [history, setHistory] = useAtom(historyAtom);
   const searchParams = useSearchParams();
-  const codeMirrorRef = useRef<ReactCodeMirrorRef | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
+  const [value, setValue] = useState<string>("");
+  const [newElement, setNewElement] = useState<boolean>(false);
+  const [scrollBottom, setScrollBottom] = useState(true);
 
-  const isSimulator = searchParams.get("simulator");
+  const handleReUse = (request: MessageOut) => {
+    const parsedSentValue: Request = request.value;
 
-  const pushMessage = useCallback(
-    (type: Message["type"], value: Message["value"]) => {
-      setHistory((prev) => [...prev, { date: new Date(), type, value }]);
-    },
-    []
-  );
+    const { id, jsonrpc, ...initialRequest } = parsedSentValue;
+    setValue(JSON.stringify(initialRequest, null, 2));
+  };
 
-  const value = useMemo(() => history
-      .map(
-        (message) =>
-          `${getMessageStatus(message)} ${message.date.toLocaleTimeString()}\n${
-            message.value
-          }`
-      )
-      .join("\n\n\n"), [history]);
-
-  const handleMessage = useCallback(
-    (message: string) => {
-      const prettifiedJson = JSON.stringify(JSON.parse(message), null, 2);
-      pushMessage("in", prettifiedJson);
-    },
-    [pushMessage]
-  );
+  //update scrollBottom when the user scroll
+  const handleScroll = () => {
+    const element = panelRef.current;
+    if (element) {
+      setScrollBottom(() => {
+        const isBottom = element.scrollTop >= 0;
+        isBottom && setNewElement(false);
+        return isBottom;
+      });
+    }
+  };
 
   useEffect(() => {
-    const codeMirror = codeMirrorRef.current;
-
-    if (codeMirror?.editor) {
-      codeMirror.editor.scrollTop = codeMirror.editor.scrollHeight;
+    if (panelRef.current !== null) {
+      !scrollBottom && setNewElement(true);
+    }
+    if (history.length >= 101) {
+      setHistory((prev) => prev.slice(0, -1));
     }
   }, [history]);
 
-  useEffect(() => {
-    pushMessage(
-      "info",
-      `Connected to ${isSimulator ? "simulator" : "software"} wallet`
-    );
+  const scrollToBottom = () => {
+    if (panelRef.current !== null) {
+      panelRef.current.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+      setNewElement(false);
+    }
+  };
+  const isSimulator = searchParams.get("simulator");
 
+  const pushInfoMessage = useCallback(
+    (type: "error" | "info", response: string) => {
+      setHistory((prev) => [
+        { id: uuidv4(), date: new Date(), type, value: response },
+        ...prev,
+      ]);
+    },
+    [setHistory],
+  );
+
+  const pushOutgoingMessage = useCallback(
+    (request: Request) => {
+      setHistory((prev) => [
+        {
+          type: "group",
+          id: request.id,
+          date: new Date(),
+          messages: {
+            sent: {
+              date: new Date(),
+              type: "out",
+              value: request,
+            } as MessageOut,
+            received: undefined,
+          },
+        },
+        ...prev,
+      ]);
+    },
+    [setHistory],
+  );
+
+  const pushReceivedMessage = useCallback(
+    (response: ResponseResult | ResponseError) => {
+      setHistory((prev) => {
+        const updatedHistory = prev.map((item) => {
+          if (item.type === "group" && item.id === response.id) {
+            return {
+              ...item,
+              messages: {
+                ...item.messages,
+                received: {
+                  date: new Date(),
+                  type: "in",
+                  value: response,
+                } as MessageIn,
+              },
+            };
+          }
+          return item;
+        });
+
+        return updatedHistory;
+      });
+    },
+    [setHistory],
+  );
+
+  const handleMessage = useCallback(
+    (response: string) => {
+      try {
+        const parsedResponse: Response = schemaResponse.parse(
+          JSON.parse(response),
+        );
+
+        if (parsedResponse.method) pushInfoMessage("info", "Update");
+
+        if (parsedResponse.result)
+          pushReceivedMessage(parsedResponse as ResponseResult);
+
+        if (parsedResponse.error)
+          pushReceivedMessage(parsedResponse as ResponseError);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    [pushInfoMessage, pushReceivedMessage],
+  );
+
+  const scrollToBottomButton = (
+    <div className="relative flex justify-center">
+      <button
+        className={`w-[max-content] ${newElement && "animate-bounce"} absolute bottom-0 mb-3 rounded bg-gray-600/50 p-2`}
+        onClick={() => {
+          scrollToBottom();
+        }}
+      >
+        <ArrowDown />
+      </button>
+    </div>
+  );
+
+  useEffect(() => {
+    pushInfoMessage(
+      "info",
+      `Connected to ${isSimulator ? "simulator" : "software"} wallet`,
+    );
     // real conditions
     if (!isSimulator) {
       const transport = new WindowMessageTransport();
@@ -107,11 +197,7 @@ export function Editor() {
     return () => {
       transportRef.current = null;
     };
-  }, [handleMessage, isSimulator, pushMessage]);
-
-  const handleClear = useCallback(() => {
-    setHistory([]);
-  }, []);
+  }, [handleMessage, isSimulator, pushInfoMessage]);
 
   const handleSend = useCallback(
     (input: string) => {
@@ -126,52 +212,72 @@ export function Editor() {
 
         const parsedRequest = schemaRequest.parse(JSON.parse(input));
 
-        const request = {
+        const request: Request = {
           id: requestId,
           jsonrpc: "2.0",
           ...parsedRequest,
         };
 
-        const message = JSON.stringify(request, null, 2);
-        pushMessage("out", message);
+        pushOutgoingMessage(request);
 
-        transport.send(message);
+        transport.send(JSON.stringify(request, null, 2));
       } catch (error) {
         setHistory((prev) => [
-          ...prev,
           {
+            id: uuidv4(),
             date: new Date(),
             type: "error",
             value: String(error),
           },
+          ...prev,
         ]);
       }
     },
-    [setHistory, pushMessage]
+    [pushOutgoingMessage, setHistory],
   );
 
   return (
-    <>
-      <CodeMirror
-        ref={codeMirrorRef}
+    <div className="flex h-full flex-col">
+      <div
+        ref={panelRef}
+        onScroll={handleScroll}
+        className="flex flex-1 flex-col-reverse gap-y-6 overflow-y-auto p-6 pb-6"
+      >
+        {history.map((message, index) => {
+          return (
+            <Fragment key={message.id}>
+              {index !== 0 && (
+                <div className="w-full border-b border-[#666]"></div>
+              )}
+
+              {message.type === "group" ? (
+                <GroupedMessage
+                  handleReUse={handleReUse}
+                  group={message.messages}
+                  setValue={setValue}
+                  displayModal={index === 0}
+                ></GroupedMessage>
+              ) : (
+                <InfoMessage message={message} />
+              )}
+            </Fragment>
+          );
+        })}
+      </div>
+      {!scrollBottom && scrollToBottomButton}
+
+      <div className="bottom-0 flex-none bg-zinc-700 pt-1" />
+      <Input
         value={value}
-        extensions={[langs.json()]}
-        theme={"dark"}
-        minHeight="100%"
-        style={{
-          flex: 1,
-          overflow: "scroll",
+        setValue={setValue}
+        onSend={handleSend}
+        onClearHistory={() => {
+          setHistory([]);
         }}
-        readOnly
-        basicSetup={{
-          lineNumbers: false,
-          highlightActiveLineGutter: false,
-          highlightActiveLine: false,
-          foldGutter: false,
+        onClearValue={() => {
+          setValue("");
         }}
       />
-      <div className="pt-1 bg-zinc-700" />
-      <Input onSend={handleSend} onClear={handleClear} />
-    </>
+    </div>
   );
 }

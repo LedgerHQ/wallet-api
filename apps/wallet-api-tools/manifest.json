@@ -1,16 +1,14 @@
 {
   "id": "wallet-api-tools",
   "name": "Wallet API Tools",
-  "url": "http://localhost:3001",
+  "url": "http://localhost:3000",
   "homepageUrl": "https://developers.ledger.com/",
   "icon": "",
   "platform": "all",
   "apiVersion": "^2.0.0",
   "manifestVersion": "1",
   "branch": "debug",
-  "categories": [
-    "tools"
-  ],
+  "categories": ["tools"],
   "currencies": "*",
   "content": {
     "shortDescription": {
@@ -38,7 +36,5 @@
     "wallet.userId",
     "wallet.info"
   ],
-  "domains": [
-    "https://*"
-  ]
+  "domains": ["https://*"]
 }
