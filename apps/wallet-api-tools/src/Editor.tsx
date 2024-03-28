@@ -43,7 +43,6 @@ export function Editor() {
   const handleReUse = (request: MessageOut) => {
     const parsedSentValue: Request = request.value;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, jsonrpc, ...initialRequest } = parsedSentValue;
     setValue(JSON.stringify(initialRequest, null, 2));
   };
@@ -63,6 +62,9 @@ export function Editor() {
   useEffect(() => {
     if (panelRef.current !== null) {
       !scrollBottom && setNewElement(true);
+    }
+    if (history.length >= 101) {
+      setHistory((prev) => prev.slice(0, -1));
     }
   }, [history]);
 
@@ -160,7 +162,7 @@ export function Editor() {
   const scrollToBottomButton = (
     <div className="relative flex justify-center">
       <button
-        className={`w-[max-content] ${newElement && "animate-bounce"} p-2 absolute bg-gray-600/50 bottom-0 mb-3 rounded`}
+        className={`w-[max-content] ${newElement && "animate-bounce"} absolute bottom-0 mb-3 rounded bg-gray-600/50 p-2`}
         onClick={() => {
           scrollToBottom();
         }}
@@ -235,12 +237,11 @@ export function Editor() {
   );
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex h-full flex-col">
       <div
         ref={panelRef}
         onScroll={handleScroll}
-        className="flex-1 flex flex-col-reverse
-       overflow-y-auto p-6 pb-6 gap-y-6"
+        className="flex flex-1 flex-col-reverse gap-y-6 overflow-y-auto p-6 pb-6"
       >
         {history.map((message, index) => {
           return (
@@ -265,7 +266,7 @@ export function Editor() {
       </div>
       {!scrollBottom && scrollToBottomButton}
 
-      <div className="pt-1 bg-zinc-700 bottom-0 flex-none" />
+      <div className="bottom-0 flex-none bg-zinc-700 pt-1" />
       <Input
         value={value}
         setValue={setValue}

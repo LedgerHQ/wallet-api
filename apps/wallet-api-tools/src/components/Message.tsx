@@ -1,4 +1,4 @@
-import React, { CSSProperties, Suspense } from "react";
+import React, { CSSProperties } from "react";
 import CodeMirror, { Extension } from "@uiw/react-codemirror";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import { MessageIn, MessageOut } from "../types";
@@ -13,26 +13,24 @@ type Props = {
 const Message = ({ message, theme, date }: Props) => {
   return (
     <>
-      <p className="text-slate-400 text-sm mb-2">{date}</p>
-      <Suspense fallback={"..."}>
-        <CodeMirror
-          value={JSON.stringify(message.value, null, 2)}
-          extensions={[langs.json()]}
-          theme={theme ?? "dark"}
-          minHeight="min-content"
-          maxHeight="50vh"
-          style={{
-            flex: 1,
-          }}
-          readOnly
-          basicSetup={{
-            foldGutter: true,
-            lineNumbers: true,
-            highlightActiveLineGutter: false,
-            highlightActiveLine: false,
-          }}
-        />
-      </Suspense>
+      <p className="mb-2 text-sm text-slate-400">{date}</p>
+      <CodeMirror
+        value={JSON.stringify(message.value, null, 2)}
+        extensions={[langs.json()]}
+        theme={theme ?? "dark"}
+        minHeight="min-content"
+        maxHeight="50vh"
+        style={{
+          flex: 1,
+        }}
+        readOnly
+        basicSetup={{
+          foldGutter: true,
+          lineNumbers: true,
+          highlightActiveLineGutter: false,
+          highlightActiveLine: false,
+        }}
+      />
     </>
   );
 };
