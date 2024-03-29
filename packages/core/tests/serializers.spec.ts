@@ -39,6 +39,8 @@ import {
   RawCardanoTransaction,
   RawSolanaTransaction,
   SolanaTransaction,
+  VechainTransaction,
+  RawVechainTransaction,
 } from "../src";
 
 const date = new Date();
@@ -773,6 +775,47 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("vechain", () => {
+      const family = schemaFamilies.enum.vechain;
+
+      it("should serialize a Vechain transaction", () => {
+        const transaction: VechainTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          estimatedFees: "0",
+          body: {
+            chainTag: 0,
+            blockRef: "",
+            expiration: 0,
+            clauses: [],
+            gasPriceCoef: 0,
+            gas: 0,
+            dependsOn: null,
+            nonce: 0,
+          },
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          estimatedFees: "0",
+          body: {
+            chainTag: 0,
+            blockRef: "",
+            expiration: 0,
+            clauses: [],
+            gasPriceCoef: 0,
+            gas: 0,
+            dependsOn: null,
+            nonce: 0,
+          },
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -1440,6 +1483,48 @@ describe("serializers.ts", () => {
                 Error: { name: "error", message: "error message" },
               },
             },
+          },
+        });
+      });
+    });
+
+    describe("vechain", () => {
+      const family = schemaFamilies.enum.vechain;
+
+      it("should deserialize a Solana transaction", () => {
+        const serializedTransaction: RawVechainTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          estimatedFees: "0",
+          body: {
+            chainTag: 0,
+            blockRef: "",
+            expiration: 0,
+            clauses: [],
+            gasPriceCoef: 0,
+            gas: 0,
+            dependsOn: null,
+            nonce: 0,
+          },
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          estimatedFees: "0",
+          body: {
+            chainTag: 0,
+            blockRef: "",
+            expiration: 0,
+            clauses: [],
+            gasPriceCoef: 0,
+            gas: 0,
+            dependsOn: null,
+            nonce: 0,
           },
         });
       });
