@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.8.0
+
+### Minor Changes
+
+- [#332](https://github.com/LedgerHQ/wallet-api/pull/332) [`1f5bd03`](https://github.com/LedgerHQ/wallet-api/commit/1f5bd03406bd0648685e46753089f32af7837269) Thanks [@Justkant](https://github.com/Justkant)! - feat: add vechain family
+
 ## 1.7.2
 
 ### Patch Changes
