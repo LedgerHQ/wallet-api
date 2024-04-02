@@ -1,7 +1,8 @@
 import { Logger } from "@ledgerhq/wallet-api-core";
 import Ajv, { ErrorObject } from "ajv";
 import ajvErrors from "ajv-errors";
-import SchemaJSON from "./schema/schema.json";
+import addFormats from "ajv-formats";
+import { schema } from "./schema/schema";
 
 export type OptionsParams = {
   details: boolean;
@@ -9,7 +10,9 @@ export type OptionsParams = {
   fileName: string;
 };
 
-const validate = ajvErrors(new Ajv({ allErrors: true })).compile(SchemaJSON);
+const ajv = new Ajv({ allErrors: true });
+const ajvWithFormats = addFormats(ajv);
+const validate = ajvErrors(ajvWithFormats).compile(schema);
 
 /**
  *  Verify if your JSON meets the requirements for Wallet App manifest submission
