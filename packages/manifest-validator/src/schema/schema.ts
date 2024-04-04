@@ -88,7 +88,7 @@ export const schema = {
     },
     manifestVersion: {
       type: "string",
-      enum: ["1", "2"],
+      enum: ["2"],
     },
     categories: {
       type: "array",
