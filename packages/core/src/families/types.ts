@@ -21,6 +21,7 @@ import type { TezosTransaction } from "./tezos/types";
 import type { TronTransaction } from "./tron/types";
 import type { VechainTransaction } from "./vechain/types";
 import type { schemaRawTransaction } from "./validation";
+import type { StacksTransaction } from "./stacks/types";
 
 /**
  * Supported coin families
@@ -81,4 +82,5 @@ export type Transaction =
   | ElrondTransaction
   | CardanoTransaction
   | SolanaTransaction
-  | VechainTransaction;
+  | VechainTransaction
+  | StacksTransaction;

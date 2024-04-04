@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
+    "@stacks/transactions": "^6.13.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
     "@types/uuid": "^9.0.8",

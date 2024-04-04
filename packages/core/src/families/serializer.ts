@@ -68,6 +68,10 @@ import {
   deserializeVechainTransaction,
   serializeVechainTransaction,
 } from "./vechain/serializer";
+import {
+  deserializeStacksTransaction,
+  serializeStacksTransaction,
+} from "./stacks/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -117,6 +121,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeSolanaTransaction(transaction);
     case "vechain":
       return serializeVechainTransaction(transaction);
+    case "stacks":
+      return serializeStacksTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -174,6 +180,8 @@ export function deserializeTransaction(
       return deserializeSolanaTransaction(rawTransaction);
     case "vechain":
       return deserializeVechainTransaction(rawTransaction);
+    case "stacks":
+      return deserializeStacksTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
