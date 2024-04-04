@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.9.0
+
+### Minor Changes
+
+- [#335](https://github.com/LedgerHQ/wallet-api/pull/335) [`0719773`](https://github.com/LedgerHQ/wallet-api/commit/0719773948ef4e754fdcee179f094539a3edc31b) Thanks [@Wozacosta](https://github.com/Wozacosta)! - feat: add stacks family
+
 ## 1.8.0
 
 ### Minor Changes
