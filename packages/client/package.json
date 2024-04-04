@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-client",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "repository": "git@github.com:LedgerHQ/wallet-api.git",
   "license": "Apache-2.0",
   "main": "lib/index.js",
