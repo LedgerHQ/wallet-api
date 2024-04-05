@@ -41,25 +41,25 @@ In this example:
 
 ### Understanding the Response
 
-Here is an example of a partial response from the `useCurrencies` hook:
+Here is an example of a partial response from the `useCapabilities` hook:
 
 ```json
 [
-  'account.request', 
+  'account.list', 
   'account.receive', 
+  'account.request', 
+  'bitcoin.getXPub', 
+  'currency.list', 
+  'device.close', 
+  'device.exchange', 
+  'device.transport', 
+  'exchange.complete', 
+  'exchange.start', 
   'message.sign', 
   'storage.get', 
   'storage.set', 
   'transaction.sign', 
   'transaction.signAndBroadcast', 
-  'device.transport', 
-  'device.exchange', 
-  'device.close', 
-  'bitcoin.getXPub', 
-  'exchange.start', 
-  'exchange.complete', 
-  'account.list', 
-  'currency.list', 
   'wallet.capabilities', 
   'wallet.info', 
   'wallet.userId'
