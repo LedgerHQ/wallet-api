@@ -58,6 +58,99 @@ The Wallet API defines an interface for applications and wallets to interact wit
 
 Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server parth of the interface, under the `/packages` directory.
 
+# Supported Families
+
+| Family                 | Wallet API | Ledger Live |
+| ---------------------- | ---------- | ----------- |
+| bitcoin                | ✅         | ✅          |
+| ethereum               | ✅         | ✅          |
+| algorand               | ✅         | ✅          |
+| crypto_org             | ✅         | ✅          |
+| ripple                 | ✅         | ✅          |
+| cosmos                 | ✅         | ✅          |
+| celo                   | ✅         | ✅          |
+| hedera                 | ✅         | ✅          |
+| filecoin               | ✅         | ✅          |
+| tezos                  | ✅         | ✅          |
+| polkadot               | ✅         | ✅          |
+| stellar                | ✅         | ✅          |
+| tron                   | ✅         | ✅          |
+| near                   | ✅         | ✅          |
+| neo                    | ✅         | ❌          |
+| elrond                 | ✅         | ✅          |
+| cardano                | ✅         | ✅          |
+| solana                 | ✅         | ✅          |
+| vechain                | ✅         | ✅          |
+| bitcoin_cash           | ❌         | ✅          |
+| bitcoin_gold           | ❌         | ✅          |
+| bitcoin_testnet        | ❌         | ✅          |
+| ethereum_classic       | ❌         | ✅          |
+| ethereum_ropsten       | ❌         | ✅          |
+| ethereum_goerli        | ❌         | ✅          |
+| ethereum_sepolia       | ❌         | ✅          |
+| ethereum_holesky       | ❌         | ✅          |
+| crypto_org_croeseid    | ❌         | ✅          |
+| polygon                | ❌         | ✅          |
+| optimism               | ❌         | ✅          |
+| optimism_goerli        | ❌         | ✅          |
+| arbitrum               | ❌         | ✅          |
+| arbitrum_sepolia       | ❌         | ✅          |
+| axelar                 | ❌         | ✅          |
+| stargaze               | ❌         | ✅          |
+| secret_network         | ❌         | ✅          |
+| umee                   | ❌         | ✅          |
+| desmos                 | ❌         | ✅          |
+| dydx                   | ❌         | ✅          |
+| onomy                  | ❌         | ✅          |
+| sei_network            | ❌         | ✅          |
+| quicksilver            | ❌         | ✅          |
+| persistence            | ❌         | ✅          |
+| avalanche_c_chain      | ❌         | ✅          |
+| bsc                    | ❌         | ✅          |
+| litecoin               | ❌         | ✅          |
+| dogecoin               | ❌         | ✅          |
+| dash                   | ❌         | ✅          |
+| zcash                  | ❌         | ✅          |
+| decred                 | ❌         | ✅          |
+| digibyte               | ❌         | ✅          |
+| qtum                   | ❌         | ✅          |
+| komodo                 | ❌         | ✅          |
+| pivx                   | ❌         | ✅          |
+| zencash                | ❌         | ✅          |
+| vertcoin               | ❌         | ✅          |
+| peercoin               | ❌         | ✅          |
+| viacoin                | ❌         | ✅          |
+| osmosis                | ❌         | ✅          |
+| fantom                 | ❌         | ✅          |
+| cronos                 | ❌         | ✅          |
+| moonbeam               | ❌         | ✅          |
+| songbird               | ❌         | ✅          |
+| flare                  | ❌         | ✅          |
+| rsk                    | ❌         | ✅          |
+| bittorrent             | ❌         | ✅          |
+| energy_web             | ❌         | ✅          |
+| astar                  | ❌         | ✅          |
+| metis                  | ❌         | ✅          |
+| boba                   | ❌         | ✅          |
+| moonriver              | ❌         | ✅          |
+| velas_evm              | ❌         | ✅          |
+| syscoin                | ❌         | ✅          |
+| internet_computer      | ❌         | ✅          |
+| klaytn                 | ❌         | ✅          |
+| polygon_zk_evm         | ❌         | ✅          |
+| polygon_zk_evm_testnet | ❌         | ✅          |
+| base                   | ❌         | ✅          |
+| base_sepolia           | ❌         | ✅          |
+| stacks                 | ❌         | ✅          |
+| telos_evm              | ❌         | ✅          |
+| coreum                 | ❌         | ✅          |
+| injective              | ❌         | ✅          |
+| casper                 | ❌         | ✅          |
+| neon_evm               | ❌         | ✅          |
+| lukso                  | ❌         | ✅          |
+| linea                  | ❌         | ✅          |
+| linea_goerli           | ❌         | ✅          |
+
 # Where to get help
 
 You can get help by:
