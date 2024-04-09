@@ -17,10 +17,7 @@ const networks = {
       },
       nodeURL: {
         type: "string",
-        pattern: "^.*$",
-        errorMessage: {
-          pattern: "${0#} must be an URL",
-        },
+        format: "uri",
       },
     },
     required: ["currency", "chainID", "nodeURL"],
