@@ -1,23 +1,27 @@
 {
   "id": "alkemi",
   "name": "Alkemi",
-  "url": "https://dapp-browser.apps.ledger.com",
-  "params": {
-    "dappUrl": "https://earn.alkemi.network/dashboard?embed=true",
-    "nanoApp": "Alkemi",
-    "dappName": "Alkemi",
+  "url": "https://earn.alkemi.network",
+  "dapp": {
+    "nanoApp": "ok",
+    "provider": "evm",
     "networks": [
       {
         "currency": "ethereum",
         "chainID": 1,
-        "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/xxx"
+        "nodeURL": "https://eth-dapps.api.live.ledger.com"
+      },
+      {
+        "currency": "bsc",
+        "chainID": 56,
+        "nodeURL": "https://bsc-dataseed.binance.org/"
       }
     ]
   },
   "homepageUrl": "https://earn.alkemi.network",
   "supportUrl": "https://earn.alkemi.network",
   "icon": "https://cdn.live.ledger.com/icons/platform/alkemi.png",
-  "platforms": ["ios"],
+  "platforms": ["android", "ios", "desktop"],
   "apiVersion": "^1.0.0 || ~0.0.1",
   "manifestVersion": "2",
   "categories": ["farm"],
@@ -31,5 +35,5 @@
     }
   },
   "permissions": ["test"],
-  "visibility": "complete"
+  "visibility": "deep"
 }
