@@ -4,7 +4,6 @@ import { validateManifest } from "../src/validator";
 import * as fs from "fs";
 import path from "path";
 
-//dApp
 const manifestDapp = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "manifests/dapp/dapp-manifest.test.json"),
@@ -19,7 +18,6 @@ const invalidManifestDapp = JSON.parse(
   ),
 );
 
-//WalletApp
 const manifestWalletApp = JSON.parse(
   fs.readFileSync(
     path.join(__dirname, "manifests/walletApp/walletApp-manifest.test.json"),
@@ -36,22 +34,18 @@ const invalidManifestWalletApp = JSON.parse(
   ),
 );
 
-//WebBrowserApp
-const manifestwebBrowser = JSON.parse(
+const manifestNativeDapp = JSON.parse(
   fs.readFileSync(
-    path.join(
-      __dirname,
-      "manifests/webBrowserApp/webBrowser-manifest.test.json",
-    ),
+    path.join(__dirname, "manifests/nativeDapp/nativeDapp-manifest.test.json"),
     "utf-8",
   ),
 );
 
-const invalidManifestwebBrowser = JSON.parse(
+const invalidManifestNativeDapp = JSON.parse(
   fs.readFileSync(
     path.join(
       __dirname,
-      "manifests/webBrowserApp/invalid-webBrowser-manifest.test.json",
+      "manifests/nativeDapp/invalid-nativeDapp-manifest.test.json",
     ),
     "utf-8",
   ),
@@ -67,7 +61,7 @@ test("WalletApp's Manifest base is OK", () => {
   expect(validateManifest(invalidManifestWalletApp)).toBe(false);
 });
 
-test("webBrowser's Manifest base is OK", () => {
-  expect(validateManifest(manifestwebBrowser)).toBe(true);
-  expect(validateManifest(invalidManifestwebBrowser)).toBe(false);
+test("native dapp's Manifest base is OK", () => {
+  expect(validateManifest(manifestNativeDapp)).toBe(true);
+  expect(validateManifest(invalidManifestNativeDapp)).toBe(false);
 });
