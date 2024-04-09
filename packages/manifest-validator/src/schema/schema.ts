@@ -136,8 +136,11 @@ export const schema = {
           type: "string",
         },
         networks,
+        provider: {
+          const: "evm",
+        },
       },
-      required: ["nanoApp", "networks"],
+      required: ["nanoApp", "networks", "provider"],
     },
     content: {
       type: "object",
