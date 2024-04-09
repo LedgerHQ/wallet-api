@@ -58,6 +58,101 @@ The Wallet API defines an interface for applications and wallets to interact wit
 
 Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server parth of the interface, under the `/packages` directory.
 
+# Supported CryptoCurrency
+
+| CryptoCurrency id (Family)        | Wallet API | Ledger Live  |
+| --------------------------------- | ---------- | ------------ |
+| bitcoin                           | ✅         | ✅           |
+| ethereum                          | ✅         | ✅           |
+| axelar (cosmos)                   | ✅         | ✅           |
+| stargaze (cosmos)                 | ✅         | ✅           |
+| secret_network (cosmos)           | ✅         | ✅           |
+| umee (cosmos)                     | ✅         | ✅           |
+| desmos (cosmos)                   | ✅         | ✅           |
+| dydx (cosmos)                     | ✅         | ✅           |
+| onomy (cosmos)                    | ✅         | ✅           |
+| sei_network (cosmos)              | ✅         | ✅           |
+| quicksilver (cosmos)              | ✅         | ✅           |
+| persistence (cosmos)              | ✅         | ✅           |
+| avalanche_c_chain (ethereum)      | ✅         | ✅           |
+| bsc (ethereum)                    | ✅         | ✅           |
+| polkadot                          | ✅         | ✅           |
+| solana                            | ✅         | ✅           |
+| ripple                            | ✅         | ✅           |
+| litecoin (bitcoin)                | ✅         | ✅           |
+| polygon (ethereum)                | ✅         | ✅           |
+| bitcoin_cash (bitcoin)            | ✅         | ✅           |
+| stellar                           | ✅         | ✅           |
+| dogecoin (bitcoin)                | ✅         | ✅           |
+| cosmos                            | ✅         | ✅           |
+| crypto_org                        | ✅         | ✅           |
+| crypto_org_croeseid (crypto_org)  | ✅         | ✅           |
+| celo                              | ✅         | ✅           |
+| dash (bitcoin)                    | ✅         | ✅           |
+| tron                              | ✅         | ✅           |
+| tezos                             | ✅         | ✅           |
+| elrond                            | ✅         | ✅           |
+| ethereum_classic (ethereum)       | ✅         | ✅           |
+| zcash (bitcoin)                   | ✅         | ✅           |
+| decred (bitcoin)                  | ✅         | ✅           |
+| digibyte (bitcoin)                | ✅         | ✅           |
+| algorand                          | ✅         | ✅           |
+| qtum (bitcoin)                    | ✅         | ✅           |
+| bitcoin_gold (bitcoin)            | ✅         | ✅           |
+| komodo (bitcoin)                  | ✅         | ✅           |
+| pivx (bitcoin)                    | ✅         | ✅           |
+| zencash (bitcoin)                 | ✅         | ✅           |
+| vertcoin (bitcoin)                | ✅         | ✅           |
+| peercoin (bitcoin)                | ✅         | ✅           |
+| viacoin (bitcoin)                 | ✅         | ✅           |
+| bitcoin_testnet (bitcoin)         | ✅         | ✅           |
+| ethereum_ropsten (ethereum)       | ✅         | ✅           |
+| ethereum_goerli (ethereum)        | ✅         | ✅           |
+| ethereum_sepolia (ethereum)       | ✅         | ✅           |
+| ethereum_holesky (ethereum)       | ✅         | ✅           |
+| hedera                            | ✅         | ✅           |
+| cardano                           | ✅         | ✅           |
+| filecoin                          | ✅         | ✅           |
+| osmo (cosmos)                     | ✅         | ✅           |
+| fantom (ethereum)                 | ✅         | ✅           |
+| cronos (ethereum)                 | ✅         | ✅           |
+| moonbeam (ethereum)               | ✅         | ✅           |
+| songbird (ethereum)               | ✅         | ✅           |
+| flare (ethereum)                  | ✅         | ✅           |
+| near                              | ✅         | ✅           |
+| optimism (ethereum)               | ✅         | ✅           |
+| optimism_goerli (ethereum)        | ✅         | ✅           |
+| arbitrum (ethereum)               | ✅         | ✅           |
+| arbitrum_sepolia (ethereum)       | ✅         | ✅           |
+| rsk (ethereum)                    | ✅         | ✅           |
+| bittorrent (ethereum)             | ✅         | ✅           |
+| kava_evm (ethereum)               | ✅         | ✅           |
+| evmos_evm (ethereum)              | ✅         | ✅           |
+| energy_web (ethereum)             | ✅         | ✅           |
+| astar (ethereum)                  | ✅         | ✅           |
+| metis (ethereum)                  | ✅         | ✅           |
+| boba (ethereum)                   | ✅         | ✅           |
+| moonriver (ethereum)              | ✅         | ✅           |
+| velas_evm (ethereum)              | ✅         | ✅           |
+| syscoin (ethereum)                | ✅         | ✅           |
+| vechain                           | ✅         | ✅ (next)    |
+| klaytn (ethereum)                 | ✅         | ✅           |
+| internet_computer                 | ❌         | ✅           |
+| polygon_zk_evm (ethereum)         | ✅         | ✅           |
+| polygon_zk_evm_testnet (ethereum) | ✅         | ✅           |
+| base (ethereum)                   | ✅         | ✅           |
+| base_sepolia (ethereum)           | ✅         | ✅           |
+| stacks                            | ✅         | ✅ (develop) |
+| telos_evm (ethereum)              | ✅         | ✅           |
+| coreum (cosmos)                   | ✅         | ✅           |
+| injective (cosmos)                | ✅         | ✅           |
+| casper                            | ❌         | ✅           |
+| neon_evm (ethereum)               | ✅         | ✅           |
+| lukso (ethereum)                  | ✅         | ✅           |
+| linea (ethereum)                  | ✅         | ✅           |
+| linea_goerli (ethereum)           | ✅         | ✅           |
+| neo                               | ✅         | ❌           |
+
 # Where to get help
 
 You can get help by:
