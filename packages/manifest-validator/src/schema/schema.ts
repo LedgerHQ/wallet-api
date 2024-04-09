@@ -207,7 +207,9 @@ export const schema = {
     },
   },
   if: {
-    properties: { url: { pattern: ".*dapp-browser.apps.ledger.com.*" } },
+    properties: {
+      url: { type: "string", pattern: ".*dapp-browser.apps.ledger.com.*" },
+    },
   },
   then: {
     properties: {
