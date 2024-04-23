@@ -18,6 +18,7 @@ export * from "./cardano/types";
 export * from "./solana/types";
 export * from "./vechain/types";
 export * from "./stacks/types";
+export * from "./internet_computer/types";
 
 export * from "./common";
 export * from "./serializer";

@@ -72,6 +72,10 @@ import {
   deserializeStacksTransaction,
   serializeStacksTransaction,
 } from "./stacks/serializer";
+import {
+  deserializeInternetComputerTransaction,
+  serializeInternetComputerTransaction,
+} from "./internet_computer/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -123,6 +127,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeVechainTransaction(transaction);
     case "stacks":
       return serializeStacksTransaction(transaction);
+    case "internet_computer":
+      return serializeInternetComputerTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -182,6 +188,8 @@ export function deserializeTransaction(
       return deserializeVechainTransaction(rawTransaction);
     case "stacks":
       return deserializeStacksTransaction(rawTransaction);
+    case "internet_computer":
+      return deserializeInternetComputerTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
