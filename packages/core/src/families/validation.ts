@@ -20,6 +20,7 @@ import { schemaRawCardanoTransaction } from "./cardano/validation";
 import { schemaRawVechainTransaction } from "./vechain/validation";
 import { schemaRawStacksTransaction } from "./stacks/validation";
 import { schemaRawInternetComputerTransaction } from "./internet_computer/validation";
+import { schemaRawCasperTransaction } from "./casper/validation";
 
 export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawAlgorandTransaction,
@@ -43,4 +44,5 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawVechainTransaction,
   schemaRawStacksTransaction,
   schemaRawInternetComputerTransaction,
+  schemaRawCasperTransaction,
 ]);
