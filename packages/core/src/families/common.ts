@@ -26,6 +26,7 @@ export const FAMILIES = [
   "solana",
   "vechain",
   "stacks",
+  "internet_computer",
 ] as const;
 
 export const schemaFamilies = z.enum(FAMILIES);

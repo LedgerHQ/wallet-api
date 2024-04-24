@@ -22,6 +22,7 @@ import type { TronTransaction } from "./tron/types";
 import type { VechainTransaction } from "./vechain/types";
 import type { schemaRawTransaction } from "./validation";
 import type { StacksTransaction } from "./stacks/types";
+import type { InternetComputerTransaction } from "./internet_computer/types";
 
 /**
  * Supported coin families
@@ -83,4 +84,5 @@ export type Transaction =
   | CardanoTransaction
   | SolanaTransaction
   | VechainTransaction
-  | StacksTransaction;
+  | StacksTransaction
+  | InternetComputerTransaction;
