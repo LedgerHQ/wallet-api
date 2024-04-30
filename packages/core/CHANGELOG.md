@@ -1,5 +1,17 @@
 # @ledgerhq/wallet-api-core
 
+## 1.10.0
+
+### Minor Changes
+
+- [#344](https://github.com/LedgerHQ/wallet-api/pull/344) [`2f325fe`](https://github.com/LedgerHQ/wallet-api/commit/2f325fe0b4e13b209af9eced302c383483d8eee3) Thanks [@Wozacosta](https://github.com/Wozacosta)! - feat: add casper family
+
+- [#343](https://github.com/LedgerHQ/wallet-api/pull/343) [`a2af615`](https://github.com/LedgerHQ/wallet-api/commit/a2af615eb368cd17511a37f296a5c8e1910a144e) Thanks [@Wozacosta](https://github.com/Wozacosta)! - feat: add internet_computer family
+
+### Patch Changes
+
+- [#334](https://github.com/LedgerHQ/wallet-api/pull/334) [`091cf53`](https://github.com/LedgerHQ/wallet-api/commit/091cf534f5637f37789877bcdba34a2dec7d6c5d) Thanks [@Wozacosta](https://github.com/Wozacosta)! - update manifest json schema
+
 ## 1.9.0
 
 ### Minor Changes
