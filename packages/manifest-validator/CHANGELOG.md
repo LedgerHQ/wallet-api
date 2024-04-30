@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-manifest-validator
 
+## 0.6.0
+
+### Minor Changes
+
+- [#334](https://github.com/LedgerHQ/wallet-api/pull/334) [`091cf53`](https://github.com/LedgerHQ/wallet-api/commit/091cf534f5637f37789877bcdba34a2dec7d6c5d) Thanks [@Wozacosta](https://github.com/Wozacosta)! - update manifest json schema
+
+### Patch Changes
+
+- Updated dependencies [[`2f325fe`](https://github.com/LedgerHQ/wallet-api/commit/2f325fe0b4e13b209af9eced302c383483d8eee3), [`091cf53`](https://github.com/LedgerHQ/wallet-api/commit/091cf534f5637f37789877bcdba34a2dec7d6c5d), [`a2af615`](https://github.com/LedgerHQ/wallet-api/commit/a2af615eb368cd17511a37f296a5c8e1910a144e)]:
+  - @ledgerhq/wallet-api-core@1.10.0
+
 ## 0.5.19
 
 ### Patch Changes
