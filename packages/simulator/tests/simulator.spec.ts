@@ -181,9 +181,9 @@ describe("Simulator", () => {
       // THEN
       expect(currencies).toBeDefined();
       expect(currencies.length).toBe(currencyIds.length);
-      expect(currencies[0]?.id).toBe(currencyIds[1]);
-      expect(currencies[1]?.id).toBe(currencyIds[0]);
-      // Notice that the order of the list isn't defined by the order of the arguments in the query
+      expect(currencies.map(({ id }) => id)).toEqual(
+        expect.arrayContaining(currencyIds),
+      );
     });
 
     it("should throw an error if permission not granted", async () => {
