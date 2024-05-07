@@ -5,6 +5,7 @@ import type {
   PermissionDenied,
   UnauthorizedStore,
   UnknownError,
+  UnknownErrorData,
 } from "./types";
 
 export function createNotImplementedByWallet(
@@ -49,7 +50,7 @@ export function createAccountNotFound(accountId: string): AccountNotFound {
   };
 }
 
-export function createUnknownError(error: UnknownError["data"]): UnknownError {
+export function createUnknownError(error: UnknownErrorData): UnknownError {
   return {
     code: "UNKNOWN_ERROR",
     message: "an unhandled error was thrown",

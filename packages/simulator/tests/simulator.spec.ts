@@ -1,3 +1,4 @@
+import { TransportStatusError } from "@ledgerhq/errors";
 import {
   WalletAPIClient,
   deserializeAccount,
@@ -449,6 +450,131 @@ describe("Simulator", () => {
 
       // THEN
       await expect(client.wallet.userId()).rejects.toThrow("permission");
+    });
+  });
+
+  describe("errors", () => {
+    it("should handle unknown errors", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw new TransportStatusError(27905);
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.message.sign("account-btc-1", Buffer.from("")),
+      ).rejects.toThrow("Ledger device: UNKNOWN_ERROR (0x6d01)");
+    });
+
+    it("should handle simple string errors", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw new Error("simple string");
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.message.sign("account-btc-1", Buffer.from("")),
+      ).rejects.toThrow("simple string");
+    });
+
+    it("should handle empty string errors", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw new Error();
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.message.sign("account-btc-1", Buffer.from("")),
+      ).rejects.toThrow("");
+    });
+
+    it("should handle simple string", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw "simple string";
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.message.sign("account-btc-1", Buffer.from("")),
+      ).rejects.toThrow("simple string");
+    });
+
+    it("should handle empty string", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw "";
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.message.sign("account-btc-1", Buffer.from("")),
+      ).rejects.toThrow("");
+    });
+
+    it("should handle undefined", async () => {
+      // GIVEN
+      const profileWithErrors = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "message.sign": () => {
+            throw undefined;
+          },
+        },
+      };
+      const transport = getSimulatorTransport(profileWithErrors);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      try {
+        await client.message.sign("account-btc-1", Buffer.from(""));
+        expect(false).toBeTruthy();
+      } catch (error) {
+        expect(error).toBeUndefined();
+      }
     });
   });
 });

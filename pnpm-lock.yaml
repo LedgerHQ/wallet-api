@@ -568,6 +568,9 @@ importers:
         specifier: ^8.16.0
         version: 8.16.0
     devDependencies:
+      '@ledgerhq/errors':
+        specifier: ^6.16.2
+        version: 6.16.2
       '@ledgerhq/jest-shared-config':
         specifier: workspace:*
         version: link:../jest-shared-config
@@ -1859,7 +1862,6 @@ packages:
 
   /@ledgerhq/errors@6.16.2:
     resolution: {integrity: sha512-jFpohaSW+p1Obp3NDT9QSByEtT3gtBZIjVNu8m25gnrH5zdtfPVlPwH6UiuS50s+2dHQyehV8hF+IfreKDWAZA==}
-    dev: false
 
   /@ledgerhq/hw-transport@6.30.4:
     resolution: {integrity: sha512-VBcVd7UG8HDrjWMoZI5rqBDz+PBxLHTIPZOGY/fdMoEUwaBbss0Z3MxuJanMyerlfaLqnBSVuL0blz7rOyagkw==}

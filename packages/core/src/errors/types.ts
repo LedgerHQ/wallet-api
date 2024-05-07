@@ -78,22 +78,26 @@ export type PermissionDenied = z.infer<typeof schemaPermissionDenied>;
     UNKNOWN_ERROR
 */
 
+export const schemaUnknownErrorData = z.object({
+  name: z.string().optional(),
+  message: z.string().optional(),
+  stack: z.string().optional(),
+  cause: z.unknown().optional(),
+  code: z.string().optional(),
+});
+
+export type UnknownErrorData = z.infer<typeof schemaUnknownErrorData>;
+
 export const schemaUnknownError = z.object({
   code: z.literal(schemaServerErrorCode.enum.UNKNOWN_ERROR),
   message: z.string(),
-  data: z.object({
-    name: z.string().optional(),
-    message: z.string().optional(),
-    stack: z.string().optional(),
-    cause: z.unknown().optional(),
-    code: z.string().optional(),
-  }),
+  data: schemaUnknownErrorData.passthrough(),
 });
 
 export type UnknownError = z.infer<typeof schemaUnknownError>;
 
 /*
-    PERMISSION_DENIED
+    UNAUTHORIZED_STORE
 */
 
 export const schemaUnauthorizedStore = z.object({
