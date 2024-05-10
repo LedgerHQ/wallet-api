@@ -1,4 +1,7 @@
-import { WalletAPIClient } from "@ledgerhq/wallet-api-client";
+import {
+  WalletAPIClient,
+  deserializeAccount,
+} from "@ledgerhq/wallet-api-client";
 import BigNumber from "bignumber.js";
 import { getSimulatorTransport, profiles } from "../src";
 
@@ -13,6 +16,39 @@ const profileWithNoPermissions = {
 const profileWithUnhandledMethods = {
   ...profiles.STANDARD,
   methods: {},
+};
+
+const profileWithFakeCurrency = {
+  ...profiles.STANDARD,
+  permissions: {
+    ...profiles.STANDARD.permissions,
+    currencyIds: ["**"], // Check that we support glob with unknown currency
+  },
+  currencies: [
+    ...profiles.STANDARD.currencies,
+    {
+      type: "CryptoCurrency",
+      id: "fake", // Check support for fake currency
+      ticker: "FAKE",
+      name: "Fake",
+      family: "fake",
+      color: "#facfac",
+      decimals: 69,
+    } as const,
+  ],
+  accounts: [
+    ...profiles.STANDARD.accounts,
+    deserializeAccount({
+      id: "account-fake-1",
+      name: "Fake 1",
+      address: "address",
+      currency: "fake", // Check support for fake account
+      balance: "42",
+      spendableBalance: "42",
+      blockHeight: 1,
+      lastSyncDate: "1995-12-17T03:24:00",
+    }),
+  ],
 };
 
 describe("Simulator", () => {
@@ -87,6 +123,22 @@ describe("Simulator", () => {
 
       // THEN
       await expect(client.account.list()).rejects.toThrow("permission");
+    });
+
+    it("should support unknown accounts", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithFakeCurrency);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const accounts = await client.account.list();
+
+      // THEN
+      expect(accounts).toBeDefined();
+      expect(accounts).toHaveLength(3);
+      expect(accounts).toEqual(
+        expect.arrayContaining([expect.objectContaining({ currency: "fake" })]),
+      );
     });
   });
 
@@ -193,6 +245,22 @@ describe("Simulator", () => {
 
       // THEN
       await expect(client.currency.list()).rejects.toThrow("permission");
+    });
+
+    it("should support unknown currencies", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithFakeCurrency);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const currencies = await client.currency.list();
+
+      // THEN
+      expect(currencies).toBeDefined();
+      expect(currencies).toHaveLength(3);
+      expect(currencies).toEqual(
+        expect.arrayContaining([expect.objectContaining({ id: "fake" })]),
+      );
     });
   });
 
