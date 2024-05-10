@@ -5,26 +5,16 @@ export function matchCurrencies(
   currencies: Currency[],
   patterns: string[],
 ): Currency[] {
-  const matchedCurrencies: Currency[] = [];
-  const patternCount = patterns.length;
-  const currencyCount = currencies.length;
-
-  for (let i = 0; i < patternCount; i += 1) {
-    const currentPattern = patterns[i];
-    if (currentPattern) {
-      const isMatch = picomatch(currentPattern);
-
-      for (let j = 0; j < currencyCount; j += 1) {
-        const currentCurrency = currencies[j];
-        if (currentCurrency) {
-          if (isMatch(currentCurrency.id)) {
-            matchedCurrencies.push(currentCurrency);
-          }
-        }
-      }
+  const matchers = patterns.reduce<picomatch.Matcher[]>((filtered, pattern) => {
+    if (pattern) {
+      filtered.push(picomatch(pattern));
     }
-  }
-  return matchedCurrencies;
+    return filtered;
+  }, []);
+
+  return currencies.filter((currency) =>
+    matchers.some((matcher) => matcher(currency.id)),
+  );
 }
 
 export function filterAccountsForCurrencies(
