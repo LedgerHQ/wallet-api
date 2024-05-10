@@ -18,7 +18,6 @@ const networks = {
       },
       nodeURL: {
         type: "string",
-        format: "uri",
       },
     },
     required: ["currency", "chainID", "nodeURL"],
@@ -61,19 +60,15 @@ export const schema = {
     },
     url: {
       type: "string",
-      format: "uri",
     },
     homepageUrl: {
       type: "string",
-      format: "uri",
     },
     supportUrl: {
       type: "string",
-      format: "uri",
     },
     icon: {
       type: "string",
-      format: "uri",
     },
 
     private: {
@@ -227,7 +222,6 @@ export const schema = {
         properties: {
           dappUrl: {
             type: "string",
-            format: "uri",
           },
           nanoApp: {
             minLength: 1,
