@@ -140,11 +140,18 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
       if (error instanceof RpcError) {
         throw error;
       }
+
+      let serializedError = serializeError(
+        error as Parameters<typeof serializeError>[0],
+      );
+      serializedError =
+        typeof serializedError === "string" || !serializedError
+          ? { message: serializedError }
+          : serializedError;
       throw new RpcError({
         code: RpcErrorCode.SERVER_ERROR,
         message: "unexpected server error",
-        // @ts-expect-error: Bad typings on serialize error !!
-        data: createUnknownError(serializeError(error)),
+        data: createUnknownError(serializedError),
       });
     }
   }
