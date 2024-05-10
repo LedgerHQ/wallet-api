@@ -41,10 +41,10 @@ export const schema = {
       type: "string",
       minLength: 3,
       maxLength: 50,
-      pattern: "^[a-z][a-z0-9-]*$",
+      pattern: "^[a-zA-Z0-9][a-zA-Z0-9-]*$",
       errorMessage: {
         pattern:
-          "${0#} must start with a lowercase letter and can only contain lowercase letters, digits, or hyphens.",
+          "${0#} must start with a letter or digit and can only contain letters, digits, or hyphens.",
       },
     },
     author: {
