@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.5.10
+
+### Patch Changes
+
+- [#352](https://github.com/LedgerHQ/wallet-api/pull/352) [`c456f57`](https://github.com/LedgerHQ/wallet-api/commit/c456f57340bc2a24ccb3170b599312134df6ba99) Thanks [@Justkant](https://github.com/Justkant)! - perf: optimize match currencies
+
+  fixes duplicates issue too
+
+- Updated dependencies [[`a738747`](https://github.com/LedgerHQ/wallet-api/commit/a7387476e6fc071927152417ad16f6fdd1433f35), [`11a705f`](https://github.com/LedgerHQ/wallet-api/commit/11a705fa42ecf0f17234bbf536a7e7b8254aeed9)]:
+  - @ledgerhq/wallet-api-core@1.10.1
+
 ## 1.5.9
 
 ### Patch Changes
