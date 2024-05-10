@@ -42,7 +42,7 @@ export const schema = {
       type: "string",
       minLength: 3,
       maxLength: 50,
-      pattern: "^[a-zA-Z0-9][a-zA-Z0-9-]*$",
+      pattern: "^[a-zA-Z0-9_][a-zA-Z0-9_-]*$",
       errorMessage: {
         pattern:
           "${0#} must start with a letter or digit and can only contain letters, digits, or hyphens.",
@@ -72,16 +72,12 @@ export const schema = {
       format: "uri",
     },
     icon: {
-      oneOf: [
-        {
-          type: "string",
-          format: "uri",
-        },
-        {
-          type: "string",
-          maxLength: 0,
-        },
-      ],
+      type: "string",
+      format: "uri",
+    },
+
+    private: {
+      type: "boolean",
     },
     platforms: {
       type: "array",
@@ -266,6 +262,10 @@ export const schema = {
     "currencies",
     "content",
     "permissions",
+    "homepageUrl",
+    "branch",
+    "domains",
+    "visibility",
   ],
   additionalProperties: {
     not: true,
