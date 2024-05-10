@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-core
 
+## 1.10.1
+
+### Patch Changes
+
+- [#346](https://github.com/LedgerHQ/wallet-api/pull/346) [`a738747`](https://github.com/LedgerHQ/wallet-api/commit/a7387476e6fc071927152417ad16f6fdd1433f35) Thanks [@Justkant](https://github.com/Justkant)! - fix: loosen family validation to provide better forward compatibility
+
+- [#349](https://github.com/LedgerHQ/wallet-api/pull/349) [`11a705f`](https://github.com/LedgerHQ/wallet-api/commit/11a705fa42ecf0f17234bbf536a7e7b8254aeed9) Thanks [@Justkant](https://github.com/Justkant)! - fix: serializeError handling and allow passthrough for unknown errors
+
 ## 1.10.0
 
 ### Minor Changes
