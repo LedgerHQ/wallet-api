@@ -10,7 +10,8 @@ const networks = {
     type: "object",
     properties: {
       currency: {
-        enum: CURRENCIES_ID,
+        type: "string",
+        examples: CURRENCIES_ID,
       },
       chainID: {
         type: "number",
@@ -113,7 +114,8 @@ export const schema = {
           type: "array",
           uniqueItems: true,
           items: {
-            enum: CURRENCIES_ID,
+            type: "string",
+            examples: CURRENCIES_ID,
           },
         },
         {
