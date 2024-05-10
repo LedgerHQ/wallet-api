@@ -228,12 +228,52 @@ describe("Simulator", () => {
       const client = new WalletAPIClient(transport);
 
       // WHEN
-      const currencyIds = ["bitcoin", "ethereum"];
+      const currencyIds = ["ethereum", "bitcoin"];
       const currencies = await client.currency.list({ currencyIds });
 
       // THEN
       expect(currencies).toBeDefined();
       expect(currencies.length).toBe(currencyIds.length);
+      expect(currencies[0]?.id).toBe(currencyIds[1]);
+      expect(currencies[1]?.id).toBe(currencyIds[0]);
+      // Notice that the order of the list isn't defined by the order of the arguments in the query
+    });
+
+    it("should return a filtered list of currencies with no duplicates", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const currencyIds = ["ethereum", "bitcoin", "ethereum"];
+      const currencies = await client.currency.list({ currencyIds });
+
+      // THEN
+      expect(currencies).toBeDefined();
+      expect(currencies.length).toBe(currencyIds.length - 1);
+      expect(currencies[0]?.id).toBe(currencyIds[1]);
+      expect(currencies[1]?.id).toBe(currencyIds[0]);
+      // Notice that the order of the list isn't defined by the order of the arguments in the query
+    });
+
+    it("should return a filtered list of currencies with no duplicates in manifest", async () => {
+      // GIVEN
+      const currencyIds = ["ethereum", "bitcoin", "ethereum"];
+      const transport = getSimulatorTransport({
+        ...profiles.STANDARD,
+        permissions: {
+          ...profiles.STANDARD.permissions,
+          currencyIds,
+        },
+      });
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const currencies = await client.currency.list();
+
+      // THEN
+      expect(currencies).toBeDefined();
+      expect(currencies.length).toBe(currencyIds.length - 1);
       expect(currencies[0]?.id).toBe(currencyIds[1]);
       expect(currencies[1]?.id).toBe(currencyIds[0]);
       // Notice that the order of the list isn't defined by the order of the arguments in the query
