@@ -1,6 +1,6 @@
 import { cryptocurrenciesById } from "@ledgerhq/cryptoassets";
 
-const CURRENCIES_ID = Object.keys(cryptocurrenciesById as string[]);
+const CURRENCIES_ID = Object.keys(cryptocurrenciesById);
 
 const networks = {
   type: "array",
@@ -196,6 +196,7 @@ export const schema = {
     },
     permissions: {
       type: "array",
+      minItems: 0,
       items: {
         type: "string",
       },
