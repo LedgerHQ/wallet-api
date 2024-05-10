@@ -1,6 +1,6 @@
 import { cryptocurrenciesById } from "@ledgerhq/cryptoassets";
 
-const CURRENCIES_ID = Object.keys(cryptocurrenciesById);
+const CURRENCIES_ID = Object.keys(cryptocurrenciesById as string[]);
 
 const networks = {
   type: "array",
@@ -34,6 +34,9 @@ export const schema = {
   title: "Manifest schema for Wallet App",
   type: "object",
   properties: {
+    $schema: {
+      type: "string",
+    },
     id: {
       type: "string",
       minLength: 3,
@@ -68,8 +71,16 @@ export const schema = {
       format: "uri",
     },
     icon: {
-      type: "string",
-      format: "uri",
+      oneOf: [
+        {
+          type: "string",
+          format: "uri",
+        },
+        {
+          type: "string",
+          maxLength: 0,
+        },
+      ],
     },
     platforms: {
       type: "array",
@@ -185,7 +196,6 @@ export const schema = {
     },
     permissions: {
       type: "array",
-      minItems: 1,
       items: {
         type: "string",
       },
