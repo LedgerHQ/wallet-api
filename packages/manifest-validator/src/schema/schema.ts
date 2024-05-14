@@ -18,6 +18,7 @@ const networks = {
       },
       nodeURL: {
         type: "string",
+        format: "uri",
       },
     },
     required: ["currency", "chainID", "nodeURL"],
