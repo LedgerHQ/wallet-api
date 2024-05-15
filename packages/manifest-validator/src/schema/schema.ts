@@ -10,7 +10,8 @@ const networks = {
     type: "object",
     properties: {
       currency: {
-        enum: CURRENCIES_ID,
+        type: "string",
+        examples: CURRENCIES_ID,
       },
       chainID: {
         type: "number",
@@ -34,14 +35,17 @@ export const schema = {
   title: "Manifest schema for Wallet App",
   type: "object",
   properties: {
+    $schema: {
+      type: "string",
+    },
     id: {
       type: "string",
       minLength: 3,
       maxLength: 50,
-      pattern: "^[a-z][a-z0-9-]*$",
+      pattern: "^[a-zA-Z0-9_][a-zA-Z0-9_-]*$",
       errorMessage: {
         pattern:
-          "${0#} must start with a lowercase letter and can only contain lowercase letters, digits, or hyphens.",
+          "${0#} must start with a letter or digit and can only contain letters, digits, or hyphens.",
       },
     },
     author: {
@@ -70,6 +74,9 @@ export const schema = {
     icon: {
       type: "string",
       format: "uri",
+    },
+    private: {
+      type: "boolean",
     },
     platforms: {
       type: "array",
@@ -102,7 +109,8 @@ export const schema = {
           type: "array",
           uniqueItems: true,
           items: {
-            enum: CURRENCIES_ID,
+            type: "string",
+            examples: CURRENCIES_ID,
           },
         },
         {
@@ -185,7 +193,7 @@ export const schema = {
     },
     permissions: {
       type: "array",
-      minItems: 1,
+      minItems: 0,
       items: {
         type: "string",
       },
@@ -253,6 +261,10 @@ export const schema = {
     "currencies",
     "content",
     "permissions",
+    "homepageUrl",
+    "branch",
+    "domains",
+    "visibility",
   ],
   additionalProperties: {
     not: true,
