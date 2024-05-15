@@ -12,6 +12,9 @@ Each account object in the array contains essential information such as its type
 
 Here is an example that shows how to use the `useAccounts` hook inside a React component:
 
+**Required permission**:
+ `account.list`
+
 ```jsx
 import React from "react";
 import { useAccounts } from "@ledgerhq/wallet-api-client-react";
@@ -125,6 +128,8 @@ Each object in the array represents an account and contains the following proper
  ...
   "permissions": [
     "account.list",
+    "account.request",
+    "account.receive"
   ],
 }
 ```
