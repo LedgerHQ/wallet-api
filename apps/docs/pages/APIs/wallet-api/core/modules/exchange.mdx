@@ -21,7 +21,7 @@ walletApiClient.exchange.start(exchangeType: 'SWAP' | 'SELL' | 'FUND'): Promise<
 
 **Returns**: A promise that resolves with an object containing the `transactionId` which is used to complete the exchange process.
 
-**Required permission**:
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
  `exchange.start`
 
 ##### Example:
@@ -72,7 +72,7 @@ walletApiClient.exchange.complete(params: {
 
 **Returns**: A promise that resolves with an object containing the `transactionHash` of the broadcasted transaction.
 
-**Required permission**:
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
  `exchange.complete`
 
 ##### Example:

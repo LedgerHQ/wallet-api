@@ -22,7 +22,7 @@ walletApiClient.account.list(params?: { currencyIds?: string[] }): Promise<Accou
 
 **Returns**: A promise that resolves with an array of Account objects.
 
-**Required permission**:
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
  `account.list`
 
 ##### Example:
@@ -55,8 +55,7 @@ walletApiClient.account.request(params?: { currencyIds?: string[] }): Promise<Ac
 
 **Returns**: A promise that resolves with the selected Account object.
 
-**Required permission**:
- `account.request`
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions) `account.request`
 
 ##### Example:
 
@@ -84,7 +83,7 @@ walletApiClient.account.receive(accountId: string): Promise<string>
 
 **Returns**: A promise that resolves with the verified address as a string.
 
-**Required permission**:
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
  `account.receive`
 
 ##### Example:
