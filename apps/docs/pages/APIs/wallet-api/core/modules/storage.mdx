@@ -22,6 +22,9 @@ walletApiClient.storage.get(key: string, storeId?: string): Promise<string | und
 
 **Returns**: A promise that resolves with the value as a string or `undefined` if the key does not exist.
 
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `storage.get`
+
 ##### Example:
 
 ```javascript
@@ -49,6 +52,9 @@ walletApiClient.storage.set(key: string, value: string, storeId?: string): Promi
 - `storeId` (optional): A string representing the ID of the store where you want to store the data.
 
 **Returns**: A promise that resolves when the data is successfully stored. There is no return value.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `storage.set`
 
 ##### Example:
 

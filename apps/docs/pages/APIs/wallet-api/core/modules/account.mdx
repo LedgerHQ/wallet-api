@@ -22,6 +22,9 @@ walletApiClient.account.list(params?: { currencyIds?: string[] }): Promise<Accou
 
 **Returns**: A promise that resolves with an array of Account objects.
 
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `account.list`
+
 ##### Example:
 
 ```javascript
@@ -52,6 +55,8 @@ walletApiClient.account.request(params?: { currencyIds?: string[] }): Promise<Ac
 
 **Returns**: A promise that resolves with the selected Account object.
 
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions) `account.request`
+
 ##### Example:
 
 ```javascript
@@ -77,6 +82,9 @@ walletApiClient.account.receive(accountId: string): Promise<string>
 - `accountId` (required): The ID of the account whose address needs to be verified.
 
 **Returns**: A promise that resolves with the verified address as a string.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `account.receive`
 
 ##### Example:
 

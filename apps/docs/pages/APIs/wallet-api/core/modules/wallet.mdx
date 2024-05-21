@@ -18,6 +18,9 @@ walletApiClient.wallet.userId(): Promise<string>
 
 - **Returns**: A promise that resolves with the user ID as a string.
 
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+  `wallet.userId`
+
 ##### Example:
 
 ```javascript
@@ -39,7 +42,10 @@ Retrieve information about the connected wallet.
 walletApiClient.wallet.info(): Promise<WalletInfo["result"]>
 ```
 
-- **Returns**: A promise that resolves with an object containing information about the connected wallet.
+**Returns**: A promise that resolves with an object containing information about the connected wallet.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+  `wallet.info`
 
 ##### Example:
 
@@ -63,6 +69,9 @@ walletApiClient.wallet.capabilities(): Promise<string[]>
 ```
 
 - **Returns**: A promise that resolves with an array of strings representing the method IDs.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+  `wallet.capabilities`
 
 ##### Example:
 

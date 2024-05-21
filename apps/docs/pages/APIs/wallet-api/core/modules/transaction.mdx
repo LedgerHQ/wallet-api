@@ -29,6 +29,9 @@ walletApiClient.transaction.sign(
 
 **Returns**: A promise that resolves with the raw signed transaction as a Buffer.
 
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `transaction.sign`
+
 ##### Example:
 
 ```javascript
@@ -62,6 +65,9 @@ walletApiClient.transaction.signAndBroadcast(
 - `meta` (optional): Metadata for the transaction.
 
 **Returns**: A promise that resolves with the transaction hash as a string.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+  `transaction.signAndBroadcast`
 
 ##### Example:
 
