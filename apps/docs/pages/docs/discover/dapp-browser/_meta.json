@@ -1,5 +1,6 @@
-{  
-	"dapp-customisation": "Add a provider",
-	"manifest": "Write and load the manifest",
-	"plugin": "Write a plugin for clear signing"
+{
+  "dapp-customisation": "Update your DApp",
+  "manifest": "Write and load the manifest",
+  "plugin": "Write a plugin for clear signing",
+  "migration": "DApp Browser migration"
 }
