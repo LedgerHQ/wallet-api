@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-manifest-validator
 
+## 0.7.0
+
+### Minor Changes
+
+- [#353](https://github.com/LedgerHQ/wallet-api/pull/353) [`47547e4`](https://github.com/LedgerHQ/wallet-api/commit/47547e42e749ac38d98722a1006c290324f1f7c8) Thanks [@RamyEB](https://github.com/RamyEB)! - Modify fields and add $schema
+
 ## 0.6.1
 
 ### Patch Changes
