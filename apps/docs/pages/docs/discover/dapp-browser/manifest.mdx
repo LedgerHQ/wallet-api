@@ -7,7 +7,7 @@ description: To test and integrate your application, you first need to write you
 
 If you have followed instructions on the previous page, you should now be ready to interact with the Dapp directly from Ledger Live interface to make sure all the basic features work as expected.
 
-Your DApp will be ran inside the [Ethereum Dapp Browser](https://github.com/LedgerHQ/eth-dapp-browser), which is a separate application loaded inside Ledger Live to handle interactions between a Dapp and the Ledger Live application. Don't hesitate to have a look at this project's [Readme](https://github.com/LedgerHQ/eth-dapp-browser#readme) to have more information on how to use it and what are the currently supported RPC calls.
+Your DApp will be ran inside the Ledger Live webview with an injected provider.
 
 To test and integrate your application, you first need to write your application Manifest file.
 This file must contain some mandatory information, such as the app package names, the components, the permissions needed, the hardware and software features, etc.
@@ -26,65 +26,76 @@ Go to the **Settings** -> **Developer** section, and click on **Load Platform Ma
 
 ```json copy
 {
-    "id": "lido",
-    "name": "Lido",
-    "url": "https://dapp-browser.apps.ledger.com",
-    "params": {
-      "dappUrl": "https://stake.lido.fi/?embed=true",
-      "nanoApp": "Lido",
-      "dappName": "Lido",
-      "networks": [
-        {
-          "currency": "ethereum",
-          "chainID": 1,
-          "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/xxx"
-        }
-      ]
-    }
-    "homepageUrl": "https://lido.fi/",
-    "icon": "https://cdn.live.ledger.com/icons/platform/lido.png",
-    "platform": "all",
-    "apiVersion": "0.0.1",
-    "manifestVersion": "1",
-    "branch": "stable",
-    "categories": [
-      "staking",
-      "defi"
-    ],
-    "currencies": [
-      "ethereum"
-    ],
-    "content": {
-      "shortDescription": {
-        "en": "Stake your ETH with Lido to earn daily staking rewards."
+  "id": "lido",
+  "name": "Lido",
+  "url": "https://stake.lido.fi/?embed=true",
+  "dapp": {
+    "nanoApp": "Lido",
+    "networks": [
+      {
+        "currency": "ethereum",
+        "chainID": 1,
+        "nodeURL": "https://eth-dapps.api.live.ledger.com"
       },
-      "description": {
-        "en": "Stake your ETH with Lido to earn daily staking rewards."
+      {
+        "currency": "bsc",
+        "chainID": 56,
+        "nodeURL": "https://bsc-dataseed.binance.org/"
+      },
+      {
+        "currency": "polygon",
+        "chainID": 137,
+        "nodeURL": "https://polygon-mainnet.g.alchemy.com/v2/xxx"
+      },
+      {
+        "currency": "arbitrum",
+        "chainID": 42161,
+        "nodeURL": "https://arb1.arbitrum.io/rpc"
+      },
+      {
+        "currency": "optimism",
+        "chainID": 10,
+        "nodeURL": "https://mainnet.optimism.io"
       }
-    },
-    "permissions": [],
-    "domains": [
-      "https://*"
     ]
-  }
+  },
+  "homepageUrl": "https://lido.fi/",
+  "icon": "https://cdn.live.ledger.com/icons/platform/lido.png",
+  "platform": "all",
+  "apiVersion": "^2.0.0",
+  "manifestVersion": "2",
+  "branch": "stable",
+  "categories": ["staking", "defi"],
+  "currencies": ["ethereum", "bsc", "polygon", "arbitrum", "optimism"],
+  "content": {
+    "shortDescription": {
+      "en": "Stake your ETH with Lido to earn daily staking rewards."
+    },
+    "description": {
+      "en": "Stake your ETH with Lido to earn daily staking rewards."
+    }
+  },
+  "permissions": [],
+  "domains": ["https://"]
+}
 ```
 
-Here is the list of the mandatory fields required in your Manifest file:
+##### Here is the list of the mandatory fields required in your Manifest file:
 
-|  Field            |      Description    |  Type   |
-|-------------------|---------------------|---------|
-| `id`              | The identification of your application. Must be in lowercase. | String |
-| `name`            | The name of your application ("Lido" in this example).        | String |
-| `url`             | The url of the eth-dapp-browser, either running locally or at https://dapp-browser.apps.ledger.com for the production version | String |
-| `params`          | dappUrl is the URL of your DApp; nanoApp is the plugin needed to clear sign your DApp, if your DApp doesn't require a plugin set the value to Ethereum; dappName should be the same as nanoApp; networks is the list of networks supported by your DApp, Ledger Live currently only support mainnet, BSC and Polygon, the nodeURL param will be set by Ledger in prod to use your node, for testing purposes, you can replace it with your own. | String |
-| `homepageUrl`     |   This for information only. It is is non-critial. For instance, "https://lido.fi/". | String |
-| `icon`            | A link to the icon displayed in the Ledger Live Discover section. Will be hosted on Ledger CDN before being released in production. | URL |
-| `platform`        | To set the platform (desktop, mobile, iOS, Android) on which your service is available. By default, you should set the value to "all". | String |
-| `apiVersion`      | The API version, by default "0.0.1".                          | String |
-| `manifestVersion` | The manifest version. By default should be "1".               | String |
-| `branch`          | The specific branch used by Ledger to deploy the changes. Can take the values stable | experimental | debug | soon. By default, you should set it to "stable". The value “soon” will mark your app as “Coming soon” and it won’t be usable. | String |
-| `categories`      | A JSON array of metadata information about your application. For instance : ["staking","defi" ]. You can add as many as you want. It is not used for the moment but will be used for filtering in the future. | List(string) |
-| `currencies`      | A JSON array of the currency/network being used by your application. For instance ["ethereum",”polygon”]. Leave blank if the App does not require any currency. | List(string) |
-| `content`         | A description of your service. It will be displayed on the entry card of your application. Type: l18n strings. | L18n strings |
-| `permissions`     | Leave blank for now.   |   |
-| `domains`         | Leave blank for now.   |  |
+| Field             | Description                                                                                                                                                                                                                                                                                                                                                                                                                       | Type         |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `id`              | The identification of your application. Must be in lowercase.                                                                                                                                                                                                                                                                                                                                                                     | String       |
+| `name`            | The name of your application ("Lido" in this example).                                                                                                                                                                                                                                                                                                                                                                            | String       |
+| `url`             | The url of your DApp, either running locally or at the production version                                                                                                                                                                                                                                                                                                                                                         | String       |
+| `dapp`            | `nanoApp` is [the plugin](./plugin/) needed to clear sign your DApp, if your DApp doesn't require a plugin set the value to Ethereum<br/><br/>`networks` is the list of networks supported by your DApp, Ledger Live currently only support mainnet, BSC, arbitrum, optimism, base, fantom and Polygon, the nodeURL param will be set by Ledger in prod to use your node, for testing purposes, you can replace it with your own. | Object       |
+| `homepageUrl`     | This for information only. It is is non-critial. For instance, "https://lido.fi/".                                                                                                                                                                                                                                                                                                                                                | String       |
+| `icon`            | A link to the icon displayed in the Ledger Live Discover section.<br/>Will be hosted on Ledger CDN before being released in production.                                                                                                                                                                                                                                                                                           | URL          |
+| `platform`        | To set the platform (desktop, mobile, iOS, Android) on which your service is available.<br/>By default, you should set the value to "all".                                                                                                                                                                                                                                                                                        | String       |
+| `apiVersion`      | The API version. By default "^2.0.0".                                                                                                                                                                                                                                                                                                                                                                                             | String       |
+| `manifestVersion` | The manifest version. By default should be "2".                                                                                                                                                                                                                                                                                                                                                                                   | String       |
+| `branch`          | The specific branch used by Ledger to deploy the changes.<br/>Can take the values stable `experimental`, `debug`, `soon`.<br/>By default, you should set it to `stable`. The value `soon` will mark your app as "Coming soon" and it won't be usable.                                                                                                                                                                             | String       |
+| `categories`      | A JSON array of metadata information about your application. For instance: ["staking","defi" ].<br/>You can add as many as you want.<br/>It is not used for the moment but will be used for filtering in the future.                                                                                                                                                                                                              | List(string) |
+| `currencies`      | A JSON array of the currency/network being used by your application.<br/>For instance ["ethereum",”polygon”].<br/>Leave blank if the App does not require any currency.                                                                                                                                                                                                                                                           | List(string) |
+| `content`         | A description of your service. It will be displayed on the entry card of your application.                                                                                                                                                                                                                                                                                                                                        | L18n strings |
+| `permissions`     | Leave empty for now.                                                                                                                                                                                                                                                                                                                                                                                                              | List(string) |
+| `domains`         | List of allowed domains to navigate to, if a domain doesn't match it will open in the default browser.<br/>By default ["http://", "https://"]                                                                                                                                                                                                                                                                                     | List(string) |
