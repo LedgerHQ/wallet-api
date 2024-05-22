@@ -8,25 +8,14 @@ Create a `manifest.json` file at the root of your project and use the following 
 
 ```json
 {
-  "id": "ReplaceAppName",
+  "$schema": "https://live-app-catalog.ledger.com/schema.json",
+  "id": "replace-app-name",
   "name": "ReplaceAppName",
   "url": "http://localhost:3000/",
-  "params": {
-    "dappUrl": "http://localhost:3000/",
-    "nanoApp": "ReplaceAppName",
-    "dappName": "ReplaceAppName",
-    "networks": [
-      {
-        "currency": "ethereum",
-        "chainID": 1,
-        "nodeURL": "wss://eth-mainnet.ws.alchemyapi.io/v2/xxx"
-      }
-    ]
-  },
   "homepageUrl": "http://localhost:3000/",
-  "platform": ["ios","android","desktop"],
+  "platform": ["ios", "android", "desktop"],
   "apiVersion": "^2.0.0",
-  "manifestVersion": "1",
+  "manifestVersion": "2",
   "branch": "stable",
   "categories": ["ReplaceCatagories"],
   "currencies": "*",
@@ -43,9 +32,6 @@ Create a `manifest.json` file at the root of your project and use the following 
     "account.receive",
     "account.request",
     "currency.list",
-    "device.close",
-    "device.exchange",
-    "device.transport",
     "message.sign",
     "transaction.sign",
     "transaction.signAndBroadcast",
@@ -53,12 +39,12 @@ Create a `manifest.json` file at the root of your project and use the following 
     "wallet.info",
     "wallet.userId"
   ],
-  "domains": ["http://*"],
+  "domains": ["http://", "https://"],
   "visibility": "complete"
 }
 ```
 
-We won’t go too much into the details of each field in this tutorial (check out the manifest file reference [here](../../appendix/manifest/) for explanation of each field).
+We won't go too much into the details of each field in this tutorial (check out the manifest file reference [here](../../appendix/manifest/) for explanation of each field).
 
 The main thing you have to care about for now is the `url` field, it must match the url of your Live App. Here it is set at `http://localhost:3000` because we are currently running our app in local for development and test purposes.
 
