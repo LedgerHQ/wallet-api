@@ -6,23 +6,12 @@ A manifest file is necessary to test your Live App inside Ledger Live. Create a 
 
 ```json
 {
+  "$schema": "https://live-app-catalog.ledger.com/schema.json",
   "id": "SampleLiveApp",
   "name": "SampleLiveApp",
   "url": "http://localhost:3000/",
-  "params": {
-    "dappUrl": "http://localhost:3000/",
-    "nanoApp": "SampleLiveApp",
-    "dappName": "SampleLiveApp",
-    "networks": [
-      {
-        "currency": "ethereum",
-        "chainID": 1,
-        "nodeURL": "..."
-      }
-    ]
-  },
   "homepageUrl": "http://localhost:3000/",
-  "platform": ["ios","android","desktop"],
+  "platform": ["ios", "android", "desktop"],
   "apiVersion": "^2.0.0",
   "manifestVersion": "2",
   "branch": "stable",
@@ -36,13 +25,26 @@ A manifest file is necessary to test your Live App inside Ledger Live. Create a 
       "en": "Desc"
     }
   },
-  "permissions": [],
-  "domains": ["http://*"],
+  "permissions": [
+    "account.list",
+    "account.receive",
+    "account.request",
+    "currency.list",
+    "message.sign",
+    "transaction.sign",
+    "transaction.signAndBroadcast",
+    "wallet.capabilities",
+    "wallet.info",
+    "wallet.userId"
+  ],
+  "domains": ["http://", "https://"],
   "visibility": "complete"
 }
 ```
+
 <Callout emoji="💡">
-  For more informations regarding the setting up of a manifest, please refer to [the manifest page](../../appendix/manifest)
+  For more informations regarding the setting up of a manifest, please refer to
+  [the manifest page](../../appendix/manifest)
 </Callout>
 
 ### 10. **Importing Manifest in Ledger Live**
@@ -56,6 +58,6 @@ Now you'll see a new row in the menu with the name of your Live App. You can now
 
 ---
 
-This concludes the step-by-step guide to developing a Live App for Ledger Live from scratch. 
+This concludes the step-by-step guide to developing a Live App for Ledger Live from scratch.
 
 Have any questions or suggestions for improvement? Leave an issue in our repo or reach out to us through our Discord.

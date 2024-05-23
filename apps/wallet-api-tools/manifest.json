@@ -36,5 +36,5 @@
     "wallet.userId",
     "wallet.info"
   ],
-  "domains": ["https://*"]
+  "domains": ["https://"]
 }
