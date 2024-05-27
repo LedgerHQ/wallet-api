@@ -5,7 +5,6 @@ on:
     branches:
       - main
     paths:
-      - "apps/docs/pages/APIs/wallet-api/*"
       - "apps/docs/pages/docs/discover/*"
 
 jobs:
@@ -26,12 +25,10 @@ jobs:
           DEVELOPER_PORTAL_CI_TOKEN: ${{ secrets.DEVELOPER_PORTAL_CI }}
           SOURCE_REPO_NAME: "wallet-api"
           SOURCE_REPO: "github.com/LedgerHQ/wallet-api"
-          SOURCE_FILE_PATH_1: "apps/docs/pages/APIs/wallet-api"
-          SOURCE_FILE_PATH_2: "apps/docs/pages/docs/discover"
+          SOURCE_FILE_PATH_1: "apps/docs/pages/docs/discover"
           TARGET_REPO_NAME: "developer-portal"
           TARGET_REPO: "github.com/LedgerHQ/developer-portal"
-          TARGET_FILE_PATH_1: "pages/APIs/wallet-api"
-          TARGET_FILE_PATH_2: "pages/docs/discover"
+          TARGET_FILE_PATH_1: "pages/docs/discover"
           TARGET_BRANCH: "main"
           TARGET_PR_API_URL: "https://api.github.com/repos/LedgerHQ/developer-portal/pulls"
           PR_TITLE: "Merging documentation from wallet-api"
@@ -48,11 +45,9 @@ jobs:
 
           # Replace files
           cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_1} ${TARGET_FILE_PATH_1}
-          cp -rT ../${SOURCE_REPO_NAME}/${SOURCE_FILE_PATH_2} ${TARGET_FILE_PATH_2}
 
           # Push changes
           git add ${TARGET_FILE_PATH_1}
-          git add ${TARGET_FILE_PATH_2}
           git commit -m "${PR_COMMIT_MESSAGE}" || echo "No changes to commit"
           git push origin ${PR_BRANCH_NAME}
 
