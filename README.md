@@ -102,9 +102,6 @@ Each wallet and application then needs to implement this interface. In this repo
 | komodo (bitcoin)                  | ✅         | ✅           |
 | pivx (bitcoin)                    | ✅         | ✅           |
 | zencash (bitcoin)                 | ✅         | ✅           |
-| vertcoin (bitcoin)                | ✅         | ✅           |
-| peercoin (bitcoin)                | ✅         | ✅           |
-| viacoin (bitcoin)                 | ✅         | ✅           |
 | bitcoin_testnet (bitcoin)         | ✅         | ✅           |
 | ethereum_ropsten (ethereum)       | ✅         | ✅           |
 | ethereum_goerli (ethereum)        | ✅         | ✅           |
