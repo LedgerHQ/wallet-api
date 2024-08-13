@@ -100,7 +100,6 @@ Each wallet and application then needs to implement this interface. In this repo
 | qtum (bitcoin)                    | ✅         | ✅           |
 | bitcoin_gold (bitcoin)            | ✅         | ✅           |
 | komodo (bitcoin)                  | ✅         | ✅           |
-| pivx (bitcoin)                    | ✅         | ✅           |
 | zencash (bitcoin)                 | ✅         | ✅           |
 | bitcoin_testnet (bitcoin)         | ✅         | ✅           |
 | ethereum_ropsten (ethereum)       | ✅         | ✅           |
