@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.11.0
+
+### Minor Changes
+
+- [#379](https://github.com/LedgerHQ/wallet-api/pull/379) [`46007fc`](https://github.com/LedgerHQ/wallet-api/commit/46007fc924eb0497344a5f3c5f0eb751e1ef5322) Thanks [@Justkant](https://github.com/Justkant)! - feat: add optional dependencies option on transaction sign and broadcast
+
 ## 1.10.1
 
 ### Patch Changes
