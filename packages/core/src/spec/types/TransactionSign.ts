@@ -3,6 +3,7 @@ import { schemaRawTransaction } from "../../families";
 
 const schemaTransactionOptions = z.object({
   hwAppId: z.string().optional(),
+  dependencies: z.array(z.string()).optional(),
 });
 
 const schemaTransactionSignParams = z.object({

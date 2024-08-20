@@ -56,13 +56,16 @@ There are also raw representations of transactions, often used when serializing 
 ### TransactionSign Type
 
 #### Parameters:
+
 - `accountId` (string, required): The ID of the account where the transaction will be made.
 - `rawTransaction` (RawTransaction, required): The transaction object in a raw, serialized format specific to the cryptocurrency family.
 - `options` (object, optional):
 - `hwAppId` (string, optional): A hardware wallet application ID.
+- `dependencies` (string[], optional): A list of hardware wallet application ID.
 - `meta` (object, optional): Metadata for the transaction in the format `{ [key: string]: unknown }`.
 
 #### Results:
+
 - `signedTransactionHex` (string): The hexadecimal string representation of the signed transaction.
 
 #### Type Definition:
@@ -70,29 +73,33 @@ There are also raw representations of transactions, often used when serializing 
 ```typescript
 type TransactionSign = {
   params: {
-    accountId: string,
-    rawTransaction: RawTransaction,
+    accountId: string;
+    rawTransaction: RawTransaction;
     options?: {
-      hwAppId?: string
-    },
-    meta?: Record<string, unknown>
-  },
+      hwAppId?: string;
+      dependencies?: string[];
+    };
+    meta?: Record<string, unknown>;
+  };
   result: {
-    signedTransactionHex: string
-  }
+    signedTransactionHex: string;
+  };
 };
 ```
 
 ### TransactionSignAndBroadcast Type
 
 #### Parameters:
+
 - `accountId` (string, required): The ID of the account where the transaction will be made.
 - `rawTransaction` (RawTransaction, required): The transaction object in a raw, serialized format specific to the cryptocurrency family.
 - `options` (object, optional):
 - `hwAppId` (string, optional): A hardware wallet application ID.
+- `dependencies` (string[], optional): A list of hardware wallet application ID.
 - `meta` (object, optional): Metadata for the transaction in the format `{ [key: string]: unknown }`.
 
 #### Results:
+
 - `transactionHash` (string): The hash of the transaction once it's been broadcasted to the network.
 
 #### Type Definition:
@@ -100,16 +107,17 @@ type TransactionSign = {
 ```typescript
 type TransactionSignAndBroadcast = {
   params: {
-    accountId: string,
-    rawTransaction: RawTransaction,
+    accountId: string;
+    rawTransaction: RawTransaction;
     options?: {
-      hwAppId?: string
-    },
-    meta?: Record<string, unknown>
-  },
+      hwAppId?: string;
+      dependencies?: string[];
+    };
+    meta?: Record<string, unknown>;
+  };
   result: {
-    transactionHash: string
-  }
+    transactionHash: string;
+  };
 };
 ```
 
