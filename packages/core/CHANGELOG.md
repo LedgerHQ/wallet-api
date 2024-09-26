@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.12.0
+
+### Minor Changes
+
+- [#389](https://github.com/LedgerHQ/wallet-api/pull/389) [`d7910f0`](https://github.com/LedgerHQ/wallet-api/commit/d7910f0c0ca983862610ee6982cd7a98f260d6a7) Thanks [@sprohaszka-ledger](https://github.com/sprohaszka-ledger)! - Add TON support
+
 ## 1.11.0
 
 ### Minor Changes
