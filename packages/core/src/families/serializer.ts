@@ -49,6 +49,10 @@ import {
   serializeTezosTransaction,
 } from "./tezos/serializer";
 import {
+  deserializeTonTransaction,
+  serializeTonTransaction,
+} from "./ton/serializer";
+import {
   deserializeTronTransaction,
   serializeTronTransaction,
 } from "./tron/serializer";
@@ -115,6 +119,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializePolkadotTransaction(transaction);
     case "stellar":
       return serializeStellarTransaction(transaction);
+    case "ton":
+      return serializeTonTransaction(transaction);
     case "tron":
       return serializeTronTransaction(transaction);
     case "near":
@@ -178,6 +184,8 @@ export function deserializeTransaction(
       return deserializePolkadotTransaction(rawTransaction);
     case "stellar":
       return deserializeStellarTransaction(rawTransaction);
+    case "ton":
+      return deserializeTonTransaction(rawTransaction);
     case "tron":
       return deserializeTronTransaction(rawTransaction);
     case "near":

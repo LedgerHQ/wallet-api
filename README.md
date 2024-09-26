@@ -89,6 +89,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | crypto_org_croeseid (crypto_org)  | ✅         | ✅           |
 | celo                              | ✅         | ✅           |
 | dash (bitcoin)                    | ✅         | ✅           |
+| ton                               | ✅         | ✅           |
 | tron                              | ✅         | ✅           |
 | tezos                             | ✅         | ✅           |
 | elrond                            | ✅         | ✅           |
