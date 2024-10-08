@@ -203,11 +203,6 @@ const data: Group[] = [
           },
         },
       },
-    ],
-  },
-  {
-    name: "bitcoin",
-    options: [
       {
         label: "getPublicKey",
         value: {
@@ -218,11 +213,6 @@ const data: Group[] = [
           },
         },
       },
-    ],
-  },
-  {
-    name: "bitcoin",
-    options: [
       {
         label: "getXPub",
         value: {
