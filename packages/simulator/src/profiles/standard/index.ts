@@ -42,6 +42,8 @@ export const standardProfile: SimulatorProfile = {
       "storage.get",
       "wallet.userId",
       "wallet.info",
+      "bitcoin.getAddress",
+      "bitcoin.getPublicKey",
       "bitcoin.getXPub",
       "exchange.start",
       "exchange.complete",
@@ -84,6 +86,8 @@ export const standardProfile: SimulatorProfile = {
 
       return store.get(key);
     },
+    "bitcoin.getAddress": () => "address",
+    "bitcoin.getPublicKey": () => "publicKey",
     "bitcoin.getXPub": () => "xpub",
     "exchange.start": ({ exchangeType }) =>
       `simulator-dummy-transaction-id-${exchangeType}`,
