@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.13.0
+
+### Minor Changes
+
+- [#393](https://github.com/LedgerHQ/wallet-api/pull/393) [`9261475`](https://github.com/LedgerHQ/wallet-api/commit/926147536eb309f2c19c90e9f7217e599fde2bf6) Thanks [@Justkant](https://github.com/Justkant)! - feat: add bitcoin.getAddress and bitcoin.getPublicKey
+
 ## 1.12.0
 
 ### Minor Changes

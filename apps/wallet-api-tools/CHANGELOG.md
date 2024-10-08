@@ -1,5 +1,17 @@
 # @ledgerhq/wallet-api-tools
 
+## 0.5.0
+
+### Minor Changes
+
+- [#393](https://github.com/LedgerHQ/wallet-api/pull/393) [`9261475`](https://github.com/LedgerHQ/wallet-api/commit/926147536eb309f2c19c90e9f7217e599fde2bf6) Thanks [@Justkant](https://github.com/Justkant)! - feat: add bitcoin.getAddress and bitcoin.getPublicKey
+
+### Patch Changes
+
+- Updated dependencies [[`9261475`](https://github.com/LedgerHQ/wallet-api/commit/926147536eb309f2c19c90e9f7217e599fde2bf6)]:
+  - @ledgerhq/wallet-api-simulator@1.2.0
+  - @ledgerhq/wallet-api-core@1.13.0
+
 ## 0.4.18
 
 ### Patch Changes
