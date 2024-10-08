@@ -1,5 +1,7 @@
 import type {
   Account,
+  BitcoinGetAddress,
+  BitcoinGetPublicKey,
   BitcoinGetXPub,
   Currency,
   DeviceClose,
@@ -101,6 +103,12 @@ export type WalletHandlers = {
     key: string;
     storeId: string;
   }) => Promisable<string | undefined>;
+  "bitcoin.getAddress": (
+    params: BitcoinGetAddress["params"],
+  ) => Promisable<string>;
+  "bitcoin.getPublicKey": (
+    params: BitcoinGetPublicKey["params"],
+  ) => Promisable<string>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
   "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
   "exchange.complete": (params: ExchangeParams) => Promisable<string>;

@@ -2,6 +2,8 @@ import type {
   AccountListHandler,
   AccountReceiveHandler,
   AccountRequestHandler,
+  BitcoinGetAddressHandler,
+  BitcoinGetPublicKeyHandler,
   BitcoinGetXPubHandler,
   CurrencyListHandler,
   CustomRequestHandler,
@@ -42,6 +44,8 @@ export type WalletHandlers<GenericCustomHandlers = UnknownCustomHandlers> = {
   "transaction.signAndBroadcast": TransactionSignAndBroadcastHandler;
   "storage.set": StorageSetHandler;
   "storage.get": StorageGetHandler;
+  "bitcoin.getAddress": BitcoinGetAddressHandler;
+  "bitcoin.getPublicKey": BitcoinGetPublicKeyHandler;
   "bitcoin.getXPub": BitcoinGetXPubHandler;
   "wallet.capabilities": WalletCapabilitiesHandler;
   "wallet.userId": WalletUserIdHandler;

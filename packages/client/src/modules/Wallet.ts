@@ -17,7 +17,7 @@ export class WalletModule {
    *
    * @returns the userId
    *
-   * @throws {@link ServerError} if an error occured on server side
+   * @throws {@link ServerError} if an error occurred on server side
    */
   async userId(): Promise<string> {
     const userIdResult = await this.client.request("wallet.userId", {});
@@ -31,7 +31,7 @@ export class WalletModule {
    *
    * @returns The wallet infos
    *
-   * @throws {@link ServerError} if an error occured on server side
+   * @throws {@link ServerError} if an error occurred on server side
    */
   async info(): Promise<WalletInfo["result"]> {
     const infoResult = await this.client.request("wallet.info", {});
@@ -45,7 +45,7 @@ export class WalletModule {
    * List the wallet's implemented methodIds
    *
    * @returns The list of implemented method ids
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    *
    * @beta Filtering not yet implemented
    */

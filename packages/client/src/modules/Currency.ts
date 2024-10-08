@@ -14,7 +14,7 @@ export class CurrencyModule {
    * @param params - Filters for currencies
    *
    * @returns The list of corresponding cryptocurrencies
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    *
    * @beta Filtering not yet implemented
    */
