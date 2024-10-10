@@ -20,7 +20,7 @@ export class AccountModule {
    * @param params - Filters for currencies
    *
    * @returns The list of accounts on the connected wallet
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    */
   async list(params?: {
     /**
@@ -43,7 +43,7 @@ export class AccountModule {
    * @param params - Parameters of the request.
    *
    * @returns The account selected by the user
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    */
   async request(params?: {
     /**

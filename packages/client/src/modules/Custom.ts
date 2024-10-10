@@ -13,7 +13,7 @@ export class CustomModule {
    * @param data - Data to send
    *
    * @returns Message signed
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    */
   protected request<D, R>(method: `custom.${string}`, data: D): Promise<R> {
     return this.client.request(method, data) as Promise<R>;

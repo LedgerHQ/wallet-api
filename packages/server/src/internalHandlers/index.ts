@@ -37,6 +37,8 @@ export const internalHandlers = {
   "storage.set": storage.set,
   "storage.get": storage.get,
 
+  "bitcoin.getAddress": bitcoin.getAddress,
+  "bitcoin.getPublicKey": bitcoin.getPublicKey,
   "bitcoin.getXPub": bitcoin.getXPub,
 
   "exchange.start": exchange.start,

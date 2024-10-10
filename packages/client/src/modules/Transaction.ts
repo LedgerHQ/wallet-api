@@ -22,7 +22,7 @@ export class TransactionModule {
    * @param options - Extra parameters
    *
    * @returns The raw signed transaction
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    */
   async sign(
     accountId: string,
@@ -54,7 +54,7 @@ export class TransactionModule {
    * @param options - Extra parameters
    *
    * @returns The transaction hash
-   * @throws {@link RpcError} if an error occured on server side
+   * @throws {@link RpcError} if an error occurred on server side
    */
   async signAndBroadcast(
     accountId: string,
