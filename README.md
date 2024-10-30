@@ -135,7 +135,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | syscoin (ethereum)                | ✅         | ✅           |
 | vechain                           | ✅         | ✅ (next)    |
 | klaytn (ethereum)                 | ✅         | ✅           |
-| internet_computer                 | ❌         | ✅           |
+| internet_computer                 | ✅         | ✅           |
 | polygon_zk_evm (ethereum)         | ✅         | ✅           |
 | polygon_zk_evm_testnet (ethereum) | ✅         | ✅           |
 | base (ethereum)                   | ✅         | ✅           |
@@ -144,7 +144,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | telos_evm (ethereum)              | ✅         | ✅           |
 | coreum (cosmos)                   | ✅         | ✅           |
 | injective (cosmos)                | ✅         | ✅           |
-| casper                            | ❌         | ✅           |
+| casper                            | ✅         | ✅           |
 | neon_evm (ethereum)               | ✅         | ✅           |
 | lukso (ethereum)                  | ✅         | ✅           |
 | linea (ethereum)                  | ✅         | ✅           |
