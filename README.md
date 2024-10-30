@@ -150,6 +150,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | linea (ethereum)                  | ✅         | ✅           |
 | linea_goerli (ethereum)           | ✅         | ✅           |
 | neo                               | ✅         | ❌           |
+| icon                              | ❌         | ✅           |
 
 # Where to get help
 
