@@ -1,6 +1,6 @@
 # Manifest
 
-The manifest describe how an Application can be loaded by a Wallet, gives informations about it (name, description, icons) and allows to restrict permissions to specific RPC calls. It uses the JSON format.
+The manifest describe how an Application can be loaded by a Wallet, gives information about it (name, description, icons) and allows to restrict permissions to specific RPC calls. It uses the JSON format.
 
 ## Schema
 
