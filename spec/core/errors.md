@@ -14,7 +14,7 @@ class PlatformError {
 }
 ```
 
-To follow the [JSON-RPC specification](https://www.jsonrpc.org/specification), each error should be formated as follow:
+To follow the [JSON-RPC specification](https://www.jsonrpc.org/specification), each error should be formatted as follow:
 
 ```json
 {
@@ -45,7 +45,7 @@ So when returned as part of a JSON-RPC response, this will equate to:
 
 ## AccountNotFound
 
-Returned by the server when the client request an opperation (for example a transaction signature) with a specific account and this account can't be found on the wallet side.
+Returned by the server when the client request an operation (for example a transaction signature) with a specific account and this account can't be found on the wallet side.
 
 ```ts
 title: "AccountNotFound";
