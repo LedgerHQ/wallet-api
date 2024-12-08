@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@ledgerhq/eslint-config-custom": "workspace:*",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
     "postcss": "^8.4.35",

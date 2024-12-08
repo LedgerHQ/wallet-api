@@ -23,7 +23,7 @@
     "@stacks/transactions": "^6.13.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
