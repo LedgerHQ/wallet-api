@@ -21,7 +21,7 @@
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
-    "@types/picomatch": "^2.3.3",
+    "@types/picomatch": "^3.0.0",
     "@types/react": "^18.2.57",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
