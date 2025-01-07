@@ -1,6 +1,5 @@
 ---
-"@ledgerhq/wallet-api-server": patch
-"@ledgerhq/wallet-api-docs": patch
+"@ledgerhq/wallet-api-server": minor
 ---
 
 feat: mevProtected boolean added to server config object
