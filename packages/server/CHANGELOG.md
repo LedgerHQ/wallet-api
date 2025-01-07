@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-server
 
+## 1.7.0
+
+### Minor Changes
+
+- [#418](https://github.com/LedgerHQ/wallet-api/pull/418) [`808985d`](https://github.com/LedgerHQ/wallet-api/commit/808985d7a4a8ca22f3675f25519794cae54658dc) Thanks [@Wozacosta](https://github.com/Wozacosta)! - feat: mevProtected boolean added to server config object
+
 ## 1.6.0
 
 ### Minor Changes
