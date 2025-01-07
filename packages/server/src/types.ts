@@ -148,6 +148,7 @@ export type ServerConfig = {
   tracking: boolean;
   wallet: WalletInfo;
   appId: string;
+  mevProtected?: boolean;
 };
 
 export type CustomHandlers = Record<
