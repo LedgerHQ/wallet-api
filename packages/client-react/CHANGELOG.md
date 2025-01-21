@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.4.0
+
+### Minor Changes
+
+- [#423](https://github.com/LedgerHQ/wallet-api/pull/423) [`1e0a402`](https://github.com/LedgerHQ/wallet-api/commit/1e0a402fe20fde241a3f118dc640593e775b664c) Thanks [@Justkant](https://github.com/Justkant)! - feat: add client prop to the react provider
+
+  Allows to pass a user created client instead of creating it in the provider
+
 ## 1.3.12
 
 ### Patch Changes
