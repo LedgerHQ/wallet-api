@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-Security vulnerabilies are to be reported to Ledger Donjon security team: https://donjon.ledger.com/bounty/
+Security vulnerabilities are to be reported to Ledger Donjon security team: https://donjon.ledger.com/bounty/
