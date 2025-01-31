@@ -3,6 +3,10 @@ import {
   serializeAlgorandTransaction,
 } from "./algorand/serializer";
 import {
+  deserializeAptosTransaction,
+  serializeAptosTransaction,
+} from "./aptos/serializer";
+import {
   deserializeBitcoinTransaction,
   serializeBitcoinTransaction,
 } from "./bitcoin/serializer";
@@ -101,6 +105,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeBitcoinTransaction(transaction);
     case "algorand":
       return serializeAlgorandTransaction(transaction);
+    case "aptos":
+      return serializeAptosTransaction(transaction);
     case "crypto_org":
       return serializeCryptoOrgTransaction(transaction);
     case "ripple":
@@ -166,6 +172,8 @@ export function deserializeTransaction(
       return deserializeBitcoinTransaction(rawTransaction);
     case "algorand":
       return deserializeAlgorandTransaction(rawTransaction);
+    case "aptos":
+      return deserializeAptosTransaction(rawTransaction);
     case "crypto_org":
       return deserializeCryptoOrgTransaction(rawTransaction);
     case "ripple":

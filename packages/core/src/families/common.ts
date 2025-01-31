@@ -7,6 +7,7 @@ export const schemaTransactionCommon = z.object({
 
 export const FAMILIES = [
   "algorand",
+  "aptos",
   "bitcoin",
   "cardano",
   "casper",

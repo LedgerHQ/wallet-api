@@ -98,6 +98,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | decred (bitcoin)                  | ✅         | ✅           |
 | digibyte (bitcoin)                | ✅         | ✅           |
 | algorand                          | ✅         | ✅           |
+| aptos                             | ✅         | ✅           |
 | qtum (bitcoin)                    | ✅         | ✅           |
 | bitcoin_gold (bitcoin)            | ✅         | ✅           |
 | komodo (bitcoin)                  | ✅         | ✅           |

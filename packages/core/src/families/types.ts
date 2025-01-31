@@ -1,6 +1,7 @@
 import type BigNumber from "bignumber.js";
 import type { z } from "zod";
 import type { AlgorandTransaction } from "./algorand/types";
+import type { AptosTransaction } from "./aptos/types";
 import type { BitcoinTransaction } from "./bitcoin/types";
 import type { CardanoTransaction } from "./cardano/types";
 import type { CeloTransaction } from "./celo/types";
@@ -70,6 +71,7 @@ export type Transaction =
   | EthereumTransaction
   | BitcoinTransaction
   | AlgorandTransaction
+  | AptosTransaction
   | CryptoOrgTransaction
   | HederaTransaction
   | FilecoinTransaction
