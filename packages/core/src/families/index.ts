@@ -1,4 +1,5 @@
 export * from "./algorand/types";
+export * from "./aptos/types";
 export * from "./bitcoin/types";
 export * from "./cardano/types";
 export * from "./casper/types";
