@@ -56,7 +56,7 @@ The Wallet API defines an interface for applications and wallets to interact wit
 
 <!-- TODO: link to reference implementations of client and server once available -->
 
-Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server parth of the interface, under the `/packages` directory.
+Each wallet and application then needs to implement this interface. In this repo, you will find a reference implementation for the client part of the interface and one for the server path of the interface, under the `/packages` directory.
 
 # Supported CryptoCurrency
 
