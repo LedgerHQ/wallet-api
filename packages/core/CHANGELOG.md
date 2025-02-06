@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.15.0
+
+### Minor Changes
+
+- [#430](https://github.com/LedgerHQ/wallet-api/pull/430) [`4ed8d9a`](https://github.com/LedgerHQ/wallet-api/commit/4ed8d9a8b0747593374dd90a762e924494151c0e) Thanks [@semeano](https://github.com/semeano)! - Add support for Aptos
+
 ## 1.14.0
 
 ### Minor Changes
