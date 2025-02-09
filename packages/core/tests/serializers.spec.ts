@@ -12,6 +12,7 @@ import {
   PolkadotTransaction,
   RawAccount,
   RawAlgorandTransaction,
+  RawAptosTransaction,
   RawBitcoinTransaction,
   RawCosmosTransaction,
   RawCryptoOrgTransaction,
@@ -1415,6 +1416,47 @@ describe("serializers.ts", () => {
           recipient: "recipient",
           mode: "test",
           memo: undefined,
+          fees: undefined,
+        });
+      });
+    });
+
+    describe("aptos", () => {
+      const family = schemaFamilies.enum.aptos;
+
+      it("should deserialize a Cardano transaction", () => {
+        const transaction: RawAptosTransaction = {
+          family,
+          amount: "1000",
+          mode: "send",
+          recipient: "recipient",
+          fees: "100",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(1000),
+          recipient: "recipient",
+          mode: "send",
+          fees: new BigNumber(100),
+        });
+      });
+
+      it("should deserialize a Cardano transaction without optional params", () => {
+        const transaction: RawAptosTransaction = {
+          family,
+          amount: "2000",
+          recipient: "recipient",
+          mode: "send",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(2000),
+          recipient: "recipient",
+          mode: "send",
           fees: undefined,
         });
       });
