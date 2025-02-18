@@ -1424,7 +1424,7 @@ describe("serializers.ts", () => {
     describe("aptos", () => {
       const family = schemaFamilies.enum.aptos;
 
-      it("should deserialize a Cardano transaction", () => {
+      it("should deserialize a Aptos transaction", () => {
         const transaction: RawAptosTransaction = {
           family,
           amount: "1000",
@@ -1443,7 +1443,7 @@ describe("serializers.ts", () => {
         });
       });
 
-      it("should deserialize a Cardano transaction without optional params", () => {
+      it("should deserialize a Aptos transaction without optional params", () => {
         const transaction: RawAptosTransaction = {
           family,
           amount: "2000",
