@@ -152,6 +152,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | linea_goerli (ethereum)           | ✅         | ✅           |
 | neo                               | ✅         | ❌           |
 | icon                              | ❌         | ✅           |
+| zksync (ethereum)                 | ✅         | ✅           |
 
 # Where to get help
 
