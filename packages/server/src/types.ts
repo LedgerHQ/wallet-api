@@ -64,7 +64,7 @@ export type WalletHandlers = {
   "account.request": (params: {
     currencies$: Observable<Currency[]>;
     accounts$: Observable<Account[]>;
-    filteringAccount: boolean;
+    accountFilterMode: boolean;
   }) => Promisable<Account>;
   "account.receive": (params: {
     account: Account;

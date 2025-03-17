@@ -3,7 +3,7 @@ import { schemaRawAccount } from "../../accounts";
 
 const schemaAccountRequestParams = z.object({
   currencyIds: z.array(z.string()).optional(),
-  filteringAccount: z.boolean().optional(),
+  accountFilterMode: z.boolean().optional(),
 });
 
 const schemaAccountRequestResults = z.object({
