@@ -55,11 +55,11 @@ export class AccountModule {
      * For example, the USDC token id for Ethereum is `ethereum/erc20/usd__coin`.
      */
     currencyIds?: string[];
-    accountFilterMode?: boolean;
+    showAccountFilter?: boolean;
   }): Promise<Account> {
     const requestAccountsResult = await this.client.request("account.request", {
       currencyIds: params?.currencyIds,
-      accountFilterMode: params?.accountFilterMode ?? false,
+      showAccountFilter: params?.showAccountFilter ?? false,
     });
 
     const safeResults = schemaAccountRequest.result.parse(

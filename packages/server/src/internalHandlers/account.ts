@@ -36,7 +36,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 ) => {
   const safeParams = schemaAccountRequest.params.parse(req.params);
 
-  const { currencyIds, accountFilterMode } = safeParams;
+  const { currencyIds, showAccountFilter } = safeParams;
 
   const walletHandler = handlers["account.request"];
 
@@ -61,7 +61,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
   const account = await walletHandler({
     currencies$: filteredCurrencies$,
     accounts$: filteredAccounts$,
-    accountFilterMode: !!accountFilterMode,
+    showAccountFilter: !!showAccountFilter,
   });
 
   return {
