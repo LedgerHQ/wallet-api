@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.8.0
+
+### Minor Changes
+
+- [#436](https://github.com/LedgerHQ/wallet-api/pull/436) [`74647a4`](https://github.com/LedgerHQ/wallet-api/commit/74647a4fc01f7a50c0ed18ad4e341bb56c1c12aa) Thanks [@CremaFR](https://github.com/CremaFR)! - feat: new param to customize account request
+
+### Patch Changes
+
+- Updated dependencies [[`74647a4`](https://github.com/LedgerHQ/wallet-api/commit/74647a4fc01f7a50c0ed18ad4e341bb56c1c12aa)]:
+  - @ledgerhq/wallet-api-core@1.16.0
+
 ## 1.7.2
 
 ### Patch Changes

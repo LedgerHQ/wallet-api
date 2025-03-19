@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.16.0
+
+### Minor Changes
+
+- [#436](https://github.com/LedgerHQ/wallet-api/pull/436) [`74647a4`](https://github.com/LedgerHQ/wallet-api/commit/74647a4fc01f7a50c0ed18ad4e341bb56c1c12aa) Thanks [@CremaFR](https://github.com/CremaFR)! - feat: new param to customize account request
+
 ## 1.15.0
 
 ### Minor Changes
