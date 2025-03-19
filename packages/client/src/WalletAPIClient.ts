@@ -28,7 +28,6 @@ export type EventHandlers = Record<`event.${string}`, RPCHandler<unknown>>;
 // temporary
 const requestHandlers = {
   "event.account.updated": (_request: RpcRequest) => {
-    // eslint-disable-next-line no-console
     return Promise.resolve();
   },
 };
