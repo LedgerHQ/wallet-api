@@ -61,7 +61,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
   const account = await walletHandler({
     currencies$: filteredCurrencies$,
     accounts$: filteredAccounts$,
-    showAccountFilter: !!showAccountFilter,
+    showAccountFilter,
   });
 
   return {

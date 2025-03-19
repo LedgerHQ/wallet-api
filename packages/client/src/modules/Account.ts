@@ -59,7 +59,7 @@ export class AccountModule {
   }): Promise<Account> {
     const requestAccountsResult = await this.client.request("account.request", {
       currencyIds: params?.currencyIds,
-      showAccountFilter: params?.showAccountFilter ?? false,
+      showAccountFilter: params?.showAccountFilter,
     });
 
     const safeResults = schemaAccountRequest.result.parse(
