@@ -26,6 +26,7 @@ import type { schemaRawTransaction } from "./validation";
 import type { StacksTransaction } from "./stacks/types";
 import type { InternetComputerTransaction } from "./internet_computer/types";
 import type { CasperTransaction } from "./casper/types";
+import type { SuiTransaction } from "./sui/types";
 
 /**
  * Supported coin families
@@ -91,4 +92,5 @@ export type Transaction =
   | VechainTransaction
   | StacksTransaction
   | InternetComputerTransaction
-  | CasperTransaction;
+  | CasperTransaction
+  | SuiTransaction;

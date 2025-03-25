@@ -18,6 +18,7 @@ export * from "./ripple/types";
 export * from "./solana/types";
 export * from "./stacks/types";
 export * from "./stellar/types";
+export * from "./sui/types";
 export * from "./tezos/types";
 export * from "./ton/types";
 export * from "./tron/types";
