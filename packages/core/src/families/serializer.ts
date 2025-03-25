@@ -88,6 +88,10 @@ import {
   deserializeCasperTransaction,
   serializeCasperTransaction,
 } from "./casper/serializer";
+import {
+  serializeSuiTransaction,
+  deserializeSuiTransaction,
+} from "./sui/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -147,6 +151,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeInternetComputerTransaction(transaction);
     case "casper":
       return serializeCasperTransaction(transaction);
+    case "sui":
+      return serializeSuiTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -214,6 +220,8 @@ export function deserializeTransaction(
       return deserializeInternetComputerTransaction(rawTransaction);
     case "casper":
       return deserializeCasperTransaction(rawTransaction);
+    case "sui":
+      return deserializeSuiTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;

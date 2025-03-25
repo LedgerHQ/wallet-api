@@ -32,6 +32,8 @@ import {
   TronTransaction,
   RawNearTransaction,
   RawNeoTransaction,
+  RawSuiTransaction,
+  SuiTransaction,
   NearTransaction,
   NeoTransaction,
   ElrondTransaction,
@@ -588,6 +590,38 @@ describe("serializers.ts", () => {
       });
 
       it("should succeed to serialize a near transaction, with options", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction({ ...tx, fees: BigNumber(1) });
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+          fees: "1",
+        });
+      });
+    });
+
+    describe("sui", () => {
+      function createTx(): SuiTransaction {
+        return {
+          family: schemaFamilies.enum.sui,
+          amount: BigNumber(100),
+          recipient: "recipient",
+          mode: "send",
+        };
+      }
+
+      it("should succeed to serialize a sui transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+        });
+      });
+
+      it("should succeed to serialize a sui transaction, with options", () => {
         const tx = createTx();
         const rawTx = serializeTransaction({ ...tx, fees: BigNumber(1) });
 
@@ -1296,6 +1330,38 @@ describe("serializers.ts", () => {
       });
 
       it("should succeed to deserialize a near transaction with fees", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction({ ...rawTx, fees: "1" });
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+          fees: new BigNumber(1),
+        });
+      });
+    });
+
+    describe("sui", () => {
+      function createRawTx(): RawSuiTransaction {
+        return {
+          family: schemaFamilies.enum.sui,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        };
+      }
+
+      it("should succeed to deserialize a sui transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+        });
+      });
+
+      it("should succeed to deserialize a sui transaction with fees", () => {
         const rawTx = createRawTx();
         const tx = deserializeTransaction({ ...rawTx, fees: "1" });
 

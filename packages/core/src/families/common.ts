@@ -26,6 +26,7 @@ export const FAMILIES = [
   "solana",
   "stacks",
   "stellar",
+  "sui",
   "tezos",
   "ton",
   "tron",
