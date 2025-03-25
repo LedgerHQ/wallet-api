@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.17.0
+
+### Minor Changes
+
+- [#440](https://github.com/LedgerHQ/wallet-api/pull/440) [`0366a27`](https://github.com/LedgerHQ/wallet-api/commit/0366a27fcc47d1eddd2b840904900a8437abed3f) Thanks [@jonezque](https://github.com/jonezque)! - support sui family
+
 ## 1.16.0
 
 ### Minor Changes
