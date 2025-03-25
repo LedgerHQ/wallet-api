@@ -1,6 +1,6 @@
 {
   "name": "@ledgerhq/wallet-api-tools",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "repository": "git@github.com:LedgerHQ/wallet-api.git",
   "private": true,
   "scripts": {
