@@ -201,6 +201,7 @@ export type TransactionModel = { commandDescriptor?: CommandDescriptor } & (
 export type SolanaTransaction = TransactionCommon & {
   readonly family: RawSolanaTransaction["family"];
   model: TransactionModel;
+  raw?: string;
 };
 
 export type RawSolanaTransaction = z.infer<typeof schemaRawSolanaTransaction>;
