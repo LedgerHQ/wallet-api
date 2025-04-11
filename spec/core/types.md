@@ -31,6 +31,8 @@ Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These typ
     - [RawCryptoOrgTransaction](#rawcryptoorgtransaction)
     - [EthereumTransaction](#ethereumtransaction)
     - [RawEthereumTransaction](#rawethereumtransaction)
+    - [HederaTransaction](#hederatransaction)
+    - [RawHederaTransaction](#rawhederatransaction)
     - [PolkadotTransaction](#polkadottransaction)
     - [RawPolkadotTransaction](#rawpolkadottransaction)
     - [RippleTransaction](#rippletransaction)
@@ -78,13 +80,13 @@ Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These typ
 Description of an unsigned transaction. This type is used to build transactions and then sign them with a Ledger device and finally broadcast them to the network upon user validation.
 
 [`EthereumTransaction`](/spec/core/types.md#ethereumtransaction) \| [`BitcoinTransaction`](/spec/core/types.md#bitcointransaction) \| [`AlgorandTransaction`](/spec/core/types.md#algorandtransaction) \|
-[`AptosTransaction`](/spec/core/types.md#aptostransaction) \| [`CryptoOrgTransaction`](/spec/core/types.md#cryptoorgtransaction) \| [`RippleTransaction`](/spec/core/types.md#rippletransaction) \| [`CosmosTransaction`](/spec/core/types.md#cosmostransaction) \| [`TezosTransaction`](/spec/core/types.md#tezostransaction) \| [`PolkadotTransaction`](/spec/core/types.md#polkadottransaction) \| [`StellarTransaction`](/spec/core/types.md#stellartransaction) \| [`TronTransaction`](/spec/core/types.md#trontransaction)
+[`AptosTransaction`](/spec/core/types.md#aptostransaction) \| [`CryptoOrgTransaction`](/spec/core/types.md#cryptoorgtransaction) \| [`RippleTransaction`](/spec/core/types.md#rippletransaction) \| [`CosmosTransaction`](/spec/core/types.md#cosmostransaction) \| [`TezosTransaction`](/spec/core/types.md#tezostransaction) \| [`PolkadotTransaction`](/spec/core/types.md#polkadottransaction) \| [`StellarTransaction`](/spec/core/types.md#stellartransaction) \| [`TronTransaction`](/spec/core/types.md#trontransaction) \| [`HederaTransaction`](/spec/core/types.md#hederatransaction)
 
 ### RawTransaction
 
 The raw representation of the generic [Transaction](/spec/core/types.md#transaction) type.
 
-[`RawEthereumTransaction`](/spec/core/types.md#rawethereumtransaction) \| [`RawBitcoinTransaction`](/spec/core/types.md#rawbitcointransaction) \| [`RawAlgorandTransaction`](/spec/core/types.md#rawalgorandtransaction) \| [`RawAptosTransaction`](/spec/core/types.md#rawaptostransaction) \| [`RawCryptoOrgTransaction`](/spec/core/types.md#rawcryptoorgtransaction) \| [`RawRippleTransaction`](/spec/core/types.md#rawrippletransaction) \| [`RawCosmosTransaction`](/spec/core/types.md#rawcosmostransaction) \| [`RawTezosTransaction`](/spec/core/types.md#rawtezostransaction) \| [`RawPolkadotTransaction`](/spec/core/types.md#rawpolkadottransaction) \| [`RawStellarTransaction`](/spec/core/types.md#rawstellartransaction) \| [`RawTronTransaction`](/spec/core/types.md#rawtrontransaction)
+[`RawEthereumTransaction`](/spec/core/types.md#rawethereumtransaction) \| [`RawBitcoinTransaction`](/spec/core/types.md#rawbitcointransaction) \| [`RawAlgorandTransaction`](/spec/core/types.md#rawalgorandtransaction) \| [`RawAptosTransaction`](/spec/core/types.md#rawaptostransaction) \| [`RawCryptoOrgTransaction`](/spec/core/types.md#rawcryptoorgtransaction) \| [`RawRippleTransaction`](/spec/core/types.md#rawrippletransaction) \| [`RawCosmosTransaction`](/spec/core/types.md#rawcosmostransaction) \| [`RawTezosTransaction`](/spec/core/types.md#rawtezostransaction) \| [`RawPolkadotTransaction`](/spec/core/types.md#rawpolkadottransaction) \| [`RawStellarTransaction`](/spec/core/types.md#rawstellartransaction) \| [`RawTronTransaction`](/spec/core/types.md#rawtrontransaction) \| [`RawHederaTransaction`](/spec/core/types.md#rawhederatransaction)
 
 ### TransactionCommon
 
@@ -236,6 +238,24 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `nonce?`    | `number`                                   |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
 
+### HederaTransaction
+
+| Name        | Type                                       | Description                                                                                                                                                                                                     |
+| ----------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount`    | `BigNumber`                                | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
+| `family`    | [`HEDERA`](/spec/core/types.md#families)   |                                                                                                                                                                                                                 |
+| `memo?`     | `string`                                   |                                                                                                                                                                                                                 |
+| `recipient` | `string`                                   | The address of the transaction's recipient                                                                                                                                                                      |
+
+### RawHederaTransaction
+
+| Name        | Type                                       | Description                                                                                                                                                                                                     |
+| ----------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount`    | `string`                                   | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
+| `family`    | [`HEDERA`](/spec/core/types.md#families)   |                                                                                                                                                                                                                 |
+| `memo?`     | `string`                                   |                                                                                                                                                                                                                 |
+| `recipient` | `string`                                   | The address of the transaction's recipient  
+
 ### PolkadotTransaction
 
 | Name        | Type                                                                 | Description                                                                                                                                                                                                     |
@@ -376,6 +396,7 @@ Supported coin families
 | COSMOS     | `cosmos`     |
 | CRYPTO_ORG | `crypto_org` |
 | ETHEREUM   | `ethereum`   |
+| HEDERA     | `hedera`     |
 | POLKADOT   | `polkadot`   |
 | RIPPLE     | `ripple`     |
 | STELLAR    | `stellar`    |
