@@ -759,6 +759,7 @@ describe("serializers.ts", () => {
               memo: "test",
             },
           },
+          raw: "any random value",
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -767,6 +768,7 @@ describe("serializers.ts", () => {
           amount: "100",
           recipient: "recipient",
           model: '{"kind":"transfer","uiState":{"memo":"test"}}',
+          raw: "any random value",
         });
       });
 
@@ -1537,6 +1539,7 @@ describe("serializers.ts", () => {
           amount: "100",
           recipient: "recipient",
           model: '{"kind":"transfer","uiState":{"memo":"test"}}',
+          raw: "any random value",
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
@@ -1551,6 +1554,7 @@ describe("serializers.ts", () => {
               memo: "test",
             },
           },
+          raw: "any random value",
         });
       });
 

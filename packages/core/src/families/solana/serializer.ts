@@ -6,12 +6,14 @@ export function serializeSolanaTransaction({
   family,
   model,
   recipient,
+  raw,
 }: SolanaTransaction): RawSolanaTransaction {
   return {
     amount: amount.toString(),
     family,
     model: JSON.stringify(model),
     recipient,
+    raw,
   };
 }
 
@@ -20,6 +22,7 @@ export function deserializeSolanaTransaction({
   amount,
   model,
   recipient,
+  raw,
 }: RawSolanaTransaction): SolanaTransaction {
   return {
     amount: new BigNumber(amount),
@@ -27,5 +30,6 @@ export function deserializeSolanaTransaction({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     model: JSON.parse(model),
     recipient,
+    raw,
   };
 }

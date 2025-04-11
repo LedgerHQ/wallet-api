@@ -201,6 +201,7 @@ export type TransactionModel = { commandDescriptor?: CommandDescriptor } & (
 export type SolanaTransaction = TransactionCommon & {
   readonly family: RawSolanaTransaction["family"];
   model: TransactionModel;
+  // base64-encoded serialized transaction
   raw?: string;
 };
 
