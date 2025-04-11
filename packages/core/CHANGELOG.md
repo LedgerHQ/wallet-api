@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.17.1
+
+### Patch Changes
+
+- [#443](https://github.com/LedgerHQ/wallet-api/pull/443) [`435319e`](https://github.com/LedgerHQ/wallet-api/commit/435319e3502f774aa26431da1d1304e48276841e) Thanks [@qperrot](https://github.com/qperrot)! - Add approve and revoke type
+
 ## 1.17.0
 
 ### Minor Changes
