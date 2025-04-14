@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.18.0
+
+### Minor Changes
+
+- [#444](https://github.com/LedgerHQ/wallet-api/pull/444) [`38a17e0`](https://github.com/LedgerHQ/wallet-api/commit/38a17e07e1ecfb33c04a732842b415694e7475a9) Thanks [@Moustafa-Koterba](https://github.com/Moustafa-Koterba)! - Support RAW tx for Solana
+
 ## 1.17.1
 
 ### Patch Changes
