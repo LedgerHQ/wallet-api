@@ -148,6 +148,10 @@ const fromTransactionPayloadRaw = (
       };
     case "comment":
       return payload;
+    default: {
+      const exhaustiveCheck: never = payload; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+      return exhaustiveCheck;
+    }
   }
 };
 
@@ -262,5 +266,9 @@ const toTransactionPayloadRaw = (
       };
     case "comment":
       return payload;
+    default: {
+      const exhaustiveCheck: never = payload; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+      return exhaustiveCheck;
+    }
   }
 };
