@@ -44,6 +44,8 @@ import {
   SolanaTransaction,
   VechainTransaction,
   RawVechainTransaction,
+  RawHederaTransaction,
+  HederaTransaction,
 } from "../src";
 
 const date = new Date();
@@ -741,6 +743,43 @@ describe("serializers.ts", () => {
           mode: "test",
           memo: undefined,
           fees: undefined,
+        });
+      });
+    });
+
+    describe("hedera", () => {
+      const family = schemaFamilies.enum.hedera;
+
+      it("should serialize a Hedera transaction", () => {
+        const transaction: HederaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          memo: "test2",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          memo: "test2",
+        });
+      });
+
+      it("should serialize a Hedera transaction whithout optional params", () => {
+        const transaction: HederaTransaction = {
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          memo: undefined,
         });
       });
     });
@@ -1485,6 +1524,43 @@ describe("serializers.ts", () => {
           mode: "test",
           memo: undefined,
           fees: undefined,
+        });
+      });
+    });
+
+    describe("hedera", () => {
+      const family = schemaFamilies.enum.hedera;
+
+      it("should deserialize a Hedera transaction", () => {
+        const transaction: RawHederaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+          memo: "test2",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          memo: "test2",
+        });
+      });
+
+      it("should deserialize a Hedera transaction without optional params", () => {
+        const transaction: RawHederaTransaction = {
+          family,
+          amount: "100",
+          recipient: "recipient",
+        };
+        const serializedTransaction = deserializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          memo: undefined,
         });
       });
     });
