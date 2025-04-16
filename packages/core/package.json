@@ -20,21 +20,22 @@
   },
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
-    "@stacks/transactions": "^6.13.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
     "@types/uuid": "^9.0.8",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "thor-devkit": "^2.0.9",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@ledgerhq/errors": "^6.16.2",
+    "@stacks/transactions": "^6.13.0",
+    "@ton/core": "^0.60.1",
     "bignumber.js": "^9.1.2",
+    "thor-devkit": "^2.0.9",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   }
