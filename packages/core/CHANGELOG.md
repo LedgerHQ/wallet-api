@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.19.0
+
+### Minor Changes
+
+- [#447](https://github.com/LedgerHQ/wallet-api/pull/447) [`8206dac`](https://github.com/LedgerHQ/wallet-api/commit/8206dac5ec44a7cc259fdebdc04248364915b68f) Thanks [@Justkant](https://github.com/Justkant)! - feat(ton): expose ton payload for all possible actions
+
 ## 1.18.0
 
 ### Minor Changes
