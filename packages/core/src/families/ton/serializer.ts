@@ -39,6 +39,14 @@ export const deserializeTonTransaction = ({
   payload: payload ? fromTransactionPayloadRaw(payload) : undefined,
 });
 
+const getCellOrBuffer = (customPayload: string): Cell | Buffer => {
+  try {
+    return Cell.fromBase64(customPayload);
+  } catch {
+    return Buffer.from(customPayload, "hex");
+  }
+};
+
 const fromTransactionPayloadRaw = (
   payload: TonPayloadFormatRaw,
 ): TonPayloadFormat => {
@@ -84,9 +92,8 @@ const fromTransactionPayloadRaw = (
         queryId: payload.queryId ? BigInt(payload.queryId) : null,
         amount: BigInt(payload.amount),
         responseDestination: Address.parse(payload.responseDestination),
-        // Handle customPayload could be a buffer, we should try/catch the fromBase64
         customPayload: payload.customPayload
-          ? Cell.fromBase64(payload.customPayload)
+          ? getCellOrBuffer(payload.customPayload)
           : null,
       };
     case "add-whitelist":
@@ -148,6 +155,10 @@ const fromTransactionPayloadRaw = (
       };
     case "comment":
       return payload;
+    default: {
+      const exhaustiveCheck: never = payload; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+      return exhaustiveCheck;
+    }
   }
 };
 
@@ -163,7 +174,10 @@ const toTransactionPayloadRaw = (
     case "jetton-transfer":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         amount: payload.amount.toString(),
         destination: payload.destination.toRawString(),
         responseDestination: payload.responseDestination.toRawString(),
@@ -179,7 +193,10 @@ const toTransactionPayloadRaw = (
     case "nft-transfer":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         newOwner: payload.newOwner.toRawString(),
         responseDestination: payload.responseDestination.toRawString(),
         customPayload: payload.customPayload
@@ -193,7 +210,10 @@ const toTransactionPayloadRaw = (
     case "jetton-burn":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         amount: payload.amount.toString(),
         responseDestination: payload.responseDestination.toRawString(),
         customPayload:
@@ -207,25 +227,38 @@ const toTransactionPayloadRaw = (
     case "single-nominator-change-validator":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         address: payload.address.toRawString(),
       };
     case "single-nominator-withdraw":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         amount: payload.amount.toString(),
       };
     case "tonstakers-deposit":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
-        appId: payload.appId ? payload.appId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
+        appId:
+          typeof payload.appId === "bigint" ? payload.appId.toString() : null,
       };
     case "vote-for-proposal":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         votingAddress: payload.votingAddress.toRawString(),
         expirationDate: payload.expirationDate,
         vote: payload.vote,
@@ -234,7 +267,10 @@ const toTransactionPayloadRaw = (
     case "change-dns-record":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         record:
           payload.record.type === "wallet"
             ? {
@@ -257,10 +293,17 @@ const toTransactionPayloadRaw = (
     case "token-bridge-pay-swap":
       return {
         type: payload.type,
-        queryId: payload.queryId ? payload.queryId.toString() : null,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
         swapId: payload.swapId.toString("hex"),
       };
     case "comment":
       return payload;
+    default: {
+      const exhaustiveCheck: never = payload; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+      return exhaustiveCheck;
+    }
   }
 };
