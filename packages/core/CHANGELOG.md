@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.19.1
+
+### Patch Changes
+
+- [#449](https://github.com/LedgerHQ/wallet-api/pull/449) [`3d5a3ec`](https://github.com/LedgerHQ/wallet-api/commit/3d5a3ec46499ae93c94d7c3a423ece402741d002) Thanks [@Justkant](https://github.com/Justkant)! - fix: missing exhaustive check on ton payload serializer
+
 ## 1.19.0
 
 ### Minor Changes
