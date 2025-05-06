@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 1.9.0
+
+### Minor Changes
+
+- [#451](https://github.com/LedgerHQ/wallet-api/pull/451) [`ebc8996`](https://github.com/LedgerHQ/wallet-api/commit/ebc8996e4646fa52410e68c19791c9f8e8b4f4bf) Thanks [@Justkant](https://github.com/Justkant)! - feat: add sign message options
+
+### Patch Changes
+
+- Updated dependencies [[`ebc8996`](https://github.com/LedgerHQ/wallet-api/commit/ebc8996e4646fa52410e68c19791c9f8e8b4f4bf)]:
+  - @ledgerhq/wallet-api-core@1.20.0
+
 ## 1.8.5
 
 ### Patch Changes
