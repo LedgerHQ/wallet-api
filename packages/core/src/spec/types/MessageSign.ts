@@ -1,8 +1,14 @@
 import { z } from "zod";
 
+const schemaMessageOptions = z.object({
+  hwAppId: z.string().optional(),
+  dependencies: z.array(z.string()).optional(),
+});
+
 const schemaMessageSignParams = z.object({
   accountId: z.string(),
   hexMessage: z.string(),
+  options: schemaMessageOptions.optional(),
   meta: z.record(z.string(), z.unknown()).optional(),
 });
 

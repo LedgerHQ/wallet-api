@@ -10,6 +10,7 @@ import type {
   DeviceSelect,
   DeviceTransport,
   ExchangeStart,
+  MessageSign,
   Promisable,
   RpcRequest,
   Transaction,
@@ -73,6 +74,7 @@ export type WalletHandlers = {
   "message.sign": (params: {
     account: Account;
     message: Buffer;
+    options?: MessageSign["params"]["options"];
     meta: Record<string, unknown> | undefined;
     tokenCurrency?: string;
   }) => Promisable<Buffer>;
