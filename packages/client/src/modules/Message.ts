@@ -1,4 +1,4 @@
-import { schemaMessageSign } from "@ledgerhq/wallet-api-core";
+import { MessageSign, schemaMessageSign } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
 export class MessageModule {
@@ -21,11 +21,13 @@ export class MessageModule {
   async sign(
     accountId: string,
     message: Buffer,
+    options?: MessageSign["params"]["options"],
     meta?: Record<string, unknown>,
   ): Promise<Buffer> {
     const messageSignResult = await this.client.request("message.sign", {
       accountId,
       hexMessage: message.toString("hex"),
+      options,
       meta,
     });
 
