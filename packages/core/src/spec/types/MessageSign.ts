@@ -7,7 +7,7 @@ const schemaMessageSignParams = z.object({
 });
 
 const schemaMessageSignResults = z.object({
-  hexSignedMessage: z.string(),
+  signature: z.string(),
 });
 
 export const schemaMessageSign = {

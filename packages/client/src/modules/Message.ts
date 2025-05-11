@@ -30,7 +30,6 @@ export class MessageModule {
     });
 
     const safeResults = schemaMessageSign.result.parse(messageSignResult);
-
-    return Buffer.from(safeResults.hexSignedMessage, "hex");
+    return Buffer.from(safeResults.signature, "hex");
   }
 }

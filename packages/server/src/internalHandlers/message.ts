@@ -38,6 +38,6 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
   });
 
   return {
-    hexSignedMessage: signedMessage.toString("hex"),
+    signature: signedMessage.toString("hex"),
   };
 };
