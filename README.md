@@ -153,6 +153,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | neo                               | ✅         | ❌           |
 | icon                              | ❌         | ✅           |
 | zksync (ethereum)                 | ✅         | ✅           |
+| babylon                           | ✅         | ✅           |
 
 # Where to get help
 
