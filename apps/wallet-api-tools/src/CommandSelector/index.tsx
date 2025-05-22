@@ -22,6 +22,17 @@ const data: Group[] = [
           method: "account.request",
           params: {
             currencyIds: ["ethereum", "bitcoin"],
+            drawerConfiguration: {
+              assets: {
+                filter: "topNetworks",
+                leftElement: "apy",
+                rightElement: "marketTrend",
+              },
+              networks: {
+                leftElement: "numberOfAccountsAndApy",
+                rightElement: "balance",
+              },
+            },
           },
         },
       },
