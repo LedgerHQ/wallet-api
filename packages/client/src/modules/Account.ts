@@ -56,10 +56,22 @@ export class AccountModule {
      */
     currencyIds?: string[];
     showAccountFilter?: boolean;
+    drawerConfiguration?: {
+      assets?: {
+        filter?: string;
+        leftElement?: string;
+        rightElement?: string;
+      };
+      networks?: {
+        leftElement?: string;
+        rightElement?: string;
+      };
+    };
   }): Promise<Account> {
     const requestAccountsResult = await this.client.request("account.request", {
       currencyIds: params?.currencyIds,
       showAccountFilter: params?.showAccountFilter,
+      drawerConfiguration: params?.drawerConfiguration,
     });
 
     const safeResults = schemaAccountRequest.result.parse(

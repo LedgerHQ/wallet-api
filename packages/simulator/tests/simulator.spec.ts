@@ -240,6 +240,31 @@ describe("Simulator", () => {
         client.account.request({ currencyIds: ["bitcoin"] }),
       ).rejects.toThrow("permission");
     });
+
+    it("should return the requested account with drawer configuration", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const account = await client.account.request({
+        currencyIds: ["bitcoin"],
+        drawerConfiguration: {
+          assets: {
+            filter: "topNetworks",
+            leftElement: "apy",
+            rightElement: "marketTrend",
+          },
+          networks: {
+            leftElement: "numberOfAccountsAndApy",
+            rightElement: "balance",
+          },
+        },
+      });
+
+      // THEN
+      expect(account).toBeDefined();
+    });
   });
 
   describe("account.receive", () => {
