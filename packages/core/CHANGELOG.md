@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.21.0
+
+### Minor Changes
+
+- [#459](https://github.com/LedgerHQ/wallet-api/pull/459) [`8357fe5`](https://github.com/LedgerHQ/wallet-api/commit/8357fe5a98e4f97d9f2af81abecb58990468a01a) Thanks [@LucasWerey](https://github.com/LucasWerey)! - Add drawerConfiguration to be able to customize MAD
+
 ## 1.20.0
 
 ### Minor Changes
