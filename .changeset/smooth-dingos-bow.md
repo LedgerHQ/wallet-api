@@ -1,5 +1,5 @@
 ---
-"@ledgerhq/wallet-api-client-react": major
+"@ledgerhq/wallet-api-client-react": patch
 ---
 
 Update peer dependency to include react 19
