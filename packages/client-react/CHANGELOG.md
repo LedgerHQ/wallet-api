@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.4.11
+
+### Patch Changes
+
+- [#461](https://github.com/LedgerHQ/wallet-api/pull/461) [`0262070`](https://github.com/LedgerHQ/wallet-api/commit/0262070edfe6ccf91f56f26a11afbbc3d7dfa45a) Thanks [@pdeville-ledger](https://github.com/pdeville-ledger)! - Update peer dependency to include react 19
+
 ## 1.4.10
 
 ### Patch Changes
