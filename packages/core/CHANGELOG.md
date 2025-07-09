@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.21.1
+
+### Patch Changes
+
+- [#463](https://github.com/LedgerHQ/wallet-api/pull/463) [`1256bea`](https://github.com/LedgerHQ/wallet-api/commit/1256bea58a00babd06c510d20f7b14aa6e35c891) Thanks [@ofreyssinet-ledger](https://github.com/ofreyssinet-ledger)! - Add "apex" to device type
+
 ## 1.21.0
 
 ### Minor Changes
