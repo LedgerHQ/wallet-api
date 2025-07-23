@@ -39,6 +39,61 @@ npm install @ledgerhq/wallet-api-simulator
 Remember, this package currently only functions with server-side applications due to a dependency requiring the usage
 of `process`.
 
+## Node.js Polyfills Setup
+
+### Why do you need polyfills?
+
+Modern bundlers like Vite and Webpack 5+ no longer include Node.js polyfills by default. Since Ledger's Wallet API uses Node.js modules like `Buffer` for cryptographic operations, you'll need to add these polyfills manually when building for the browser.
+
+### Setting up with Vite
+
+If you're using Vite, install the `vite-plugin-node-polyfills` plugin:
+
+```sh npm2yarn
+npm install --save-dev vite-plugin-node-polyfills
+```
+
+Then add it to your `vite.config.js` or `vite.config.ts`:
+
+```js
+import { defineConfig } from "vite";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+export default defineConfig({
+  plugins: [
+    nodePolyfills({
+      // Whether to polyfill `node:` protocol imports.
+      protocolImports: true,
+    }),
+  ],
+});
+```
+
+### Setting up with Webpack 5+
+
+For Webpack 5+, you can add polyfills to your `webpack.config.js`:
+
+```js
+module.exports = {
+  resolve: {
+    fallback: {
+      buffer: require.resolve("buffer"),
+    },
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    }),
+  ],
+};
+```
+
+You'll also need to install the polyfill package:
+
+```sh npm2yarn
+npm install buffer
+```
+
 ---
 
 Now that you've successfully installed the necessary packages, you're ready to start crafting with Ledger's Wallet
