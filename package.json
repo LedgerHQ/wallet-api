@@ -45,6 +45,9 @@
     "@tsconfig/recommended": "^1.0.3"
   },
   "pnpm": {
+    "overrides": {
+      "elliptic": "6.6.1"
+    },
     "patchedDependencies": {
       "@ton/core": "patches/@ton__core.patch"
     }
