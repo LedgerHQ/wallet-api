@@ -7,6 +7,8 @@ export type RippleTransaction = TransactionCommon & {
   readonly family: RawRippleTransaction["family"];
   fee?: BigNumber;
   tag: number;
+  // TODO: document
+  tx_json?: string;
 };
 
 export type RawRippleTransaction = z.infer<typeof schemaRawRippleTransaction>;
