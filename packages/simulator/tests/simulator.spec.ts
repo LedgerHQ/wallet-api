@@ -265,6 +265,21 @@ describe("Simulator", () => {
       // THEN
       expect(account).toBeDefined();
     });
+
+    it("should return the requested account with drawer configuration", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const account = await client.account.request({
+        currencyIds: ["bitcoin"],
+        useCase: "swap",
+      });
+
+      // THEN
+      expect(account).toBeDefined();
+    });
   });
 
   describe("account.receive", () => {
