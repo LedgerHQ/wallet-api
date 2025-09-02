@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.22.0
+
+### Minor Changes
+
+- [#467](https://github.com/LedgerHQ/wallet-api/pull/467) [`953988e`](https://github.com/LedgerHQ/wallet-api/commit/953988e15cf7ad36565c4f4254528a8b1c2f1c21) Thanks [@cgrellard-ledger](https://github.com/cgrellard-ledger)! - Add a useCase parameter to account.request and a areCurrenciesFiltered property to account.request wallet handler
+
 ## 1.21.1
 
 ### Patch Changes
