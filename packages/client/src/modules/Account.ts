@@ -67,11 +67,13 @@ export class AccountModule {
         rightElement?: string;
       };
     };
+    useCase?: string;
   }): Promise<Account> {
     const requestAccountsResult = await this.client.request("account.request", {
       currencyIds: params?.currencyIds,
       showAccountFilter: params?.showAccountFilter,
       drawerConfiguration: params?.drawerConfiguration,
+      useCase: params?.useCase,
     });
 
     const safeResults = schemaAccountRequest.result.parse(

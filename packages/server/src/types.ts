@@ -77,6 +77,8 @@ export type WalletHandlers = {
         rightElement?: string;
       };
     };
+    useCase?: string;
+    areCurrenciesFiltered?: boolean;
   }) => Promisable<Account>;
   "account.receive": (params: {
     account: Account;

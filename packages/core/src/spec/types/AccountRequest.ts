@@ -21,6 +21,7 @@ const schemaAccountRequestParams = z.object({
         .optional(),
     })
     .optional(),
+  useCase: z.string().optional(),
 });
 
 const schemaAccountRequestResults = z.object({
