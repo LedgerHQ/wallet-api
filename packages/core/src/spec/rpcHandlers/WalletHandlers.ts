@@ -5,6 +5,7 @@ import type {
   BitcoinGetAddressHandler,
   BitcoinGetPublicKeyHandler,
   BitcoinGetXPubHandler,
+  BitcoinSignPsbtHandler,
   CurrencyListHandler,
   CustomRequestHandler,
   DeviceCloseHandler,
@@ -47,6 +48,7 @@ export type WalletHandlers<GenericCustomHandlers = UnknownCustomHandlers> = {
   "bitcoin.getAddress": BitcoinGetAddressHandler;
   "bitcoin.getPublicKey": BitcoinGetPublicKeyHandler;
   "bitcoin.getXPub": BitcoinGetXPubHandler;
+  "bitcoin.signPsbt": BitcoinSignPsbtHandler;
   "wallet.capabilities": WalletCapabilitiesHandler;
   "wallet.userId": WalletUserIdHandler;
   "wallet.info": WalletInfoHandler;

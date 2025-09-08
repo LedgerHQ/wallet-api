@@ -2,6 +2,7 @@ import {
   schemaBitcoinGetAddress,
   schemaBitcoinGetPublicKey,
   schemaBitcoinGetXPub,
+  schemaBitcoinSignPsbt,
 } from "@ledgerhq/wallet-api-core";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
@@ -77,5 +78,24 @@ export class BitcoinModule {
     const safeResults = schemaBitcoinGetXPub.result.parse(getXPupResult);
 
     return safeResults.xPub;
+  }
+
+  /**
+   * Let the user sign a psbt
+   * @param accountId - id of the account
+   * @param psbt - The psbt base 64 string
+   *
+   * @returns The base64 signed PSBT
+   * @throws {@link RpcError} if an error occurred on server side
+   */
+  async signPsbt(accountId: string, psbt: string): Promise<Buffer> {
+    const signPsbtResult = await this.client.request("bitcoin.signPsbt", {
+      accountId,
+      psbt,
+    });
+
+    const safeResults = schemaBitcoinSignPsbt.result.parse(signPsbtResult);
+
+    return Buffer.from(safeResults.signedPsbt, "base64");
   }
 }

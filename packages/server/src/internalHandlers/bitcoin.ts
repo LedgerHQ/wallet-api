@@ -1,13 +1,17 @@
 import {
+  createAccountNotFound,
   BitcoinGetAddress,
   BitcoinGetPublicKey,
   BitcoinGetXPub,
+  BitcoinSignPsbt,
   createNotImplementedByWallet,
   schemaBitcoinGetAddress,
   schemaBitcoinGetPublicKey,
   schemaBitcoinGetXPub,
+  schemaBitcoinSignPsbt,
   ServerError,
 } from "@ledgerhq/wallet-api-core";
+import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
 export const getAddress: RPCHandler<BitcoinGetAddress["result"]> = async (
@@ -67,5 +71,35 @@ export const getXPub: RPCHandler<BitcoinGetXPub["result"]> = async (
 
   return {
     xPub: await walletHandler({ accountId }),
+  };
+};
+
+export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
+  req,
+  context,
+  handlers,
+) => {
+  const safeParams = schemaBitcoinSignPsbt.params.parse(req.params);
+
+  const accounts = await firstValueFrom(context.accounts$);
+
+  const { accountId, psbt } = safeParams;
+
+  const account = accounts.find((acc) => acc.id === accountId);
+
+  if (!account) {
+    throw new ServerError(createAccountNotFound(accountId));
+  }
+
+  const walletHandler = handlers["bitcoin.signPsbt"];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet("bitcoin.signPsbt"));
+  }
+
+  const signedPsbt = await walletHandler({ account, psbt });
+
+  return {
+    signedPsbt,
   };
 };
