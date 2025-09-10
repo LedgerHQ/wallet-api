@@ -6,10 +6,11 @@ const base64Regex =
 const schemaBitcoinSignPsbtParams = z.object({
   accountId: z.string(),
   psbt: z.string().regex(base64Regex, "psbt must be valid base64"),
+  broadcast: z.boolean().optional(),
 });
 
 const schemaBitcoinSignPsbtResults = z.object({
-  signedPsbt: z.string(),
+  psbtSigned: z.string(),
 });
 
 export const schemaBitcoinSignPsbt = {

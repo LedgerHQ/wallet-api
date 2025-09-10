@@ -84,18 +84,24 @@ export class BitcoinModule {
    * Let the user sign a psbt
    * @param accountId - id of the account
    * @param psbt - The psbt base 64 string
+   * @param broadcast - send the tx to the network
    *
    * @returns The base64 signed PSBT
    * @throws {@link RpcError} if an error occurred on server side
    */
-  async signPsbt(accountId: string, psbt: string): Promise<Buffer> {
+  async signPsbt(
+    accountId: string,
+    psbt: string,
+    broadcast?: boolean | undefined,
+  ): Promise<Buffer> {
     const signPsbtResult = await this.client.request("bitcoin.signPsbt", {
       accountId,
       psbt,
+      broadcast,
     });
 
     const safeResults = schemaBitcoinSignPsbt.result.parse(signPsbtResult);
 
-    return Buffer.from(safeResults.signedPsbt, "base64");
+    return Buffer.from(safeResults.psbtSigned, "base64");
   }
 }

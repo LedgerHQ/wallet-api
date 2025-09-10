@@ -7,6 +7,7 @@ export function serializeBitcoinTransaction({
   recipient,
   feePerByte,
   opReturnData,
+  psbt,
 }: BitcoinTransaction): RawBitcoinTransaction {
   return {
     family,
@@ -14,6 +15,7 @@ export function serializeBitcoinTransaction({
     recipient,
     feePerByte: feePerByte?.toString(),
     opReturnDataHex: opReturnData?.toString("hex"),
+    psbt,
   };
 }
 
@@ -23,6 +25,7 @@ export function deserializeBitcoinTransaction({
   recipient,
   feePerByte,
   opReturnDataHex,
+  psbt,
 }: RawBitcoinTransaction): BitcoinTransaction {
   return {
     family,
@@ -32,5 +35,6 @@ export function deserializeBitcoinTransaction({
     opReturnData: opReturnDataHex
       ? Buffer.from(opReturnDataHex, "hex")
       : undefined,
+    psbt,
   };
 }

@@ -83,7 +83,7 @@ export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
 
   const accounts = await firstValueFrom(context.accounts$);
 
-  const { accountId, psbt } = safeParams;
+  const { accountId, psbt, broadcast } = safeParams;
 
   const account = accounts.find((acc) => acc.id === accountId);
 
@@ -97,9 +97,9 @@ export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
     throw new ServerError(createNotImplementedByWallet("bitcoin.signPsbt"));
   }
 
-  const signedPsbt = await walletHandler({ account, psbt });
+  const psbtSigned = await walletHandler({ account, psbt, broadcast });
 
   return {
-    signedPsbt,
+    psbtSigned,
   };
 };

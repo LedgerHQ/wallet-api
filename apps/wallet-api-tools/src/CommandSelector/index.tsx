@@ -240,6 +240,7 @@ const data: Group[] = [
           params: {
             accountId: "",
             psbt: "",
+            broadcast: false,
           },
         },
       },

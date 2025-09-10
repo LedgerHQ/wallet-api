@@ -129,6 +129,7 @@ export type WalletHandlers = {
   "bitcoin.signPsbt": (params: {
     account: Account;
     psbt: string;
+    broadcast?: boolean | undefined;
   }) => Promisable<string>;
   "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
   "exchange.complete": (params: ExchangeParams) => Promisable<string>;
