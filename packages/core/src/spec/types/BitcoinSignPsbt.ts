@@ -1,16 +1,14 @@
 import { z } from "zod";
 
-const base64Regex =
-  /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}(?:==)?|[A-Za-z0-9+/]{3}=?)?$/;
-
 const schemaBitcoinSignPsbtParams = z.object({
   accountId: z.string(),
-  psbt: z.string().regex(base64Regex, "psbt must be valid base64"),
+  psbt: z.string(),
   broadcast: z.boolean().optional(),
 });
 
 const schemaBitcoinSignPsbtResults = z.object({
   psbtSigned: z.string(),
+  txHash: z.string().optional(),
 });
 
 export const schemaBitcoinSignPsbt = {

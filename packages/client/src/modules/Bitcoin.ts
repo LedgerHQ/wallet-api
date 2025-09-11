@@ -84,24 +84,28 @@ export class BitcoinModule {
    * Let the user sign a psbt
    * @param accountId - id of the account
    * @param psbt - The psbt base 64 string
-   * @param broadcast - send the tx to the network
+   * @param broadcast - send or not the tx to the network
    *
-   * @returns The base64 signed PSBT
+   * @returns {Promise<{psbtSigned: string, txHash: string}>} The base64 signed PSBT
    * @throws {@link RpcError} if an error occurred on server side
+   *
+   * @example
+   * const signedPsbtBuffer = await walletApiClient.bitcoin.signPsbt("account-id", "psbt-base64", false)
    */
   async signPsbt(
     accountId: string,
     psbt: string,
     broadcast?: boolean | undefined,
-  ): Promise<Buffer> {
+  ): Promise<{ psbtSigned: string; txHash: string | undefined }> {
     const signPsbtResult = await this.client.request("bitcoin.signPsbt", {
       accountId,
       psbt,
       broadcast,
     });
 
-    const safeResults = schemaBitcoinSignPsbt.result.parse(signPsbtResult);
+    const { psbtSigned, txHash } =
+      schemaBitcoinSignPsbt.result.parse(signPsbtResult);
 
-    return Buffer.from(safeResults.psbtSigned, "base64");
+    return { psbtSigned, txHash };
   }
 }

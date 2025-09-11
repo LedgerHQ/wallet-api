@@ -97,9 +97,14 @@ export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
     throw new ServerError(createNotImplementedByWallet("bitcoin.signPsbt"));
   }
 
-  const psbtSigned = await walletHandler({ account, psbt, broadcast });
+  const { psbtSigned, txHash } = await walletHandler({
+    account,
+    psbt,
+    broadcast,
+  });
 
   return {
     psbtSigned,
+    txHash,
   };
 };

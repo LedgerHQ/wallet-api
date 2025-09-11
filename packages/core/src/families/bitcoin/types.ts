@@ -7,7 +7,6 @@ export type BitcoinTransaction = TransactionCommon & {
   readonly family: RawBitcoinTransaction["family"];
   feePerByte?: BigNumber;
   opReturnData?: Buffer;
-  psbt?: string | undefined;
 };
 
 export type RawBitcoinTransaction = z.infer<typeof schemaRawBitcoinTransaction>;
