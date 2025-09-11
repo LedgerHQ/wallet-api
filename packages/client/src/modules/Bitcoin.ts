@@ -90,7 +90,7 @@ export class BitcoinModule {
    * @throws {@link RpcError} if an error occurred on server side
    *
    * @example
-   * const signedPsbtBuffer = await walletApiClient.bitcoin.signPsbt("account-id", "psbt-base64", false)
+   * const { psbtSigned, txHash } = await walletApiClient.bitcoin.signPsbt("account-id", "psbt-base64", false)
    */
   async signPsbt(
     accountId: string,
