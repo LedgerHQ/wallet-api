@@ -126,6 +126,11 @@ export type WalletHandlers = {
     params: BitcoinGetPublicKey["params"],
   ) => Promisable<string>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
+  "bitcoin.signPsbt": (params: {
+    account: Account;
+    psbt: string;
+    broadcast?: boolean;
+  }) => Promisable<{ psbtSigned: string; txHash?: string }>;
   "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
   "exchange.complete": (params: ExchangeParams) => Promisable<string>;
 };

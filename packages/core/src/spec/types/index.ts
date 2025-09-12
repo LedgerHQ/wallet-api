@@ -4,6 +4,7 @@ export * from "./AccountRequest";
 export * from "./BitcoinGetAddress";
 export * from "./BitcoinGetPublicKey";
 export * from "./BitcoinGetXPub";
+export * from "./BitcoinSignPsbt";
 export * from "./CurrencyList";
 export * from "./CustomRequest";
 export * from "./Device";

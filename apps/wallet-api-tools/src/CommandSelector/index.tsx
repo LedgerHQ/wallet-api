@@ -233,6 +233,17 @@ const data: Group[] = [
           },
         },
       },
+      {
+        label: "signPsbt",
+        value: {
+          method: "bitcoin.signPsbt",
+          params: {
+            accountId: "",
+            psbt: "",
+            broadcast: false,
+          },
+        },
+      },
     ],
   },
   {

@@ -34,6 +34,7 @@
     "bitcoin.getAddress",
     "bitcoin.getPublicKey",
     "bitcoin.getXPub",
+    "bitcoin.signPsbt",
     "wallet.capabilities",
     "wallet.userId",
     "wallet.info"
