@@ -33,6 +33,8 @@ Some types are defined as _raw_, usually in the form `Raw[TYPE-NAME]`. These typ
     - [RawEthereumTransaction](#rawethereumtransaction)
     - [HederaTransaction](#hederatransaction)
     - [RawHederaTransaction](#rawhederatransaction)
+    - [KaspaTransaction](#kaspatransaction)
+    - [RawKaspaTransaction](#rawkaspatransaction)
     - [PolkadotTransaction](#polkadottransaction)
     - [RawPolkadotTransaction](#rawpolkadottransaction)
     - [RippleTransaction](#rippletransaction)
@@ -255,6 +257,26 @@ The raw representation of the common transaction fields found in [TransactionCom
 | `family`    | [`HEDERA`](/spec/core/types.md#families)   |                                                                                                                                                                                                                 |
 | `memo?`     | `string`                                   |                                                                                                                                                                                                                 |
 | `recipient` | `string`                                   | The address of the transaction's recipient  
+
+### KaspaTransaction
+
+| Name              | Type                                    | Description                                |
+|-------------------|-----------------------------------------|--------------------------------------------|
+| `amount`          | `BigNumber`                             |                                            |
+| `family`          | [`KASPA`](/spec/core/types.md#families) |                                            |
+| `recipient`       | `string`                                | The address of the transaction's recipient |
+| `customFeeRate`   | `BigNumber`                             | Custom fee rate for the transaction        |
+
+### RawKaspaTransaction
+
+| Name        | Type                       | Description                                                                                                                                                                                                     |
+| ----------- |----------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amount`    | `string`                   | The amount of token to send in the transaction, denoted in the smallest cryptocurrency's magnitude For example in BTC, a tx with an 'amount' field of 1 will correspond to a tx corresponding to 0.00000001 BTC |
+| `family`    | [`KASPA`](/spec/core/types.md#families)             |
+| `recipient` | `string`                   | The address of the transaction's recipient
+| `customFeeRate` | `string`               | Custom fee rate for the transaction  
+
+
 
 ### PolkadotTransaction
 

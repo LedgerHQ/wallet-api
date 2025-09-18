@@ -110,6 +110,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | ethereum_sepolia (ethereum)       | ✅         | ✅           |
 | ethereum_holesky (ethereum)       | ✅         | ✅           |
 | hedera                            | ✅         | ✅           |
+| kaspa                             | ✅         | ✅           |
 | cardano                           | ✅         | ✅           |
 | filecoin                          | ✅         | ✅           |
 | osmo (cosmos)                     | ✅         | ✅           |

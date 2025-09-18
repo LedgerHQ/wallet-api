@@ -12,6 +12,7 @@ import type { ElrondTransaction } from "./elrond/types";
 import type { EthereumTransaction } from "./ethereum/types";
 import type { FilecoinTransaction } from "./filecoin/types";
 import type { HederaTransaction } from "./hedera/types";
+import type { KaspaTransaction } from "./kaspa/types";
 import type { NearTransaction } from "./near/types";
 import type { NeoTransaction } from "./neo/types";
 import type { PolkadotTransaction } from "./polkadot/types";
@@ -75,6 +76,7 @@ export type Transaction =
   | AptosTransaction
   | CryptoOrgTransaction
   | HederaTransaction
+  | KaspaTransaction
   | FilecoinTransaction
   | RippleTransaction
   | CeloTransaction
