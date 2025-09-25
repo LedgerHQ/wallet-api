@@ -8,6 +8,7 @@ import {
   deserializeAccount,
   deserializeTransaction,
   EthereumTransaction,
+  KaspaTransaction,
   schemaFamilies,
   PolkadotTransaction,
   RawAccount,
@@ -17,6 +18,7 @@ import {
   RawCosmosTransaction,
   RawCryptoOrgTransaction,
   RawEthereumTransaction,
+  RawKaspaTransaction,
   RawPolkadotTransaction,
   RawRippleTransaction,
   RawStellarTransaction,
@@ -183,6 +185,47 @@ describe("serializers.ts", () => {
           amount: "100",
           recipient: "recipient",
           feePerByte: undefined,
+        });
+      });
+    });
+
+    describe("kaspa", () => {
+      const family = schemaFamilies.enum.kaspa;
+
+      it("should succeed to serialize a kaspa transaction with customFeeRate", () => {
+        const transaction: KaspaTransaction = {
+          amount: new BigNumber(134),
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          family,
+          customFeeRate: new BigNumber(4),
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "134",
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          customFeeRate: "4",
+        });
+      });
+
+      it("should succeed to serialize a kaspa transaction without customFeeRate", () => {
+        const transaction: KaspaTransaction = {
+          amount: new BigNumber(121),
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          family,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "121",
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          customFeeRate: undefined,
         });
       });
     });
@@ -979,6 +1022,49 @@ describe("serializers.ts", () => {
           amount: new BigNumber(0),
           recipient: "recipient",
           feePerByte: undefined,
+        });
+      });
+    });
+
+    describe("kaspa", () => {
+      const family = schemaFamilies.enum.kaspa;
+
+      it("should succeed to deserialize a kaspa transaction with customFeeRate", () => {
+        const serializedTransaction: RawKaspaTransaction = {
+          family,
+          amount: "1234",
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          customFeeRate: "5",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(1234),
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          customFeeRate: new BigNumber(5),
+        });
+      });
+
+      it("should succeed to deserialize a kaspa transaction without customFeeRate", () => {
+        const serializedTransaction: RawKaspaTransaction = {
+          family,
+          amount: "123",
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(123),
+          recipient:
+            "kaspa:qqje6ps46n6pvjstupfxgrg6v3pegd22q84jachnfrnz2vh5vznqw8redgln6",
+          customFeeRate: undefined,
         });
       });
     });

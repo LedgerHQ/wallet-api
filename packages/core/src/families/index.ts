@@ -10,6 +10,7 @@ export * from "./elrond/types";
 export * from "./ethereum/types";
 export * from "./filecoin/types";
 export * from "./hedera/types";
+export * from "./kaspa/types";
 export * from "./internet_computer/types";
 export * from "./near/types";
 export * from "./neo/types";
