@@ -1,5 +1,12 @@
 # @ledgerhq/wallet-api-tools
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @ledgerhq/wallet-api-simulator@1.2.16
+
 ## 0.6.1
 
 ### Patch Changes
