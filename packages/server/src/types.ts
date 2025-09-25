@@ -16,6 +16,7 @@ import type {
   Transaction,
   TransactionSign,
   TransactionSignAndBroadcast,
+  TransactionSignRaw,
 } from "@ledgerhq/wallet-api-core";
 import type { BehaviorSubject, Observable } from "rxjs";
 
@@ -98,6 +99,13 @@ export type WalletHandlers = {
     meta: Record<string, unknown> | undefined;
     tokenCurrency?: string;
   }) => Promisable<Buffer>;
+  "transaction.signRaw": (params: {
+    account: Account;
+    transaction: string;
+    broadcast?: boolean;
+    options?: TransactionSignRaw["params"]["options"];
+    meta: Record<string, unknown> | undefined;
+  }) => Promisable<{ signedTransactionHex: string; transactionHash?: string }>;
   "transaction.signAndBroadcast": (params: {
     account: Account;
     transaction: Transaction;

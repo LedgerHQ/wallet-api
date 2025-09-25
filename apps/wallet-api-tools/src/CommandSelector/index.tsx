@@ -101,6 +101,18 @@ const data: Group[] = [
         },
       },
       {
+        label: "signRaw",
+        value: {
+          method: "transaction.signRaw",
+          params: {
+            accountId: "",
+            rawTransaction: "",
+            broadcast: false,
+            options: {},
+          },
+        },
+      },
+      {
         label: "signAndBroadcast",
         value: {
           method: "transaction.signAndBroadcast",

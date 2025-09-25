@@ -4,9 +4,11 @@ import {
   deserializeTransaction,
   schemaTransactionSign,
   schemaTransactionSignAndBroadcast,
+  schemaTransactionSignRaw,
   ServerError,
   TransactionSign,
   TransactionSignAndBroadcast,
+  TransactionSignRaw,
 } from "@ledgerhq/wallet-api-core";
 import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
@@ -45,6 +47,43 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
 
   return {
     signedTransactionHex: signedTransaction.toString("hex"),
+  };
+};
+
+export const signRaw: RPCHandler<TransactionSignRaw["result"]> = async (
+  req,
+  context,
+  handlers,
+) => {
+  const safeParams = schemaTransactionSignRaw.params.parse(req.params);
+
+  const accounts = await firstValueFrom(context.accounts$);
+
+  const { accountId, rawTransaction, broadcast, options, meta } = safeParams;
+
+  const account = accounts.find((acc) => acc.id === accountId);
+
+  if (!account) {
+    throw new ServerError(createAccountNotFound(accountId));
+  }
+
+  const walletHandler = handlers["transaction.signRaw"];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet("transaction.signRaw"));
+  }
+
+  const { signedTransactionHex, transactionHash } = await walletHandler({
+    account,
+    transaction: rawTransaction,
+    broadcast,
+    options,
+    meta,
+  });
+
+  return {
+    signedTransactionHex,
+    transactionHash,
   };
 };
 

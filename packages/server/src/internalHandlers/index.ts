@@ -28,6 +28,7 @@ export const internalHandlers = {
   "message.sign": message.sign,
 
   "transaction.sign": transaction.sign,
+  "transaction.signRaw": transaction.signRaw,
   "transaction.signAndBroadcast": transaction.signAndBroadcast,
 
   "wallet.capabilities": wallet.capabilities,

@@ -28,6 +28,7 @@
     "device.transport",
     "message.sign",
     "transaction.sign",
+    "transaction.signRaw",
     "transaction.signAndBroadcast",
     "storage.set",
     "storage.get",

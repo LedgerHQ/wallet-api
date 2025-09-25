@@ -20,6 +20,7 @@ import type {
   StorageSetHandler,
   TransactionSignAndBroadcastHandler,
   TransactionSignHandler,
+  TransactionSignRawHandler,
   WalletCapabilitiesHandler,
   WalletInfoHandler,
   WalletUserIdHandler,
@@ -42,6 +43,7 @@ export type WalletHandlers<GenericCustomHandlers = UnknownCustomHandlers> = {
   "device.transport": DeviceTransportHandler;
   "message.sign": MessageSignHandler;
   "transaction.sign": TransactionSignHandler;
+  "transaction.signRaw": TransactionSignRawHandler;
   "transaction.signAndBroadcast": TransactionSignAndBroadcastHandler;
   "storage.set": StorageSetHandler;
   "storage.get": StorageGetHandler;
