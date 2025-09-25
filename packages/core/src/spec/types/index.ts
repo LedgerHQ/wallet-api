@@ -20,6 +20,7 @@ export * from "./StorageGet";
 export * from "./StorageSet";
 export * from "./TransactionSign";
 export * from "./TransactionSignAndBroadcast";
+export * from "./TransactionSignRaw";
 export * from "./WalletCapabilities";
 export * from "./WalletInfo";
 export * from "./WalletUserId";
