@@ -11,6 +11,7 @@ export type EthereumTransaction = TransactionCommon & {
   gasLimit?: BigNumber;
   maxPriorityFeePerGas?: BigNumber;
   maxFeePerGas?: BigNumber;
+  sponsored?: boolean;
 };
 
 export type RawEthereumTransaction = z.infer<
