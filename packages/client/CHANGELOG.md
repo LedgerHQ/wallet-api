@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-client
 
+## 1.12.0
+
+### Minor Changes
+
+- [#477](https://github.com/LedgerHQ/wallet-api/pull/477) [`2bf8ae0`](https://github.com/LedgerHQ/wallet-api/commit/2bf8ae0f77e8b1be02ee8e6640c13812e8a6e0fc) Thanks [@Justkant](https://github.com/Justkant)! - feat(client): add signRaw method for signing raw transaction
+
 ## 1.11.1
 
 ### Patch Changes
