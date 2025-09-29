@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.24.1
+
+### Patch Changes
+
+- [#479](https://github.com/LedgerHQ/wallet-api/pull/479) [`9200102`](https://github.com/LedgerHQ/wallet-api/commit/9200102857a09d9d6c8dd32bcfce8a567c1c79bd) Thanks [@philipptpunkt](https://github.com/philipptpunkt)! - add sponsored parameter for ethereum transaction type
+
 ## 1.24.0
 
 ### Minor Changes
