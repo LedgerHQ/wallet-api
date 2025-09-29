@@ -9,4 +9,5 @@ export const schemaRawEthereumTransaction = schemaTransactionCommon.extend({
   gasLimit: z.string().optional(),
   maxPriorityFeePerGas: z.string().optional(),
   maxFeePerGas: z.string().optional(),
+  sponsored: z.boolean().optional(),
 });
