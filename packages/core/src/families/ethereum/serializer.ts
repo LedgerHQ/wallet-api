@@ -11,6 +11,7 @@ export function serializeEthereumTransaction({
   gasLimit,
   maxPriorityFeePerGas,
   maxFeePerGas,
+  sponsored,
 }: EthereumTransaction): RawEthereumTransaction {
   return {
     family,
@@ -24,6 +25,7 @@ export function serializeEthereumTransaction({
       ? maxPriorityFeePerGas.toString()
       : undefined,
     maxFeePerGas: maxFeePerGas ? maxFeePerGas.toString() : undefined,
+    sponsored,
   };
 }
 
@@ -37,6 +39,7 @@ export function deserializeEthereumTransaction({
   gasLimit,
   maxPriorityFeePerGas,
   maxFeePerGas,
+  sponsored,
 }: RawEthereumTransaction): EthereumTransaction {
   return {
     family,
@@ -50,5 +53,6 @@ export function deserializeEthereumTransaction({
       ? new BigNumber(maxPriorityFeePerGas)
       : undefined,
     maxFeePerGas: maxFeePerGas ? new BigNumber(maxFeePerGas) : undefined,
+    sponsored,
   };
 }

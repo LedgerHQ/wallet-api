@@ -150,6 +150,50 @@ describe("serializers.ts", () => {
           gasLimit: undefined,
         });
       });
+
+      it("should succeed to serialize an ethereum transaction with sponsored parameter", () => {
+        const transaction: EthereumTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family,
+          nonce: 123,
+          sponsored: true,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+          sponsored: true,
+        });
+      });
+
+      it("should succeed to serialize an ethereum transaction with sponsored set to false", () => {
+        const transaction: EthereumTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family,
+          nonce: 123,
+          sponsored: false,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+          sponsored: false,
+        });
+      });
     });
 
     describe("bitcoin", () => {
@@ -983,6 +1027,52 @@ describe("serializers.ts", () => {
           data: undefined,
           gasPrice: undefined,
           gasLimit: undefined,
+        });
+      });
+
+      it("should succeed to deserialize an ethereum transaction with sponsored parameter", () => {
+        const serializedTransaction: RawEthereumTransaction = {
+          family,
+          amount: "0",
+          recipient: "recipient",
+          nonce: 123,
+          sponsored: true,
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+          sponsored: true,
+        });
+      });
+
+      it("should succeed to deserialize an ethereum transaction with sponsored set to false", () => {
+        const serializedTransaction: RawEthereumTransaction = {
+          family,
+          amount: "0",
+          recipient: "recipient",
+          nonce: 123,
+          sponsored: false,
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          nonce: 123,
+          data: undefined,
+          gasPrice: undefined,
+          gasLimit: undefined,
+          sponsored: false,
         });
       });
     });
