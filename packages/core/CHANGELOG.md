@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.24.2
+
+### Patch Changes
+
+- [#482](https://github.com/LedgerHQ/wallet-api/pull/482) [`38988e6`](https://github.com/LedgerHQ/wallet-api/commit/38988e60159a7b374175e6c73b197c314c2701e5) Thanks [@philipptpunkt](https://github.com/philipptpunkt)! - add sponsored param to serializer for ethereum transactions
+
 ## 1.24.1
 
 ### Patch Changes
