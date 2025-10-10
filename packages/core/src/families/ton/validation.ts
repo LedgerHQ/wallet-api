@@ -118,6 +118,28 @@ export const schemaTonPayloadTokenBridgePaySwapRaw = z.object({
   swapId: z.string(),
 });
 
+export const schemaTonPayloadTonWhalesPoolDepositRaw = z.object({
+  type: z.literal("tonwhales-pool-deposit"),
+  queryId: z.string(),
+  gasLimit: z.string(),
+});
+
+export const schemaTonPayloadTonWhalesPoolWithdrawRaw = z.object({
+  type: z.literal("tonwhales-pool-withdraw"),
+  queryId: z.string(),
+  gasLimit: z.string(),
+  amount: z.string(),
+});
+
+export const schemaTonPayloadVestingSendMsgCommentRaw = z.object({
+  type: z.literal("vesting-send-msg-comment"),
+  queryId: z.union([z.string(), z.null()]),
+  sendMode: z.number(),
+  value: z.string(),
+  destination: z.string(),
+  text: z.string(),
+});
+
 export const schemaTonPayloadFormatRaw = z.union([
   schemaTonPayloadCommentRaw,
   schemaTonPayloadJettonTransferRaw,
@@ -131,6 +153,9 @@ export const schemaTonPayloadFormatRaw = z.union([
   schemaTonPayloadVoteForProposalRaw,
   schemaTonPayloadChangeDnsRecordRaw,
   schemaTonPayloadTokenBridgePaySwapRaw,
+  schemaTonPayloadTonWhalesPoolDepositRaw,
+  schemaTonPayloadTonWhalesPoolWithdrawRaw,
+  schemaTonPayloadVestingSendMsgCommentRaw,
 ]);
 
 export const schemaRawTonTransaction = schemaTransactionCommon.extend({

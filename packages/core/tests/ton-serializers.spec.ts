@@ -407,6 +407,71 @@ const cases: {
     },
   },
   {
+    name: "tx with payload for tonwhales-pool-deposit",
+    tx: {
+      ...baseTx,
+      payload: {
+        type: "tonwhales-pool-deposit",
+        queryId: BigInt(1),
+        gasLimit: BigInt(1000000),
+      },
+    },
+    rawTx: {
+      ...baseRawTx,
+      payload: {
+        type: "tonwhales-pool-deposit",
+        queryId: "1",
+        gasLimit: "1000000",
+      },
+    },
+  },
+  {
+    name: "tx with payload for tonwhales-pool-withdraw",
+    tx: {
+      ...baseTx,
+      payload: {
+        type: "tonwhales-pool-withdraw",
+        queryId: BigInt(2),
+        gasLimit: BigInt(2000000),
+        amount: BigInt(5000000000),
+      },
+    },
+    rawTx: {
+      ...baseRawTx,
+      payload: {
+        type: "tonwhales-pool-withdraw",
+        queryId: "2",
+        gasLimit: "2000000",
+        amount: "5000000000",
+      },
+    },
+  },
+  {
+    name: "tx with payload for vesting-send-msg-comment",
+    tx: {
+      ...baseTx,
+      payload: {
+        type: "vesting-send-msg-comment",
+        queryId: BigInt(3),
+        sendMode: 3,
+        value: BigInt(42),
+        destination: randomAddress,
+        text: "vesting comment",
+      },
+    },
+    rawTx: {
+      ...baseRawTx,
+      payload: {
+        type: "vesting-send-msg-comment",
+        queryId: "3",
+        sendMode: 3,
+        value: "42",
+        destination: rawRandomAddress,
+        text: "vesting comment",
+      },
+    },
+  },
+  {
     name: "tx with payload we don't support",
     tx: {
       ...baseTx,

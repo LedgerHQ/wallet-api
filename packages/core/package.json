@@ -33,7 +33,7 @@
   "dependencies": {
     "@ledgerhq/errors": "^6.16.2",
     "@stacks/transactions": "^6.13.0",
-    "@ton/core": "^0.60.1",
+    "@ton/core": "^0.62.0",
     "bignumber.js": "^9.1.2",
     "thor-devkit": "^2.0.9",
     "uuid": "^9.0.1",
