@@ -153,6 +153,28 @@ const fromTransactionPayloadRaw = (
         queryId: payload.queryId ? BigInt(payload.queryId) : null,
         swapId: Buffer.from(payload.swapId, "hex"),
       };
+    case "tonwhales-pool-deposit":
+      return {
+        type: payload.type,
+        queryId: BigInt(payload.queryId),
+        gasLimit: BigInt(payload.gasLimit),
+      };
+    case "tonwhales-pool-withdraw":
+      return {
+        type: payload.type,
+        queryId: BigInt(payload.queryId),
+        gasLimit: BigInt(payload.gasLimit),
+        amount: BigInt(payload.amount),
+      };
+    case "vesting-send-msg-comment":
+      return {
+        type: payload.type,
+        queryId: payload.queryId ? BigInt(payload.queryId) : null,
+        sendMode: payload.sendMode,
+        value: BigInt(payload.value),
+        destination: Address.parse(payload.destination),
+        text: payload.text,
+      };
     case "comment":
       return payload;
     default: {
@@ -298,6 +320,31 @@ const toTransactionPayloadRaw = (
             ? payload.queryId.toString()
             : null,
         swapId: payload.swapId.toString("hex"),
+      };
+    case "tonwhales-pool-deposit":
+      return {
+        type: payload.type,
+        queryId: payload.queryId.toString(),
+        gasLimit: payload.gasLimit.toString(),
+      };
+    case "tonwhales-pool-withdraw":
+      return {
+        type: payload.type,
+        queryId: payload.queryId.toString(),
+        gasLimit: payload.gasLimit.toString(),
+        amount: payload.amount.toString(),
+      };
+    case "vesting-send-msg-comment":
+      return {
+        type: payload.type,
+        queryId:
+          typeof payload.queryId === "bigint"
+            ? payload.queryId.toString()
+            : null,
+        sendMode: payload.sendMode,
+        value: payload.value.toString(),
+        destination: payload.destination.toRawString(),
+        text: payload.text,
       };
     case "comment":
       return payload;

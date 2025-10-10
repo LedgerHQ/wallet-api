@@ -16,7 +16,10 @@ import type {
   schemaTonPayloadSingleNominatorWithdrawRaw,
   schemaTonPayloadTokenBridgePaySwapRaw,
   schemaTonPayloadTonStakersDepositRaw,
+  schemaTonPayloadTonWhalesPoolDepositRaw,
+  schemaTonPayloadTonWhalesPoolWithdrawRaw,
   schemaTonPayloadUnsafeRaw,
+  schemaTonPayloadVestingSendMsgCommentRaw,
   schemaTonPayloadVoteForProposalRaw,
 } from "./validation";
 
@@ -177,6 +180,40 @@ export type TonPayloadTokenBridgePaySwapRaw = z.infer<
   typeof schemaTonPayloadTokenBridgePaySwapRaw
 >;
 
+export type TonPayloadTonWhalesPoolDeposit = {
+  type: "tonwhales-pool-deposit";
+  queryId: bigint;
+  gasLimit: bigint;
+};
+
+export type TonPayloadTonWhalesPoolDepositRaw = z.infer<
+  typeof schemaTonPayloadTonWhalesPoolDepositRaw
+>;
+
+export type TonPayloadTonWhalesPoolWithdraw = {
+  type: "tonwhales-pool-withdraw";
+  queryId: bigint;
+  gasLimit: bigint;
+  amount: bigint;
+};
+
+export type TonPayloadTonWhalesPoolWithdrawRaw = z.infer<
+  typeof schemaTonPayloadTonWhalesPoolWithdrawRaw
+>;
+
+export type TonPayloadVestingSendMsgComment = {
+  type: "vesting-send-msg-comment";
+  queryId: bigint | null;
+  sendMode: number;
+  value: bigint;
+  destination: Address;
+  text: string;
+};
+
+export type TonPayloadVestingSendMsgCommentRaw = z.infer<
+  typeof schemaTonPayloadVestingSendMsgCommentRaw
+>;
+
 export type TonPayloadFormat =
   | TonPayloadComment
   | TonPayloadJettonTransfer
@@ -189,6 +226,9 @@ export type TonPayloadFormat =
   | TonPayloadTonStakersDeposit
   | TonPayloadVoteForProposal
   | TonPayloadChangeDnsRecord
-  | TonPayloadTokenBridgePaySwap;
+  | TonPayloadTokenBridgePaySwap
+  | TonPayloadTonWhalesPoolDeposit
+  | TonPayloadTonWhalesPoolWithdraw
+  | TonPayloadVestingSendMsgComment;
 
 export type TonPayloadFormatRaw = z.infer<typeof schemaTonPayloadFormatRaw>;
