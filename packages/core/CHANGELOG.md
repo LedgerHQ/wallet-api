@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.25.0
+
+### Minor Changes
+
+- [#484](https://github.com/LedgerHQ/wallet-api/pull/484) [`f6f5cd3`](https://github.com/LedgerHQ/wallet-api/commit/f6f5cd39730bcfd7ef2f89b98eb543342a509621) Thanks [@Justkant](https://github.com/Justkant)! - feat(ton): add named payload types and raw schemas for pool & vesting operations
+
 ## 1.24.2
 
 ### Patch Changes
