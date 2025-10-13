@@ -6,6 +6,8 @@ export const schemaThorTransactionClause = z.object({
   to: z.string().nullable(),
   value: z.union([z.string(), z.number()]),
   data: z.string(),
+  comment: z.string().optional(),
+  abi: z.string().optional(),
 });
 
 // Generated from VeChain Thor Transaction types
@@ -15,10 +17,12 @@ export const schemaThorTransactionBody = z.object({
   blockRef: z.string(),
   expiration: z.number(),
   clauses: z.array(schemaThorTransactionClause),
-  gasPriceCoef: z.number(),
+  gasPriceCoef: z.number().optional(),
   gas: z.union([z.string(), z.number()]),
   dependsOn: z.string().nullable(),
   nonce: z.union([z.string(), z.number()]),
+  maxFeePerGas: z.union([z.string(), z.number()]).optional(),
+  maxPriorityFeePerGas: z.union([z.string(), z.number()]).optional(),
   reserved: z
     .object({
       features: z.number().optional(),
