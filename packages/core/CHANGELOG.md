@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.26.0
+
+### Minor Changes
+
+- [#486](https://github.com/LedgerHQ/wallet-api/pull/486) [`142e031`](https://github.com/LedgerHQ/wallet-api/commit/142e0318bff2a313dee30ac8a6fa6d1d50f37dbf) Thanks [@Justkant](https://github.com/Justkant)! - refactor(vechain): remove thor-devkit dependency, inline transaction types, update validation schema (add comment/abi, maxFeePerGas, make gasPriceCoef optional)
+
 ## 1.25.0
 
 ### Minor Changes
