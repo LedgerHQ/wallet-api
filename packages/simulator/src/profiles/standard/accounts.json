@@ -2,7 +2,7 @@
   {
     "id": "account-btc-1",
     "name": "Bitcoin 1",
-    "address": "address",
+    "address": "11111a11-1aaa-111a-1aa1-aa11aa11aa11",
     "currency": "bitcoin",
     "balance": "42",
     "spendableBalance": "42",
@@ -12,7 +12,7 @@
   {
     "id": "account-eth-1",
     "name": "Ethereum 1",
-    "address": "address",
+    "address": "11111a11-1aaa-111a-1aa1-aa11aa11aa11",
     "currency": "ethereum",
     "balance": "42",
     "spendableBalance": "42",
