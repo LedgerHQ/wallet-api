@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-simulator
 
+## 1.2.21
+
+### Patch Changes
+
+- [#488](https://github.com/LedgerHQ/wallet-api/pull/488) [`8def87c`](https://github.com/LedgerHQ/wallet-api/commit/8def87ca3591a73d5328cf312078d41b6064b520) Thanks [@hhumphrey-ledger](https://github.com/hhumphrey-ledger)! - Updated address id in standard profiles
+
 ## 1.2.20
 
 ### Patch Changes
