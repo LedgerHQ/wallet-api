@@ -1,5 +1,25 @@
 # @ledgerhq/wallet-api-simulator
 
+## 2.0.0
+
+### Major Changes
+
+- [#490](https://github.com/LedgerHQ/wallet-api/pull/490) [`59e6b33`](https://github.com/LedgerHQ/wallet-api/commit/59e6b33c106d965603b2e414aec9ebb387146414) Thanks [@Justkant](https://github.com/Justkant)! - refactor(simulator): adapt to new server architecture without RxJS
+
+  - Remove RxJS dependency from simulator package
+  - Update SimulatorProfile type to remove accounts and currencies arrays
+  - Implement account.list and currency.list handlers in standard profile
+  - Update account.request handler to filter accounts directly instead of using observables
+  - Remove observable subscriptions from profile application logic
+  - Simplify helper functions by removing setAccounts and setCurrencies calls
+
+### Patch Changes
+
+- Updated dependencies [[`59e6b33`](https://github.com/LedgerHQ/wallet-api/commit/59e6b33c106d965603b2e414aec9ebb387146414), [`59e6b33`](https://github.com/LedgerHQ/wallet-api/commit/59e6b33c106d965603b2e414aec9ebb387146414)]:
+  - @ledgerhq/wallet-api-client@1.12.5
+  - @ledgerhq/wallet-api-core@1.26.1
+  - @ledgerhq/wallet-api-server@2.0.0
+
 ## 1.2.21
 
 ### Patch Changes
