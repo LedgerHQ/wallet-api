@@ -1,7 +1,5 @@
 import {
-  Account,
   AppHandlers,
-  Currency,
   Logger,
   Permission,
   RpcError,
@@ -12,8 +10,6 @@ import {
   Transport,
   createPermissionDenied,
 } from "@ledgerhq/wallet-api-core";
-import { BehaviorSubject, combineLatest } from "rxjs";
-import { filterAccountsForCurrencies, matchCurrencies } from "./helpers";
 import { internalHandlers } from "./internalHandlers";
 
 import type {
@@ -38,37 +34,17 @@ export class WalletAPIServer extends RpcNode<
 
   private walletContext: WalletContext;
 
-  private allAccounts$: BehaviorSubject<Account[]> = new BehaviorSubject<
-    Account[]
-  >([]);
-
-  private allCurrencies$: BehaviorSubject<Currency[]> = new BehaviorSubject<
-    Currency[]
-  >([]);
-
   private walletHandlers: Partial<WalletHandlers> = {};
 
   private permissions: {
-    currencyIds$: BehaviorSubject<string[]>;
-    methodIds$: BehaviorSubject<string[]>;
+    methodIds: Set<string>;
   } = {
-    currencyIds$: new BehaviorSubject<string[]>([]),
-    methodIds$: new BehaviorSubject<string[]>([]),
+    methodIds: new Set(),
   };
 
-  setPermissions(permission: Permission) {
-    this.permissions.currencyIds$.next(permission.currencyIds);
-    this.permissions.methodIds$.next(permission.methodIds);
-    return this;
-  }
-
-  setCurrencies(currencies: Currency[]) {
-    this.allCurrencies$.next(currencies);
-    return this;
-  }
-
-  setAccounts(accounts: Account[]) {
-    this.allAccounts$.next(accounts);
+  // TODO: remove omit<Permission, "currencyIds"> in next major release of core
+  setPermissions(permission: Omit<Permission, "currencyIds">) {
+    this.permissions.methodIds = new Set(permission.methodIds);
     return this;
   }
 
@@ -97,7 +73,7 @@ export class WalletAPIServer extends RpcNode<
     method: keyof AppHandlers,
     params: MethodParamsIfExists<AppHandlers, keyof AppHandlers>,
   ) {
-    const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
+    const allowedMethodIds = this.permissions.methodIds;
 
     if (!allowedMethodIds.has(method)) {
       throw new ServerError(createPermissionDenied(method));
@@ -123,7 +99,7 @@ export class WalletAPIServer extends RpcNode<
       });
     }
 
-    const allowedMethodIds = new Set(this.permissions.methodIds$.getValue());
+    const allowedMethodIds = this.permissions.methodIds;
 
     if (!allowedMethodIds.has(methodId)) {
       throw new ServerError(createPermissionDenied(methodId));
@@ -141,26 +117,8 @@ export class WalletAPIServer extends RpcNode<
     super(transport, { ...internalHandlers, ...customHandlers });
     this.logger = logger;
 
-    const allowedCurrencies$ = new BehaviorSubject<Currency[]>([]);
-    combineLatest(
-      [this.allCurrencies$, this.permissions.currencyIds$],
-      matchCurrencies,
-    ).subscribe(allowedCurrencies$);
-
-    const allowedAccounts$ = new BehaviorSubject<Account[]>([]);
-    combineLatest(
-      [this.allAccounts$, allowedCurrencies$],
-      filterAccountsForCurrencies,
-    ).subscribe(allowedAccounts$);
-
     this.walletContext = {
-      currencies$: allowedCurrencies$,
-      accounts$: allowedAccounts$,
       config,
     };
-
-    this.walletContext.accounts$.subscribe(() => {
-      this.notify("event.account.updated", undefined);
-    });
   }
 }

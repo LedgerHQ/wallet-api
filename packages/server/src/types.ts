@@ -18,11 +18,8 @@ import type {
   TransactionSignAndBroadcast,
   TransactionSignRaw,
 } from "@ledgerhq/wallet-api-core";
-import type { BehaviorSubject, Observable } from "rxjs";
 
 export type WalletContext = {
-  currencies$: Observable<Currency[]>;
-  accounts$: Observable<Account[]>;
   config: ServerConfig;
 };
 
@@ -34,7 +31,7 @@ export type RPCHandler<TResult, TParam = unknown> = (
 
 type ExchangeBaseParams = {
   provider: string;
-  fromAccount: Account;
+  fromAccountId: string;
   transaction: Transaction;
   binaryPayload: Buffer;
   signature: Buffer;
@@ -52,7 +49,7 @@ type ExchangeSellParams = {
 
 type ExchangeSwapParams = {
   exchangeType: "SWAP";
-  toAccount: Account;
+  toAccountId: string;
   swapId: string;
   rate: number;
 } & ExchangeBaseParams;
@@ -64,8 +61,7 @@ type ExchangeParams =
 
 export type WalletHandlers = {
   "account.request": (params: {
-    currencies$: Observable<Currency[]>;
-    accounts$: Observable<Account[]>;
+    currencyIds?: string[];
     showAccountFilter?: boolean;
     drawerConfiguration?: {
       assets?: {
@@ -82,32 +78,36 @@ export type WalletHandlers = {
     areCurrenciesFiltered?: boolean;
   }) => Promisable<Account>;
   "account.receive": (params: {
-    account: Account;
+    accountId: string;
     tokenCurrency?: string;
   }) => Promisable<string>;
+  "account.list": (params: { currencyIds?: string[] }) => Promisable<Account[]>;
+  "currency.list": (params: {
+    currencyIds?: string[];
+  }) => Promisable<Currency[]>;
   "message.sign": (params: {
-    account: Account;
+    accountId: string;
     message: Buffer;
     options?: MessageSign["params"]["options"];
     meta: Record<string, unknown> | undefined;
     tokenCurrency?: string;
   }) => Promisable<Buffer>;
   "transaction.sign": (params: {
-    account: Account;
+    accountId: string;
     transaction: Transaction;
     options?: TransactionSign["params"]["options"];
     meta: Record<string, unknown> | undefined;
     tokenCurrency?: string;
   }) => Promisable<Buffer>;
   "transaction.signRaw": (params: {
-    account: Account;
+    accountId: string;
     transaction: string;
     broadcast?: boolean;
     options?: TransactionSignRaw["params"]["options"];
     meta: Record<string, unknown> | undefined;
   }) => Promisable<{ signedTransactionHex: string; transactionHash?: string }>;
   "transaction.signAndBroadcast": (params: {
-    account: Account;
+    accountId: string;
     transaction: Transaction;
     options?: TransactionSignAndBroadcast["params"]["options"];
     meta: Record<string, unknown> | undefined;
@@ -135,7 +135,7 @@ export type WalletHandlers = {
   ) => Promisable<string>;
   "bitcoin.getXPub": (params: BitcoinGetXPub["params"]) => Promisable<string>;
   "bitcoin.signPsbt": (params: {
-    account: Account;
+    accountId: string;
     psbt: string;
     broadcast?: boolean;
   }) => Promisable<{ psbtSigned: string; txHash?: string }>;
@@ -162,10 +162,7 @@ export type ClientParams = {
   };
 };
 
-export type ClientContext = {
-  currencies$: BehaviorSubject<Currency[]>;
-  accounts$: BehaviorSubject<Account[]>;
-} & ClientParams;
+export type ClientContext = ClientParams;
 
 export type WalletInfo = {
   name: string;

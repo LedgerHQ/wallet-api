@@ -1,5 +1,4 @@
 import {
-  createAccountNotFound,
   createNotImplementedByWallet,
   deserializeTransaction,
   ExchangeComplete,
@@ -8,7 +7,6 @@ import {
   schemaExchangeStart,
   ServerError,
 } from "@ledgerhq/wallet-api-core";
-import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
 export const start: RPCHandler<ExchangeStart["result"]> = async (
@@ -35,7 +33,7 @@ export const start: RPCHandler<ExchangeStart["result"]> = async (
 
 export const complete: RPCHandler<ExchangeComplete["result"]> = async (
   req,
-  context,
+  _context,
   handlers,
 ) => {
   const walletHandler = handlers["exchange.complete"];
@@ -46,39 +44,23 @@ export const complete: RPCHandler<ExchangeComplete["result"]> = async (
 
   const safeParams = schemaExchangeComplete.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
-
-  const fromAccount = accounts.find(
-    (acc) => acc.id === safeParams.fromAccountId,
-  );
-
-  if (!fromAccount) {
-    throw new ServerError(createAccountNotFound(safeParams.fromAccountId));
-  }
-
   // those params are common to all exchange types
   const commonParams = {
     provider: safeParams.provider,
     transaction: deserializeTransaction(safeParams.rawTransaction),
     signature: Buffer.from(safeParams.hexSignature, "hex"),
     binaryPayload: Buffer.from(safeParams.hexBinaryPayload, "hex"),
-    fromAccount,
+    fromAccountId: safeParams.fromAccountId,
     feeStrategy: safeParams.feeStrategy,
     tokenCurrency: safeParams.tokenCurrency,
-  };
+  } satisfies Partial<Parameters<typeof walletHandler>[0]>;
 
   // if the exchange type is SWAP we need to process an extra parameter
   if (safeParams.exchangeType === "SWAP") {
-    const toAccount = accounts.find((acc) => acc.id === safeParams.toAccountId);
-
-    if (!toAccount) {
-      throw new ServerError(createAccountNotFound(safeParams.toAccountId));
-    }
-
     const transactionHash = await walletHandler({
       ...commonParams,
       exchangeType: safeParams.exchangeType,
-      toAccount,
+      toAccountId: safeParams.toAccountId,
       swapId: safeParams.swapId,
       rate: safeParams.rate,
     });

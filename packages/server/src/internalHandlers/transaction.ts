@@ -1,5 +1,4 @@
 import {
-  createAccountNotFound,
   createNotImplementedByWallet,
   deserializeTransaction,
   schemaTransactionSign,
@@ -10,26 +9,17 @@ import {
   TransactionSignAndBroadcast,
   TransactionSignRaw,
 } from "@ledgerhq/wallet-api-core";
-import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
 export const sign: RPCHandler<TransactionSign["result"]> = async (
   req,
-  context,
+  _context,
   handlers,
 ) => {
   const safeParams = schemaTransactionSign.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
-
   const { accountId, rawTransaction, options, meta, tokenCurrency } =
     safeParams;
-
-  const account = accounts.find((acc) => acc.id === accountId);
-
-  if (!account) {
-    throw new ServerError(createAccountNotFound(accountId));
-  }
 
   const walletHandler = handlers["transaction.sign"];
 
@@ -38,7 +28,7 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
   }
 
   const signedTransaction = await walletHandler({
-    account,
+    accountId,
     tokenCurrency,
     transaction: deserializeTransaction(rawTransaction),
     options,
@@ -52,20 +42,12 @@ export const sign: RPCHandler<TransactionSign["result"]> = async (
 
 export const signRaw: RPCHandler<TransactionSignRaw["result"]> = async (
   req,
-  context,
+  _context,
   handlers,
 ) => {
   const safeParams = schemaTransactionSignRaw.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
-
   const { accountId, rawTransaction, broadcast, options, meta } = safeParams;
-
-  const account = accounts.find((acc) => acc.id === accountId);
-
-  if (!account) {
-    throw new ServerError(createAccountNotFound(accountId));
-  }
 
   const walletHandler = handlers["transaction.signRaw"];
 
@@ -74,7 +56,7 @@ export const signRaw: RPCHandler<TransactionSignRaw["result"]> = async (
   }
 
   const { signedTransactionHex, transactionHash } = await walletHandler({
-    account,
+    accountId,
     transaction: rawTransaction,
     broadcast,
     options,
@@ -89,7 +71,7 @@ export const signRaw: RPCHandler<TransactionSignRaw["result"]> = async (
 
 export const signAndBroadcast: RPCHandler<
   TransactionSignAndBroadcast["result"]
-> = async (req, context, handlers) => {
+> = async (req, _context, handlers) => {
   const walletHandler = handlers["transaction.signAndBroadcast"];
 
   if (!walletHandler) {
@@ -100,19 +82,11 @@ export const signAndBroadcast: RPCHandler<
 
   const safeParams = schemaTransactionSignAndBroadcast.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
-
   const { accountId, rawTransaction, options, meta, tokenCurrency } =
     safeParams;
 
-  const account = accounts.find((acc) => acc.id === accountId);
-
-  if (!account) {
-    throw new ServerError(createAccountNotFound(accountId));
-  }
-
   const transactionHash = await walletHandler({
-    account,
+    accountId,
     tokenCurrency,
     transaction: deserializeTransaction(rawTransaction),
     options,

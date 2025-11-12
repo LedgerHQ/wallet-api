@@ -8,10 +8,15 @@ export function applyProfile(
   serverInstance: WalletAPIServer,
   profile: SimulatorProfile,
 ) {
-  serverInstance.setAccounts(profile.accounts);
-  serverInstance.setCurrencies(profile.currencies);
   serverInstance.setPermissions(profile.permissions);
-  serverInstance.setHandlers(profile.methods);
+  serverInstance.setHandlers(
+    typeof profile.methods === "function"
+      ? profile.methods({
+          accounts: profile.accounts,
+          currencies: profile.currencies,
+        })
+      : profile.methods,
+  );
 }
 
 type MockedResponse<

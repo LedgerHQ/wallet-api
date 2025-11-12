@@ -3,8 +3,14 @@ import type { ServerConfig, WalletHandlers } from "@ledgerhq/wallet-api-server";
 
 export type SimulatorProfile = {
   config: ServerConfig;
-  permissions: Permission;
+  // TODO: remove omit<Permission, "currencyIds"> in next major release of core
+  permissions: Omit<Permission, "currencyIds">;
   accounts: Account[];
   currencies: Currency[];
-  methods: Partial<WalletHandlers>;
+  methods:
+    | Partial<WalletHandlers>
+    | ((ctx: {
+        accounts: Account[];
+        currencies: Currency[];
+      }) => Partial<WalletHandlers>);
 };
