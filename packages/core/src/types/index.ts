@@ -79,6 +79,8 @@ export type ApplicationDetails = {
 };
 
 export type Permission = {
+  // TODO: remove currencyIds in next major release
+  // We keep it for backward compatibility for now
   currencyIds: string[];
   methodIds: string[];
 };

@@ -20,14 +20,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@ledgerhq/hw-transport": "^6.30.4",
+    "@ledgerhq/hw-transport": "^6.31.13",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.1.2"
   },
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.19",
+    "@types/node": "^24.10.0",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",

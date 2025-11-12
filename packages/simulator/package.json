@@ -19,10 +19,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@ledgerhq/errors": "^6.16.2",
+    "@ledgerhq/errors": "^6.27.0",
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.19",
+    "@types/node": "^24.10.0",
     "@types/ws": "^8.5.10",
     "bignumber.js": "^9.1.2",
     "eslint": "^8.56.0",
@@ -33,11 +33,10 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@ledgerhq/hw-transport": "^6.30.4",
+    "@ledgerhq/hw-transport": "^6.31.13",
     "@ledgerhq/wallet-api-client": "workspace:*",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-server": "workspace:*",
-    "rxjs": "^7.8.1",
     "ws": "^8.16.0"
   }
 }

@@ -1,16 +1,14 @@
 import {
-  createAccountNotFound,
   createNotImplementedByWallet,
   MessageSign,
   schemaMessageSign,
   ServerError,
 } from "@ledgerhq/wallet-api-core";
-import { firstValueFrom } from "rxjs";
 import type { RPCHandler } from "../types";
 
 export const sign: RPCHandler<MessageSign["result"]> = async (
   req,
-  context,
+  _context,
   handlers,
 ) => {
   const walletHandler = handlers["message.sign"];
@@ -21,18 +19,10 @@ export const sign: RPCHandler<MessageSign["result"]> = async (
 
   const safeParams = schemaMessageSign.params.parse(req.params);
 
-  const accounts = await firstValueFrom(context.accounts$);
-
   const { accountId, hexMessage, options, meta } = safeParams;
 
-  const account = accounts.find((acc) => acc.id === accountId);
-
-  if (!account) {
-    throw new ServerError(createAccountNotFound(accountId));
-  }
-
   const signedMessage = await walletHandler({
-    account,
+    accountId,
     message: Buffer.from(hexMessage, "hex"),
     options,
     meta,

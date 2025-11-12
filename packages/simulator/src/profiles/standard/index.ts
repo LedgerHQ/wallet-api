@@ -4,8 +4,6 @@ import {
   deserializeAccount,
 } from "@ledgerhq/wallet-api-core";
 
-import { firstValueFrom } from "rxjs";
-
 import type { SimulatorProfile } from "../../types";
 
 import rawAccounts from "./accounts.json";
@@ -28,7 +26,6 @@ export const standardProfile: SimulatorProfile = {
     },
   },
   permissions: {
-    currencyIds: ["ethereum", "bitcoin"],
     methodIds: [
       "account.request",
       "currency.list",
@@ -51,15 +48,37 @@ export const standardProfile: SimulatorProfile = {
   },
   accounts: allAccounts,
   currencies: allCurrencies,
-  methods: {
-    "account.request": async ({ accounts$ }) => {
-      const accounts = await firstValueFrom(accounts$);
+  methods: ({ accounts, currencies }) => ({
+    "account.request": ({ currencyIds }) => {
+      let filteredAccounts = accounts;
 
-      if (!accounts[0]) {
-        throw new Error("No accounts available");
+      if (currencyIds && currencyIds.length > 0) {
+        filteredAccounts = accounts.filter((account) =>
+          currencyIds.includes(account.currency),
+        );
       }
 
-      return accounts[0];
+      if (!filteredAccounts[0]) {
+        throw new Error("No account available for the requested currencies");
+      }
+
+      return filteredAccounts[0];
+    },
+    "account.list": ({ currencyIds }) => {
+      if (currencyIds && currencyIds.length > 0) {
+        return accounts.filter((account) =>
+          currencyIds.includes(account.currency),
+        );
+      }
+      return accounts;
+    },
+    "currency.list": ({ currencyIds }) => {
+      if (currencyIds && currencyIds.length > 0) {
+        return currencies.filter((currency) =>
+          currencyIds.includes(currency.id),
+        );
+      }
+      return currencies;
     },
     "transaction.signAndBroadcast": () => "0xtxHash",
     "transaction.sign": () =>
@@ -92,5 +111,5 @@ export const standardProfile: SimulatorProfile = {
     "exchange.start": ({ exchangeType }) =>
       `simulator-dummy-transaction-id-${exchangeType}`,
     "exchange.complete": () => `simulator-dummy-transaction-hash`,
-  },
+  }),
 };

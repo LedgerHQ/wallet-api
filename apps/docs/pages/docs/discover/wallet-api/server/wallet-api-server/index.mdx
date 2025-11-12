@@ -137,26 +137,6 @@ permissions.methodIds$ = [
 
 ### walletContext
 
-#### walletContext.currencies$
-
-The allowed currencies:
-
-[allCurrencies](./wallet-api-server#allcurrencies) filtered against the currencies listed in [permissions.currencyIds](./wallet-api-server#permissionscurrencyids)
-
-| Created via  | name | note                                                                                                                                                           |
-| ------------ | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _observable_ |      | set in constructor, updates anytime `allAccounts` or `allowedCurrencies` changes, more info on how it does this using rxjs [here](./extras/rxjs#combinelatest) |
-
-#### walletContext.accounts$
-
-The allowed accounts:
-
-[allAccounts](./wallet-api-server#allaccounts) filtered against the allowedCurrencies computed above
-
-| Created via  | name | note                                                                                                                                                                         |
-| ------------ | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _observable_ |      | set in constructor, updates anytime `allAccounts` or `walletContext.allowedCurrencies` changes, more info on how it does this using rxjs [here](./extras/rxjs#combinelatest) |
-
 #### walletContext.config
 
 An object of this form

@@ -1,10 +1,4 @@
-import type {
-  Account,
-  Currency,
-  Logger,
-  Permission,
-  Transport,
-} from "@ledgerhq/wallet-api-core";
+import type { Logger, Permission, Transport } from "@ledgerhq/wallet-api-core";
 import { useCallback, useEffect, useRef } from "react";
 import { WalletAPIServer } from "./WalletAPIServer";
 import type { CustomHandlers, ServerConfig } from "./types";
@@ -13,17 +7,14 @@ export function useWalletAPIServer({
   transport,
   config,
   logger,
-  accounts,
-  currencies,
   permission,
   customHandlers,
 }: {
   transport: Transport;
   config: ServerConfig;
   logger?: Logger;
-  accounts: Account[];
-  currencies: Currency[];
-  permission: Permission;
+  // TODO: remove omit<Permission, "currencyIds"> in next major release of core
+  permission: Omit<Permission, "currencyIds">;
   customHandlers?: CustomHandlers;
 }) {
   const server = useRef<WalletAPIServer>();
@@ -51,14 +42,6 @@ export function useWalletAPIServer({
   useEffect(() => {
     server.current?.setPermissions(permission);
   }, [permission]);
-
-  useEffect(() => {
-    server.current?.setCurrencies(currencies);
-  }, [currencies]);
-
-  useEffect(() => {
-    server.current?.setAccounts(accounts);
-  }, [accounts]);
 
   const onMessage = useCallback(
     (event: string) => {
