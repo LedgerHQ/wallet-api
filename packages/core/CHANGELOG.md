@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.26.1
+
+### Patch Changes
+
+- [#490](https://github.com/LedgerHQ/wallet-api/pull/490) [`59e6b33`](https://github.com/LedgerHQ/wallet-api/commit/59e6b33c106d965603b2e414aec9ebb387146414) Thanks [@Justkant](https://github.com/Justkant)! - chore: update some dependencies
+
 ## 1.26.0
 
 ### Minor Changes
