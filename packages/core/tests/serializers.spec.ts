@@ -231,6 +231,41 @@ describe("serializers.ts", () => {
           feePerByte: undefined,
         });
       });
+
+      it("should succeed to serialize a bitcoin transaction with changeAddress", () => {
+        const transaction: BitcoinTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family,
+          changeAddress: "changeAddress",
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          feePerByte: undefined,
+          changeAddress: "changeAddress",
+        });
+      });
+
+      it("should succeed to serialize a bitcoin transaction without changeAddress", () => {
+        const transaction: BitcoinTransaction = {
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          family,
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "100",
+          recipient: "recipient",
+          feePerByte: undefined,
+          changeAddress: undefined,
+        });
+      });
     });
 
     describe("kaspa", () => {
@@ -1112,6 +1147,43 @@ describe("serializers.ts", () => {
           amount: new BigNumber(0),
           recipient: "recipient",
           feePerByte: undefined,
+        });
+      });
+
+      it("should succeed to deserialize a bitcoin transaction with changeAddress", () => {
+        const serializedTransaction: RawBitcoinTransaction = {
+          family,
+          amount: "0",
+          recipient: "recipient",
+          changeAddress: "changeAddress",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          feePerByte: undefined,
+          changeAddress: "changeAddress",
+        });
+      });
+
+      it("should succeed to deserialize a bitcoin transaction without changeAddress", () => {
+        const serializedTransaction: RawBitcoinTransaction = {
+          family,
+          amount: "0",
+          recipient: "recipient",
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          amount: new BigNumber(0),
+          recipient: "recipient",
+          feePerByte: undefined,
+          changeAddress: undefined,
         });
       });
     });
