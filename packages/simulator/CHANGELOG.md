@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-simulator
 
+## 2.1.0
+
+### Minor Changes
+
+- [#496](https://github.com/LedgerHQ/wallet-api/pull/496) [`e6054db`](https://github.com/LedgerHQ/wallet-api/commit/e6054db30924e32094ce8e2e63199920a874f63e) Thanks [@Justkant](https://github.com/Justkant)! - feat: add debug option to SimulatorProfile and conditionally log messages
+
 ## 2.0.2
 
 ### Patch Changes
