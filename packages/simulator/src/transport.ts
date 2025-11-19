@@ -16,7 +16,7 @@ export function getSimulatorTransport(
   const serverTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
-      console.info("wallet -> app", payload);
+      if (profile.debug) console.info("wallet -> app", payload);
       // Using setTimeout to simulate async call (Do we want to keep this sync ?)
       // It also avoids an act warning when using RTL to test components
       setTimeout(() => {
@@ -30,7 +30,7 @@ export function getSimulatorTransport(
   const clientTransport: Transport = {
     onMessage: undefined,
     send: (payload) => {
-      console.info("app -> wallet", payload);
+      if (profile.debug) console.info("app -> wallet", payload);
       // Using setTimeout to simulate async call (Do we want to keep this sync ?)
       // It also avoids an act warning when using RTL to test components
       setTimeout(() => {
