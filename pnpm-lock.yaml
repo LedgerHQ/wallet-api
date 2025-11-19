@@ -530,9 +530,6 @@ importers:
       '@types/picomatch':
         specifier: ^2.3.3
         version: 2.3.3
-      '@types/react':
-        specifier: ^18.2.57
-        version: 18.2.57
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
@@ -542,9 +539,6 @@ importers:
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0(bufferutil@4.0.8)(utf-8-validate@6.0.3)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       ts-jest:
         specifier: ^29.1.2
         version: 29.1.2(@babel/core@7.23.9)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.9))(jest@29.7.0(@types/node@24.10.0)(ts-node@10.9.2(@types/node@24.10.0)(typescript@5.3.3)))(typescript@5.3.3)
