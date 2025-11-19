@@ -1,62 +1,48 @@
 import { Callout } from "nextra/components";
 
-## useWalletAPIServer
+## useWalletAPIServer Hook (Removed)
 
-[source code](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/src/react.ts)
-
-For convenience in a react environment, the hook `useWalletAPIServer`, is available.
-
-It is used to setup a WalletAPIServer
-
-<Callout type="info" emoji="ℹ️">
-  [It is how wallet API Server are created in ledger
-  live](../usage-examples/within-ledger-live)
+<Callout type="warning" emoji="⚠️">
+  **This React hook has been removed from the wallet-api library as of version
+  3.0.0** The `useWalletAPIServer` hook is no longer exported from
+  `@ledgerhq/wallet-api-server`.
 </Callout>
 
-```js filename="packages/server/src/WalletAPIServer.ts"
+### Migration Guide
 
-export function useWalletAPIServer({
-  transport,
-  config,
-  logger,
-  accounts,
-  currencies,
-  permission,
-  customHandlers,
-}){...}
+If you were using this hook, you have two options:
 
-```
+1. **Use the WalletAPIServer constructor directly** (recommended)
 
-| Parameter (destructured from single object) | required? | note                                                                            |
-| ------------------------------------------- | --------- | ------------------------------------------------------------------------------- |
-| _transport_                                 | ✅        | sets the [transport](../wallet-api-server#transport)                            |
-| _config_                                    | ✅        | sets the [walletContext.config](../wallet-api-server#walletcontextconfig) value |
-| _logger_                                    | ❌        | (optional) sets the logger                                                      |
-| _accounts_                                  | ✅        | sets the [accounts](../wallet-api-server#allaccounts)                           |
-| _currencies_                                | ✅        | sets the [currencies](../wallet-api-server#allcurrencies)                       |
-| _permissions_                               | ✅        | sets the [permissions](../wallet-api-server#permissions)                        |
-| _customHandlers_                            | ❌        | (optional) sets [customHandlers](../wallet-api-server#walletcontextconfig)      |
+   Instantiate the server using the [WalletAPIServer constructor](../wallet-api-server#constructor):
 
-Once instantiated, it
+   ```ts
+   import { WalletAPIServer } from "@ledgerhq/wallet-api-server";
 
-- Sets custom handlers, in all cases (even if no custom handlers are sent from LLC),
-  it will be called to set the [requestHandlers](../wallet-api-server#requesthandlers)
-- Sets config, permissions, currencies and accounts.
+   const server = new WalletAPIServer(
+     transport,
+     config,
+     logger,
+     customHandlers,
+   );
+   ```
 
-Then, it returns:
+2. **Implement your own React hook** (advanced use case)
 
-```ts
-return {
-  server,
-  onMessage,
-};
-```
+   You can create your own React hook similar to how [Ledger Live implements it](../usage-examples/within-ledger-live). This gives you full control over the server lifecycle and state management.
 
-`server` is our walletAPIServer instance.  
-`onMessage`, which will allow _APP -> SERVER_ communication.
+### Breaking Changes in v2.0.0
 
-<Callout type="info" emoji="ℹ️">
-  Note that WalletAPIServer is instantiated as a ref
-  [useRef](https://react.dev/reference/react/useRef) we actually return
-  ```server: server.current```
-</Callout>
+- Removed RxJS dependency from the server package
+- Removed observable-based state management (accounts$, currencies$, etc.)
+- Removed `setAccounts()` and `setCurrencies()` methods from WalletAPIServer
+- Wallet handlers now accept `accountId` strings instead of Account objects
+- New required wallet handlers: `account.list` and `currency.list`
+
+For more details, see the [changelog](https://github.com/LedgerHQ/wallet-api/blob/main/packages/server/CHANGELOG.md).
+
+### Reference Implementation
+
+To see how Ledger Live implements server management in a React environment, check out:
+
+- [Ledger Live's usage example](../usage-examples/within-ledger-live)

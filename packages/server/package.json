@@ -22,11 +22,9 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^24.10.0",
     "@types/picomatch": "^2.3.3",
-    "@types/react": "^18.2.57",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "react": "^18.2.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
@@ -35,13 +33,5 @@
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.1.2",
     "picomatch": "^4.0.1"
-  },
-  "peerDependencies": {
-    "react": "^17.x || ^18.x || ^19.x"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    }
   }
 }

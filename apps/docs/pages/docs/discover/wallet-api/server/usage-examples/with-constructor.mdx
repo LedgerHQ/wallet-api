@@ -1,3 +1,5 @@
+import { Callout } from "nextra/components";
+
 ## Example usage of the walletAPIServer
 
 Here's how you can instantiate a new `WalletAPIServer` using its [constructor](../wallet-api-server#constructor)
@@ -29,43 +31,56 @@ const wapiServer = new WalletAPIServer(transport, config);
 
 two required arguments are passed, [transport](../wallet-api-server#transport) and [config](../wallet-api-server#walletcontextconfig).
 
-### setup accounts, currencies and permissions via setters
+### setup permissions
 
 ```ts
-wapiServer.setAccounts(accounts);
-wapiServer.setCurrencies(currencies);
 wapiServer.setPermissions({
-  currencyIds: ["**"],
-  methodIds: ["account.list", "account.receive", "account.request"],
+  methodIds: [
+    "account.list",
+    "account.receive",
+    "account.request",
+    "currency.list",
+  ],
 });
 ```
 
-Call setters to set the [accounts](../wallet-api-server#allaccounts),
-[currencies](../wallet-api-server#allcurrencies),
-and [permissions](../wallet-api-server#permissions)
+Set the [permissions](../wallet-api-server#permissions) to control which methods the app can access.
+
+<Callout type="info" emoji="ℹ️">
+  **Note:** As of version 2.0.0, `setAccounts()` and `setCurrencies()` have been
+  removed. You must now implement `account.list` and `currency.list` handlers
+  instead.
+</Callout>
 
 ### set wallet handlers
 
 ```ts
-    wapiServer.setHandler("account.request", async ({ accounts$, currencies$ }) => {
-      return new Promise((resolve, reject) => {
-        uiAccountRequest({
-          accounts$,
-          currencies: currencies.map({id} => id),
-          onSuccess: (account: AccountLike, parentAccount: Account | undefined) => {
-            resolve(accountToWalletAPIAccount(account, parentAccount));
-          },
-          onCancel: () => {
-            reject(new Error("Canceled by user"));
-          },
-        });
-      });
-    })
+// Handler to list all accounts
+wapiServer.setHandler("account.list", async () => {
+  return accounts.map((account) => accountToWalletAPIAccount(account));
+});
 
+// Handler to list all currencies
+wapiServer.setHandler("currency.list", async () => {
+  return currencies;
+});
+
+// Handler to request an account
+wapiServer.setHandler("account.request", async ({ accountIds }) => {
+  return new Promise((resolve, reject) => {
+    uiAccountRequest({
+      onSuccess: (account: AccountLike, parentAccount: Account | undefined) => {
+        resolve(accountToWalletAPIAccount(account, parentAccount));
+      },
+      onCancel: () => {
+        reject(new Error("Canceled by user"));
+      },
+    });
+  });
+});
 ```
 
-Set a [walletHandler](../wallet-api-server#wallethandlers) to handle
-actions that would request an account from the wallet.
+Set [walletHandlers](../wallet-api-server#wallethandlers) to handle wallet operations. The `account.list` and `currency.list` handlers are now required.
 
 ### wire up transport
 

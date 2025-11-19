@@ -50,9 +50,11 @@ export type Account = {
 
 </details>
 
-| Created via | name            |
-| ----------- | --------------- |
-| _setter_    | **setAccounts** |
+<Callout type="warning" emoji="⚠️">
+  **Note:** As of version 2.0.0, accounts are no longer managed by the server.
+  Instead, wallet implementations must provide an `account.list` handler that
+  returns the list of available accounts.
+</Callout>
 
 ### allCurrencies$
 
@@ -76,9 +78,11 @@ type Currency = {
 
 </details>
 
-| Created via | name              |
-| ----------- | ----------------- |
-| _setter_    | **setCurrencies** |
+<Callout type="warning" emoji="⚠️">
+  **Note:** As of version 2.0.0, currencies are no longer managed by the server.
+  Instead, wallet implementations must provide a `currency.list` handler that
+  returns the list of available currencies.
+</Callout>
 
 ---
 
