@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.27.0
+
+### Minor Changes
+
+- [#492](https://github.com/LedgerHQ/wallet-api/pull/492) [`9ceb848`](https://github.com/LedgerHQ/wallet-api/commit/9ceb84854c481e35a9120ef81eeee70f01096dbf) Thanks [@qperrot](https://github.com/qperrot)! - Support changeAddress on bitcoin
+
 ## 1.26.1
 
 ### Patch Changes
