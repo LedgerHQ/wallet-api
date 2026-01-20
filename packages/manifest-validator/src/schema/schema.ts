@@ -213,6 +213,25 @@ export const schema = {
     params: {
       type: "object",
     },
+    featureFlags: {
+      oneOf: [
+        {
+          type: "array",
+          uniqueItems: true,
+          items: {
+            type: "string",
+          },
+        },
+        {
+          type: "string",
+          const: "*",
+        },
+      ],
+      errorMessage: {
+        oneOf:
+          'Must be type of array with a least 1 value or a string equal to "*"',
+      },
+    },
   },
   if: {
     properties: {
