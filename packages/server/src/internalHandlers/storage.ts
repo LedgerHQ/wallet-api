@@ -3,7 +3,6 @@ import {
   StorageGet,
   StorageSet,
   createNotImplementedByWallet,
-  createUnauthorizedStore,
   schemaStorageGet,
   schemaStorageSet,
 } from "@ledgerhq/wallet-api-core";
@@ -26,11 +25,6 @@ export const set: RPCHandler<StorageSet["result"]> = async (
 
   const storeId = optionalStoreId ?? context.config.appId;
 
-  // to improve with a multi store permission system in the future
-  if (storeId !== context.config.appId) {
-    throw new ServerError(createUnauthorizedStore(storeId));
-  }
-
   return walletHandler({ key, value, storeId });
 };
 
@@ -50,11 +44,6 @@ export const get: RPCHandler<StorageGet["result"]> = async (
   const { key, storeId: optionalStoreId } = safeParams;
 
   const storeId = optionalStoreId ?? context.config.appId;
-
-  // to improve with a multi store permission system in the future
-  if (storeId !== context.config.appId) {
-    throw new ServerError(createUnauthorizedStore(storeId));
-  }
 
   return {
     value: await walletHandler({ key, storeId }),

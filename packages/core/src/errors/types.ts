@@ -96,27 +96,12 @@ export const schemaUnknownError = z.object({
 
 export type UnknownError = z.infer<typeof schemaUnknownError>;
 
-/*
-    UNAUTHORIZED_STORE
-*/
-
-export const schemaUnauthorizedStore = z.object({
-  code: z.literal(schemaServerErrorCode.enum.UNAUTHORIZED_STORE),
-  message: z.string(),
-  data: z.object({
-    storeId: z.string(),
-  }),
-});
-
-export type UnauthorizedStore = z.infer<typeof schemaUnauthorizedStore>;
-
 export const schemaServerErrorData = z.discriminatedUnion("code", [
   schemaNotImplementedByWallet,
   schemaAccountNotFound,
   schemaCurrencyNotFound,
   schemaPermissionDenied,
   schemaUnknownError,
-  schemaUnauthorizedStore,
 ]);
 
 export type ServerErrorData = z.infer<typeof schemaServerErrorData>;
