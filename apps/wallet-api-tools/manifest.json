@@ -33,6 +33,7 @@
     "storage.set",
     "storage.get",
     "bitcoin.getAddress",
+    "bitcoin.getAddresses",
     "bitcoin.getPublicKey",
     "bitcoin.getXPub",
     "bitcoin.signPsbt",

@@ -227,6 +227,16 @@ const data: Group[] = [
         },
       },
       {
+        label: "getAddresses",
+        value: {
+          method: "bitcoin.getAddresses",
+          params: {
+            accountId: "",
+            intentions: ["payment"],
+          },
+        },
+      },
+      {
         label: "getPublicKey",
         value: {
           method: "bitcoin.getPublicKey",

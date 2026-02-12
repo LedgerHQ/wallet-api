@@ -1,6 +1,6 @@
 # Using the Bitcoin Module in Wallet API Core Client
 
-The Bitcoin Module allows you to interact with Bitcoin accounts. Specifically, you can retrieve the extended public key (xPub) of a Bitcoin account. This is useful for deriving Bitcoin addresses without revealing the private key.
+The Bitcoin Module allows you to interact with Bitcoin accounts. You can retrieve addresses (including for WalletConnect getAccountAddresses), the extended public key (xPub), and more.
 
 ## Bitcoin Module Overview
 
@@ -8,7 +8,32 @@ Access the Bitcoin module via `walletApiClient.bitcoin`.
 
 ### Methods:
 
-#### 1. Get Extended Public Key (xPub)
+#### 1. Get Addresses (getAddresses)
+
+Returns all addresses needed for the account (e.g. for WalletConnect getAccountAddresses). Ledger only supports the "payment" intention; "ordinal" or other intentions return an empty array.
+
+```javascript
+walletApiClient.bitcoin.getAddresses(accountId: string, intentions?: ("payment" | "ordinal")[]): Promise<Array<{ address: string; publicKey?: string; path?: string; intention?: string }>>
+```
+
+**Parameters**:
+- `accountId` (required): The ID of the Bitcoin account.
+- `intentions` (optional): Filter by intention; only `"payment"` is supported by Ledger.
+
+**Returns**: A promise that resolves with an array of address entries (address, optional publicKey, path, intention).
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `bitcoin.getAddresses`
+
+##### Example:
+
+```javascript
+const addresses = await walletApiClient.bitcoin.getAddresses(accountId);
+// or with intention filter:
+const paymentAddresses = await walletApiClient.bitcoin.getAddresses(accountId, ["payment"]);
+```
+
+#### 2. Get Extended Public Key (xPub)
 
 Retrieve the extended public key (xPub) of a Bitcoin account. The xPub can be used to derive Bitcoin addresses without exposing the private key.
 

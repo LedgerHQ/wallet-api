@@ -2,6 +2,7 @@ export * from "./AccountList";
 export * from "./AccountReceive";
 export * from "./AccountRequest";
 export * from "./BitcoinGetAddress";
+export * from "./BitcoinGetAddresses";
 export * from "./BitcoinGetPublicKey";
 export * from "./BitcoinGetXPub";
 export * from "./BitcoinSignPsbt";

@@ -40,6 +40,7 @@ export const standardProfile: SimulatorProfile = {
       "wallet.userId",
       "wallet.info",
       "bitcoin.getAddress",
+      "bitcoin.getAddresses",
       "bitcoin.getPublicKey",
       "bitcoin.getXPub",
       "exchange.start",
@@ -106,6 +107,15 @@ export const standardProfile: SimulatorProfile = {
       return store.get(key);
     },
     "bitcoin.getAddress": () => "address",
+    "bitcoin.getAddresses": () => [
+      {
+        address: "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        publicKey:
+          "0330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c",
+        path: "m/84'/0'/0'/0/0",
+        intention: "payment",
+      },
+    ],
     "bitcoin.getPublicKey": () => "publicKey",
     "bitcoin.getXPub": () => "xpub",
     "exchange.start": ({ exchangeType }) =>

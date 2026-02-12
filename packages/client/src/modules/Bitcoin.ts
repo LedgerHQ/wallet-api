@@ -1,5 +1,6 @@
 import {
   schemaBitcoinGetAddress,
+  schemaBitcoinGetAddresses,
   schemaBitcoinGetPublicKey,
   schemaBitcoinGetXPub,
   schemaBitcoinSignPsbt,
@@ -37,10 +38,40 @@ export class BitcoinModule {
   }
 
   /**
+   * Returns all addresses needed for the account (e.g. for WalletConnect getAccountAddresses).
+   * Ledger only supports "payment" intention; "ordinal" or other intentions return an empty array.
+   *
+   * @param accountId id of the bitcoin account
+   * @param intentions optional filter: only "payment" is supported
+   * @returns array of address entries with address, optional publicKey, path, and intention
+   * @throws {@link ServerError} if an error occurred on server side
+   */
+  async getAddresses(
+    accountId: string,
+    intentions?: ("payment" | "ordinal")[],
+  ): Promise<
+    {
+      address: string;
+      publicKey?: string;
+      path?: string;
+      intention?: string;
+    }[]
+  > {
+    const result = await this.client.request("bitcoin.getAddresses", {
+      accountId,
+      intentions,
+    });
+
+    const safeResults = schemaBitcoinGetAddresses.result.parse(result);
+
+    return safeResults.addresses;
+  }
+
+  /**
    *
    * @param accountId id of the bitcoin account
    * @param derivationPath The derivation path is a relative derivation path from the account
-   * e.g to get the first public key of an account, one will request for the “0/0“ derivation path
+   * e.g to get the first public key of an account, one will request for the "0/0" derivation path
    * @returns a raw hexadecimal public key of a bitcoin account at the given derivation path
    *
    * @throws {@link ServerError} if an error occurred on server side
