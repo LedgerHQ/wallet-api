@@ -89,6 +89,76 @@ describe("Simulator", () => {
     });
   });
 
+  describe("bitcoin.getAddresses", () => {
+    it("should return the list of addresses", async () => {
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      const addresses = await client.bitcoin.getAddresses("accountId");
+
+      expect(addresses).toHaveLength(1);
+      expect(addresses[0]).toEqual({
+        address: "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        publicKey:
+          "0330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c",
+        path: "m/84'/0'/0'/0/0",
+        intention: "payment",
+      });
+    });
+
+    it("should return empty array when intentions include ordinal", async () => {
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      const addresses = await client.bitcoin.getAddresses("accountId", [
+        "ordinal",
+      ]);
+
+      expect(addresses).toEqual([]);
+    });
+
+    it("should return payment addresses when intentions include payment and ordinal", async () => {
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      const addresses = await client.bitcoin.getAddresses("accountId", [
+        "payment",
+        "ordinal",
+      ]);
+
+      expect(addresses).toHaveLength(1);
+      expect(addresses[0]).toEqual({
+        address: "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu",
+        publicKey:
+          "0330d54fd0dd420a6e5f8d3624f5f3482cae350f79d5f0753bf5beef9c2d91af3c",
+        path: "m/84'/0'/0'/0/0",
+        intention: "payment",
+      });
+    });
+
+    it("should throw an error if permission not granted", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithNoPermissions);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(client.bitcoin.getAddresses("accountId")).rejects.toThrow(
+        "permission",
+      );
+    });
+
+    it("should throw an error if method not handled by server", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithUnhandledMethods);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(client.bitcoin.getAddresses("accountId")).rejects.toThrow(
+        "not implemented",
+      );
+    });
+  });
+
   describe("bitcoin.getPublicKey", () => {
     it("should return the publicKey", async () => {
       // GIVEN

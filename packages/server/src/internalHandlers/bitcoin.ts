@@ -1,10 +1,12 @@
 import {
   BitcoinGetAddress,
+  BitcoinGetAddresses,
   BitcoinGetPublicKey,
   BitcoinGetXPub,
   BitcoinSignPsbt,
   createNotImplementedByWallet,
   schemaBitcoinGetAddress,
+  schemaBitcoinGetAddresses,
   schemaBitcoinGetPublicKey,
   schemaBitcoinGetXPub,
   schemaBitcoinSignPsbt,
@@ -29,6 +31,36 @@ export const getAddress: RPCHandler<BitcoinGetAddress["result"]> = async (
 
   return {
     address: await walletHandler({ accountId, derivationPath }),
+  };
+};
+
+export const getAddresses: RPCHandler<BitcoinGetAddresses["result"]> = async (
+  req,
+  _context,
+  handlers,
+) => {
+  const walletHandler = handlers["bitcoin.getAddresses"];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet("bitcoin.getAddresses"));
+  }
+
+  const safeParams = schemaBitcoinGetAddresses.params.parse(req.params);
+
+  const { accountId, intentions } = safeParams;
+
+  // Ledger only supports "payment"; ignore unsupported intentions
+  const supportedIntentions = intentions?.filter((i) => i === "payment");
+
+  if (intentions && intentions.length > 0 && !supportedIntentions?.length) {
+    return { addresses: [] };
+  }
+
+  return {
+    addresses: await walletHandler({
+      accountId,
+      intentions: intentions ? supportedIntentions : undefined,
+    }),
   };
 };
 
