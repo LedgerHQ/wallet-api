@@ -1,5 +1,18 @@
 # @ledgerhq/wallet-api-server
 
+## 3.1.0
+
+### Minor Changes
+
+- [#515](https://github.com/LedgerHQ/wallet-api/pull/515) [`d5ad3af`](https://github.com/LedgerHQ/wallet-api/commit/d5ad3af905b5661a579235493f9059f91117dc11) Thanks [@Justkant](https://github.com/Justkant)! - feat(bitcoin): add `getAddresses` across wallet-api stack
+
+  Introduce `bitcoin.getAddresses` end-to-end in core/client/server/simulator and tooling (types, handlers, permissions, command selector, and docs). Also fix server intention filtering so mixed requests keep supported `"payment"` intentions instead of dropping all results, with simulator tests covering unsupported and mixed intention cases.
+
+### Patch Changes
+
+- Updated dependencies [[`d5ad3af`](https://github.com/LedgerHQ/wallet-api/commit/d5ad3af905b5661a579235493f9059f91117dc11)]:
+  - @ledgerhq/wallet-api-core@1.28.0
+
 ## 3.0.0
 
 ### Major Changes
