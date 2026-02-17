@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.17",
-    "next": "14.2.35",
+    "next": "15.0.8",
     "nextra": "^2.13.3",
     "nextra-theme-blog": "^2.13.3",
     "nextra-theme-docs": "^2.13.3",
