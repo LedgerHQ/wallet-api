@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.29.0
+
+### Minor Changes
+
+- [#516](https://github.com/LedgerHQ/wallet-api/pull/516) [`8b46ecf`](https://github.com/LedgerHQ/wallet-api/commit/8b46ecfb45f3c891c2704683a07653f5c3d0a686) Thanks [@hhumphrey-ledger](https://github.com/hhumphrey-ledger)! - Remove unauthorize store guard, logic moving to LW
+
 ## 1.28.0
 
 ### Minor Changes
