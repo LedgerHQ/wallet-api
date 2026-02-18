@@ -3,7 +3,6 @@ import type {
   CurrencyNotFound,
   NotImplementedByWallet,
   PermissionDenied,
-  UnauthorizedStore,
   UnknownError,
   UnknownErrorData,
 } from "./types";
@@ -55,15 +54,5 @@ export function createUnknownError(error: UnknownErrorData): UnknownError {
     code: "UNKNOWN_ERROR",
     message: "an unhandled error was thrown",
     data: error,
-  };
-}
-
-export function createUnauthorizedStore(storeId: string): UnauthorizedStore {
-  return {
-    code: "UNAUTHORIZED_STORE",
-    message: "you don't have the permission to call this method",
-    data: {
-      storeId,
-    },
   };
 }

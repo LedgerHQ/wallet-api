@@ -213,6 +213,13 @@ export const schema = {
     params: {
       type: "object",
     },
+    storage: {
+      type: "array",
+      minItems: 0,
+      items: {
+        type: "string",
+      },
+    },
   },
   if: {
     properties: {
