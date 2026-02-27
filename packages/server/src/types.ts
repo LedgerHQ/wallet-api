@@ -76,6 +76,7 @@ export type WalletHandlers = {
       };
     };
     useCase?: string;
+    uiUseCase?: string;
     areCurrenciesFiltered?: boolean;
   }) => Promisable<Account>;
   "account.receive": (params: {

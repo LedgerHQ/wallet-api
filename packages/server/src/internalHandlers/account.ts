@@ -18,8 +18,13 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
 ) => {
   const safeParams = schemaAccountRequest.params.parse(req.params);
 
-  const { currencyIds, showAccountFilter, drawerConfiguration, useCase } =
-    safeParams;
+  const {
+    currencyIds,
+    showAccountFilter,
+    drawerConfiguration,
+    useCase,
+    uiUseCase,
+  } = safeParams;
 
   const walletHandler = handlers["account.request"];
 
@@ -32,6 +37,7 @@ export const request: RPCHandler<AccountRequest["result"]> = async (
     showAccountFilter,
     drawerConfiguration,
     useCase,
+    uiUseCase,
     areCurrenciesFiltered: !!(currencyIds && currencyIds.length > 0),
   });
 
