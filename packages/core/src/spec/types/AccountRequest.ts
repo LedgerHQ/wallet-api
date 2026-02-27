@@ -22,6 +22,7 @@ const schemaAccountRequestParams = z.object({
     })
     .optional(),
   useCase: z.string().optional(),
+  uiUseCase: z.string().optional(),
 });
 
 const schemaAccountRequestResults = z.object({
