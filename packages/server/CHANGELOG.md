@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 3.3.0
+
+### Minor Changes
+
+- [#520](https://github.com/LedgerHQ/wallet-api/pull/520) [`d2ac4a3`](https://github.com/LedgerHQ/wallet-api/commit/d2ac4a339c308001fbbb13d3b2fcde7262be4c6c) Thanks [@CremaFR](https://github.com/CremaFR)! - Add uiUseCase optional parameter to account.request
+
+### Patch Changes
+
+- Updated dependencies [[`d2ac4a3`](https://github.com/LedgerHQ/wallet-api/commit/d2ac4a339c308001fbbb13d3b2fcde7262be4c6c)]:
+  - @ledgerhq/wallet-api-core@1.30.0
+
 ## 3.2.0
 
 ### Minor Changes
