@@ -32,6 +32,6 @@
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
     "bignumber.js": "^9.1.2",
-    "picomatch": "^4.0.1"
+    "picomatch": "^4.0.4"
   }
 }
