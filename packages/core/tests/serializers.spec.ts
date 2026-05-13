@@ -48,6 +48,7 @@ import {
   RawVechainTransaction,
   RawHederaTransaction,
   HederaTransaction,
+  schemaRawTransaction,
 } from "../src";
 
 const date = new Date();
@@ -633,6 +634,7 @@ describe("serializers.ts", () => {
           duration: 5,
           amount: new BigNumber(100),
           recipient: "recipient",
+          votes: [],
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -643,6 +645,7 @@ describe("serializers.ts", () => {
           duration: 5,
           amount: "100",
           recipient: "recipient",
+          votes: [],
         });
       });
 
@@ -652,6 +655,7 @@ describe("serializers.ts", () => {
           mode: "send",
           amount: new BigNumber(100),
           recipient: "recipient",
+          votes: [],
         };
         const serializedTransaction = serializeTransaction(transaction);
 
@@ -662,6 +666,7 @@ describe("serializers.ts", () => {
           duration: undefined,
           amount: "100",
           recipient: "recipient",
+          votes: [],
         });
       });
 
@@ -676,6 +681,7 @@ describe("serializers.ts", () => {
             { address: "recipient2", voteCount: 50 },
           ],
         };
+
         const serializedTransaction = serializeTransaction(transaction);
 
         expect(serializedTransaction).toEqual({
@@ -1563,6 +1569,7 @@ describe("serializers.ts", () => {
           duration: 5,
           amount: "100",
           recipient: "recipient",
+          votes: [],
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
@@ -1574,6 +1581,7 @@ describe("serializers.ts", () => {
           duration: 5,
           amount: new BigNumber(100),
           recipient: "recipient",
+          votes: [],
         });
       });
 
@@ -1583,6 +1591,7 @@ describe("serializers.ts", () => {
           mode: "send",
           amount: "100",
           recipient: "recipient",
+          votes: [],
         };
 
         const transaction = deserializeTransaction(serializedTransaction);
@@ -1594,6 +1603,52 @@ describe("serializers.ts", () => {
           duration: undefined,
           amount: new BigNumber(100),
           recipient: "recipient",
+          votes: [],
+        });
+      });
+
+      it("should default missing votes to [] when parsing a raw tron transaction", () => {
+        const parsed = schemaRawTransaction.parse({
+          family,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+        });
+
+        expect(parsed).toEqual({
+          family,
+          mode: "send",
+          amount: "100",
+          recipient: "recipient",
+          votes: [],
+        });
+      });
+
+      it("should succeed to deserialize a tron transaction with votes", () => {
+        const serializedTransaction: RawTronTransaction = {
+          family,
+          mode: "vote",
+          amount: "100",
+          recipient: "recipient",
+          votes: [
+            { address: "recipient", voteCount: 50 },
+            { address: "recipient2", voteCount: 50 },
+          ],
+        };
+
+        const transaction = deserializeTransaction(serializedTransaction);
+
+        expect(transaction).toEqual({
+          family,
+          mode: "vote",
+          resource: undefined,
+          duration: undefined,
+          amount: new BigNumber(100),
+          recipient: "recipient",
+          votes: [
+            { address: "recipient", voteCount: 50 },
+            { address: "recipient2", voteCount: 50 },
+          ],
         });
       });
     });

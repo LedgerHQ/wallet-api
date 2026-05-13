@@ -24,5 +24,5 @@ export const schemaRawTronTransaction = schemaTransactionCommon.extend({
   mode: schemaTronOperationMode,
   resource: schemaTronResource.optional(),
   duration: z.number().optional(),
-  votes: z.array(schemaTronVotes).optional(),
+  votes: z.array(schemaTronVotes).default([]),
 });
