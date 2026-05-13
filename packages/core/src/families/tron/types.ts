@@ -17,7 +17,7 @@ export type TronTransaction = TransactionCommon & {
   mode: TronOperationMode;
   resource?: TronResource;
   duration?: number;
-  votes?: TronVote[];
+  votes: TronVote[];
 };
 
 export type RawTronTransaction = z.infer<typeof schemaRawTronTransaction>;
