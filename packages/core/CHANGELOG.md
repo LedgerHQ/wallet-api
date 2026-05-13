@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.30.1
+
+### Patch Changes
+
+- [#534](https://github.com/LedgerHQ/wallet-api/pull/534) [`7675a8f`](https://github.com/LedgerHQ/wallet-api/commit/7675a8fd9717016c04dd5eb1804a9590fa65252f) Thanks [@francois-guerin-ledger](https://github.com/francois-guerin-ledger)! - chore: align Tron types with Ledger Wallet
+
 ## 1.30.0
 
 ### Minor Changes
