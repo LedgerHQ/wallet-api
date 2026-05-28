@@ -5,6 +5,11 @@ const schemaDeviceTransportParams = z.object({
   /** Select the BOLOS App. If undefined selects BOLOS */
   appName: z.string().optional(),
   /**
+   * Requests host-managed manager permission when connecting the device.
+   * If undefined, preserves the host's current behavior.
+   */
+  allowManager: z.boolean().optional(),
+  /**
    * Checks the BOLOS App version range. If undefined no checks
    * Can be any ranges supported here: https://github.com/npm/node-semver#ranges
    */
