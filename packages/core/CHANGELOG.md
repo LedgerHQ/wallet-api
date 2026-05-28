@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.31.0
+
+### Minor Changes
+
+- [#537](https://github.com/LedgerHQ/wallet-api/pull/537) [`ac74ddb`](https://github.com/LedgerHQ/wallet-api/commit/ac74ddb4e8d2028db016a27642ea0a6233d80a06) Thanks [@Justkant](https://github.com/Justkant)! - Add optional `allowManager` support to `device.transport` and `device.select` request params so hosts can handle manager permission during device connection.
+
 ## 1.30.1
 
 ### Patch Changes
