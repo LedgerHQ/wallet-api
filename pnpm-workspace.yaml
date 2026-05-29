@@ -7,5 +7,8 @@ allowBuilds:
   utf-8-validate: true
 overrides:
   elliptic: 6.6.1
+  "@codemirror/state": 6.6.0
+  "@codemirror/view": 6.38.5
+  "@lezer/common": 1.5.1
 patchedDependencies:
   "@ton/core": patches/@ton__core.patch
