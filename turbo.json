@@ -1,6 +1,6 @@
 {
-  "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["lib/**", "lib-es/**"],
@@ -29,10 +29,15 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "test/**/*.ts"]
     },
-    "@ledgerhq/manifest-validator-cli#build": {
+    "@ledgerhq/wallet-api-manifest-validator-cli#build": {
       "dependsOn": ["^build"],
       "outputs": ["bin/**"],
       "inputs": ["src/**/*.ts"]
+    },
+    "@ledgerhq/client-nextjs#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "inputs": ["src/**", "app/**", "components/**", "public/**", "styles/**", "*.js"]
     },
     "@ledgerhq/wallet-api-docs#dev": {
       "dependsOn": ["^build"],
