@@ -2,3 +2,10 @@ packages:
   - "packages/*"
   - "apps/*"
   - "examples/*"
+allowBuilds:
+  bufferutil: true
+  utf-8-validate: true
+overrides:
+  elliptic: 6.6.1
+patchedDependencies:
+  "@ton/core": patches/@ton__core.patch
