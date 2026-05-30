@@ -15,8 +15,13 @@ overrides:
   "@codemirror/state": 6.6.0
   "@codemirror/view": 6.43.0
   "@lezer/common": 1.5.1
-  # zod >=4.4.0 regressed z.custom() validation of absent object keys, which
-  # breaks nextra-theme-docs@4.x <Layout> prop validation. Pin v4 to last good.
-  "zod@>=4.4.0": 4.3.6
 patchedDependencies:
   "@ton/core": patches/@ton__core.patch
+  # Two nextra-theme-docs schema bugs that zod 4.3.6 masked but zod >=4.4.0
+  # surfaces: (1) attributeSchema (z.custom) called .startsWith on a non-string
+  # when `attribute` was an array, throwing a TypeError; (2) LayoutPropsSchema's
+  # `children: reactNode` was non-optional, but <Layout> strips children before
+  # validating, so zod 4.4.x rejected the absent key. The patch type-guards the
+  # custom validator and makes children optional, letting the whole repo run zod
+  # 4.4.x. Re-verify on every nextra bump (pnpm warns if the patch stops applying).
+  nextra-theme-docs@4.6.1: patches/nextra-theme-docs@4.6.1.patch
