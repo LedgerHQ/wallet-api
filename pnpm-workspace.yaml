@@ -14,7 +14,7 @@ overrides:
   elliptic: 6.6.1
   "@codemirror/state": 6.6.0
   "@codemirror/view": 6.43.0
-  "@lezer/common": 1.5.1
+  "@lezer/common": 1.5.2
 patchedDependencies:
   "@ton/core": patches/@ton__core.patch
   # Two nextra-theme-docs schema bugs that zod 4.3.6 masked but zod >=4.4.0
