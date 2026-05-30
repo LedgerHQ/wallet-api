@@ -63,6 +63,9 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
             );
 
             if (serverErrorData.code === "UNKNOWN_ERROR") {
+              // Forward the deserialized error verbatim so the value originally
+              // thrown wallet-side is propagated as-is (it may be undefined).
+              // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
               reject(deserializeError(serverErrorData.data));
               return;
             }

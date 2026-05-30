@@ -47,8 +47,6 @@ export default class WindowMessageTransport implements Transport {
           // TODO: find a better way to ensure message comes from LL
           if (Date.now() > 0) {
             this.logger.log("received message", message);
-            // FIXME
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
             this._onMessage(message);
           } else {
             this.logger.debug("not a wallet API message");
@@ -57,10 +55,8 @@ export default class WindowMessageTransport implements Transport {
           this.logger.warn("parse error");
           // FIXME
           if (error instanceof Error) {
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
             this._onMessage(error.message);
           }
-          // eslint-disable-next-line no-console
           console.error("unknown error");
         }
       } else {
@@ -79,7 +75,7 @@ export default class WindowMessageTransport implements Transport {
     return this._onMessage;
   }
 
-  send = (message: string): Promise<void> => {
+  send = (message: string): void => {
     try {
       // @ts-expect-error: injected value
       if (this.target.ReactNativeWebView) {
@@ -98,10 +94,9 @@ export default class WindowMessageTransport implements Transport {
         this.logger.log("sending message", message);
         this.target.top?.postMessage(message, "*");
       }
-      return Promise.resolve();
     } catch (error) {
       this.logger.error("unexpected error on send", error);
-      return Promise.reject(error);
+      throw error;
     }
   };
 }

@@ -1,5 +1,4 @@
 /* istanbul ignore file */
-/* eslint-disable no-console */
 /**
  * Use for internal usage
  * @ignore

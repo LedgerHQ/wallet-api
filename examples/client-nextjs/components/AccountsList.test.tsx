@@ -51,10 +51,8 @@ it("should get and show accounts", async () => {
   expect(screen.getByRole("heading")).toHaveTextContent(
     "Get started by editing app/page.tsx",
   );
-  screen.debug();
   expect(screen.getByRole("status")).toHaveTextContent("Loading accounts");
   await user.click(screen.getByRole("button"));
-  screen.debug();
   await waitFor(() => expect(screen.getByRole("status")).toBeEmptyDOMElement());
   // Should add a check for the list of accounts
 });

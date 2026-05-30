@@ -126,7 +126,7 @@ export class BitcoinModule {
   async signPsbt(
     accountId: string,
     psbt: string,
-    broadcast?: boolean | undefined,
+    broadcast?: boolean,
   ): Promise<{ psbtSigned: string; txHash: string | undefined }> {
     const signPsbtResult = await this.client.request("bitcoin.signPsbt", {
       accountId,

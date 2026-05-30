@@ -17,7 +17,6 @@ import {
   ResponseError,
   schemaRequest,
   Request,
-  MessageIn,
   schemaResponse,
 } from "./types";
 import GroupedMessage from "./components/GroupedMessage";
@@ -50,7 +49,7 @@ export function Editor() {
     if (element) {
       setScrollBottom(() => {
         const isBottom = element.scrollTop >= 0;
-        isBottom && setNewElement(false);
+        if (isBottom) setNewElement(false);
         return isBottom;
       });
     }
@@ -58,12 +57,12 @@ export function Editor() {
 
   useEffect(() => {
     if (panelRef.current !== null) {
-      !scrollBottom && setNewElement(true);
+      if (!scrollBottom) setNewElement(true);
     }
     if (history.length >= 101) {
       setHistory((prev) => prev.slice(0, -1));
     }
-  }, [history]);
+  }, [history, scrollBottom, setHistory]);
 
   const scrollToBottom = () => {
     if (panelRef.current !== null) {
@@ -97,7 +96,7 @@ export function Editor() {
               date: new Date(),
               type: "out",
               value: request,
-            } as MessageOut,
+            },
             received: undefined,
           },
         },
@@ -118,9 +117,9 @@ export function Editor() {
                 ...item.messages,
                 received: {
                   date: new Date(),
-                  type: "in",
+                  type: "in" as const,
                   value: response,
-                } as MessageIn,
+                },
               },
             };
           }

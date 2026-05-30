@@ -87,9 +87,7 @@ export const standardProfile: SimulatorProfile = {
     "message.sign": () => Buffer.from("0x123456789123456789"),
     "account.receive": () => "eth address",
     "storage.set": ({ value, key, storeId }) => {
-      if (!storage[storeId]) {
-        storage[storeId] = new Map();
-      }
+      storage[storeId] ??= new Map();
 
       const store = storage[storeId];
 

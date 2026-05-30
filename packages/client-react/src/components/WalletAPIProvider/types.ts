@@ -43,7 +43,7 @@ export type WalletAPIProviderContextState = {
 };
 
 // Register is used to allow users of the lib to customize the default client used in our types
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions, @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions, @typescript-eslint/no-empty-object-type
 export interface Register {
   // client: WalletAPIClient
 }

@@ -4,7 +4,6 @@ import { profiles } from "./profiles";
 import { getSimulatorTransport } from "./transport";
 
 async function main() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const transport = getSimulatorTransport(profiles.STANDARD);
   const client = new WalletAPIClient(transport);
 
