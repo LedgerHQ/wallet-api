@@ -17,6 +17,6 @@ overrides:
   "@lezer/common": 1.5.1
   # zod >=4.4.0 regressed z.custom() validation of absent object keys, which
   # breaks nextra-theme-docs@4.x <Layout> prop validation. Pin v4 to last good.
-  "zod@>=4.4.0": 4.3.6
+  "zod@>=4.4.0": 4.4.3
 patchedDependencies:
   "@ton/core": patches/@ton__core.patch
