@@ -20,12 +20,12 @@
   "devDependencies": {
     "@types/node": "^24.10.0",
     "eslint": "^8.56.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.8.3",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-manifest-validator": "workspace:*",
-    "clipanion": "4.0.0-rc.3"
+    "clipanion": "4.0.0-rc.4"
   }
 }

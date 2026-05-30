@@ -29,13 +29,13 @@
     ]
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.1",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
     "@ledgerhq/eslint-config-custom": "workspace:*",
     "eslint": "^8.56.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
+    "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "turbo": "2.9.16"
   },
@@ -45,6 +45,6 @@
   },
   "packageManager": "pnpm@11.5.0+sha512.dbfcc4f81cf48597afd4bc391ffdf12c11f1a9fb83a395bfa6b0a2d9cc2fd8ffebafdb1ccbd529632153f793904c2615b7f09fe1a345473fd1c35845172a8eb1",
   "dependencies": {
-    "@tsconfig/recommended": "^1.0.3"
+    "@tsconfig/recommended": "^1.0.13"
   }
 }

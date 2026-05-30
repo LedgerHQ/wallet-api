@@ -2,7 +2,12 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "resolveJsonModule": true,
-    "outDir": "./lib"
+    "outDir": "./lib",
+    // @ledgerhq/cryptoassets pulls in @ledgerhq/types-live and zod v4 transitively,
+    // whose shipped .d.ts files don't type-check under our config (missing React /
+    // @ledgerhq/client-ids types, zod v4 needs TS >= 5.4). We don't author those
+    // declarations, so skip checking them here.
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "cli/**/*", "jest.config.ts", "tests/**/*"]
 }
