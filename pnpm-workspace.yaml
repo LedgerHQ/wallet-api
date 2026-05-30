@@ -3,8 +3,8 @@ packages:
   - "apps/*"
   - "examples/*"
 allowBuilds:
-  bufferutil: true
-  utf-8-validate: true
+  bufferutil: false
+  utf-8-validate: false
 overrides:
   elliptic: 6.6.1
   "@codemirror/state": 6.6.0

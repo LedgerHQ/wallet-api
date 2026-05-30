@@ -1,5 +1,3 @@
-"use client";
-
 import { langs } from "@uiw/codemirror-extensions-langs";
 import CodeMirror from "@uiw/react-codemirror";
 import { useCallback } from "react";
@@ -20,9 +18,12 @@ export function Input({
   onClearHistory,
   onClearValue,
 }: InputProps) {
-  const onChange = useCallback((input: string) => {
-    setValue(input);
-  }, []);
+  const onChange = useCallback(
+    (input: string) => {
+      setValue(input);
+    },
+    [setValue],
+  );
 
   const handleSend = useCallback(() => {
     setValue("");

@@ -1,4 +1,3 @@
-"use client";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { Transport, WindowMessageTransport } from "@ledgerhq/wallet-api-core";
@@ -6,7 +5,6 @@ import {
   getSimulatorTransport,
   profiles,
 } from "@ledgerhq/wallet-api-simulator";
-import { useSearchParams } from "next/navigation";
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Input } from "./Input";
@@ -33,7 +31,6 @@ const historyAtom = atomWithStorage<(MessageGrouped | MessageInfo)[]>(
 
 export function Editor() {
   const [history, setHistory] = useAtom(historyAtom);
-  const searchParams = useSearchParams();
   const panelRef = useRef<HTMLDivElement>(null);
   const transportRef = useRef<Transport | null>(null);
   const [value, setValue] = useState<string>("");
@@ -78,8 +75,6 @@ export function Editor() {
       setNewElement(false);
     }
   };
-  const isSimulator = searchParams.get("simulator");
-
   const pushInfoMessage = useCallback(
     (type: "error" | "info", response: string) => {
       setHistory((prev) => [
@@ -173,6 +168,10 @@ export function Editor() {
   );
 
   useEffect(() => {
+    // Transport mode is selected when the editor initializes.
+    const searchParams = new URLSearchParams(window.location.search);
+    const isSimulator = searchParams.get("simulator");
+
     pushInfoMessage(
       "info",
       `Connected to ${isSimulator ? "simulator" : "software"} wallet`,
@@ -197,7 +196,7 @@ export function Editor() {
     return () => {
       transportRef.current = null;
     };
-  }, [handleMessage, isSimulator, pushInfoMessage]);
+  }, [handleMessage, pushInfoMessage]);
 
   const handleSend = useCallback(
     (input: string) => {

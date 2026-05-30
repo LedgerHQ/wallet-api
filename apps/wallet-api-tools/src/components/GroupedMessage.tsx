@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MessageGrouped, MessageOut } from "../types";
 import { getDate } from "../helpers";
 import { coolGlow, dracula } from "thememirror";

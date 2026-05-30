@@ -15,6 +15,7 @@
     "dev": "turbo run dev --filter=!./examples/*",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
+    "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
@@ -34,6 +35,8 @@
     "eslint": "^8.56.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "turbo": "2.9.16"
   },
   "engines": {
