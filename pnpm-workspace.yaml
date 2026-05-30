@@ -6,6 +6,7 @@ allowBuilds:
   bufferutil: false
   utf-8-validate: false
   sharp: false
+  unrs-resolver: true
 overrides:
   elliptic: 6.6.1
   "@codemirror/state": 6.6.0
