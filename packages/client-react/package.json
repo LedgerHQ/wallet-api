@@ -25,7 +25,7 @@
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.9.1",
     "@types/react": "^19",
     "eslint": "^10.4.1",
     "jest": "^30.4.2",

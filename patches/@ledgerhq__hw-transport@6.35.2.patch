@@ -1,0 +1,13 @@
+diff --git a/lib/Transport.d.ts b/lib/Transport.d.ts
+index 117e0193efd9dcc6da6fe8915c0298c6f9d040f5..cc2f83efe229c98f4d0176a5240ca6ca1ac692b4 100644
+--- a/lib/Transport.d.ts
++++ b/lib/Transport.d.ts
+@@ -130,7 +130,7 @@ export default class Transport {
+      * @returns {Promise<void>} A promise that resolves when the transport is closed.
+      */
+     close(): Promise<void>;
+-    _events: EventEmitter<[never]>;
++    _events: EventEmitter;
+     /**
+      * Listen for an event on the transport instance.
+      * Transport implementations may have specific events. Common events include:
