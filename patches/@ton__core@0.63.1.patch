@@ -1,0 +1,208 @@
+diff --git a/dist/address/Address.js b/dist/address/Address.js
+index 72e059ef64312456f8f41ced30f3d817f37990bf..ec9c3c16e6c840a2a1527658288e9cd2c09787f3 100644
+--- a/dist/address/Address.js
++++ b/dist/address/Address.js
+@@ -131,45 +131,6 @@ class Address {
+         }
+     }
+     constructor(workChain, hash) {
+-        this.toRawString = () => {
+-            return this.workChain + ":" + this.hash.toString("hex");
+-        };
+-        this.toRaw = () => {
+-            const addressWithChecksum = Buffer.alloc(36);
+-            addressWithChecksum.set(this.hash);
+-            addressWithChecksum.set([this.workChain, this.workChain, this.workChain, this.workChain], 32);
+-            return addressWithChecksum;
+-        };
+-        this.toStringBuffer = (args) => {
+-            let testOnly = args && args.testOnly !== undefined ? args.testOnly : false;
+-            let bounceable = args && args.bounceable !== undefined ? args.bounceable : true;
+-            let tag = bounceable ? bounceable_tag : non_bounceable_tag;
+-            if (testOnly) {
+-                tag |= test_flag;
+-            }
+-            const addr = Buffer.alloc(34);
+-            addr[0] = tag;
+-            addr[1] = this.workChain;
+-            addr.set(this.hash, 2);
+-            const addressWithChecksum = Buffer.alloc(36);
+-            addressWithChecksum.set(addr);
+-            addressWithChecksum.set((0, crc16_1.crc16)(addr), 34);
+-            return addressWithChecksum;
+-        };
+-        this.toString = (args) => {
+-            let urlSafe = args && args.urlSafe !== undefined ? args.urlSafe : true;
+-            let buffer = this.toStringBuffer(args);
+-            if (urlSafe) {
+-                return buffer
+-                    .toString("base64")
+-                    .replace(/\+/g, "-")
+-                    .replace(/\//g, "_");
+-            }
+-            else {
+-                return buffer.toString("base64");
+-            }
+-        };
+-        this[_a] = () => this.toString();
+         if (hash.length !== 32) {
+             throw new Error("Invalid address hash length: " + hash.length);
+         }
+@@ -177,12 +138,53 @@ class Address {
+         this.hash = hash;
+         Object.freeze(this);
+     }
++    toRawString() {
++        return this.workChain + ":" + this.hash.toString("hex");
++    }
++    toRaw() {
++        const addressWithChecksum = Buffer.alloc(36);
++        addressWithChecksum.set(this.hash);
++        addressWithChecksum.set([this.workChain, this.workChain, this.workChain, this.workChain], 32);
++        return addressWithChecksum;
++    }
++    toStringBuffer(args) {
++        let testOnly = args && args.testOnly !== undefined ? args.testOnly : false;
++        let bounceable = args && args.bounceable !== undefined ? args.bounceable : true;
++        let tag = bounceable ? bounceable_tag : non_bounceable_tag;
++        if (testOnly) {
++            tag |= test_flag;
++        }
++        const addr = Buffer.alloc(34);
++        addr[0] = tag;
++        addr[1] = this.workChain;
++        addr.set(this.hash, 2);
++        const addressWithChecksum = Buffer.alloc(36);
++        addressWithChecksum.set(addr);
++        addressWithChecksum.set((0, crc16_1.crc16)(addr), 34);
++        return addressWithChecksum;
++    }
++    toString(args) {
++        let urlSafe = args && args.urlSafe !== undefined ? args.urlSafe : true;
++        let buffer = this.toStringBuffer(args);
++        if (urlSafe) {
++            return buffer
++                .toString("base64")
++                .replace(/\+/g, "-")
++                .replace(/\//g, "_");
++        }
++        else {
++            return buffer.toString("base64");
++        }
++    }
+     equals(src) {
+         if (src.workChain !== this.workChain) {
+             return false;
+         }
+         return src.hash.equals(this.hash);
+     }
++    [_a]() {
++        return this.toString();
++    }
+ }
+ exports.Address = Address;
+ _a = inspect_1.inspectSymbol;
+diff --git a/dist/boc/Cell.js b/dist/boc/Cell.js
+index f64391c3982ee9694888e8d6dac9ed7781850cfd..2d97485a23249c0849501435b7ef8c59759df58e 100644
+--- a/dist/boc/Cell.js
++++ b/dist/boc/Cell.js
+@@ -56,48 +56,6 @@ class Cell {
+         // Level and depth information
+         this._hashes = [];
+         this._depths = [];
+-        /**
+-         * Beging cell parsing
+-         * @returns a new slice
+-         */
+-        this.beginParse = (allowExotic = false) => {
+-            if (this.isExotic && !allowExotic) {
+-                throw new Error("Exotic cells cannot be parsed");
+-            }
+-            return new Slice_1.Slice(new BitReader_1.BitReader(this.bits), this.refs);
+-        };
+-        /**
+-         * Get cell hash
+-         * @param level level
+-         * @returns cell hash
+-         */
+-        this.hash = (level = 3) => {
+-            return this._hashes[Math.min(this._hashes.length - 1, level)];
+-        };
+-        /**
+-         * Get cell depth
+-         * @param level level
+-         * @returns cell depth
+-         */
+-        this.depth = (level = 3) => {
+-            return this._depths[Math.min(this._depths.length - 1, level)];
+-        };
+-        /**
+-         * Get cell level
+-         * @returns cell level
+-         */
+-        this.level = () => {
+-            return this.mask.level;
+-        };
+-        /**
+-         * Checks cell to be equal to another cell
+-         * @param other other cell
+-         * @returns true if cells are equal
+-         */
+-        this.equals = (other) => {
+-            return this.hash().equals(other.hash());
+-        };
+-        this[_a] = () => this.toString();
+         // Resolve bits
+         let bits = BitString_1.BitString.EMPTY;
+         if (opts && opts.bits) {
+@@ -213,6 +171,50 @@ class Cell {
+     asBuilder() {
+         return (0, Builder_1.beginCell)().storeSlice(this.asSlice());
+     }
++    /**
++     * Beging cell parsing
++     * @returns a new slice
++     */
++    beginParse(allowExotic = false) {
++        if (this.isExotic && !allowExotic) {
++            throw new Error("Exotic cells cannot be parsed");
++        }
++        return new Slice_1.Slice(new BitReader_1.BitReader(this.bits), this.refs);
++    }
++    /**
++     * Get cell hash
++     * @param level level
++     * @returns cell hash
++     */
++    hash(level = 3) {
++        return this._hashes[Math.min(this._hashes.length - 1, level)];
++    }
++    /**
++     * Get cell depth
++     * @param level level
++     * @returns cell depth
++     */
++    depth(level = 3) {
++        return this._depths[Math.min(this._depths.length - 1, level)];
++    }
++    /**
++     * Get cell level
++     * @returns cell level
++     */
++    level() {
++        return this.mask.level;
++    }
++    /**
++     * Checks cell to be equal to another cell
++     * @param other other cell
++     * @returns true if cells are equal
++     */
++    equals(other) {
++        return this.hash().equals(other.hash());
++    }
++    [_a]() {
++        return this.toString();
++    }
+ }
+ exports.Cell = Cell;
+ _a = inspect_1.inspectSymbol;
