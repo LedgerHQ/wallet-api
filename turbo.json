@@ -10,6 +10,10 @@
       "dependsOn": [],
       "outputs": []
     },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
     "lint:fix": {
       "dependsOn": [],
       "outputs": []
@@ -50,8 +54,8 @@
     },
     "@ledgerhq/wallet-api-tools#build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "inputs": ["src/**", "app/**", "public/**", "styles/**", "*.js"]
+      "outputs": ["dist/**"],
+      "inputs": ["src/**", "public/**", "styles/**", "index.html", "vite.config.ts", "*.js"]
     },
     "@ledgerhq/wallet-api-tools#dev": {
       "dependsOn": ["^build"],

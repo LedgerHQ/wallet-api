@@ -1,4 +1,3 @@
-import React from "react";
 import { getDate } from "../helpers";
 import { MessageInfo } from "../types";
 

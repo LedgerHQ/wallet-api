@@ -23,6 +23,8 @@ jobs:
         run: git diff --exit-code || exit 1
       - name: Lint
         run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
       - name: Test
         run: pnpm test
       # - name: Uploading to codecov.io
