@@ -22,7 +22,7 @@
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.35.2",
     "@ledgerhq/wallet-api-core": "workspace:*",
-    "bignumber.js": "^9.1.2"
+    "bignumber.js": "^11.0.0"
   },
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
