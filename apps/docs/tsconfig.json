@@ -19,7 +19,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "moduleResolution": "bundler",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "module": "esnext",
     "resolveJsonModule": true,
     "paths": {
@@ -37,7 +37,8 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

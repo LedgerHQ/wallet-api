@@ -15,19 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.5.0",
-    "next": "15.5.16",
+    "next": "16.2.6",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "postcss": "^8.5.15",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "tailwindcss": "^3.4.1"
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.9.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "pagefind": "^1.5.2",
-    "typescript": "^5.3.3"
+    "typescript": "^6.0.3"
   }
 }
