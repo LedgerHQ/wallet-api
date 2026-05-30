@@ -12,6 +12,7 @@ coverage
 .next/
 out/
 build
+next-env.d.ts
 
 # nextra / pagefind search index
 _pagefind/
