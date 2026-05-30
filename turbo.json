@@ -49,8 +49,16 @@
     },
     "@ledgerhq/wallet-api-docs#build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "inputs": ["pages/**", "*.js", "*.ts", "*.tsx", "*.css"]
+      "outputs": [".next/**", "!.next/cache/**", "public/_pagefind/**"],
+      "inputs": [
+        "content/**",
+        "app/**",
+        "mdx-components.tsx",
+        "*.js",
+        "*.ts",
+        "*.tsx",
+        "*.css"
+      ]
     },
     "@ledgerhq/wallet-api-tools#build": {
       "dependsOn": ["^build"],

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
@@ -14,17 +15,19 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.17",
-    "next": "14.2.35",
-    "nextra": "^2.13.3",
-    "nextra-theme-blog": "^2.13.3",
-    "nextra-theme-docs": "^2.13.3",
+    "next": "15.5.16",
+    "nextra": "^4.6.1",
+    "nextra-theme-docs": "^4.6.1",
     "postcss": "^8.4.35",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "pagefind": "^1.5.2",
     "typescript": "^5.3.3"
   }
 }

@@ -21,7 +21,7 @@ export function WalletAPIProvider({
     initialContextValue.state,
   );
 
-  const client = useRef<WalletAPIClient>();
+  const client = useRef<WalletAPIClient | undefined>(undefined);
 
   if (client.current === undefined) {
     client.current = providedClient

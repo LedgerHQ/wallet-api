@@ -1,0 +1,10 @@
+import type { MetaRecord } from "nextra";
+
+const meta: MetaRecord = {
+  "dapp-customisation": "Update your DApp",
+  manifest: "Write and load the manifest",
+  plugin: "Write a plugin for clear signing",
+  migration: "DApp Browser migration",
+};
+
+export default meta;

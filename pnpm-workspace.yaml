@@ -5,10 +5,14 @@ packages:
 allowBuilds:
   bufferutil: false
   utf-8-validate: false
+  sharp: false
 overrides:
   elliptic: 6.6.1
   "@codemirror/state": 6.6.0
   "@codemirror/view": 6.38.5
   "@lezer/common": 1.5.1
+  # zod >=4.4.0 regressed z.custom() validation of absent object keys, which
+  # breaks nextra-theme-docs@4.x <Layout> prop validation. Pin v4 to last good.
+  "zod@>=4.4.0": 4.3.6
 patchedDependencies:
   "@ton/core": patches/@ton__core.patch
