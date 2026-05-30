@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint --cache src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -35,7 +35,7 @@
     "@ledgerhq/eslint-config-custom": "workspace:*",
     "@tailwindcss/postcss": "^4.3.0",
     "@vitejs/plugin-react": "^6.0.2",
-    "eslint": "^8.56.0",
+    "eslint": "^10.4.1",
     "postcss": "^8.5.15",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.3.0",
