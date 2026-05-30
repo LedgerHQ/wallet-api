@@ -8,7 +8,7 @@
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "dev": "next dev",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --cache app mdx-components.tsx content"
   },
   "keywords": [],
   "author": "",
@@ -23,9 +23,11 @@
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@ledgerhq/eslint-config-custom": "workspace:*",
     "@types/node": "^25.9.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^8.56.0",
     "pagefind": "^1.5.2",
     "typescript": "^6.0.3"
   }

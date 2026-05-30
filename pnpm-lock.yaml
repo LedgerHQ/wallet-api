@@ -74,6 +74,9 @@ importers:
         specifier: ^19.2.6
         version: 19.2.6(react@19.2.6)
     devDependencies:
+      '@ledgerhq/eslint-config-custom':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config-custom
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
@@ -83,6 +86,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.2.3(@types/react@19.2.15)
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
       pagefind:
         specifier: ^1.5.2
         version: 1.5.2
