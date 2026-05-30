@@ -32,7 +32,7 @@
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
     "@ledgerhq/eslint-config-custom": "workspace:*",
-    "eslint": "^8.56.0",
+    "eslint": "^10.4.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.5",
     "prettier": "^3.8.3",
@@ -40,7 +40,7 @@
     "turbo": "2.9.16"
   },
   "engines": {
-    "node": ">=18",
+    "node": "^20.19.0 || ^22.13.0 || >=24",
     "pnpm": ">=7"
   },
   "packageManager": "pnpm@11.5.0+sha512.dbfcc4f81cf48597afd4bc391ffdf12c11f1a9fb83a395bfa6b0a2d9cc2fd8ffebafdb1ccbd529632153f793904c2615b7f09fe1a345473fd1c35845172a8eb1",

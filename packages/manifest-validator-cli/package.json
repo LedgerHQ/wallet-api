@@ -10,8 +10,8 @@
     "build": "rm -rf bin/* && tsc -p prod.tsconfig.json",
     "format:check": "prettier --check \"src\"",
     "format:fix": "prettier --write \"src\"",
-    "lint": "eslint --cache --ext .ts \"src\"",
-    "lint:fix": "eslint --cache --fix --ext .ts \"src\"",
+    "lint": "eslint --cache \"src\"",
+    "lint:fix": "eslint --cache --fix \"src\"",
     "validate": "node bin/cli.js"
   },
   "bin": {
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
-    "eslint": "^8.56.0",
+    "eslint": "^10.4.1",
     "prettier": "^3.8.3",
     "typescript": "^5.3.3"
   },
