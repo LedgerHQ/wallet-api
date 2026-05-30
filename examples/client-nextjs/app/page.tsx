@@ -11,7 +11,7 @@ import { AccountsList } from "../components/AccountsList";
 const isSimulator =
   typeof window === "undefined"
     ? false
-    : new URLSearchParams(window.location.search).get("simulator");
+    : new URLSearchParams(window.location.search).has("simulator");
 
 function getWalletAPITransport() {
   if (typeof window === "undefined") {
