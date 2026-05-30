@@ -1,3 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind 4 is CSS-first: plugins and extra sources are declared here instead
+   of in a tailwind.config.js. flowbite's JS is under node_modules, which v4
+   does not scan by default, so it must be registered as an explicit source. */
+@plugin "flowbite/plugin";
+@plugin "@tailwindcss/typography";
+@source "../node_modules/flowbite";
