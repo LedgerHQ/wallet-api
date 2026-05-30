@@ -30,7 +30,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "ts-jest": "^29.4.11",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@ledgerhq/hw-transport": "^6.35.2",

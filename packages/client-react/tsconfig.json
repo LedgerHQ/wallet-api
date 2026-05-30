@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    // TS 6 deprecates Node10 module resolution and baseUrl (set in tsconfig.base.json);
+    // keep them for the dual CJS/ESM builds until the TS 7 prep.
+    "ignoreDeprecations": "6.0",
+    "rootDir": ".",
     "jsx": "react-jsx",
     "outDir": "./lib"
   },
