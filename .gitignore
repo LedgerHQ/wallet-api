@@ -13,6 +13,9 @@ coverage
 out/
 build
 
+# nextra / pagefind search index
+_pagefind/
+
 # misc
 .DS_Store
 *.pem
