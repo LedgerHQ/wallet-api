@@ -22,7 +22,7 @@
     "@ledgerhq/errors": "^6.35.0",
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.9.1",
     "@types/ws": "^8.18.1",
     "bignumber.js": "^9.1.2",
     "eslint": "^10.4.1",

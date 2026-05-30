@@ -16,6 +16,13 @@ overrides:
   "@codemirror/view": 6.43.0
   "@lezer/common": 1.5.1
 patchedDependencies:
+  # hw-transport's Transport.d.ts leaks an internal `_events: EventEmitter<[never]>`
+  # field; the bogus `[never]` tuple violates @types/node 25's new EventMap
+  # constraint and breaks `tsc` declaration emit under skipLibCheck:false. The
+  # patch retypes it to a plain `EventEmitter`, letting the libraries build on
+  # @types/node 25. Re-verify on every hw-transport bump (upstream still ships
+  # the bad line because it builds against @types/node 24).
+  '@ledgerhq/hw-transport@6.35.2': patches/@ledgerhq__hw-transport@6.35.2.patch
   "@ton/core": patches/@ton__core.patch
   # Two nextra-theme-docs schema bugs that zod 4.3.6 masked but zod >=4.4.0
   # surfaces: (1) attributeSchema (z.custom) called .startsWith on a non-string
