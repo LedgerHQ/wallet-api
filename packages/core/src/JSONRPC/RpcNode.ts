@@ -1,5 +1,4 @@
 import { deserializeError, serializeError } from "@ledgerhq/errors";
-import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 import {
   ServerError,
@@ -94,7 +93,7 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
     method: K,
     params: MethodParamsIfExists<TCHandlers, K>,
   ): Promise<ReturnTypeOfMethodIfExists<TCHandlers, K> | undefined> {
-    const requestId = uuidv4();
+    const requestId = crypto.randomUUID();
     return this._request({
       id: requestId,
       jsonrpc: "2.0",

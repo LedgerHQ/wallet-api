@@ -3,6 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": "./src",
     "module": "commonjs",
     "outDir": "./lib"
   },

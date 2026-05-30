@@ -1,0 +1,22 @@
+diff --git a/dist/schemas.js b/dist/schemas.js
+index 060d0b98b76515e4f0a1cd9edb3c3f5d31597540..86c1935f68efe97688e4e3f9239a3a1aeeaf45e2 100644
+--- a/dist/schemas.js
++++ b/dist/schemas.js
+@@ -4,7 +4,7 @@ import { element, reactNode } from "nextra/schemas";
+ import { Fragment } from "react";
+ import { z } from "zod";
+ import { LastUpdated } from "./components";
+-const attributeSchema = z.custom((value) => value === "class" || value.startsWith("data-")).meta({
++const attributeSchema = z.custom((value) => typeof value === "string" && (value === "class" || value.startsWith("data-"))).meta({
+   type: "'class' | `data-${string}`"
+ });
+ const feedbackSchema = z.strictObject({
+@@ -65,7 +65,7 @@ const LayoutPropsSchema = z.strictObject({
+   banner: reactNode.optional().meta({
+     description: "Rendered [`<Banner>` component](/docs/built-ins/banner). E.g. `<Banner {...bannerProps} />`"
+   }),
+-  children: reactNode,
++  children: reactNode.optional(),
+   copyPageButton: z.boolean().default(true).meta({
+     description: "Hide/show copy page content button."
+   }),
