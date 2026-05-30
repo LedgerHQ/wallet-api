@@ -154,7 +154,7 @@ importers:
         version: 14.0.0
       zod:
         specifier: 4.3.6
-        version: 4.3.6
+        version: 4.4.3
     devDependencies:
       '@ledgerhq/eslint-config-custom':
         specifier: workspace:*
@@ -368,7 +368,7 @@ importers:
         version: 9.0.1
       zod:
         specifier: ^3.22.4
-        version: 3.22.4
+        version: 4.4.3
     devDependencies:
       '@ledgerhq/jest-shared-config':
         specifier: workspace:*
@@ -7654,11 +7654,11 @@ packages:
     peerDependencies:
       zod: 4.3.6
 
-  zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
-
   zod@4.3.6:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
+
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
   zustand@5.0.14:
     resolution: {integrity: sha512-/8tAspM5LMPr28b3fwLYrtdj77ECpfZviaP75CMTnwO8ISyaE4GDIG/9rDDYq/cH9D2Xw2A2RXglLInmVBQB/g==}
@@ -16643,9 +16643,9 @@ snapshots:
     dependencies:
       zod: 4.3.6
 
-  zod@3.22.4: {}
-
   zod@4.3.6: {}
+
+  zod@4.4.3: {}
 
   zustand@5.0.14(@types/react@19.2.15)(immer@11.1.8)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
     optionalDependencies:
