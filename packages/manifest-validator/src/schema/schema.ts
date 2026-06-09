@@ -123,6 +123,25 @@ export const schema = {
           'Must be type of array with a least 1 value or a string equal to "*"',
       },
     },
+    featureFlags: {
+      oneOf: [
+        {
+          type: "array",
+          uniqueItems: true,
+          items: {
+            type: "string",
+          },
+        },
+        {
+          type: "string",
+          const: "*",
+        },
+      ],
+      errorMessage: {
+        oneOf:
+          'Must be type of array with a least 1 value or a string equal to "*"',
+      },
+    },
     highlight: {
       type: "boolean",
     },

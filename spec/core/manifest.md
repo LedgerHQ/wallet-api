@@ -19,6 +19,7 @@ The manifest describe how an Application can be loaded by a Wallet, gives inform
 | branch                   | AppBranch (`"stable" \| "experimental" \| "soon" \| "debug"`) |                          |            |
 | categories               | array of strings (`string[]`)                                 |                          |            |
 | currencies               | array of strings (`string[]`) or `"*"`                        |                          |            |
+| featureFlags             | array of strings (`string[]`) or `"*"` (optional)             |                          |            |
 | content.shortDescription | TranslatableString                                            |                          |            |
 | content.description      | TranslatableString                                            |                          |            |
 | permissions              | array of AppPermission (`AppPermission[]`)                    |                          |            |

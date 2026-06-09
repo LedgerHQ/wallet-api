@@ -24,6 +24,7 @@
   "manifestVersion": "2",
   "categories": ["farm"],
   "currencies": ["ethereum"],
+  "featureFlags": "*",
   "content": {
     "shortDescription": {
       "en": "Earn high yields on your assets with our professional DeFi borrowing and lending platform."
