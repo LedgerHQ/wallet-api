@@ -1,5 +1,48 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.4.28
+
+### Patch Changes
+
+- [#569](https://github.com/LedgerHQ/wallet-api/pull/569) [`24131d2`](https://github.com/LedgerHQ/wallet-api/commit/24131d2a9cdc63e28ad3d82466006a348dd29439) Thanks [@Justkant](https://github.com/Justkant)! - chore(deps): upgrade core to zod 4, drop uuid, bump TypeScript to 6
+
+  Bumps `zod` in `@ledgerhq/wallet-api-core` from `^3.22.4` to `^4.4.3` (latest
+  v4). zod 4's type definitions require TypeScript >= 5.4, and because core
+  re-exports zod schemas as part of its public API, every package that
+  type-checks against core is bumped from TypeScript `^5.3.3` to `^6.0.3`. Each
+  library `tsconfig.json` gains `ignoreDeprecations: "6.0"` (Node10 module
+  resolution / baseUrl stay for now) and the build configs set an explicit
+  `rootDir`.
+
+  The previous repo-wide `zod@>=4.4.0 -> 4.3.6` override (added because
+  nextra-theme-docs broke on zod 4.4.x) is removed in favour of a small
+  `pnpm patch` that fixes the two underlying nextra schema bugs, so the whole
+  monorepo now resolves a single zod 4.4.3.
+
+  Also replaces the single `uuid` v4 usage in `RpcNode` with the native
+  `crypto.randomUUID()`, removing the `uuid` and `@types/uuid` dependencies
+  (uuid v14 is ESM-only and incompatible with the package's CommonJS build).
+  Note: `crypto.randomUUID()` requires a secure context in browsers (HTTPS or
+  `localhost`); `RpcNode.request` will throw if called over plain HTTP. This is
+  consistent with wallet-api's dapp/wallet usage, which always runs over HTTPS.
+
+- [#574](https://github.com/LedgerHQ/wallet-api/pull/574) [`abf28de`](https://github.com/LedgerHQ/wallet-api/commit/abf28de89ff02d930737e9a39566a5a5ff359b97) Thanks [@Justkant](https://github.com/Justkant)! - fix(client-react): create WalletAPIClient once in WalletAPIProvider
+
+  `WalletAPIProvider` created its client inside a `useState` initializer. Because
+  the `WalletAPIClient` constructor has a side effect — it registers itself on
+  `transport.onMessage` — React strict mode's double-invocation constructed a
+  second, discarded client whose constructor hijacked the transport. Responses
+  were then routed to a client with no pending requests, throwing
+  `no ongoingRequest`.
+
+  The client is now instantiated exactly once via the ref "create once" pattern,
+  so a single instance owns the transport even under strict mode.
+
+- [#543](https://github.com/LedgerHQ/wallet-api/pull/543) [`98caac2`](https://github.com/LedgerHQ/wallet-api/commit/98caac28e8eb6ac0f92ab78817f70d24f972ce2c) Thanks [@Justkant](https://github.com/Justkant)! - Refresh package dependencies across the published wallet API packages.
+
+- Updated dependencies [[`24131d2`](https://github.com/LedgerHQ/wallet-api/commit/24131d2a9cdc63e28ad3d82466006a348dd29439), [`98caac2`](https://github.com/LedgerHQ/wallet-api/commit/98caac28e8eb6ac0f92ab78817f70d24f972ce2c)]:
+  - @ledgerhq/wallet-api-client@1.14.3
+
 ## 1.4.27
 
 ### Patch Changes
