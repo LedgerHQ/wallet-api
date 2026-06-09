@@ -1,5 +1,36 @@
 # @ledgerhq/wallet-api-server
 
+## 3.3.3
+
+### Patch Changes
+
+- [#569](https://github.com/LedgerHQ/wallet-api/pull/569) [`24131d2`](https://github.com/LedgerHQ/wallet-api/commit/24131d2a9cdc63e28ad3d82466006a348dd29439) Thanks [@Justkant](https://github.com/Justkant)! - chore(deps): upgrade core to zod 4, drop uuid, bump TypeScript to 6
+
+  Bumps `zod` in `@ledgerhq/wallet-api-core` from `^3.22.4` to `^4.4.3` (latest
+  v4). zod 4's type definitions require TypeScript >= 5.4, and because core
+  re-exports zod schemas as part of its public API, every package that
+  type-checks against core is bumped from TypeScript `^5.3.3` to `^6.0.3`. Each
+  library `tsconfig.json` gains `ignoreDeprecations: "6.0"` (Node10 module
+  resolution / baseUrl stay for now) and the build configs set an explicit
+  `rootDir`.
+
+  The previous repo-wide `zod@>=4.4.0 -> 4.3.6` override (added because
+  nextra-theme-docs broke on zod 4.4.x) is removed in favour of a small
+  `pnpm patch` that fixes the two underlying nextra schema bugs, so the whole
+  monorepo now resolves a single zod 4.4.3.
+
+  Also replaces the single `uuid` v4 usage in `RpcNode` with the native
+  `crypto.randomUUID()`, removing the `uuid` and `@types/uuid` dependencies
+  (uuid v14 is ESM-only and incompatible with the package's CommonJS build).
+  Note: `crypto.randomUUID()` requires a secure context in browsers (HTTPS or
+  `localhost`); `RpcNode.request` will throw if called over plain HTTP. This is
+  consistent with wallet-api's dapp/wallet usage, which always runs over HTTPS.
+
+- [#543](https://github.com/LedgerHQ/wallet-api/pull/543) [`98caac2`](https://github.com/LedgerHQ/wallet-api/commit/98caac28e8eb6ac0f92ab78817f70d24f972ce2c) Thanks [@Justkant](https://github.com/Justkant)! - Refresh package dependencies across the published wallet API packages.
+
+- Updated dependencies [[`24131d2`](https://github.com/LedgerHQ/wallet-api/commit/24131d2a9cdc63e28ad3d82466006a348dd29439), [`98caac2`](https://github.com/LedgerHQ/wallet-api/commit/98caac28e8eb6ac0f92ab78817f70d24f972ce2c)]:
+  - @ledgerhq/wallet-api-core@1.31.1
+
 ## 3.3.2
 
 ### Patch Changes
@@ -60,7 +91,6 @@
   directly using the constructor or implement their own React hook.
 
   Changes:
-
   - Remove useWalletAPIServer hook and react.ts file from server package
   - Remove React peer dependencies from package.json
   - Update documentation to reflect removal and provide migration guide
@@ -70,7 +100,6 @@
   - Update Ledger Live integration docs to clarify custom hook implementation
 
   Migration:
-
   - Use WalletAPIServer constructor directly for simple use cases
   - Implement custom React hook for advanced state management (see Ledger Live example)
 
@@ -88,7 +117,6 @@
 - [#490](https://github.com/LedgerHQ/wallet-api/pull/490) [`59e6b33`](https://github.com/LedgerHQ/wallet-api/commit/59e6b33c106d965603b2e414aec9ebb387146414) Thanks [@Justkant](https://github.com/Justkant)! - refactor(server)!: remove RxJS dependency and simplify architecture
 
   BREAKING CHANGE: Major API changes to WalletAPIServer
-
   - Remove RxJS dependency from server package
   - Remove observable-based state management (accounts$, currencies$, etc.)
   - Simplify WalletHandlers interface to accept accountId strings instead of Account objects
@@ -101,7 +129,6 @@
   - Update exchange handlers to accept accountId instead of Account objects
 
   Migration guide:
-
   - Wallet integrations must now implement account.list and currency.list handlers
   - Replace account parameter with accountId in all wallet handlers
   - Remove direct calls to setAccounts() and setCurrencies()
