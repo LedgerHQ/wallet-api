@@ -15,17 +15,17 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.5.0",
-    "next": "16.2.6",
+    "next": "16.2.7",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "postcss": "^8.5.15",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@ledgerhq/eslint-config-custom": "workspace:*",
-    "@types/node": "^25.9.1",
-    "@types/react": "^19",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19",
     "eslint": "^10.4.1",
     "pagefind": "^1.5.2",

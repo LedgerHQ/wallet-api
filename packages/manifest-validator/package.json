@@ -22,7 +22,7 @@
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.2",
     "eslint": "^10.4.1",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
@@ -32,7 +32,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@ledgerhq/cryptoassets": "^13.49.0",
+    "@ledgerhq/cryptoassets": "^13.50.0",
     "@ledgerhq/types-cryptoassets": "^7.37.0",
     "@ledgerhq/types-devices": "^6.31.0",
     "@ledgerhq/wallet-api-core": "workspace:*",
