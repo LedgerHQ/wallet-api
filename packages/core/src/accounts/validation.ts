@@ -10,4 +10,5 @@ export const schemaRawAccount = z.object({
   blockHeight: z.union([z.number(), z.undefined()]),
   lastSyncDate: z.string(),
   parentAccountId: z.string().optional(),
+  publicKey: z.string().optional(),
 });
