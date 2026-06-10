@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.32.0
+
+### Minor Changes
+
+- [#582](https://github.com/LedgerHQ/wallet-api/pull/582) [`98a87b4`](https://github.com/LedgerHQ/wallet-api/commit/98a87b41094be8951425edab4ff05dcaaf942554) Thanks [@lysyi3m](https://github.com/lysyi3m)! - Add an optional `publicKey` field to `Account` (type, schema, serializer), exposing an account's public key for account-based families that have one. Enables dApp flows that need the public key up front.
+
 ## 1.31.1
 
 ### Patch Changes
