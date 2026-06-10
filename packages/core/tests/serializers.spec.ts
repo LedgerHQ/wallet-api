@@ -77,6 +77,22 @@ describe("serializers.ts", () => {
         lastSyncDate: date.toISOString(),
       });
     });
+
+    it("should serialize the optional publicKey when present", () => {
+      const serializedAccount = serializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: new BigNumber(0),
+        spendableBalance: new BigNumber(0),
+        blockHeight: 0,
+        lastSyncDate: date,
+        publicKey: "a-public-key",
+      });
+
+      expect(serializedAccount.publicKey).toBe("a-public-key");
+    });
   });
 
   describe("deserializeAccount", () => {
@@ -102,6 +118,22 @@ describe("serializers.ts", () => {
         blockHeight: 0,
         lastSyncDate: date,
       });
+    });
+
+    it("should deserialize the optional publicKey when present", () => {
+      const deserializedAccount = deserializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: "0",
+        spendableBalance: "0",
+        blockHeight: 0,
+        lastSyncDate: date.toISOString(),
+        publicKey: "a-public-key",
+      });
+
+      expect(deserializedAccount.publicKey).toBe("a-public-key");
     });
   });
 
