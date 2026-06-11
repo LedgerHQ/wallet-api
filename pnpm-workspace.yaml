@@ -14,7 +14,7 @@ overrides:
   elliptic: 6.6.1
   "@codemirror/state": 6.6.0
   "@codemirror/view": 6.43.0
-  "@lezer/common": 1.5.1
+  "@lezer/common": 1.5.2
 patchedDependencies:
   # hw-transport's Transport.d.ts leaks an internal `_events: EventEmitter<[never]>`
   # field; the bogus `[never]` tuple violates @types/node 25's new EventMap
