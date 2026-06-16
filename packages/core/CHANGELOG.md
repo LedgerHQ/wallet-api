@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.32.1
+
+### Patch Changes
+
+- [#585](https://github.com/LedgerHQ/wallet-api/pull/585) [`89a29dd`](https://github.com/LedgerHQ/wallet-api/commit/89a29ddf6556ca466d91429995d402f7a11cd381) Thanks [@YazhuEth](https://github.com/YazhuEth)! - test: exercise the ledger-live bump automation
+
 ## 1.32.0
 
 ### Minor Changes
