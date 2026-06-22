@@ -1,5 +1,12 @@
 # @ledgerhq/wallet-api-client-react
 
+## 1.4.31
+
+### Patch Changes
+
+- Updated dependencies [[`020cc67`](https://github.com/LedgerHQ/wallet-api/commit/020cc67e5cdc02e89cf98b1a72945da5e6ec72a5)]:
+  - @ledgerhq/wallet-api-client@1.15.0
+
 ## 1.4.30
 
 ### Patch Changes
