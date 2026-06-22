@@ -1,6 +1,7 @@
 import {
   Account,
   deserializeAccount,
+  schemaAccountGetPublicKey,
   schemaAccountList,
   schemaAccountReceive,
   schemaAccountRequest,
@@ -102,5 +103,36 @@ export class AccountModule {
     );
 
     return safeResults.address;
+  }
+
+  /**
+   * Get the public key of an account from the connected wallet.
+   *
+   * The returned key uses the family's own encoding (e.g. Tezos returns a
+   * base58 public key). Only families with a resolver on the wallet support
+   * this; others reject with a "not implemented" error.
+   *
+   * @param accountId - id of the account
+   * @param derivationPath - optional derivation path (used by UTXO families)
+   *
+   * @returns The account public key
+   * @throws {@link RpcError} if an error occurred on server side
+   */
+  async getPublicKey(
+    accountId: string,
+    derivationPath?: string,
+  ): Promise<string> {
+    const getPublicKeyResult = await this.client.request(
+      "account.getPublicKey",
+      {
+        accountId,
+        derivationPath,
+      },
+    );
+
+    const safeResults =
+      schemaAccountGetPublicKey.result.parse(getPublicKeyResult);
+
+    return safeResults.publicKey;
   }
 }

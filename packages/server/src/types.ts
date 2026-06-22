@@ -1,5 +1,6 @@
 import type {
   Account,
+  AccountGetPublicKey,
   BitcoinGetAddress,
   BitcoinGetAddresses,
   BitcoinGetPublicKey,
@@ -84,6 +85,9 @@ export type WalletHandlers = {
     tokenCurrency?: string;
   }) => Promisable<string>;
   "account.list": (params: { currencyIds?: string[] }) => Promisable<Account[]>;
+  "account.getPublicKey": (
+    params: AccountGetPublicKey["params"],
+  ) => Promisable<string>;
   "currency.list": (params: {
     currencyIds?: string[];
   }) => Promisable<Currency[]>;
