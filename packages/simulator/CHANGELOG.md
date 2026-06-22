@@ -1,5 +1,20 @@
 # @ledgerhq/wallet-api-simulator
 
+## 2.3.0
+
+### Minor Changes
+
+- [#587](https://github.com/LedgerHQ/wallet-api/pull/587) [`020cc67`](https://github.com/LedgerHQ/wallet-api/commit/020cc67e5cdc02e89cf98b1a72945da5e6ec72a5) Thanks [@lysyi3m](https://github.com/lysyi3m)! - Add `account.getPublicKey({ accountId, derivationPath? }) -> { publicKey }`. The wallet resolves the key per family in its native encoding (e.g. base58 for Tezos); unsupported families reject with "not implemented".
+
+  Deprecate `Account.publicKey` in favor of this method; the field is not populated by the wallet.
+
+### Patch Changes
+
+- Updated dependencies [[`020cc67`](https://github.com/LedgerHQ/wallet-api/commit/020cc67e5cdc02e89cf98b1a72945da5e6ec72a5)]:
+  - @ledgerhq/wallet-api-core@1.33.0
+  - @ledgerhq/wallet-api-client@1.15.0
+  - @ledgerhq/wallet-api-server@3.4.0
+
 ## 2.2.7
 
 ### Patch Changes
