@@ -1,4 +1,5 @@
 import type {
+  AccountGetPublicKeyHandler,
   AccountListHandler,
   AccountReceiveHandler,
   AccountRequestHandler,
@@ -33,6 +34,7 @@ export type UnknownCustomHandlers = Record<
 >;
 
 export type WalletHandlers<GenericCustomHandlers = UnknownCustomHandlers> = {
+  "account.getPublicKey": AccountGetPublicKeyHandler;
   "account.list": AccountListHandler;
   "account.receive": AccountReceiveHandler;
   "account.request": AccountRequestHandler;

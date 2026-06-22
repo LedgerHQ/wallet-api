@@ -1,8 +1,10 @@
 import {
+  AccountGetPublicKey,
   AccountList,
   AccountReceive,
   AccountRequest,
   createNotImplementedByWallet,
+  schemaAccountGetPublicKey,
   schemaAccountList,
   schemaAccountReceive,
   schemaAccountRequest,
@@ -67,6 +69,26 @@ export const list: RPCHandler<AccountList["result"]> = async (
 
   return {
     rawAccounts: accounts.map(serializeAccount),
+  };
+};
+
+export const getPublicKey: RPCHandler<AccountGetPublicKey["result"]> = async (
+  req,
+  _context,
+  handlers,
+) => {
+  const walletHandler = handlers["account.getPublicKey"];
+
+  if (!walletHandler) {
+    throw new ServerError(createNotImplementedByWallet("account.getPublicKey"));
+  }
+
+  const safeParams = schemaAccountGetPublicKey.params.parse(req.params);
+
+  const { accountId, derivationPath } = safeParams;
+
+  return {
+    publicKey: await walletHandler({ accountId, derivationPath }),
   };
 };
 

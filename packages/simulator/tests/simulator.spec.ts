@@ -376,6 +376,42 @@ describe("Simulator", () => {
     });
   });
 
+  describe("account.getPublicKey", () => {
+    it("should return the publicKey", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const publicKey = await client.account.getPublicKey("account-eth-1");
+
+      // THEN
+      expect(publicKey).toBe("publicKey");
+    });
+
+    it("should throw an error if permission not granted", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithNoPermissions);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(client.account.getPublicKey("accountId")).rejects.toThrow(
+        "permission",
+      );
+    });
+
+    it("should throw an error if method not handled by server", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithUnhandledMethods);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(client.account.getPublicKey("accountId")).rejects.toThrow(
+        "not implemented",
+      );
+    });
+  });
+
   describe("currency.list", () => {
     it("should return a list of currencies", async () => {
       // GIVEN

@@ -46,12 +46,7 @@ export type Account = {
 
   parentAccountId?: string;
 
-  /**
-   * The account's public key, in the family's canonical string encoding. Only present for
-   * account-based families that expose a public key distinct from the address; absent where
-   * it is not derivable from the account (e.g. UTXO families). Some dApp flows that need the
-   * public key up front rely on this field.
-   */
+  /** @deprecated Use the `account.getPublicKey` method instead. */
   publicKey?: string;
 };
 

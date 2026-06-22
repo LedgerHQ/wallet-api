@@ -30,6 +30,7 @@ export const standardProfile: SimulatorProfile = {
       "account.request",
       "currency.list",
       "account.list",
+      "account.getPublicKey",
       "transaction.signAndBroadcast",
       "transaction.sign",
       "message.sign",
@@ -86,6 +87,7 @@ export const standardProfile: SimulatorProfile = {
       Buffer.from("0x123O182493423928734983247923847293847293847923847293487"),
     "message.sign": () => Buffer.from("0x123456789123456789"),
     "account.receive": () => "eth address",
+    "account.getPublicKey": () => "publicKey",
     "storage.set": ({ value, key, storeId }) => {
       storage[storeId] ??= new Map();
 
