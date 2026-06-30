@@ -20,6 +20,7 @@ export function serializeAccount({
   lastSyncDate,
   parentAccountId,
   publicKey,
+  readiness,
 }: Account): RawAccount {
   return {
     id,
@@ -32,6 +33,7 @@ export function serializeAccount({
     lastSyncDate: lastSyncDate.toISOString(),
     parentAccountId,
     publicKey,
+    readiness,
   };
 }
 
@@ -53,6 +55,7 @@ export function deserializeAccount({
   lastSyncDate,
   parentAccountId,
   publicKey,
+  readiness,
 }: RawAccount): Account {
   return {
     id,
@@ -65,5 +68,6 @@ export function deserializeAccount({
     lastSyncDate: new Date(lastSyncDate),
     parentAccountId,
     publicKey,
+    readiness,
   };
 }

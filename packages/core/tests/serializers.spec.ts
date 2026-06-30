@@ -49,6 +49,9 @@ import {
   RawHederaTransaction,
   HederaTransaction,
   schemaRawTransaction,
+  schemaRawAccount,
+  schemaAccountReadiness,
+  AccountReadinessReason,
 } from "../src";
 
 const date = new Date();
@@ -93,6 +96,68 @@ describe("serializers.ts", () => {
 
       expect(serializedAccount.publicKey).toBe("a-public-key");
     });
+
+    it("should serialize the optional readiness when present", () => {
+      const serializedAccount = serializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: new BigNumber(0),
+        spendableBalance: new BigNumber(0),
+        blockHeight: 0,
+        lastSyncDate: date,
+        readiness: { ready: false, reason: "activationRequired" },
+      });
+
+      expect(serializedAccount.readiness).toEqual({
+        ready: false,
+        reason: "activationRequired",
+      });
+    });
+
+    it("should serialize readiness without a reason", () => {
+      const serializedAccount = serializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: new BigNumber(0),
+        spendableBalance: new BigNumber(0),
+        blockHeight: 0,
+        lastSyncDate: date,
+        readiness: { ready: true },
+      });
+
+      expect(serializedAccount.readiness).toEqual({ ready: true });
+    });
+
+    it("should serialize an account without readiness", () => {
+      const serializedAccount = serializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: new BigNumber(0),
+        spendableBalance: new BigNumber(0),
+        blockHeight: 0,
+        lastSyncDate: date,
+      });
+
+      // `toEqual` treats a `readiness: undefined` own-key as equal to an omitted
+      // key, and `JSON.stringify` drops it on the wire — so the absent case stays
+      // backward-compatible. Do not switch this to `toStrictEqual`.
+      expect(serializedAccount).toEqual({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: "0",
+        spendableBalance: "0",
+        blockHeight: 0,
+        lastSyncDate: date.toISOString(),
+      });
+    });
   });
 
   describe("deserializeAccount", () => {
@@ -134,6 +199,103 @@ describe("serializers.ts", () => {
       });
 
       expect(deserializedAccount.publicKey).toBe("a-public-key");
+    });
+
+    it("should deserialize the optional readiness when present", () => {
+      const deserializedAccount = deserializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "currency",
+        balance: "0",
+        spendableBalance: "0",
+        blockHeight: 0,
+        lastSyncDate: date.toISOString(),
+        readiness: { ready: false, reason: "activationRequired" },
+      });
+
+      expect(deserializedAccount.readiness).toEqual({
+        ready: false,
+        reason: "activationRequired",
+      });
+    });
+  });
+
+  describe("schemaRawAccount / readiness", () => {
+    const validRaw = {
+      id: "id",
+      name: "name",
+      address: "address",
+      currency: "currency",
+      balance: "0",
+      spendableBalance: "0",
+      blockHeight: 0,
+      lastSyncDate: date.toISOString(),
+    };
+
+    it("should accept and preserve a readiness with a reason", () => {
+      const parsed = schemaRawAccount.parse({
+        ...validRaw,
+        readiness: { ready: false, reason: "activationRequired" },
+      });
+
+      expect(parsed.readiness).toEqual({
+        ready: false,
+        reason: "activationRequired",
+      });
+    });
+
+    it("should accept a readiness without a reason", () => {
+      const parsed = schemaRawAccount.parse({
+        ...validRaw,
+        readiness: { ready: true },
+      });
+
+      expect(parsed.readiness).toEqual({ ready: true });
+    });
+
+    it("should accept an account without readiness", () => {
+      const parsed = schemaRawAccount.parse(validRaw);
+
+      expect(parsed.readiness).toBeUndefined();
+    });
+
+    it("should accept the documented AccountReadinessReason constant", () => {
+      const parsed = schemaAccountReadiness.parse({
+        ready: false,
+        reason: AccountReadinessReason.ActivationRequired,
+      });
+
+      expect(parsed.reason).toBe("activationRequired");
+    });
+
+    it("should accept an arbitrary non-documented reason (open string)", () => {
+      const parsed = schemaAccountReadiness.parse({
+        ready: false,
+        reason: "someFutureChainReason",
+      });
+
+      expect(parsed.reason).toBe("someFutureChainReason");
+    });
+
+    it("should reject a readiness missing the required ready field", () => {
+      expect(() => schemaAccountReadiness.parse({ reason: "x" })).toThrow();
+    });
+
+    it("should reject a non-boolean ready", () => {
+      expect(() => schemaAccountReadiness.parse({ ready: "yes" })).toThrow();
+    });
+
+    it("should reject a non-string reason", () => {
+      expect(() =>
+        schemaAccountReadiness.parse({ ready: true, reason: 123 }),
+      ).toThrow();
+    });
+
+    it("should reject an empty reason", () => {
+      expect(() =>
+        schemaAccountReadiness.parse({ ready: false, reason: "" }),
+      ).toThrow();
     });
   });
 
@@ -2066,6 +2228,27 @@ describe("serializers.ts", () => {
           spendableBalance: new BigNumber(0),
           blockHeight: 0,
           lastSyncDate: date,
+        };
+
+        const serializedAccount = serializeAccount(account);
+        const stringifiedAccount = JSON.stringify(serializedAccount);
+        const parsedAccount = JSON.parse(stringifiedAccount) as RawAccount;
+        const expectedAccount = deserializeAccount(parsedAccount);
+
+        expect(account).toEqual(expectedAccount);
+      });
+
+      it("should not alter account with readiness", () => {
+        const account: Account = {
+          id: "id",
+          name: "name",
+          address: "address",
+          currency: "currency",
+          balance: new BigNumber(0),
+          spendableBalance: new BigNumber(0),
+          blockHeight: 0,
+          lastSyncDate: date,
+          readiness: { ready: false, reason: "activationRequired" },
         };
 
         const serializedAccount = serializeAccount(account);

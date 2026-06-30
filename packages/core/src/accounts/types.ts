@@ -48,7 +48,66 @@ export type Account = {
 
   /** @deprecated Use the `account.getPublicKey` method instead. */
   publicKey?: string;
+
+  /**
+   * Readiness of the account for outgoing operations (send, swap, etc.).
+   *
+   * When omitted, the account is assumed to be ready. This preserves the
+   * behavior for currencies that have no activation concept.
+   *
+   * @see [[AccountReadiness]]
+   */
+  readiness?: AccountReadiness;
 };
+
+/**
+ * Describes whether an [[Account]] is ready to perform outgoing operations
+ * (send, swap, etc.).
+ *
+ * Some blockchains require a one-time, on-chain activation before an account
+ * can transact normally — e.g. Tezos public-key revelation, or Sei address
+ * association. Until that happens, outgoing operations may be blocked, carry an
+ * extra fee, or be rejected by third-party providers.
+ */
+export type AccountReadiness = {
+  /**
+   * Whether the account can currently perform outgoing operations.
+   */
+  ready: boolean;
+  /**
+   * Machine-readable reason explaining why the account is not ready, so that a
+   * live-app can guide the user (e.g. by showing an activation call-to-action).
+   *
+   * This is intentionally an open string to remain chain-agnostic: new cases
+   * can be introduced without a breaking schema change. Prefer one of the
+   * documented values in [[AccountReadinessReason]] when applicable.
+   */
+  reason?: AccountReadinessReason;
+};
+
+/**
+ * Documented starter set of values for [[AccountReadiness.reason]].
+ *
+ * This is not an exhaustive enum: [[AccountReadiness.reason]] accepts any
+ * string. These constants exist to give producers and consumers a shared
+ * vocabulary for the common cases and to enable editor autocompletion.
+ */
+export const AccountReadinessReason = {
+  /**
+   * The account requires a one-time, on-chain activation before it can perform
+   * outgoing operations (e.g. Tezos key revelation, Sei address association).
+   */
+  ActivationRequired: "activationRequired",
+} as const;
+
+/**
+ * The reason why an account is not ready. One of the documented values in
+ * [[AccountReadinessReason]], or any other string to remain extensible.
+ */
+export type AccountReadinessReason =
+  | (typeof AccountReadinessReason)[keyof typeof AccountReadinessReason]
+  // Allow arbitrary strings while keeping autocompletion on the known values.
+  | (string & {});
 
 /**
  * The raw representation of the [[Account]] type
