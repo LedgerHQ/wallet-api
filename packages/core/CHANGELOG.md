@@ -1,5 +1,13 @@
 # @ledgerhq/wallet-api-core
 
+## 1.34.0
+
+### Minor Changes
+
+- [#589](https://github.com/LedgerHQ/wallet-api/pull/589) [`b567a77`](https://github.com/LedgerHQ/wallet-api/commit/b567a772b43c08e54bb5ed63b125256119888dbd) Thanks [@Justkant](https://github.com/Justkant)! - Add an optional `readiness` field to the `Account` type to let live-apps know whether an account is ready for outgoing operations (send, swap, etc.).
+
+  The field is a structured object `{ ready: boolean; reason?: string }` and stays chain-agnostic, covering activation concepts such as Tezos key revelation and Sei address association. A documented starter set of `reason` values is exported as `AccountReadinessReason` (e.g. `"activationRequired"`). When `readiness` is omitted, the account is assumed ready.
+
 ## 1.33.0
 
 ### Minor Changes
