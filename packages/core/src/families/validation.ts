@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { schemaRawAleoTransaction } from "./aleo/validation";
 import { schemaRawAlgorandTransaction } from "./algorand/validation";
 import { schemaRawAptosTransaction } from "./aptos/validation";
 import { schemaRawBitcoinTransaction } from "./bitcoin/validation";
@@ -27,6 +28,7 @@ import { schemaRawCasperTransaction } from "./casper/validation";
 import { schemaRawSuiTransaction } from "./sui/validation";
 
 export const schemaRawTransaction = z.discriminatedUnion("family", [
+  schemaRawAleoTransaction,
   schemaRawAlgorandTransaction,
   schemaRawAptosTransaction,
   schemaRawBitcoinTransaction,

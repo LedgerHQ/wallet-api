@@ -1,5 +1,6 @@
 import type BigNumber from "bignumber.js";
 import type { z } from "zod";
+import type { AleoTransaction } from "./aleo/types";
 import type { AlgorandTransaction } from "./algorand/types";
 import type { AptosTransaction } from "./aptos/types";
 import type { BitcoinTransaction } from "./bitcoin/types";
@@ -74,6 +75,7 @@ export type Transaction =
   | BitcoinTransaction
   | AlgorandTransaction
   | AptosTransaction
+  | AleoTransaction
   | CryptoOrgTransaction
   | HederaTransaction
   | KaspaTransaction

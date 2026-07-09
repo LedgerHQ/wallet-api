@@ -1,6 +1,7 @@
 import BigNumber from "bignumber.js";
 import {
   Account,
+  AleoTransaction,
   AlgorandTransaction,
   BitcoinTransaction,
   CosmosTransaction,
@@ -12,6 +13,7 @@ import {
   schemaFamilies,
   PolkadotTransaction,
   RawAccount,
+  RawAleoTransaction,
   RawAlgorandTransaction,
   RawAptosTransaction,
   RawBitcoinTransaction,
@@ -1214,6 +1216,29 @@ describe("serializers.ts", () => {
         });
       });
     });
+
+    describe("aleo", () => {
+      const family = schemaFamilies.enum.aleo;
+
+      it("should serialize an Aleo transfer_public transaction", () => {
+        const transaction: AleoTransaction = {
+          family,
+          amount: new BigNumber(1000),
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: new BigNumber(100),
+        };
+        const serializedTransaction = serializeTransaction(transaction);
+
+        expect(serializedTransaction).toEqual({
+          family,
+          amount: "1000",
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: "100",
+        });
+      });
+    });
   });
 
   describe("deserializeTransaction", () => {
@@ -2100,6 +2125,64 @@ describe("serializers.ts", () => {
           mode: "send",
           fees: undefined,
         });
+      });
+    });
+
+    describe("aleo", () => {
+      const family = schemaFamilies.enum.aleo;
+
+      it("should deserialize an Aleo transfer_public transaction", () => {
+        const transaction: RawAleoTransaction = {
+          family,
+          amount: "1000",
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: "100",
+        };
+        const deserializedTransaction = deserializeTransaction(transaction);
+
+        expect(deserializedTransaction).toEqual({
+          family,
+          amount: new BigNumber(1000),
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: new BigNumber(100),
+        });
+      });
+
+      it("should accept a valid raw Aleo transaction", () => {
+        const result = schemaRawTransaction.safeParse({
+          family,
+          amount: "1000",
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: "100",
+        });
+
+        expect(result.success).toBe(true);
+      });
+
+      it("should reject a raw Aleo transaction missing the required fees", () => {
+        const result = schemaRawTransaction.safeParse({
+          family,
+          amount: "1",
+          recipient: "r",
+          mode: "transfer_public",
+        });
+
+        expect(result.success).toBe(false);
+      });
+
+      it("should reject a raw Aleo transaction with an unsupported mode", () => {
+        const result = schemaRawTransaction.safeParse({
+          family,
+          amount: "1",
+          recipient: "r",
+          mode: "transfer_private",
+          fees: "100",
+        });
+
+        expect(result.success).toBe(false);
       });
     });
 

@@ -1,4 +1,8 @@
 import {
+  deserializeAleoTransaction,
+  serializeAleoTransaction,
+} from "./aleo/serializer";
+import {
   deserializeAlgorandTransaction,
   serializeAlgorandTransaction,
 } from "./algorand/serializer";
@@ -113,6 +117,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeBitcoinTransaction(transaction);
     case "algorand":
       return serializeAlgorandTransaction(transaction);
+    case "aleo":
+      return serializeAleoTransaction(transaction);
     case "aptos":
       return serializeAptosTransaction(transaction);
     case "crypto_org":
@@ -184,6 +190,8 @@ export function deserializeTransaction(
       return deserializeBitcoinTransaction(rawTransaction);
     case "algorand":
       return deserializeAlgorandTransaction(rawTransaction);
+    case "aleo":
+      return deserializeAleoTransaction(rawTransaction);
     case "aptos":
       return deserializeAptosTransaction(rawTransaction);
     case "crypto_org":
