@@ -155,6 +155,7 @@ Each wallet and application then needs to implement this interface. In this repo
 | icon                              | ❌         | ✅           |
 | zksync (ethereum)                 | ✅         | ✅           |
 | babylon                           | ✅         | ✅           |
+| aleo                              | ✅         | ✅           |
 
 # Where to get help
 

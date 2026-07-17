@@ -96,6 +96,10 @@ import {
   serializeSuiTransaction,
   deserializeSuiTransaction,
 } from "./sui/serializer";
+import {
+  deserializeAleoTransaction,
+  serializeAleoTransaction,
+} from "./aleo/serializer";
 import type { RawTransaction, Transaction } from "./types";
 
 /**
@@ -159,6 +163,8 @@ export function serializeTransaction(transaction: Transaction): RawTransaction {
       return serializeCasperTransaction(transaction);
     case "sui":
       return serializeSuiTransaction(transaction);
+    case "aleo":
+      return serializeAleoTransaction(transaction);
     default: {
       const exhaustiveCheck: never = transaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;
@@ -230,6 +236,8 @@ export function deserializeTransaction(
       return deserializeCasperTransaction(rawTransaction);
     case "sui":
       return deserializeSuiTransaction(rawTransaction);
+    case "aleo":
+      return deserializeAleoTransaction(rawTransaction);
     default: {
       const exhaustiveCheck: never = rawTransaction; // https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
       return exhaustiveCheck;

@@ -28,6 +28,7 @@ import type { StacksTransaction } from "./stacks/types";
 import type { InternetComputerTransaction } from "./internet_computer/types";
 import type { CasperTransaction } from "./casper/types";
 import type { SuiTransaction } from "./sui/types";
+import type { AleoTransaction } from "./aleo/types";
 
 /**
  * Supported coin families
@@ -95,4 +96,5 @@ export type Transaction =
   | StacksTransaction
   | InternetComputerTransaction
   | CasperTransaction
-  | SuiTransaction;
+  | SuiTransaction
+  | AleoTransaction;

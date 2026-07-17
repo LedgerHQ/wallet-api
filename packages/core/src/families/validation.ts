@@ -25,6 +25,7 @@ import { schemaRawStacksTransaction } from "./stacks/validation";
 import { schemaRawInternetComputerTransaction } from "./internet_computer/validation";
 import { schemaRawCasperTransaction } from "./casper/validation";
 import { schemaRawSuiTransaction } from "./sui/validation";
+import { schemaRawAleoTransaction } from "./aleo/validation";
 
 export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawAlgorandTransaction,
@@ -53,4 +54,5 @@ export const schemaRawTransaction = z.discriminatedUnion("family", [
   schemaRawInternetComputerTransaction,
   schemaRawCasperTransaction,
   schemaRawSuiTransaction,
+  schemaRawAleoTransaction,
 ]);
