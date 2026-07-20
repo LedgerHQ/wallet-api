@@ -1,3 +1,4 @@
+export * from "./aleo/types";
 export * from "./algorand/types";
 export * from "./aptos/types";
 export * from "./bitcoin/types";

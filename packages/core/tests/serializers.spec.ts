@@ -48,6 +48,8 @@ import {
   RawVechainTransaction,
   RawHederaTransaction,
   HederaTransaction,
+  RawAleoTransaction,
+  AleoTransaction,
   schemaRawTransaction,
   schemaRawAccount,
   schemaAccountReadiness,
@@ -948,6 +950,29 @@ describe("serializers.ts", () => {
       it("should succeed to serialize a sui transaction, with options", () => {
         const tx = createTx();
         const rawTx = serializeTransaction({ ...tx, fees: BigNumber(1) });
+
+        expect(rawTx).toEqual({
+          ...tx,
+          amount: "100",
+          fees: "1",
+        });
+      });
+    });
+
+    describe("aleo", () => {
+      function createTx(): AleoTransaction {
+        return {
+          family: schemaFamilies.enum.aleo,
+          amount: BigNumber(100),
+          recipient: "recipient",
+          mode: "transfer_public",
+          fees: BigNumber(1),
+        };
+      }
+
+      it("should succeed to serialize an aleo transaction", () => {
+        const tx = createTx();
+        const rawTx = serializeTransaction(tx);
 
         expect(rawTx).toEqual({
           ...tx,
@@ -1902,6 +1927,29 @@ describe("serializers.ts", () => {
       it("should succeed to deserialize a sui transaction with fees", () => {
         const rawTx = createRawTx();
         const tx = deserializeTransaction({ ...rawTx, fees: "1" });
+
+        expect(tx).toEqual({
+          ...rawTx,
+          amount: new BigNumber(100),
+          fees: new BigNumber(1),
+        });
+      });
+    });
+
+    describe("aleo", () => {
+      function createRawTx(): RawAleoTransaction {
+        return {
+          family: schemaFamilies.enum.aleo,
+          mode: "transfer_public",
+          amount: "100",
+          recipient: "recipient",
+          fees: "1",
+        };
+      }
+
+      it("should succeed to deserialize an aleo transaction", () => {
+        const rawTx = createRawTx();
+        const tx = deserializeTransaction(rawTx);
 
         expect(tx).toEqual({
           ...rawTx,
