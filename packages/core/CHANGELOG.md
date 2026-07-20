@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 1.35.0
+
+### Minor Changes
+
+- [#596](https://github.com/LedgerHQ/wallet-api/pull/596) [`ebf82d2`](https://github.com/LedgerHQ/wallet-api/commit/ebf82d221270668faead89c5d7981f69f4dfbf88) Thanks [@mdomanski-ext-ledger](https://github.com/mdomanski-ext-ledger)! - feat: add Aleo support
+
 ## 1.34.0
 
 ### Minor Changes
