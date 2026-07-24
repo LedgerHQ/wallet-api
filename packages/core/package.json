@@ -30,7 +30,6 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@ledgerhq/errors": "^6.35.0",
     "@stacks/transactions": "^6.13.0",
     "@ton/core": "^0.62.0",
     "bignumber.js": "^9.1.2",

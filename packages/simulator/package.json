@@ -19,7 +19,6 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@ledgerhq/errors": "^6.35.0",
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.9.2",

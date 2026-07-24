@@ -1,10 +1,17 @@
-import { TransportStatusError } from "@ledgerhq/errors";
 import {
   WalletAPIClient,
   deserializeAccount,
 } from "@ledgerhq/wallet-api-client";
 import BigNumber from "bignumber.js";
 import { getSimulatorTransport, profiles } from "../src";
+
+class TransportStatusError extends Error {
+  override name = "TransportStatusError";
+  constructor(statusCode: number) {
+    const hex = statusCode.toString(16).padStart(4, "0");
+    super(`Ledger device: UNKNOWN_ERROR (0x${hex})`);
+  }
+}
 
 const profileWithNoPermissions = {
   ...profiles.STANDARD,

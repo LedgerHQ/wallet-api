@@ -1,9 +1,11 @@
-import { deserializeError, serializeError } from "@ledgerhq/errors";
 import { z } from "zod";
+import type { UnknownErrorData } from "../errors";
 import {
   ServerError,
   createUnknownError,
+  deserializeError,
   schemaServerErrorData,
+  serializeError,
 } from "../errors";
 import type { Transport } from "../transports";
 import { RpcError } from "./RPCError";
@@ -143,17 +145,17 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         throw error;
       }
 
-      let serializedError = serializeError(
-        error as Parameters<typeof serializeError>[0],
-      );
-      serializedError =
-        typeof serializedError === "string" || !serializedError
-          ? { message: serializedError }
-          : serializedError;
+      const rawError = serializeError(error);
+      const normalizedError: UnknownErrorData =
+        typeof rawError === "string"
+          ? { message: rawError }
+          : typeof rawError === "object" && rawError !== null
+            ? rawError
+            : {};
       throw new RpcError({
         code: RpcErrorCode.SERVER_ERROR,
         message: "unexpected server error",
-        data: createUnknownError(serializedError),
+        data: createUnknownError(normalizedError),
       });
     }
   }
