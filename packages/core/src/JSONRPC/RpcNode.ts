@@ -1,5 +1,4 @@
 import { z } from "zod";
-import type { UnknownErrorData } from "../errors";
 import {
   ServerError,
   createUnknownError,
@@ -145,17 +144,10 @@ export abstract class RpcNode<TSHandlers, TCHandlers> {
         throw error;
       }
 
-      const rawError = serializeError(error);
-      const normalizedError: UnknownErrorData =
-        typeof rawError === "string"
-          ? { message: rawError }
-          : typeof rawError === "object" && rawError !== null
-            ? rawError
-            : {};
       throw new RpcError({
         code: RpcErrorCode.SERVER_ERROR,
         message: "unexpected server error",
-        data: createUnknownError(normalizedError),
+        data: createUnknownError(serializeError(error)),
       });
     }
   }

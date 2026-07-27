@@ -5,6 +5,9 @@ import {
 import BigNumber from "bignumber.js";
 import { getSimulatorTransport, profiles } from "../src";
 
+// Minimal throw fixture — hardcodes UNKNOWN_ERROR since the only status code
+// exercised here (0x6d01) is genuinely unknown. Not a full port of
+// @ledgerhq/errors' TransportStatusError status-name mapping.
 class TransportStatusError extends Error {
   override name = "TransportStatusError";
   constructor(statusCode: number) {
@@ -763,6 +766,7 @@ describe("Simulator", () => {
         methods: {
           ...profiles.STANDARD.methods,
           "message.sign": () => {
+            // eslint-disable-next-line @typescript-eslint/only-throw-error -- intentionally throwing a non-Error to exercise serialization
             throw "simple string";
           },
         },
@@ -783,6 +787,7 @@ describe("Simulator", () => {
         methods: {
           ...profiles.STANDARD.methods,
           "message.sign": () => {
+            // eslint-disable-next-line @typescript-eslint/only-throw-error -- intentionally throwing a non-Error to exercise serialization
             throw "";
           },
         },
@@ -803,6 +808,7 @@ describe("Simulator", () => {
         methods: {
           ...profiles.STANDARD.methods,
           "message.sign": () => {
+            // eslint-disable-next-line @typescript-eslint/only-throw-error -- intentionally throwing undefined to exercise serialization
             throw undefined;
           },
         },
