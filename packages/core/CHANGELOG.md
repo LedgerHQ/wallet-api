@@ -1,5 +1,15 @@
 # @ledgerhq/wallet-api-core
 
+## 2.0.0
+
+### Major Changes
+
+- [#598](https://github.com/LedgerHQ/wallet-api/pull/598) [`916d7a3`](https://github.com/LedgerHQ/wallet-api/commit/916d7a398ef0dc656e7c5af06524639b20f73b32) Thanks [@gre-ledger](https://github.com/gre-ledger)! - chore: remove @ledgerhq/errors dependency
+
+### Minor Changes
+
+- [#603](https://github.com/LedgerHQ/wallet-api/pull/603) [`627126a`](https://github.com/LedgerHQ/wallet-api/commit/627126a514af9d114d8f0e9cdec87bc00dfdb9e4) Thanks [@CremaFR](https://github.com/CremaFR)! - Add HyperCore to the Wallet API family registry so hosts can expose its currency metadata.
+
 ## 1.35.0
 
 ### Minor Changes

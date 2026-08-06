@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-simulator
 
+## 2.3.3
+
+### Patch Changes
+
+- [#598](https://github.com/LedgerHQ/wallet-api/pull/598) [`916d7a3`](https://github.com/LedgerHQ/wallet-api/commit/916d7a398ef0dc656e7c5af06524639b20f73b32) Thanks [@gre-ledger](https://github.com/gre-ledger)! - chore: remove @ledgerhq/errors dependency
+
+- Updated dependencies [[`627126a`](https://github.com/LedgerHQ/wallet-api/commit/627126a514af9d114d8f0e9cdec87bc00dfdb9e4), [`916d7a3`](https://github.com/LedgerHQ/wallet-api/commit/916d7a398ef0dc656e7c5af06524639b20f73b32)]:
+  - @ledgerhq/wallet-api-core@2.0.0
+  - @ledgerhq/wallet-api-client@1.15.3
+  - @ledgerhq/wallet-api-server@3.4.3
+
 ## 2.3.2
 
 ### Patch Changes
