@@ -13,7 +13,7 @@
     "@ledgerhq/wallet-api-client": "workspace:*",
     "@ledgerhq/wallet-api-client-react": "workspace:*",
     "@ledgerhq/wallet-api-simulator": "workspace:*",
-    "next": "16.2.7",
+    "next": "16.2.11",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
