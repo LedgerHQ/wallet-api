@@ -19,6 +19,7 @@ export const FAMILIES = [
   "ethereum",
   "filecoin",
   "hedera",
+  "hypercore",
   "internet_computer",
   "kaspa",
   "near",
