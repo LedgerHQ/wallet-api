@@ -92,7 +92,8 @@ jobs:
 
           # ledger-live keeps the wallet-api versions in its pnpm catalog, so the bump usually
           # lands in pnpm-workspace.yaml; consumers that are not cataloged yet still get their
-          # package.json rewritten. Written outside the checkout so it never lands in the PR.
+          # package.json rewritten, and a package it does not consume at all is left alone.
+          # Written outside the checkout so it never lands in the PR.
           cat > "$RUNNER_TEMP/bump-wallet-api.js" <<'NODE'
           const fs = require("fs");
           const path = require("path");
@@ -100,7 +101,7 @@ jobs:
           const specs = JSON.parse(process.env.SPECS_JSON);
           const bumpedFile = process.env.BUMPED_FILE;
 
-          // --- pnpm catalog -------------------------------------------------------
+          // --- pnpm catalogs ------------------------------------------------------
           // Line-oriented on purpose: a YAML round-trip would drop the comments,
           // reorder the keys and normalise the quoting of a file we want to touch a
           // single line of.
@@ -108,48 +109,98 @@ jobs:
           // <indent><key><:><value>, key either quoted or bare.
           const ENTRY_RE = /^(\s+)("[^"]*"|'[^']*'|[^#\s][^:]*?)(\s*:\s*)(.*)$/;
           const VALUE_RE = /^("[^"]*"|'[^']*'|\S+)(.*)$/;
+          // A key with nothing but an optional comment after the colon: opens a block.
+          const BLOCK_RE = /^(\s*)("[^"]*"|'[^']*'|[^#\s][^:]*?)\s*:\s*(?:#.*)?$/;
 
-          const unquote = (key) => (/^".*"$|^'.*'$/.test(key) ? key.slice(1, -1) : key);
+          const unquote = (str) => (/^".*"$|^'.*'$/.test(str) ? str.slice(1, -1) : str);
+          const blank = (line) => /^\s*(?:#.*)?$/.test(line);
 
-          // Bounds of the *top-level* `catalog:` block: the lines between the key and
-          // the next top-level key. Same-named keys under `packages:`, `overrides:`,
-          // `catalogs:`, … are out of scope.
+          // ledger-live pins its catalog exactly (`"@ledgerhq/wallet-api-core": 2.0.0`)
+          // and carets its package.json ranges. Keep whichever style the entry already
+          // used: widening a pin to `^` would let an unrelated install drift onto a
+          // wallet-api version this release never validated.
+          const range = (current, version) => {
+            const prefix = /^([~^]?)\d/.exec(current.trim());
+            return `${prefix ? prefix[1] : "^"}${version}`;
+          };
+
+          // Everything nested under the key on line `i`: up to the first line indented
+          // no deeper than the key itself. Blank and comment lines carry no indentation.
+          function blockEnd(lines, i, indent) {
+            for (let j = i + 1; j < lines.length; j++) {
+              if (blank(lines[j])) continue;
+              if (lines[j].search(/\S/) <= indent) return j;
+            }
+            return lines.length;
+          }
+
+          // The catalogs a `catalog:<name>` specifier can resolve to: the top-level
+          // `catalog:` block is the default one, every key under `catalogs:` a named
+          // one. Same-named keys nested elsewhere (`packages:`, `overrides:`, …) are
+          // out of scope.
           function loadWorkspace() {
             const file = ["pnpm-workspace.yaml", "pnpm-workspace.yml"].find((f) => fs.existsSync(f));
             if (!file) return null;
+            // `.` never matches \r, so on a CRLF checkout the entries would be invisible
+            // to ENTRY_RE: keep the carriage returns aside and put them back on write.
             const lines = fs.readFileSync(file, "utf8").split("\n");
-            let start = -1;
-            let end = lines.length;
+            const cr = lines.map((line) => line.endsWith("\r"));
+            for (let i = 0; i < lines.length; i++) if (cr[i]) lines[i] = lines[i].slice(0, -1);
+            const catalogs = new Map();
+            let dflt = null;
             for (let i = 0; i < lines.length; i++) {
-              if (start === -1) {
-                if (/^(?:catalog|"catalog"|'catalog')\s*:\s*(?:#.*)?$/.test(lines[i])) start = i + 1;
-              } else if (/^[^\s#]/.test(lines[i])) {
-                end = i;
-                break;
+              const block = BLOCK_RE.exec(lines[i]);
+              if (!block || block[1] !== "") continue; // top-level keys only
+              const key = unquote(block[2]);
+              if (key === "catalog") {
+                dflt = { start: i + 1, end: blockEnd(lines, i, 0) };
+              } else if (key === "catalogs") {
+                const end = blockEnd(lines, i, 0);
+                let childIndent = -1;
+                for (let j = i + 1; j < end; j++) {
+                  const child = BLOCK_RE.exec(lines[j]);
+                  if (!child || !child[1]) continue;
+                  if (childIndent === -1) childIndent = child[1].length;
+                  if (child[1].length !== childIndent) continue;
+                  catalogs.set(unquote(child[2]), { start: j + 1, end: blockEnd(lines, j, childIndent) });
+                }
               }
             }
-            return start === -1 ? null : { file, lines, start, end, dirty: false };
+            // `catalog:` wins over a `catalogs: default:` block — pnpm rejects both.
+            if (dflt) catalogs.set("default", dflt);
+            return catalogs.size ? { file, lines, cr, catalogs, dirty: false } : null;
           }
 
-          function bumpCatalog(ws, name, version) {
-            if (!ws) return false;
-            for (let i = ws.start; i < ws.end; i++) {
+          const render = (ws) => ws.lines.map((line, i) => (ws.cr[i] ? `${line}\r` : line)).join("\n");
+
+          function findEntry(ws, catalog, name) {
+            const block = ws && ws.catalogs.get(catalog);
+            if (!block) return -1;
+            for (let i = block.start; i < block.end; i++) {
               const entry = ENTRY_RE.exec(ws.lines[i]);
               // Exact key comparison: `wallet-api-client` must not match
               // `wallet-api-client-react`.
-              if (!entry || unquote(entry[2]) !== name) continue;
-              const [, indent, key, colon, rest] = entry;
-              if (rest === "" || rest.startsWith("#")) {
-                ws.lines[i] = `${indent}${key}${colon}^${version}${rest ? ` ${rest}` : ""}`;
-              } else {
-                const [, value, trailer] = VALUE_RE.exec(rest);
-                const quote = /^["']/.test(value) ? value[0] : "";
-                ws.lines[i] = `${indent}${key}${colon}${quote}^${version}${quote}${trailer}`;
-              }
-              ws.dirty = true;
-              return true;
+              if (entry && unquote(entry[2]) === name) return i;
             }
-            return false;
+            return -1;
+          }
+
+          function bumpCatalog(ws, catalog, name, version) {
+            const i = findEntry(ws, catalog, name);
+            if (i === -1) return false;
+            const [, indent, key, colon, rest] = ENTRY_RE.exec(ws.lines[i]);
+            // A value flush against the colon (`key:2.0.0`) is a plain scalar, not a
+            // mapping — keep a separator when the source had none.
+            const sep = /\s$/.test(colon) ? colon : `${colon} `;
+            if (rest === "" || rest.startsWith("#")) {
+              ws.lines[i] = `${indent}${key}${sep}${range("", version)}${rest ? ` ${rest}` : ""}`;
+            } else {
+              const [, value, trailer] = VALUE_RE.exec(rest);
+              const quote = /^["']/.test(value) ? value[0] : "";
+              ws.lines[i] = `${indent}${key}${sep}${quote}${range(unquote(value), version)}${quote}${trailer}`;
+            }
+            ws.dirty = true;
+            return true;
           }
 
           // --- package.json fallback ----------------------------------------------
@@ -176,21 +227,26 @@ jobs:
             // The closing quote keeps `wallet-api-client` off `wallet-api-client-react`.
             const refRe = new RegExp(`("${escaped}"\\s*:\\s*")([^"]*)(")`, "g");
 
-            const catalogHit = bumpCatalog(ws, name, version);
-            const catalogRefs = new Set();
+            // Which catalogs the consumers resolve through: catalog name -> files.
+            const catalogRefs = new Map();
             const rewritten = [];
 
+            // Resolve the references first: whether ledger-live consumes the package at
+            // all decides if the catalog may be touched.
             for (const [file, text] of contents) {
               let refs = 0;
               const next = text.replace(refRe, (match, head, current, tail) => {
                 // Never clobber an indirection: those resolve elsewhere.
                 if (current.startsWith("catalog:")) {
-                  catalogRefs.add(file);
+                  // `catalog:` and `catalog:default` both mean the default catalog.
+                  const catalog = current.slice("catalog:".length) || "default";
+                  if (!catalogRefs.has(catalog)) catalogRefs.set(catalog, []);
+                  catalogRefs.get(catalog).push(file);
                   return match;
                 }
                 if (/^(?:workspace|link|file|portal):/.test(current)) return match;
                 refs++;
-                return `${head}^${version}${tail}`;
+                return `${head}${range(current, version)}${tail}`;
               });
               if (!refs) continue;
               rewritten.push(file);
@@ -200,39 +256,55 @@ jobs:
               }
             }
 
-            if (catalogRefs.size && !catalogHit) {
-              orphans.push({ name, files: [...catalogRefs] });
-              continue;
-            }
-            if (!catalogHit && !rewritten.length) {
-              console.log(`⏭️  ${name} — not consumed by ledger-live, skipping.`);
+            // Nothing asks for this package, so a catalog entry left behind is dead
+            // weight: bumping it would open a PR for a version nobody resolves.
+            if (!catalogRefs.size && !rewritten.length) {
+              const stale = ws && [...ws.catalogs.keys()].some((c) => findEntry(ws, c, name) !== -1);
+              const note = stale ? ` (unused ${ws.file} entry left as is)` : "";
+              console.log(`⏭️  ${name} — not consumed by ledger-live, skipping${note}.`);
               continue;
             }
 
-            const where = [];
-            if (catalogHit) where.push(`${ws.file} catalog`);
+            // The catalogs consumers resolve through — or the default one when none is
+            // named, so an entry there cannot drift behind literal package.json refs.
+            const wanted = new Set(catalogRefs.keys());
+            if (!wanted.size) wanted.add("default");
+            const hits = [...wanted].filter((catalog) => bumpCatalog(ws, catalog, name, version));
+
+            const missing = [...catalogRefs.keys()].filter((catalog) => !hits.includes(catalog));
+            if (missing.length) {
+              orphans.push({ name, missing: missing.map((catalog) => ({ catalog, files: catalogRefs.get(catalog) })) });
+              continue;
+            }
+
+            const where = hits.map((c) => `${ws.file} ${c === "default" ? "catalog" : `catalog:${c}`}`);
             if (rewritten.length) where.push(`${rewritten.length} package.json`);
-            console.log(`📦 ${name} -> ^${version} (${where.join(", ")})`);
+            console.log(`📦 ${name} -> ${version} (${where.join(", ")})`);
             bumped.push([name, version, where.join(", ")].join("\t"));
           }
 
           // A consumer asking for `catalog:` with nothing to bump would silently stay on
-          // the old version — that is a broken release, not a no-op.
+          // the old version — that is a broken release, not a no-op. Nothing is written
+          // in that case, so the checkout stays clean.
           if (orphans.length) {
-            for (const { name, files } of orphans) {
-              console.error(`❌ ${name} is referenced as "catalog:" in:`);
-              for (const file of files) console.error(`     - ${file}`);
+            const wsFile = ws ? ws.file : "pnpm-workspace.yaml";
+            for (const { name, missing } of orphans) {
+              for (const { catalog, files } of missing) {
+                const spec = catalog === "default" ? "catalog:" : `catalog:${catalog}`;
+                const block = catalog === "default" ? "top-level 'catalog:' block" : `'${catalog}' catalog under 'catalogs:'`;
+                console.error(`❌ ${name} is referenced as "${spec}" in:`);
+                for (const file of files) console.error(`     - ${file}`);
+                console.error(`   …but ${wsFile} has no matching entry in the ${block}.`);
+              }
             }
-            console.error(
-              `   …but no matching entry exists in the top-level 'catalog:' block of ${ws ? ws.file : "pnpm-workspace.yaml"}.`,
-            );
             console.error("   Add the catalog entry (or drop the 'catalog:' specifier) in ledger-live, then re-run.");
-            process.exit(1);
+            // Not process.exit(): that can drop the diagnostic still queued on stderr.
+            process.exitCode = 1;
+          } else {
+            for (const file of dirty) fs.writeFileSync(file, contents.get(file));
+            if (ws && ws.dirty) fs.writeFileSync(ws.file, render(ws));
+            fs.writeFileSync(bumpedFile, bumped.map((line) => `${line}\n`).join(""));
           }
-
-          for (const file of dirty) fs.writeFileSync(file, contents.get(file));
-          if (ws && ws.dirty) fs.writeFileSync(ws.file, ws.lines.join("\n"));
-          fs.writeFileSync(bumpedFile, bumped.map((line) => `${line}\n`).join(""));
           NODE
 
           BUMPED_FILE="$RUNNER_TEMP/bumped.tsv"
@@ -254,7 +326,7 @@ jobs:
           {
             echo "BUMP_SUMMARY<<EOF"
             while IFS=$'\t' read -r name version where; do
-              echo "- \`${name}\` → \`^${version}\` _(${where})_"
+              echo "- \`${name}\` → \`${version}\` _(${where})_"
             done < "$BUMPED_FILE"
             echo "EOF"
           } >> "$GITHUB_ENV"
