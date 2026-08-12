@@ -185,13 +185,17 @@ jobs:
             return -1;
           }
 
+          // `null` when the catalog holds no such entry, otherwise whether the entry
+          // moved: an already-published version rewrites to the very same line, and
+          // reporting that as a bump would open a pull request with an empty diff.
           function bumpCatalog(ws, catalog, name, version) {
             const i = findEntry(ws, catalog, name);
-            if (i === -1) return false;
+            if (i === -1) return null;
             const [, indent, key, colon, rest] = ENTRY_RE.exec(ws.lines[i]);
             // A value flush against the colon (`key:2.0.0`) is a plain scalar, not a
             // mapping — keep a separator when the source had none.
             const sep = /\s$/.test(colon) ? colon : `${colon} `;
+            const before = ws.lines[i];
             if (rest === "" || rest.startsWith("#")) {
               ws.lines[i] = `${indent}${key}${sep}${range("", version)}${rest ? ` ${rest}` : ""}`;
             } else {
@@ -199,6 +203,7 @@ jobs:
               const quote = /^["']/.test(value) ? value[0] : "";
               ws.lines[i] = `${indent}${key}${sep}${quote}${range(unquote(value), version)}${quote}${trailer}`;
             }
+            if (ws.lines[i] === before) return false;
             ws.dirty = true;
             return true;
           }
@@ -229,7 +234,8 @@ jobs:
 
             // Which catalogs the consumers resolve through: catalog name -> files.
             const catalogRefs = new Map();
-            const rewritten = [];
+            const consumers = [];
+            const edited = [];
 
             // Resolve the references first: whether ledger-live consumes the package at
             // all decides if the catalog may be touched.
@@ -244,21 +250,26 @@ jobs:
                   catalogRefs.get(catalog).push(file);
                   return match;
                 }
-                if (/^(?:workspace|link|file|portal):/.test(current)) return match;
+                // A semver range cannot hold a colon — prerelease and build identifiers
+                // are [0-9A-Za-z-] — so anything that does is an indirection as well:
+                // `npm:`/`jsr:` aliases, `workspace:`, `link:`, `file:`, `portal:`, git
+                // and http URLs, `user/repo#semver:^1.0.0`.
+                if (current.includes(":")) return match;
                 refs++;
                 return `${head}${range(current, version)}${tail}`;
               });
               if (!refs) continue;
-              rewritten.push(file);
+              consumers.push(file);
               if (next !== text) {
                 contents.set(file, next);
                 dirty.add(file);
+                edited.push(file);
               }
             }
 
             // Nothing asks for this package, so a catalog entry left behind is dead
             // weight: bumping it would open a PR for a version nobody resolves.
-            if (!catalogRefs.size && !rewritten.length) {
+            if (!catalogRefs.size && !consumers.length) {
               const stale = ws && [...ws.catalogs.keys()].some((c) => findEntry(ws, c, name) !== -1);
               const note = stale ? ` (unused ${ws.file} entry left as is)` : "";
               console.log(`⏭️  ${name} — not consumed by ledger-live, skipping${note}.`);
@@ -269,7 +280,11 @@ jobs:
             // named, so an entry there cannot drift behind literal package.json refs.
             const wanted = new Set(catalogRefs.keys());
             if (!wanted.size) wanted.add("default");
-            const hits = [...wanted].filter((catalog) => bumpCatalog(ws, catalog, name, version));
+            const results = [...wanted].map((catalog) => [catalog, bumpCatalog(ws, catalog, name, version)]);
+            // An entry that was found resolves the reference whether or not it moved;
+            // only the ones that moved belong in the summary.
+            const hits = results.filter(([, found]) => found !== null).map(([catalog]) => catalog);
+            const moved = results.filter(([, changed]) => changed).map(([catalog]) => catalog);
 
             const missing = [...catalogRefs.keys()].filter((catalog) => !hits.includes(catalog));
             if (missing.length) {
@@ -277,8 +292,14 @@ jobs:
               continue;
             }
 
-            const where = hits.map((c) => `${ws.file} ${c === "default" ? "catalog" : `catalog:${c}`}`);
-            if (rewritten.length) where.push(`${rewritten.length} package.json`);
+            const where = moved.map((c) => `${ws.file} ${c === "default" ? "catalog" : `catalog:${c}`}`);
+            if (edited.length) where.push(`${edited.length} package.json`);
+            // Nothing moved: ledger-live already resolves this version. Recording it as
+            // bumped would hand an empty diff to create-pull-request.
+            if (!where.length) {
+              console.log(`✅ ${name} — ledger-live is already on ${version}.`);
+              continue;
+            }
             console.log(`📦 ${name} -> ${version} (${where.join(", ")})`);
             bumped.push([name, version, where.join(", ")].join("\t"));
           }
@@ -311,7 +332,7 @@ jobs:
           SPECS_JSON="$SPECS_JSON" BUMPED_FILE="$BUMPED_FILE" node "$RUNNER_TEMP/bump-wallet-api.js"
 
           if [[ ! -s "$BUMPED_FILE" ]]; then
-            echo "No published package is consumed by ledger-live — nothing to bump."
+            echo "Nothing to bump — ledger-live consumes none of the published packages, or is already on them."
             echo "bumped=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
