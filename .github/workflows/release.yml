@@ -82,22 +82,260 @@ jobs:
         env:
           PUBLISHED_PACKAGES: ${{ needs.release.outputs.publishedPackages }}
         run: |
-          # "name@version" for every published @ledgerhq/wallet-api-* package.
-          mapfile -t specs < <(echo "$PUBLISHED_PACKAGES" | jq -r '.[] | select(.name | startswith("@ledgerhq/wallet-api-")) | "\(.name)@\(.version)"')
-          if [[ ${#specs[@]} -eq 0 ]]; then
+          # {name, version} for every published @ledgerhq/wallet-api-* package.
+          SPECS_JSON=$(echo "$PUBLISHED_PACKAGES" | jq -c '[.[] | select(.name | startswith("@ledgerhq/wallet-api-")) | {name, version}]')
+          if [[ "$(echo "$SPECS_JSON" | jq 'length')" -eq 0 ]]; then
             echo "No wallet-api packages in this release — nothing to bump."
             echo "bumped=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          # Bump the ^ range of each package in every consuming package.json.
-          for spec in "${specs[@]}"; do
-            name="${spec%@*}"; version="${spec##*@}"
-            echo "📦 ${name} -> ^${version}"
-            while IFS= read -r f; do
-              sed -i -E "s#(\"${name}\"[[:space:]]*:[[:space:]]*\")[^\"]*(\")#\1^${version}\2#" "$f"
-            done < <(grep -rl --include=package.json "\"${name}\"[[:space:]]*:" . | grep -v node_modules)
-          done
+          # ledger-live keeps the wallet-api versions in its pnpm catalog, so the bump usually
+          # lands in pnpm-workspace.yaml; consumers that are not cataloged yet still get their
+          # package.json rewritten, and a package it does not consume at all is left alone.
+          # Written outside the checkout so it never lands in the PR.
+          cat > "$RUNNER_TEMP/bump-wallet-api.js" <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+
+          const specs = JSON.parse(process.env.SPECS_JSON);
+          const bumpedFile = process.env.BUMPED_FILE;
+
+          // --- pnpm catalogs ------------------------------------------------------
+          // Line-oriented on purpose: a YAML round-trip would drop the comments,
+          // reorder the keys and normalise the quoting of a file we want to touch a
+          // single line of.
+
+          // <indent><key><:><value>, key either quoted or bare.
+          const ENTRY_RE = /^(\s+)("[^"]*"|'[^']*'|[^#\s][^:]*?)(\s*:\s*)(.*)$/;
+          const VALUE_RE = /^("[^"]*"|'[^']*'|\S+)(.*)$/;
+          // A key with nothing but an optional comment after the colon: opens a block.
+          const BLOCK_RE = /^(\s*)("[^"]*"|'[^']*'|[^#\s][^:]*?)\s*:\s*(?:#.*)?$/;
+
+          const unquote = (str) => (/^".*"$|^'.*'$/.test(str) ? str.slice(1, -1) : str);
+          const blank = (line) => /^\s*(?:#.*)?$/.test(line);
+
+          // ledger-live pins its catalog exactly (`"@ledgerhq/wallet-api-core": 2.0.0`)
+          // and carets its package.json ranges. Keep whichever style the entry already
+          // used: widening a pin to `^` would let an unrelated install drift onto a
+          // wallet-api version this release never validated.
+          const range = (current, version) => {
+            const prefix = /^([~^]?)\d/.exec(current.trim());
+            return `${prefix ? prefix[1] : "^"}${version}`;
+          };
+
+          // Everything nested under the key on line `i`: up to the first line indented
+          // no deeper than the key itself. Blank and comment lines carry no indentation.
+          function blockEnd(lines, i, indent) {
+            for (let j = i + 1; j < lines.length; j++) {
+              if (blank(lines[j])) continue;
+              if (lines[j].search(/\S/) <= indent) return j;
+            }
+            return lines.length;
+          }
+
+          // The catalogs a `catalog:<name>` specifier can resolve to: the top-level
+          // `catalog:` block is the default one, every key under `catalogs:` a named
+          // one. Same-named keys nested elsewhere (`packages:`, `overrides:`, …) are
+          // out of scope.
+          function loadWorkspace() {
+            const file = ["pnpm-workspace.yaml", "pnpm-workspace.yml"].find((f) => fs.existsSync(f));
+            if (!file) return null;
+            // `.` never matches \r, so on a CRLF checkout the entries would be invisible
+            // to ENTRY_RE: keep the carriage returns aside and put them back on write.
+            const lines = fs.readFileSync(file, "utf8").split("\n");
+            const cr = lines.map((line) => line.endsWith("\r"));
+            for (let i = 0; i < lines.length; i++) if (cr[i]) lines[i] = lines[i].slice(0, -1);
+            const catalogs = new Map();
+            let dflt = null;
+            for (let i = 0; i < lines.length; i++) {
+              const block = BLOCK_RE.exec(lines[i]);
+              if (!block || block[1] !== "") continue; // top-level keys only
+              const key = unquote(block[2]);
+              if (key === "catalog") {
+                dflt = { start: i + 1, end: blockEnd(lines, i, 0) };
+              } else if (key === "catalogs") {
+                const end = blockEnd(lines, i, 0);
+                let childIndent = -1;
+                for (let j = i + 1; j < end; j++) {
+                  const child = BLOCK_RE.exec(lines[j]);
+                  if (!child || !child[1]) continue;
+                  if (childIndent === -1) childIndent = child[1].length;
+                  if (child[1].length !== childIndent) continue;
+                  catalogs.set(unquote(child[2]), { start: j + 1, end: blockEnd(lines, j, childIndent) });
+                }
+              }
+            }
+            // `catalog:` wins over a `catalogs: default:` block — pnpm rejects both.
+            if (dflt) catalogs.set("default", dflt);
+            return catalogs.size ? { file, lines, cr, catalogs, dirty: false } : null;
+          }
+
+          const render = (ws) => ws.lines.map((line, i) => (ws.cr[i] ? `${line}\r` : line)).join("\n");
+
+          function findEntry(ws, catalog, name) {
+            const block = ws && ws.catalogs.get(catalog);
+            if (!block) return -1;
+            for (let i = block.start; i < block.end; i++) {
+              const entry = ENTRY_RE.exec(ws.lines[i]);
+              // Exact key comparison: `wallet-api-client` must not match
+              // `wallet-api-client-react`.
+              if (entry && unquote(entry[2]) === name) return i;
+            }
+            return -1;
+          }
+
+          // `null` when the catalog holds no such entry, otherwise whether the entry
+          // moved: an already-published version rewrites to the very same line, and
+          // reporting that as a bump would open a pull request with an empty diff.
+          function bumpCatalog(ws, catalog, name, version) {
+            const i = findEntry(ws, catalog, name);
+            if (i === -1) return null;
+            const [, indent, key, colon, rest] = ENTRY_RE.exec(ws.lines[i]);
+            // A value flush against the colon (`key:2.0.0`) is a plain scalar, not a
+            // mapping — keep a separator when the source had none.
+            const sep = /\s$/.test(colon) ? colon : `${colon} `;
+            const before = ws.lines[i];
+            if (rest === "" || rest.startsWith("#")) {
+              ws.lines[i] = `${indent}${key}${sep}${range("", version)}${rest ? ` ${rest}` : ""}`;
+            } else {
+              const [, value, trailer] = VALUE_RE.exec(rest);
+              const quote = /^["']/.test(value) ? value[0] : "";
+              ws.lines[i] = `${indent}${key}${sep}${quote}${range(unquote(value), version)}${quote}${trailer}`;
+            }
+            if (ws.lines[i] === before) return false;
+            ws.dirty = true;
+            return true;
+          }
+
+          // --- package.json fallback ----------------------------------------------
+          function findPackageJsons(dir, out = []) {
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              if (entry.isDirectory()) {
+                if (entry.name === "node_modules" || entry.name === ".git") continue;
+                findPackageJsons(path.join(dir, entry.name), out);
+              } else if (entry.isFile() && entry.name === "package.json") {
+                out.push(path.join(dir, entry.name));
+              }
+            }
+            return out;
+          }
+
+          const ws = loadWorkspace();
+          const contents = new Map(findPackageJsons(".").map((f) => [f, fs.readFileSync(f, "utf8")]));
+          const dirty = new Set();
+          const bumped = [];
+          const orphans = [];
+
+          for (const { name, version } of specs) {
+            const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            // The closing quote keeps `wallet-api-client` off `wallet-api-client-react`.
+            const refRe = new RegExp(`("${escaped}"\\s*:\\s*")([^"]*)(")`, "g");
+
+            // Which catalogs the consumers resolve through: catalog name -> files.
+            const catalogRefs = new Map();
+            const consumers = [];
+            const edited = [];
+
+            // Resolve the references first: whether ledger-live consumes the package at
+            // all decides if the catalog may be touched.
+            for (const [file, text] of contents) {
+              let refs = 0;
+              const next = text.replace(refRe, (match, head, current, tail) => {
+                // Never clobber an indirection: those resolve elsewhere.
+                if (current.startsWith("catalog:")) {
+                  // `catalog:` and `catalog:default` both mean the default catalog.
+                  const catalog = current.slice("catalog:".length) || "default";
+                  if (!catalogRefs.has(catalog)) catalogRefs.set(catalog, []);
+                  catalogRefs.get(catalog).push(file);
+                  return match;
+                }
+                // A semver range cannot hold a colon — prerelease and build identifiers
+                // are [0-9A-Za-z-] — so anything that does is an indirection as well:
+                // `npm:`/`jsr:` aliases, `workspace:`, `link:`, `file:`, `portal:`, git
+                // and http URLs, `user/repo#semver:^1.0.0`.
+                if (current.includes(":")) return match;
+                refs++;
+                return `${head}${range(current, version)}${tail}`;
+              });
+              if (!refs) continue;
+              consumers.push(file);
+              if (next !== text) {
+                contents.set(file, next);
+                dirty.add(file);
+                edited.push(file);
+              }
+            }
+
+            // Nothing asks for this package, so a catalog entry left behind is dead
+            // weight: bumping it would open a PR for a version nobody resolves.
+            if (!catalogRefs.size && !consumers.length) {
+              const stale = ws && [...ws.catalogs.keys()].some((c) => findEntry(ws, c, name) !== -1);
+              const note = stale ? ` (unused ${ws.file} entry left as is)` : "";
+              console.log(`⏭️  ${name} — not consumed by ledger-live, skipping${note}.`);
+              continue;
+            }
+
+            // The catalogs consumers resolve through — or the default one when none is
+            // named, so an entry there cannot drift behind literal package.json refs.
+            const wanted = new Set(catalogRefs.keys());
+            if (!wanted.size) wanted.add("default");
+            const results = [...wanted].map((catalog) => [catalog, bumpCatalog(ws, catalog, name, version)]);
+            // An entry that was found resolves the reference whether or not it moved;
+            // only the ones that moved belong in the summary.
+            const hits = results.filter(([, found]) => found !== null).map(([catalog]) => catalog);
+            const moved = results.filter(([, changed]) => changed).map(([catalog]) => catalog);
+
+            const missing = [...catalogRefs.keys()].filter((catalog) => !hits.includes(catalog));
+            if (missing.length) {
+              orphans.push({ name, missing: missing.map((catalog) => ({ catalog, files: catalogRefs.get(catalog) })) });
+              continue;
+            }
+
+            const where = moved.map((c) => `${ws.file} ${c === "default" ? "catalog" : `catalog:${c}`}`);
+            if (edited.length) where.push(`${edited.length} package.json`);
+            // Nothing moved: ledger-live already resolves this version. Recording it as
+            // bumped would hand an empty diff to create-pull-request.
+            if (!where.length) {
+              console.log(`✅ ${name} — ledger-live is already on ${version}.`);
+              continue;
+            }
+            console.log(`📦 ${name} -> ${version} (${where.join(", ")})`);
+            bumped.push([name, version, where.join(", ")].join("\t"));
+          }
+
+          // A consumer asking for `catalog:` with nothing to bump would silently stay on
+          // the old version — that is a broken release, not a no-op. Nothing is written
+          // in that case, so the checkout stays clean.
+          if (orphans.length) {
+            const wsFile = ws ? ws.file : "pnpm-workspace.yaml";
+            for (const { name, missing } of orphans) {
+              for (const { catalog, files } of missing) {
+                const spec = catalog === "default" ? "catalog:" : `catalog:${catalog}`;
+                const block = catalog === "default" ? "top-level 'catalog:' block" : `'${catalog}' catalog under 'catalogs:'`;
+                console.error(`❌ ${name} is referenced as "${spec}" in:`);
+                for (const file of files) console.error(`     - ${file}`);
+                console.error(`   …but ${wsFile} has no matching entry in the ${block}.`);
+              }
+            }
+            console.error("   Add the catalog entry (or drop the 'catalog:' specifier) in ledger-live, then re-run.");
+            // Not process.exit(): that can drop the diagnostic still queued on stderr.
+            process.exitCode = 1;
+          } else {
+            for (const file of dirty) fs.writeFileSync(file, contents.get(file));
+            if (ws && ws.dirty) fs.writeFileSync(ws.file, render(ws));
+            fs.writeFileSync(bumpedFile, bumped.map((line) => `${line}\n`).join(""));
+          }
+          NODE
+
+          BUMPED_FILE="$RUNNER_TEMP/bumped.tsv"
+          SPECS_JSON="$SPECS_JSON" BUMPED_FILE="$BUMPED_FILE" node "$RUNNER_TEMP/bump-wallet-api.js"
+
+          if [[ ! -s "$BUMPED_FILE" ]]; then
+            echo "Nothing to bump — ledger-live consumes none of the published packages, or is already on them."
+            echo "bumped=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
           # Refresh the lockfile. Retry to absorb npm registry propagation right after publish.
           for attempt in 1 2 3 4 5; do
@@ -108,7 +346,9 @@ jobs:
 
           {
             echo "BUMP_SUMMARY<<EOF"
-            for spec in "${specs[@]}"; do echo "- \`${spec%@*}\` → \`^${spec##*@}\`"; done
+            while IFS=$'\t' read -r name version where; do
+              echo "- \`${name}\` → \`${version}\` _(${where})_"
+            done < "$BUMPED_FILE"
             echo "EOF"
           } >> "$GITHUB_ENV"
           echo "bumped=true" >> "$GITHUB_OUTPUT"
