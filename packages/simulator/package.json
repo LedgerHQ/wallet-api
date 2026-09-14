@@ -32,7 +32,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@ledgerhq/hw-transport": "^6.35.3",
+    "@ledgerhq/hw-transport": "^6.36.0",
     "@ledgerhq/wallet-api-client": "workspace:*",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-server": "workspace:*",
