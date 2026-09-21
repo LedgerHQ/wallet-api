@@ -11,7 +11,6 @@ overrides:
   '@lezer/common': 1.5.1
 
 patchedDependencies:
-  '@ledgerhq/hw-transport@6.35.3': 1cc5f34953c81ea4e201f888e39ea3c9d9c221d73233336897f0c36fe23b3bf7
   '@ton/core': 9329da4fb3122df62d833d0c4d847d33a35a9457ee48997870bc044fc80b7324
   nextra-theme-docs@4.6.1: c956da7fd77cae4548c8f2f2cb9224d6978338f81b942a6bc2c7692182e65d01
 
@@ -267,8 +266,8 @@ importers:
   packages/client:
     dependencies:
       '@ledgerhq/hw-transport':
-        specifier: ^6.35.3
-        version: 6.35.3(patch_hash=1cc5f34953c81ea4e201f888e39ea3c9d9c221d73233336897f0c36fe23b3bf7)
+        specifier: ^6.36.0
+        version: 6.36.0
       '@ledgerhq/wallet-api-core':
         specifier: workspace:*
         version: link:../core
@@ -561,8 +560,8 @@ importers:
   packages/simulator:
     dependencies:
       '@ledgerhq/hw-transport':
-        specifier: ^6.35.3
-        version: 6.35.3(patch_hash=1cc5f34953c81ea4e201f888e39ea3c9d9c221d73233336897f0c36fe23b3bf7)
+        specifier: ^6.36.0
+        version: 6.36.0
       '@ledgerhq/wallet-api-client':
         specifier: workspace:*
         version: link:../client
@@ -1392,20 +1391,23 @@ packages:
   '@ledgerhq/cryptoassets@13.50.0':
     resolution: {integrity: sha512-XMUSo8xm0FD1U2VT7ykpj6of9L0tfk1i3ZNlvx2owPxtwJhycldhs7xIaaS4VAxn8QHxqGqEFT1e6FcicXu3lA==}
 
-  '@ledgerhq/devices@8.15.0':
-    resolution: {integrity: sha512-pHrjZzC81ER6BDKjIzTzubLynFzS15CQ7EQeEfrbrSisc3BFLGrnC7+cXdGWK7eTRAkwH7Uw3M2QM/mbjfhwlw==}
+  '@ledgerhq/devices@8.18.0':
+    resolution: {integrity: sha512-90qS23wtqdviis+8pDWRbgyp4jE4YLK24CyAmH79rLySaPbgEJX5mZzbEKlDQ6cXvSA/51Z2/PtzmlAi26rzug==}
 
   '@ledgerhq/errors@6.35.0':
     resolution: {integrity: sha512-qk9PbqIvze7NXGogVxNCsz60rNo5FrGj8gKqs7pcyDk+em5L6s70G7cRxR+1HTXdam4WoPfntUq+WX9zQUynkg==}
 
-  '@ledgerhq/hw-transport@6.35.3':
-    resolution: {integrity: sha512-FLR4/2mV6srMaic3cr/kweD9RQhpv4+8Q6T6P4PPOyScuz84siH+8NXLgREIeh328W/FxEGG2norjS+tOQW0vA==}
+  '@ledgerhq/hw-transport@6.36.0':
+    resolution: {integrity: sha512-fU1rNnn6TgI9CrtynakAkhH09Tu4fTS5QEukO+71n0C5bFBL2Mee5WMQsuGaXBB8Ana3iJwbqZnm+0msssmY3g==}
 
   '@ledgerhq/live-env@2.37.0':
     resolution: {integrity: sha512-OGOtHPTbQiE0d52jpQ1gISDsoI9dJOxDL8moTarVofspa/veLRmz2e7Vv6t7g1ygxsRwrZvB1Cih0U7xDw/Q0w==}
 
   '@ledgerhq/logs@6.17.0':
     resolution: {integrity: sha512-yra33g5q/AU7+PwAws+GaVpQGUuxnDREjVBnviJjcaJLVKuLzI4pnj8Bd3nY3fypM5k1yZEYKEXfUuGFUjP2+w==}
+
+  '@ledgerhq/logs@6.19.0':
+    resolution: {integrity: sha512-kmWj18C7eTtuytdaWygzVrQm9EoD4YWuYnd/kY8stVBBAzRdJzrGlm013ijQF6I/kGLKlGY7JKmll6j32KGpfQ==}
 
   '@ledgerhq/types-cryptoassets@7.37.0':
     resolution: {integrity: sha512-/6jJKl3D4VN9BCWAg1ZMm01bJxyDm+jJpVmghgcsDSZKNcfcr9HXlZcnw2aMsHVHWeS73LoJQc6AeCXbJIXotQ==}
@@ -2889,6 +2891,7 @@ packages:
   '@xmldom/xmldom@0.9.10':
     resolution: {integrity: sha512-A9gOqLdi6cV4ibazAjcQufGj0B1y/vDqYrcuP6d/6x8P27gRS8643Dj9o1dEKtB6O7fwxb2FgBmJS2mX7gpvdw==}
     engines: {node: '>=14.6'}
+    deprecated: this version has critical issues, please update to the latest version
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -8002,20 +8005,16 @@ snapshots:
       - react
       - react-redux
 
-  '@ledgerhq/devices@8.15.0':
+  '@ledgerhq/devices@8.18.0':
     dependencies:
-      '@ledgerhq/errors': 6.35.0
-      '@ledgerhq/logs': 6.17.0
-      rxjs: 7.8.2
       semver: 7.7.3
 
   '@ledgerhq/errors@6.35.0': {}
 
-  '@ledgerhq/hw-transport@6.35.3(patch_hash=1cc5f34953c81ea4e201f888e39ea3c9d9c221d73233336897f0c36fe23b3bf7)':
+  '@ledgerhq/hw-transport@6.36.0':
     dependencies:
-      '@ledgerhq/devices': 8.15.0
-      '@ledgerhq/errors': 6.35.0
-      '@ledgerhq/logs': 6.17.0
+      '@ledgerhq/devices': 8.18.0
+      '@ledgerhq/logs': 6.19.0
       events: 3.3.0
 
   '@ledgerhq/live-env@2.37.0':
@@ -8024,6 +8023,8 @@ snapshots:
       utility-types: 3.11.0
 
   '@ledgerhq/logs@6.17.0': {}
+
+  '@ledgerhq/logs@6.19.0': {}
 
   '@ledgerhq/types-cryptoassets@7.37.0': {}
 
