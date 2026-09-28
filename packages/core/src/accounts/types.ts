@@ -36,6 +36,15 @@ export type Account = {
    */
   spendableBalance: BigNumber;
   /**
+   * Heuristic max amount that can be sent in a single transaction (fees, UTXO /
+   * input limits, min-UTXO, etc.). Typically less than or equal to
+   * [[spendableBalance]]. When omitted, the value was not computed by the host.
+   *
+   * This is a best-effort estimate and may differ slightly from a real send-max
+   * with a specific recipient.
+   */
+  maxSpendable?: BigNumber;
+  /**
    * Tracks the current blockchain block height
    */
   blockHeight: number | undefined;

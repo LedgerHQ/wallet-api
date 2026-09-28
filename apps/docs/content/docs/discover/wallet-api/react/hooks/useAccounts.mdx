@@ -114,6 +114,8 @@ Each object in the array represents an account and contains the following proper
 
 - `spendableBalance` (BigNumber): The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains
 
+- `maxSpendable` (BigNumber, optional): Heuristic max amount that can be sent in a single transaction (fees, UTXO/input limits, etc.). Typically less than or equal to `spendableBalance`. Omitted when not computed by the host.
+
 - `blockHeight` (number): Tracks the current blockchain block height
 
 - `lastSyncData` (Date): The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is
