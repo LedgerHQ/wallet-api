@@ -1,5 +1,27 @@
 # @ledgerhq/wallet-api-client
 
+## 1.16.0
+
+### Minor Changes
+
+- [#612](https://github.com/LedgerHQ/wallet-api/pull/612) [`635d378`](https://github.com/LedgerHQ/wallet-api/commit/635d37883a26a82eb09743a1aa9f26975d8cd21e) Thanks [@CremaFR](https://github.com/CremaFR)! - Add `account.getMaxSpendable({ accountId }) -> { maxSpendable }`. The wallet returns the single-transaction send-max heuristic for one account (atomic amount as a string). Hosts that do not implement the method reject with "not implemented".
+
+### Patch Changes
+
+- [#609](https://github.com/LedgerHQ/wallet-api/pull/609) [`e7278dd`](https://github.com/LedgerHQ/wallet-api/commit/e7278dd7b3c4596b6bf28c0b645f6aae186f6471) Thanks [@gre-ledger](https://github.com/gre-ledger)! - chore(deps): bump @ledgerhq/hw-transport to 6.36.0 and drop its patch
+
+  `@ledgerhq/hw-transport` moved out of the `ledger-live` monorepo into the new
+  `LedgerHQ/ts-libs` monorepo and was republished from there as `6.36.0` with no
+  API change. It pulls `@ledgerhq/devices` `8.18.0` and `@ledgerhq/logs` `6.19.0`.
+
+  The `@ledgerhq/hw-transport@6.35.3` patch is removed: it existed only to retype
+  `Transport._events` from `EventEmitter<[never]>` to a plain `EventEmitter` so
+  `tsc` declaration emit would pass under `@types/node` 25. `6.36.0` ships
+  `EventEmitter<any>`, which satisfies the `EventMap` constraint on its own.
+
+- Updated dependencies [[`635d378`](https://github.com/LedgerHQ/wallet-api/commit/635d37883a26a82eb09743a1aa9f26975d8cd21e)]:
+  - @ledgerhq/wallet-api-core@2.1.0
+
 ## 1.15.3
 
 ### Patch Changes
