@@ -4,8 +4,10 @@ const schemaAccountGetMaxSpendableParams = z.object({
   accountId: z.string(),
 });
 
+// Atomic amount: a finite, non-negative integer. Rejects NaN, Infinity,
+// negatives, and fractional values before the client builds a BigNumber.
 const schemaAccountGetMaxSpendableResults = z.object({
-  maxSpendable: z.string(),
+  maxSpendable: z.string().regex(/^(0|[1-9]\d*)$/),
 });
 
 export const schemaAccountGetMaxSpendable = {

@@ -394,6 +394,7 @@ describe("Simulator", () => {
       const maxSpendable =
         await client.account.getMaxSpendable("account-eth-1");
 
+      expect(BigNumber.isBigNumber(maxSpendable)).toBe(true);
       expect(maxSpendable.toString()).toBe("42");
     });
 
