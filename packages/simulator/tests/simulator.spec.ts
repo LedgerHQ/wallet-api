@@ -386,6 +386,37 @@ describe("Simulator", () => {
     });
   });
 
+  describe("account.getMaxSpendable", () => {
+    it("should return the max spendable amount", async () => {
+      const transport = getSimulatorTransport(profiles.STANDARD);
+      const client = new WalletAPIClient(transport);
+
+      const maxSpendable =
+        await client.account.getMaxSpendable("account-eth-1");
+
+      expect(BigNumber.isBigNumber(maxSpendable)).toBe(true);
+      expect(maxSpendable.toString()).toBe("42");
+    });
+
+    it("should throw an error if permission not granted", async () => {
+      const transport = getSimulatorTransport(profileWithNoPermissions);
+      const client = new WalletAPIClient(transport);
+
+      await expect(client.account.getMaxSpendable("accountId")).rejects.toThrow(
+        "permission",
+      );
+    });
+
+    it("should throw an error if method not handled by server", async () => {
+      const transport = getSimulatorTransport(profileWithUnhandledMethods);
+      const client = new WalletAPIClient(transport);
+
+      await expect(client.account.getMaxSpendable("accountId")).rejects.toThrow(
+        "not implemented",
+      );
+    });
+  });
+
   describe("account.getPublicKey", () => {
     it("should return the publicKey", async () => {
       // GIVEN
