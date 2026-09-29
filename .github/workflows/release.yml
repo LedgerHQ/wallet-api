@@ -123,8 +123,8 @@ jobs:
 
       # The source of truth for "what is missing": the plan is resolved against the JFrog
       # publish registry configured above, not npmjs.org. Versions already there are left
-      # out, so a re-run only handles what is still missing, and a push with nothing to
-      # release stops here.
+      # out, so a re-run only builds, packs and publishes what is still missing. Tags and
+      # GitHub releases are reconciled separately in the last step.
       - name: Compute the publish plan against JFrog
         id: plan
         env:
@@ -174,15 +174,21 @@ jobs:
         with:
           subject-path: ${{ steps.pack.outputs.out-dir }}/packages
 
-      # Publishes the exact tarballs that were attested, then pushes the git tags and creates
-      # the GitHub releases through the API. When skipped, `published` stays empty and the
-      # ledger-live bump does not run.
+      # Publishes the exact tarballs that were attested (if any), then tags every package
+      # whose current version has no git tag yet, and the action pushes those tags and
+      # creates their GitHub releases through the API.
+      #
+      # Runs even when nothing was packed: that is how a rerun recovers a release that
+      # reached JFrog but failed before tagging. The recovered packages are reported in
+      # `published-packages`, so the ledger-live bump runs for them too. When every
+      # version is published and tagged, nothing happens and `published` is 'false'.
       - name: Publish, tag and release
-        if: ${{ steps.plan.outputs.count != '0' }}
         id: publish
         uses: changesets/action/publish@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        env:
+          PACK_DIR: ${{ steps.pack.outputs.out-dir }}
         with:
-          script: pnpm exec changeset publish --from-pack-dir "${{ steps.pack.outputs.out-dir }}"
+          script: bash .github/scripts/release-publish.sh
 
   # When wallet-api packages are published, open (or replace) a PR on ledger-live that bumps
   # those packages. Uses a fixed branch so a newer publish overwrites the still-open PR.
