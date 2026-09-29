@@ -19,8 +19,7 @@
     "test": "turbo run test",
     "format:check": "turbo run format:check",
     "format:fix": "turbo run format:fix",
-    "prepare": "husky",
-    "publish-packages": "turbo run build lint && changeset publish"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.ts": [
@@ -29,8 +28,8 @@
     ]
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.0",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@ledgerhq/eslint-config-custom": "workspace:*",
     "eslint": "^10.4.1",
     "husky": "^9.1.7",
@@ -40,7 +39,7 @@
     "turbo": "2.9.16"
   },
   "engines": {
-    "node": "^20.19.0 || ^22.13.0 || >=24",
+    "node": "^22.13.0 || ^24 || >=26",
     "pnpm": ">=7"
   },
   "packageManager": "pnpm@11.5.2+sha512.71c631e382066efc25625d5cf029075de07b61b37f6e27350fbd84b1bda5864c8c1967adc280776b45c30a715c0359a3be08fef42d5bb09e2b99029979692916",
