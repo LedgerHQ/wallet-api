@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 2.1.0
+
+### Minor Changes
+
+- [#612](https://github.com/LedgerHQ/wallet-api/pull/612) [`635d378`](https://github.com/LedgerHQ/wallet-api/commit/635d37883a26a82eb09743a1aa9f26975d8cd21e) Thanks [@CremaFR](https://github.com/CremaFR)! - Add `account.getMaxSpendable({ accountId }) -> { maxSpendable }`. The wallet returns the single-transaction send-max heuristic for one account (atomic amount as a string). Hosts that do not implement the method reject with "not implemented".
+
 ## 2.0.0
 
 ### Major Changes
