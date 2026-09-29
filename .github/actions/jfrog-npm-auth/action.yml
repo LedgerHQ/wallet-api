@@ -7,15 +7,25 @@ inputs:
 runs:
   using: composite
   steps:
+    # Every package install and publish must go through JFrog (cybersec requirement). An
+    # empty registry, typically an unset ARTIFACTORY_URL / ARTIFACTORY_PUBLISH_URL variable,
+    # would silently leave pnpm on npmjs.org, so it fails the job instead.
+    - name: Require a registry
+      shell: bash
+      env:
+        REGISTRY: ${{ inputs.registry }}
+      run: |
+        if [ -z "$REGISTRY" ]; then
+          echo "::error::No JFrog registry given. Check that ARTIFACTORY_URL (repository variable) and ARTIFACTORY_PUBLISH_URL ('release' environment variable) are set."
+          exit 1
+        fi
     # OIDC only, never a static token: the calling job needs `id-token: write`, and the runner
     # must be IP-whitelisted by JFrog (Ledger larger GitHub-hosted or self-hosted runners).
     - id: jfrog-login
-      if: ${{ inputs.registry != '' }}
       uses: LedgerHQ/actions-security/actions/jfrog-login@3868be0ef1ec8722fbdb2c6cda90f739cbfc742d # actions/jfrog-login-1.4.0
     # Written to $HOME rather than the checkout: pnpm ignores env variables in a project
     # .npmrc, and the token must never land in a file changesets could commit.
     - id: jfrog-npm
-      if: ${{ inputs.registry != '' }}
       uses: LedgerHQ/actions-security/actions/jfrog-npm@f72bc626ca84f2399fa070b16e7f804b6043aa82 # actions/jfrog-npm-0.3.0
       with:
         token: ${{ steps.jfrog-login.outputs.oidc-token }}

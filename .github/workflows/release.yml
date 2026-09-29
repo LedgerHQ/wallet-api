@@ -15,8 +15,9 @@ jobs:
   # publish job, which decides against JFrog whether anything is actually missing.
   #
   # Deliberately not changesets/action/select-mode: it builds the publish plan against
-  # npmjs.org, so a version that is on npm but missing from JFrog would read as "none" and
-  # never be published. JFrog is only reachable from the publish job's runner.
+  # whatever registry the job points at, and only the publish job is logged in to the JFrog
+  # publish registry. A version that is on npm but missing from JFrog must never read as
+  # "none". This job installs nothing, so it needs neither JFrog nor the Ledger runner.
   select-mode:
     name: Select release mode
     runs-on: ubuntu-latest
@@ -42,14 +43,17 @@ jobs:
           done
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
 
+  # Installs through JFrog like every other job that fetches packages, hence the whitelisted
+  # runner and the OIDC login.
   version:
     name: Version Packages PR
     needs: select-mode
     if: ${{ needs.select-mode.outputs.mode == 'version' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RELEASE_RUNNER || 'public-ledgerhq-shared-medium' }}
     permissions:
       contents: write # push the version bump commit to changeset-release/main
       pull-requests: write # open the changesets "Version Packages" PR
+      id-token: write # JFrog OIDC login
     steps:
       # Full history: @changesets/changelog-github resolves the commit that added each
       # changeset to attribute its changelog entry.
@@ -64,6 +68,9 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Create or update the Version Packages PR
@@ -97,8 +104,7 @@ jobs:
         with:
           node-version: 22
 
-      # Installs through the JFrog read registry when ARTIFACTORY_URL is set, from npmjs.org
-      # otherwise (the action is a no-op on an empty registry).
+      # Install through the JFrog read registry...
       - uses: ./.github/actions/jfrog-npm-auth
         with:
           registry: ${{ vars.ARTIFACTORY_URL }}
@@ -106,17 +112,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      # jfrog-npm-auth skips silently on an empty registry, which would leave pnpm pointed at
-      # npmjs.org (or the read registry) and publish the release there instead.
-      - name: Require a publish registry
-        env:
-          PUBLISH_REGISTRY: ${{ vars.ARTIFACTORY_PUBLISH_URL }}
-        run: |
-          if [ -z "$PUBLISH_REGISTRY" ]; then
-            echo "::error::ARTIFACTORY_PUBLISH_URL is not set on the 'release' environment. Refusing to publish."
-            exit 1
-          fi
-
+      # ...then point pnpm at the publish registry. jfrog-npm-auth fails on an empty
+      # registry, so an unset ARTIFACTORY_PUBLISH_URL can never leave the release pointed at
+      # the read registry or npmjs.org.
       - uses: ./.github/actions/jfrog-npm-auth
         with:
           registry: ${{ vars.ARTIFACTORY_PUBLISH_URL }}
@@ -192,12 +190,25 @@ jobs:
 
   # When wallet-api packages are published, open (or replace) a PR on ledger-live that bumps
   # those packages. Uses a fixed branch so a newer publish overwrites the still-open PR.
+  # The lockfile refresh resolves packages through JFrog, hence the whitelisted runner and
+  # the OIDC login.
   update-ledger-live:
     name: Update wallet-api on ledger-live
     needs: publish
     if: ${{ needs.publish.outputs.published == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RELEASE_RUNNER || 'public-ledgerhq-shared-medium' }}
+    permissions:
+      contents: read # check out the jfrog-npm-auth action
+      id-token: write # JFrog OIDC login
     steps:
+      # Only for the local jfrog-npm-auth action. Must come before the ledger-live checkout:
+      # checking out at the workspace root cleans it.
+      - name: 📋 Checkout wallet-api actions
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/actions
+
       - name: 🔑 Generate GitHub App token (ledger-live)
         id: app-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
@@ -224,6 +235,11 @@ jobs:
           node-version-file: ledger-live/.nvmrc
           cache: pnpm
           cache-dependency-path: ledger-live/pnpm-lock.yaml
+
+      # ~/.npmrc applies to the ledger-live checkout too: its own .npmrc sets no registry.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
 
       - name: ⬆️ Bump wallet-api packages
         id: bump
@@ -486,7 +502,8 @@ jobs:
             exit 0
           fi
 
-          # Refresh the lockfile. Retry to absorb npm registry propagation right after publish.
+          # Refresh the lockfile. Retry to absorb registry propagation right after publish (the
+          # read registry may serve the new versions from a cache that lags the publish).
           for attempt in 1 2 3 4 5; do
             if pnpm install --lockfile-only; then break; fi
             if [[ $attempt -eq 5 ]]; then echo "❌ lockfile update failed after 5 attempts"; exit 1; fi
