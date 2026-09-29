@@ -1,11 +1,13 @@
 import {
   Account,
   deserializeAccount,
+  schemaAccountGetMaxSpendable,
   schemaAccountGetPublicKey,
   schemaAccountList,
   schemaAccountReceive,
   schemaAccountRequest,
 } from "@ledgerhq/wallet-api-core";
+import BigNumber from "bignumber.js";
 import type { WalletAPIClient } from "../WalletAPIClient";
 
 export class AccountModule {
@@ -134,5 +136,30 @@ export class AccountModule {
       schemaAccountGetPublicKey.result.parse(getPublicKeyResult);
 
     return safeResults.publicKey;
+  }
+
+  /**
+   * Heuristic max amount that can be sent from this account in a single
+   * transaction (fees, UTXO/input limits, etc.). The wallet forwards
+   * `estimateMaxSpendable` unchanged; it is not clamped to `spendableBalance`.
+   *
+   * @param accountId - id of the account
+   *
+   * @returns The max spendable amount, in the account's atomic unit
+   * @throws {@link RpcError} if an error occurred on server side
+   */
+  async getMaxSpendable(accountId: string): Promise<BigNumber> {
+    const getMaxSpendableResult = await this.client.request(
+      "account.getMaxSpendable",
+      {
+        accountId,
+      },
+    );
+
+    const safeResults = schemaAccountGetMaxSpendable.result.parse(
+      getMaxSpendableResult,
+    );
+
+    return new BigNumber(safeResults.maxSpendable);
   }
 }

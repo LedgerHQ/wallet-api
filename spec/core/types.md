@@ -457,7 +457,6 @@ A cryptocurrency account
 | `lastSyncDate`     | `Date`      | The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is                                                                                                               |
 | `name`             | `string`    | The account’s name set by the user.                                                                                                                                                                                                |
 | `spendableBalance` | `BigNumber` | The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains                                                                                               |
-| `maxSpendable`     | `BigNumber` | Optional. Heuristic max amount that can be sent in a single transaction (fees, UTXO/input limits, etc.). Typically ≤ `spendableBalance`. Omitted when not computed by the host.                                                   |
 
 ## RawAccount
 
@@ -473,7 +472,6 @@ The raw representation of the [Account](/spec/core/types.md#account) type.
 | `lastSyncDate`     | `string` |
 | `name`             | `string` |
 | `spendableBalance` | `string` |
-| `maxSpendable`     | `string` |
 
 ## TronOperationMode
 

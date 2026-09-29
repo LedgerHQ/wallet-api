@@ -1,3 +1,4 @@
+export * from "./AccountGetMaxSpendable";
 export * from "./AccountGetPublicKey";
 export * from "./AccountList";
 export * from "./AccountReceive";

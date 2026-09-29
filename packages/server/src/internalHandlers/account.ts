@@ -1,9 +1,11 @@
 import {
+  AccountGetMaxSpendable,
   AccountGetPublicKey,
   AccountList,
   AccountReceive,
   AccountRequest,
   createNotImplementedByWallet,
+  schemaAccountGetMaxSpendable,
   schemaAccountGetPublicKey,
   schemaAccountList,
   schemaAccountReceive,
@@ -69,6 +71,24 @@ export const list: RPCHandler<AccountList["result"]> = async (
 
   return {
     rawAccounts: accounts.map(serializeAccount),
+  };
+};
+
+export const getMaxSpendable: RPCHandler<
+  AccountGetMaxSpendable["result"]
+> = async (req, _context, handlers) => {
+  const walletHandler = handlers["account.getMaxSpendable"];
+
+  if (!walletHandler) {
+    throw new ServerError(
+      createNotImplementedByWallet("account.getMaxSpendable"),
+    );
+  }
+
+  const safeParams = schemaAccountGetMaxSpendable.params.parse(req.params);
+
+  return {
+    maxSpendable: await walletHandler(safeParams),
   };
 };
 

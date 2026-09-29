@@ -3,6 +3,7 @@ import { z } from "zod";
 export type MethodId = z.infer<typeof schemaRPCMethod>;
 
 export const schemaRPCMethod = z.enum([
+  "account.getMaxSpendable",
   "account.getPublicKey",
   "account.list",
   "account.receive",

@@ -160,38 +160,6 @@ describe("serializers.ts", () => {
         lastSyncDate: date.toISOString(),
       });
     });
-
-    it("should serialize the optional maxSpendable when present", () => {
-      const serializedAccount = serializeAccount({
-        id: "id",
-        name: "name",
-        address: "address",
-        currency: "currency",
-        balance: new BigNumber(100),
-        spendableBalance: new BigNumber(100),
-        maxSpendable: new BigNumber(90),
-        blockHeight: 0,
-        lastSyncDate: date,
-      });
-
-      expect(serializedAccount.maxSpendable).toBe("90");
-    });
-
-    it("should serialize an account without maxSpendable", () => {
-      const serializedAccount = serializeAccount({
-        id: "id",
-        name: "name",
-        address: "address",
-        currency: "currency",
-        balance: new BigNumber(0),
-        spendableBalance: new BigNumber(0),
-        blockHeight: 0,
-        lastSyncDate: date,
-      });
-
-      // Same wire-compat note as readiness: JSON.stringify drops undefined.
-      expect(serializedAccount.maxSpendable).toBeUndefined();
-    });
   });
 
   describe("deserializeAccount", () => {
@@ -253,37 +221,6 @@ describe("serializers.ts", () => {
         reason: "activationRequired",
       });
     });
-
-    it("should deserialize the optional maxSpendable when present", () => {
-      const deserializedAccount = deserializeAccount({
-        id: "id",
-        name: "name",
-        address: "address",
-        currency: "currency",
-        balance: "100",
-        spendableBalance: "100",
-        maxSpendable: "90",
-        blockHeight: 0,
-        lastSyncDate: date.toISOString(),
-      });
-
-      expect(deserializedAccount.maxSpendable).toEqual(new BigNumber(90));
-    });
-
-    it("should deserialize an account without maxSpendable", () => {
-      const deserializedAccount = deserializeAccount({
-        id: "id",
-        name: "name",
-        address: "address",
-        currency: "currency",
-        balance: "0",
-        spendableBalance: "0",
-        blockHeight: 0,
-        lastSyncDate: date.toISOString(),
-      });
-
-      expect(deserializedAccount.maxSpendable).toBeUndefined();
-    });
   });
 
   describe("schemaRawAccount / readiness", () => {
@@ -323,21 +260,6 @@ describe("serializers.ts", () => {
       const parsed = schemaRawAccount.parse(validRaw);
 
       expect(parsed.readiness).toBeUndefined();
-    });
-
-    it("should accept and preserve maxSpendable when present", () => {
-      const parsed = schemaRawAccount.parse({
-        ...validRaw,
-        maxSpendable: "90",
-      });
-
-      expect(parsed.maxSpendable).toBe("90");
-    });
-
-    it("should accept an account without maxSpendable", () => {
-      const parsed = schemaRawAccount.parse(validRaw);
-
-      expect(parsed.maxSpendable).toBeUndefined();
     });
 
     it("should accept the documented AccountReadinessReason constant", () => {
@@ -2352,27 +2274,6 @@ describe("serializers.ts", () => {
           currency: "currency",
           balance: new BigNumber(0),
           spendableBalance: new BigNumber(0),
-          blockHeight: 0,
-          lastSyncDate: date,
-        };
-
-        const serializedAccount = serializeAccount(account);
-        const stringifiedAccount = JSON.stringify(serializedAccount);
-        const parsedAccount = JSON.parse(stringifiedAccount) as RawAccount;
-        const expectedAccount = deserializeAccount(parsedAccount);
-
-        expect(account).toEqual(expectedAccount);
-      });
-
-      it("should not alter account with maxSpendable", () => {
-        const account: Account = {
-          id: "id",
-          name: "name",
-          address: "address",
-          currency: "currency",
-          balance: new BigNumber(100),
-          spendableBalance: new BigNumber(100),
-          maxSpendable: new BigNumber(90),
           blockHeight: 0,
           lastSyncDate: date,
         };
