@@ -61,6 +61,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      # Before pnpm/action-setup, which downloads pnpm itself with npm.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           run_install: false
@@ -68,9 +72,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - uses: ./.github/actions/jfrog-npm-auth
-        with:
-          registry: ${{ vars.ARTIFACTORY_URL }}
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Create or update the Version Packages PR
@@ -96,6 +97,12 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
+
+      # Install through the JFrog read registry, pnpm itself included (pnpm/action-setup
+      # downloads it with npm)...
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           run_install: false
@@ -103,11 +110,6 @@ jobs:
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 22
-
-      # Install through the JFrog read registry...
-      - uses: ./.github/actions/jfrog-npm-auth
-        with:
-          registry: ${{ vars.ARTIFACTORY_URL }}
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -226,6 +228,12 @@ jobs:
           ref: develop
           path: ledger-live
 
+      # ~/.npmrc applies to the ledger-live checkout too: its own .npmrc sets no registry.
+      # Before pnpm/action-setup, which downloads pnpm itself with npm.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
+
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           package_json_file: ledger-live/package.json
@@ -235,11 +243,6 @@ jobs:
           node-version-file: ledger-live/.nvmrc
           cache: pnpm
           cache-dependency-path: ledger-live/pnpm-lock.yaml
-
-      # ~/.npmrc applies to the ledger-live checkout too: its own .npmrc sets no registry.
-      - uses: ./.github/actions/jfrog-npm-auth
-        with:
-          registry: ${{ vars.ARTIFACTORY_URL }}
 
       - name: ⬆️ Bump wallet-api packages
         id: bump
