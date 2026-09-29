@@ -11,17 +11,60 @@ permissions:
   contents: read
 
 jobs:
-  release:
-    name: Release
+  # Changesets releasing something -> maintain the "Version Packages" PR. Otherwise -> the
+  # publish job, which decides against JFrog whether anything is actually missing.
+  #
+  # Deliberately not changesets/action/select-mode: it builds the publish plan against
+  # whatever registry the job points at, and only the publish job is logged in to the JFrog
+  # publish registry. A version that is on npm but missing from JFrog must never read as
+  # "none". This job installs nothing, so it needs neither JFrog nor the Ledger runner.
+  select-mode:
+    name: Select release mode
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # push version bump commit & tags
-      pull-requests: write # open the changesets "Version Packages" PR
     outputs:
-      published: ${{ steps.changesets.outputs.published }}
-      publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
+      mode: ${{ steps.select-mode.outputs.mode }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      # A changeset releases something when its frontmatter lists at least one package;
+      # an empty one (`changeset --empty`) is just `---` twice and releases nothing.
+      - name: Select Changesets mode
+        id: select-mode
+        run: |
+          mode=publish
+          shopt -s nullglob
+          for file in .changeset/*.md; do
+            [ "$(basename "$file")" = "README.md" ] && continue
+            if awk '/^---[[:space:]]*$/ { n++; next } n == 1 && NF { found = 1 } END { exit !found }' "$file"; then
+              echo "$file releases packages"
+              mode=version
+            fi
+          done
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+
+  # Installs through JFrog like every other job that fetches packages, hence the whitelisted
+  # runner and the OIDC login.
+  version:
+    name: Version Packages PR
+    needs: select-mode
+    if: ${{ needs.select-mode.outputs.mode == 'version' }}
+    runs-on: ${{ vars.RELEASE_RUNNER || 'public-ledgerhq-shared-medium' }}
+    permissions:
+      contents: write # push the version bump commit to changeset-release/main
+      pull-requests: write # open the changesets "Version Packages" PR
+      id-token: write # JFrog OIDC login
+    steps:
+      # Full history: @changesets/changelog-github resolves the commit that added each
+      # changeset to attribute its changelog entry.
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      # Before pnpm/action-setup, which downloads pnpm itself with npm.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           run_install: false
@@ -31,24 +74,143 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
+      - name: Create or update the Version Packages PR
+        uses: changesets/action/version@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+
+  # Pack -> attest -> publish to JFrog, all in one job so the tarballs that get published are
+  # exactly the ones that were attested. Attesting requires a GitHub-hosted runner and JFrog
+  # only accepts whitelisted IPs: the Ledger larger GitHub-hosted runner is both.
+  publish:
+    name: Publish to JFrog
+    needs: select-mode
+    if: ${{ needs.select-mode.outputs.mode == 'publish' }}
+    runs-on: ${{ vars.RELEASE_RUNNER || 'public-ledgerhq-shared-medium' }}
+    environment: release
+    permissions:
+      contents: write # push git tags & create GitHub releases
+      id-token: write # JFrog OIDC login and attestation signing
+      attestations: write # upload the SLSA provenance
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
+      published-packages: ${{ steps.publish.outputs.published-packages }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: pnpm publish-packages
+          persist-credentials: false
+
+      # Install through the JFrog read registry, pnpm itself included (pnpm/action-setup
+      # downloads it with npm)...
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
+      - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+        with:
+          run_install: false
+      # No dependency cache in the job that holds publish credentials (cache poisoning).
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ...then point pnpm at the publish registry. jfrog-npm-auth fails on an empty
+      # registry, so an unset ARTIFACTORY_PUBLISH_URL can never leave the release pointed at
+      # the read registry or npmjs.org.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_PUBLISH_URL }}
+
+      # The source of truth for "what is missing": the plan is resolved against the JFrog
+      # publish registry configured above, not npmjs.org. Versions already there are left
+      # out, so a re-run only builds, packs and publishes what is still missing. Tags and
+      # GitHub releases are reconciled separately in the last step.
+      - name: Compute the publish plan against JFrog
+        id: plan
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+          PLAN_FILE: ${{ runner.temp }}/publish-plan.json
+        run: |
+          pnpm exec changeset publish-plan --output "$PLAN_FILE"
+          count=$(jq '[.plan[][] | select(.kind == "publish")] | length' "$PLAN_FILE")
+          echo "$count package(s) to publish to JFrog"
+          {
+            echo "file=$PLAN_FILE"
+            echo "count=$count"
+          } >> "$GITHUB_OUTPUT"
+
+      # Must precede packing: the tarballs ship lib/, lib-es/ and bin/.
+      - name: Build & Lint
+        if: ${{ steps.plan.outputs.count != '0' }}
+        run: pnpm turbo run build lint
+
+      # Packs exactly the plan computed above.
+      - name: Pack publishable packages
+        if: ${{ steps.plan.outputs.count != '0' }}
+        id: pack
+        env:
+          OUT_DIR: ${{ runner.temp }}/changesets-pack
+          PLAN_FILE: ${{ steps.plan.outputs.file }}
+        run: |
+          pnpm exec changeset pack --from-publish-plan "$PLAN_FILE" --out-dir "$OUT_DIR"
+
+          shopt -s nullglob
+          tarballs=("$OUT_DIR"/packages/*.tgz)
+          echo "Packed ${#tarballs[@]} tarball(s) into $OUT_DIR"
+          {
+            echo "out-dir=$OUT_DIR"
+            echo "count=${#tarballs[@]}"
+          } >> "$GITHUB_OUTPUT"
+
+      # subject-path is the `packages` subdirectory: the action only looks for *.tgz at its
+      # top level, and puts every tarball it finds in a single multi-subject SLSA layout.
+      # Skipped when nothing was packed, as the action fails on an empty directory (the
+      # plan guard matters too: a skipped pack step leaves its count empty, not '0').
+      #
+      # Pinned to the head of the `attest-npm-dir-support` branch, the tagged releases only
+      # attest a single tarball. Repin to a tag once that branch is released.
+      - name: Attest tarballs
+        if: ${{ steps.plan.outputs.count != '0' && steps.pack.outputs.count != '0' }}
+        uses: LedgerHQ/actions-security/actions/attest-for-npmsjs-com@815e8a0e4e65b0b8fc8aa8f5bfc8277432d23d37 # attest-npm-dir-support
+        with:
+          subject-path: ${{ steps.pack.outputs.out-dir }}/packages
+
+      # Publishes the exact tarballs that were attested (if any), then tags every package
+      # whose current version has no git tag yet, and the action pushes those tags and
+      # creates their GitHub releases through the API.
+      #
+      # Runs even when nothing was packed: that is how a rerun recovers a release that
+      # reached JFrog but failed before tagging. The recovered packages are reported in
+      # `published-packages`, so the ledger-live bump runs for them too. When every
+      # version is published and tagged, nothing happens and `published` is 'false'.
+      - name: Publish, tag and release
+        id: publish
+        uses: changesets/action/publish@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        env:
+          PACK_DIR: ${{ steps.pack.outputs.out-dir }}
+        with:
+          script: bash .github/scripts/release-publish.sh
 
   # When wallet-api packages are published, open (or replace) a PR on ledger-live that bumps
   # those packages. Uses a fixed branch so a newer publish overwrites the still-open PR.
+  # The lockfile refresh resolves packages through JFrog, hence the whitelisted runner and
+  # the OIDC login.
   update-ledger-live:
     name: Update wallet-api on ledger-live
-    needs: release
-    if: ${{ needs.release.outputs.published == 'true' }}
-    runs-on: ubuntu-latest
+    needs: publish
+    if: ${{ needs.publish.outputs.published == 'true' }}
+    runs-on: ${{ vars.RELEASE_RUNNER || 'public-ledgerhq-shared-medium' }}
+    permissions:
+      contents: read # check out the jfrog-npm-auth action
+      id-token: write # JFrog OIDC login
     steps:
+      # Only for the local jfrog-npm-auth action. Must come before the ledger-live checkout:
+      # checking out at the workspace root cleans it.
+      - name: 📋 Checkout wallet-api actions
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/actions
+
       - name: 🔑 Generate GitHub App token (ledger-live)
         id: app-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
@@ -66,6 +228,12 @@ jobs:
           ref: develop
           path: ledger-live
 
+      # ~/.npmrc applies to the ledger-live checkout too: its own .npmrc sets no registry.
+      # Before pnpm/action-setup, which downloads pnpm itself with npm.
+      - uses: ./.github/actions/jfrog-npm-auth
+        with:
+          registry: ${{ vars.ARTIFACTORY_URL }}
+
       - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
         with:
           package_json_file: ledger-live/package.json
@@ -80,7 +248,7 @@ jobs:
         id: bump
         working-directory: ledger-live
         env:
-          PUBLISHED_PACKAGES: ${{ needs.release.outputs.publishedPackages }}
+          PUBLISHED_PACKAGES: ${{ needs.publish.outputs.published-packages }}
         run: |
           # {name, version} for every published @ledgerhq/wallet-api-* package.
           SPECS_JSON=$(echo "$PUBLISHED_PACKAGES" | jq -c '[.[] | select(.name | startswith("@ledgerhq/wallet-api-")) | {name, version}]')
@@ -337,7 +505,8 @@ jobs:
             exit 0
           fi
 
-          # Refresh the lockfile. Retry to absorb npm registry propagation right after publish.
+          # Refresh the lockfile. Retry to absorb registry propagation right after publish (the
+          # read registry may serve the new versions from a cache that lags the publish).
           for attempt in 1 2 3 4 5; do
             if pnpm install --lockfile-only; then break; fi
             if [[ $attempt -eq 5 ]]; then echo "❌ lockfile update failed after 5 attempts"; exit 1; fi
