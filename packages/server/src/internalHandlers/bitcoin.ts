@@ -111,7 +111,7 @@ export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
 ) => {
   const safeParams = schemaBitcoinSignPsbt.params.parse(req.params);
 
-  const { accountId, psbt, broadcast } = safeParams;
+  const { accountId, psbt, broadcast, options } = safeParams;
 
   const walletHandler = handlers["bitcoin.signPsbt"];
 
@@ -123,6 +123,7 @@ export const signPsbt: RPCHandler<BitcoinSignPsbt["result"]> = async (
     accountId,
     psbt,
     broadcast,
+    options,
   });
 
   return {

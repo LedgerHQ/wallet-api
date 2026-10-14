@@ -1,9 +1,11 @@
 import { z } from "zod";
+import { schemaTransactionSignRaw } from "./TransactionSignRaw";
 
 const schemaBitcoinSignPsbtParams = z.object({
   accountId: z.string(),
   psbt: z.string(),
   broadcast: z.boolean().optional(),
+  options: schemaTransactionSignRaw.params.shape.options,
 });
 
 const schemaBitcoinSignPsbtResults = z.object({
