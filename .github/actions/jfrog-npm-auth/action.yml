@@ -22,7 +22,7 @@ runs:
     # OIDC only, never a static token: the calling job needs `id-token: write`, and the runner
     # must be IP-whitelisted by JFrog (Ledger larger GitHub-hosted or self-hosted runners).
     - id: jfrog-login
-      uses: LedgerHQ/actions-security/actions/jfrog-login@3868be0ef1ec8722fbdb2c6cda90f739cbfc742d # actions/jfrog-login-1.4.0
+      uses: LedgerHQ/actions-security/actions/jfrog-login@5e1e158bc84b65cd0cb3b5b28733c3066ea93ed8 # actions/jfrog-login-1.4.1
     # Written to $HOME rather than the checkout: pnpm ignores env variables in a project
     # .npmrc, and the token must never land in a file changesets could commit.
     - id: jfrog-npm
