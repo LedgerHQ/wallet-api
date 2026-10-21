@@ -1,4 +1,5 @@
 import {
+  BitcoinSignPsbt,
   schemaBitcoinGetAddress,
   schemaBitcoinGetAddresses,
   schemaBitcoinGetPublicKey,
@@ -116,6 +117,8 @@ export class BitcoinModule {
    * @param accountId - id of the account
    * @param psbt - The psbt base 64 string
    * @param broadcast - send or not the tx to the network
+   * @param options - Extra parameters, e.g. `hwAppId` to name the device app that signs.
+   * Which apps are accepted is up to the wallet.
    *
    * @returns {Promise<{psbtSigned: string, txHash: string}>} The base64 signed PSBT
    * @throws {@link RpcError} if an error occurred on server side
@@ -127,11 +130,13 @@ export class BitcoinModule {
     accountId: string,
     psbt: string,
     broadcast?: boolean,
+    options?: BitcoinSignPsbt["params"]["options"],
   ): Promise<{ psbtSigned: string; txHash: string | undefined }> {
     const signPsbtResult = await this.client.request("bitcoin.signPsbt", {
       accountId,
       psbt,
       broadcast,
+      options,
     });
 
     const { psbtSigned, txHash } =

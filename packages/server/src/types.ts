@@ -6,6 +6,7 @@ import type {
   BitcoinGetAddresses,
   BitcoinGetPublicKey,
   BitcoinGetXPub,
+  BitcoinSignPsbt,
   Currency,
   DeviceClose,
   DeviceExchange,
@@ -151,6 +152,7 @@ export type WalletHandlers = {
     accountId: string;
     psbt: string;
     broadcast?: boolean;
+    options?: BitcoinSignPsbt["params"]["options"];
   }) => Promisable<{ psbtSigned: string; txHash?: string }>;
   "exchange.start": (params: ExchangeStart["params"]) => Promisable<string>;
   "exchange.complete": (params: ExchangeParams) => Promisable<string>;
