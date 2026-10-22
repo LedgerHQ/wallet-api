@@ -62,6 +62,38 @@ async function getXPub(walletApiClient, accountId) {
 }
 ```
 
+#### 3. Sign a PSBT (signPsbt)
+
+Let the user sign a PSBT with a Bitcoin account, and optionally broadcast the resulting transaction.
+
+```typescript
+walletApiClient.bitcoin.signPsbt(
+    accountId: string,
+    psbt: string,
+    broadcast?: boolean,
+    options?: BitcoinSignPsbt["params"]["options"]
+): Promise<{ psbtSigned: string; txHash: string | undefined }>
+```
+
+**Parameters**:
+- `accountId` (required): The ID of the Bitcoin account that signs.
+- `psbt` (required): The PSBT, as a base64 string.
+- `broadcast` (optional): Whether the wallet broadcasts the signed transaction.
+- `options` (optional): `{ hwAppId?: string; dependencies?: string[] }`. `hwAppId` names the device app that signs, and `dependencies` lists the apps it needs. Which apps are accepted is up to the wallet.
+
+**Returns**: A promise that resolves with the base64 signed PSBT and, when broadcast, the transaction hash.
+
+[**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
+ `bitcoin.signPsbt`
+
+##### Example:
+
+```javascript
+const { psbtSigned, txHash } = await walletApiClient.bitcoin.signPsbt(accountId, psbtBase64, false);
+// or with a device app selector:
+const signed = await walletApiClient.bitcoin.signPsbt(accountId, psbtBase64, false, { hwAppId: "My App" });
+```
+
 ## Handling Errors
 
 Make sure to handle errors gracefully and provide appropriate feedback to the user. Additionally, always remember to disconnect the `WindowMessageTransport` when you're done interacting with the Ledger Wallet API to free up resources.

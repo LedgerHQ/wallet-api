@@ -31,3 +31,18 @@ Returns all addresses needed for the account (e.g. for WalletConnect getAccountA
 
 - Gets the xPub of a bitcoin account with _bitcoin.getXPub_ walletHandler
 - **Returns**: A promise that resolves with the xPub as a string.
+
+### "bitcoin.signPsbt" - Sign a PSBT
+
+| parameter (in req.params) | required? | note                                                                                                                                        |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| _accountId_               | ✅        | The ID of the Bitcoin account that signs.                                                                                                   |
+| _psbt_                    | ✅        | The PSBT, as a base64 string.                                                                                                               |
+| _broadcast_               | ❌        | Whether the wallet broadcasts the signed transaction.                                                                                       |
+| _options_                 | ❌        | `{ hwAppId?: string; dependencies?: string[] }`. `hwAppId` names the device app that signs; the wallet decides which apps it accepts. |
+
+| walletHandler used | note                                                                                     |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| _bitcoin.signPsbt_ | Receives `{ accountId, psbt, broadcast, options }`. Should return `{ psbtSigned, txHash? }`. |
+
+- **Returns**: A promise that resolves with the base64 signed PSBT and, when broadcast, the transaction hash.

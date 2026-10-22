@@ -241,6 +241,102 @@ describe("Simulator", () => {
     });
   });
 
+  describe("bitcoin.signPsbt", () => {
+    function setup() {
+      const signPsbt = jest.fn(() => ({
+        psbtSigned: "signed-psbt",
+        txHash: "tx-hash",
+      }));
+      const profile = {
+        ...profiles.STANDARD,
+        permissions: {
+          ...profiles.STANDARD.permissions,
+          methodIds: ["bitcoin.signPsbt"],
+        },
+        methods: { "bitcoin.signPsbt": signPsbt },
+      };
+      const transport = getSimulatorTransport(profile);
+      const sentPayloads: string[] = [];
+      const send = transport.send.bind(transport);
+      transport.send = (payload) => {
+        sentPayloads.push(payload);
+        send(payload);
+      };
+      const client = new WalletAPIClient(transport);
+
+      const sentParams = () =>
+        sentPayloads
+          .map((payload) => JSON.parse(payload))
+          .find((message) => message.method === "bitcoin.signPsbt").params;
+
+      return { client, signPsbt, sentParams };
+    }
+
+    it("should return the signed psbt and tx hash", async () => {
+      // GIVEN
+      const { client } = setup();
+
+      // WHEN
+      const result = await client.bitcoin.signPsbt("accountId", "psbt", true);
+
+      // THEN
+      expect(result).toEqual({ psbtSigned: "signed-psbt", txHash: "tx-hash" });
+    });
+
+    it("should forward options to the wallet handler", async () => {
+      // GIVEN
+      const { client, signPsbt, sentParams } = setup();
+      const options = { hwAppId: "My App", dependencies: ["Bitcoin"] };
+
+      // WHEN
+      await client.bitcoin.signPsbt("accountId", "psbt", false, options);
+
+      // THEN
+      expect(sentParams()).toEqual({
+        accountId: "accountId",
+        psbt: "psbt",
+        broadcast: false,
+        options,
+      });
+      expect(signPsbt).toHaveBeenCalledWith({
+        accountId: "accountId",
+        psbt: "psbt",
+        broadcast: false,
+        options,
+      });
+    });
+
+    it("should not send options when none are given", async () => {
+      // GIVEN
+      const { client, signPsbt, sentParams } = setup();
+
+      // WHEN
+      await client.bitcoin.signPsbt("accountId", "psbt");
+
+      // THEN
+      expect(sentParams()).toEqual({ accountId: "accountId", psbt: "psbt" });
+      expect(signPsbt).toHaveBeenCalledWith(
+        expect.objectContaining({ accountId: "accountId", psbt: "psbt" }),
+      );
+      expect(signPsbt).toHaveBeenCalledWith(
+        expect.not.objectContaining({ options: expect.anything() }),
+      );
+    });
+
+    it("should throw an error if permission not granted", async () => {
+      // GIVEN
+      const transport = getSimulatorTransport(profileWithNoPermissions);
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(
+        client.bitcoin.signPsbt("accountId", "psbt", false, {
+          hwAppId: "My App",
+        }),
+      ).rejects.toThrow("permission");
+    });
+  });
+
   describe("account.list", () => {
     it("should return the list of accounts", async () => {
       // GIVEN
