@@ -7,6 +7,8 @@ allowBuilds:
   utf-8-validate: false
   sharp: false
   unrs-resolver: true
+# 7 days, matching the org-wide Renovate minimumReleaseAge (LedgerHQ/renovate-config).
+minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - '@eslint/plugin-kit@0.7.2'
   - eslint@10.4.1
