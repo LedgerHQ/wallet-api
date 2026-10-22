@@ -1,5 +1,16 @@
 # @ledgerhq/wallet-api-server
 
+## 3.6.0
+
+### Minor Changes
+
+- [#622](https://github.com/LedgerHQ/wallet-api/pull/622) [`7f3b7e4`](https://github.com/LedgerHQ/wallet-api/commit/7f3b7e484844dcdcf12842dbf1e1454918d1ed9e) Thanks [@vladyslavchupovskiy-ext-art](https://github.com/vladyslavchupovskiy-ext-art)! - Accept an optional `options` (`hwAppId`, `dependencies`) on `bitcoin.signPsbt`, with the same shape as `transaction.signRaw`. The server forwards it to the wallet handler, and the client takes it as a trailing parameter. `hwAppId` names the device app that signs; which apps are accepted is up to the wallet. Requests without `options` are unchanged. A host must upgrade core and server together: a server built against an older core strips `options` silently.
+
+### Patch Changes
+
+- Updated dependencies [[`7f3b7e4`](https://github.com/LedgerHQ/wallet-api/commit/7f3b7e484844dcdcf12842dbf1e1454918d1ed9e)]:
+  - @ledgerhq/wallet-api-core@2.2.0
+
 ## 3.5.0
 
 ### Minor Changes
