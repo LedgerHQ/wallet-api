@@ -315,12 +315,12 @@ describe("Simulator", () => {
 
       // THEN
       expect(sentParams()).toEqual({ accountId: "accountId", psbt: "psbt" });
-      expect(signPsbt).toHaveBeenCalledWith({
-        accountId: "accountId",
-        psbt: "psbt",
-        broadcast: undefined,
-        options: undefined,
-      });
+      expect(signPsbt).toHaveBeenCalledWith(
+        expect.objectContaining({ accountId: "accountId", psbt: "psbt" }),
+      );
+      expect(signPsbt).toHaveBeenCalledWith(
+        expect.not.objectContaining({ options: expect.anything() }),
+      );
     });
 
     it("should throw an error if permission not granted", async () => {

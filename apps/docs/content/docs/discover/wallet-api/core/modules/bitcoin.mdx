@@ -79,7 +79,7 @@ walletApiClient.bitcoin.signPsbt(
 - `accountId` (required): The ID of the Bitcoin account that signs.
 - `psbt` (required): The PSBT, as a base64 string.
 - `broadcast` (optional): Whether the wallet broadcasts the signed transaction.
-- `options` (optional): Same shape as the `options` of `transaction.signRaw` (`hwAppId`, `dependencies`). `hwAppId` names the device app that signs. Which apps are accepted is up to the wallet. See [references](../../appendix/transaction#transactionsign-type) for more information.
+- `options` (optional): `{ hwAppId?: string; dependencies?: string[] }`. `hwAppId` names the device app that signs, and `dependencies` lists the apps it needs. Which apps are accepted is up to the wallet.
 
 **Returns**: A promise that resolves with the base64 signed PSBT and, when broadcast, the transaction hash.
 
