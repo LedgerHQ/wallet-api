@@ -1,8 +1,12 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaAmount,
+  schemaFamilies,
+  schemaTransactionCommon,
+} from "../common";
 
 export const schemaRawCasperTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.casper),
-  fees: z.string(),
+  fees: schemaAmount,
   transferId: z.string().optional(),
 });

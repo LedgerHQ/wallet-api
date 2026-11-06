@@ -1,10 +1,17 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaAmount,
+  schemaAmountOrEmpty,
+  schemaFamilies,
+  schemaTransactionCommon,
+} from "../common";
+
+const schemaNumeric = z.union([schemaAmount, z.number()]);
 
 // Generated from VeChain Thor Transaction types
 export const schemaThorTransactionClause = z.object({
   to: z.string().nullable(),
-  value: z.union([z.string(), z.number()]),
+  value: schemaNumeric,
   data: z.string(),
   comment: z.string().optional(),
   abi: z.string().optional(),
@@ -18,11 +25,11 @@ export const schemaThorTransactionBody = z.object({
   expiration: z.number(),
   clauses: z.array(schemaThorTransactionClause),
   gasPriceCoef: z.number().optional(),
-  gas: z.union([z.string(), z.number()]),
+  gas: schemaNumeric,
   dependsOn: z.string().nullable(),
-  nonce: z.union([z.string(), z.number()]),
-  maxFeePerGas: z.union([z.string(), z.number()]).optional(),
-  maxPriorityFeePerGas: z.union([z.string(), z.number()]).optional(),
+  nonce: schemaNumeric,
+  maxFeePerGas: schemaNumeric.optional(),
+  maxPriorityFeePerGas: schemaNumeric.optional(),
   reserved: z
     .object({
       features: z.number().optional(),
@@ -33,6 +40,6 @@ export const schemaThorTransactionBody = z.object({
 
 export const schemaRawVechainTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.vechain),
-  estimatedFees: z.string(),
+  estimatedFees: schemaAmountOrEmpty,
   body: schemaThorTransactionBody,
 });
