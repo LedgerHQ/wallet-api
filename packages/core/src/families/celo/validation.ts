@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaFamilies,
+  schemaOptionalAmount,
+  schemaTransactionCommon,
+} from "../common";
 
 export const schemaOperationMode = z.enum([
   "send",
@@ -14,7 +18,7 @@ export const schemaOperationMode = z.enum([
 
 export const schemaRawCeloTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.celo),
-  fees: z.string().optional().nullable(),
+  fees: schemaOptionalAmount.nullable(),
   mode: schemaOperationMode,
   index: z.number().optional().nullable(),
 });

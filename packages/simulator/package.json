@@ -16,14 +16,15 @@
     "lint:fix": "eslint --cache --fix \"src\"",
     "dev": "tsc -p prod.tsconfig.json --watch",
     "build": "rm -rf lib/* lib-es/* && tsc -p prod.tsconfig.json && tsc -p prod-esm.tsconfig.json",
-    "test": "jest"
+    "test": "jest && jest -c jest.v9.config.ts"
   },
   "devDependencies": {
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.9.2",
     "@types/ws": "^8.18.1",
-    "bignumber.js": "^9.1.2",
+    "bignumber.js": "^11.1.5",
+    "bignumber.js-v9": "npm:bignumber.js@9.1.2",
     "eslint": "^10.4.1",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
@@ -37,5 +38,8 @@
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-server": "workspace:*",
     "ws": "^8.21.0"
+  },
+  "peerDependencies": {
+    "bignumber.js": "^9.1.2 || ^11.1.5"
   }
 }

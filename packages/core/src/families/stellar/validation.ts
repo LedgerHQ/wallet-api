@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaFamilies,
+  schemaOptionalAmount,
+  schemaTransactionCommon,
+} from "../common";
 
 export const stellarMemoTypeEnum = z.enum([
   "MEMO_TEXT",
@@ -10,7 +14,7 @@ export const stellarMemoTypeEnum = z.enum([
 
 export const schemaRawStellarTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.stellar),
-  fees: z.string().optional(),
+  fees: schemaOptionalAmount,
   memoType: stellarMemoTypeEnum.optional(),
   memoValue: z.string().optional(),
 });

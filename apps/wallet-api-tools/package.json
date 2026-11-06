@@ -21,6 +21,7 @@
     "@types/react-dom": "19.2.3",
     "@uiw/codemirror-extensions-langs": "^4.25.10",
     "@uiw/react-codemirror": "^4.25.10",
+    "bignumber.js": "^11.1.5",
     "flowbite": "^4.0.2",
     "jotai": "^2.20.0",
     "lucide-react": "^1.17.0",
