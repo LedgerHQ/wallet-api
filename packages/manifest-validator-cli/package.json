@@ -26,6 +26,7 @@
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
     "@ledgerhq/wallet-api-manifest-validator": "workspace:*",
+    "bignumber.js": "^9.1.2 || ^11.1.5",
     "clipanion": "4.0.0-rc.4"
   }
 }

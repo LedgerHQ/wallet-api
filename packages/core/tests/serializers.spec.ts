@@ -7,6 +7,7 @@ import {
   CryptoOrgTransaction,
   deserializeAccount,
   deserializeTransaction,
+  schemaAmount,
   EthereumTransaction,
   KaspaTransaction,
   schemaFamilies,
@@ -297,6 +298,59 @@ describe("serializers.ts", () => {
     it("should reject an empty reason", () => {
       expect(() =>
         schemaAccountReadiness.parse({ ready: false, reason: "" }),
+      ).toThrow();
+    });
+  });
+
+  describe("schemaRawAccount / balances", () => {
+    const validRaw = {
+      id: "id",
+      name: "name",
+      address: "address",
+      currency: "currency",
+      balance: "0",
+      spendableBalance: "0",
+      blockHeight: 0,
+      lastSyncDate: date.toISOString(),
+    };
+
+    it.each([
+      new BigNumber(0),
+      new BigNumber("-12.5"),
+      new BigNumber("123456789012345678901234567890"),
+      new BigNumber("1e-7"),
+      new BigNumber("1e1000000"),
+      new BigNumber(NaN),
+      new BigNumber(Infinity),
+      new BigNumber(-Infinity),
+    ])("accepts the serialization of %s and round-trips it", (value) => {
+      const raw = {
+        ...validRaw,
+        balance: value.toString(),
+        spendableBalance: value.toString(),
+      };
+
+      const account = deserializeAccount(schemaRawAccount.parse(raw));
+
+      expect(account.balance.toString()).toBe(value.toString());
+      expect(account.spendableBalance.toString()).toBe(value.toString());
+    });
+
+    it.each(["", " ", "abc", "1,5", "1_000", "0x1f", "+5", " 12 ", "1."])(
+      "rejects balance %j",
+      (balance) => {
+        expect(() =>
+          schemaRawAccount.parse({ ...validRaw, balance }),
+        ).toThrow();
+        expect(() =>
+          schemaRawAccount.parse({ ...validRaw, spendableBalance: balance }),
+        ).toThrow();
+      },
+    );
+
+    it("rejects an oversized balance", () => {
+      expect(() =>
+        schemaRawAccount.parse({ ...validRaw, balance: "1".repeat(1025) }),
       ).toThrow();
     });
   });
@@ -2261,6 +2315,194 @@ describe("serializers.ts", () => {
           },
         });
       });
+    });
+  });
+
+  describe("malformed amounts", () => {
+    const eth = { family: "ethereum", recipient: "0x" };
+    const vechainBody = {
+      chainTag: 0,
+      blockRef: "",
+      expiration: 0,
+      clauses: [],
+      gas: 0,
+      dependsOn: null,
+      nonce: 0,
+    };
+    const tonJetton = {
+      type: "jetton-transfer",
+      queryId: null,
+      amount: "1",
+      destination: "destination",
+      responseDestination: "destination",
+      customPayload: null,
+      forwardAmount: "0",
+      forwardPayload: null,
+      knownJetton: null,
+    };
+    const ton = {
+      family: "ton",
+      amount: "1",
+      fees: "1",
+      recipient: "recipient",
+      comment: { isEncrypted: false, text: "" },
+    };
+
+    it.each([
+      "",
+      " ",
+      "abc",
+      "1abc",
+      "12,5",
+      "1_000",
+      "NaN",
+      "Infinity",
+      "-Infinity",
+      "1e1000000001",
+      "0x",
+      "0b2",
+      "0o8",
+      "1e",
+      "1..2",
+      "1".repeat(101),
+    ])("should reject amount %j", (amount: string) => {
+      expect(schemaAmount.safeParse(amount).success).toBe(false);
+      expect(schemaRawTransaction.safeParse({ ...eth, amount }).success).toBe(
+        false,
+      );
+    });
+
+    it.each([
+      ["0", "0"],
+      ["1e+21", "1e+21"],
+      ["0x5208", "21000"],
+      ["1E3", "1000"],
+      ["+1", "1"],
+      [".5", "0.5"],
+      [" 12 ", "12"],
+      ["1.", "1"],
+      ["-0x10", "-16"],
+      ["0o7", "7"],
+      ["0b11", "3"],
+    ])("should accept amount %j as %s", (amount: string, expected: string) => {
+      const raw = schemaRawTransaction.parse({ ...eth, amount });
+      expect(deserializeTransaction(raw).amount.toString()).toBe(expected);
+    });
+
+    it("should reject a long invalid string quickly", () => {
+      const start = Date.now();
+      expect(schemaAmount.safeParse(`${"1".repeat(1e5)}x`).success).toBe(false);
+      expect(schemaAmount.safeParse(`1.${"1".repeat(1e5)}e`).success).toBe(
+        false,
+      );
+      expect(Date.now() - start).toBeLessThan(100);
+    });
+
+    it("should reject a malformed optional fee", () => {
+      const result = schemaRawTransaction.safeParse({
+        ...eth,
+        amount: "1",
+        gasPrice: "fast",
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("should keep an empty optional fee unset", () => {
+      const raw = schemaRawTransaction.parse({
+        ...eth,
+        amount: "1",
+        gasPrice: "",
+      });
+      expect(deserializeTransaction(raw)).toMatchObject({
+        gasPrice: undefined,
+      });
+    });
+
+    it("should reject a malformed nested cosmos amount", () => {
+      const result = schemaRawTransaction.safeParse({
+        family: "cosmos",
+        mode: "delegate",
+        amount: "1",
+        recipient: "cosmos1",
+        validators: [{ address: "cosmosvaloper1", amount: "abc" }],
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it.each([
+      { estimatedFees: "abc", body: vechainBody },
+      { estimatedFees: "1", body: { ...vechainBody, gas: "abc" } },
+      { estimatedFees: "1", body: { ...vechainBody, nonce: "" } },
+      {
+        estimatedFees: "1",
+        body: { ...vechainBody, maxFeePerGas: "NaN" },
+      },
+      {
+        estimatedFees: "1",
+        body: {
+          ...vechainBody,
+          clauses: [{ to: null, value: "abc", data: "0x" }],
+        },
+      },
+    ])("should reject malformed vechain numbers %j", (fields) => {
+      const result = schemaRawTransaction.safeParse({
+        family: "vechain",
+        amount: "1",
+        recipient: "recipient",
+        ...fields,
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("should accept vechain empty estimatedFees and numeric variants", () => {
+      const result = schemaRawTransaction.safeParse({
+        family: "vechain",
+        amount: "1",
+        recipient: "recipient",
+        estimatedFees: "",
+        body: {
+          ...vechainBody,
+          nonce: "0x1f",
+          clauses: [{ to: null, value: 1, data: "0x" }],
+        },
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it.each([
+      { amount: "" },
+      { amount: "abc" },
+      { amount: "1.5" },
+      { forwardAmount: "1e3" },
+      { queryId: "abc" },
+    ])("should reject malformed TON payload integers %j", (fields) => {
+      const result = schemaRawTransaction.safeParse({
+        ...ton,
+        payload: { ...tonJetton, ...fields },
+      });
+      expect(result.success).toBe(false);
+    });
+
+    it("should accept TON payload integers BigInt can parse", () => {
+      const result = schemaRawTransaction.safeParse({
+        ...ton,
+        payload: { ...tonJetton, queryId: "", amount: "0x10" },
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("deserializeAccount should keep a NaN balance", () => {
+      const account = deserializeAccount({
+        id: "id",
+        name: "name",
+        address: "address",
+        currency: "ethereum",
+        balance: "NaN",
+        spendableBalance: "0",
+        blockHeight: 1,
+        lastSyncDate: "2020-01-01T00:00:00.000Z",
+      });
+      expect(account.balance.isNaN()).toBe(true);
     });
   });
 

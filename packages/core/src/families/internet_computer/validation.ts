@@ -1,9 +1,13 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaAmount,
+  schemaFamilies,
+  schemaTransactionCommon,
+} from "../common";
 
 export const schemaRawInternetComputerTransaction =
   schemaTransactionCommon.extend({
     family: z.literal(schemaFamilies.enum.internet_computer),
-    fees: z.string(),
+    fees: schemaAmount,
     memo: z.string().optional(),
   });
