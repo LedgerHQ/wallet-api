@@ -45,9 +45,12 @@ describe("schemaCurrency categories", () => {
     );
   });
 
-  it("rejects non-string categories", () => {
-    expect(() =>
-      schemaCurrency.parse({ ...tokenCurrency, categories: [42] }),
-    ).toThrow();
-  });
+  it.each([[null], [[42]], ["stocks"]])(
+    "changes invalid categories %p to undefined",
+    (categories) => {
+      expect(
+        schemaCurrency.parse({ ...tokenCurrency, categories }).categories,
+      ).toBeUndefined();
+    },
+  );
 });
