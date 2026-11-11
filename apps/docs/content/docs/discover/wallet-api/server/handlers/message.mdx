@@ -9,11 +9,12 @@ In the Ethereum context, the messages can be [EIP-191](https://github.com/ethere
 
 Allow the user to sign the provided message. This method is used to get a signature for a given message, which proves that the owner of the account has agreed to the message content.
 
-| parameter (in req.params) | required? | note                                                                                             |
-| ------------------------- | --------- | ------------------------------------------------------------------------------------------------ |
-| _accountId_               | ✅        | A string representing the Ledger Live ID of the account that should be used to sign the message. |
-| _hexMessage_              | ✅        | A Buffer containing the message that should be signed.                                           |
-| _meta_                    | ❌        | An object with additional data associated with the message.                                      |
+| parameter (in req.params) | required? | note                                                                                                                 |
+| ------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
+| _accountId_               | ✅        | A string representing the Ledger Live ID of the account that should be used to sign the message.                     |
+| _hexMessage_              | ✅        | A Buffer containing the message that should be signed.                                                               |
+| _options_                 | ❌        | `hwAppId`, `dependencies` and `path` (derivation path of the address to sign with). Forwarded to the wallet handler. |
+| _meta_                    | ❌        | An object with additional data associated with the message.                                                          |
 
 | walletHandler used | note |
 | ------------------ | ---- |
