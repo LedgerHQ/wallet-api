@@ -6,7 +6,7 @@ In this section, we will be looking at how to use the `useCurrencies` hook to re
 
 The `useCurrencies` hook is part of the `@ledgerhq/wallet-api-client-react` package. This hook allows you to fetch an array of supported cryptocurrencies and tokens.
 
-Each currency object in the array contains essential information such as its type (e.g., `CryptoCurrency` or `TokenCurrency`, `id`, `ticker`, `name`, `family`, `color`, and `decimals`).
+Each currency object in the array contains essential information such as its type (e.g., `CryptoCurrency` or `TokenCurrency`, `id`, `ticker`, `name`, `family`, `color`, `decimals`, and the optional `categories`).
 
 For tokens, additional properties like `standard` and `contract` are included.
 
@@ -103,6 +103,8 @@ Each object in the array represents a cryptocurrency or token and contains the f
 - `color`: A color code usually associated with the currency for branding.
 
 - `decimals`: The number of decimals the smallest unit of this currency can be divided into.
+
+- `categories` (optional): The categories of the currency, such as `stocks` or `stablecoins`. An empty array means that the wallet knows no category. The property is absent when the wallet does not send categories.
 
 For tokens (`TokenCurrency`), there are additional properties:
 

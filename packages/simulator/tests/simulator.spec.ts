@@ -635,6 +635,29 @@ describe("Simulator", () => {
         expect.arrayContaining([expect.objectContaining({ id: "fake" })]),
       );
     });
+
+    it("should return the categories sent by the wallet", async () => {
+      // GIVEN
+      const [bitcoin, ethereum] = profiles.STANDARD.currencies;
+      const profileWithCategories = {
+        ...profiles.STANDARD,
+        currencies: [
+          { ...bitcoin!, categories: ["stocks"] },
+          { ...ethereum!, categories: [] },
+        ],
+      };
+      const transport = getSimulatorTransport(profileWithCategories);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const currencies = await client.currency.list();
+
+      // THEN
+      expect(currencies).toEqual([
+        expect.objectContaining({ id: bitcoin!.id, categories: ["stocks"] }),
+        expect.objectContaining({ id: ethereum!.id, categories: [] }),
+      ]);
+    });
   });
 
   describe("message.sign", () => {
