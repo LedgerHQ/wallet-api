@@ -1,5 +1,11 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaAmount,
+  schemaBigIntString,
+  schemaFamilies,
+  schemaNullableBigIntString,
+  schemaTransactionCommon,
+} from "../common";
 
 export const schemaTonComment = z.object({
   isEncrypted: z.boolean(),
@@ -8,12 +14,12 @@ export const schemaTonComment = z.object({
 
 export const schemaTonPayloadJettonTransferRaw = z.object({
   type: z.literal("jetton-transfer"),
-  queryId: z.union([z.string(), z.null()]),
-  amount: z.string(),
+  queryId: schemaNullableBigIntString,
+  amount: schemaBigIntString,
   destination: z.string(),
   responseDestination: z.string(),
   customPayload: z.union([z.string(), z.null()]),
-  forwardAmount: z.string(),
+  forwardAmount: schemaBigIntString,
   forwardPayload: z.union([z.string(), z.null()]),
   knownJetton: z.union([
     z.object({
@@ -26,11 +32,11 @@ export const schemaTonPayloadJettonTransferRaw = z.object({
 
 export const schemaTonPayloadNftTransferRaw = z.object({
   type: z.literal("nft-transfer"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   newOwner: z.string(),
   responseDestination: z.string(),
   customPayload: z.union([z.string(), z.null()]),
-  forwardAmount: z.string(),
+  forwardAmount: schemaBigIntString,
   forwardPayload: z.union([z.string(), z.null()]),
 });
 
@@ -46,39 +52,39 @@ export const schemaTonPayloadUnsafeRaw = z.object({
 
 export const schemaTonPayloadJettonBurnRaw = z.object({
   type: z.literal("jetton-burn"),
-  queryId: z.union([z.string(), z.null()]),
-  amount: z.string(),
+  queryId: schemaNullableBigIntString,
+  amount: schemaBigIntString,
   responseDestination: z.string(),
   customPayload: z.union([z.string(), z.null()]),
 });
 
 export const schemaTonPayloadAddWhitelistRaw = z.object({
   type: z.literal("add-whitelist"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   address: z.string(),
 });
 
 export const schemaTonPayloadSingleNominatorWithdrawRaw = z.object({
   type: z.literal("single-nominator-withdraw"),
-  queryId: z.union([z.string(), z.null()]),
-  amount: z.string(),
+  queryId: schemaNullableBigIntString,
+  amount: schemaBigIntString,
 });
 
 export const schemaTonPayloadSingleNominatorChangeValidatorRaw = z.object({
   type: z.literal("single-nominator-change-validator"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   address: z.string(),
 });
 
 export const schemaTonPayloadTonStakersDepositRaw = z.object({
   type: z.literal("tonstakers-deposit"),
-  queryId: z.union([z.string(), z.null()]),
-  appId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
+  appId: schemaNullableBigIntString,
 });
 
 export const schemaTonPayloadVoteForProposalRaw = z.object({
   type: z.literal("vote-for-proposal"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   votingAddress: z.string(),
   expirationDate: z.number(),
   vote: z.boolean(),
@@ -87,7 +93,7 @@ export const schemaTonPayloadVoteForProposalRaw = z.object({
 
 export const schemaTonPayloadChangeDnsRecordRaw = z.object({
   type: z.literal("change-dns-record"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   record: z.union([
     z.object({
       type: z.literal("wallet"),
@@ -114,28 +120,28 @@ export const schemaTonPayloadChangeDnsRecordRaw = z.object({
 
 export const schemaTonPayloadTokenBridgePaySwapRaw = z.object({
   type: z.literal("token-bridge-pay-swap"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   swapId: z.string(),
 });
 
 export const schemaTonPayloadTonWhalesPoolDepositRaw = z.object({
   type: z.literal("tonwhales-pool-deposit"),
-  queryId: z.string(),
-  gasLimit: z.string(),
+  queryId: schemaBigIntString,
+  gasLimit: schemaBigIntString,
 });
 
 export const schemaTonPayloadTonWhalesPoolWithdrawRaw = z.object({
   type: z.literal("tonwhales-pool-withdraw"),
-  queryId: z.string(),
-  gasLimit: z.string(),
-  amount: z.string(),
+  queryId: schemaBigIntString,
+  gasLimit: schemaBigIntString,
+  amount: schemaBigIntString,
 });
 
 export const schemaTonPayloadVestingSendMsgCommentRaw = z.object({
   type: z.literal("vesting-send-msg-comment"),
-  queryId: z.union([z.string(), z.null()]),
+  queryId: schemaNullableBigIntString,
   sendMode: z.number(),
-  value: z.string(),
+  value: schemaBigIntString,
   destination: z.string(),
   text: z.string(),
 });
@@ -160,7 +166,7 @@ export const schemaTonPayloadFormatRaw = z.union([
 
 export const schemaRawTonTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.ton),
-  fees: z.string(),
+  fees: schemaAmount,
   comment: schemaTonComment,
   payload: schemaTonPayloadFormatRaw.optional(),
 });

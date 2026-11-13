@@ -1,5 +1,10 @@
 import { z } from "zod";
-import { schemaFamilies, schemaTransactionCommon } from "../common";
+import {
+  schemaAmount,
+  schemaFamilies,
+  schemaOptionalAmount,
+  schemaTransactionCommon,
+} from "../common";
 
 export const schemaCosmosOperationMode = z.enum([
   "send",
@@ -12,14 +17,14 @@ export const schemaCosmosOperationMode = z.enum([
 
 const cosmosDelegationInfo = z.object({
   address: z.string(),
-  amount: z.string(),
+  amount: schemaAmount,
 });
 
 export const schemaRawCosmosTransaction = schemaTransactionCommon.extend({
   family: z.literal(schemaFamilies.enum.cosmos),
   mode: schemaCosmosOperationMode,
-  fees: z.string().optional(),
-  gas: z.string().optional(),
+  fees: schemaOptionalAmount,
+  gas: schemaOptionalAmount,
   memo: z.string().optional(),
   sourceValidator: z.string().optional(),
   validators: z.array(cosmosDelegationInfo).optional(),

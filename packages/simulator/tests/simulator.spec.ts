@@ -2,6 +2,7 @@ import {
   WalletAPIClient,
   deserializeAccount,
 } from "@ledgerhq/wallet-api-client";
+import { RpcError, RpcErrorCode } from "@ledgerhq/wallet-api-core";
 import BigNumber from "bignumber.js";
 import { getSimulatorTransport, profiles } from "../src";
 
@@ -387,6 +388,43 @@ describe("Simulator", () => {
       expect(accounts).toHaveLength(3);
       expect(accounts).toEqual(
         expect.arrayContaining([expect.objectContaining({ currency: "fake" })]),
+      );
+    });
+
+    it("should keep listing accounts whose balance is NaN", async () => {
+      // GIVEN
+      const [first, ...rest] = profiles.STANDARD.accounts;
+      if (!first) throw new Error("missing account");
+      const transport = getSimulatorTransport({
+        ...profiles.STANDARD,
+        accounts: [{ ...first, balance: new BigNumber(NaN) }, ...rest],
+      });
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const accounts = await client.account.list();
+
+      // THEN
+      expect(accounts).toHaveLength(profiles.STANDARD.accounts.length);
+      expect(accounts[0]?.balance.isNaN()).toBe(true);
+    });
+
+    it("should reject the whole list when a balance is not a serialized BigNumber", async () => {
+      // GIVEN
+      const [first, ...rest] = profiles.STANDARD.accounts;
+      if (!first) throw new Error("missing account");
+      const garbage = Object.assign(new BigNumber(1), {
+        toString: () => "abc",
+      });
+      const transport = getSimulatorTransport({
+        ...profiles.STANDARD,
+        accounts: [{ ...first, balance: garbage }, ...rest],
+      });
+      const client = new WalletAPIClient(transport);
+
+      // THEN
+      await expect(client.account.list()).rejects.toThrow(
+        "Expected a serialized BigNumber",
       );
     });
   });
@@ -841,6 +879,149 @@ describe("Simulator", () => {
         client.transaction.sign("account-eth-1", transaction),
       ).rejects.toThrow("not implemented");
     });
+  });
+
+  describe("malformed raw transaction amounts", () => {
+    const recipient = "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B";
+
+    function setup() {
+      const signAndBroadcast = jest.fn(() => "0xtxHash");
+      const sign = jest.fn(() => Buffer.from("signed"));
+      const complete = jest.fn(() => "exchange-tx-hash");
+      const transport = getSimulatorTransport({
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "transaction.signAndBroadcast": signAndBroadcast,
+          "transaction.sign": sign,
+          "exchange.complete": complete,
+        },
+      });
+      return {
+        client: new WalletAPIClient(transport),
+        handlers: { signAndBroadcast, sign, complete },
+      };
+    }
+
+    function callAll(client: WalletAPIClient, amount: string) {
+      const rawTransaction = { family: "ethereum" as const, amount, recipient };
+      return [
+        client.request("transaction.signAndBroadcast", {
+          accountId: "account-eth-1",
+          rawTransaction,
+        }),
+        client.request("transaction.sign", {
+          accountId: "account-eth-1",
+          rawTransaction,
+        }),
+        client.request("exchange.complete", {
+          exchangeType: "FUND",
+          provider: "provider",
+          fromAccountId: "account-eth-1",
+          rawTransaction,
+          hexBinaryPayload: "",
+          hexSignature: "",
+          feeStrategy: "MEDIUM",
+        }),
+      ];
+    }
+
+    it.each([
+      "",
+      " ",
+      "abc",
+      "12,5",
+      "1_000",
+      "NaN",
+      "Infinity",
+      "-Infinity",
+      "1e1000000001",
+    ])(
+      "should reject amount %j with INVALID_PARAMS before reaching the wallet",
+      async (amount: string) => {
+        const { client, handlers } = setup();
+
+        for (const call of callAll(client, amount)) {
+          const error: unknown = await call.catch((e: unknown) => e);
+          expect(error).toBeInstanceOf(RpcError);
+          if (error instanceof RpcError) {
+            expect(error.getCode()).toBe(RpcErrorCode.INVALID_PARAMS);
+            expect(error.message).toContain("Expected a numeric string");
+          }
+        }
+        expect(handlers.signAndBroadcast).not.toHaveBeenCalled();
+        expect(handlers.sign).not.toHaveBeenCalled();
+        expect(handlers.complete).not.toHaveBeenCalled();
+      },
+    );
+
+    it("should reject a malformed optional fee field", async () => {
+      const { client, handlers } = setup();
+
+      await expect(
+        client.request("transaction.signAndBroadcast", {
+          accountId: "account-eth-1",
+          rawTransaction: {
+            family: "ethereum",
+            amount: "1",
+            recipient,
+            gasPrice: "fast",
+          },
+        }),
+      ).rejects.toThrow("Expected a numeric string");
+      expect(handlers.signAndBroadcast).not.toHaveBeenCalled();
+    });
+
+    it("should keep treating an empty optional fee field as unset", async () => {
+      const { client, handlers } = setup();
+
+      await client.request("transaction.signAndBroadcast", {
+        accountId: "account-eth-1",
+        rawTransaction: {
+          family: "ethereum",
+          amount: "1",
+          recipient,
+          gasPrice: "",
+        },
+      });
+
+      expect(handlers.signAndBroadcast).toHaveBeenCalledWith(
+        expect.objectContaining({
+          transaction: expect.objectContaining({ gasPrice: undefined }),
+        }),
+      );
+    });
+
+    it.each([
+      ["0", "0"],
+      ["1e+21", "1e+21"],
+      ["0x5208", "21000"],
+      ["1E3", "1000"],
+      ["+1", "1"],
+      [".5", "0.5"],
+      [" 12 ", "12"],
+    ])(
+      "should forward amount %j to the wallet as %s",
+      async (amount: string, expected: string) => {
+        const { client, handlers } = setup();
+
+        await Promise.all(callAll(client, amount));
+
+        const forwarded = [
+          handlers.signAndBroadcast,
+          handlers.sign,
+          handlers.complete,
+        ].map((handler) => {
+          const [params]: unknown[] = handler.mock.calls[0] ?? [];
+          return params;
+        });
+        for (const params of forwarded) {
+          expect(params).toMatchObject({
+            transaction: { amount: new BigNumber(expected) },
+          });
+        }
+      },
+    );
   });
 
   describe("wallet.userId", () => {

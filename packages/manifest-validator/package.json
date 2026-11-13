@@ -23,6 +23,7 @@
     "@ledgerhq/jest-shared-config": "workspace:*",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.9.2",
+    "bignumber.js": "^11.1.5",
     "eslint": "^10.4.1",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
@@ -39,5 +40,8 @@
     "ajv": "^8.20.0",
     "ajv-errors": "^3.0.0",
     "ajv-formats": "^3.0.1"
+  },
+  "peerDependencies": {
+    "bignumber.js": "^9.1.2 || ^11.1.5"
   }
 }
