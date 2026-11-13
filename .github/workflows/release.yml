@@ -249,6 +249,7 @@ jobs:
         working-directory: ledger-live
         env:
           PUBLISHED_PACKAGES: ${{ needs.publish.outputs.published-packages }}
+          REGISTRY: ${{ vars.ARTIFACTORY_URL }}
         run: |
           # {name, version} for every published @ledgerhq/wallet-api-* package.
           SPECS_JSON=$(echo "$PUBLISHED_PACKAGES" | jq -c '[.[] | select(.name | startswith("@ledgerhq/wallet-api-")) | {name, version}]')
@@ -512,6 +513,19 @@ jobs:
             if [[ $attempt -eq 5 ]]; then echo "❌ lockfile update failed after 5 attempts"; exit 1; fi
             echo "⏳ Attempt $attempt failed, retrying in 15s (registry propagation)…"; sleep 15
           done
+
+          # JFrog serves scoped tarballs as `<registry>/@scope/name/-/@scope/name-x.y.z.tgz`,
+          # which pnpm does not recognise as the registry's canonical URL, so it pins every
+          # package it resolved there with a `tarball:` field. Those absolute JFrog URLs
+          # bypass registry selection and break installs outside Ledger's network (fork CI,
+          # external contributors): drop them, the integrity hash is all ledger-live keeps.
+          perl -pi -e 's#, tarball: https?://\Q$ENV{REGISTRY}\E/[^,}]*##g' pnpm-lock.yaml
+          # Any remote tarball left (another JFrog host or repo, a format the strip missed)
+          # would break the same installs: develop's lockfile carries none at all.
+          if grep -nE 'tarball: .?https?://' pnpm-lock.yaml; then
+            echo "❌ pnpm-lock.yaml still pins remote tarball URLs (above)."
+            exit 1
+          fi
 
           {
             echo "BUMP_SUMMARY<<EOF"
