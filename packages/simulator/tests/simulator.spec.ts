@@ -635,6 +635,47 @@ describe("Simulator", () => {
         expect.arrayContaining([expect.objectContaining({ id: "fake" })]),
       );
     });
+
+    it("should return the categories sent by the wallet", async () => {
+      // GIVEN
+      const [bitcoin, ethereum] = profiles.STANDARD.currencies;
+      const tokenWithCategories = {
+        type: "TokenCurrency" as const,
+        standard: "ERC20" as const,
+        id: "ethereum/erc20/usd_tether__erc20_",
+        ticker: "USDT",
+        name: "Tether USD",
+        parent: "ethereum",
+        contract: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        color: "#0ebdcd",
+        decimals: 6,
+        categories: ["stocks"],
+      };
+      const profileWithCategories = {
+        ...profiles.STANDARD,
+        currencies: [
+          bitcoin!,
+          { ...ethereum!, categories: [] },
+          tokenWithCategories,
+        ],
+      };
+      const transport = getSimulatorTransport(profileWithCategories);
+      const client = new WalletAPIClient(transport);
+
+      // WHEN
+      const currencies = await client.currency.list();
+
+      // THEN
+      expect(currencies).toEqual([
+        expect.objectContaining({ id: bitcoin!.id }),
+        expect.objectContaining({ id: ethereum!.id, categories: [] }),
+        expect.objectContaining({
+          id: tokenWithCategories.id,
+          categories: ["stocks"],
+        }),
+      ]);
+      expect(currencies[0]).not.toHaveProperty("categories");
+    });
   });
 
   describe("message.sign", () => {

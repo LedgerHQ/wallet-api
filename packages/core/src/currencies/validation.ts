@@ -9,6 +9,7 @@ export const schemaBaseCurrency = z.object({
   id: z.string(),
   name: z.string(),
   decimals: z.number(),
+  categories: z.array(z.string()).optional().catch(undefined),
 });
 
 export const schemaCryptoCurrency = schemaBaseCurrency.extend({
