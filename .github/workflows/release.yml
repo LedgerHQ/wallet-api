@@ -24,7 +24,7 @@ jobs:
     outputs:
       mode: ${{ steps.select-mode.outputs.mode }}
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       # A changeset releases something when its frontmatter lists at least one package;
@@ -57,7 +57,7 @@ jobs:
     steps:
       # Full history: @changesets/changelog-github resolves the commit that added each
       # changeset to attribute its changelog entry.
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -68,7 +68,7 @@ jobs:
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
         with:
           run_install: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: pnpm
@@ -94,7 +94,7 @@ jobs:
       published: ${{ steps.publish.outputs.published }}
       published-packages: ${{ steps.publish.outputs.published-packages }}
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
@@ -107,7 +107,7 @@ jobs:
         with:
           run_install: false
       # No dependency cache in the job that holds publish credentials (cache poisoning).
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
 
@@ -206,7 +206,7 @@ jobs:
       # Only for the local jfrog-npm-auth action. Must come before the ledger-live checkout:
       # checking out at the workspace root cleans it.
       - name: 📋 Checkout wallet-api actions
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           sparse-checkout: .github/actions
@@ -221,7 +221,7 @@ jobs:
           repositories: ledger-live
 
       - name: 📋 Checkout ledger-live
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: LedgerHQ/ledger-live
           token: ${{ steps.app-token.outputs.token }}
@@ -238,7 +238,7 @@ jobs:
         with:
           package_json_file: ledger-live/package.json
           run_install: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: ledger-live/.nvmrc
           cache: pnpm
