@@ -3,6 +3,7 @@ import { z } from "zod";
 const schemaMessageOptions = z.object({
   hwAppId: z.string().optional(),
   dependencies: z.array(z.string()).optional(),
+  path: z.string().optional(),
 });
 
 const schemaMessageSignParams = z.object({

@@ -13,12 +13,16 @@ Access the Message module via `walletApiClient.message`.
 Allow the user to sign the provided message. This method is used to get a signature for a given message, which proves that the owner of the account has agreed to the message content.
 
 ```javascript
-walletApiClient.message.sign(accountId: string, message: Buffer, meta?: Record<string, unknown>): Promise<Buffer>
+walletApiClient.message.sign(accountId: string, message: Buffer, options?: { hwAppId?: string; dependencies?: string[]; path?: string }, meta?: Record<string, unknown>): Promise<Buffer>
 ```
 
 **Parameters**:
 - `accountId` (required): A string representing the Ledger Live ID of the account that should be used to sign the message.
 - `message` (required): A Buffer containing the message that should be signed.
+- `options` (optional): Signing options.
+  - `hwAppId`: The device app that should sign the message.
+  - `dependencies`: Device apps the signing app depends on.
+  - `path`: The derivation path of the address to sign with, for example `m/84'/0'/0'/0/5`. Use it to sign with an address of the account other than the current receive address, with a path returned by `bitcoin.getAddresses`. Which paths are accepted is up to the wallet.
 - `meta` (optional): An object with additional data associated with the message.
 
 **Returns**: A promise that resolves with a Buffer containing the signed message in hexadecimal format.
