@@ -2,6 +2,10 @@ import { z } from "zod";
 
 const schemaAccountGetMaxSpendableParams = z.object({
   accountId: z.string(),
+  /** Only these pools may fund the transaction. */
+  pools: z.array(z.string().min(1)).min(1).optional(),
+  /** Only the private (`true`) or the public (`false`) rows may fund the transaction. */
+  private: z.boolean().optional(),
 });
 
 // Atomic amount: a finite, non-negative integer. Rejects NaN, Infinity,

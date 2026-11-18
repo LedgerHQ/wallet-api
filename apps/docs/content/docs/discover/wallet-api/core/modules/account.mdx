@@ -20,7 +20,7 @@ walletApiClient.account.list(params?: { currencyIds?: string[] }): Promise<Accou
 - `params` (optional): An object that may contain:
 - `currencyIds` (optional): An array of strings specifying the currency IDs to filter accounts by.
 
-**Returns**: A promise that resolves with an array of Account objects.
+**Returns**: A promise that resolves with an array of Account objects. An account may carry an optional `balances` breakdown per pool (`AccountBalance[]`: `value`, and optionally `locked`, `pool`, `private`).
 
 [**Required permission**:](https://developers.ledger.com/APIs/wallet-api/appendix/manifest#permissions)
  `account.list`
@@ -104,11 +104,15 @@ async function verifyAccountAddress(walletApiClient, accountId) {
 Heuristic max amount that can be sent from one account in a single transaction. The wallet computes it on demand; it is not part of `account.list`.
 
 ```javascript
-walletApiClient.account.getMaxSpendable(accountId: string): Promise<BigNumber>
+walletApiClient.account.getMaxSpendable(
+    accountId: string,
+    options?: { pools?: string[]; private?: boolean }
+): Promise<BigNumber>
 ```
 
 **Parameters**:
 - `accountId` (required): The ID of the account.
+- `options` (optional): Funding filters. `pools` keeps the named pools (ids from the account's `balances`, non-empty list of non-empty strings). `private` keeps the private rows (`true`) or the public rows (`false`). Given together, both apply. A wallet that cannot honour a filter rejects the request. An older wallet ignores the filters and answers the unfiltered max, so send a filter only when the account carries `balances`.
 
 **Returns**: A promise that resolves with the amount in the account's atomic unit.
 

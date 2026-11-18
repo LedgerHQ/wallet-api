@@ -8,6 +8,16 @@ export const schemaAccountReadiness = z.object({
   reason: z.string().min(1).optional(),
 });
 
+// An amount in the account's atomic unit, written out in full (no exponent).
+const schemaAtomicAmount = z.string().regex(/^(0|[1-9]\d*)$/);
+
+export const schemaRawAccountBalance = z.object({
+  value: schemaAtomicAmount,
+  locked: schemaAtomicAmount.optional(),
+  pool: z.string().optional(),
+  private: z.boolean().optional(),
+});
+
 export const schemaRawAccount = z.object({
   id: z.string(),
   name: z.string(),
@@ -20,4 +30,6 @@ export const schemaRawAccount = z.object({
   parentAccountId: z.string().optional(),
   publicKey: z.string().optional(),
   readiness: schemaAccountReadiness.optional(),
+  // Tolerant: a malformed breakdown is dropped, the account stays listed.
+  balances: z.array(schemaRawAccountBalance).optional().catch(undefined),
 });

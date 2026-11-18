@@ -45,12 +45,14 @@ Allows the user to verify an account's address on their Ledger device through Le
 
 ### "account.getMaxSpendable" - Single-transaction send max
 
-| parameter (in req.params) | required? | note                                      |
-| ------------------------- | --------- | ----------------------------------------- |
-| _accountId_               | ✅        | The ID of the account to estimate         |
+| parameter (in req.params) | required? | note                                                                                                              |
+| ------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| _accountId_               | ✅        | The ID of the account to estimate                                                                                 |
+| _pools_                   | ❌        | Non-empty list of pool ids (from the account's `balances`). Only these pools may fund the transaction.            |
+| _private_                 | ❌        | `true` keeps the private rows, `false` the public rows. Combined with `pools`, both apply.                        |
 
 | walletHandler used        | note                                                                                          |
 | ------------------------- | --------------------------------------------------------------------------------------------- |
-| _account.getMaxSpendable_ | Returns the atomic send-max heuristic for that one account. Not called for every listed account. |
+| _account.getMaxSpendable_ | Receives `{ accountId, pools?, private? }`. Returns the atomic send-max heuristic for that one account. Not called for every listed account. |
 
 - **Returns**: `{ maxSpendable: string }`

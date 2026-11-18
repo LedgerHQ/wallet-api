@@ -1,5 +1,5 @@
 import BigNumber from "bignumber.js";
-import type { Account, RawAccount } from "./types";
+import type { Account, AccountBalance, RawAccount } from "./types";
 
 /**
  * Serialize an [[Account]] object in order to send it over JSON-RPC protocol
@@ -21,6 +21,7 @@ export function serializeAccount({
   parentAccountId,
   publicKey,
   readiness,
+  balances,
 }: Account): RawAccount {
   return {
     id,
@@ -34,6 +35,7 @@ export function serializeAccount({
     parentAccountId,
     publicKey,
     readiness,
+    balances: balances?.map(serializeAccountBalance),
   };
 }
 
@@ -56,6 +58,7 @@ export function deserializeAccount({
   parentAccountId,
   publicKey,
   readiness,
+  balances,
 }: RawAccount): Account {
   return {
     id,
@@ -69,5 +72,35 @@ export function deserializeAccount({
     parentAccountId,
     publicKey,
     readiness,
+    balances: balances?.map(deserializeAccountBalance),
+  };
+}
+
+function serializeAccountBalance({
+  value,
+  locked,
+  pool,
+  private: isPrivate,
+}: AccountBalance): NonNullable<RawAccount["balances"]>[number] {
+  return {
+    // `toFixed` never switches to exponent notation, which the schema rejects.
+    value: value.toFixed(),
+    ...(locked !== undefined && { locked: locked.toFixed() }),
+    ...(pool !== undefined && { pool }),
+    ...(isPrivate !== undefined && { private: isPrivate }),
+  };
+}
+
+function deserializeAccountBalance({
+  value,
+  locked,
+  pool,
+  private: isPrivate,
+}: NonNullable<RawAccount["balances"]>[number]): AccountBalance {
+  return {
+    value: new BigNumber(value),
+    ...(locked !== undefined && { locked: new BigNumber(locked) }),
+    ...(pool !== undefined && { pool }),
+    ...(isPrivate !== undefined && { private: isPrivate }),
   };
 }

@@ -365,6 +365,53 @@ describe("Simulator", () => {
       expect(receivedIds[1]).toEqual(accountIds[1]);
     });
 
+    it("should return the balances breakdown deserialized", async () => {
+      // GIVEN
+      const [account] = profiles.STANDARD.accounts;
+      const profile = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "account.list": () => [
+            {
+              ...account!,
+              balances: [
+                {
+                  value: new BigNumber(60),
+                  locked: new BigNumber(10),
+                  pool: "transparent",
+                  private: false,
+                },
+              ],
+            },
+          ],
+        },
+      };
+      const client = new WalletAPIClient(getSimulatorTransport(profile));
+
+      // WHEN
+      const accounts = await client.account.list();
+
+      // THEN
+      const row = accounts[0]!.balances![0]!;
+      expect(BigNumber.isBigNumber(row.value)).toBe(true);
+      expect(row.value.toString()).toBe("60");
+      expect(row.locked!.toString()).toBe("10");
+      expect(row.pool).toBe("transparent");
+      expect(row.private).toBe(false);
+    });
+
+    it("should load accounts without balances from the standard profile", async () => {
+      const client = new WalletAPIClient(
+        getSimulatorTransport(profiles.STANDARD),
+      );
+
+      const accounts = await client.account.list();
+
+      expect(accounts.length).toBeGreaterThan(0);
+      accounts.forEach((account) => expect(account.balances).toBeUndefined());
+    });
+
     it("should throw an error if permission not granted", async () => {
       // GIVEN
       const transport = getSimulatorTransport(profileWithNoPermissions);
@@ -483,6 +530,64 @@ describe("Simulator", () => {
   });
 
   describe("account.getMaxSpendable", () => {
+    function setupMaxSpendable() {
+      const getMaxSpendable = jest.fn(() => "42");
+      const profile = {
+        ...profiles.STANDARD,
+        methods: {
+          ...profiles.STANDARD.methods,
+          "account.getMaxSpendable": getMaxSpendable,
+        },
+      };
+      const transport = getSimulatorTransport(profile);
+      const sentPayloads: string[] = [];
+      const send = transport.send.bind(transport);
+      transport.send = (payload) => {
+        sentPayloads.push(payload);
+        send(payload);
+      };
+      const client = new WalletAPIClient(transport);
+
+      const sentParams = () =>
+        sentPayloads
+          .map((payload) => JSON.parse(payload))
+          .find((message) => message.method === "account.getMaxSpendable")
+          .params;
+
+      return { client, getMaxSpendable, sentParams };
+    }
+
+    it("should forward the pools and private filters to the wallet handler", async () => {
+      const { client, getMaxSpendable, sentParams } = setupMaxSpendable();
+      const options = { pools: ["transparent"], private: false };
+
+      await client.account.getMaxSpendable("id", options);
+
+      expect(sentParams()).toEqual({ accountId: "id", ...options });
+      expect(getMaxSpendable).toHaveBeenCalledWith({
+        accountId: "id",
+        ...options,
+      });
+    });
+
+    it("should keep the explicit account id over one passed in the options", async () => {
+      const { client, sentParams } = setupMaxSpendable();
+      const options = { pools: ["transparent"], accountId: "other" };
+
+      await client.account.getMaxSpendable("id", options);
+
+      expect(sentParams()).toEqual({ accountId: "id", pools: ["transparent"] });
+    });
+
+    it("should send only the account id when no filter is given", async () => {
+      const { client, getMaxSpendable, sentParams } = setupMaxSpendable();
+
+      await client.account.getMaxSpendable("id");
+
+      expect(sentParams()).toEqual({ accountId: "id" });
+      expect(getMaxSpendable).toHaveBeenCalledWith({ accountId: "id" });
+    });
+
     it("should return the max spendable amount", async () => {
       const transport = getSimulatorTransport(profiles.STANDARD);
       const client = new WalletAPIClient(transport);
