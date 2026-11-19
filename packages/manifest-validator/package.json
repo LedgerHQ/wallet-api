@@ -34,7 +34,7 @@
   "dependencies": {
     "@ledgerhq/cryptoassets": "^13.50.0",
     "@ledgerhq/types-cryptoassets": "^7.37.0",
-    "@ledgerhq/types-devices": "^6.31.0",
+    "@ledgerhq/types-devices": "^7.0.0",
     "@ledgerhq/wallet-api-core": "workspace:*",
     "ajv": "^8.20.0",
     "ajv-errors": "^3.0.0",
