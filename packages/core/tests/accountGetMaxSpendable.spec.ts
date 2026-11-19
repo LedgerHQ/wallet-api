@@ -18,4 +18,23 @@ describe("schemaAccountGetMaxSpendable", () => {
       ).toThrow();
     },
   );
+
+  describe("params", () => {
+    it.each([
+      [{ accountId: "id" }],
+      [{ accountId: "id", pools: ["transparent"] }],
+      [{ accountId: "id", private: false }],
+      [{ accountId: "id", pools: ["transparent", "shielded"], private: true }],
+    ])("accepts %o", (params) => {
+      expect(schemaAccountGetMaxSpendable.params.parse(params)).toEqual(params);
+    });
+
+    it.each([
+      [{ accountId: "id", pools: [] }],
+      [{ accountId: "id", pools: [""] }],
+      [{ accountId: "id", private: "true" }],
+    ])("rejects %o", (params) => {
+      expect(() => schemaAccountGetMaxSpendable.params.parse(params)).toThrow();
+    });
+  });
 });

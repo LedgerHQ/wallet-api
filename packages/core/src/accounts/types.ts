@@ -58,6 +58,34 @@ export type Account = {
    * @see [[AccountReadiness]]
    */
   readiness?: AccountReadiness;
+
+  /**
+   * The balance breakdown per pool. When omitted, the wallet does not report one, and `balance`
+   * is the only figure.
+   *
+   * @see [[AccountBalance]]
+   */
+  balances?: AccountBalance[];
+};
+
+/**
+ * One row of an account's balance breakdown: a pool of the account's asset.
+ *
+ * @remarks
+ * Rows should add up to `balance`, keep `locked` within `value` and be unique by `pool` and
+ * `private`; the Wallet API does not enforce it, so clients must not rely on it. The spendable part
+ * of a row is `value - locked`. Pool ids are chosen by the wallet per blockchain and are opaque to
+ * the Wallet API.
+ */
+export type AccountBalance = {
+  /** The amount held in this row, in the account's atomic unit */
+  value: BigNumber;
+  /** The part of `value` that cannot be spent now, including funds committed to pending operations */
+  locked?: BigNumber;
+  /** An opaque pool id, e.g. a privacy chain's transparent or shielded pool */
+  pool?: string;
+  /** The row is held privately and is not visible on-chain */
+  private?: boolean;
 };
 
 /**

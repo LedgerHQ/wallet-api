@@ -1,5 +1,6 @@
 import {
   Account,
+  AccountGetMaxSpendable,
   deserializeAccount,
   schemaAccountGetMaxSpendable,
   schemaAccountGetPublicKey,
@@ -144,14 +145,22 @@ export class AccountModule {
    * `estimateMaxSpendable` unchanged; it is not clamped to `spendableBalance`.
    *
    * @param accountId - id of the account
+   * @param options - Optional funding filters: `pools` keeps the named pools (ids from the
+   * account's `balances`), `private` keeps the private or the public rows. Given together, both
+   * apply. A wallet that cannot honour a filter rejects the request. An older wallet ignores
+   * them and answers the unfiltered max: send a filter only when the account carries `balances`.
    *
    * @returns The max spendable amount, in the account's atomic unit
    * @throws {@link RpcError} if an error occurred on server side
    */
-  async getMaxSpendable(accountId: string): Promise<BigNumber> {
+  async getMaxSpendable(
+    accountId: string,
+    options?: Omit<AccountGetMaxSpendable["params"], "accountId">,
+  ): Promise<BigNumber> {
     const getMaxSpendableResult = await this.client.request(
       "account.getMaxSpendable",
       {
+        ...options,
         accountId,
       },
     );

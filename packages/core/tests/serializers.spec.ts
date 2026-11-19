@@ -301,6 +301,121 @@ describe("serializers.ts", () => {
     });
   });
 
+  describe("account balances", () => {
+    const baseAccount: Account = {
+      id: "id",
+      name: "name",
+      address: "address",
+      currency: "currency",
+      balance: new BigNumber(100),
+      spendableBalance: new BigNumber(80),
+      blockHeight: 0,
+      lastSyncDate: date,
+    };
+
+    const rawRows = [
+      { value: "60", locked: "10", pool: "transparent", private: false },
+      { value: "40", pool: "shielded", private: true },
+    ];
+
+    it("should serialize the rows", () => {
+      const serialized = serializeAccount({
+        ...baseAccount,
+        balances: [
+          {
+            value: new BigNumber(60),
+            locked: new BigNumber(10),
+            pool: "transparent",
+            private: false,
+          },
+          { value: new BigNumber(40), pool: "shielded", private: true },
+        ],
+      });
+
+      expect(serialized.balances).toStrictEqual(rawRows);
+    });
+
+    it("should deserialize the rows into BigNumbers", () => {
+      const deserialized = deserializeAccount({
+        ...serializeAccount(baseAccount),
+        balances: rawRows,
+      });
+
+      expect(deserialized.balances).toStrictEqual([
+        {
+          value: new BigNumber(60),
+          locked: new BigNumber(10),
+          pool: "transparent",
+          private: false,
+        },
+        { value: new BigNumber(40), pool: "shielded", private: true },
+      ]);
+    });
+
+    it("should deserialize an account without balances to undefined balances", () => {
+      const deserialized = deserializeAccount(
+        schemaRawAccount.parse(
+          JSON.parse(JSON.stringify(serializeAccount(baseAccount))),
+        ),
+      );
+
+      expect(deserialized.balances).toBeUndefined();
+    });
+
+    it("should accept rows in schemaRawAccount", () => {
+      const parsed = schemaRawAccount.parse({
+        ...serializeAccount(baseAccount),
+        balances: rawRows,
+      });
+
+      expect(parsed.balances).toEqual(rawRows);
+    });
+
+    it("should write large amounts out in full and read them back", () => {
+      const large = new BigNumber("1234567890123456789012345");
+      const raw = JSON.parse(
+        JSON.stringify(
+          serializeAccount({
+            ...baseAccount,
+            balance: large,
+            balances: [{ value: large, locked: large }],
+          }),
+        ),
+      );
+
+      expect(raw.balances).toStrictEqual([
+        {
+          value: "1234567890123456789012345",
+          locked: "1234567890123456789012345",
+        },
+      ]);
+      expect(
+        deserializeAccount(schemaRawAccount.parse(raw)).balances,
+      ).toStrictEqual([{ value: large, locked: large }]);
+    });
+
+    it.each([
+      [{ value: 1 }],
+      [{ value: "1", private: "yes" }],
+      [{ value: "abc" }],
+      [{ value: "" }],
+      [{ value: "NaN" }],
+      [{ value: "-1" }],
+      [{ value: "1.5" }],
+      [{ value: "1e21" }],
+      [{ value: "60", locked: "unknown" }],
+    ])("should drop a malformed breakdown %o and keep the account", (row) => {
+      const parsed = schemaRawAccount.parse({
+        ...serializeAccount(baseAccount),
+        balances: [rawRows[0], row],
+      });
+
+      expect(parsed.balances).toBeUndefined();
+      expect(parsed.id).toBe("id");
+      expect(parsed.balance).toBe("100");
+    });
+  });
+
   describe("serializeTransaction", () => {
     describe("ethereum", () => {
       const family = schemaFamilies.enum.ethereum;

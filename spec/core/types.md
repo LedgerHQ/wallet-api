@@ -457,6 +457,7 @@ A cryptocurrency account
 | `lastSyncDate`     | `Date`      | The date of the last time a synchronization was performed. In other words, tracks how up-to-date the Account data is                                                                                                               |
 | `name`             | `string`    | The account’s name set by the user.                                                                                                                                                                                                |
 | `spendableBalance` | `BigNumber` | The amount of the balance that can be spent. Most of the time it will be equal to the balance, but this can vary in some blockchains                                                                                               |
+| `balances`         | `AccountBalance[]` | Optional. The balance breakdown per pool. When omitted, `balance` is the only figure |
 
 ## RawAccount
 
@@ -472,6 +473,29 @@ The raw representation of the [Account](/spec/core/types.md#account) type.
 | `lastSyncDate`     | `string` |
 | `name`             | `string` |
 | `spendableBalance` | `string` |
+| `balances`         | `RawAccountBalance[]` |
+
+## AccountBalance
+
+One row of an account's balance breakdown. Rows should add up to `balance`, keep `locked` within `value` and be unique by `pool` and `private`; the Wallet API does not enforce it, so clients must not rely on it. The spendable part of a row is `value - locked`.
+
+| Name      | Type        | Description                                                                         |
+| :-------- | :---------- | :---------------------------------------------------------------------------------- |
+| `value`   | `BigNumber` | The amount held in this row, in the account's atomic unit                           |
+| `locked`  | `BigNumber` | Optional. The part of `value` that cannot be spent now                              |
+| `pool`    | `string`    | Optional. An opaque pool id, chosen by the wallet per blockchain                    |
+| `private` | `boolean`   | Optional. The row is held privately and is not visible on-chain                     |
+
+## RawAccountBalance
+
+The raw representation of the [AccountBalance](/spec/core/types.md#accountbalance) type.
+
+| Name      | Type      |
+| :-------- | :-------- |
+| `value`   | `string`  |
+| `locked`  | `string`  |
+| `pool`    | `string`  |
+| `private` | `boolean` |
 
 ## TronOperationMode
 
