@@ -27,7 +27,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "thememirror": "^2.0.1",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "uuid": "^14.0.0",
     "zod": "^4.4.3"
   },
