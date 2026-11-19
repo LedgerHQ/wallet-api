@@ -21,7 +21,7 @@
     "@types/node": "25.9.2",
     "eslint": "10.4.1",
     "prettier": "3.8.3",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "dependencies": {
     "@ledgerhq/wallet-api-core": "workspace:*",
