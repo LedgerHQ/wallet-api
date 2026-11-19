@@ -22,7 +22,7 @@
     "@uiw/codemirror-extensions-langs": "^4.25.10",
     "@uiw/react-codemirror": "^4.25.10",
     "flowbite": "^4.0.2",
-    "jotai": "^2.20.0",
+    "jotai": "^3.0.0",
     "lucide-react": "^1.17.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
