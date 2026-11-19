@@ -1,5 +1,11 @@
 # @ledgerhq/wallet-api-core
 
+## 2.4.0
+
+### Minor Changes
+
+- [#655](https://github.com/LedgerHQ/wallet-api/pull/655) [`719bde1`](https://github.com/LedgerHQ/wallet-api/commit/719bde166e6ed44ea7f9a1aede58da09b4a4760a) Thanks [@cted-ledger](https://github.com/cted-ledger)! - Add an optional `balances` breakdown (`value`, `locked`, `pool`, `private`) to the account, and optional `pools` and `private` filters to `account.getMaxSpendable`. The client takes the filters as a trailing `options` parameter. Accounts and requests without them are unchanged. A host must upgrade core and server together: a server built against an older core strips the filters silently and answers the unfiltered max.
+
 ## 2.3.0
 
 ### Minor Changes
