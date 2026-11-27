@@ -13,12 +13,19 @@ Access the Message module via `walletApiClient.message`.
 Allow the user to sign the provided message. This method is used to get a signature for a given message, which proves that the owner of the account has agreed to the message content.
 
 ```javascript
-walletApiClient.message.sign(accountId: string, message: Buffer, meta?: Record<string, unknown>): Promise<Buffer>
+walletApiClient.message.sign(accountId: string, message: Buffer, options?: { hwAppId?: string; dependencies?: string[]; path?: string }, meta?: Record<string, unknown>): Promise<Buffer>
 ```
 
 **Parameters**:
 - `accountId` (required): A string representing the Ledger Live ID of the account that should be used to sign the message.
 - `message` (required): A Buffer containing the message that should be signed.
+- `options` (optional): Signing options.
+  - `hwAppId`: The device app that should sign the message.
+  - `dependencies`: Device apps the signing app depends on.
+  - `path`: The full derivation path of the address to sign with, account levels included, for example `m/84'/0'/0'/0/5`. Pass the `path` from `bitcoin.getAddresses` as is. Without it, the wallet signs with the account's current receive address.
+    - The path must belong to the account given by `accountId`. For any other path the wallet returns an error and does not sign with another address.
+    - On accounts with a single address, such as EVM accounts, the only valid path is the account's own.
+    - Wallets built against an older core ignore `path` and sign with the current receive address. If the address matters, check the signature against it.
 - `meta` (optional): An object with additional data associated with the message.
 
 **Returns**: A promise that resolves with a Buffer containing the signed message in hexadecimal format.
@@ -33,11 +40,20 @@ walletApiClient.message.sign(accountId: string, message: Buffer, meta?: Record<s
 ```javascript
 async function signMessage(walletApiClient, accountId, message, meta) {
   try {
-    const signedMessage = await walletApiClient.message.sign(accountId, message, meta);
+    const signedMessage = await walletApiClient.message.sign(accountId, message, undefined, meta);
     console.log('Signed Message (hex):', signedMessage.toString('hex'));
   } catch (error) {
     console.error('Error signing message:', error);
   }
+}
+
+// Sign with a specific address of a Bitcoin account
+async function signMessageWithAddress(walletApiClient, accountId, message, address) {
+  const addresses = await walletApiClient.bitcoin.getAddresses(accountId);
+  const entry = addresses.find((a) => a.address === address);
+  if (!entry?.path) throw new Error('Address not found in account');
+
+  return walletApiClient.message.sign(accountId, message, { path: entry.path });
 }
 ```
 
