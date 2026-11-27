@@ -20,4 +20,6 @@ Allow the user to sign the provided message. This method is used to get a signat
 | ------------------ | ---- |
 | _message.sign_     |      |
 
+If `options.path` is set, the wallet handler signs with the address at that derivation path. If the path does not belong to the account given by `accountId`, the handler returns an error and does not sign with another address. On single-address accounts such as EVM, the only valid path is the account's own.
+
 - **Returns**: A promise that resolves with a Buffer containing the signed message in hexadecimal format.
